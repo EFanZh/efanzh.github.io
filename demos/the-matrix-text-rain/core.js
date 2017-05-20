@@ -39,23 +39,13 @@
         return Date.now() / 1000.0;
     }
 
-    function getRandomCharacter(characterCandidates)
-    {
-        return characterCandidates[randomInteger(0, characterCandidates.length)];
-    }
-
     class TheMatrixRaindrop
     {
-        constructor(position, speed, size, characterCandidates)
+        constructor(position, speed, characters)
         {
             this.position = position;
             this.speed = speed;
-            this.characters = [];
-
-            for (let i = 0; i < size; i++)
-            {
-                this.characters.push(getRandomCharacter(characterCandidates));
-            }
+            this.characters = Uint16Array.from(characters);
         }
 
         get size()
@@ -63,12 +53,11 @@
             return this.characters.length;
         }
 
-        resetCharacters(characterCandidates)
+        reset(position, speed, characters)
         {
-            for (let i = 0; i < this.characters.length; i++)
-            {
-                this.characters[i] = getRandomCharacter(characterCandidates);
-            }
+            this.position = position;
+            this.speed = speed;
+            this.characters.set(characters);
         }
     }
 
@@ -110,12 +99,17 @@
             const raindropRecycleBin = {};
             const sharedRemoveList = [];
 
+            function getRandomCharacter()
+            {
+                return configuration.characterCandidates[randomInteger(0, configuration.characterCandidates.length)];
+            }
+
             function probabilityGate(probability)
             {
                 return Math.random() < probability;
             }
 
-            function generateDrop()
+            function getTimeToBirth()
             {
                 return Math.log2(1.0 / (1.0 - Math.random())) * configuration.λGenerate;
             }
@@ -123,6 +117,14 @@
             function generateSpeedValue()
             {
                 return configuration.minimalSpeed + (configuration.maximalSpeed - configuration.minimalSpeed) * Math.random();
+            }
+
+            function* generateCharacters(size)
+            {
+                for (let i = 0; i < size; i++)
+                {
+                    yield getRandomCharacter();
+                }
             }
 
             function updateRaindrop(raindrop, timeElapsed, mutationProbability)
@@ -142,7 +144,7 @@
                     {
                         if (probabilityGate(mutationProbability))
                         {
-                            raindrop.characters[i] = getRandomCharacter(configuration.characterCandidates);
+                            raindrop.characters[i] = getRandomCharacter();
                         }
                         else
                         {
@@ -154,7 +156,7 @@
 
                     for (let i = 0; i < Math.min(raindrop.size, integerStep); i++)
                     {
-                        raindrop.characters[i] = getRandomCharacter(configuration.characterCandidates);
+                        raindrop.characters[i] = getRandomCharacter();
                     }
 
                     return true;
@@ -165,7 +167,7 @@
                 }
             }
 
-            function moveRaindropToRecycleBin(raindrop)
+            function recycleRaindrop(raindrop)
             {
                 if (raindrop.size in raindropRecycleBin)
                 {
@@ -179,21 +181,19 @@
 
             function createRaindrop(position, speed, size)
             {
-                if (size in raindropRecycleBin)
+                if (size in raindropRecycleBin && raindropRecycleBin[size].length > 0)
                 {
-                    if (raindropRecycleBin[size].length > 0)
-                    {
-                        const result = raindropRecycleBin[size].pop();
+                    const result = raindropRecycleBin[size].pop();
 
-                        result.position = position;
-                        result.speed = speed;
-                        result.resetCharacters(configuration.characterCandidates);
+                    result.reset(position, speed, generateCharacters(size));
 
-                        return result;
-                    }
+                    return result;
+
                 }
-
-                return new TheMatrixRaindrop(position, speed, size, configuration.characterCandidates);
+                else
+                {
+                    return new TheMatrixRaindrop(position, speed, generateCharacters(size));
+                }
             }
 
             function updateColumn(column, currentTime, timeElapsed, mutationProbability)
@@ -212,27 +212,18 @@
 
                 while (sharedRemoveList.length > 0)
                 {
-                    moveRaindropToRecycleBin(sharedRemoveList.pop());
+                    recycleRaindrop(sharedRemoveList.pop());
                 }
 
-                while (true)
+                for (let raindropBirthTime = lastViewTime + getTimeToBirth(); raindropBirthTime <= currentTime; raindropBirthTime += getTimeToBirth())
                 {
-                    const generateTime = lastViewTime + generateDrop();
+                    const speed = generateSpeedValue();
+                    const position = speed * (currentTime - raindropBirthTime);
+                    const size = randomInteger(configuration.minimalRaindropSize, configuration.maximalRaindropSize);
 
-                    if (generateTime <= currentTime)
+                    if (position - size < rows)
                     {
-                        const speed = generateSpeedValue();
-                        const position = speed * (currentTime - generateTime);
-                        const size = randomInteger(configuration.minimalRaindropSize, configuration.maximalRaindropSize);
-
-                        if (position - size < rows)
-                        {
-                            column.push(createRaindrop(position, speed, size));
-                        }
-                    }
-                    else
-                    {
-                        break;
+                        column.push(createRaindrop(position, speed, size));
                     }
                 }
             }
@@ -251,10 +242,7 @@
 
                 while (rainColumns.length > columns)
                 {
-                    for (const raindrop of rainColumns.pop())
-                    {
-                        moveRaindropToRecycleBin(raindrop);
-                    }
+                    rainColumns.pop().forEach(recycleRaindrop);
                 }
 
                 setRows(rows);
@@ -272,7 +260,6 @@
                 return rainColumns;
             };
         }
-
     }
 
     document.addEventListener('DOMContentLoaded', () =>
@@ -340,7 +327,7 @@
                 }
                 else
                 {
-                    context.fillStyle = generateColor(tailColor1, tailColor2, position);
+                    context.fillStyle = generateColor(tailColor1, tailColor2, normalizedPosition);
                     context.fillText(text, x, y);
                 }
             }
