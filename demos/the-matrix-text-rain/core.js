@@ -400,8 +400,8 @@
 
         window.onresize = () =>
         {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         };
 
         window.onresize();
@@ -443,13 +443,16 @@
             return colorCache[Math.floor(colorSteps * position)];
         }
 
-        function drawRaindrop(context, column, raindrop)
+        function drawRaindrop(context, column, raindrop, rows)
         {
-            for (let row = 0; row < raindrop.size; row++)
+            const integerPosition = Math.floor(raindrop.position);
+            const rowEnd = Math.min(integerPosition + 1, raindrop.size);
+
+            for (let row = Math.max(0, integerPosition - rows); row < rowEnd; row++)
             {
                 const text = String.fromCodePoint(raindrop.characters[row]);
                 const x = cellWidth / 2.0 + cellWidth * column;
-                const y = cellHeight * (Math.floor(raindrop.position) - row);
+                const y = cellHeight * (integerPosition - row);
                 const position = (row + raindrop.position % 1.0) / raindrop.size;
                 const normalizedPosition = 1.0 - Math.pow(1.0 - position, 1.6);
 
@@ -472,17 +475,16 @@
 
         const canvasContext = canvas.getContext('2d');
 
-        canvasContext.textBaseline = 'top';
-        canvasContext.textAlign = 'center';
-
         function onDraw()
         {
             const currentTime = getCurrentTime() - startTime;
-            const columns = Math.floor(canvas.width / cellWidth);
-            const rows = Math.floor(canvas.height / cellHeight);
+            const columns = Math.ceil(canvas.width / cellWidth);
+            const rows = Math.ceil(canvas.height / cellHeight);
             const timeEllapsed = currentTime - lastFrameTime;
             const view = backend.getView(columns, rows, isPause ? 0.0 : timeEllapsed * speed);
 
+            canvasContext.textBaseline = 'top';
+            canvasContext.textAlign = 'center';
             canvasContext.globalCompositeOperation = 'source-over';
             canvasContext.fillStyle = backgroundColor;
             canvasContext.fillRect(0, 0, canvas.width, canvas.height);
@@ -494,23 +496,19 @@
                 {
                     for (const raindrop of view.get(column))
                     {
-                        drawRaindrop(canvasContext, column, raindrop);
+                        drawRaindrop(canvasContext, column, raindrop, rows);
                     }
                 }
             }
 
             if (isDebug)
             {
-                canvasContext.save();
-
                 canvasContext.textBaseline = 'top';
                 canvasContext.textAlign = 'left';
                 canvasContext.fillStyle = 'white';
                 canvasContext.fillText(`Last frame time: ${timeEllapsed}`, 10.0, 10.0);
                 canvasContext.fillText(`Frame rate: ${1.0 / timeEllapsed}`, 10.0, 40.0);
                 canvasContext.fillText(`Speed: ${speed}`, 10.0, 70.0);
-
-                canvasContext.restore();
             }
 
             lastFrameTime = currentTime;
