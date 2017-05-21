@@ -7,36 +7,113 @@
         return minimal + Math.floor(Math.random() * (maximal - minimal));
     }
 
-    function removeIf(array, condition)
-    {
-        let i = 0;
-
-        for (; i < array.length; i++)
-        {
-            if (condition(array[i]))
-            {
-                break;
-            }
-        }
-
-        let position = i;
-
-        for (; i < array.length; i++)
-        {
-            if (!condition(array[i]))
-            {
-                array[position] = array[i];
-
-                position++;
-            }
-        }
-
-        array.splice(position, array.length - position);
-    }
-
     function getCurrentTime()
     {
         return Date.now() / 1000.0;
+    }
+
+    class Vector
+    {
+        constructor(capacity = 0)
+        {
+            const data = new Array(capacity);
+            let lengthValue = 0;
+
+            Object.defineProperties(this, { 'length': { get: () => lengthValue } })
+
+            function ensure(condition)
+            {
+                if (!condition)
+                {
+                    throw new Error();
+                }
+            }
+
+            this[Symbol.iterator] = function* ()
+            {
+                for (let i = 0; i < this.length; i++)
+                {
+                    yield data[i];
+                }
+            }
+
+            this.get = (i) =>
+            {
+                ensure(i >= 0 && i < this.length);
+
+                return data[i];
+            }
+
+            this.set = (i, value) =>
+            {
+                ensure(i >= 0 && i < this.length);
+
+                data[i] = value;
+            }
+
+            this.push = function ()
+            {
+                for (const item of arguments)
+                {
+                    data[this.length] = item;
+
+                    lengthValue++;
+                }
+            }
+
+            this.pop = () =>
+            {
+                ensure(this.length > 0);
+
+                lengthValue--;
+
+                const result = data[this.length];
+
+                data[this.length] = undefined;
+
+                return result;
+            }
+
+            this.forEach = (action) =>
+            {
+                for (let i = 0; i < this.length; i++)
+                {
+                    action(data[i]);
+                }
+            }
+
+            this.removeIf = (condition) =>
+            {
+                let i = 0;
+
+                for (; i < this.length; i++)
+                {
+                    if (condition(data[i]))
+                    {
+                        break;
+                    }
+                }
+
+                let position = i;
+
+                for (; i < this.length; i++)
+                {
+                    if (!condition(data[i]))
+                    {
+                        data[position] = data[i];
+
+                        position++;
+                    }
+                }
+
+                for (let i = position; i < this.length; ++i)
+                {
+                    data[i] = undefined;
+                }
+
+                lengthValue = position;
+            }
+        }
     }
 
     class TheMatrixRaindrop
@@ -93,11 +170,10 @@
     {
         constructor(configuration = new BackendConfiguration())
         {
-            const rainColumns = [];
+            const rainColumns = new Vector();
             let rows = -1;
-            let lastViewTime = 0.0;
-            const raindropRecycleBin = {};
-            const sharedRemoveList = [];
+            const raindropRecycleBin = new Map();
+            const sharedRemoveList = new Set();
 
             function getRandomCharacter()
             {
@@ -169,34 +245,40 @@
 
             function recycleRaindrop(raindrop)
             {
-                if (raindrop.size in raindropRecycleBin)
+                if (raindropRecycleBin.has(raindrop.size))
                 {
-                    raindropRecycleBin[raindrop.size].push(raindrop);
+                    raindropRecycleBin.get(raindrop.size).push(raindrop);
                 }
                 else
                 {
-                    raindropRecycleBin[raindrop.size] = [raindrop];
+                    const newColumn = new Vector();
+
+                    newColumn.push(raindrop);
+
+                    raindropRecycleBin.set(raindrop.size, newColumn);
                 }
             }
 
             function createRaindrop(position, speed, size)
             {
-                if (size in raindropRecycleBin && raindropRecycleBin[size].length > 0)
+                if (raindropRecycleBin.has(size))
                 {
-                    const result = raindropRecycleBin[size].pop();
+                    const bucket = raindropRecycleBin.get(size);
 
-                    result.reset(position, speed, generateCharacters(size));
+                    if (bucket.length > 0)
+                    {
+                        const result = bucket.pop();
 
-                    return result;
+                        result.reset(position, speed, generateCharacters(size));
 
+                        return result;
+                    }
                 }
-                else
-                {
-                    return new TheMatrixRaindrop(position, speed, generateCharacters(size));
-                }
+
+                return new TheMatrixRaindrop(position, speed, generateCharacters(size));
             }
 
-            function updateColumn(column, currentTime, timeElapsed, mutationProbability)
+            function updateColumn(column, timeElapsed, mutationProbability)
             {
                 // Assume `sharedRemoveList` is empty.
 
@@ -204,21 +286,19 @@
                 {
                     if (!updateRaindrop(raindrop, timeElapsed, mutationProbability))
                     {
-                        sharedRemoveList.push(raindrop);
+                        sharedRemoveList.add(raindrop);
                     }
                 }
 
-                removeIf(column, x => sharedRemoveList.includes(x));
+                column.removeIf(x => sharedRemoveList.has(x));
+                sharedRemoveList.forEach(recycleRaindrop);
 
-                while (sharedRemoveList.length > 0)
-                {
-                    recycleRaindrop(sharedRemoveList.pop());
-                }
+                sharedRemoveList.clear();
 
-                for (let raindropBirthTime = lastViewTime + getTimeToBirth(); raindropBirthTime <= currentTime; raindropBirthTime += getTimeToBirth())
+                for (let raindropBirthTime = getTimeToBirth(); raindropBirthTime <= timeElapsed; raindropBirthTime += getTimeToBirth())
                 {
                     const speed = generateSpeedValue();
-                    const position = speed * (currentTime - raindropBirthTime);
+                    const position = speed * (timeElapsed - raindropBirthTime);
                     const size = randomInteger(configuration.minimalRaindropSize, configuration.maximalRaindropSize);
 
                     if (position - size < rows)
@@ -233,11 +313,11 @@
                 rows = value;
             }
 
-            this.getView = (columns, rows, time) =>
+            this.getView = (columns, rows, timeEllapsed) =>
             {
                 while (rainColumns.length < columns)
                 {
-                    rainColumns.push([]);
+                    rainColumns.push(new Vector());
                 }
 
                 while (rainColumns.length > columns)
@@ -247,15 +327,12 @@
 
                 setRows(rows);
 
-                const timeEllapsed = time - lastViewTime;
                 const mutationProbability = 1.0 - Math.pow(2.0, -timeEllapsed / configuration.λMutation);
 
                 for (const rainColumn of rainColumns)
                 {
-                    updateColumn(rainColumn, time, timeEllapsed, mutationProbability);
+                    updateColumn(rainColumn, timeEllapsed, mutationProbability);
                 }
-
-                lastViewTime = time;
 
                 return rainColumns;
             };
@@ -275,6 +352,29 @@
         const tailColor1 = [0, 200, 0, 1.0];
         const tailColor2 = [0, 200, 0, 0.0];
         const canvas = document.getElementById('canvas');
+        const colorSteps = 256;
+        const colorCache = new Array(colorSteps);
+        let isPause = false;
+        let speed = 1.0;
+        let lastFrameTime = 0.0;
+        let isRendering = true;
+        let isDebug = false;
+
+        function generateColorComponent(from, to, position)
+        {
+            return from + (to - from) * position;
+        }
+
+        for (let i = 0; i < colorSteps; i++)
+        {
+            const position = i / (colorSteps - 1);
+            const r = generateColorComponent(tailColor1[0], tailColor2[0], position);
+            const g = generateColorComponent(tailColor1[1], tailColor2[1], position);
+            const b = generateColorComponent(tailColor1[2], tailColor2[2], position);
+            const a = generateColorComponent(tailColor1[3], tailColor2[3], position);
+
+            colorCache[i] = `rgba(${r}, ${g}, ${b}, ${a})`;
+        }
 
         window.onresize = () =>
         {
@@ -284,26 +384,39 @@
 
         window.onresize();
 
-        function generateColorComponent(from, to, position)
+        window.onkeydown = (ev) =>
         {
-            return from + (to - from) * position;
-        }
-
-        function generateColor(from, to, position)
-        {
-            let result = 'rgba(';
-
-            result += generateColorComponent(from[0], to[0], position);
-
-            for (let i = 1; i < from.length; i++)
+            switch (ev.key)
             {
-                result += ', ';
-                result += generateColorComponent(from[i], to[i], position);
+                case ' ':
+                    isPause = !isPause;
+                    break;
+
+                case 'd':
+                    isDebug = !isDebug;
+                    break;
+
+                case 'r':
+                    isRendering = !isRendering;
+                    break;
+
+                case 'ArrowUp':
+                    speed *= 1.1;
+                    break;
+
+                case 'ArrowDown':
+                    speed /= 1.1;
+                    break;
+
+                case '0':
+                    speed = 1.0;
+                    break;
             }
+        };
 
-            result += ')';
-
-            return result;
+        function getTailColor(position)
+        {
+            return colorCache[Math.floor(colorSteps * position)];
         }
 
         function drawRaindrop(context, column, raindrop)
@@ -327,7 +440,7 @@
                 }
                 else
                 {
-                    context.fillStyle = generateColor(tailColor1, tailColor2, normalizedPosition);
+                    context.fillStyle = getTailColor(normalizedPosition);
                     context.fillText(text, x, y);
                 }
             }
@@ -335,28 +448,48 @@
 
         const canvasContext = canvas.getContext('2d');
 
-        canvasContext.textAlign = 'center';
         canvasContext.textBaseline = 'top';
+        canvasContext.textAlign = 'center';
 
         function onDraw()
         {
             const currentTime = getCurrentTime() - startTime;
             const columns = Math.floor(canvas.width / cellWidth);
             const rows = Math.floor(canvas.height / cellHeight);
-            const view = backend.getView(columns, rows, currentTime);
+            const timeEllapsed = currentTime - lastFrameTime;
+            const view = backend.getView(columns, rows, isPause ? 0.0 : timeEllapsed * speed);
 
             canvasContext.globalCompositeOperation = 'source-over';
             canvasContext.fillStyle = backgroundColor;
             canvasContext.fillRect(0, 0, canvas.width, canvas.height);
             canvasContext.globalCompositeOperation = 'screen';
 
-            for (let column = 0; column < columns; column++)
+            if (isRendering)
             {
-                for (const raindrop of view[column])
+                for (let column = 0; column < columns; column++)
                 {
-                    drawRaindrop(canvasContext, column, raindrop);
+                    for (const raindrop of view.get(column))
+                    {
+                        drawRaindrop(canvasContext, column, raindrop);
+                    }
                 }
             }
+
+            if (isDebug)
+            {
+                canvasContext.save();
+
+                canvasContext.textBaseline = 'top';
+                canvasContext.textAlign = 'left';
+                canvasContext.fillStyle = 'white';
+                canvasContext.fillText(`Last frame time: ${timeEllapsed}`, 10.0, 10.0);
+                canvasContext.fillText(`Frame rate: ${1.0 / timeEllapsed}`, 10.0, 40.0);
+                canvasContext.fillText(`Speed: ${speed}`, 10.0, 70.0);
+
+                canvasContext.restore();
+            }
+
+            lastFrameTime = currentTime;
 
             window.requestAnimationFrame(onDraw);
         }
