@@ -74,6 +74,29 @@
                 return result;
             }
 
+            this.clear = () =>
+            {
+                for (let i = 0; i < this.length; i++)
+                {
+                    data[i] = undefined;
+                }
+
+                lengthValue = 0;
+            }
+
+            this.contains = (item) =>
+            {
+                for (const element of this)
+                {
+                    if (element === item)
+                    {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
             this.forEach = (action) =>
             {
                 for (let i = 0; i < this.length; i++)
@@ -173,7 +196,7 @@
             const rainColumns = new Vector();
             let rows = -1;
             const raindropRecycleBin = new Map();
-            const sharedRemoveList = new Set();
+            const sharedRemoveList = new Vector();
 
             function getRandomCharacter()
             {
@@ -286,13 +309,12 @@
                 {
                     if (!updateRaindrop(raindrop, timeElapsed, mutationProbability))
                     {
-                        sharedRemoveList.add(raindrop);
+                        sharedRemoveList.push(raindrop);
                     }
                 }
 
-                column.removeIf(x => sharedRemoveList.has(x));
+                column.removeIf(x => sharedRemoveList.contains(x));
                 sharedRemoveList.forEach(recycleRaindrop);
-
                 sharedRemoveList.clear();
 
                 for (let raindropBirthTime = getTimeToBirth(); raindropBirthTime <= timeElapsed; raindropBirthTime += getTimeToBirth())
