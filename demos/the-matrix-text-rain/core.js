@@ -424,10 +424,12 @@
 
                 case 'ArrowUp':
                     speed *= 1.1;
+                    speed = Math.min(speed, 256.0);
                     break;
 
                 case 'ArrowDown':
                     speed /= 1.1;
+                    speed = Math.max(speed, 1.0 / 256.0);
                     break;
 
                 case '0':
