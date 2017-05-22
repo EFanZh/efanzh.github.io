@@ -368,8 +368,8 @@
         const backgroundColor = 'black';
         const cellWidth = 24.0;
         const cellHeight = 24.0;
-        const headFont = 'bold 24px "Courier New"';
-        const tailFont = 'bold 24px "Courier New"';
+        const headFont = 'bold 24px "Courier New", Cousine, Cumberland, FreeMono, "Liberation Mono", "Nimbus Mono", "TeX Gyre Cursor", monospace';
+        const tailFont = headFont;
         const headColor = 'rgba(100, 255, 100, 1.0)';
         const tailColor1 = [0, 200, 0, 1.0];
         const tailColor2 = [0, 200, 0, 0.0];
