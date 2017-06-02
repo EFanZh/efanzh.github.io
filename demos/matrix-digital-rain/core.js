@@ -7,9 +7,11 @@
         return minimal + Math.floor(Math.random() * (maximal - minimal));
     }
 
-    function getCurrentTime()
+    function round(value, precision)
     {
-        return Date.now() / 1000.0;
+        const k = Math.pow(10, precision);
+
+        return Math.round(value * k) / k;
     }
 
     class Vector
@@ -363,7 +365,6 @@
 
     document.addEventListener('DOMContentLoaded', () =>
     {
-        const startTime = getCurrentTime();
         const backend = new Backend();
         const backgroundColor = 'black';
         const cellWidth = 24.0;
@@ -475,9 +476,9 @@
 
         const canvasContext = canvas.getContext('2d');
 
-        function onDraw()
+        function onDraw(timestamp)
         {
-            const currentTime = getCurrentTime() - startTime;
+            const currentTime = timestamp / 1000.0;
             const columns = Math.ceil(canvas.width / cellWidth);
             const rows = Math.ceil(canvas.height / cellHeight);
             const timeEllapsed = currentTime - lastFrameTime;
@@ -506,8 +507,8 @@
                 canvasContext.textBaseline = 'top';
                 canvasContext.textAlign = 'left';
                 canvasContext.fillStyle = 'white';
-                canvasContext.fillText(`Last frame time: ${timeEllapsed}`, 10.0, 10.0);
-                canvasContext.fillText(`Frame rate: ${1.0 / timeEllapsed}`, 10.0, 40.0);
+                canvasContext.fillText(`Last frame time: ${round(timeEllapsed, 3)}`, 10.0, 10.0);
+                canvasContext.fillText(`Frame rate: ${round(1.0 / timeEllapsed, 2)}`, 10.0, 40.0);
                 canvasContext.fillText(`Speed: ${speed}`, 10.0, 70.0);
             }
 
@@ -516,6 +517,11 @@
             window.requestAnimationFrame(onDraw);
         }
 
-        window.requestAnimationFrame(onDraw);
+        window.requestAnimationFrame(timestamp =>
+        {
+            lastFrameTime = timestamp;
+
+            window.requestAnimationFrame(onDraw);
+        });
     });
 })();
