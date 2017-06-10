@@ -23,7 +23,6 @@ title: EFanZh’s Visual Studio Code configuration
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.fontSize": 12,
     "terminal.integrated.lineHeight": 1.0,
-    "workbench.colorTheme": "Default Light+",
     "workbench.welcome.enabled": true
 }
 ```
