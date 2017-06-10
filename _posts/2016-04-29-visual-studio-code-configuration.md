@@ -2,6 +2,8 @@
 title: EFanZh’s Visual Studio Code configuration
 ---
 
+This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
+
 ```json
 {
     "editor.cursorBlinking": "smooth",
@@ -16,7 +18,6 @@ title: EFanZh’s Visual Studio Code configuration
         120
     ],
     "editor.showFoldingControls": "always",
-    "files.autoGuessEncoding": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "search.useIgnoreFilesByDefault": true,
