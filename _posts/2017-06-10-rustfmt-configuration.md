@@ -29,6 +29,7 @@ reorder_imports = true
 reorder_imports_in_group = true
 single_line_if_else_max_width = 0
 struct_lit_multiline_style = "ForceMulti"
+struct_lit_style = "Visual"
 struct_lit_width = 0
 struct_variant_width = 0
 trailing_comma = "Never"
