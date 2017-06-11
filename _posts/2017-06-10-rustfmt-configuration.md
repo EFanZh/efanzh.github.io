@@ -21,6 +21,7 @@ force_format_strings = true
 format_strings = true
 impl_empty_single_line = false
 item_brace_style = "AlwaysNextLine"
+match_block_trailing_comma = true
 max_width = 120
 newline_style = "Native"
 normalize_comments = true
