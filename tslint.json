@@ -1,0 +1,11 @@
+{
+    "extends": "tslint:latest",
+    "exclude": [
+        "node_modules"
+    ],
+    "rules": {
+        "one-line": false,
+        "trailing-comma": "never",
+        "max-classes-per-file": 2
+    }
+}
