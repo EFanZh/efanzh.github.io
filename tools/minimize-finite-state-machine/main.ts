@@ -5,92 +5,107 @@ type Input = EmptyInput | StringInput;
 class State
 {
     public name: string;
-    public isStart: boolean;
-    public isEnd: boolean;
+    public isInitial: boolean;
+    public isAccept: boolean;
     public nextStates: Map<Input, State[]>;
 }
 
 class DfaState
 {
     public name: string;
-    public isStart: boolean;
+    public isInitial: boolean;
     public isEnd: boolean;
     public nextStates: Map<StringInput, DfaState>;
     public oldStates: Array<Set<State>>;
 }
 
-interface IJsonState
+interface IJsonFsm
 {
-    name: string;
-    isStart: boolean;
-    isEnd: boolean;
-    nextStates: {
-        [index: string]: string | string[];
+    initialStates: string | string[];
+    acceptStates: string | string[];
+    states: {
+        [index: string]: {
+            [index: string]: string | string[];
+        }
     };
 }
 
-interface IJsonDfaState
+interface IJsonDfaStates
 {
-    name: string;
-    isStart: boolean;
-    isEnd: boolean;
-    nextStates: {
-        [index: string]: string | string[];
+    [index: string]: {
+        [index: string]: string;
     };
-    oldStates: string[][];
+}
+
+interface IJsonDfa
+{
+    initialState: string;
+    acceptStates: string | string[];
+    states: IJsonDfaStates;
 }
 
 class Fsm
 {
-    public static from(jsonStates: IJsonState[]): Fsm
+    public static from(jsonFsm: IJsonFsm): Fsm
     {
         const states = [] as State[];
         const nameToStateMap = new Map<string, State>();
 
-        for (const jsonState of jsonStates)
+        for (const stateName in jsonFsm.states)
         {
-            const state: State = {
-                isEnd: jsonState.isEnd,
-                isStart: jsonState.isStart,
-                name: jsonState.name,
-                nextStates: new Map<Input, State[]>()
-            };
+            if (jsonFsm.states.hasOwnProperty(stateName))
+            {
+                const state: State = {
+                    isAccept: typeof jsonFsm.acceptStates === "string" ?
+                        jsonFsm.acceptStates === stateName :
+                        jsonFsm.acceptStates.includes(stateName),
+                    isInitial: typeof jsonFsm.initialStates === "string" ?
+                        jsonFsm.initialStates === stateName :
+                        jsonFsm.initialStates.includes(stateName),
+                    name: stateName,
+                    nextStates: new Map<Input, State[]>()
+                };
 
-            states.push(state);
+                states.push(state);
 
-            nameToStateMap.set(state.name, state);
+                nameToStateMap.set(state.name, state);
+            }
         }
 
-        for (const jsonState of jsonStates)
+        for (const stateName in jsonFsm.states)
         {
-            const state = nameToStateMap.get(jsonState.name) as State;
-
-            for (const input in jsonState.nextStates)
+            if (jsonFsm.states.hasOwnProperty(stateName))
             {
-                if (jsonState.nextStates.hasOwnProperty(input))
+                const jsonState = jsonFsm.states[stateName];
+                const state = nameToStateMap.get(stateName) as State;
+
+                for (const input in jsonState)
                 {
-                    const nextStates = [] as State[];
-                    const jsonNextStates = jsonState.nextStates[input];
+                    if (jsonState.hasOwnProperty(input))
+                    {
+                        const nextStates = [] as State[];
+                        const jsonNextStates = jsonState[input];
 
-                    if (jsonNextStates instanceof String)
-                    {
-                        nextStates.push(nameToStateMap.get(jsonNextStates) as State);
-                    }
-                    else
-                    {
-                        for (const nextState of jsonNextStates)
+                        if (typeof jsonNextStates === "string")
                         {
-                            nextStates.push(nameToStateMap.get(nextState) as State);
+                            nextStates.push(nameToStateMap.get(jsonNextStates) as State);
                         }
-                    }
+                        else
+                        {
+                            for (const nextState of jsonNextStates)
+                            {
+                                nextStates.push(nameToStateMap.get(nextState) as State);
+                            }
+                        }
 
-                    if (input.length === 0)
-                    {
-                        state.nextStates.set(epsilonInput, nextStates);
-                    }
-                    else
-                    {
-                        state.nextStates.set(input, nextStates);
+                        if (input.length === 0)
+                        {
+                            state.nextStates.set(epsilonInput, nextStates);
+                        }
+                        else
+                        {
+                            state.nextStates.set(input, nextStates);
+                        }
                     }
                 }
             }
@@ -106,52 +121,46 @@ class Dfa
 {
     public states: DfaState[];
 
-    public toJson(): IJsonDfaState[]
+    public toJson(): IJsonDfa
     {
-        const result = [] as IJsonDfaState[];
+        let initialState: string | undefined;
+        const acceptStates = [] as string[];
+        const states: IJsonDfaStates = {};
 
         for (const state of this.states)
         {
-            result.push({
-                isEnd: state.isEnd,
-                isStart: state.isStart,
-                name: state.name,
-                nextStates: (() =>
-                {
-                    const transition: {
-                        [index: string]: string | string[];
-                    } = {};
+            if (state.isInitial)
+            {
+                initialState = state.name;
+            }
 
-                    for (const [input, nextState] of state.nextStates)
-                    {
-                        transition[input] = nextState.name;
-                    }
+            if (state.isEnd)
+            {
+                acceptStates.push(state.name);
+            }
 
-                    return transition;
-                })(),
-                oldStates: Array.from(map(state.oldStates, (x) => Array.from(map(x, (y) => y.name))))
-            });
+            const transitions: { [index: string]: string; } = {};
+
+            for (const [input, nextState] of state.nextStates)
+            {
+                transitions[input] = nextState.name;
+            }
+
+            states[state.name] = transitions;
         }
 
-        return result;
+        if (initialState === undefined)
+        {
+            throw new Error("No initial state.");
+        }
+
+        return { initialState, acceptStates, states };
     }
 }
 
 const epsilonInput = null;
 
 // Collection tools.
-
-function newSet<T>(...items: T[]): Set<T>
-{
-    const result = new Set<T>();
-
-    for (const item of items)
-    {
-        result.add(item);
-    }
-
-    return result;
-}
 
 function setDifference<T>(set: Set<T>, otherSet: Set<T>)
 {
@@ -286,14 +295,6 @@ function* flatMap<T, U>(source: Iterable<T>, f: (value: T) => Iterable<U>): Iter
     }
 }
 
-function* map<T, U>(source: Iterable<T>, f: (value: T) => U): IterableIterator<U>
-{
-    for (const item of source)
-    {
-        yield f(item);
-    }
-}
-
 // The actual work.
 
 function* getEpsilonClosure(states: State[]): IterableIterator<State>
@@ -342,11 +343,11 @@ function setEquals<T>(lhs: Set<T>, rhs: Set<T>)
     return lhs.size === rhs.size && all(lhs, (value) => rhs.has(value));
 }
 
-function nfaToDfa(states: State[]): Map<Set<State>, Map<StringInput, Set<State>>>
+function fsmToDfa(states: State[]): Map<Set<State>, Map<StringInput, Set<State>>>
 {
     const dfaTransitions = new Map<Set<State>, Map<StringInput, Set<State>>>();
     const stack = [] as Array<Set<State>>;
-    const dfaStartState = setFrom(filter(states, (values) => values.isStart));
+    const dfaInitialState = setFrom(filter(states, (values) => values.isInitial));
 
     function getOrCreateDfaState(stateSet: Set<State>): [boolean, Set<State>]
     {
@@ -363,9 +364,9 @@ function nfaToDfa(states: State[]): Map<Set<State>, Map<StringInput, Set<State>>
         return [true, stateSet];
     }
 
-    dfaTransitions.set(dfaStartState, new Map());
+    dfaTransitions.set(dfaInitialState, new Map());
 
-    let currentStateSet: Set<State> | undefined = dfaStartState;
+    let currentStateSet: Set<State> | undefined = dfaInitialState;
 
     do
     {
@@ -410,7 +411,7 @@ function nfaToDfa(states: State[]): Map<Set<State>, Map<StringInput, Set<State>>
 
 function minimizeFsm(fsm: Fsm): Dfa
 {
-    const dfaTransitions = nfaToDfa(fsm.states);
+    const dfaTransitions = fsmToDfa(fsm.states);
     const reverseTransitions = new Map<Set<State>, Map<StringInput, Array<Set<State>>>>();
 
     for (const [dfaState, transition] of dfaTransitions)
@@ -448,9 +449,9 @@ function minimizeFsm(fsm: Fsm): Dfa
     // end;
 
     const sigma = setFrom(flatMap(dfaTransitions, (value) => value[1].keys()));
-    const f = setFrom(filter(dfaTransitions.keys(), (stateSet) => any(stateSet, (item) => item.isEnd)));
+    const f = setFrom(filter(dfaTransitions.keys(), (stateSet) => any(stateSet, (item) => item.isAccept)));
     const notF = setFrom(filter(dfaTransitions.keys(), (stateSet) => !f.has(stateSet)));
-    const p = newSet(f, notF);
+    const p = [f, notF];
     const w = [] as Array<Set<Set<State>>>;
     let a: Set<Set<State>> | undefined = f;
 
@@ -475,10 +476,9 @@ function minimizeFsm(fsm: Fsm): Dfa
                 }
             }
 
-            const partitionReplaces = new Map<Set<Set<State>>, Array<Set<Set<State>>>>();
-
-            for (const y of p)
+            for (let i = 0; i < p.length; void (0))
             {
+                const y = p[i];
                 const intersection = setIntersection(x, y);
 
                 if (intersection.size > 0)
@@ -487,9 +487,16 @@ function minimizeFsm(fsm: Fsm): Dfa
 
                     if (difference.size > 0)
                     {
-                        if (w.some((value) => value === y))
+                        // Replace Y in P by the two sets X ∩ Y and Y \ X.
+                        p[i] = intersection;
+                        p.push(difference);
+
+                        const yIndexInW = w.indexOf(y);
+
+                        if (yIndexInW !== -1)
                         {
-                            partitionReplaces.set(y, [intersection, difference]);
+                            w[yIndexInW] = intersection;
+                            w.push(difference);
                         }
                         else if (intersection.size <= difference.size)
                         {
@@ -499,16 +506,12 @@ function minimizeFsm(fsm: Fsm): Dfa
                         {
                             w.push(difference);
                         }
+
+                        continue; // Without increasing i.
                     }
                 }
-            }
 
-            // Split y in p.
-
-            for (const [from, to] of partitionReplaces)
-            {
-                p.delete(from);
-                p.add.apply(to);
+                i++;
             }
         }
 
@@ -524,8 +527,8 @@ function minimizeFsm(fsm: Fsm): Dfa
     for (const [index, stateGroup] of enumerate(p))
     {
         const dfaState: DfaState = {
-            isEnd: any(flatMap(stateGroup, (state) => state), (state) => state.isEnd),
-            isStart: any(flatMap(stateGroup, (state) => state), (state) => state.isStart),
+            isEnd: any(flatMap(stateGroup, (state) => state), (state) => state.isAccept),
+            isInitial: any(flatMap(stateGroup, (state) => state), (state) => state.isInitial),
             name: index.toString(),
             nextStates: new Map<StringInput, DfaState>(),
             oldStates: Array.from(stateGroup)
@@ -581,8 +584,8 @@ document.addEventListener("DOMContentLoaded", () =>
 
         nfaInput.value = JSON.stringify(jsonInput, null, 4);
 
-        const nfa = Fsm.from(jsonInput as IJsonState[]);
-        const dfa = minimizeFsm(nfa);
+        const fsmValue = Fsm.from(jsonInput as IJsonFsm);
+        const dfa = minimizeFsm(fsmValue);
 
         dfaOutput.value = JSON.stringify(dfa.toJson(), null, 4);
     });
