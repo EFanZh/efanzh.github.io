@@ -9,11 +9,44 @@
         <p><button id="minimize-button">Minimize</button></p>
         <label>
             <p>Input:</p>
-            <p><textarea id="nfa-input"></textarea></p>
+            <p><textarea id="nfa-input" cols="120" rows="32">{
+    "initialStates": "a",
+    "acceptStates": [
+        "c",
+        "d",
+        "e"
+    ],
+    "states": {
+        "a": {
+            "0": "b",
+            "1": "c"
+        },
+        "b": {
+            "0": "a",
+            "1": "d"
+        },
+        "c": {
+            "0": "e",
+            "1": "f"
+        },
+        "d": {
+            "0": "e",
+            "1": "f"
+        },
+        "e": {
+            "0": "e",
+            "1": "f"
+        },
+        "f": {
+            "0": "f",
+            "1": "f"
+        }
+    }
+}</textarea></p>
         </label>
         <label>
             <p>Output:</p>
-            <p><textarea id="dfa-output"></textarea></p>
+            <p><textarea id="dfa-output" cols="120" rows="32"></textarea></p>
         </label>
     </body>
 </html>

@@ -4,38 +4,47 @@ class State {
 class DfaState {
 }
 class Fsm {
-    static from(jsonStates) {
+    static from(jsonFsm) {
         const states = [];
         const nameToStateMap = new Map();
-        for (const jsonState of jsonStates) {
-            const state = {
-                isEnd: jsonState.isEnd,
-                isStart: jsonState.isStart,
-                name: jsonState.name,
-                nextStates: new Map()
-            };
-            states.push(state);
-            nameToStateMap.set(state.name, state);
+        for (const stateName in jsonFsm.states) {
+            if (jsonFsm.states.hasOwnProperty(stateName)) {
+                const state = {
+                    isAccept: typeof jsonFsm.acceptStates === "string" ?
+                        jsonFsm.acceptStates === stateName :
+                        jsonFsm.acceptStates.includes(stateName),
+                    isInitial: typeof jsonFsm.initialStates === "string" ?
+                        jsonFsm.initialStates === stateName :
+                        jsonFsm.initialStates.includes(stateName),
+                    name: stateName,
+                    nextStates: new Map()
+                };
+                states.push(state);
+                nameToStateMap.set(state.name, state);
+            }
         }
-        for (const jsonState of jsonStates) {
-            const state = nameToStateMap.get(jsonState.name);
-            for (const input in jsonState.nextStates) {
-                if (jsonState.nextStates.hasOwnProperty(input)) {
-                    const nextStates = [];
-                    const jsonNextStates = jsonState.nextStates[input];
-                    if (jsonNextStates instanceof String) {
-                        nextStates.push(nameToStateMap.get(jsonNextStates));
-                    }
-                    else {
-                        for (const nextState of jsonNextStates) {
-                            nextStates.push(nameToStateMap.get(nextState));
+        for (const stateName in jsonFsm.states) {
+            if (jsonFsm.states.hasOwnProperty(stateName)) {
+                const jsonState = jsonFsm.states[stateName];
+                const state = nameToStateMap.get(stateName);
+                for (const input in jsonState) {
+                    if (jsonState.hasOwnProperty(input)) {
+                        const nextStates = [];
+                        const jsonNextStates = jsonState[input];
+                        if (typeof jsonNextStates === "string") {
+                            nextStates.push(nameToStateMap.get(jsonNextStates));
                         }
-                    }
-                    if (input.length === 0) {
-                        state.nextStates.set(epsilonInput, nextStates);
-                    }
-                    else {
-                        state.nextStates.set(input, nextStates);
+                        else {
+                            for (const nextState of jsonNextStates) {
+                                nextStates.push(nameToStateMap.get(nextState));
+                            }
+                        }
+                        if (input.length === 0) {
+                            state.nextStates.set(epsilonInput, nextStates);
+                        }
+                        else {
+                            state.nextStates.set(input, nextStates);
+                        }
                     }
                 }
             }
@@ -45,34 +54,30 @@ class Fsm {
 }
 class Dfa {
     toJson() {
-        const result = [];
+        let initialState;
+        const acceptStates = [];
+        const states = {};
         for (const state of this.states) {
-            result.push({
-                isEnd: state.isEnd,
-                isStart: state.isStart,
-                name: state.name,
-                nextStates: (() => {
-                    const transition = {};
-                    for (const [input, nextState] of state.nextStates) {
-                        transition[input] = nextState.name;
-                    }
-                    return transition;
-                })(),
-                oldStates: Array.from(map(state.oldStates, (x) => Array.from(map(x, (y) => y.name))))
-            });
+            if (state.isInitial) {
+                initialState = state.name;
+            }
+            if (state.isEnd) {
+                acceptStates.push(state.name);
+            }
+            const transitions = {};
+            for (const [input, nextState] of state.nextStates) {
+                transitions[input] = nextState.name;
+            }
+            states[state.name] = transitions;
         }
-        return result;
+        if (initialState === undefined) {
+            throw new Error("No initial state.");
+        }
+        return { initialState, acceptStates, states };
     }
 }
 const epsilonInput = null;
 // Collection tools.
-function newSet(...items) {
-    const result = new Set();
-    for (const item of items) {
-        result.add(item);
-    }
-    return result;
-}
 function setDifference(set, otherSet) {
     const result = new Set();
     for (const item of set) {
@@ -153,11 +158,6 @@ function* flatMap(source, f) {
         yield* f(item);
     }
 }
-function* map(source, f) {
-    for (const item of source) {
-        yield f(item);
-    }
-}
 // The actual work.
 function* getEpsilonClosure(states) {
     const visited = new Set();
@@ -186,10 +186,10 @@ function* getEpsilonClosure(states) {
 function setEquals(lhs, rhs) {
     return lhs.size === rhs.size && all(lhs, (value) => rhs.has(value));
 }
-function nfaToDfa(states) {
+function fsmToDfa(states) {
     const dfaTransitions = new Map();
     const stack = [];
-    const dfaStartState = setFrom(filter(states, (values) => values.isStart));
+    const dfaInitialState = setFrom(filter(states, (values) => values.isInitial));
     function getOrCreateDfaState(stateSet) {
         for (const key of dfaTransitions.keys()) {
             if (setEquals(key, stateSet)) {
@@ -199,8 +199,8 @@ function nfaToDfa(states) {
         dfaTransitions.set(stateSet, new Map());
         return [true, stateSet];
     }
-    dfaTransitions.set(dfaStartState, new Map());
-    let currentStateSet = dfaStartState;
+    dfaTransitions.set(dfaInitialState, new Map());
+    let currentStateSet = dfaInitialState;
     do {
         const nextStateSets = new Map();
         for (const state of currentStateSet) {
@@ -226,7 +226,7 @@ function nfaToDfa(states) {
     return dfaTransitions;
 }
 function minimizeFsm(fsm) {
-    const dfaTransitions = nfaToDfa(fsm.states);
+    const dfaTransitions = fsmToDfa(fsm.states);
     const reverseTransitions = new Map();
     for (const [dfaState, transition] of dfaTransitions) {
         for (const [input, targetDfaState] of transition) {
@@ -256,9 +256,9 @@ function minimizeFsm(fsm) {
     //      end;
     // end;
     const sigma = setFrom(flatMap(dfaTransitions, (value) => value[1].keys()));
-    const f = setFrom(filter(dfaTransitions.keys(), (stateSet) => any(stateSet, (item) => item.isEnd)));
+    const f = setFrom(filter(dfaTransitions.keys(), (stateSet) => any(stateSet, (item) => item.isAccept)));
     const notF = setFrom(filter(dfaTransitions.keys(), (stateSet) => !f.has(stateSet)));
-    const p = newSet(f, notF);
+    const p = [f, notF];
     const w = [];
     let a = f;
     do {
@@ -273,14 +273,19 @@ function minimizeFsm(fsm) {
                     }
                 }
             }
-            const partitionReplaces = new Map();
-            for (const y of p) {
+            for (let i = 0; i < p.length; void (0)) {
+                const y = p[i];
                 const intersection = setIntersection(x, y);
                 if (intersection.size > 0) {
                     const difference = setDifference(y, x);
                     if (difference.size > 0) {
-                        if (w.some((value) => value === y)) {
-                            partitionReplaces.set(y, [intersection, difference]);
+                        // Replace Y in P by the two sets X ∩ Y and Y \ X.
+                        p[i] = intersection;
+                        p.push(difference);
+                        const yIndexInW = w.indexOf(y);
+                        if (yIndexInW !== -1) {
+                            w[yIndexInW] = intersection;
+                            w.push(difference);
                         }
                         else if (intersection.size <= difference.size) {
                             w.push(intersection);
@@ -288,13 +293,10 @@ function minimizeFsm(fsm) {
                         else {
                             w.push(difference);
                         }
+                        continue; // Without increasing i.
                     }
                 }
-            }
-            // Split y in p.
-            for (const [from, to] of partitionReplaces) {
-                p.delete(from);
-                p.add.apply(to);
+                i++;
             }
         }
         a = w.pop();
@@ -304,8 +306,8 @@ function minimizeFsm(fsm) {
     const stateSetToDfaState = new Map();
     for (const [index, stateGroup] of enumerate(p)) {
         const dfaState = {
-            isEnd: any(flatMap(stateGroup, (state) => state), (state) => state.isEnd),
-            isStart: any(flatMap(stateGroup, (state) => state), (state) => state.isStart),
+            isEnd: any(flatMap(stateGroup, (state) => state), (state) => state.isAccept),
+            isInitial: any(flatMap(stateGroup, (state) => state), (state) => state.isInitial),
             name: index.toString(),
             nextStates: new Map(),
             oldStates: Array.from(stateGroup)
@@ -340,8 +342,8 @@ document.addEventListener("DOMContentLoaded", () => {
     minimizeButton.addEventListener("click", () => {
         const jsonInput = JSON.parse(nfaInput.value);
         nfaInput.value = JSON.stringify(jsonInput, null, 4);
-        const nfa = Fsm.from(jsonInput);
-        const dfa = minimizeFsm(nfa);
+        const fsmValue = Fsm.from(jsonInput);
+        const dfa = minimizeFsm(fsmValue);
         dfaOutput.value = JSON.stringify(dfa.toJson(), null, 4);
     });
 });
