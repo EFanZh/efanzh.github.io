@@ -4,7 +4,7 @@ title: Programming Languages and Lambda Calculi exercises
 
 {:exercise: style="background-color: rgba(39, 116, 169, 0.15);"}
 
-The manuscript can be found [here](http://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf).
+The manuscript can be found [here](https://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf).
 
 ## Part I: Models of Languages
 
