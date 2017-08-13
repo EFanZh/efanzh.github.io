@@ -9,8 +9,8 @@ enable_mathjax: true
 > 1. \$$ \left\{3n + 2 \mid n \in N \right\} $$
 > 2. \$$ \left\{2n + 3m + 1 \mid n, m \in N\right\} $$
 > 3. \$$ \left\{\left(n, 2n + 1\right) \mid n \in N\right\} $$
-> 4. \$$ \left\{\left(n, n ^ 2\right) \mid n \in N\right\} $$ Do not mention squaring in your rules. As a hint, remember
-> the equation $$ \left(n + 1\right) ^ 2 = n ^ 2 + 2n + 1 $$.
+> 4. $$ \left\{\left(n, n ^ 2\right) \mid n \in N\right\} $$ Do not mention squaring in your rules. As a hint, remember
+>    the equation $$ \left(n + 1\right) ^ 2 = n ^ 2 + 2n + 1 $$.
 
 1. \$$ \left\{3n + 2 \mid n \in N \right\} $$
 
