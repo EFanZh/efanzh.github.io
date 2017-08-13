@@ -1,5 +1,6 @@
 ---
 title: Essentials of Programming Languages Exercises
+enable_mathjax: true
 ---
 
 > **Exercise 1.1** Write inductive definitions of the following sets. Write each definition in all three styles
