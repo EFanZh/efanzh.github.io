@@ -2,7 +2,7 @@
 title: Some useful commands
 ---
 
-## [Pacman](https://www.archlinux.org/pacman/)
+## [pacman](https://www.archlinux.org/pacman/)
 
 ### Normalize package dependencies
 
