@@ -7,7 +7,7 @@ title: Some useful commands
 ### Normalize package dependencies
 
 ```bash
-comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r sudo pacman -D --asdep
+comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r sudo pacman -D --asdeps
 ```
 
 ## Others
