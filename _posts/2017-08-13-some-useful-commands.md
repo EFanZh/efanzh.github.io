@@ -6,6 +6,14 @@ title: Some useful commands
 
 ### Normalize package dependencies
 
+```bash
+comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r sudo pacman -D --asdep
+```
+
+## Others
+
+### Bring swap memories back online
+
 ```sh
-comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs sudo pacman -D --asdep
+sudo swapoff -a && sudo swapon -a
 ```
