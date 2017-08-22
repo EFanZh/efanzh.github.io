@@ -21,9 +21,4 @@ document.addEventListener("DOMContentLoaded", function (e)
     {
         item.type = 'math/asciimath';
     }
-
-    for (const item of document.querySelectorAll('script[type="math/tex; mode=display"]'))
-    {
-        item.type = 'math/asciimath; mode=display';
-    }
 });

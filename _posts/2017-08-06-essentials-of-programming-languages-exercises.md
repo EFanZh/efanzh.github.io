@@ -3,15 +3,15 @@ title: Essentials of Programming Languages Exercises
 enable_mathjax: true
 ---
 
-> **Exercise 1.1** Write inductive definitions of the following sets. Write each definition in all three styles
+> Exercise 1.1 [🟉] Write inductive definitions of the following sets. Write each definition in all three styles
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
 >
 > 1. \$$ {3n + 2 \| n in N } $$
 > 2. \$$ {2n + 3m + 1 \| n, m in N} $$
 > 3. \$$ {(n, 2n + 1) \| n in N} $$
-> 4. $$ {(n, n ^ 2) \| n in N} $$ Do not mention squaring in your rules. As a hint, remember
->    the equation $$ (n + 1) ^ 2 = n ^ 2 + 2n + 1 $$.
+> 4. $$ {(n, n ^ 2) \| n in N} $$ Do not mention squaring in your rules. As a hint, remember the equation
+>    $$ (n + 1) ^ 2 = n ^ 2 + 2n + 1 $$.
 
 1. \$$ {3n + 2 \| n in N } $$
    - Top-down:
@@ -82,12 +82,12 @@ enable_mathjax: true
       - \$$ () / ((0, 0) in S) $$
       - \$$ ((m, n) in S) / ((m + 1, n + 2m + 1) in S) $$
 
-> **Exercise 1.2** What sets are defined by the following pairs of rules? Explain why.
+> Exercise 1.2 [🟉🟉] What sets are defined by the following pairs of rules? Explain why.
 >
 > 1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
 > 2. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, 2k) in S) $$
 > 3. \$$ (0, 0, 1) in S quad ((n, i, j) in S) / ((n + 1, j, i + j) in S) $$
-> 4. \$$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
+> 4. [🟉🟉🟉] $$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
 
 1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
 
@@ -102,7 +102,57 @@ enable_mathjax: true
 
    \$$ {(n, 2n + 1, n ^ 2) \| n in N} $$
 
-> **Exercise 1.3** Find a set $$ T $$ of natural numbers such that $$ 0 in T $$, and whenever $$ n in T $$, then
+> Exercise 1.3 [🟉🟉🟉] Find a set $$ T $$ of natural numbers such that $$ 0 in T $$, and whenever $$ n in T $$, then
 > $$ n + 3 in T $$, but $$ T != S $$, where $$ S $$ is the set defined in definition 1.1.2.
 
 Let $$ T = N $$.
+
+> Exercise 1.4 [🟉] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
+
+*List-of-Int* \\
+⇒ `(`*Int*` . `*List-of-Int*`)` \\
+⇒ `(-7 . `*List-of-Int*`)` \\
+⇒ `(-7 . (`*Int*` . `*List-of-Int*`))` \\
+⇒ `(-7 . (3 . `*List-of-Int*`))` \\
+⇒ `(-7 . (3 . (`*Int*` . `*List-of-Int*`)))` \\
+⇒ `(-7 . (3 . (14 . `*List-of-Int*`)))` \\
+⇒ `(-7 . (3 . (14 . ())))`
+
+> Exercise 1.5 [🟉🟉] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
+
+By induction on the structre of *LcExp*.
+
+If *e* is of *Identifier* form, it has $$ 0 $$ left parenthesis and $$ 0 $$ right parenthesis, the hypothesis holds.
+
+If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has $$ 0 $$ parenthese. By induction, *LcExp*
+has the same number of left and right parentheses. Let the number be $$ n $$, then *e* has $$ n + 2 $$ left parentheses
+and $$ n + 2 $$ right parentheses. The hypothesis holds.
+
+If *e* is of `(`*LcExp*` `*LcExp*`)` form, let $$ m $$ be the number of left or right parentheses in the first *LcExp*,
+let $$ n $$ be the number of left or right parentheses in the second *LcExp*, then *e* has $$ m + n + 1 $$ left
+parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
+
+> Exercise 1.6 [🟉] If we reversed the order of the tests in nth-element, what would go wrong?
+
+`car` may be applied to empty list.
+
+> Exercise 1.7 [🟉🟉] The error message from `nth-element` is uninformative. Rewrite `nth-element` so that it produces a
+> more informative error message, such as “`(a b c)` does not have 8 elements.”
+
+```scheme
+(define nth-element
+  (lambda (lst n)
+    (define helper
+      (lambda (lst1 n1)
+        (if (null? lst1)
+            (report-list-too-short lst n)
+            (if (zero? n1)
+                (car lst1)
+                (helper (cdr lst1) (- n1 1))))))
+    (helper lst n)))
+
+(define report-list-too-short
+  (lambda (lst n)
+    (eopl:error 'nth-element
+                "~s does not have ~s elements.~%" lst (+ n 1))))
+```
