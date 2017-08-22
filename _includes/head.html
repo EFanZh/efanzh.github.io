@@ -19,4 +19,12 @@
             ga('create', 'UA-1335386-2', 'auto');
             ga('send', 'pageview');
         </script>{% if page.enable_mathjax %}
-        <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=AM_CHTML" async="async"></script>{% endif %}
+        <script type="text/x-mathjax-config">
+            MathJax.Hub.Config({
+                jax: ["input/TeX", "input/AsciiMath", "output/CommonHTML"],
+                extensions: ["asciimath2jax.js"],
+                messageStyle: "none",
+                showMathMenu: false
+            });
+        </script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js" async="async"></script>{% endif %}
