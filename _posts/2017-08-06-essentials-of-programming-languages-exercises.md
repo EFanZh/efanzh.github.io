@@ -3,6 +3,13 @@ title: Essentials of Programming Languages Exercises
 enable_mathjax: true
 ---
 
+> Exercise 0.1 [🟉] We often use phrases like “some languages have property X.” For each such phrase, find one or more
+> languages that have the property and one or more languages that do not have the property. Feel free to ferret out this
+> information from any descriptive book on programming languages (say Scott (2005), Sebesta (2007), or Pratt & Zelkowitz
+> (2001)).
+
+*Skipped for now.*
+
 > Exercise 1.1 [🟉] Write inductive definitions of the following sets. Write each definition in all three styles
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
@@ -132,7 +139,7 @@ If *e* is of `(`*LcExp*` `*LcExp*`)` form, let $$ m $$ be the number of left or 
 let $$ n $$ be the number of left or right parentheses in the second *LcExp*, then *e* has $$ m + n + 1 $$ left
 parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
 
-> Exercise 1.6 [🟉] If we reversed the order of the tests in nth-element, what would go wrong?
+> Exercise 1.6 [🟉] If we reversed the order of the tests in `nth-element`, what would go wrong?
 
 `car` may be applied to empty list.
 
@@ -155,4 +162,36 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
   (lambda (lst n)
     (eopl:error 'nth-element
                 "~s does not have ~s elements.~%" lst (+ n 1))))
+```
+
+> Exercise 1.8 [🟉] In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
+> what function would the resulting procedure compute? Give the contract, including the usage statement, for the revised
+> procedure.
+
+**remove-first** : *Sym* × *Listof*(*Sym*) → *Listof*(*Sym*)
+
+**usage**: `(remove-first `*s*` `*los*`)` returns a sub of list from *los*, starting from the symbol after the first
+*s*. If *los* doesn’t contain *s*, an empty list is returned.
+
+```scheme
+(define remove-first
+  (lambda (s los)
+    (if (null? los)
+        '()
+        (if (eqv? (car los) s)
+            (cdr los)
+            (remove-first s (cdr los))))))
+```
+
+> Exercise 1.9 [🟉🟉] Define `remove`, which is like `remove-first`, except that it removes all occurrences of a given
+> symbol from a list of symbols, not just the first.
+
+```scheme
+(define remove
+  (lambda (s los)
+    (if (null? los)
+        '()
+        (if (eqv? (car los) s)
+            (remove s (cdr los))
+            (cons (car los) (remove s (cdr los)))))))
 ```
