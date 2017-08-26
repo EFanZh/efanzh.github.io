@@ -3,6 +3,12 @@ title: Essentials of Programming Languages Exercises
 enable_mathjax: true
 ---
 
+## Codes
+
+Code for the exercises can be found [here](https://github.com/EFanZh/EFanZh/tree/master/Racket/eopl-exercises).
+
+## Exercises
+
 > Exercise 0.1 [🟉] We often use phrases like “some languages have property X.” For each such phrase, find one or more
 > languages that have the property and one or more languages that do not have the property. Feel free to ferret out this
 > information from any descriptive book on programming languages (say Scott (2005), Sebesta (2007), or Pratt & Zelkowitz
@@ -147,21 +153,22 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
 > more informative error message, such as “`(a b c)` does not have 8 elements.”
 
 ```scheme
-(define nth-element
-  (lambda (lst n)
-    (define helper
-      (lambda (lst1 n1)
-        (if (null? lst1)
-            (report-list-too-short lst n)
-            (if (zero? n1)
-                (car lst1)
-                (helper (cdr lst1) (- n1 1))))))
-    (helper lst n)))
-
 (define report-list-too-short
   (lambda (lst n)
     (eopl:error 'nth-element
                 "~s does not have ~s elements.~%" lst (+ n 1))))
+
+(define nth-element-helper
+  (lambda (lst n current-list i)
+    (if (null? current-list)
+        (report-list-too-short lst n)
+        (if (zero? i)
+            (car current-list)
+            (nth-element-helper lst n (cdr current-list) (- i 1))))))
+
+(define nth-element
+  (lambda (lst n)
+    (nth-element-helper lst n lst n)))
 ```
 
 > Exercise 1.8 [🟉] In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
@@ -195,3 +202,57 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
             (remove s (cdr los))
             (cons (car los) (remove s (cdr los)))))))
 ```
+
+> Exercise 1.10 [🟉] We typically use “or” to mean “inclusive or”. What other meanings can “or” have?
+
+Exclusive or.
+
+> Exercise 1.11 [🟉] In the last line of `subst-in-s-exp`, the recursion is on sexp and not a smaller substructure. Why
+> is the recursion guaranteed to halt?
+
+Because `subst` recurs on smaller substructure. We can replace the call to `subst-in-s-exp` with the body of
+`subst-in-s-exp`, then `subst` becomes a normal recursive on a smaller substructure.
+
+> Exercise 1.12 [🟉] Eliminate the one call to `subst-in-s-exp` in subst by replacing it by its definition and
+> simplifying the resulting procedure. The result will be a version of subst that does not need `subst-in-s-exp`. This
+> technique is called *inlining*, and is used by optimizing compilers.
+
+```racket
+(define subst
+  (lambda (new old slist)
+    (if (null? slist)
+        '()
+        (cons (let ([sexp (car slist)])
+                (if (symbol? sexp)
+                    (if (eqv? sexp old) new sexp)
+                    (subst new old sexp)))
+              (subst new old (cdr slist))))))
+```
+
+> Exercise 1.13 [🟉🟉] In our example, we began by eliminating the Kleene star in the grammar for *S-list*. Write
+> `subst` following the original grammar by using `map`.
+
+```scheme
+(define subst-in-s-exp
+  (lambda (new old sexp)
+    (if (symbol? sexp)
+        (if (eqv? sexp old) new sexp)
+        (subst new old sexp))))
+
+(define subst
+  (lambda (new old slist)
+    (map (lambda (sexp) (subst-in-s-exp new old sexp))
+         slist)))
+```
+
+> Exercise 1.14 [🟉🟉] Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
+
+Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at leat 1, so that *v* contains at least one element. We
+prove `partial-vector-sum` is correct by induction over *n*.
+
+Base case: if *n* equals to 0, `(partial-vector-sum `*v*` `*n*`)` equals to `(vector-ref `*v*` 0)`, which equals to
+$$ sum _ (i = 0) ^ (i = 0) v _ i $$, the claim holds.
+
+Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum `*v*` `*n*`)` equals to
+`(add (vector-ref `*v*` `*n*`) (partial-vector-sum `*v*` (- `*n*` 1)))`, which equals to
+$$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0) ^ (i = n) v _ i $$, the claim holds.
