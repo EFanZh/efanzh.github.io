@@ -382,3 +382,182 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (+ (count-occurrences-sexp s (car slist))
            (count-occurrences s (cdr slist))))))
 ```
+
+> Exercise 1.21 [🟉🟉] `(product sos1 sos2)`, where `sos1` and `sos2` are each a list of symbols without repetitions,
+> returns a list of 2-lists that represents the Cartesian product of `sos1` and `sos2`. The 2-lists may appear in any
+> order.
+>
+> ```scheme
+> > (product '(a b c) '(x y))
+> ((a x) (a y) (b x) (b y) (c x) (c y))
+> ```
+
+```scheme
+(define product-symbol
+  (lambda (tail s sos)
+    (if (null? sos)
+        tail
+        (product-symbol (cons (list s (car sos)) tail) s (cdr sos)))))
+
+(define product-helper
+  (lambda (tail sos1 sos2)
+    (if (null? sos1)
+        tail
+        (product-helper (product-symbol tail (car sos1) sos2)
+                        (cdr sos1)
+                        sos2))))
+
+(define product
+  (lambda (sos1 sos2)
+    (product-helper '() sos1 sos2)))
+```
+
+> Exercise 1.22 [🟉🟉] `(filter-in pred lst)` returns the list of those elements in `lst` that satisfy the predicate
+> `pred`.
+>
+> ```scheme
+> > (filter-in number? '(a 2 (1 3) b 7))
+> (2 7)
+> > (filter-in symbol? '(a (b c) 17 foo))
+> (a foo)
+> ```
+
+```racket
+(define filter-in
+  (lambda (pred lst)
+    (if (null? lst)
+        '()
+        (let ([element (car lst)]
+              [tail (filter-in pred (cdr lst))])
+          (if (pred element)
+              (cons element tail)
+              tail)))))
+```
+
+> Exercise 1.23 [🟉🟉] `(list-index pred lst)` returns the 0-based position of the first element of `lst` that satisfies
+> the predicate `pred`. If no element of `lst` satisfies the predicate, then `list-index` returns `#f`.
+>
+> ```scheme
+> > (list-index number? '(a 2 (1 3) b 7))
+> 1
+> > (list-index symbol? '(a (b c) 17 foo))
+> 0
+> > (list-index symbol? '(1 2 (a b) 3))
+> #f
+> ```
+
+```scheme
+(define list-index-helper
+  (lambda (n pred lst)
+    (if (null? lst)
+        #f
+        (if (pred (car lst))
+            n
+            (list-index-helper (+ n 1) pred (cdr lst))))))
+
+(define list-index
+  (lambda (pred lst)
+    (list-index-helper 0 pred lst)))
+```
+
+> Exercise 1.24 [🟉🟉] `(every? pred lst)` returns `#f` if any element of `lst` fails to satisfy `pred`, and returns
+> `#t` otherwise.
+>
+> ```scheme
+> > (every? number? '(a b c 3 e))
+> #f
+> > (every? number? '(1 2 3 5 4))
+> #t
+> ```
+
+```scheme
+(define every?
+  (lambda (pred lst)
+    (if (null? lst)
+        #t
+        (and (pred (car lst))
+             (every? pred (cdr lst))))))
+```
+
+> Exercise 1.25 [🟉🟉] `(exists? pred lst)` returns `#t` if any element of `lst` satisfies `pred`, and returns `#f`
+> otherwise.
+>
+> ```scheme
+> > (exists? number? '(a b c 3 e))
+> #t
+> > (exists? number? '(a b c d e))
+> #f
+> ```
+
+```scheme
+(define exists?
+  (lambda (pred lst)
+    (if (null? lst)
+        #f
+        (or (pred (car lst))
+            (exists? pred (cdr lst))))))
+```
+
+> Exercise 1.26 [🟉🟉] `(up lst)` removes a pair of parentheses from each top-level element of `lst`. If a top-level
+> element is not a list, it is included in the result, as is. The value of `(up (down lst))` is equivalent to lst,
+> but `(down (up lst))` is not necessarily `lst`. (See exercise 1.17.)
+>
+> ```scheme
+> > (up '((1 2) (3 4)))
+> (1 2 3 4)
+> > (up '((x (y)) z))
+> (x (y) z)
+> ```
+
+```scheme
+(define extend-head
+  (lambda (tail head)
+    (if (null? head)
+        tail
+        (cons (car head) (extend-head tail (cdr head))))))
+
+(define up-element
+  (lambda (tail element)
+    (if (list? element)
+        (extend-head tail element)
+        (cons element tail))))
+
+(define up
+  (lambda (lst)
+    (if (null? lst)
+        '()
+        (up-element (up (cdr lst)) (car lst)))))
+```
+
+> Exercise 1.27 [🟉🟉] `(flatten slist)` returns a list of the symbols contained in `slist` in the order in which they
+> occur when `slist` is printed. Intuitively, `flatten` removes all the inner parentheses from its argument.
+>
+> ```scheme
+> > (flatten '(a b c))
+> (a b c)
+> > (flatten '((a) () (b ()) () (c)))
+> (a b c)
+> > (flatten '((a b) c (((d)) e)))
+> (a b c d e)
+> > (flatten '(a b (() (c))))
+> (a b c)
+> ```
+
+```scheme
+(define flatten-element
+  (lambda (tail element)
+    (if (list? element)
+        (flatten-helper tail element)
+        (cons element tail))))
+
+(define flatten-helper
+  (lambda (tail slist)
+    (if (null? slist)
+        tail
+        (flatten-element (flatten-helper tail (cdr slist))
+                         (car slist)))))
+
+(define flatten
+  (lambda (slist)
+    (flatten-helper '() slist)))
+```
