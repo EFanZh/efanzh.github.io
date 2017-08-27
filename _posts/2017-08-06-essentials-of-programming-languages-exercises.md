@@ -256,3 +256,129 @@ $$ sum _ (i = 0) ^ (i = 0) v _ i $$, the claim holds.
 Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum `*v*` `*n*`)` equals to
 `(add (vector-ref `*v*` `*n*`) (partial-vector-sum `*v*` (- `*n*` 1)))`, which equals to
 $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0) ^ (i = n) v _ i $$, the claim holds.
+
+> Exercise 1.15 [🟉] `(duple n x)` returns a list containing `n` copies of `x`.
+>
+> ```scheme
+> > (duple 2 3)
+> (3 3)
+> > (duple 4 '(ha ha))
+> ((ha ha) (ha ha) (ha ha) (ha ha))
+> > (duple 0 '(blah))
+> ()
+> ```
+
+```scheme
+(define duple-helper
+  (lambda (lst n x)
+    (if (zero? n)
+        lst
+        (duple-helper (cons x lst) (- n 1) x))))
+
+(define duple
+  (lambda (n x)
+    (duple-helper '() n x)))
+```
+
+> Exercise 1.16 [🟉] `(invert lst)`, where lst is a list of 2-lists (lists of length two), returns a list with each
+> 2-list reversed.
+>
+> ```scheme
+> > (invert '((a 1) (a 2) (1 b) (2 b)))
+> ((1 a) (2 a) (b 1) (b 2))
+> ```
+
+```scheme
+(define invert
+  (lambda (lst)
+    (map (lambda (x) (list (cadr x) (car x)))
+         lst)))
+```
+
+> Exercise 1.17 [🟉] `(down lst)` wraps parentheses around each top-level element of `lst`.
+>
+> ```scheme
+> > (down '(1 2 3))
+> ((1) (2) (3))
+> > (down '((a) (fine) (idea)))
+> (((a)) ((fine)) ((idea)))
+> > (down '(a (more (complicated)) object))
+> ((a) ((more (complicated))) (object))
+> ```
+
+```scheme
+(define down
+  (lambda (lst)
+    (map (lambda (x) (list x))
+         lst)))
+```
+
+> Exercise 1.18 [🟉] `(swapper s1 s2 slist)` returns a list the same as slist, but with all occurrences of `s1` replaced
+> by `s2` and all occurrences of `s2` replaced by `s1`.
+>
+> ```scheme
+> > (swapper 'a 'd '(a b c d))
+> (d b c a)
+> > (swapper 'a 'd '(a d () c d))
+> (d a () c a)
+> > (swapper 'x 'y '((x) y (z (x))))
+> ((y) x (z (y)))
+> ```
+
+```scheme
+(define swapper
+  (lambda (s1 s2 slist)
+    (map (lambda (sexp)
+           (if (symbol? sexp)
+               (if (eqv? sexp s1)
+                   s2
+                   (if (eqv? sexp s2)
+                       s1
+                       sexp))
+               (swapper s1 s2 sexp)))
+         slist)))
+```
+
+> Exercise 1.19 [🟉] `(list-set lst n x)` returns a list like `lst`, except that the `n`-th element, using zero-based
+> indexing, is `x`.
+>
+> ```scheme
+> > (list-set '(a b c d) 2 '(1 2))
+> (a b (1 2) d)
+> > (list-ref (list-set '(a b c d) 3 '(1 5 10)) 3)
+> (1 5 10)
+> ```
+
+```scheme
+(define list-set
+  (lambda (lst n x)
+    (if (zero? n)
+        (cons x (cdr lst))
+        (cons (car lst) (list-set (cdr lst) (- n 1) x)))))
+```
+
+> Exercise 1.20 [🟉] `(count-occurrences s slist)` returns the number of occurrences of `s` in `slist`.
+>
+> ```scheme
+> > (count-occurrences 'x '((f x) y (((x z) x))))
+> 3
+> > (count-occurrences 'x '((f x) y (((x z) () x))))
+> 3
+> > (count-occurrences 'w '((f x) y (((x z) x))))
+> 0
+> ```
+
+```scheme
+(define count-occurrences-sexp
+  (lambda (s sexp)
+    (if (symbol? sexp)
+        (if (eqv? sexp s) 1 0)
+        (count-occurrences s sexp))))
+
+(define count-occurrences
+  (lambda (s slist)
+    (if (null? slist)
+        0
+        (+ (count-occurrences-sexp s (car slist))
+           (count-occurrences s (cdr slist))))))
+```
