@@ -1,0 +1,145 @@
+.navigation-panel {
+  background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  width: 240px;
+}
+
+.logo {
+  color: #555;
+  display: block;
+  font: bold 18px system-ui;
+  padding: 12px;
+  text-decoration: none;
+}
+
+.navigation-panel-separator {
+  height: 24px;
+}
+
+.search-form {
+  align-items: center;
+  display: flex;
+  padding: 6px 12px;
+}
+
+.search-text {
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  flex: 1;
+  font: inherit;
+  height: 30px;
+  padding: 6px 34px 6px 6px;
+}
+
+.search-text:focus {
+  background-color: #fff;
+  outline: none;
+}
+
+.search-button {
+  background: #e0e0e0;
+  border: none;
+  cursor: pointer;
+  font: 16px "Segoe UI Symbol", "sans-serif";
+  height: 28px;
+  margin-left: -29px;
+  padding: 0;
+  width: 28px;
+}
+
+.search-button:hover {
+  background-color: #e5e5e5;
+}
+
+.navigation-links {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-links > li > a {
+  align-items: center;
+  box-sizing: border-box;
+  color: inherit;
+  display: flex;
+  height: 100%;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+
+.navigation-links > li > a:hover {
+  background-color: rgba(0, 0, 0, 0.0557);
+}
+
+.main {
+  margin-left: 240px;
+  padding: 0 24px;
+}
+
+.blog-post {
+  margin: auto auto 96px auto;
+  max-width: 960px;
+}
+
+.footer {
+  bottom: 0;
+  color: #888;
+  font-size: 12px;
+  left: 0;
+  padding: 12px;
+  position: fixed;
+}
+
+.navigation-links > li > a,
+.search-text,
+.search-button {
+  transition: 0.125s;
+}
+
+h1 {
+  margin-bottom: 2em;
+  margin-top: 2em;
+  text-align: center;
+}
+
+body {
+  font: 16px "Myriad Pro", "Segoe UI", system-ui, "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .navigation-panel {
+    flex-direction: row;
+    position: static;
+    width: 100%;
+  }
+
+  .navigation-panel-separator {
+    flex: 1;
+  }
+
+  .search-text {
+    width: 216px;
+  }
+
+  .navigation-links {
+    flex-direction: row;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .footer {
+    color: #555;
+    position: static;
+    text-align: center;
+  }
+}
