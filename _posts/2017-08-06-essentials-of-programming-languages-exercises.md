@@ -721,3 +721,167 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         '()
         (sort-helper pred '() loi))))
 ```
+
+> Exercise 1.31 [🟉] Write the following procedures for calculating on a bintree (definition 1.1.7): `leaf` and
+> `interior-node`, which build bintrees, `leaf?`, which tests whether a bintree is a leaf, and `lson`, `rson`, and
+> `contents-of`, which extract the components of a node. `contents-of` should work on both leaves and interior nodes.
+
+```scheme
+(define leaf
+  (lambda (int)
+    int))
+
+(define interior-node
+  (lambda (symbol left-child right-child)
+    (cons symbol (cons left-child right-child))))
+
+(define leaf? integer?)
+
+(define lson cadr)
+
+(define rson cddr)
+
+(define contents-of
+  (lambda (bin-tree)
+    (if (leaf? bin-tree)
+        bin-tree
+        (car bin-tree))))
+```
+
+> Exercise 1.32 [🟉] Write a procedure `double-tree` that takes a bintree, as represented in definition 1.1.7, and
+> produces another bintree like the original, but with all the integers in the leaves doubled.
+
+```scheme
+(define double-tree
+  (lambda (bin-tree)
+    (if (leaf? bin-tree)
+        (leaf (* (contents-of bin-tree) 2))
+        (interior-node (contents-of bin-tree)
+                       (double-tree (lson bin-tree))
+                       (double-tree (rson bin-tree))))))
+```
+
+> Exercise 1.33 [🟉🟉] Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
+> produces a bintree of the same shape as the original, except that in the new tree, each leaf contains the integer of
+> nodes between it and the root that contain the symbol `red`. For example, the expression
+>
+> ```scheme
+> (mark-leaves-with-red-depth
+>  (interior-node 'red
+>                 (interior-node 'bar
+>                                (leaf 26)
+>                                (leaf 12))
+>                 (interior-node 'red
+>                                (leaf 11)
+>                                (interior-node 'quux
+>                                               (leaf 117)
+>                                               (leaf 14)))))
+> ```
+>
+> which is written using the procedures defined in exercise 1.31, should return the bintree
+>
+> ```scheme
+> (red
+>  (bar 1 1)
+>  (red 2 (quux 2 2)))
+> ```
+
+```racket
+(define mark-leaves-with-red-depth-helper
+  (lambda (bin-tree red-num)
+    (if (leaf? bin-tree)
+        (leaf red-num)
+        (let* ([content (contents-of bin-tree)]
+               [new-red-num (if (eqv? content 'red) (+ red-num 1) red-num)])
+          (interior-node content
+                         (mark-leaves-with-red-depth-helper (lson bin-tree) new-red-num)
+                         (mark-leaves-with-red-depth-helper (rson bin-tree) new-red-num))))))
+
+(define mark-leaves-with-red-depth
+  (lambda (bin-tree)
+    (mark-leaves-with-red-depth-helper bin-tree 0)))
+```
+
+> Exercise 1.34 [🟉🟉🟉] Write a procedure `path` that takes an integer `n` and a binary search tree `bst` (page 10)
+> that contains the integer `n`, and returns a list of `left`s and `right`s showing how to find the node containing `n`.
+> If `n` is found at the root, it returns the empty list.
+>
+> ```scheme
+> > (path 17 '(14 (7 () (12 () ()))
+>                 (26 (20 (17 () ())
+>                         ())
+>                     (31 () ()))))
+> (right left left)
+> ```
+
+```racket
+(define path
+  (lambda (n bst)
+    (let ([head (car bst)])
+      (if (< n head)
+          (cons 'left (path n (cadr bst)))
+          (if (= n head)
+              '()
+              (cons 'right (path n (caddr bst))))))))
+```
+
+> Exercise 1.35 [🟉🟉🟉] Write a procedure `number-leaves` that takes a bintree, and produces a bintree like the
+> original, except the contents of the leaves are numbered starting from 0. For example,
+>
+> ```scheme
+> (number-leaves
+>  (interior-node 'foo
+>                 (interior-node 'bar
+>                                (leaf 26)
+>                                (leaf 12))
+>                 (interior-node 'baz
+>                                (leaf 11)
+>                                (interior-node 'quux
+>                                               (leaf 117)
+>                                               (leaf 14)))))
+> ```
+>
+> should return
+>
+> ```scheme
+> (foo
+>  (bar 0 1)
+>  (baz
+>   2
+>   (quux 3 4)))
+> ```
+
+```racket
+(define number-leaves-helper
+  (lambda (bin-tree n)
+    (if (leaf? bin-tree)
+        (cons (leaf n) (+ n 1))
+        (let* ([left-result (number-leaves-helper (lson bin-tree) n)]
+               [right-result (number-leaves-helper (rson bin-tree) (cdr left-result))])
+          (cons (interior-node (contents-of bin-tree)
+                               (car left-result)
+                               (car right-result))
+                (cdr right-result))))))
+
+(define number-leaves
+  (lambda (bin-tree)
+    (car (number-leaves-helper bin-tree 0))))
+```
+
+> Exercise 1.36 [🟉🟉🟉] Write a procedure `g` such that `number-elements` from page 23 could be defined as
+>
+> ```scheme
+> (define number-elements
+>   (lambda (lst)
+>     (if (null? lst) '()
+>         (g (list 0 (car lst)) (number-elements (cdr lst))))))
+> ```
+
+```scheme
+(define g
+  (lambda (head tail)
+    (cons head
+          (map (lambda (item)
+                 (list (+ (car item) 1) (cadr item)))
+               tail))))
+```
