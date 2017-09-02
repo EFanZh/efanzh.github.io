@@ -572,7 +572,6 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
 > (3 35 62 81 83 85 90 90 91)
 > ```
 
-
 ```racket
 (define merge-helper
   (lambda (loi1 loi2)
@@ -589,4 +588,69 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (if (null? loi1)
         loi2
         (merge-helper loi2 loi1))))
+```
+
+> Exercise 1.29 [🟉🟉] `(sort loi)` returns a list of the elements of `loi` in ascending order.
+>
+> ```scheme
+> > (sort '(8 2 5 2 3))
+> (2 2 3 5 8)
+> ```
+
+```racket
+(define get-run
+  (lambda (loi)
+    (let ([head1 (car loi)]
+          [tail1 (cdr loi)])
+      (if (null? tail1)
+          (cons loi '())
+          (let ([head2 (car tail1)])
+            (if (<= head1 head2)
+                (let ([tail-run (get-run tail1)])
+                  (cons (cons head1 (car tail-run)) (cdr tail-run)))
+                (cons (list head1) tail1)))))))
+
+(define merge
+  (lambda (run1 run2)
+    (let ([head1 (car run1)]
+          [head2 (car run2)])
+      (if (<= head1 head2)
+          (let ([tail1 (cdr run1)])
+            (if (null? tail1)
+                (cons head1 run2)
+                (cons head1 (merge tail1 run2))))
+          (let ([tail2 (cdr run2)])
+            (if (null? tail2)
+                (cons head2 run1)
+                (cons head2 (merge run1 tail2))))))))
+
+(define collapse-all
+  (lambda (stack run)
+    (if (null? stack)
+        run
+        (collapse-all (cdr stack) (merge (cdar stack) run)))))
+
+(define collapse
+  (lambda (stack level run)
+    (if (null? stack)
+        (list (cons level run))
+        (let ([top (car stack)])
+          (if (= (car top) level)
+              (collapse (cdr stack) (+ level 1) (merge (cdr top) run))
+              (cons (cons level run) stack))))))
+
+(define sort-helper
+  (lambda (stack loi)
+    (let* ([run-and-tail (get-run loi)]
+           [run (car run-and-tail)]
+           [tail (cdr run-and-tail)])
+      (if (null? tail)
+          (collapse-all stack run)
+          (sort-helper (collapse stack 0 run) tail)))))
+
+(define sort
+  (lambda (loi)
+    (if (null? loi)
+        '()
+        (sort-helper '() loi))))
 ```
