@@ -1012,3 +1012,58 @@ when the base becomes larger.
      (lambda (m n)
        (list 'diff m (list 'diff '(diff (one) (one)) n))))
    ```
+
+> Exercise 2.4 [🟉🟉] Consider the data type of *stacks* of values, with an interface consisting of the procedures
+> `empty-stack`, `push`, `pop`, `top`, and `empty-stack?`. Write a specification for these operations in the style of
+> the example above. Which operations are constructors and which are observers?
+
+- `(empty-stack)` = ⌈∅⌉
+- `(push `⌈*f*⌉` `*v*`)` = ⌈*g*⌉, where *g*(0) = *v*, and *g*(*n* + 1) = *f*(*n*)
+- `(pop `⌈*f*⌉`)` = *g*, where *g*(*n*) = *f*(*n* + 1)
+- `(top `⌈*f*⌉`)` = ⌈*f*(0)⌉
+- `(empty-stack? `⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise
+
+Constructors: `empty-stack`, `push` and `pop`.
+
+Observers: `top` and `empty-stack?`.
+
+> Exercise 2.5 [🟉] We can use any data structure for representing environments, if we can distinguish empty
+> environments from non-empty ones, and in which one can extract the pieces of a non-empty environment. Implement
+> environments using a representation in which the empty environment is represented as the empty list, and in which
+> `extend-env` builds an environment that looks like
+>
+> ```
+>      ┌───┬───┐
+>      │ ╷ │  ╶┼─► saved-env
+>      └─┼─┴───┘
+>        ▼
+>      ┌───┬───┐
+>      │ ╷ │ ╷ │
+>      └─┼─┴─┼─┘
+>     ┌──┘   └───┐
+>     ▼          ▼
+> saved-var  saved-val
+> ```
+>
+> This is called an *a-list* or *association-list* representation.
+
+```racket
+(define empty-env
+  (lambda ()
+    '()))
+
+(define apply-env
+  (lambda (env var)
+    (let ([head (car env)])
+      (if (eqv? (car head) var)
+          (cdr head)
+          (apply-env (cdr env) var)))))
+
+(define extend-env
+  (lambda (var v env)
+    (cons (cons var v) env)))
+```
+
+> Exercise 2.6 [🟉] Invent at least three different representations of the environment interface and implement them.
+
+*To be continued…*
