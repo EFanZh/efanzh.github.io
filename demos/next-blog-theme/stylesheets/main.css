@@ -114,11 +114,20 @@ body {
   margin: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1248px) {
+  html {
+    min-width: 480px;
+  }
+
   .navigation-panel {
     flex-direction: row;
     position: static;
     width: 100%;
+  }
+
+  .logo,
+  .navigation-links {
+    flex-shrink: 0;
   }
 
   .navigation-panel-separator {
@@ -126,7 +135,7 @@ body {
   }
 
   .search-text {
-    width: 216px;
+    width: 100%;
   }
 
   .navigation-links {
@@ -135,6 +144,10 @@ body {
 
   .main {
     margin-left: 0;
+  }
+
+  .blog-post pre {
+    overflow: auto;
   }
 
   .footer {
