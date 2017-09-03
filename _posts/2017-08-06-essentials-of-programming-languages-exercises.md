@@ -1034,7 +1034,7 @@ Observers: `top` and `empty-stack?`.
 >
 > ```
 >      ┌───┬───┐
->      │ ╷ │  ╶┼─► saved-env
+>      │ ╷ │ ╶─┼─► saved-env
 >      └─┼─┴───┘
 >        ▼
 >      ┌───┬───┐
