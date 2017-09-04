@@ -1053,15 +1053,15 @@ Observers: `top` and `empty-stack?`.
     '()))
 
 (define apply-env
-  (lambda (env var)
+  (lambda (env search-var)
     (let ([head (car env)])
-      (if (eqv? (car head) var)
+      (if (eqv? (car head) search-var)
           (cdr head)
-          (apply-env (cdr env) var)))))
+          (apply-env (cdr env) search-var)))))
 
 (define extend-env
-  (lambda (var v env)
-    (cons (cons var v) env)))
+  (lambda (var val env)
+    (cons (cons var val) env)))
 ```
 
 > Exercise 2.6 [🟉] Invent at least three different representations of the environment interface and implement them.
