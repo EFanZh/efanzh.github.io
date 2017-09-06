@@ -1117,3 +1117,9 @@ Observers: `top` and `empty-stack?`.
 
 > Exercise 2.8 [★] Add to the environment interface an observer called `empty-env?` and implement it using the
 > a-list representation.
+
+`(emtpy-env? `⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise.
+
+```scheme
+(define empty-env? null?)
+```
