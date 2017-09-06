@@ -9,14 +9,14 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EFanZh/tree
 
 ## Exercises
 
-> Exercise 0.1 [🟉] We often use phrases like “some languages have property X.” For each such phrase, find one or more
+> Exercise 0.1 [★] We often use phrases like “some languages have property X.” For each such phrase, find one or more
 > languages that have the property and one or more languages that do not have the property. Feel free to ferret out this
 > information from any descriptive book on programming languages (say Scott (2005), Sebesta (2007), or Pratt & Zelkowitz
 > (2001)).
 
 *Skipped for now.*
 
-> Exercise 1.1 [🟉] Write inductive definitions of the following sets. Write each definition in all three styles
+> Exercise 1.1 [★] Write inductive definitions of the following sets. Write each definition in all three styles
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
 >
@@ -95,12 +95,12 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EFanZh/tree
       - \$$ () / ((0, 0) in S) $$
       - \$$ ((m, n) in S) / ((m + 1, n + 2m + 1) in S) $$
 
-> Exercise 1.2 [🟉🟉] What sets are defined by the following pairs of rules? Explain why.
+> Exercise 1.2 [★★] What sets are defined by the following pairs of rules? Explain why.
 >
 > 1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
 > 2. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, 2k) in S) $$
 > 3. \$$ (0, 0, 1) in S quad ((n, i, j) in S) / ((n + 1, j, i + j) in S) $$
-> 4. [🟉🟉🟉] $$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
+> 4. [★★★] $$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
 
 1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
 
@@ -115,12 +115,12 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EFanZh/tree
 
    \$$ {(n, 2n + 1, n ^ 2) \| n in N} $$
 
-> Exercise 1.3 [🟉🟉🟉] Find a set $$ T $$ of natural numbers such that $$ 0 in T $$, and whenever $$ n in T $$, then
+> Exercise 1.3 [★★★] Find a set $$ T $$ of natural numbers such that $$ 0 in T $$, and whenever $$ n in T $$, then
 > $$ n + 3 in T $$, but $$ T != S $$, where $$ S $$ is the set defined in definition 1.1.2.
 
 Let $$ T = N $$.
 
-> Exercise 1.4 [🟉] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
+> Exercise 1.4 [★] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
 
 *List-of-Int* \\
 ⇒ `(`*Int*` . `*List-of-Int*`)` \\
@@ -131,7 +131,7 @@ Let $$ T = N $$.
 ⇒ `(-7 . (3 . (14 . `*List-of-Int*`)))` \\
 ⇒ `(-7 . (3 . (14 . ())))`
 
-> Exercise 1.5 [🟉🟉] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
+> Exercise 1.5 [★★] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
 
 By induction on the structre of *LcExp*.
 
@@ -145,11 +145,11 @@ If *e* is of `(`*LcExp*` `*LcExp*`)` form, let $$ m $$ be the number of left or 
 let $$ n $$ be the number of left or right parentheses in the second *LcExp*, then *e* has $$ m + n + 1 $$ left
 parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
 
-> Exercise 1.6 [🟉] If we reversed the order of the tests in `nth-element`, what would go wrong?
+> Exercise 1.6 [★] If we reversed the order of the tests in `nth-element`, what would go wrong?
 
 `car` may be applied to empty list.
 
-> Exercise 1.7 [🟉🟉] The error message from `nth-element` is uninformative. Rewrite `nth-element` so that it produces a
+> Exercise 1.7 [★★] The error message from `nth-element` is uninformative. Rewrite `nth-element` so that it produces a
 > more informative error message, such as “`(a b c)` does not have 8 elements.”
 
 ```scheme
@@ -171,7 +171,7 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
     (nth-element-helper lst n lst n)))
 ```
 
-> Exercise 1.8 [🟉] In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
+> Exercise 1.8 [★] In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
 > what function would the resulting procedure compute? Give the contract, including the usage statement, for the revised
 > procedure.
 
@@ -190,7 +190,7 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
             (remove-first s (cdr los))))))
 ```
 
-> Exercise 1.9 [🟉🟉] Define `remove`, which is like `remove-first`, except that it removes all occurrences of a given
+> Exercise 1.9 [★★] Define `remove`, which is like `remove-first`, except that it removes all occurrences of a given
 > symbol from a list of symbols, not just the first.
 
 ```scheme
@@ -203,17 +203,17 @@ parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
             (cons (car los) (remove s (cdr los)))))))
 ```
 
-> Exercise 1.10 [🟉] We typically use “or” to mean “inclusive or”. What other meanings can “or” have?
+> Exercise 1.10 [★] We typically use “or” to mean “inclusive or”. What other meanings can “or” have?
 
 Exclusive or.
 
-> Exercise 1.11 [🟉] In the last line of `subst-in-s-exp`, the recursion is on sexp and not a smaller substructure. Why
+> Exercise 1.11 [★] In the last line of `subst-in-s-exp`, the recursion is on sexp and not a smaller substructure. Why
 > is the recursion guaranteed to halt?
 
 Because `subst` recurs on smaller substructure. We can replace the call to `subst-in-s-exp` with the body of
 `subst-in-s-exp`, then `subst` becomes a normal recursive on a smaller substructure.
 
-> Exercise 1.12 [🟉] Eliminate the one call to `subst-in-s-exp` in subst by replacing it by its definition and
+> Exercise 1.12 [★] Eliminate the one call to `subst-in-s-exp` in subst by replacing it by its definition and
 > simplifying the resulting procedure. The result will be a version of subst that does not need `subst-in-s-exp`. This
 > technique is called *inlining*, and is used by optimizing compilers.
 
@@ -229,7 +229,7 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
               (subst new old (cdr slist))))))
 ```
 
-> Exercise 1.13 [🟉🟉] In our example, we began by eliminating the Kleene star in the grammar for *S-list*. Write
+> Exercise 1.13 [★★] In our example, we began by eliminating the Kleene star in the grammar for *S-list*. Write
 > `subst` following the original grammar by using `map`.
 
 ```scheme
@@ -245,7 +245,7 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
          slist)))
 ```
 
-> Exercise 1.14 [🟉🟉] Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
+> Exercise 1.14 [★★] Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
 
 Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at leat 1, so that *v* contains at least one element. We
 prove `partial-vector-sum` is correct by induction over *n*.
@@ -257,7 +257,7 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum `*v*` `*n*`)` equals to
 `(add (vector-ref `*v*` `*n*`) (partial-vector-sum `*v*` (- `*n*` 1)))`, which equals to
 $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0) ^ (i = n) v _ i $$, the claim holds.
 
-> Exercise 1.15 [🟉] `(duple n x)` returns a list containing `n` copies of `x`.
+> Exercise 1.15 [★] `(duple n x)` returns a list containing `n` copies of `x`.
 >
 > ```scheme
 > > (duple 2 3)
@@ -280,7 +280,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (duple-helper '() n x)))
 ```
 
-> Exercise 1.16 [🟉] `(invert lst)`, where lst is a list of 2-lists (lists of length two), returns a list with each
+> Exercise 1.16 [★] `(invert lst)`, where lst is a list of 2-lists (lists of length two), returns a list with each
 > 2-list reversed.
 >
 > ```scheme
@@ -295,7 +295,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
          lst)))
 ```
 
-> Exercise 1.17 [🟉] `(down lst)` wraps parentheses around each top-level element of `lst`.
+> Exercise 1.17 [★] `(down lst)` wraps parentheses around each top-level element of `lst`.
 >
 > ```scheme
 > > (down '(1 2 3))
@@ -313,7 +313,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
          lst)))
 ```
 
-> Exercise 1.18 [🟉] `(swapper s1 s2 slist)` returns a list the same as slist, but with all occurrences of `s1` replaced
+> Exercise 1.18 [★] `(swapper s1 s2 slist)` returns a list the same as slist, but with all occurrences of `s1` replaced
 > by `s2` and all occurrences of `s2` replaced by `s1`.
 >
 > ```scheme
@@ -339,7 +339,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
          slist)))
 ```
 
-> Exercise 1.19 [🟉] `(list-set lst n x)` returns a list like `lst`, except that the `n`-th element, using zero-based
+> Exercise 1.19 [★] `(list-set lst n x)` returns a list like `lst`, except that the `n`-th element, using zero-based
 > indexing, is `x`.
 >
 > ```scheme
@@ -357,7 +357,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (cons (car lst) (list-set (cdr lst) (- n 1) x)))))
 ```
 
-> Exercise 1.20 [🟉] `(count-occurrences s slist)` returns the number of occurrences of `s` in `slist`.
+> Exercise 1.20 [★] `(count-occurrences s slist)` returns the number of occurrences of `s` in `slist`.
 >
 > ```scheme
 > > (count-occurrences 'x '((f x) y (((x z) x))))
@@ -383,7 +383,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
            (count-occurrences s (cdr slist))))))
 ```
 
-> Exercise 1.21 [🟉🟉] `(product sos1 sos2)`, where `sos1` and `sos2` are each a list of symbols without repetitions,
+> Exercise 1.21 [★★] `(product sos1 sos2)`, where `sos1` and `sos2` are each a list of symbols without repetitions,
 > returns a list of 2-lists that represents the Cartesian product of `sos1` and `sos2`. The 2-lists may appear in any
 > order.
 >
@@ -412,7 +412,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (product-helper '() sos1 sos2)))
 ```
 
-> Exercise 1.22 [🟉🟉] `(filter-in pred lst)` returns the list of those elements in `lst` that satisfy the predicate
+> Exercise 1.22 [★★] `(filter-in pred lst)` returns the list of those elements in `lst` that satisfy the predicate
 > `pred`.
 >
 > ```scheme
@@ -434,7 +434,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
               tail)))))
 ```
 
-> Exercise 1.23 [🟉🟉] `(list-index pred lst)` returns the 0-based position of the first element of `lst` that satisfies
+> Exercise 1.23 [★★] `(list-index pred lst)` returns the 0-based position of the first element of `lst` that satisfies
 > the predicate `pred`. If no element of `lst` satisfies the predicate, then `list-index` returns `#f`.
 >
 > ```scheme
@@ -460,7 +460,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (list-index-helper 0 pred lst)))
 ```
 
-> Exercise 1.24 [🟉🟉] `(every? pred lst)` returns `#f` if any element of `lst` fails to satisfy `pred`, and returns
+> Exercise 1.24 [★★] `(every? pred lst)` returns `#f` if any element of `lst` fails to satisfy `pred`, and returns
 > `#t` otherwise.
 >
 > ```scheme
@@ -479,7 +479,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
              (every? pred (cdr lst))))))
 ```
 
-> Exercise 1.25 [🟉🟉] `(exists? pred lst)` returns `#t` if any element of `lst` satisfies `pred`, and returns `#f`
+> Exercise 1.25 [★★] `(exists? pred lst)` returns `#t` if any element of `lst` satisfies `pred`, and returns `#f`
 > otherwise.
 >
 > ```scheme
@@ -498,7 +498,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
             (exists? pred (cdr lst))))))
 ```
 
-> Exercise 1.26 [🟉🟉] `(up lst)` removes a pair of parentheses from each top-level element of `lst`. If a top-level
+> Exercise 1.26 [★★] `(up lst)` removes a pair of parentheses from each top-level element of `lst`. If a top-level
 > element is not a list, it is included in the result, as is. The value of `(up (down lst))` is equivalent to lst,
 > but `(down (up lst))` is not necessarily `lst`. (See exercise 1.17.)
 >
@@ -529,7 +529,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (up-element (up (cdr lst)) (car lst)))))
 ```
 
-> Exercise 1.27 [🟉🟉] `(flatten slist)` returns a list of the symbols contained in `slist` in the order in which they
+> Exercise 1.27 [★★] `(flatten slist)` returns a list of the symbols contained in `slist` in the order in which they
 > occur when `slist` is printed. Intuitively, `flatten` removes all the inner parentheses from its argument.
 >
 > ```scheme
@@ -562,7 +562,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (flatten-helper '() slist)))
 ```
 
-> Exercise 1.28 [🟉🟉] `(merge loi1 loi2)`, where `loi1` and `loi2` are lists of integers that are sorted in ascending
+> Exercise 1.28 [★★] `(merge loi1 loi2)`, where `loi1` and `loi2` are lists of integers that are sorted in ascending
 > order, returns a sorted list of all the integers in `loi1` and `loi2`.
 >
 > ```scheme
@@ -590,7 +590,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (merge-helper loi2 loi1))))
 ```
 
-> Exercise 1.29 [🟉🟉] `(sort loi)` returns a list of the elements of `loi` in ascending order.
+> Exercise 1.29 [★★] `(sort loi)` returns a list of the elements of `loi` in ascending order.
 >
 > ```scheme
 > > (sort '(8 2 5 2 3))
@@ -655,7 +655,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (sort-helper '() loi))))
 ```
 
-> Exercise 1.30 [🟉🟉] `(sort/predicate pred loi)` returns a list of elements sorted by the predicate.
+> Exercise 1.30 [★★] `(sort/predicate pred loi)` returns a list of elements sorted by the predicate.
 >
 > ```scheme
 >  > (sort/predicate < '(8 2 5 2 3))
@@ -722,7 +722,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (sort-helper pred '() loi))))
 ```
 
-> Exercise 1.31 [🟉] Write the following procedures for calculating on a bintree (definition 1.1.7): `leaf` and
+> Exercise 1.31 [★] Write the following procedures for calculating on a bintree (definition 1.1.7): `leaf` and
 > `interior-node`, which build bintrees, `leaf?`, which tests whether a bintree is a leaf, and `lson`, `rson`, and
 > `contents-of`, which extract the components of a node. `contents-of` should work on both leaves and interior nodes.
 
@@ -748,7 +748,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
         (car bin-tree))))
 ```
 
-> Exercise 1.32 [🟉] Write a procedure `double-tree` that takes a bintree, as represented in definition 1.1.7, and
+> Exercise 1.32 [★] Write a procedure `double-tree` that takes a bintree, as represented in definition 1.1.7, and
 > produces another bintree like the original, but with all the integers in the leaves doubled.
 
 ```scheme
@@ -761,7 +761,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
                        (double-tree (rson bin-tree))))))
 ```
 
-> Exercise 1.33 [🟉🟉] Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
+> Exercise 1.33 [★★] Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
 > produces a bintree of the same shape as the original, except that in the new tree, each leaf contains the integer of
 > nodes between it and the root that contain the symbol `red`. For example, the expression
 >
@@ -802,7 +802,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (mark-leaves-with-red-depth-helper bin-tree 0)))
 ```
 
-> Exercise 1.34 [🟉🟉🟉] Write a procedure `path` that takes an integer `n` and a binary search tree `bst` (page 10)
+> Exercise 1.34 [★★★] Write a procedure `path` that takes an integer `n` and a binary search tree `bst` (page 10)
 > that contains the integer `n`, and returns a list of `left`s and `right`s showing how to find the node containing `n`.
 > If `n` is found at the root, it returns the empty list.
 >
@@ -825,7 +825,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
               (cons 'right (path n (caddr bst))))))))
 ```
 
-> Exercise 1.35 [🟉🟉🟉] Write a procedure `number-leaves` that takes a bintree, and produces a bintree like the
+> Exercise 1.35 [★★★] Write a procedure `number-leaves` that takes a bintree, and produces a bintree like the
 > original, except the contents of the leaves are numbered starting from 0. For example,
 >
 > ```scheme
@@ -868,7 +868,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
     (car (number-leaves-helper bin-tree 0))))
 ```
 
-> Exercise 1.36 [🟉🟉🟉] Write a procedure `g` such that `number-elements` from page 23 could be defined as
+> Exercise 1.36 [★★★] Write a procedure `g` such that `number-elements` from page 23 could be defined as
 >
 > ```scheme
 > (define number-elements
@@ -886,7 +886,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
                tail))))
 ```
 
-> Exercise 2.1 [🟉] Implement the four required operations for bigits. Then use your implementation to calculate the
+> Exercise 2.1 [★] Implement the four required operations for bigits. Then use your implementation to calculate the
 > factorial of 10. How does the execution time vary as this argument changes? How does the execution time vary as the
 > base changes? Explain why.
 
@@ -951,14 +951,14 @@ When the argument of `factorial` becomes larger, the execution time becomes long
 The execution time becomes shorter when the base becomes larger. I think that’s because fewer allocations are needed
 when the base becomes larger.
 
-> Exercise 2.2 [🟉🟉] Analyze each of these proposed representations critically. To what extent do they succeed or fail
+> Exercise 2.2 [★★] Analyze each of these proposed representations critically. To what extent do they succeed or fail
 > in satisfying the specification of the data type?
 
 1. Unary representation. Too much space consumed.
 2. Scheme number representation. Not every language has native big integer support.
 3. Bignum representation. Not easy to implement.
 
-> Exercise 2.3 [🟉🟉] Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
+> Exercise 2.3 [★★] Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
 > diff-tree is a list defined by the grammar
 >
 > *Diff-tree* ::= `(one)` | `(diff `*Diff-tree*` `*Diff-tree*`)`
@@ -1013,7 +1013,7 @@ when the base becomes larger.
        (list 'diff m (list 'diff '(diff (one) (one)) n))))
    ```
 
-> Exercise 2.4 [🟉🟉] Consider the data type of *stacks* of values, with an interface consisting of the procedures
+> Exercise 2.4 [★★] Consider the data type of *stacks* of values, with an interface consisting of the procedures
 > `empty-stack`, `push`, `pop`, `top`, and `empty-stack?`. Write a specification for these operations in the style of
 > the example above. Which operations are constructors and which are observers?
 
@@ -1027,7 +1027,7 @@ Constructors: `empty-stack`, `push` and `pop`.
 
 Observers: `top` and `empty-stack?`.
 
-> Exercise 2.5 [🟉] We can use any data structure for representing environments, if we can distinguish empty
+> Exercise 2.5 [★] We can use any data structure for representing environments, if we can distinguish empty
 > environments from non-empty ones, and in which one can extract the pieces of a non-empty environment. Implement
 > environments using a representation in which the empty environment is represented as the empty list, and in which
 > `extend-env` builds an environment that looks like
@@ -1064,11 +1064,11 @@ Observers: `top` and `empty-stack?`.
     (cons (cons var val) env)))
 ```
 
-> Exercise 2.6 [🟉] Invent at least three different representations of the environment interface and implement them.
+> Exercise 2.6 [★] Invent at least three different representations of the environment interface and implement them.
 
 *Deferred.*
 
-> Exercise 2.7 [🟉] Rewrite `apply-env` in figure 2.1 to give a more informative error message.
+> Exercise 2.7 [★] Rewrite `apply-env` in figure 2.1 to give a more informative error message.
 
 ```racket
 (define empty-env
@@ -1114,3 +1114,6 @@ Observers: `top` and `empty-stack?`.
   (lambda (env)
     (eopl:error 'apply-env "Bad environment: ~s" env)))
 ```
+
+> Exercise 2.8 [★] Add to the environment interface an observer called `empty-env?` and implement it using the
+> a-list representation.
