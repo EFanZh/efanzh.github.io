@@ -1128,10 +1128,30 @@ Observers: `top` and `empty-stack?`.
 > and a variable *s* and tests to see if *s* has an associated value in *env*. Implement it using the a-list
 > representation.
 
+`(has-binding? `⌈*f*⌉`)` = `#t` if *f*(*var*) = *val* for some *var* and *val*, `#f` otherwise.
+
 ```racket
 (define has-binding?
   (lambda (env search-var)
     (cond [(null? env) #f]
           [(eqv? (caar env) search-var) #t]
           [else (has-binding? (cdr env) search-var)])))
+```
+
+> Exercise 2.10 [★] Add to the environment interface a constructor `extend-env*`, and implement it using the a-list
+> representation. This constructor takes a list of variables, a list of values of the same length, and an environment,
+> and is specified by
+>
+> `(extend-env* (`*var*<sub>1</sub> … *var*<sub>*k*</sub>`) (`*val*<sub>1</sub> … *val*<sub>*k*</sub>`) `⌈*f*⌉`)` = ⌈*g*⌉,
+> where *g*(*var*) = *val*<sub>*i*</sub> if *var* = *var*<sub>*i*</sub> for some *i* such that 1 ≤ *i* ≤ *k*, *f*(*var*)
+> otherwise.
+
+```scheme
+(define extend-env*
+  (lambda (vars vals env)
+    (if (null? vars)
+        env
+        (extend-env* (cdr vars)
+                     (cdr vals)
+                     (cons (cons (car vars) (car vals)) env)))))
 ```
