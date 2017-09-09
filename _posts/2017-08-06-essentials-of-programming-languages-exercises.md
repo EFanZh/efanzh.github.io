@@ -1033,16 +1033,16 @@ Observers: `top` and `empty-stack?`.
 > `extend-env` builds an environment that looks like
 >
 > ```
->      ┌───┬───┐
->      │ ╷ │ ╶─┼─► saved-env
->      └─┼─┴───┘
->        ▼
->      ┌───┬───┐
->      │ ╷ │ ╷ │
->      └─┼─┴─┼─┘
->     ┌──┘   └───┐
->     ▼          ▼
-> saved-var  saved-val
+>       ┌───┬───┐
+>       │ ╷ │ ╶─┼─► saved-env
+>       └─┼─┴───┘
+>         ▼
+>       ┌───┬───┐
+>       │ ╷ │ ╷ │
+>       └─┼─┴─┼─┘
+>     ┌───┘   └───┐
+>     ▼           ▼
+> saved-var   saved-val
 > ```
 >
 > This is called an *a-list* or *association-list* representation.
@@ -1154,4 +1154,213 @@ Observers: `top` and `empty-stack?`.
         (extend-env* (cdr vars)
                      (cdr vals)
                      (cons (cons (car vars) (car vals)) env)))))
+```
+
+> Exercise 2.11 [★★] A naive implementation of `extend-env*` from the preceding exercise requires time proportional to
+> *k* to run. It is possible to represent environments so that `extend-env*` requires only constant time: represent
+> the empty environment by the empty list, and represent a non-empty environment by the data structure
+>
+> ```
+>       ┌───┬───┐
+>       │ ╷ │ ╶─┼─► saved-env
+>       └─┼─┴───┘
+>         ▼
+>       ┌───┬───┐
+>       │ ╷ │ ╷ │
+>       └─┼─┴─┼─┘
+>     ┌───┘   └───┐
+>     ▼           ▼
+> saved-vars  saved-vals
+> ```
+>
+> Such an environment might look like
+>
+> ```
+>                backbone
+>                   │
+>     ┌───┬───┐     ▼     ┌───┬───┐           ┌───┬───┐
+>     │ ╷ │ ╶─┼──────────►│ ╷ │ ╶─┼──────────►│ ╷ │ ╶─┼──────────► rest of environment
+>     └─┼─┴───┘           └─┼─┴───┘           └─┼─┴───┘
+>       ▼                   ▼                   ▼
+>     ┌───┬───┐           ┌───┬───┐           ┌───┬───┐
+>     │ ╷ │ ╷ │           │ ╷ │ ╷ │           │ ╷ │ ╷ │
+>     └─┼─┴─┼─┘           └─┼─┴─┼─┘           └─┼─┴─┼─┘
+>    ┌──┘   └──┐         ┌──┘   └──┐         ┌──┘   └──┐
+>    ▼         ▼         ▼         ▼         ▼         ▼
+> (a b c)  (11 12 13)  (x z)    (66 77)    (x y)    (88 99)
+> ```
+>
+> This is called the *ribcage* representation. The environment is represented as a list of pairs called *ribs*; each
+> left rib is a list of variables and each right rib is the corresponding list of values.
+>
+> Implement the environment interface, including `extend-env*`, in this representation.
+
+```racket
+(define empty-env
+  (lambda ()
+    '()))
+
+(define apply-env
+  (lambda (env search-var)
+    (let loop ([env env])
+      (let ([rib (car env)])
+        (let apply-rib ([vars (car rib)]
+                        [vals (cdr rib)])
+          (cond [(null? vars) (loop (cdr env))]
+                [(eqv? (car vars) search-var) (car vals)]
+                [else (apply-rib (cdr vars) (cdr vals))]))))))
+
+(define extend-env*
+  (lambda (vars vals env)
+    (cons (cons vars vals) env)))
+
+(define extend-env
+  (lambda (var val env)
+    (extend-env* (list var) (list val) env)))
+```
+
+> Exercise 2.12 [★] Implement the stack data type of exercise 2.4 using a procedural representation.
+
+```racket
+(define empty-stack
+  (lambda ()
+    (lambda (command)
+      (cond [(eqv? command 'empty?) #t]))))
+
+(define push
+  (lambda (stack val)
+    (lambda (command)
+      (cond [(eqv? command 'empty?) #f]
+            [(eqv? command 'pop) stack]
+            [(eqv? command 'top) val]))))
+
+(define pop
+  (lambda (stack)
+    (stack 'pop)))
+
+(define top
+  (lambda (stack)
+    (stack 'top)))
+
+(define empty-stack?
+  (lambda (stack)
+    (stack 'empty?)))
+```
+
+> Exercise 2.13 [★★] Extend the procedural representation to implement `empty-env?` by representing the environment by
+> a list of two procedures: one that returns the value associated with a variable, as before, and one that returns
+> whether or not the environment is empty.
+
+```scheme
+(define report-no-binding-found
+  (lambda (search-var)
+    (eopl:error 'apply-env "No binding for ~s" search-var)))
+
+(define empty-env
+  (lambda ()
+    (list (lambda (search-var)
+            (report-no-binding-found search-var))
+          (lambda ()
+            #t))))
+
+(define empty-env?
+  (lambda (env)
+    ((cadr env))))
+
+(define extend-env
+  (lambda (saved-var saved-val saved-env)
+    (list (lambda (search-var)
+            (if (eqv? search-var saved-var)
+                saved-val
+                (apply-env saved-env search-var)))
+          (lambda ()
+            #f))))
+
+(define apply-env
+  (lambda (env search-var)
+    ((car env) search-var)))
+```
+
+> Exercise 2.14 [★★] Extend the representation of the preceding exercise to include a third procedure that implements
+> `has-binding?` (see exercise 2.9).
+
+```scheme
+(define report-no-binding-found
+  (lambda (search-var)
+    (eopl:error 'apply-env "No binding for ~s" search-var)))
+
+(define empty-env
+  (lambda ()
+    (list (lambda (search-var)
+            (report-no-binding-found search-var))
+          (lambda ()
+            #t)
+          (lambda (search-var)
+            #f))))
+
+(define empty-env?
+  (lambda (env)
+    ((cadr env))))
+
+(define extend-env
+  (lambda (saved-var saved-val saved-env)
+    (list (lambda (search-var)
+            (if (eqv? search-var saved-var)
+                saved-val
+                (apply-env saved-env search-var)))
+          (lambda ()
+            #f)
+          (lambda (search-var)
+            (or (eqv? saved-var search-var)
+                (has-binding? saved-env search-var))))))
+
+(define apply-env
+  (lambda (env search-var)
+    ((car env) search-var)))
+
+(define has-binding?
+  (lambda (env search-var)
+    ((caddr env) search-var)))
+```
+
+> Exercise 2.15 [★] Implement the lambda-calculus expression interface for the representation specified by the grammar
+> above.
+
+```scheme
+(define var-exp
+  (lambda (var)
+    var))
+
+(define lambda-exp
+  (lambda (bound-var body)
+    `(lambda (,bound-var)
+       ,body)))
+
+(define app-exp
+  (lambda (operator operand)
+    `(,operator ,operand)))
+
+(define var-exp? symbol?)
+
+(define lambda-exp?
+  (lambda (exp)
+    (and (pair? exp)
+         (eqv? (car exp) 'lambda))))
+
+(define app-exp?
+  (lambda (exp)
+    (and (pair? exp)
+         (not (eqv? (car exp) 'lambda)))))
+
+(define var-exp->var
+  (lambda (exp)
+    exp))
+
+(define lambda-exp->bound-var caadr)
+
+(define lambda-exp->body caddr)
+
+(define app-exp->rator car)
+
+(define app-exp->rand cadr)
 ```
