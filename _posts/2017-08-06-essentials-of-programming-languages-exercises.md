@@ -762,7 +762,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
 ```
 
 > Exercise 1.33 [★★] Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
-> produces a bintree of the same shape as the original, except that in the new tree, each leaf contains the integer of
+> produces a bintree of the same shape as the original, except that in the new tree, each leaf contains the number of
 > nodes between it and the root that contain the symbol `red`. For example, the expression
 >
 > ```scheme
@@ -961,7 +961,7 @@ when the base becomes larger.
 > Exercise 2.3 [★★] Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
 > diff-tree is a list defined by the grammar
 >
-> *Diff-tree* ::= `(one)` | `(diff `*Diff-tree*` `*Diff-tree*`)`
+> *Diff-tree* ::= `(one)` \| `(diff `*Diff-tree*` `*Diff-tree*`)`
 >
 > The list `(one)` represents 1. If $$ t _ 1 $$ represents $$ n _ 1 $$ and $$ t _ 2 $$ represents $$ n _ 2 $$, then
 > `(diff t1 t2)` is a representation of $$ n _ 1 - n _ 2 $$.
@@ -1363,4 +1363,245 @@ Observers: `top` and `empty-stack?`.
 (define app-exp->rator car)
 
 (define app-exp->rand cadr)
+```
+
+> Exercise 2.16 [★] Modify the implementation to use a representation in which there are no parentheses around the
+> bound variable in a `lambda` expression.
+
+```scheme
+(define lambda-exp
+  (lambda (bound-var body)
+    `(lambda ,bound-var ,body)))
+
+(define lambda-exp->bound-var cadr)
+```
+
+Remaining implementations are the same as the ones in exercise 2.15.
+
+> Exercise 2.17 [★] Invent at least two other representations of the data type of lambda-calculus expressions and
+> implement them.
+
+*Skipped for now.*
+
+> Exercise 2.18 [★] We usually represent a sequence of values as a list. In this representation, it is easy to move
+> from one element in a sequence to the next, but it is hard to move from one element to the preceding one without the
+> help of context arguments. Implement non-empty bidirectional sequences of integers, as suggested by the grammar
+>
+> *NodeInSequence* ::= `(`*Int*` `*Listof*`(`*Int*`) `*Listof*`(`*Int*`))`
+>
+> The first list of numbers is the elements of the sequence preceding the current one, in reverse order, and the second
+> list is the elements of the sequence after the current one. For example, `(6 (5 4 3 2 1) (7 8 9))` represents the list
+> `(1 2 3 4 5 6 7 8 9)`, with the focus on the element 6.
+>
+> In this representation, implement the procedure `number->sequence`, which takes a number and produces a sequence
+> consisting of exactly that number. Also implement `current-element`, `move-to-left`, `move-to-right`,
+> `insert-to-left`, `insert-to-right`, `at-left-end?`, and `at-right-end?`.
+>
+> For example:
+>
+> ```scheme
+> > (number->sequence 7)
+> (7 () ())
+> > (current-element '(6 (5 4 3 2 1) (7 8 9)))
+> 6
+> > (move-to-left '(6 (5 4 3 2 1) (7 8 9)))
+> (5 (4 3 2 1) (6 7 8 9))
+> > (move-to-right '(6 (5 4 3 2 1) (7 8 9)))
+> (7 (6 5 4 3 2 1) (8 9))
+> > (insert-to-left 13 '(6 (5 4 3 2 1) (7 8 9)))
+> (6 (13 5 4 3 2 1) (7 8 9))
+> > (insert-to-right 13 '(6 (5 4 3 2 1) (7 8 9)))
+> (6 (5 4 3 2 1) (13 7 8 9))
+> ```
+>
+> The procedure `move-to-right` should fail if its argument is at the right end of the sequence, and the procedure
+> `move-to-left` should fail if its argument is at the left end of the sequence.
+
+```racket
+(define number->sequence
+  (lambda (num)
+    (list num '() '())))
+
+(define current-element car)
+
+(define move-to-left
+  (lambda (node)
+    (let ([before (cadr node)])
+      (if (null? before)
+          (eopl:error 'move-to-left "Cannot move to left when at left end.")
+          (let ([num (car node)]
+                [after (caddr node)])
+            (list (car before) (cdr before) (cons num after)))))))
+
+(define move-to-right
+  (lambda (node)
+    (let ([after (caddr node)])
+      (if (null? after)
+          (eopl:error 'move-to-right "Cannot move to right when at right end.")
+          (let ([num (car node)]
+                [before (cadr node)])
+            (list (car after) (cons num before) (cdr after)))))))
+
+(define insert-to-left
+  (lambda (num node)
+    (let ([current (car node)]
+          [before (cadr node)]
+          [after (caddr node)])
+      (list current (cons num before) after))))
+
+(define insert-to-right
+  (lambda (num node)
+    (let ([current (car node)]
+          [before (cadr node)]
+          [after (caddr node)])
+      (list current before (cons num after)))))
+
+(define at-left-end?
+  (lambda (node)
+    (null? (cadr node))))
+
+(define at-right-end?
+  (lambda (node)
+    (null? (caddr node))))
+```
+
+> Exercise 2.19 [★] A binary tree with empty leaves and with interior nodes labeled with integers could be represented
+> using the grammar
+>
+> Bintree ::= `()` \| `(`*Int*` `*Bintree*` `*Bintree*`)`
+>
+> In this representation, implement the procedure `number->bintree`, which takes a number and produces a binary tree
+> consisting of a single node containing that number. Also implement `current-element`, `move-to-left-son`,
+> `move-to-right-son`, `at-leaf?`, `insert-to-left`, and `insert-to-right`. For example,
+>
+> ```scheme
+> > (number->bintree 13)
+> (13 () ())
+> > (define t1 (insert-to-right 14
+>                               (insert-to-left 12
+>                                               (number->bintree 13))))
+> > t1
+> (13
+>  (12 () ())
+>  (14 () ()))
+> > (move-to-left-son t1)
+> (12 () ())
+> > (current-element (move-to-left-son t1))
+> 12
+> > (at-leaf? (move-to-right-son (move-to-left-son t1)))
+> #t
+> > (insert-to-left 15 t1)
+> (13
+>  (15
+>   (12 () ())
+>   ())
+>  (14 () ()))
+> ```
+
+```racket
+(define number->bintree
+  (lambda (num)
+    `(,num () ())))
+
+(define current-element car)
+
+(define move-to-left-son cadr)
+
+(define move-to-right-son caddr)
+
+(define at-leaf? null?)
+
+(define insert-to-left
+  (lambda (num bintree)
+    (let ([root-value (car bintree)]
+          [left-child (cadr bintree)]
+          [right-child (caddr bintree)])
+      `(,root-value (,num ,left-child ()) ,right-child))))
+
+(define insert-to-right
+  (lambda (num bintree)
+    (let ([root-value (car bintree)]
+          [left-child (cadr bintree)]
+          [right-child (caddr bintree)])
+      `(,root-value ,left-child (,num () ,right-child)))))
+```
+
+> Exercise 2.20 [★★★] In the representation of binary trees in exercise 2.19 it is easy to move from a parent node to
+> one of its sons, but it is impossible to move from a son to its parent without the help of context arguments. Extend
+> the representation of lists in exercise 2.18 to represent nodes in a binary tree. As a hint, consider representing the
+> portion of the tree above the current node by a reversed list, as in exercise 2.18.
+>
+> In this representation, implement the procedures from exercise 2.19. Also implement `move-up` and `at-root?`.
+
+```racket
+(define number->bintree
+  (lambda (num)
+    (cons `(,num () ()) '())))
+
+(define current-element caar)
+
+(define move-to-left-son
+  (lambda (bintree)
+    (let* ([current (car bintree)]
+           [value (car current)]
+           [left-son (cadr current)]
+           [right-son (caddr current)]
+           [parents (cdr bintree)])
+      (cons left-son
+            (cons (list value 'right right-son)
+                  parents)))))
+
+(define move-to-right-son
+  (lambda (bintree)
+    (let* ([current (car bintree)]
+           [value (car current)]
+           [left-son (cadr current)]
+           [right-son (caddr current)]
+           [parents (cdr bintree)])
+      (cons right-son
+            (cons (list value 'left left-son)
+                  parents)))))
+
+(define at-leaf?
+  (lambda (bintree)
+    (null? (car bintree))))
+
+(define insert-to-left
+  (lambda (num bintree)
+    (let* ([current (car bintree)]
+           [value (car current)]
+           [left-son (cadr current)]
+           [right-son (caddr current)]
+           [parents (cdr bintree)])
+      (cons `(,value (,num ,left-son ()) ,right-son)
+            parents))))
+
+(define insert-to-right
+  (lambda (num bintree)
+    (let* ([current (car bintree)]
+           [value (car current)]
+           [left-son (cadr current)]
+           [right-son (caddr current)]
+           [parents (cdr bintree)])
+      (cons `(,value ,left-son (,num () ,right-son))
+            parents))))
+
+(define move-up
+  (lambda (bintree)
+    (let* ([current (car bintree)]
+           [parents (cdr bintree)]
+           [parent (car parents)]
+           [parent-value (car parent)]
+           [parent-other-branch (cadr parent)]
+           [parent-other-son (caddr parent)]
+           [rest-parents (cdr parents)])
+      (if (eqv? parent-other-branch 'left)
+          (cons (list parent-value parent-other-son current)
+                rest-parents)
+          (cons (list parent-value current parent-other-son)
+                rest-parents)))))
+
+(define at-root?
+  (lambda (bintree)
+    (null? (cdr bintree))))
 ```
