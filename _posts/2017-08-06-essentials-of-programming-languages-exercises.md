@@ -1666,3 +1666,47 @@ Remaining implementations are the same as the ones in exercise 2.15.
       [empty-stack () #t]
       [push (saved-stack val) #f])))
 ```
+
+> Exercise 2.23 [★] The definition of `lc-exp` ignores the condition in definition 1.1.8 that says “*Identifier* is any
+> symbol other than `lambda`.” Modify the definition of *identifier?* to capture this condition. As a hint, remember
+> that any predicate can be used in `define-datatype`, even ones you define.
+
+```scheme
+(define identifier?
+  (lambda (value)
+    (and (symbol? value)
+         (not (eqv? value 'lambda)))))
+```
+
+> Exercise 2.24 [★] Here is a definition of binary trees using `define-datatype`.
+>
+> ```scheme
+> (define-datatype bintree bintree?
+>   (leaf-node
+>    (num integer?))
+>   (interior-node
+>    (key symbol?)
+>    (left bintree?)
+>    (right bintree?)))
+> ```
+>
+> Implement a `bintree-to-list` procedure for binary trees, so that
+> `(bintree-to-list (interior-node 'a (leaf-node 3) (leaf-node 4)))` returns the list
+>
+> ```scheme
+> (interior-node
+>  a
+>  (leaf-node 3)
+>  (leaf-node 4))
+> ```
+
+```racket
+(define bintree-to-list
+  (lambda (tree)
+    (cases bintree tree
+      [leaf-node (num) `(leaf-node ,num)]
+      [interior-node (key left right) (list 'interior-node
+                                            key
+                                            (bintree-to-list left)
+                                            (bintree-to-list right))])))
+```
