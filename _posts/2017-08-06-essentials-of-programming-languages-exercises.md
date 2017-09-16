@@ -1821,3 +1821,90 @@ Remaining implementations are the same as the ones in exercise 2.15.
   (lambda (tree)
     (mark-leaves-with-red-depth-helper tree 0)))
 ```
+
+> Exercise 2.27 [★] Draw the abstract syntax tree for the lambda calculus expressions
+>
+> ```scheme
+> ((lambda (a) (a b)) c)
+>
+> (lambda (x)
+>   (lambda (y)
+>     ((lambda (x)
+>        (x y))
+>      x)))
+> ```
+
+```scheme
+((lambda (a) (a b)) c)
+```
+
+```
+           ┌─────────┐
+           │ app-exp │
+           └────┬────┘
+         ┌──────┴───────┐
+       rator           rand
+   ┌─────┴──────┐  ┌────┴────┐
+   │ lambda-exp │  │ var-exp │
+   └─────┬──────┘  └────┬────┘
+    ┌────┴────┐        var
+bound-var    body     ┌─┴─┐
+  ┌─┴─┐  ┌────┴────┐  │ c │
+  │ a │  │ app-exp │  └───┘
+  └───┘  └────┬────┘
+        ┌─────┴──────┐
+      rator         rand
+   ┌────┴────┐  ┌────┴────┐
+   │ var-exp │  │ var-exp │
+   └────┬────┘  └────┬────┘
+       var          var
+      ┌─┴─┐        ┌─┴─┐
+      │ a │        │ b │
+      └───┘        └───┘
+```
+
+```scheme
+(lambda (x)
+  (lambda (y)
+    ((lambda (x)
+       (x y))
+     x)))
+```
+
+```
+   ┌────────────┐
+   │ lambda-exp │
+   └─────┬──────┘
+    ┌────┴─────┐
+bound-var     body
+  ┌─┴─┐  ┌─────┴──────┐
+  │ x │  │ lambda-exp │
+  └───┘  └─────┬──────┘
+          ┌────┴────┐
+      bound-var    body
+        ┌─┴─┐  ┌────┴────┐
+        │ y │  │ app-exp │
+        └───┘  └────┬────┘
+             ┌──────┴───────┐
+           rator           rand
+       ┌─────┴──────┐  ┌────┴────┐
+       │ lambda-exp │  │ var-exp │
+       └─────┬──────┘  └────┬────┘
+        ┌────┴────┐        var
+    bound-var    body     ┌─┴─┐
+      ┌─┴─┐  ┌────┴────┐  │ x │
+      │ x │  │ app-exp │  └───┘
+      └───┘  └────┬────┘
+            ┌─────┴──────┐
+          rator         rand
+       ┌────┴────┐  ┌────┴────┐
+       │ var-exp │  │ var-exp │
+       └────┬────┘  └────┬────┘
+           var          var
+          ┌─┴─┐        ┌─┴─┐
+          │ x │        │ y │
+          └───┘        └───┘
+```
+
+> Exercise 2.28 [★] Write an unparser that converts the abstract syntax of an lc-exp into a string that matches the
+> second grammar in this section (page 52).
