@@ -728,8 +728,8 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
 
 ```scheme
 (define leaf
-  (lambda (int)
-    int))
+  (lambda (num)
+    num))
 
 (define interior-node
   (lambda (symbol left-child right-child)
@@ -1610,14 +1610,10 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > `has-binding?` of exercise 2.9.
 
 ```racket
-(define scheme-value?
-  (lambda (value)
-    #t))
-
 (define-datatype env-type env?
   (empty-env)
   (extend-env [var symbol?]
-              [val scheme-value?]
+              [val always?]
               [env env?]))
 
 (define apply-env
@@ -1639,14 +1635,10 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > Exercise 2.22 [★] Using `define-datatype`, implement the stack data type of exercise 2.4.
 
 ```racket
-(define scheme-value?
-  (lambda (value)
-    #t))
-
 (define-datatype stack-type stack?
   (empty-stack)
   (push [saved-stack stack?]
-        [val scheme-value?]))
+        [val always?]))
 
 (define pop
   (lambda (stack)
@@ -1709,4 +1701,123 @@ Remaining implementations are the same as the ones in exercise 2.15.
                                             key
                                             (bintree-to-list left)
                                             (bintree-to-list right))])))
+```
+
+> Exercise 2.25 [★★] Use `cases` to write `max-interior`, which takes a binary tree of integers (as in the preceding
+> exercise) with at least one interior node and returns the symbol associated with an interior node with a maximal leaf
+> sum.
+>
+> ```scheme
+> > (define tree-1
+>     (interior-node 'foo (leaf-node 2) (leaf-node 3)))
+> > (define tree-2
+>     (interior-node 'bar (leaf-node -1) tree-1))
+> > (define tree-3
+>     (interior-node 'baz tree-2 (leaf-node 1)))
+> > (max-interior tree-2)
+> foo
+> > (max-interior tree-3)
+> baz
+> ```
+>
+> The last invocation of `max-interior` might also have returned `foo`, since both the `foo` and `baz` nodes have a leaf
+> sum of 5.
+
+```racket
+(define-datatype bintree-info bintree-info?
+  [leaf-info [num integer?]]
+  [interior-info [sum integer?]
+                 [max-sum integer?]
+                 [max-key symbol?]])
+
+(define max-interior-helper
+  (lambda (tree)
+    (cases bintree tree
+      [leaf-node (num)
+                 (leaf-info num)]
+      [interior-node (key left right)
+                     (let ([left-info (max-interior-helper left)]
+                           [right-info (max-interior-helper right)])
+                       (cases bintree-info left-info
+                         [leaf-info (left-num)
+                                    (cases bintree-info right-info
+                                      [leaf-info (right-num)
+                                                 (let ([sum (+ left-num right-num)])
+                                                   (interior-info sum
+                                                                  sum
+                                                                  key))]
+                                      [interior-info (right-sum right-max-sum right-max-key)
+                                                     (let ([sum (+ left-num right-sum)])
+                                                       (if (< sum right-max-sum)
+                                                           (interior-info sum
+                                                                          right-max-sum
+                                                                          right-max-key)
+                                                           (interior-info sum
+                                                                          sum
+                                                                          key)))])]
+                         [interior-info (left-sum left-max-sum left-max-key)
+                                        (cases bintree-info right-info
+                                          [leaf-info (right-num)
+                                                     (let ([sum (+ left-sum right-num)])
+                                                       (if (< sum left-max-sum)
+                                                           (interior-info sum
+                                                                          left-max-sum
+                                                                          left-max-key)
+                                                           (interior-info sum
+                                                                          sum
+                                                                          key)))]
+                                          [interior-info (right-sum right-max-sum right-max-key)
+                                                         (let* ([sum (+ left-sum right-sum)]
+                                                                [max-sum-and-key (if (< left-max-sum right-max-sum)
+                                                                                     (cons right-max-sum right-max-key)
+                                                                                     (cons left-max-sum left-max-key))]
+                                                                [max-sum (car max-sum-and-key)]
+                                                                [max-key (cdr max-sum-and-key)])
+                                                           (if (< sum max-sum)
+                                                               (interior-info sum
+                                                                              max-sum
+                                                                              max-key)
+                                                               (interior-info sum
+                                                                              sum
+                                                                              key)))])]))])))
+
+(define max-interior
+  (lambda (tree)
+    (cases bintree-info (max-interior-helper tree)
+      [leaf-info (num) (eopl:error 'max-interior "~s is not an interior node" tree)]
+      [interior-info (sum max-sum max-key) max-key])))
+```
+
+> Exercise 2.26 [★★] Here is another version of exercise 1.33. Consider a set of trees given by the following grammar:
+>
+> *Red-blue-tree* ::= *Red-blue-subtree* \\
+> *Red-blue-subtree* ::= `(red-node `*Red-blue-subtree*` `*Red-blue-subtree*`)` \\
+> ::= `(blue-node `{*Red-blue-subtree*}∗`)` \\
+> ::= `(leaf-node Int)`
+>
+> Write an equivalent definition using `define-datatype`, and use the resulting interface to write a procedure that
+> takes a tree and builds a tree of the same shape, except that each leaf node is replaced by a leaf node that contains
+> the number of red nodes on the path between it and the root.
+
+```racket
+(define-datatype red-blue-tree red-blue-tree?
+  [red-node [lson red-blue-tree?]
+            [rson red-blue-tree?]]
+  [blue-node [sons (list-of red-blue-tree?)]]
+  [leaf-node [num integer?]])
+
+(define mark-leaves-with-red-depth-helper
+  (lambda (tree red-num)
+    (cases red-blue-tree tree
+      [red-node (lson rson) (let ([new-red-num (+ red-num 1)])
+                              (red-node (mark-leaves-with-red-depth-helper lson new-red-num)
+                                        (mark-leaves-with-red-depth-helper rson new-red-num)))]
+      [blue-node (sons) (blue-node (map (lambda (son)
+                                          (mark-leaves-with-red-depth-helper son red-num))
+                                        sons))]
+      [leaf-node (_) (leaf-node red-num)])))
+
+(define mark-leaves-with-red-depth
+  (lambda (tree)
+    (mark-leaves-with-red-depth-helper tree 0)))
 ```
