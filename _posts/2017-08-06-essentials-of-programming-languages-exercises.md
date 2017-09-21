@@ -1790,10 +1790,10 @@ Remaining implementations are the same as the ones in exercise 2.15.
 
 > Exercise 2.26 [★★] Here is another version of exercise 1.33. Consider a set of trees given by the following grammar:
 >
-> *Red-blue-tree* ::= *Red-blue-subtree* \\
-> *Red-blue-subtree* ::= `(red-node `*Red-blue-subtree*` `*Red-blue-subtree*`)` \\
-> ::= `(blue-node `{*Red-blue-subtree*}∗`)` \\
-> ::= `(leaf-node Int)`
+> | *Red-blue-tree*    | ::= *Red-blue-subtree*                                     |
+> | *Red-blue-subtree* | ::= `(red-node `*Red-blue-subtree*` `*Red-blue-subtree*`)` |
+> |                    | ::= `(blue-node `{*Red-blue-subtree*}*`)`                  |
+> |                    | ::= `(leaf-node Int)`                                      |
 >
 > Write an equivalent definition using `define-datatype`, and use the resulting interface to write a procedure that
 > takes a tree and builds a tree of the same shape, except that each leaf node is replaced by a leaf node that contains
@@ -1941,12 +1941,12 @@ bound-var     body
 > *list* of associated subtrees when constructing an abstract syntax tree. For example, if the grammar for
 > lambda-calculus expressions had been
 >
-> | *Lc-exp* | ::= | *Identifier* |
-> |          |     | <span style="border: 1px solid">`var-exp (var)`</span> |
-> |          | ::= | `(lambda (`{*Identifier*}∗`) `*Lc-exp*`)` |
+> | *Lc-exp* | ::= | *Identifier*                                                          |
+> |          |     | <span style="border: 1px solid">`var-exp (var)`</span>                |
+> |          | ::= | `(lambda (`{*Identifier*}*`) `*Lc-exp*`)`                             |
 > |          |     | <span style="border: 1px solid">`lambda-exp (bound-vars body)`</span> |
-> |          | ::= | `(`*Lc-exp* {*Lc-exp*}∗`)` |
-> |          |     | <span style="border: 1px solid">`app-exp (rator rands)` |
+> |          | ::= | `(`*Lc-exp* {*Lc-exp*}*`)`                                            |
+> |          |     | <span style="border: 1px solid">`app-exp (rator rands)`               |
 >
 > then the predicate for the `bound-vars` field could be `(list-of identifier?)`, and the predicate for the `rands`
 > field could be `(list-of lc-exp?)`. Write a `define-datatype` and a parser for this grammar that works in this way.
@@ -2041,4 +2041,70 @@ bound-var     body
                              (parse-lambda-expression datum)
                              (parse-application-expression datum))]
           [else (report-error "a symbol or pair" datum)])))
+```
+
+> Exercise 2.31 [★★] Sometimes it is useful to specify a concrete syntax as a sequence of symbols and integers,
+> surrounded by parentheses. For example, one might define the set of *prefix lists* by
+>
+> | *Prefix-list* | ::= `(`*Prefix-exp*`)`              |
+> | *Prefix-exp*  | ::= *Int*                           |
+> |               | ::= `- `*Prefix-exp*` `*Prefix-exp* |
+>
+> so that `(- - 3 2 - 4 - 12 7)` is a legal prefix list. This is sometimes called *Polish prefix notation*, after its
+> inventor, Jan Łukasiewicz. Write a parser to convert a prefix-list to the abstract syntax
+>
+> ```scheme
+> (define-datatype prefix-exp prefix-exp?
+>   (const-exp
+>    (num integer?))
+>   (diff-exp
+>    (operand1 prefix-exp?)
+>    (operand2 prefix-exp?)))
+> ```
+>
+> so that the example above produces the same abstract syntax tree as the sequence of constructors
+>
+> ```scheme
+> (diff-exp
+>  (diff-exp
+>   (const-exp 3)
+>   (const-exp 2))
+>  (diff-exp
+>   (const-exp 4)
+>   (diff-exp
+>    (const-exp 12)
+>    (const-exp 7))))
+> ```
+>
+> As a hint, consider writing a procedure that takes a list and produces a `prefix-exp` and the list of leftover list
+> elements.
+
+```racket
+(define-datatype prefix-exp prefix-exp?
+  [const-exp [num integer?]]
+  [diff-exp [operand1 prefix-exp?]
+            [operand2 prefix-exp?]])
+
+(define parse-prefix-exp
+  (lambda (prefix-list)
+    (let ([head (car prefix-list)]
+          [tail (cdr prefix-list)])
+      (cond [(integer? head) (cons (const-exp head) tail)]
+            [(eqv? head '-) (let* ([operand-1-and-rest-1 (parse-prefix-exp tail)]
+                                   [operand-1 (car operand-1-and-rest-1)]
+                                   [rest-1 (cdr operand-1-and-rest-1)]
+                                   [operand-2-and-rest-2 (parse-prefix-exp rest-1)]
+                                   [operand-2 (car operand-2-and-rest-2)]
+                                   [rest-2 (cdr operand-2-and-rest-2)])
+                              (cons (diff-exp operand-1 operand-2) rest-2))]
+            [else (eopl:error 'parse-prefix-exp "Bad syntax: ~s." prefix-list)]))))
+
+(define parse-prefix-list
+  (lambda (prefix-list)
+    (let* ([exp-and-rest (parse-prefix-exp prefix-list)]
+           [exp (car exp-and-rest)]
+           [rest (cdr exp-and-rest)])
+      (if (null? rest)
+          exp
+          (eopl:error 'parse-prefix-list "Expect null after prefix-exp, but got: ~s." rest)))))
 ```
