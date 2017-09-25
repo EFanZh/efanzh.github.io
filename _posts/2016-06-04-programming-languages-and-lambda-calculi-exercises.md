@@ -709,24 +709,24 @@ a normal form expression, therefore ((*λx*.*x* *x*) (*λx*.*x* *x*)) has no nor
 > - *b* = a basic constant
 > - *o*<sup>*n*</sup> = an *n*-ary primitive operation
 
-> - *b* = {⸢*n*⸣ \| *n* ∈ ℤ}
+> - *b* = {⌈*n*⌉ \| *n* ∈ ℤ}
 > - *o*<sup>1</sup> = {`add1`, `sub1`, `iszero`}
 > - *o*<sup>2</sup> = {+, −, ∗, ↑}
 
 #### 5.2 ISWIM Reductions
 
 > **Exercise 5.1.** Show a reduction of \\
-> (*λw*.(− (*w* ⸢1⸣) ⸢5⸣)) ((*λx*.*x* ⸢10⸣) *λyz*.(+ *z* *y*)) \\
+> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*)) \\
 > to a value with →<sub>**v**</sub>.
 {: exercise}
 
-(*λw*.(− (*w* ⸢1⸣) ⸢5⸣)) ((*λx*.*x* ⸢10⸣) *λyz*.(+ *z* *y*)) \\
-→<sub>**v**</sub> (*λw*.(− (*w* ⸢1⸣) ⸢5⸣)) (*λyz*.(+ *z* *y*) ⸢10⸣) \\
-→<sub>**v**</sub> (*λw*.(− (*w* ⸢1⸣) ⸢5⸣)) (*λz*.(+ *z* ⸢10⸣)) \\
-→<sub>**v**</sub> (− ((*λz*.(+ *z* ⸢10⸣)) ⸢1⸣) ⸢5⸣) \\
-→<sub>**v**</sub> (− (+ ⸢1⸣ ⸢10⸣) ⸢5⸣) \\
-→<sub>**v**</sub> (− ⸢11⸣ ⸢5⸣) \\
-→<sub>**v**</sub> ⸢6⸣
+(*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*)) \\
+→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λyz*.(+ *z* *y*) ⌈10⌉) \\
+→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λz*.(+ *z* ⌈10⌉)) \\
+→<sub>**v**</sub> (− ((*λz*.(+ *z* ⌈10⌉)) ⌈1⌉) ⌈5⌉) \\
+→<sub>**v**</sub> (− (+ ⌈1⌉ ⌈10⌉) ⌈5⌉) \\
+→<sub>**v**</sub> (− ⌈11⌉ ⌈5⌉) \\
+→<sub>**v**</sub> ⌈6⌉
 
 #### 5.4 Evaluation
 
