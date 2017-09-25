@@ -2108,3 +2108,11 @@ bound-var     body
           exp
           (eopl:error 'parse-prefix-list "Expect null after prefix-exp, but got: ~s." rest)))))
 ```
+
+> Exercise 3.1 [★] In figure 3.3, list all the places where we used the fact that ⌊⌈*n*⌉⌋ = *n*.
+
+*Skipped for now.*
+
+> Exercise 3.2 [★★] Give an expressed value *val* ∈ *ExpVal* for which ⌈⌊*val*⌋⌉ ≠ *val*.
+
+Not sure, but maybe when *val* is constructed using a *Bool*?
