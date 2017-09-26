@@ -2116,3 +2116,10 @@ bound-var     body
 > Exercise 3.2 [★★] Give an expressed value *val* ∈ *ExpVal* for which ⌈⌊*val*⌋⌉ ≠ *val*.
 
 Not sure, but maybe when *val* is constructed using a *Bool*?
+
+> Exercise 3.3 [★] Why is subtraction a better choice than addition for our single arithmetic operation?
+
+One reason I can think of, is that subtraction is not commutative, that is $$ a - b $$ may not equal to $$ b - a $$. If
+our implementation of subtraction is incorrect, we can discover the error quickly.
+
+> Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
