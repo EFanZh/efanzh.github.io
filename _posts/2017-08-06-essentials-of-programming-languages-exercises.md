@@ -2125,3 +2125,28 @@ One reason I can think of, is that subtraction is not commutative, that is $$ a 
 our implementation of subtraction is incorrect, we can discover the error quickly.
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
+
+\$$ tt ((((("(value-of «x» ρ)" = 33) / ("(value-of «-(x, 11)» ρ)" = 22)) /
+          ("(value-of «zero?(-(x, 11))» ρ)" = "(bool-val #f)")) /
+         ("(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» ρ)" = "(value-of «-(y, 4)» ρ)")
+          quad
+          ("(value-of «y» ρ)" = 22) / ("(value-of «-(y, 4)» ρ)" = 18)) /
+        ("(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» ρ)" = 18)) $$
+
+> Exercise 3.5 [★] Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
+
+*Skipped for now.*
+
+> Exercise 3.6 [★] Extend the language by adding a new operator minus that takes one argument, *n*, and returns -*n*.
+> For example, the value of `minus(-(minus(5), 9))` should be 14.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.7 [★] Extend the language by adding operators for addition, multiplication, and integer quotient.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.8 [★] Add a numeric equality predicate `equal?` and numeric order predicates `greater?` and `less?` to the
+> set of operations in the defined language.
+
+*Solution is too long, see the code repository.*
