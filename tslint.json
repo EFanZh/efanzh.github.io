@@ -6,6 +6,11 @@
     "rules": {
         "one-line": false,
         "trailing-comma": "never",
-        "max-classes-per-file": 2
+        "max-classes-per-file": 3,
+        "interface-name": {
+            "options": [
+                "never-prefix"
+            ]
+        }
     }
 }
