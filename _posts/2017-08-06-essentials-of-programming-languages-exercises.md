@@ -2150,3 +2150,46 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > set of operations in the defined language.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.9 [★★] Add list processing operations to the language, including `cons`, `car`, `cdr`, `null?` and
+> `emptylist`. A list should be able to contain any expressed value, including another list. Give the definitions of the
+> expressed and denoted values of the language, as in section 3.2.2. For example,
+>
+> ```
+> let x = 4
+> in cons(x,
+>         cons(cons(-(x,1),
+>                   emptylist),
+>              emptylist))
+> ```
+>
+> should return an expressed value that represents the list `(4 (3))`.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.10 [★★] Add an operation `list` to the language. This operation should take any number of arguments, and
+> return an expressed value containing the list of their values. For example,
+>
+> ```
+> let x = 4
+> in list(x, -(x,1), -(x,3))
+> ```
+>
+> should return an expressed value that represents the list `(4 3 1)`.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.11 [★] In a real language, one might have many operators such as those in the preceding exercises.
+> Rearrange the code in the interpreter so that it is easy to add new operators.
+
+*Skipped for now.*
+
+> Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
+>
+> *Expression* ::= `cond `{*Expression*` ==> `*Expression*}*` end`
+>
+> In this expression, the expressions on the left-hand sides of the `==>`’s are evaluated in order until one of them
+> returns a true value. Then the value of the entire expression is the value of the corresponding right-hand expression.
+> If none of the tests succeeds, the expression should report an error.
+
+*Solution is too long, see the code repository.*
