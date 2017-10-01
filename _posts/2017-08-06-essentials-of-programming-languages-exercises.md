@@ -2182,7 +2182,7 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > Exercise 3.11 [★] In a real language, one might have many operators such as those in the preceding exercises.
 > Rearrange the code in the interpreter so that it is easy to add new operators.
 
-*Skipped for now.*
+*Solution is too long, see the code repository.*
 
 > Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
 >
@@ -2193,3 +2193,25 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > If none of the tests succeeds, the expression should report an error.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.13 [★] Change the values of the language so that integers are the only expressed values. Modify `if` so
+> that the value 0 is treated as false and all other values are treated as true. Modify the predicates accordingly.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.14 [★★] As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
+> expressions to the language. Change the production for conditional expressions to say
+>
+> *Expression* ::= `if `*Bool-exp*` then `*Expression*` else `*Expression*
+>
+> Write suitable productions for *Bool-exp* and implement `value-of-bool-exp`. Where do the predicates of exercise 3.8
+> wind up in this organization?
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.15 [★] Extend the language by adding a new operation `print` that takes one argument, prints it, and
+> returns the integer 1. Why is this operation not expressible in our specification framework?
+
+*See the code repository for implementation.*
+
+Because `print` cause a side effect while our specification framework does not have something to do this.
