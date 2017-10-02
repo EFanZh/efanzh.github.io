@@ -2215,3 +2215,49 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 *See the code repository for implementation.*
 
 Because `print` cause a side effect while our specification framework does not have something to do this.
+
+> Exercise 3.16 [★★] Extend the language so that a `let` declaration can declare an arbitrary number of variables,
+> using the grammar
+>
+> *Expression* ::= `let `{*Identifier*` = `*Expression*}\*` in `*Expression*
+>
+> As in Scheme’s `let`, each of the right-hand sides is evaluated in the current environment, and the body is evaluated
+> with each new variable bound to the value of its associated right-hand side. For example,
+>
+> ```
+> let x = 30
+> in let x = -(x,1)
+>        y = -(x,2)
+>    in -(x,y)
+> ```
+>
+> should evaluate to 1.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.17 [★★] Extend the language with a `let*` expression that works like Scheme’s `let*`, so that
+>
+> ```
+> let x = 30
+> in let* x = -(x,1) y = -(x,2)
+>    in -(x,y)
+> ```
+>
+> should evaluate to 2.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.18 [★★] Add an expression to the defined language:
+>
+> *Expression* ::= `unpack `{*Identifier*}\*` = `*Expression*` in `*Expression*
+>
+> so that `unpack x y z = lst in ...` binds `x`, `y`, and `z` to the elements of `lst` if `lst` is a list of exactly
+> three elements, and reports an error otherwise. For example, the value of
+>
+> ```
+> let u = 7
+> in unpack x y = cons(u,cons(3,emptylist))
+>    in -(x,y)
+> ```
+>
+> should be 4.
