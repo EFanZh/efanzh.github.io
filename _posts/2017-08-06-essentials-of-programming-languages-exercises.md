@@ -1792,7 +1792,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 >
 > | *Red-blue-tree*    | ::= *Red-blue-subtree*                                     |
 > | *Red-blue-subtree* | ::= `(red-node `*Red-blue-subtree*` `*Red-blue-subtree*`)` |
-> |                    | ::= `(blue-node `{*Red-blue-subtree*}*`)`                  |
+> |                    | ::= `(blue-node `{*Red-blue-subtree*}<sup>∗</sup>`)`       |
 > |                    | ::= `(leaf-node Int)`                                      |
 >
 > Write an equivalent definition using `define-datatype`, and use the resulting interface to write a procedure that
@@ -1945,9 +1945,9 @@ bound-var     body
 >
 > | *Lc-exp* | ::= | *Identifier*                                                          |
 > |          |     | <span style="border: 1px solid">`var-exp (var)`</span>                |
-> |          | ::= | `(lambda (`{*Identifier*}*`) `*Lc-exp*`)`                             |
+> |          | ::= | `(lambda (`{*Identifier*}<sup>∗</sup>`) `*Lc-exp*`)`                  |
 > |          |     | <span style="border: 1px solid">`lambda-exp (bound-vars body)`</span> |
-> |          | ::= | `(`*Lc-exp* {*Lc-exp*}*`)`                                            |
+> |          | ::= | `(`*Lc-exp* {*Lc-exp*}<sup>∗</sup>`)`                                 |
 > |          |     | <span style="border: 1px solid">`app-exp (rator rands)`               |
 >
 > then the predicate for the `bound-vars` field could be `(list-of identifier?)`, and the predicate for the `rands`
@@ -2186,7 +2186,7 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 
 > Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
 >
-> *Expression* ::= `cond `{*Expression*` ==> `*Expression*}*` end`
+> *Expression* ::= `cond `{*Expression*` ==> `*Expression*}<sup>∗</sup>` end`
 >
 > In this expression, the expressions on the left-hand sides of the `==>`’s are evaluated in order until one of them
 > returns a true value. Then the value of the entire expression is the value of the corresponding right-hand expression.
@@ -2219,7 +2219,7 @@ Because `print` cause a side effect while our specification framework does not h
 > Exercise 3.16 [★★] Extend the language so that a `let` declaration can declare an arbitrary number of variables,
 > using the grammar
 >
-> *Expression* ::= `let `{*Identifier*` = `*Expression*}\*` in `*Expression*
+> *Expression* ::= `let `{*Identifier*` = `*Expression*}<sup>∗</sup>` in `*Expression*
 >
 > As in Scheme’s `let`, each of the right-hand sides is evaluated in the current environment, and the body is evaluated
 > with each new variable bound to the value of its associated right-hand side. For example,
@@ -2249,7 +2249,7 @@ Because `print` cause a side effect while our specification framework does not h
 
 > Exercise 3.18 [★★] Add an expression to the defined language:
 >
-> *Expression* ::= `unpack `{*Identifier*}\*` = `*Expression*` in `*Expression*
+> *Expression* ::= `unpack `{*Identifier*}<sup>∗</sup>` = `*Expression*` in `*Expression*
 >
 > so that `unpack x y z = lst in ...` binds `x`, `y`, and `z` to the elements of `lst` if `lst` is a list of exactly
 > three elements, and reports an error otherwise. For example, the value of
@@ -2261,5 +2261,35 @@ Because `print` cause a side effect while our specification framework does not h
 > ```
 >
 > should be 4.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.19 [★] In many languages, procedures must be created and named at the same time. Modify the language of
+> this section to have this property by replacing the `proc` expression with a `letproc` expression.
+
+*Skipped for now*
+
+> Exercise 3.20 [★] In PROC, procedures have only one argument, but one can get the effect of multiple argument
+> procedures by using procedures that return other procedures. For example, one might write code like
+>
+> ```
+> let f = proc (x) proc (y) ...
+> in ((f 3) 4)
+> ```
+>
+> This trick is called *Currying*, and the procedure is said to be *Curried*. Write a Curried procedure that takes two
+> arguments and returns their sum. You can write *x* + *y* in our language by writing `-(`*x*`, -(0, `*y*`))`.
+
+```
+proc (x)
+  proc (y)
+    -(x, -(0, y))
+```
+
+> Exercise 3.21 [★★] Extend the language of this section to include procedures with multiple arguments and calls with
+> multiple operands, as suggested by the grammar
+>
+> *Expression* ::= `proc (`{*Identifier*}<sup>∗(,)</sup>`) `*Expression* \\
+> *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
 
 *Solution is too long, see the code repository.*
