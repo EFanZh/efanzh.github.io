@@ -161,22 +161,15 @@ function drawLineInPixel(from: core.Position, to: core.Position)
 
 export class AsciiTextCanvasContext implements core.CanvasContext
 {
-    private static adjustCoordinates(position: core.Position): core.Position
-    {
-        return { x: position.x + 0.5, y: position.y + 0.5 };
-    }
-
     private lines: number[][] = [];
 
     public drawLines(...positions: core.Position[]): void
     {
-        const adjustedPositions = positions.map(AsciiTextCanvasContext.adjustCoordinates);
-
         if (positions.length > 1)
         {
             for (let i = 1; i < positions.length; i++)
             {
-                this.drawLine(adjustedPositions[i - 1], adjustedPositions[i]);
+                this.drawLine(positions[i - 1], positions[i]);
             }
         }
     }
@@ -195,8 +188,8 @@ export class AsciiTextCanvasContext implements core.CanvasContext
     {
         const lines = splitLines(text);
         const size = measureLines(lines);
-        const rowStart = Math.ceil(position.y - size.height / 2);
-        const columnStart = Math.ceil(position.x - size.width / 2);
+        const rowStart = Math.ceil(position.y - size.height / 2 - 0.5);
+        const columnStart = Math.floor(position.x - size.width / 2 + 0.5);
 
         for (let row = 0; row < lines.length; row++)
         {

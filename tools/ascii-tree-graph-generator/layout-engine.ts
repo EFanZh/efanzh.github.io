@@ -237,7 +237,7 @@ function prepareWorkspace(configuration: Configuration, canvasContext: CanvasCon
             maxNodeTextHeight = Math.max(maxNodeTextHeight, childInfo.maxNodeTextHeight);
             maxLabelTextHeight = Math.max(maxLabelTextHeight, childInfo.maxLabelTextHeight);
 
-            children.push({ label: child.label, tree: childInfo.layoutTree, labelSize, offsetX: 0, labelOffsetX: 0 });
+            children.push({ label: child.label, labelOffsetX: 0, labelSize, offsetX: 0, tree: childInfo.layoutTree });
         }
 
         return {
@@ -307,16 +307,20 @@ export function drawTreeGraph(configuration: Configuration, canvasContext: Canva
 
             if (child.label === null)
             {
+                // Draw the vertical line from parent to child.
                 canvasContext.drawLines({ x: position.x, y: nodeBottom }, { x: position.x, y: childrenTop });
             }
             else
             {
+                // Draw the vertical line from parent to label.
                 canvasContext.drawLines(
                     { x: position.x, y: nodeBottom },
                     { x: position.x, y: labelPositionY - child.labelSize.height / 2 });
 
+                // Draw label.
                 canvasContext.drawText(child.label, { x: position.x, y: labelPositionY });
 
+                // Draw the vertical line from label to child.
                 canvasContext.drawLines(
                     { x: position.x, y: labelPositionY + child.labelSize.height / 2 },
                     { x: position.x, y: childrenTop });
@@ -324,6 +328,7 @@ export function drawTreeGraph(configuration: Configuration, canvasContext: Canva
         }
         else if (node.children.length > 1)
         {
+            // Draw the vertical line from parent to the horizontal line.
             canvasContext.drawLines({ x: position.x, y: nodeBottom }, { x: position.x, y: horizontalLineY });
 
             const firstChild = node.children[0];
@@ -351,6 +356,7 @@ export function drawTreeGraph(configuration: Configuration, canvasContext: Canva
                 endY = labelPositionY - lastChild.labelSize.height / 2;
             }
 
+            // Draw lines from the first child’s label to the last child’s label.
             canvasContext.drawLines(
                 { x: firstChildPositionX, y: startY },
                 { x: firstChildPositionX, y: horizontalLineY },
@@ -364,15 +370,20 @@ export function drawTreeGraph(configuration: Configuration, canvasContext: Canva
 
                 if (child.label === null)
                 {
+                    // Draw the vertical line from horizontal line to child.
                     canvasContext.drawLines(
-                        { x: position.x + node.children[i].offsetX, y: horizontalLineY },
-                        { x: position.x + node.children[i].offsetX, y: childrenTop });
+                        { x: position.x + child.offsetX, y: horizontalLineY },
+                        { x: position.x + child.offsetX, y: childrenTop });
                 }
                 else
                 {
+                    // Draw the vertical line from horizontal line to label.
                     canvasContext.drawLines(
-                        { x: position.x + node.children[i].offsetX, y: horizontalLineY },
-                        { x: position.x + node.children[i].offsetX, y: labelPositionY - child.labelSize.height / 2 });
+                        { x: position.x + child.offsetX, y: horizontalLineY },
+                        {
+                            x: position.x + child.offsetX,
+                            y: labelPositionY - child.labelSize.height / 2
+                        });
                 }
             }
         }
@@ -383,22 +394,42 @@ export function drawTreeGraph(configuration: Configuration, canvasContext: Canva
 
             if (child.label !== null)
             {
+                // Draw the label
                 canvasContext.drawText(
                     child.label,
                     { x: position.x + child.offsetX + child.labelOffsetX, y: labelPositionY });
 
-                canvasContext.drawLines(
-                    { x: childPositionX, y: labelPositionY + child.labelSize.height / 2 },
-                    { x: childPositionX, y: childrenTop });
+                // Draw the vertical line from label to child.
+
+                if (configuration.asciiMode && (child.labelSize.height % 2 !== layoutTreeInfo.maxLabelTextHeight % 2))
+                {
+                    canvasContext.drawLines(
+                        { x: childPositionX, y: labelPositionY + child.labelSize.height / 2 - 0.5 },
+                        { x: childPositionX, y: childrenTop });
+                }
+                else
+                {
+                    canvasContext.drawLines(
+                        { x: childPositionX, y: labelPositionY + child.labelSize.height / 2 },
+                        { x: childPositionX, y: childrenTop });
+                }
             }
 
+            // Draw child nodes.
             drawTree(child.tree, { x: childPositionX, y: childrenTop });
         }
     }
 
-    if (configuration.asciiMode && !Number.isInteger(leftBoundary))
+    if (configuration.asciiMode)
     {
-        drawTree(layoutTreeInfo.layoutTree, { x: -leftBoundary - 0.5, y: 0 });
+        if (Number.isInteger(leftBoundary))
+        {
+            drawTree(layoutTreeInfo.layoutTree, { x: -leftBoundary + 0.5, y: 0.5 });
+        }
+        else
+        {
+            drawTree(layoutTreeInfo.layoutTree, { x: -leftBoundary, y: 0.5 });
+        }
     }
     else
     {
