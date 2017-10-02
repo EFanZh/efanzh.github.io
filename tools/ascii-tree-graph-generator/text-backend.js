@@ -109,14 +109,10 @@ export class AsciiTextCanvasContext {
     constructor() {
         this.lines = [];
     }
-    static adjustCoordinates(position) {
-        return { x: position.x + 0.5, y: position.y + 0.5 };
-    }
     drawLines(...positions) {
-        const adjustedPositions = positions.map(AsciiTextCanvasContext.adjustCoordinates);
         if (positions.length > 1) {
             for (let i = 1; i < positions.length; i++) {
-                this.drawLine(adjustedPositions[i - 1], adjustedPositions[i]);
+                this.drawLine(positions[i - 1], positions[i]);
             }
         }
     }
@@ -126,8 +122,8 @@ export class AsciiTextCanvasContext {
     drawText(text, position) {
         const lines = splitLines(text);
         const size = measureLines(lines);
-        const rowStart = Math.ceil(position.y - size.height / 2);
-        const columnStart = Math.ceil(position.x - size.width / 2);
+        const rowStart = Math.ceil(position.y - size.height / 2 - 0.5);
+        const columnStart = Math.floor(position.x - size.width / 2 + 0.5);
         for (let row = 0; row < lines.length; row++) {
             const line = lines[row];
             for (let column = 0; column < line.length; column++) {
