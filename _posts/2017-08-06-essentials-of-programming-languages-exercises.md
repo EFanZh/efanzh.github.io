@@ -2378,3 +2378,78 @@ in let true = zero?(0)
                              else (((makeeven makeeven) makeodd) -(x, 1))
          in ((makeeven makeeven) makeodd)
 ```
+
+> Exercise 3.25 [★] The tricks of the previous exercises can be generalized to show that we can define any recursive
+> procedure in PROC. Consider the following bit of code:
+>
+> ```
+> let makerec = proc (f)
+>                let d = proc (x)
+>                         proc (z) ((f (x x)) z)
+>                in proc (n) ((f (d d)) n)
+> in let maketimes4 = proc (f)
+>                      proc (x)
+>                       if zero?(x)
+>                       then 0
+>                       else -((f -(x,1)), -4)
+>    in let times4 = (makerec maketimes4)
+>       in (times4 3)
+> ```
+>
+> Show that it returns 12.
+
+`maketimes4` is a procedure that takes a `times4` procedure and returns a `times4` procedure. First we convert
+`maketimes4` to a procedure `maker` that takes a `maker` and returns a `times4` procedure (assume we use `f` to
+represent `maketimes4`):
+
+```
+proc (f)
+  let maker = proc (maker)
+                let recurive-proc = (maker maker)
+                in (f recurive-proc)
+  in ...
+```
+
+But the code would not work because once we call `(maker maker)`, it will first call `(maker maker)` which will cause
+infinite recursion. We will fix this by wrapping `(maker maker)` inside another procedure:
+
+```
+proc (f)
+  let maker = proc (maker)
+                proc (x)
+                  let recurive-proc = (maker maker)
+                  in ((f recurive-proc) x)
+
+  in ...
+```
+
+Now we get a `maker`, we call the `maker` with `maker`, we will get a recursive version of `f`:
+
+```
+proc (f)
+  let maker = proc (maker)
+                proc (x)
+                  let recurive-proc = (maker maker)
+                  in ((f recurive-proc) x)
+  in (maker maker)
+```
+
+Let’s run the program:
+
+```
+let makerec = proc (f)
+                let maker = proc (maker)
+                              proc (x)
+                                let recurive-proc = (maker maker)
+                                in ((f recurive-proc) x)
+                in (maker maker)
+in let maketimes4 = proc (f)
+                      proc (x)
+                        if zero?(x)
+                        then 0
+                        else -((f -(x, 1)), -4)
+   in let times4 = (makerec maketimes4)
+      in (times4 3)
+```
+
+Yep, the result is also 12. Although it is a little different than the original one.
