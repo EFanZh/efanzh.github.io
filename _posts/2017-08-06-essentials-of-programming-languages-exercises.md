@@ -2267,7 +2267,7 @@ Because `print` cause a side effect while our specification framework does not h
 > Exercise 3.19 [★] In many languages, procedures must be created and named at the same time. Modify the language of
 > this section to have this property by replacing the `proc` expression with a `letproc` expression.
 
-*Skipped for now*
+*Skipped for now.*
 
 > Exercise 3.20 [★] In PROC, procedures have only one argument, but one can get the effect of multiple argument
 > procedures by using procedures that return other procedures. For example, one might write code like
@@ -2291,5 +2291,12 @@ proc (x)
 >
 > *Expression* ::= `proc (`{*Identifier*}<sup>∗(,)</sup>`) `*Expression* \\
 > *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.22 [★★★] The concrete syntax of this section uses different syntax for a built-in operation, such as
+> difference, from a procedure call. Modify the concrete syntax so that the user of this language need not know which
+> operations are built-in and which are defined procedures. This exercise may range from very easy to hard, depending on
+> the parsing technology being used.
 
 *Solution is too long, see the code repository.*
