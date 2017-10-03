@@ -2300,3 +2300,81 @@ proc (x)
 > the parsing technology being used.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.23 [★★] What is the value of the following PROC program?
+>
+> ```
+> let makemult = proc (maker)
+>                 proc (x)
+>                  if zero?(x)
+>                  then 0
+>                  else -(((maker maker) -(x,1)), -4)
+> in let times4 = proc (x) ((makemult makemult) x)
+>    in (times4 3)
+> ```
+>
+> Use the tricks of this program to write a procedure for factorial in PROC. As a hint, remember that you can use
+> Currying (exercise 3.20) to define a two-argument procedure `times`.
+
+Value of given program is 12.
+
+The procedure of factorial:
+
+```
+let maketimes = proc (maker)
+                  proc (x)
+                    proc (y)
+                      if zero?(x)
+                      then 0
+                      else -((((maker maker) -(x, 1)) y), -(0, y))
+in let times = (maketimes maketimes)
+   in let makefact = proc (maker)
+                       proc (x)
+                         if zero?(x)
+                         then 1
+                         else ((times x) ((maker maker) -(x, 1)))
+      in (makefact makefact)
+```
+
+> Exercise 3.24 [★★] Use the tricks of the program above to write the pair of mutually recursive procedures, `odd` and
+> `even`, as in exercise 3.32.
+
+`odd`:
+
+```
+let false = zero?(1)
+in let true = zero?(0)
+   in let makeeven = proc (makeeven)
+                       proc (makeodd)
+                         proc (x)
+                           if zero?(x)
+                           then true
+                           else (((makeodd makeeven) makeodd) -(x, 1))
+      in let makeodd = proc (makeeven)
+                         proc (makeodd)
+                           proc (x)
+                             if zero?(x)
+                             then false
+                             else (((makeeven makeeven) makeodd) -(x, 1))
+         in ((makeodd makeeven) makeodd)
+```
+
+`even`:
+
+```
+let false = zero?(1)
+in let true = zero?(0)
+   in let makeeven = proc (makeeven)
+                       proc (makeodd)
+                         proc (x)
+                           if zero?(x)
+                           then true
+                           else (((makeodd makeeven) makeodd) -(x, 1))
+      in let makeodd = proc (makeeven)
+                         proc (makeodd)
+                           proc (x)
+                             if zero?(x)
+                             then false
+                             else (((makeeven makeeven) makeodd) -(x, 1))
+         in ((makeeven makeeven) makeodd)
+```
