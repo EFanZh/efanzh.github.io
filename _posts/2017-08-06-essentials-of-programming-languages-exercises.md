@@ -2453,3 +2453,40 @@ in let maketimes4 = proc (f)
 ```
 
 Yep, the result is also 12. Although it is a little different than the original one.
+
+> Exercise 3.26 [★★] In our data-structure representation of procedures, we have kept the entire environment in the
+> closure. But of course all we need are the bindings for the free variables. Modify the representation of procedures to
+> retain only the free variables.
+
+Here is a function that filters free variables in the environment:
+
+```racket
+(define (filter-env env bound-vars exp)
+  (let loop ([result (empty-env)]
+             [bound-vars bound-vars]
+             [exp exp])
+    (cases expression exp
+      [var-exp (var) (if (memv var bound-vars)
+                         result
+                         (extend-env var (apply-env env var) result))]
+      [diff-exp (exp1 exp2) (loop (loop result bound-vars exp1) bound-vars exp2)]
+      [zero?-exp (exp1) (loop result bound-vars exp1)]
+      [if-exp (exp1 exp2 exp3) (loop (loop (loop result
+                                                 bound-vars
+                                                 exp1)
+                                           bound-vars
+                                           exp2)
+                                     bound-vars
+                                     exp3)]
+      [let-exp (var exp1 body) (loop (loop result bound-vars exp1)
+                                     (cons var bound-vars)
+                                     body)]
+      [proc-exp (vars body) (loop result (append vars bound-vars) body)]
+      [call-exp (rator rands) (let loop2 ([result (loop result bound-vars rator)]
+                                          [rands rands])
+                                (if (null? rands)
+                                    result
+                                    (loop2 (loop result bound-vars (car rands))
+                                           (cdr rands))))]
+      [else result])))
+```
