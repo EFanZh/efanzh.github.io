@@ -2466,6 +2466,7 @@ Here is a function that filters free variables in the environment:
              [bound-vars bound-vars]
              [exp exp])
     (cases expression exp
+      [const-exp (num) result]
       [var-exp (var) (if (memv var bound-vars)
                          result
                          (extend-env var (apply-env env var) result))]
@@ -2487,6 +2488,46 @@ Here is a function that filters free variables in the environment:
                                 (if (null? rands)
                                     result
                                     (loop2 (loop result bound-vars (car rands))
-                                           (cdr rands))))]
-      [else result])))
+                                           (cdr rands))))])))
 ```
+
+> Exercise 3.27 [★] Add a new kind of procedure called a `traceproc` to the language. A `traceproc` works exactly like
+> a `proc`, except that it prints a trace message on entry and on exit.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.28 [★★] *Dynamic binding* (or *dynamic scoping*) is an alternative design for procedures, in which the
+> procedure body is evaluated in an environment obtained by extending the environment at the point of call. For example
+> in
+>
+> ```
+> let a = 3
+> in let p = proc (x) -(x,a)
+>        a = 5
+>    in -(a,(p 2))
+> ```
+>
+> the `a` in the procedure body would be bound to 5, not 3. Modify the language to use dynamic binding. Do this twice,
+> once using a procedural representation for procedures, and once using a data-structure representation.
+
+*Solution is too long, see the code repository. Also, only data-structure representation is implemented.*
+
+> Exercise 3.29 [★★] Unfortunately, programs that use dynamic binding may be exceptionally difficult to understand. For
+> example, under lexical binding, consistently renaming the bound variables of a procedure can never change the behavior
+> of a program: we can even remove all variables and replace them by their lexical addresses, as in section 3.6. But
+> under dynamic binding, this transformation is unsafe.
+>
+> For example, under dynamic binding, the procedure `proc (z) a` returns the value of the variable `a` in its caller’s
+> environment. Thus, the program
+>
+> ```
+> let a = 3
+> in let p = proc (z) a
+>    in let f = proc (x) (p 0)
+>       in let a = 5
+>          in (f 2)
+> ```
+>
+> returns 5, since `a`’s value at the call site is 5. What if `f`’s formal parameter were `a`?
+
+The result should be 2.
