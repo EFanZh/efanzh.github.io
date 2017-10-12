@@ -2531,3 +2531,10 @@ Here is a function that filters free variables in the environment:
 > returns 5, since `a`’s value at the call site is 5. What if `f`’s formal parameter were `a`?
 
 The result should be 2.
+
+> Exercise 3.30 [★] What is the purpose of the call to `proc-val` on the next-to-last line of `apply-env`?
+
+When we are creating the desired recursive closure, we need an environment containing the closure, but we can not create
+the environment directly because we need the closure in order to create the environment. So we delay the creation of
+the closure in the environment so that we can create the environment without a closure. Then, when we need to use the
+closure, we create it by calling `proc-val`.
