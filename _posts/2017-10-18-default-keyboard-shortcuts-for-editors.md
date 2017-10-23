@@ -35,6 +35,9 @@ This is a list of default keyboard shortcuts of different editors, IDEs or brows
 | Sort Lines             |                  | Ctrl + Alt + S        |                  |                     |                    |                    |                     | F9                   |                            |                              |
 | Comment                |                  |                       |                  |                     | Ctrl + K, Ctrl + C |                    |                     |                      |                            | Ctrl + K, Ctrl + C           |
 | Uncomment              |                  |                       |                  |                     | Ctrl + K, Ctrl + U |                    |                     |                      |                            | Ctrl + K, Ctrl + U           |
+| Refactor - Rename      |                  |                       |                  |                     |                    | Shift + F6         | Ctrl + Shift + R    |                      | F2                         |                              |
+| Go Back                |                  |                       |                  |                     |                    | Ctrl + Alt + Left  |                     |                      | Ctrl + Alt + -             |                              |
+| Go Forward             |                  |                       |                  |                     |                    | Ctrl + Alt + Right |                     |                      | Ctrl + Shift + -           |                              |
 
 ## Debugging
 
