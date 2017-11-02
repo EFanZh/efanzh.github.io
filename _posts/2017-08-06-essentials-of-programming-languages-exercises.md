@@ -2538,3 +2538,20 @@ When we are creating the desired recursive closure, we need an environment conta
 the environment directly because we need the closure in order to create the environment. So we delay the creation of
 the closure in the environment so that we can create the environment without a closure. Then, when we need to use the
 closure, we create it by calling `proc-val`.
+
+> Exercise 3.31 [★] Extend the language above to allow the declaration of a recursive procedure of possibly many
+> arguments, as in exercise 3.21.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.32 [★★] Extend the language above to allow the declaration of any number of mututally recursive unary
+> procedures, for example:
+>
+> ```
+> letrec
+>   even(x) = if zero?(x) then 1 else (odd -(x,1))
+>   odd(x) = if zero?(x) then 0 else (even -(x,1))
+> in (odd 13)
+> ```
+
+*Solution is too long, see the code repository.*
