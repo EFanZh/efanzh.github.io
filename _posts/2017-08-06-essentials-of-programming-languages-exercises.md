@@ -2555,3 +2555,57 @@ closure, we create it by calling `proc-val`.
 > ```
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.33 [★★] Extend the language above to allow the declaration of any number of mutually recursive procedures,
+> each of possibly many arguments, as in exercise 3.21.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.34 [★★★] Implement `extend-env-rec` in the procedural representation of environments from section 2.2.3.
+
+*Skipped for now.*
+
+> Exercise 3.35 [★] The representationswe have seen so far are inefficient, because they build a new closure every time
+> the procedure is retrieved. But the closure is the same every time. We can build the closures only once, by putting
+> the value in a vector of length 1 and building an explicit circular structure, like
+>
+> *TODO: Add this figure later.*
+>
+> Here’s the code to build this data structure.
+>
+> ```scheme
+> (define extend-env-rec
+>   (lambda (p-name b-var body saved-env)
+>     (let ((vec (make-vector 1)))
+>       (let ((new-env (extend-env p-name vec saved-env)))
+>         (vector-set! vec 0
+>           (proc-val (procedure b-var body new-env)))
+>         new-env))))
+> ```
+> Complete the implementation of this representation by modifying the definitions of the environment data type and
+> `apply-env` accordingly. Be sure that `apply-env` always returns an expressed value.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.36 [★★] Extend this implementation to handle the language from exercise 3.32.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.37 [★] With dynamic binding (exercise 3.28), recursive procedures may be bound by `let`; no special
+> mechanism is necessary for recursion. This is of historical interest; in the early years of programming language
+> design other approaches to recursion, such as those discussed in section 3.4, were not widely understood. To
+> demonstrate recursion via dynamic binding, test the program
+>
+> ```
+> let fact = proc (n) add1(n)
+> in let fact = proc (n)
+>                if zero?(n)
+>                then 1
+>                else *(n,(fact -(n,1)))
+>    in (fact 5)
+> ```
+>
+> using both lexical and dynamic binding. Write the mutually recursive procedures `even` and `odd` as in section 3.4 in
+> the defined language with dynamic binding.
+
+*Skipped for now.*
