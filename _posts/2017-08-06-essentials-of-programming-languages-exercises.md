@@ -2618,3 +2618,11 @@ closure, we create it by calling `proc-val`.
 > 3.18.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.40 [★★] Extend the lexical address translator and interpreter to handle `letrec`. Do this by modifying
+> the context argument to `translation-of` so that it keeps track of not only the name of each bound variable, but also
+> whether it was bound by `letrec` or not. For a reference to a variable that was bound by a `letrec`, generate a new
+> kind of reference, called a `nameless-letrec-var-exp`. You can then continue to use the nameless environment
+> representation above, and the interpreter can do the right thing with a `nameless-letrec-var-exp`.
+
+*Solution is too long, see the code repository.*
