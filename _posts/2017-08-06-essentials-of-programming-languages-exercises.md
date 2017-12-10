@@ -2609,3 +2609,12 @@ closure, we create it by calling `proc-val`.
 > the defined language with dynamic binding.
 
 *Skipped for now.*
+
+> Exercise 3.38 [★] Extend the lexical address translator and interpreter to handle `cond` from exercise 3.12.
+
+*Solution is too long, see the code repository.*
+
+> Exercise 3.39 [★] Extend the lexical address translator and interpreter to handle `pack` and `unpack` from exercise
+> 3.18.
+
+*Solution is too long, see the code repository.*
