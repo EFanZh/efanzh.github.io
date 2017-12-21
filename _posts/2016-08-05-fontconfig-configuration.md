@@ -2,6 +2,8 @@
 title: EFanZh’s Fontconfig configuration
 ---
 
+Global configuration file is: `/etc/fonts/local.conf`. User configuration file is: `$HOME/.config/fontconfig/fonts.conf`.
+
 ```xml
 <?xml version="1.0"?>
 <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
