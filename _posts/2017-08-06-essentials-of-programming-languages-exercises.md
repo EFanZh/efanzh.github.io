@@ -2634,3 +2634,10 @@ closure, we create it by calling `proc-val`.
 > indicate the position of the variable in the declaration.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 3.42 [★★★] Modify the lexical address translator and interpreter to use the trimmed representation of
+> procedures from exercise 3.26. For this, you will need to translate the body of the procedure not
+> `(extend-senv `*var*` `*senv*`)`, but in a new static environment that tells exactly where each variable will be kept
+> in the trimmed representation.
+
+*Solution is too long, see the code repository.*
