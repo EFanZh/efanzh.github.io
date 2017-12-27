@@ -2693,4 +2693,25 @@ final value that referenced by `counter` will be the same.
 \$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
       ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)),
       ((tt "value-of" quad (tt "call-exp" quad val_1 quad val_2) quad ρ quad σ_2) = (val_3, σ_3)):} /
-    ((tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = (val_3, σ_3))$$
+    ((tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = (val_3, σ_3)) $$
+
+> Exercise 4.4 [★★] Write down the specification for a `begin` expresssion.
+>
+> *Expression* ::= `begin `*Expression*` `{`; `*Expression*}<sup>∗</sup>` end`
+>
+> A `begin` expression may contain one or more subexpressions separated by semicolons. These are evaluated in order and
+> the value of the last is returned.
+
+\$$ ((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)) /
+    {:((tt "value-of" quad (tt "begin-exp" quad e\xp_1 quad tt "'" ()) quad ρ quad σ_0) = (val_1, σ_1)),
+      ((tt "value-of" quad (tt "begin-exp" quad e\xp_1 quad (tt "cons" quad e\xp_2 quad e\xps)) quad ρ quad σ_0) =
+       (tt "value-of" quad (tt "begin-exp" quad e\xp_2 quad e\xps) quad ρ quad σ_1)):} $$
+
+> Exercise 4.5 [★★] Write down the specification for `list` (exercise 3.10).
+
+\$$ (tt "value-of" quad (tt "list-exp" quad tt "'()")) = (tt "empty-list") $$
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
+      ((tt "value-of" quad (tt "list-exp" quad e\xps) quad ρ quad σ_1) = (val_2, σ_2)):} /
+    ((tt "value-of" quad (tt "list-exp" quad (cons quad e\xp_1 quad e\xps))) =
+     ((tt "pair" quad val_1 quad val_2), σ_2)) $$
