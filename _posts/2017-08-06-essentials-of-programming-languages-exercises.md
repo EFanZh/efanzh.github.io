@@ -658,7 +658,7 @@ $$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0
 > Exercise 1.30 [★★] `(sort/predicate pred loi)` returns a list of elements sorted by the predicate.
 >
 > ```scheme
->  > (sort/predicate < '(8 2 5 2 3))
+> > (sort/predicate < '(8 2 5 2 3))
 > (2 2 3 5 8)
 > > (sort/predicate > '(8 2 5 2 3))
 > (8 5 3 2 2)
@@ -2680,3 +2680,17 @@ closure, we create it by calling `proc-val`.
 
 The result would been 0. Because `counter` rebinds to a new location that has the value 0 every time g is called, the
 final value that referenced by `counter` will be the same.
+
+> Exercise 4.2 [★] Write down the specification for a `zero?-exp`.
+
+\$$ ((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)) /
+    ((tt "value-of" quad (tt "zero?-exp" quad e\xp_1) quad ρ quad σ_0) =
+         {(((tt "bool-val" quad tt "#t"), σ_1), if (tt "expval->num" quad val_1) = 0),
+          (((tt "bool-val" quad tt "#f"), σ_1), if (tt "expval->num" quad val_1) ≠ 0):} $$
+
+> Exercise 4.3 [★] Write down the specification for a `call-exp`.
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)),
+      ((tt "value-of" quad (tt "call-exp" quad val_1 quad val_2) quad ρ quad σ_2) = (val_3, σ_3)):} /
+    ((tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = (val_3, σ_3))$$
