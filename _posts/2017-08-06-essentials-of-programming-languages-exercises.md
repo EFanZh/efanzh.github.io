@@ -2715,3 +2715,15 @@ final value that referenced by `counter` will be the same.
       ((tt "value-of" quad (tt "list-exp" quad e\xps) quad ρ quad σ_1) = (val_2, σ_2)):} /
     ((tt "value-of" quad (tt "list-exp" quad (cons quad e\xp_1 quad e\xps))) =
      ((tt "pair" quad val_1 quad val_2), σ_2)) $$
+
+> Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (l, σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val, σ_2)):} /
+    (tt "value-of" quad (tt "setref-exp" quad e\xp_1 quad e\xp_2 quad ρ quad σ_0) = (val, [l=val]σ_2)) $$
+
+> Exercise 4.7 [★] Modify the rule given above so that a `setref-exp` returns the old contents of the location.
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (l, σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val, σ_2)):} /
+    (tt "value-of" quad (tt "setref-exp" quad e\xp_1 quad e\xp_2 quad ρ quad σ_0) = (σ_0(l), [l=val]σ_2)) $$
