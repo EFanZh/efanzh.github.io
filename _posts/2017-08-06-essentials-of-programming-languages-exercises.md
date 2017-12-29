@@ -2727,3 +2727,12 @@ final value that referenced by `counter` will be the same.
 \$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (l, σ_1)),
       ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val, σ_2)):} /
     (tt "value-of" quad (tt "setref-exp" quad e\xp_1 quad e\xp_2 quad ρ quad σ_0) = (σ_0(l), [l=val]σ_2)) $$
+
+> Exercise 4.8 [★] Show exactly where in our implementation of the store these operations take linear time rather than
+> constant time.
+
+In `new-ref`, `length` and `append` take linear time, so `new-ref` takes linear time.
+
+In `deref`, `list-ref` take linear time, so `deref` takes linear time.
+
+In `setref!`, `setref-inner` loops through the store, which takes linear time, so `setref!` takes linear time.
