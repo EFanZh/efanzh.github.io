@@ -2736,3 +2736,63 @@ In `new-ref`, `length` and `append` take linear time, so `new-ref` takes linear 
 In `deref`, `list-ref` take linear time, so `deref` takes linear time.
 
 In `setref!`, `setref-inner` loops through the store, which takes linear time, so `setref!` takes linear time.
+
+> Exercise 4.9 [★] Implement the store in constant time by representing it as a Scheme vector. What is lost by using
+> this representation?
+
+```racket
+(define (empty-store)
+  (vector))
+
+(define the-store 'uninitialized)
+
+(define (get-store)
+  the-store)
+
+(define (initialize-store!)
+  (set! the-store (empty-store)))
+
+(define (reference? v)
+  (and (integer? v)
+       (not (negative? v))))
+
+(define (extend-store store val)
+  (let* ([store-size (vector-length store)]
+         [new-store (make-vector (+ store-size 1))])
+    (let loop ([i 0])
+      (if (< i store-size)
+          (let ([val (vector-ref store i)])
+            (vector-set! new-store i val)
+            (loop (+ i 1)))
+          (vector-set! new-store i val)))
+    (cons new-store store-size)))
+
+(define (newref val)
+  (let* ([new-store-info (extend-store the-store val)]
+         [new-store (car new-store-info)]
+         [new-ref (cdr new-store-info)])
+    (set! the-store new-store)
+    new-ref))
+
+(define (deref ref)
+  (vector-ref the-store ref))
+
+(define (report-invalid-reference ref store)
+  (eopl:error 'setref
+              "illegal reference ~s in store ~s"
+              ref
+              store))
+
+(define (setref! ref val)
+  (if (and (reference? ref)
+           (< ref (vector-length the-store)))
+      (vector-set! the-store ref val)
+      (report-invalid-reference ref the-store)))
+```
+
+Note that `newref` still takes linear time. It is possible to implement the store that allocates locations in constant
+time on average by preallocating more locations in advance, but it is a little complecated, so I’ll just choose the easy
+way to implement the store.
+
+As for the disadvantages of using a Scheme vector to implement the store, may be sharing values between stores becomes
+more difficult.
