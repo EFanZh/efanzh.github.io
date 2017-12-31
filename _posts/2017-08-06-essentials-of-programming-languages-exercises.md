@@ -2804,3 +2804,17 @@ more difficult.
 > Exercise 4.11 [★] Implement `list` from exercise 4.5.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.12 [★★★] Our understanding of the store, as expressed in this interpreter, depends on themeaning of
+> effects in Scheme. In particular, it depends on us knowing *when* these effects take place in a Scheme program. We can
+> avoid this dependency by writing an interpreter that more closely mimics the specification. In this interpreter,
+> `value-of` would return both a value and a store, just as in the specification. A fragment of this interpreter appears
+> in figure 4.6. We call this a *store-passing interpreter*. Extend this interpreter to cover all of the language
+> EXPLICIT-REFS.
+>
+> Every procedure that mightmodify the store returns not just its usual value but also a new store. These are packaged
+> in a data type called `answer`. Complete this definition of `value-of`.
+
+*Solution is too long, see the code repository.*
+
+*Also, what is `apply-store` in the reference implementation?*
