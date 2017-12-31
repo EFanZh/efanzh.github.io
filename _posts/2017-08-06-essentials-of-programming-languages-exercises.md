@@ -2126,12 +2126,13 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
 
-\$$ tt ((((("(value-of «x» ρ)" = 33) / ("(value-of «-(x, 11)» ρ)" = 22)) /
-          ("(value-of «zero?(-(x, 11))» ρ)" = "(bool-val #f)")) /
-         ("(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» ρ)" = "(value-of «-(y, 4)» ρ)")
-          quad
-          ("(value-of «y» ρ)" = 22) / ("(value-of «-(y, 4)» ρ)" = 18)) /
-        ("(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» ρ)" = 18)) $$
+\$$ (((((tt "value-of" quad «tt x» quad ρ) = 33) / ((tt "value-of" quad «tt "-(x, 11)"» quad ρ) = 22)) /
+      ((tt "value-of" quad «tt "zero?(-(x, 11))"» quad ρ) = (tt "bool-val" quad tt "#f"))) /
+     ((tt "value-of" quad «tt "if zero?(-(x, 11)) then -(y, 2) else -(y, 4)"» quad ρ) =
+      (tt "value-of" quad «tt "-(y, 4)"» quad ρ))
+     quad quad
+     ((tt "value-of" quad «tt y» quad ρ) = 22) / ((tt "value-of" quad «tt "-(y, 4)"» quad ρ) = 18)) /
+    ((tt "value-of" quad «tt "if zero?(-(x, 11)) then -(y, 2) else -(y, 4)"» quad ρ) = 18) $$
 
 > Exercise 3.5 [★] Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
 
