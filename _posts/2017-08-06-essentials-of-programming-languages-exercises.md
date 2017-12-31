@@ -2823,3 +2823,9 @@ more difficult.
 > Exercise 4.13 [★★★] Extend the interpreter of the preceding exercise to have procedures of multiple arguments.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.14 [★] Write the rule for `let`.
+
+\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)} /
+    {(tt "value-of" quad (tt "let-exp" quad var quad e\xp_1 quad body) quad ρ quad σ_0) =
+     (tt "value-of" quad body quad [var = l]ρ quad [l = val_1]σ_1)} $$
