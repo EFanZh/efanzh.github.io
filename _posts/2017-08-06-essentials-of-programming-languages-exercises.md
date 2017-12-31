@@ -2818,3 +2818,7 @@ more difficult.
 *Solution is too long, see the code repository.*
 
 *Also, what is `apply-store` in the reference implementation?*
+
+> Exercise 4.13 [★★★] Extend the interpreter of the preceding exercise to have procedures of multiple arguments.
+
+*Solution is too long, see the code repository.*
