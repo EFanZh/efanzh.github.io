@@ -2829,3 +2829,37 @@ more difficult.
 \$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)} /
     {(tt "value-of" quad (tt "let-exp" quad var quad e\xp_1 quad body) quad ρ quad σ_0) =
      (tt "value-of" quad body quad [var = l]ρ quad [l = val_1]σ_1)} $$
+
+> Exercise 4.15 [★] In figure 4.8, why are variables in the environment bound to plain integers rather than expressed
+> values, as in figure 4.5?
+
+Because we know for sure that the denoted values will all be references, so plain integers are sufficient to represent
+the location info we need.
+
+> Exercise 4.16 [★] Now that variables are mutable, we can build recursive procedures by assignment. For example
+>
+> ```
+> letrec times4(x) = if zero?(x)
+>                    then 0
+>                    else -((times4 -(x,1)), -4)
+> in (times4 3)
+> ```
+>
+> can be replaced by
+>
+> ```
+> let times4 = 0
+> in begin
+>     set times4 = proc (x)
+>                   if zero?(x)
+>                   then 0
+>                   else -((times4 -(x,1)), -4);
+>     (times4 3)
+>    end
+> ```
+>
+> Trace this by hand and verify that this translation works.
+
+First we allocate a new location for the number 0, then we bind `times4` to the location. After we setting `times4` to
+the procedure, the location pointed by `times4` contains the procedure closure. In the enclosed environment of the
+procedure, `times4` also points to the procedure so the procedure can call itself recursively.
