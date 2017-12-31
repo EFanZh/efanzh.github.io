@@ -2796,3 +2796,11 @@ way to implement the store.
 
 As for the disadvantages of using a Scheme vector to implement the store, may be sharing values between stores becomes
 more difficult.
+
+> Exercise 4.10 [★] Implement the `begin` expression as specified in exercise 4.4.
+
+*The reference implementation already implemented the `begin` expression, so I’ll just skip this one.*
+
+> Exercise 4.11 [★] Implement `list` from exercise 4.5.
+
+*Solution is too long, see the code repository.*
