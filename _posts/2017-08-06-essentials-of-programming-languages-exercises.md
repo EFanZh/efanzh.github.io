@@ -2684,17 +2684,17 @@ final value that referenced by `counter` will be the same.
 
 > Exercise 4.2 [★] Write down the specification for a `zero?-exp`.
 
-\$$ ((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)) /
-    ((tt "value-of" quad (tt "zero?-exp" quad e\xp_1) quad ρ quad σ_0) =
+\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)} /
+    {(tt "value-of" quad (tt "zero?-exp" quad e\xp_1) quad ρ quad σ_0) =
          {(((tt "bool-val" quad tt "#t"), σ_1), if (tt "expval->num" quad val_1) = 0),
-          (((tt "bool-val" quad tt "#f"), σ_1), if (tt "expval->num" quad val_1) ≠ 0):} $$
+          (((tt "bool-val" quad tt "#f"), σ_1), if (tt "expval->num" quad val_1) ≠ 0):}} $$
 
 > Exercise 4.3 [★] Write down the specification for a `call-exp`.
 
 \$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)),
-      ((tt "value-of" quad (tt "call-exp" quad val_1 quad val_2) quad ρ quad σ_2) = (val_3, σ_3)):} /
-    ((tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = (val_3, σ_3)) $$
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
+    {(tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = 
+     (tt "apply-procedure" quad val_1 quad val_2 quad σ_2)} $$
 
 > Exercise 4.4 [★★] Write down the specification for a `begin` expresssion.
 >
@@ -2714,8 +2714,8 @@ final value that referenced by `counter` will be the same.
 
 \$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
       ((tt "value-of" quad (tt "list-exp" quad e\xps) quad ρ quad σ_1) = (val_2, σ_2)):} /
-    ((tt "value-of" quad (tt "list-exp" quad (cons quad e\xp_1 quad e\xps))) =
-     ((tt "pair" quad val_1 quad val_2), σ_2)) $$
+    ((tt "value-of" quad (tt "list-exp" quad (tt "cons" quad e\xp_1 quad e\xps))) =
+     ((tt "pair-val" quad val_1 quad val_2), σ_2)) $$
 
 > Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
 
@@ -2863,3 +2863,54 @@ the location info we need.
 First we allocate a new location for the number 0, then we bind `times4` to the location. After we setting `times4` to
 the procedure, the location pointed by `times4` contains the procedure closure. In the enclosed environment of the
 procedure, `times4` also points to the procedure so the procedure can call itself recursively.
+
+> Exercise 4.17 [★★] Write the rules for and implement multiargument procedures and `let` expressions.
+
+\$$ {:(,
+       (tt "apply-procedure" quad (tt "procedure" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
+                                                  quad body
+                                                  quad ρ)
+                             quad (tt "list" quad val_1 quad val_2 quad … quad val_n)
+                             quad σ)),
+      (=,
+       (tt "value-of" quad body
+                      quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
+                      quad [l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ)):} $$
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)),
+      (…),
+      ((tt "value-of" quad e\xp_n quad ρ quad σ_(n - 1)) = (val_n, σ_n)):} /
+    {:(,
+       (tt "value-of" quad (tt "let-exp" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
+                                         quad (tt "list" quad e\xp_1 quad e\xp_2 quad … quad e\xp_n)
+                                         quad body)
+                      quad ρ
+                      quad σ_0)),
+      (=,
+       (tt "value-of" quad body
+                      quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
+                      quad [l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n)):} $$
+
+> Exercise 4.18 [★★] Write the rule for and implement multiprocedure `letrec` expressions.
+
+\$$ {:(,
+       (tt "value-of" quad (tt "letrec-exp" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
+                                         quad (tt "list" quad bvars_1 quad bvars_2 quad … quad bvars_n)
+                                         quad (tt "list" quad pbody_1 quad pbody_2 quad … quad pbody_n)
+                                         quad l\etrecbody)
+                   quad ρ
+                   quad σ)),
+      (=,
+       (tt "let" quad ([tt "body-env" quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ])
+                 quad (tt "value-of" quad l\etrecbody
+                                     quad tt "body-env"
+                                     quad [l_n = (tt "procedure" quad bvars_n quad pbody_n quad tt "body-env")]
+                                          …
+                                          [l_2 = (tt "procedure" quad bvars_2 quad pbody_2 quad tt "body-env")]
+                                          [l_1 = (tt "procedure" quad bvars_1 quad pbody_1 quad tt "body-env")]σ))):} $$
+
+> Exercise 4.19 [★★] Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
+> only one location is allocated for it. This is like exercise 3.35.
+
+*Solution is too long, see the code repository.*
