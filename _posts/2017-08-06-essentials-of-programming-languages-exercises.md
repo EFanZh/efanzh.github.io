@@ -2930,3 +2930,27 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 > *Expression* ::= `letmutable `*Identifier*` = `*Expression*` in `*Expression*
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.21 [★★] We suggested earlier the use of assignment to make a program more modular by allowing one
+> procedure to communicate information to a distant procedure without requiring intermediate procedures to be aware of
+> it. Very often such an assignment should only be temporary, lasting for the execution of a procedure call. Add to the
+> language a facility for *dynamic assignment* (also called *fluid binding*) to accomplish this. Use the production
+>
+> | *Expression* ::= | `setdynamic `*Identifier*` = `*Expression*` during `*Expression*                               |
+> |                  | <span style="border: 1px solid">`setdynamic-exp (`*var*` `*exp*<sub>1</sub>` `*body*`)`</span> |
+>
+> The effect of the `setdynamic` expression is to assign temporarily the value of *exp*<sub>1</sub> to *var*, evaluate
+> *body*, reassign *var* to its original value, and return the value of *body*. The variable *var* must already be
+> bound. For example, in
+>
+> ```
+> let x = 11
+> in let p = proc (y) -(y,x)
+>    in -(setdynamic x = 17 during (p 22),
+>         (p 13))
+> ```
+>
+> the value of `x`, which is free in procedure `p`, is 17 in the call `(p 22)`, but is reset to 11 in the call `(p 13)`,
+> so the value of the expression is 5 - 2 = 3.
+
+*Solution is too long, see the code repository.*
