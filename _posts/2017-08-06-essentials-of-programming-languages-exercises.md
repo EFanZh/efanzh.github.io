@@ -5,7 +5,7 @@ enable_mathjax: true
 
 ## Codes
 
-Code for the exercises can be found [here](https://github.com/EFanZh/EFanZh/tree/master/Racket/eopl-exercises).
+Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exercises).
 
 ## Exercises
 
