@@ -2290,7 +2290,7 @@ proc (x)
 > Exercise 3.21 [★★] Extend the language of this section to include procedures with multiple arguments and calls with
 > multiple operands, as suggested by the grammar
 >
-> *Expression* ::= `proc (`{*Identifier*}<sup>∗(,)</sup>`) `*Expression* \\
+> *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`) `*Expression* \\
 > *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
 
 *Solution is too long, see the code repository.*
@@ -2954,3 +2954,102 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 > so the value of the expression is 5 - 2 = 3.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.22 [★★] So far our languages have been expression-oriented: the primary syntactic category of interest has
+> been expressions and we have primarily been interested in their values. Extend the language to model the simple
+> statement-oriented language whose specification is sketched below. Be sure to *Follow the Grammar* by writing separate
+> procedures to handle programs, statements, and expressions.
+>
+> **Values** As in IMPLICIT-REFS.
+>
+> **Syntax** Use the following syntax:
+>
+> | *Program*   | ::= *Statement*                                           |
+> | *Statement* | ::= *Identifier*` = `*Expression*                         |
+> |             | ::= `print `*Expression*                                  |
+> |             | ::= `{ `{*Statement*}<sup>∗(`;`)</sup>` }`                |
+> |             | ::= `if `*Expression*` `*Statement*` `*Statement*         |
+> |             | ::= `while `*Expression*` `*Statement*                    |
+> |             | ::= `var `{*Identifier*}<sup>∗(`,`)</sup>` ; `*Statement* |
+>
+> The nonterminal *Expression* refers to the language of expressions of IMPLICIT-REFS, perhaps with some extensions.
+>
+> **Semantics** A program is a statement. A statement does not return a value, but acts by modifying the store and by
+> printing.
+>
+> Assignment statements work in the usual way. A print statement evaluates its actual parameter and prints the result.
+> The `if` statement works in the usual way. A block statement, defined in the last production for *Statement*, binds
+> each of the declared variables to an uninitialized reference and then executes the body of the block. The scope of
+> these bindings is the body.
+>
+> Write the specification for statements using assertions like
+>
+> \$$ (tt "result-of" quad stmt quad ρ quad σ_0) = σ_1 $$
+>
+> **Examples** Here are some examples.
+>
+> ```
+> (run "var x,y; {x = 3; y = 4; print +(x,y)}") % Example 1
+> 7
+> (run "var x,y,z; {x = 3;                      % Example 2
+>                   y = 4;
+>                   z = 0;
+>                   while not(zero?(x))
+>                     {z = +(z,y); x = -(x,1)};
+>                   print z}")
+> 12
+> (run "var x; {x = 3;                          % Example 3
+>               print x;
+>               var x; {x = 4; print x};
+>               print x}")
+> 3
+> 4
+> 3
+> (run "var f,x; {f = proc(x,y) *(x,y);         % Example 4
+>                 x = 3;
+>                 print (f 4 x)}")
+> 12
+> ```
+>
+> Example 3 illustrates the scoping of the block statement.
+>
+> Example 4 illustrates the interaction between statements and expressions. A procedure value is created and stored in
+> the variable `f`. In the last line, this procedure is applied to the actual parameters 4 and `x`; since `x` is bound
+> to a reference, it is dereferenced to obtain 3.
+
+The implementation is at the code repository.
+
+Specification for statements:
+
+\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
+    {(tt "result-of" quad (tt "assign-statement" quad var quad e\xp) quad ρ quad σ_0) = [ρ(var) = val]σ_1} $$
+
+\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
+    {(tt "result-of" quad (tt "print-statement" quad e\xp) quad ρ quad σ_0) = σ_1} $$
+
+\$$ {:((tt "result-of" quad stmt_1 quad ρ quad σ_0) = σ_1),
+      ((tt "result-of" quad stmt_2 quad ρ quad σ_1) = σ_2),
+      (…),
+      ((tt "result-of" quad stmt_n quad ρ quad σ_(n - 1)) = σ_n):} /
+    {(tt "result-of" quad (tt "brace-statement" quad (tt "list" quad stmt_1 quad stmt_1 quad … quad stmt_n))
+                     quad ρ
+                     quad σ_0) = σ_n} $$
+
+\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
+    {(tt "result-of" quad (tt "if-statement" quad e\xp quad stmt_1 quad stmt_2) quad ρ quad σ_0) =
+     {((tt "result-of" quad stmt_1 quad ρ quad σ_1), if (tt "expval->bool" quad val) = tt "#t"),
+      ((tt "result-of" quad stmt_2 quad ρ quad σ_1), if (tt "expval->bool" quad val) = tt "#f"):}} $$
+
+\$$ {:((tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)),
+      ((tt "result-of" quad stmt quad ρ quad σ_1) = σ_2):} /
+    {(tt "result-of" quad (tt "while-statement" quad e\xp quad stmt) quad ρ quad σ_0) =
+     {((tt "result-of" quad (tt "while-statement" quad e\xp quad stmt) quad ρ quad σ_2),
+       if (tt "expval->bool" quad val) = tt "#t"),
+      (σ_1, if (tt "expval->bool" quad val) = tt "#f"):}} $$
+
+\$$ (tt "result-of" quad (tt "block-statement" quad (tt "list" quad var_1 quad var_2 quad … quad var_n) quad stmt)
+                    quad ρ
+                    quad σ_0) =
+    (tt "result-of" quad stmt
+                    quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
+                    quad [l_n = undefi\n\ed]…[l_2 = undefi\n\ed][l_1 = undefi\n\ed]σ_0)$$
