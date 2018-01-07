@@ -3053,3 +3053,8 @@ Specification for statements:
     (tt "result-of" quad stmt
                     quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
                     quad [l_n = undefi\n\ed]…[l_2 = undefi\n\ed][l_1 = undefi\n\ed]σ_0)$$
+
+> Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read `*var*. This statement
+> reads a nonnegative integer from the input and stores it in the given variable.
+
+*Solution is too long, see the code repository.*
