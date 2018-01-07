@@ -3071,3 +3071,9 @@ Specification for statements:
 *Solution is too long, see the code repository.*
 
 No, the scope of a variable does not include the initializer for variables declared later in the same block statement.
+
+> Exercise 4.26 [★★★] Extend the solution to the preceding exercise so that procedures declared in a single block
+> aremutually recursive. Consider restricting the language so that the variable declarations in a block are followed by
+> the procedure declarations.
+
+*Solution is too long, see the code repository.*
