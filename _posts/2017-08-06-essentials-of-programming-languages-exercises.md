@@ -3077,3 +3077,15 @@ No, the scope of a variable does not include the initializer for variables decla
 > the procedure declarations.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.27 [★★] Extend the language of the preceding exercise to include *subroutines*. In our usage a subroutine
+> is like a procedure, except that it does not return a value and its body is a statement, rather than an expression.
+> Also, add subroutine calls as a new kind of statement and extend the syntax of blocks so that they may be used to
+> declare both procedures and subroutines. How does this affect the denoted and expressed values? What happens if a
+> procedure is referenced in a subroutine call, or vice versa?
+
+*Implementation is in the code repository.*
+
+Denoted values does not change, expressed values now conain a `sub-val` variant.
+
+Error will happen if procedure is referenced in a subroutine call, or vice versa.
