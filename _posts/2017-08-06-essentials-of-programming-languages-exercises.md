@@ -3058,3 +3058,8 @@ Specification for statements:
 > reads a nonnegative integer from the input and stores it in the given variable.
 
 *Solution is too long, see the code repository.*
+
+> Exercise 4.24 [★] A `do-while` statement is like a `while` statement, except that the test is performed *after* the
+> execution of the body. Add `do-while` statements to the language of exercise 4.22.
+
+*Solution is too long, see the code repository.*
