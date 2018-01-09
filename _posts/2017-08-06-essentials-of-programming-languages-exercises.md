@@ -2693,7 +2693,7 @@ final value that referenced by `counter` will be the same.
 
 \$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
       ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
-    {(tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) = 
+    {(tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
      (tt "apply-procedure" quad val_1 quad val_2 quad σ_2)} $$
 
 > Exercise 4.4 [★★] Write down the specification for a `begin` expresssion.
@@ -3089,3 +3089,26 @@ No, the scope of a variable does not include the initializer for variables decla
 Denoted values does not change, expressed values now conain a `sub-val` variant.
 
 Error will happen if procedure is referenced in a subroutine call, or vice versa.
+
+> Exercise 4.28 [★★] Write down the specification rules for the five mutable-pair operations.
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
+    {(tt "value-of" quad (tt "newpair-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
+     ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), [l_2 = val_2][l_1 = val_1]σ_2)} $$
+
+\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)} /
+    {(tt "value-of" quad (tt "left-exp" quad e\xp_1) quad ρ quad σ_0) = (σ_1(l_1), σ_1)} $$
+
+\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)} /
+    {(tt "value-of" quad (tt "right-exp" quad e\xp_1) quad ρ quad σ_0) = (σ_1(l_2), σ_1)} $$
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
+    {(tt "value-of" quad (tt "setleft-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
+     ((tt "num-val" quad tt "82"), [l_1 = val_2]σ_2)} $$
+
+\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)),
+      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
+    {(tt "value-of" quad (tt "setright-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
+     ((tt "num-val" quad tt "83"), [l_2 = val_2]σ_2)} $$
