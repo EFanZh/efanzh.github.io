@@ -3183,3 +3183,17 @@ The result of that program should be 2.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-mutable-pairs-lang.rkt).
+
+> Exercise 4.31 [★] Write out the specification rules for CALL-BY-REFERENCE.
+
+*Skipped for now.*
+
+> Exercise 4.32 [★] Extend the language CALL-BY-REFERENCE to have procedures of multiple arguments.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
+
+> Exercise 4.33 [★★] Extend the language CALL-BY-REFERENCE to support call-by-value procedures as well.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
