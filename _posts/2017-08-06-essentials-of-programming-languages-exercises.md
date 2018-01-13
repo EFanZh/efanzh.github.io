@@ -2141,16 +2141,19 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > Exercise 3.6 [★] Extend the language by adding a new operator minus that takes one argument, *n*, and returns -*n*.
 > For example, the value of `minus(-(minus(5), 9))` should be 14.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.7 [★] Extend the language by adding operators for addition, multiplication, and integer quotient.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.8 [★] Add a numeric equality predicate `equal?` and numeric order predicates `greater?` and `less?` to the
 > set of operations in the defined language.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.9 [★★] Add list processing operations to the language, including `cons`, `car`, `cdr`, `null?` and
 > `emptylist`. A list should be able to contain any expressed value, including another list. Give the definitions of the
@@ -2166,7 +2169,8 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 >
 > should return an expressed value that represents the list `(4 (3))`.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.10 [★★] Add an operation `list` to the language. This operation should take any number of arguments, and
 > return an expressed value containing the list of their values. For example,
@@ -2178,12 +2182,14 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 >
 > should return an expressed value that represents the list `(4 3 1)`.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.11 [★] In a real language, one might have many operators such as those in the preceding exercises.
 > Rearrange the code in the interpreter so that it is easy to add new operators.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
 >
@@ -2193,12 +2199,14 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > returns a true value. Then the value of the entire expression is the value of the corresponding right-hand expression.
 > If none of the tests succeeds, the expression should report an error.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.13 [★] Change the values of the language so that integers are the only expressed values. Modify `if` so
 > that the value 0 is treated as false and all other values are treated as true. Modify the predicates accordingly.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.13.rkt).
 
 > Exercise 3.14 [★★] As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
 > expressions to the language. Change the production for conditional expressions to say
@@ -2208,12 +2216,13 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 > Write suitable productions for *Bool-exp* and implement `value-of-bool-exp`. Where do the predicates of exercise 3.8
 > wind up in this organization?
 
-*Solution is too long, see the code repository.*
+*I’ll deal with this one later.*
 
 > Exercise 3.15 [★] Extend the language by adding a new operation `print` that takes one argument, prints it, and
 > returns the integer 1. Why is this operation not expressible in our specification framework?
 
-*See the code repository for implementation.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 Because `print` cause a side effect while our specification framework does not have something to do this.
 
@@ -2234,7 +2243,8 @@ Because `print` cause a side effect while our specification framework does not h
 >
 > should evaluate to 1.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.17 [★★] Extend the language with a `let*` expression that works like Scheme’s `let*`, so that
 >
@@ -2246,7 +2256,8 @@ Because `print` cause a side effect while our specification framework does not h
 >
 > should evaluate to 2.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.18 [★★] Add an expression to the defined language:
 >
@@ -2263,7 +2274,8 @@ Because `print` cause a side effect while our specification framework does not h
 >
 > should be 4.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
 > Exercise 3.19 [★] In many languages, procedures must be created and named at the same time. Modify the language of
 > this section to have this property by replacing the `proc` expression with a `letproc` expression.
@@ -2293,14 +2305,16 @@ proc (x)
 > *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`) `*Expression* \\
 > *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
 
 > Exercise 3.22 [★★★] The concrete syntax of this section uses different syntax for a built-in operation, such as
 > difference, from a procedure call. Modify the concrete syntax so that the user of this language need not know which
 > operations are built-in and which are defined procedures. This exercise may range from very easy to hard, depending on
 > the parsing technology being used.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.22.rkt).
 
 > Exercise 3.23 [★★] What is the value of the following PROC program?
 >
@@ -2495,7 +2509,8 @@ Here is a function that filters free variables in the environment:
 > Exercise 3.27 [★] Add a new kind of procedure called a `traceproc` to the language. A `traceproc` works exactly like
 > a `proc`, except that it prints a trace message on entry and on exit.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
 
 > Exercise 3.28 [★★] *Dynamic binding* (or *dynamic scoping*) is an alternative design for procedures, in which the
 > procedure body is evaluated in an environment obtained by extending the environment at the point of call. For example
@@ -2511,7 +2526,10 @@ Here is a function that filters free variables in the environment:
 > the `a` in the procedure body would be bound to 5, not 3. Modify the language to use dynamic binding. Do this twice,
 > once using a procedural representation for procedures, and once using a data-structure representation.
 
-*Solution is too long, see the code repository. Also, only data-structure representation is implemented.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
+
+Only data-structure representation is implemented.
 
 > Exercise 3.29 [★★] Unfortunately, programs that use dynamic binding may be exceptionally difficult to understand. For
 > example, under lexical binding, consistently renaming the bound variables of a procedure can never change the behavior
@@ -2543,7 +2561,8 @@ closure, we create it by calling `proc-val`.
 > Exercise 3.31 [★] Extend the language above to allow the declaration of a recursive procedure of possibly many
 > arguments, as in exercise 3.21.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
 > Exercise 3.32 [★★] Extend the language above to allow the declaration of any number of mututally recursive unary
 > procedures, for example:
@@ -2555,12 +2574,14 @@ closure, we create it by calling `proc-val`.
 > in (odd 13)
 > ```
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
 > Exercise 3.33 [★★] Extend the language above to allow the declaration of any number of mutually recursive procedures,
 > each of possibly many arguments, as in exercise 3.21.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
 > Exercise 3.34 [★★★] Implement `extend-env-rec` in the procedural representation of environments from section 2.2.3.
 
@@ -2586,11 +2607,13 @@ closure, we create it by calling `proc-val`.
 > Complete the implementation of this representation by modifying the definitions of the environment data type and
 > `apply-env` accordingly. Be sure that `apply-env` always returns an expressed value.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang-circular.rkt).
 
 > Exercise 3.36 [★★] Extend this implementation to handle the language from exercise 3.32.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang-circular.rkt).
 
 > Exercise 3.37 [★] With dynamic binding (exercise 3.28), recursive procedures may be bound by `let`; no special
 > mechanism is necessary for recursion. This is of historical interest; in the early years of programming language
@@ -2613,12 +2636,14 @@ closure, we create it by calling `proc-val`.
 
 > Exercise 3.38 [★] Extend the lexical address translator and interpreter to handle `cond` from exercise 3.12.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.39 [★] Extend the lexical address translator and interpreter to handle `pack` and `unpack` from exercise
 > 3.18.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.40 [★★] Extend the lexical address translator and interpreter to handle `letrec`. Do this by modifying
 > the context argument to `translation-of` so that it keeps track of not only the name of each bound variable, but also
@@ -2626,7 +2651,8 @@ closure, we create it by calling `proc-val`.
 > kind of reference, called a `nameless-letrec-var-exp`. You can then continue to use the nameless environment
 > representation above, and the interpreter can do the right thing with a `nameless-letrec-var-exp`.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.41 [★★] Modify the lexical address translator and interpreter to handle `let` expressions, procedures, and
 > procedure calls with multiple arguments, as in exercise 3.21. Do this using a nameless version of the ribcage
@@ -2634,14 +2660,16 @@ closure, we create it by calling `proc-val`.
 > nonnegative integers: the lexical depth, to indicate the number of contours crossed, as before; and a position, to
 > indicate the position of the variable in the declaration.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.42 [★★★] Modify the lexical address translator and interpreter to use the trimmed representation of
 > procedures from exercise 3.26. For this, you will need to translate the body of the procedure not
 > `(extend-senv `*var*` `*senv*`)`, but in a new static environment that tells exactly where each variable will be kept
 > in the trimmed representation.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.43 [★★★] The translator can do more than just keep track of the names of variables. For example, consider
 > the program
@@ -2657,13 +2685,15 @@ closure, we create it by calling `proc-val`.
 > environment entirely. Extend the translator to keep track of “known procedures” and generate code that avoids an
 > environment lookup at the call of such a procedure.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 3.44 [★★★] In the preceding example, the only use of `f` is as a known procedure. Therefore the procedure
 > built by the expression proc `(y) -(y,x)` is never used. Modify the translator so that such a procedure is never
 > constructed.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
 > Exercise 4.1 [★] What would have happened had the program been instead
 >
@@ -2804,7 +2834,8 @@ more difficult.
 
 > Exercise 4.11 [★] Implement `list` from exercise 4.5.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
 > Exercise 4.12 [★★★] Our understanding of the store, as expressed in this interpreter, depends on themeaning of
 > effects in Scheme. In particular, it depends on us knowing *when* these effects take place in a Scheme program. We can
@@ -2816,13 +2847,15 @@ more difficult.
 > Every procedure that mightmodify the store returns not just its usual value but also a new store. These are packaged
 > in a data type called `answer`. Complete this definition of `value-of`.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
 *Also, what is `apply-store` in the reference implementation?*
 
 > Exercise 4.13 [★★★] Extend the interpreter of the preceding exercise to have procedures of multiple arguments.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
 > Exercise 4.14 [★] Write the rule for `let`.
 
@@ -2913,7 +2946,8 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 > Exercise 4.19 [★★] Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
 > only one location is allocated for it. This is like exercise 3.35.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
 
 > Exercise 4.20 [★★] In the language of this section, all variables are mutable, as they are in Scheme. Another
 > alternative is to allow both mutable and immutable variable bindings:
@@ -2929,7 +2963,7 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 >
 > *Expression* ::= `letmutable `*Identifier*` = `*Expression*` in `*Expression*
 
-*Solution is too long, see the code repository.*
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.20-test.rkt).
 
 > Exercise 4.21 [★★] We suggested earlier the use of assignment to make a program more modular by allowing one
 > procedure to communicate information to a distant procedure without requiring intermediate procedures to be aware of
@@ -2953,7 +2987,8 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 > the value of `x`, which is free in procedure `p`, is 17 in the call `(p 22)`, but is reset to 11 in the call `(p 13)`,
 > so the value of the expression is 5 - 2 = 3.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
 
 > Exercise 4.22 [★★] So far our languages have been expression-oriented: the primary syntactic category of interest has
 > been expressions and we have primarily been interested in their values. Extend the language to model the simple
@@ -3017,7 +3052,8 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 > the variable `f`. In the last line, this procedure is applied to the actual parameters 4 and `x`; since `x` is bound
 > to a reference, it is dereferenced to obtain 3.
 
-The implementation is at the code repository.
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-statement-oriented-implicit-refs-lang.rkt).
 
 Specification for statements:
 
@@ -3057,18 +3093,20 @@ Specification for statements:
 > Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read `*var*. This statement
 > reads a nonnegative integer from the input and stores it in the given variable.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-statement-oriented-implicit-refs-lang.rkt).
 
 > Exercise 4.24 [★] A `do-while` statement is like a `while` statement, except that the test is performed *after* the
 > execution of the body. Add `do-while` statements to the language of exercise 4.22.
 
-*Solution is too long, see the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-statement-oriented-implicit-refs-lang.rkt).
 
 > Exercise 4.25 [★] Extend the block statement of the language of exercise 4.22 to allow variables to be initialized.
 > In your solution, does the scope of a variable include the initializer for variables declared later in the same block
 > statement?
 
-*Solution is too long, see the code repository.*
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.25.rkt).
 
 No, the scope of a variable does not include the initializer for variables declared later in the same block statement.
 
@@ -3076,7 +3114,7 @@ No, the scope of a variable does not include the initializer for variables decla
 > aremutually recursive. Consider restricting the language so that the variable declarations in a block are followed by
 > the procedure declarations.
 
-*Solution is too long, see the code repository.*
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.26.rkt).
 
 > Exercise 4.27 [★★] Extend the language of the preceding exercise to include *subroutines*. In our usage a subroutine
 > is like a procedure, except that it does not return a value and its body is a statement, rather than an expression.
@@ -3084,7 +3122,7 @@ No, the scope of a variable does not include the initializer for variables decla
 > declare both procedures and subroutines. How does this affect the denoted and expressed values? What happens if a
 > procedure is referenced in a subroutine call, or vice versa?
 
-*Implementation is in the code repository.*
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.27.rkt).
 
 Denoted values does not change, expressed values now conain a `sub-val` variant.
 
@@ -3134,7 +3172,8 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 > `begin` expressions are defined in exercise 4.4. Make the array indices zero-based, so an array of size 2 has indices
 > 0 and 1.
 
-*Implementation is in the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-mutable-pairs-lang.rkt).
 
 The result of that program should be 2.
 
@@ -3142,4 +3181,5 @@ The result of that program should be 2.
 > array. Your procedure should work in constant time. Make sure that `arrayref` and `arrayset` check to make sure that
 > their indices are within the length of the array.
 
-*Implementation is in the code repository.*
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-mutable-pairs-lang.rkt).
