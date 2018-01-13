@@ -3137,3 +3137,9 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 *Implementation is in the code repository.*
 
 The result of that program should be 2.
+
+> Exercise 4.30 [★★] Add to the language of exercise 4.29 a procedure `arraylength`, which returns the size of an
+> array. Your procedure should work in constant time. Make sure that `arrayref` and `arrayset` check to make sure that
+> their indices are within the length of the array.
+
+*Implementation is in the code repository.*
