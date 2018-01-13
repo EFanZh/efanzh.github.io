@@ -3112,3 +3112,28 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
       ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
     {(tt "value-of" quad (tt "setright-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
      ((tt "num-val" quad tt "83"), [l_2 = val_2]σ_2)} $$
+
+> Exercise 4.29 [★★] Add arrays to this language. Introduce new operators `newarray`, `arrayref`, and `arrayset` that
+> create, dereference, and update arrays. This leads to
+>
+> - *ArrVal* = (*Ref*(*ExpVal*))<sup>∗</sup>
+> - *ExpVal* = *Int* + *Bool* + *Proc* + *ArrVal*
+> - *DenVal* = *Ref*(*ExpVal*)
+>
+> Since the locations in an array are consecutive, use a representation like the second representation above. What
+> should be the result of the following program?
+>
+> ```
+> let a = newarray(2,-99)
+>     p = proc (x)
+>          let v = arrayref(x,1)
+>          in arrayset(x,1,-(v,-1))
+> in begin arrayset(a,1,0); (p a); (p a); arrayref(a,1) end
+> ```
+> Here `newarray(2,-99)` is intended to build an array of size 2, with each location in the array containing -99.
+> `begin` expressions are defined in exercise 4.4. Make the array indices zero-based, so an array of size 2 has indices
+> 0 and 1.
+
+*Implementation is in the code repository.*
+
+The result of that program should be 2.
