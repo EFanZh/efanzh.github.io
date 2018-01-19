@@ -16,6 +16,14 @@ aptitude search -F '%p' '~i !~M (~R~i | ~P~R~i)' | xargs -r aptitude markauto -y
 aptitude search -F '%p' '!~E ~M !(~R~i | ~P~R~i)' | xargs -r aptitude purge --purge-unused -y
 ```
 
+## [FFmpeg](https://www.ffmpeg.org)
+
+### Remove remove sequentially duplicate frames
+
+```bash
+ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
+```
+
 ## [pacman](https://www.archlinux.org/pacman/)
 
 ### Normalize package dependencies
