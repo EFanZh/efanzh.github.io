@@ -3023,7 +3023,7 @@ Solution is implemented
 >
 > **Examples** Here are some examples.
 >
-> ```
+> ```scheme
 > (run "var x,y; {x = 3; y = 4; print +(x,y)}") % Example 1
 > 7
 > (run "var x,y,z; {x = 3;                      % Example 2
