@@ -3203,3 +3203,38 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
+
+> Exercise 4.35 [★★] We can get some of the benefits of call-by-reference without leaving the call-by-value framework.
+> Extend the language IMPLICIT-REFS by adding a new expression
+>
+> | *Expression* ::= | `ref `*Identifier*                                     |
+> |                  | <span style="border: 1px solid">`ref-exp (var)`</span> |
+>
+> This differs from the language EXPLICIT-REFS, since references are only of variables. This allows us to write familiar
+> programs such as `swap` within our call-by-value language. What should be the value of this expression?
+>
+> ```
+> let a = 3
+> in let b = 4
+>    in let swap = proc (x) proc (y)
+>                   let temp = deref(x)
+>                   in begin
+>                       setref(x,deref(y));
+>                       setref(y,temp)
+>                      end
+>       in begin ((swap ref a) ref b); -(a,b) end
+> ```
+>
+> Here we have used a version of `let` with multiple declarations (exercise 3.16). What are the expressed and denoted
+> values of this language?
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
+
+> Here we have used a version of `let` with multiple declarations (exercise 3.16).
+
+No, you have not.
+
+The value of the given expression should be 1.
+
+Expressed values now contains reference values, and denoted values still only contains references.
