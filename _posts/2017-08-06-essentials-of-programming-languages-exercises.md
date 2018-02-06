@@ -3197,3 +3197,9 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
+
+> Exercise 4.34 [★] Add a call-by-reference version of `let`, called `letref`, to the language. Write the specification
+> and implement it.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
