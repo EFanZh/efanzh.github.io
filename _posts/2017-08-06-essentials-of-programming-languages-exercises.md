@@ -3238,3 +3238,28 @@ No, you have not.
 The value of the given expression should be 1.
 
 Expressed values now contains reference values, and denoted values still only contains references.
+
+> Exercise 4.36 [★] Most languages support arrays, in which case array references are generally treated like variable
+> references under call-by-reference. If an operand is an array reference, then the location referred to, rather than
+> its contents, is passed to the called procedure. This allows, for example, a swap procedure to be used in commonly
+> occurring situations in which the values in two array elements are to be exchanged. Add array operators like those of
+> exercise 4.29 to the call-by-reference language of this section, and extend `value-of-operand` to handle this case, so
+> that, for example, a procedure application like
+>
+> ```
+> ((swap arrayref(a, i)) arrayref(a, j))
+> ```
+>
+> will work as expected. What should happen in the case of
+>
+> ```
+> ((swap arrayref(a, arrayref(a, i))) arrayref(a, j))
+> ```
+>
+> ?
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
+
+`((swap arrayref(a, arrayref(a, i))) arrayref(a, j))` will swap the element indexed by the value of `arrayref(a, i)`
+with the element indexed by `j`.
