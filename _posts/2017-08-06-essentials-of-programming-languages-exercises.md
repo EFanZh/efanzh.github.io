@@ -3263,3 +3263,27 @@ Solution is implemented
 
 `((swap arrayref(a, arrayref(a, i))) arrayref(a, j))` will swap the element indexed by the value of `arrayref(a, i)`
 with the element indexed by `j`.
+
+> Exercise 4.37 [★★] *Call-by-value-result* is a variation on call-by-reference. In call-by-value-result, the actual
+> parameter must be a variable. When a parameter is passed, the formal parameter is bound to a new reference initialized
+> to the value of the actual parameter, just as in call-by-value. The procedure body is then executed normally. When the
+> procedure body returns, however, the value in the new reference is copied back into the reference denoted by the
+> actual parameter. This may be more efficient than call-by-reference because it can improve memory locality. Implement
+> call-by-value-result and write a program that produces different answers using call-by-value-result and
+> call-by-reference.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.37.rkt).
+
+This program produces 4 using call-by-value-result while it produces 3 using call-by-reference.
+
+```
+let f = proc (x)
+          begin set x = 3;
+                4
+          end
+in let x = 5
+   in begin (f x);
+            x
+      end
+```
