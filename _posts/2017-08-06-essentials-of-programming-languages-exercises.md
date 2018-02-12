@@ -3287,3 +3287,26 @@ in let x = 5
             x
       end
 ```
+
+> Exercise 4.38 [★] The example below shows a variation of exercise 3.25 that works under call-by-need. Does the
+> original program in exercise 3.25 work under call-by-need? What happens if the program below is run under
+> call-by-value? Why?
+>
+> ```
+> let makerec = proc (f)
+>                let d = proc (x) (f (x x))
+>                in (f (d d))
+> in let maketimes4 = proc (f)
+>                      proc (x)
+>                       if zero?(x)
+>                       then 0
+>                       else -((f -(x,1)), -4)
+>    in let times4 = (makerec maketimes4)
+>       in (times4 3)
+> ```
+
+Yes, the original program in exercise 3.25 works under call-by-need.
+
+And the program above will loop infinitely under call-by-value, because in line 3, `(d d)` calls `d` with itself, and
+when `d` is called, it calls its argument `x` with `x`, where `x` is `d` itself. So `(d d)` leads to another call to
+`(d d)` which leads to infinite loop.
