@@ -3310,3 +3310,33 @@ Yes, the original program in exercise 3.25 works under call-by-need.
 And the program above will loop infinitely under call-by-value, because in line 3, `(d d)` calls `d` with itself, and
 when `d` is called, it calls its argument `x` with `x`, where `x` is `d` itself. So `(d d)` leads to another call to
 `(d d)` which leads to infinite loop.
+
+> Exercise 4.39 [★] In the absence of effects, call-by-name and call-by-need always give the same answer. Construct an
+> example in which call-by-name and call-by-need give different answers.
+
+```
+let x = 0
+in let f = proc (y)
+             begin y;
+                   y
+             end
+   in (f begin set x = -(x, -1);
+               x
+         end)
+```
+
+The program above should produce 1 in call-by-need and 2 in call-by-name.
+
+> Exercise 4.40 [★] Modify `value-of-operand` so that it avoids making thunks for constants and procedures.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
+
+> Exercise 4.41 [★★] Write out the specification rules for call-by-name and call-by-need.
+
+*Skipped for now.*
+
+> Exercise 4.42 [★★] Add a lazy `let` to the call-by-need interpreter.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
