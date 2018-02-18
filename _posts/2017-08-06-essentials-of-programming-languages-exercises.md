@@ -3340,3 +3340,13 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
+
+Exercise 5.1 [★] Implement this data type of continuations using the procedural representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.1.rkt).
+
+Exercise 5.2 [★] Implement this data type of continuations using a data-structure representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
