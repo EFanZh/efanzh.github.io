@@ -3341,12 +3341,24 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
 
-Exercise 5.1 [★] Implement this data type of continuations using the procedural representation.
+> Exercise 5.1 [★] Implement this data type of continuations using the procedural representation.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.1.rkt).
 
-Exercise 5.2 [★] Implement this data type of continuations using a data-structure representation.
+> Exercise 5.2 [★] Implement this data type of continuations using a data-structure representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
+
+> Exercise 5.3 [★] Add `let2` to this interpreter. A `let2` expression is like a `let` expression, except that it
+> defines exactly two variables.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
+
+> Exercise 5.4 [★] Add `let3` to this interpreter. A `let3` expression is like a `let` expression, except that it
+> defines exactly three variables.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
