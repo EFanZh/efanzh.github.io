@@ -3389,3 +3389,12 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
+
+> Exercise 5.10 [★★] Modify the solution to the previous exercise so that the environment is not kept in the
+> continuation.
+
+Not all environments can be removed from continuations. For example, I cannot think of a way to remove the environment
+in the continuation of the bound expression.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
