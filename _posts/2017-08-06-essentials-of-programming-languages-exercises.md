@@ -3444,3 +3444,21 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
                                 (multiply2-cont (num-val 4)
                                                 (end-cont))))
 ```
+
+> Exercise 5.14 [★] The instrumentation of the preceding exercise produces voluminous output. Modify the
+> instrumentation to track instead only the *size* of the largest continuation used during the calculation. We measure
+> the size of a continuation by the number of continuation-builders employed in its construction, so the size of the
+> largest continuation in the calculation on page 150 is 3. Then calculate the values of `fact` and `fact-iter` applied
+> to several operands. Confirmthat the size of the largest continuation used by `fact` grows linearly with its argument,
+> but the size of the largest continuation used by `fact-iter` is a constant.
+
+*Skipped for now.*
+
+> Exercise 5.15 [★] Our continuation data type contains just the single constant, `end-cont`, and all the other
+> continuation-builders have a single continuation argument. Implement continuations by representing them as lists,
+> where `(end-cont)` is represented by the empty list, and each other continuation is represented by a non-empty list
+> whose car contains a distinctive data structure (called *frame* or *activation record*) and whose cdr contains the
+> embedded continuation. Observe that the interpreter treats these lists like a stack (of frames).
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.15.rkt).
