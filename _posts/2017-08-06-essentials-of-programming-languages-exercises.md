@@ -3362,3 +3362,14 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
+
+> Exercise 5.5 [★] Add lists to the language, as in exercise 3.9.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
+
+> Exercise 5.6 [★★] Add a `list` expression to the language, as in exercise 3.10. As a hint, consider adding two new
+> continuation-builders, one for evaluating the first element of the list and one for evaluating the rest of the list.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
