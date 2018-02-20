@@ -3374,7 +3374,7 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.7 [★★] Add multideclaration let (exercise 3.16) to this interpreter.
+> Exercise 5.7 [★★] Add multideclaration `let` (exercise 3.16) to this interpreter.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
