@@ -3398,3 +3398,9 @@ in the continuation of the bound expression.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
+
+> Exercise 5.11 [★★] Add the `begin` expression of exercise 4.4 to the continuation-passing interpreter. Be sure that
+> no call to `value-of` or `value-of-rands` occurs in a position that would build control context.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
