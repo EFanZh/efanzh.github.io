@@ -3404,3 +3404,43 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
+
+> Exercise 5.12 [★] Instrument the interpreter of figures 5.4–5.6 to produce output similar to that of the calculation
+> on page 150.
+
+*Skipped for now.*
+
+> Exercise 5.13 [★] Translate the definitions of `fact` and `fact-iter` into the LETREC language. You may add a
+> multiplication operator to the language. Then, using the instrumented interpreter of the previous exercise, compute
+> `(fact 4)` and `(fact-iter 4)`. Compare them to the calculations at the beginning of this chapter. Find
+> `(* 4 (* 3 (* 2 (fact 1))))` in the trace of `(fact 4)`. What is the continuation of `apply-procedure/k` for this call
+> of `(fact 1)`?
+
+The implementation of `fact` is:
+
+```
+letrec fact(n) = if zero?(n)
+                 then 1
+                 else *(n, (fact -(n, 1)))
+in fact
+```
+
+The implementation of `fact-iter` is:
+
+```
+letrec fact-iter-acc(n) = proc (a)
+                            if zero?(n)
+                            then a
+                            else ((fact-iter-acc -(n, 1)) *(n, a))
+in proc (n)
+     ((fact-iter-acc n) 1)
+```
+
+The continuation of `apply-procedure/k` for call of `(fact 1)` is:
+
+```scheme
+(multiply2-cont (num-val 2)
+                (multiply2-cont (num-val 3)
+                                (multiply2-cont (num-val 4)
+                                                (end-cont))))
+```
