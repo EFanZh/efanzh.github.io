@@ -3462,3 +3462,13 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.15.rkt).
+
+> Exercise 5.16 [★★] Extend the continuation-passing interpreter to the language of exercise 4.22. Pass a continuation
+> argument to `result-of`, and make sure that no call to `result-of` occurs in a position that grows a control context.
+> Since a statement does not return a value, distinguish between ordinary continuations and continuations for
+> statements; the latter are usually called *command continuations*. The interface should include a procedure
+> `apply-command-cont` that takes a command continuation and invokes it. Implement command continuations both as data
+> structures and as zero-argument procedures.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.16.rkt).
