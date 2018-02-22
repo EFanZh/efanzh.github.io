@@ -3472,3 +3472,11 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.16.rkt).
+
+> Exercise 5.17 [★] Modify the trampolined interpreter to wrap `(lambda () ...)` around each call (there’s only one) to
+> `apply-procedure/k`. Does this modification require changing the contracts?
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.17.rkt).
+
+No, this modification does not require changing the contracts.
