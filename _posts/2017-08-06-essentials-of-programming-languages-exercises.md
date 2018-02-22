@@ -3495,3 +3495,24 @@ Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.19.rkt).
 
 The definition of *Bounce* need not to change.
+
+> Exercise 5.20 [★] In exercise 5.19, the last bounce before `trampoline` returns a *FinalAnswer* is always something
+> like `(apply-cont (end-cont) `*val*`)`, where `val` is some `ExpVal`. Optimize your representation of bounces in
+> exercise 5.19 to take advantage of this fact.
+
+*Skipped for now.*
+
+> Exercise 5.21 [★★] Implement a trampolining interpreter in an ordinary procedural language. Use a data structure
+> representation of the snapshots as in exercise 5.18, and replace the recursive call to `trampoline` in its own body by
+> an ordinary `while` or other looping construct.
+
+*Skipped for now.*
+
+> Exercise 5.22 [★★★] One could also attempt to transcribe the environment-passing interpreters of chapter 3 in an
+> ordinary procedural language. Such a transcription would fail in all but the simplest cases, for the same reasons as
+> suggested above. Can the technique of trampolining be used in this situation as well?
+
+I don’t think trampolining can be used in that situation. In the case of continuation-passing interpreters, every call
+to `value-of` is a tail call, so we can simulate the process using a loop. But in the case of environment-passing
+interpreters, not every call to `value-of` is a tail call, so we cannot convert the process using a loop. The
+trampolining method will fail in such case.
