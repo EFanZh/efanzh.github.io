@@ -3486,3 +3486,12 @@ No, this modification does not require changing the contracts.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.18.rkt).
+
+> Exercise 5.19 [★] Instead of placing the `(lambda () ...)` around the body of `apply-procedure/k`, place it around
+> the body of `apply-cont`. Modify the contracts to match this change. Does the definition of *Bounce* need to change?
+> Then replace the procedural representation of *Bounce* with a data-structure representation, as in exercise 5.18.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.19.rkt).
+
+The definition of *Bounce* need not to change.
