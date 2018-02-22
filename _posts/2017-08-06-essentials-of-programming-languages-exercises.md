@@ -3480,3 +3480,9 @@ Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.17.rkt).
 
 No, this modification does not require changing the contracts.
+
+> Exercise 5.18 [★] The trampoline systemin figure 5.7 uses a procedural representation of a *Bounce*. Replace this by
+> a data structure representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.18.rkt).
