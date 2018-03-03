@@ -3516,3 +3516,8 @@ I don’t think trampolining can be used in that situation. In the case of conti
 to `value-of` is a tail call, so we can simulate the process using a loop. But in the case of environment-passing
 interpreters, not every call to `value-of` is a tail call, so we cannot convert the process using a loop. The
 trampolining method will fail in such case.
+
+> Exercise 5.23 [★] What happens if you remove the “goto” line in one of the branches of this interpreter? Exactly how
+> does the interpreter fail?
+
+The interpreter will stop running at the position where the “goto” line should be.
