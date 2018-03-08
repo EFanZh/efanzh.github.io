@@ -3521,3 +3521,12 @@ trampolining method will fail in such case.
 > does the interpreter fail?
 
 The interpreter will stop running at the position where the “goto” line should be.
+
+> Exercise 5.24 [★] Devise examples to illustrate each of the complications mentioned above.
+
+*Skipped for now.*
+
+> Exercise 5.25 [★★] Registerize the interpreter for multiargument procedures (exercise 3.21).
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang-registers.rkt).
