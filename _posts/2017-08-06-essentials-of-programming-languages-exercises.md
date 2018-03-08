@@ -3530,3 +3530,15 @@ The interpreter will stop running at the position where the “goto” line shou
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang-registers.rkt).
+
+> Exercise 5.26 [★] Convert this interpreter to a trampoline by replacing each call to `apply-procedure/k` with
+> `(set! pc apply-procedure/k)` and using a driver that looks like
+>
+> ```scheme
+> (define trampoline
+>   (lambda (pc)
+>     (if pc (trampoline (pc)) val)))
+> ```
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.26.rkt).
