@@ -3542,3 +3542,32 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.26.rkt).
+
+> Exercise 5.27 [★] Invent a language feature for which setting the `cont` variable last requires a temporary variable.
+
+*Skipped for now.*
+
+> Exercise 5.28 [★] Instrument this interpreter as in exercise 5.12. Since continuations are represented the same way,
+> reuse that code. Verify that the imperative interpreter of this section generates *exactly* the same traces as the
+> interpreter in exercise 5.12.
+
+*Skipped for now.*
+
+> Exercise 5.29 [★] Apply the transformation of this section to `fact-iter` (page 139).
+
+```scheme
+(define n1 'uninitialized)
+(define a 'uninitialized)
+
+(define (fact-iter-acc)
+  (if (zero? n1)
+      a
+      (begin (set! a (* n1 a))
+             (set! n1 (- n1 1))
+             (fact-iter-acc))))
+
+(define (fact-iter n)
+  (set! n1 n)
+  (set! a 1)
+  (fact-iter-acc))
+```
