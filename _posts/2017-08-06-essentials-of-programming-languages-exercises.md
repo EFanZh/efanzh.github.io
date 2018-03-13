@@ -3571,3 +3571,37 @@ Solution is implemented
   (set! a 1)
   (fact-iter-acc))
 ```
+
+> Exercise 5.30 [★★] Modify the interpreter of this section so that procedures rely on dynamic binding, as in exercise
+> 3.28. As a hint, consider transforming the interpreter of exercise 3.28 as we did in this chapter; it will differ from
+> the interpreter of this section only for those portions of the original interpreter that are different. Instrument the
+> interpreter as in exercise 5.28. Observe that just as there is only one continuation in the state, there is only one
+> environment that is pushed and popped, and furthermore, it is pushed and popped in parallel with the continuation. We
+> can conclude that dynamic bindings have *dynamic extent*: that is, a binding to a formal parameter lasts exactly until
+> that procedure returns. This is different from lexical bindings, which can persist indefinitely if they wind up in a
+> closure.
+
+*Skipped for now.*
+
+> Exercise 5.31 [★] Eliminate the remaining let expressions in this code by using additional global registers.
+
+*Skipped for now.*
+
+> Exercise 5.32 [★★] Improve your solution to the preceding exercise by minimizing the number of global registers
+> used. You can get away with fewer than 5. You may use no data structures other than those already used by the
+> interpreter.
+
+*Skipped for now.*
+
+> Exercise 5.33 [★★] Translate the interpreter of this section into an imperative language. Do this twice: once using
+> zero-argument procedure calls in the host language, and once replacing each zero-argument procedure call by a `goto`.
+> Howdo these alternatives perform as the computation gets longer?
+
+*Skipped for now.*
+
+> Exercise 5.34 [★★] As noted on page 157,most imperative languagesmake it difficult to do this translation, because
+> they use the stack for all procedure calls, even tail calls. Furthermore, for large interpreters, the pieces of code
+> linked by `goto`’s may be too large for some compilers to handle. Translate the interpreter of this section into an
+> imperative language, circumventing this difficulty by using the technique of trampolining, as in exercise 5.26.
+
+*Skipped for now.*
