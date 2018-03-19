@@ -3612,3 +3612,10 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.35.rkt)
+
+> Exercise 5.36 [★] An alternative design that also avoids the linear search in `apply-handler` is to use two
+> continuations, a normal continuation and an exception continuation. Achieve this goal by modifying the interpreter of
+> this section to take two continuations instead of one.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.36.rkt)
