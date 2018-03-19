@@ -3605,3 +3605,10 @@ Solution is implemented
 > imperative language, circumventing this difficulty by using the technique of trampolining, as in exercise 5.26.
 
 *Skipped for now.*
+
+> Exercise 5.35 [★★] This implementation is inefficient, because when an exception is raised, `apply-handler` must
+> search linearly through the continuation to find a handler. Avoid this search by making the `try-cont` continuation
+> available directly in each continuation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.35.rkt)
