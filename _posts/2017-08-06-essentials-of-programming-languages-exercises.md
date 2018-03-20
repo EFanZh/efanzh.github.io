@@ -3619,3 +3619,14 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.36.rkt)
+
+> Exercise 5.37 [★] Modify the defined language to raise an exception when a procedure is called with the wrong number
+> of arguments.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.37.rkt)
+
+> Exercise 5.38 [★] Modify the defined language to add a division expression. Raise an exception on division by zero.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.38.rkt)
