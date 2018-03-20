@@ -3630,3 +3630,11 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.38.rkt)
+
+> Exercise 5.39 [★★] So far, an exception handler can propagate the exception by reraising it, or it can return a
+> value that becomes the value of the `try` expression. One might instead design the language to allow the computation
+> to resume from the point at which the exception was raised. Modify the interpreter of this section to accomplish this
+> by running the body of the handler with the continuation from the point at which the `raise` was invoked.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.39.rkt)
