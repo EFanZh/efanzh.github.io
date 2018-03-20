@@ -3638,3 +3638,10 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.39.rkt)
+
+> Exercise 5.40 [★★★] Give the exception handlers in the defined language the ability to either return or resume. Do
+> this by passing the continuation from the `raise` exception as a second argument. This may require adding
+> continuations as a new kind of expressed value. Devise suitable syntax for invoking a continuation on a value.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.40.rkt)
