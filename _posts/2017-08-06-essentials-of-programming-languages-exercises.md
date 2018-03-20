@@ -2205,8 +2205,7 @@ Solution is implemented
 > Exercise 3.13 [★] Change the values of the language so that integers are the only expressed values. Modify `if` so
 > that the value 0 is treated as false and all other values are treated as true. Modify the predicates accordingly.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.13.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.13.rkt).
 
 > Exercise 3.14 [★★] As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
 > expressions to the language. Change the production for conditional expressions to say
@@ -2313,8 +2312,7 @@ Solution is implemented
 > operations are built-in and which are defined procedures. This exercise may range from very easy to hard, depending on
 > the parsing technology being used.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.22.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.22.rkt).
 
 > Exercise 3.23 [★★] What is the value of the following PROC program?
 >
@@ -3272,8 +3270,7 @@ with the element indexed by `j`.
 > call-by-value-result and write a program that produces different answers using call-by-value-result and
 > call-by-reference.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.37.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.37.rkt).
 
 This program produces 4 using call-by-value-result while it produces 3 using call-by-reference.
 
@@ -3343,8 +3340,7 @@ Solution is implemented
 
 > Exercise 5.1 [★] Implement this data type of continuations using the procedural representation.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.1.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.1.rkt).
 
 > Exercise 5.2 [★] Implement this data type of continuations using a data-structure representation.
 
@@ -3460,8 +3456,7 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
 > whose car contains a distinctive data structure (called *frame* or *activation record*) and whose cdr contains the
 > embedded continuation. Observe that the interpreter treats these lists like a stack (of frames).
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.15.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.15.rkt).
 
 > Exercise 5.16 [★★] Extend the continuation-passing interpreter to the language of exercise 4.22. Pass a continuation
 > argument to `result-of`, and make sure that no call to `result-of` occurs in a position that grows a control context.
@@ -3470,29 +3465,25 @@ Solution is implemented
 > `apply-command-cont` that takes a command continuation and invokes it. Implement command continuations both as data
 > structures and as zero-argument procedures.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.16.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.16.rkt).
 
 > Exercise 5.17 [★] Modify the trampolined interpreter to wrap `(lambda () ...)` around each call (there’s only one) to
 > `apply-procedure/k`. Does this modification require changing the contracts?
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.17.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.17.rkt).
 
 No, this modification does not require changing the contracts.
 
 > Exercise 5.18 [★] The trampoline systemin figure 5.7 uses a procedural representation of a *Bounce*. Replace this by
 > a data structure representation.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.18.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.18.rkt).
 
 > Exercise 5.19 [★] Instead of placing the `(lambda () ...)` around the body of `apply-procedure/k`, place it around
 > the body of `apply-cont`. Modify the contracts to match this change. Does the definition of *Bounce* need to change?
 > Then replace the procedural representation of *Bounce* with a data-structure representation, as in exercise 5.18.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.19.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.19.rkt).
 
 The definition of *Bounce* need not to change.
 
@@ -3540,8 +3531,7 @@ Solution is implemented
 >     (if pc (trampoline (pc)) val)))
 > ```
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.26.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.26.rkt).
 
 > Exercise 5.27 [★] Invent a language feature for which setting the `cont` variable last requires a temporary variable.
 
@@ -3610,38 +3600,32 @@ Solution is implemented
 > search linearly through the continuation to find a handler. Avoid this search by making the `try-cont` continuation
 > available directly in each continuation.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.35.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.35.rkt).
 
 > Exercise 5.36 [★] An alternative design that also avoids the linear search in `apply-handler` is to use two
 > continuations, a normal continuation and an exception continuation. Achieve this goal by modifying the interpreter of
 > this section to take two continuations instead of one.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.36.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.36.rkt).
 
 > Exercise 5.37 [★] Modify the defined language to raise an exception when a procedure is called with the wrong number
 > of arguments.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.37.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.37.rkt).
 
 > Exercise 5.38 [★] Modify the defined language to add a division expression. Raise an exception on division by zero.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.38.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.38.rkt).
 
 > Exercise 5.39 [★★] So far, an exception handler can propagate the exception by reraising it, or it can return a
 > value that becomes the value of the `try` expression. One might instead design the language to allow the computation
 > to resume from the point at which the exception was raised. Modify the interpreter of this section to accomplish this
 > by running the body of the handler with the continuation from the point at which the `raise` was invoked.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.39.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.39.rkt).
 
 > Exercise 5.40 [★★★] Give the exception handlers in the defined language the ability to either return or resume. Do
 > this by passing the continuation from the `raise` exception as a second argument. This may require adding
 > continuations as a new kind of expressed value. Devise suitable syntax for invoking a continuation on a value.
 
-Solution is implemented
-[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.40.rkt)
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.40.rkt).
