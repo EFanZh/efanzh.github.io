@@ -3629,3 +3629,14 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > continuations as a new kind of expressed value. Devise suitable syntax for invoking a continuation on a value.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.40.rkt).
+
+> Exercise 5.41 [★★★] We have shown how to implement exceptions using a data-structure representation of
+> continuations. We can’t immediately apply the recipe of section 2.2.3 to get a procedural representation, because we
+> now have two observers: `apply-handler` and `apply-cont`. Implement the continuations of this section as a pair of
+> procedures: a one-argument procedure representing the action of the continuation under `apply-cont`, and a
+> zero-argument procedure representing its action under `apply-handler`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.41.rkt).
+
+I had to use a one-argument procedure to represent the action under `apply-handler` instead of a zero-argument
+procedure.
