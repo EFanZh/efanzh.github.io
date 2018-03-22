@@ -3653,3 +3653,9 @@ procedure.
 > the first expression. The current continuation of the throw expression is ignored.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.42.rkt).
+
+> Exercise 5.43 [★★] Modify `letcc` as defined in the preceding exercise so that the captured continuation becomes a
+> new kind of procedure, so instead of writing `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub>, one would write
+> `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.43.rkt).
