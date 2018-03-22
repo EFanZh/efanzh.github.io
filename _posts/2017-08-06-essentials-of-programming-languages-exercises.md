@@ -3640,3 +3640,16 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 I had to use a one-argument procedure to represent the action under `apply-handler` instead of a zero-argument
 procedure.
+
+> Exercise 5.42 [★★] The preceding exercise captures the continuation only when an exception is raised. Add to the
+> language the ability to capture a continuation anywhere by adding the form `letcc `*Identifier*` in `*Expression* with
+> the specification
+>
+> `(value-of/k (letcc `*var*` `*body*`) `*ρ*` `*cont*`)`<br />
+> `= (value-of/k `*body*` (extend-env `*var*` `*cont*` `*ρ*`) `*cont*`)`
+>
+> Such a captured continuation may be invoked with `throw`: the expression `throw `*Expression*` to `*Expression*
+> evaluates the two subexpressions. The second expression should return a continuation, which is applied to the value of
+> the first expression. The current continuation of the throw expression is ignored.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.42.rkt).
