@@ -3659,3 +3659,26 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.43.rkt).
+
+> Exercise 5.44 [★★] An alternative to `letcc` and `throw` of the preceding exercises is to add a single procedure to
+> the language. This procedure, which in Scheme is called `call-with-current-continuation`, takes a one-argument
+> procedure, `p`, and passes to `p` a procedure that when invoked with one argument, passes that argument to the current
+> continuation, `cont`. We could define `call-with-current-continuation` in terms of `letcc` and `throw` as follows:
+>
+> ```
+> let call-with-current-continuation
+>       = proc (p)
+>           letcc cont
+>           in (p proc (v) throw v to cont)
+> in ...
+> ```
+>
+> Add `call-with-current-continuation` to the language. Then write a translator that takes the language with `letcc` and
+> `throw` and translates it into the language without `letcc` and `throw`, but with `call-with-current-continuation`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.44.rkt).
+
+To translate a languate with `letcc` and `throw` into the language without `letcc` and `throw`, just do the following:
+
+- Translate `letcc `*var*` in `*body* into `callcc(proc (`*var*`) `*body*`)`;
+- Translate `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub> into `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
