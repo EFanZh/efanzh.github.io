@@ -3682,3 +3682,11 @@ To translate a languate with `letcc` and `throw` into the language without `letc
 
 - Translate `letcc `*var*` in `*body* into `callcc(proc (`*var*`) `*body*`)`;
 - Translate `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub> into `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
+
+> Exercise 5.45 [★] Add to the language of this section a construct called `yield`. Whenever a thread executes a
+> `yield`, it is placed on the ready queue, and the thread at the head of the ready queue is run. When the thread is
+> resumed, it should appear as if the call to yield had returned the number 99.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-threads-lang.rkt). It is copied from
+the reference implementation.
