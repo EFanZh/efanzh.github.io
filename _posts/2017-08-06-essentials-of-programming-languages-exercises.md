@@ -3702,3 +3702,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > subthread?
 
 The two subthread will deadlock and never be executed.
+
+> Exercise 5.48 [★] We have used a procedural representation of threads. Replace this by a data-structure
+> representation.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.48.rkt).
