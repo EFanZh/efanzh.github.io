@@ -3690,3 +3690,15 @@ To translate a languate with `letcc` and `throw` into the language without `letc
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-threads-lang.rkt). It is copied from
 the reference implementation.
+
+> Exercise 5.46 [★★] In the systemof exercise 5.45, a thread may be placed on the ready queue either because its time
+> slot has been exhausted or because it chose to yield. In the latter case, it will be restarted with a full time slice.
+> Modify the system so that the ready queue keeps track of the remaining time slice (if any) of each thread, and
+> restarts the thread only with the time it has remaining.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.46.rkt).
+
+> Exercise 5.47 [★] What happens if we are left with two subthreads, each waiting for a mutex held by the other
+> subthread?
+
+The program will deadlock.
