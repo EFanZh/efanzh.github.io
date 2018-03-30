@@ -3707,3 +3707,7 @@ The two subthread will deadlock and never be executed.
 > representation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.48.rkt).
+
+> Exercise 5.49 [★] Do exercise 5.15 (continuations as a stack of frames) for THREADS.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.49.rkt).
