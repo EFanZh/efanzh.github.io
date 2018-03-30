@@ -3701,4 +3701,4 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 5.47 [★] What happens if we are left with two subthreads, each waiting for a mutex held by the other
 > subthread?
 
-The program will deadlock.
+The two subthread will deadlock and never be executed.
