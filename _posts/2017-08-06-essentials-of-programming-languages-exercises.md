@@ -3717,4 +3717,5 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.50.rkt).
 
-Procedures that must be registerized are `apply-cont`, `apply-procedure`, `apply-unop` and `value-of/k`.
+Procedures that must be registerized are `apply-cont`, `apply-procedure`, `apply-unop`, `signal-mutex`, `value-of/k` and
+`wait-for-mutex`.
