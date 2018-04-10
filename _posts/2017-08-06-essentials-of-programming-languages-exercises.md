@@ -3711,3 +3711,10 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 5.49 [★] Do exercise 5.15 (continuations as a stack of frames) for THREADS.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.49.rkt).
+
+> Exercise 5.50 [★★] Registerize the interpreter of this section. What is the set of mutually tail-recursive procedures
+> that must be registerized?
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.50.rkt).
+
+Procedures that must be registerized are `apply-cont`, `apply-procedure`, `apply-unop` and `value-of/k`.
