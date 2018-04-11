@@ -3719,3 +3719,32 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Procedures that must be registerized are `apply-cont`, `apply-procedure`, `apply-unop`, `signal-mutex`, `value-of/k` and
 `wait-for-mutex`.
+
+> Exercise 5.51 [★★★] We would like to be able to organize our program so that the consumer in figure 5.17 doesn’t have
+> to busy-wait. Instead, it should be able to put itself to sleep and be awakened when the producer has put a value in
+> the buffer. Either write a program with mutexes to do this, or implement a synchronization operator that makes this
+> possible.
+
+```
+let buffer = 0
+    in let mut = mutex()
+       in let producer = proc (n)
+                           letrec wait1(k) = if zero?(k)
+                                             then begin set buffer = n;
+                                                        signal(mut)
+                                                  end
+                                             else begin print(-(k, -200));
+                                                        (wait1 -(k, 1))
+                                                  end
+                           in (wait1 5)
+          in let consumer = proc (d)
+                              begin wait(mut);
+                                    buffer
+                              end
+             in begin wait(mut);
+                      spawn(proc (d)
+                              (producer 44));
+                      print(300);
+                      (consumer 86)
+                end
+```
