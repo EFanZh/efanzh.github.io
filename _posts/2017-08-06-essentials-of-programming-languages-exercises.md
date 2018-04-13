@@ -3775,3 +3775,14 @@ let x = 0
                             x
                       end
 ```
+
+> Exercise 5.53 [★★★] Modify the thread package to include *thread identifiers*. Each new thread is associated with a
+> fresh thread identifier. When the child thread is spawned, it is passed its thread identifier as a value, rather than
+> the arbitrary value 28 used in this section. The child’s number is also returned to the parent as the value of the
+> `spawn` expression. Instrument the interpreter to trace the creation of thread identifiers. Check to see that the
+> ready queue contains at most one thread for each thread identifier. How can a child thread know its parent’s
+> identifier? What should be done about the thread identifier of the original program?
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.53.rkt).
+
+We can pass both the parent’s thread number and the child’s thread number to the child.
