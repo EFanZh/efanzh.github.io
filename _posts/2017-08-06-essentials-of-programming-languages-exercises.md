@@ -3786,3 +3786,10 @@ let x = 0
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.53.rkt).
 
 We can pass both the parent’s thread number and the child’s thread number to the child.
+
+> Exercise 5.54 [★★] Add to the interpreter of exercise 5.53 a `kill` facility. The `kill` construct, when given a
+> thread number, finds the corresponding thread on the ready queue or any of the waiting queues and removes it. In
+> addition, `kill` should return a true value if the target thread is found and false if the thread number is not found
+> on any queue.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.54.rkt).
