@@ -3815,3 +3815,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > grabs a piece!
 
 *Skipped for now.*
+
+> Exercise 6.1 [★] Consider figure 6.2 without `(set! pc fact/k)` in the definition of `fact/k` and without
+> `(set! pc apply-cont)` in the definition of `apply-cont`. Why does the program still work?
+
+Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` inorder to
+continue computation. Same for `apply-cont`.
