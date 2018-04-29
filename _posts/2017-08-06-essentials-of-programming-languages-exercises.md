@@ -3821,3 +3821,17 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` inorder to
 continue computation. Same for `apply-cont`.
+
+> Exercise 6.2 [★] Prove by induction on *n* that for any *g*, `(fib/k `*n*` `*g*`)` = `(`*g*` (fib `*n*`))`.
+
+Base case: if *n* < 2, `(fib/k `*n*` `*g*`)` = `(`*g*` `1`)` = `(`*g*` (fib `1`))`.
+
+Inductive case: if *n* ≥ 2,
+
+`(fib/k `*n*` `*g*`)` \\
+= `(fib/k (- `*n*` 1) (lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))))` \\
+= `((lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))) (fib (- `*n*` 1)))` (by induction) \\
+= `(fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))))` \\
+= `((lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))) (fib (- `*n*` 2)))` (by induction) \\
+= `(`*g*` (+ (fib (- `*n*` 1)) (fib (- `*n*` 2))))`
+= `(`*g*` (fib `*n*`))`
