@@ -3799,3 +3799,19 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > blocking if no message has been sent to it.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.55.rkt).
+
+> Exercise 5.56 [★★] Modify the interpreter of exercise 5.55 so that rather than sharing a store, each thread has its
+> own store. In such a language, mutexes can almost always be avoided. Rewrite the example of this section in this
+> language, without using mutexes.
+
+*Skipped for now.*
+
+> Exercise 5.57 [★★★] There are lots of different synchronization mechanisms in your favorite OS book. Pick three and
+> implement them in this framework.
+
+*Skipped for now.*
+
+> Exercise 5.58 [definitely ★] Go off with your friends and have some pizza, but make sure only one person at a time
+> grabs a piece!
+
+*Skipped for now.*
