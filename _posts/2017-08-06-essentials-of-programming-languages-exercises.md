@@ -3901,3 +3901,25 @@ Inductive case: if *n* ≥ 2,
          (p x cont)
          (p y cont)))
    ```
+
+> Exercise 6.4 [★★] Rewrite each of the following procedures in continuation-passing style. For each procedure, do
+> this first using a data-structure representation of continuations, then with a procedural representation, and then
+> with the inlined procedural representation. Last, write the registerized version. For each of these four versions,
+> test to see that your implementation is tail-recursive by defining `end-cont` by
+>
+> ```scheme
+> (apply-cont (end-cont) val)
+> = (begin
+>     (eopl:printf "End of computation.~%")
+>     (eopl:printf "This sentence should appear only once.~%")
+>     val)
+> ```
+>
+> as we did in chapter 5.
+>
+> 1. `remove-first` (section 1.2.3).
+> 2. `list-sum` (section 1.3).
+> 3. `occurs-free?` (section 1.2.4).
+> 4. `subst` (section 1.2.5).
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.4.rkt).
