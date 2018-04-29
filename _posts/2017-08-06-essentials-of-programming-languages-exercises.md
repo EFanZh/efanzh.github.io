@@ -3893,7 +3893,7 @@ Inductive case: if *n* ≥ 2,
           (let ([x val])
             x))))
    ```
-7. ```scheme
+7. ```racket
    (let ([cont (lambda (val)
                  (let ([x val])
                    x))])
