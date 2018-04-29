@@ -3794,7 +3794,7 @@ We can pass both the parent’s thread number and the child’s thread number to
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.54.rkt).
 
-> Exercise 5.55 [**] Add to the interpreter of exercise 5.53 an interthread communication facility, in which each
+> Exercise 5.55 [★★] Add to the interpreter of exercise 5.53 an interthread communication facility, in which each
 > thread can send a value to another thread using its thread identifier. A thread can receive messages when it chooses,
 > blocking if no message has been sent to it.
 
