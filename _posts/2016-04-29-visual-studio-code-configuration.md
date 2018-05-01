@@ -6,11 +6,9 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
 
 ```json
 {
-    "editor.cursorBlinking": "smooth",
-    "editor.cursorStyle": "line-thin",
     "editor.fontLigatures": true,
-    "editor.fontSize": 12,
     "editor.formatOnSave": true,
+    "editor.minimap.showSlider": "always",
     "editor.renderControlCharacters": true,
     "editor.renderLineHighlight": "all",
     "editor.renderWhitespace": "all",
@@ -18,12 +16,14 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
         120
     ],
     "editor.showFoldingControls": "always",
+    "editor.smoothScrolling": true,
+    "editor.wordBasedSuggestions": false,
+    "extensions.ignoreRecommendations": true,
+    "files.autoGuessEncoding": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "search.useIgnoreFilesByDefault": true,
-    "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.fontSize": 12,
-    "terminal.integrated.lineHeight": 1.0,
-    "workbench.welcome.enabled": true
+    "git.autofetch": true,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.feedback.visible": false
 }
 ```
