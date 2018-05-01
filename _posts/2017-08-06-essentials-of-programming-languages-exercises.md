@@ -3923,3 +3923,93 @@ Inductive case: if *n* ≥ 2,
 > 4. `subst` (section 1.2.5).
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.4.rkt).
+
+> Exercise 6.5 [★] When we rewrite an expression in CPS, we choose an evaluation order for the procedure calls in the
+> expression. Rewrite each of the preceding examples in CPS so that all the procedure calls are evaluated from right to
+> left.
+
+*Skipped for now.*
+
+> Exercise 6.6 [★] How many different evaluation orders are possible for the procedure calls in
+> `(lambda (x y) (+ (f (g x)) (h (j y))))`? For each evaluation order, write a CPS expression that calls the procedures
+> in that order.
+
+There are six different evaluation orders.
+
+```scheme
+(lambda (x y cont)
+  (g x
+     (lambda (val1)
+       (f val1
+          (lambda (val2)
+            (j y
+               (lambda (val3)
+                 (h val3
+                    (lambda (val4)
+                      (cont (+ val2 val4)))))))))))
+```
+
+```scheme
+(lambda (x y cont)
+  (g x
+     (lambda (val1)
+       (j y
+          (lambda (val2)
+            (f val1
+               (lambda (val3)
+                 (h val2
+                    (lambda (val4)
+                      (cont (+ val3 val4)))))))))))
+```
+
+```scheme
+(lambda (x y cont)
+  (g x
+     (lambda (val1)
+       (j y
+          (lambda (val2)
+            (h val2
+               (lambda (val3)
+                 (f val1
+                    (lambda (val4)
+                      (cont (+ val4 val3)))))))))))
+```
+
+```scheme
+(lambda (x y cont)
+  (j y
+     (lambda (val1)
+       (g x
+          (lambda (val2)
+            (f val2
+               (lambda (val3)
+                 (h val1
+                    (lambda (val4)
+                      (cont (+ val3 val4)))))))))))
+```
+
+```scheme
+(lambda (x y cont)
+  (j y
+     (lambda (val1)
+       (g x
+          (lambda (val2)
+            (h val1
+               (lambda (val3)
+                 (f val2
+                    (lambda (val4)
+                      (cont (+ val4 val3)))))))))))
+```
+
+```scheme
+(lambda (x y cont)
+  (j y
+     (lambda (val1)
+       (h val1
+          (lambda (val2)
+            (g x
+               (lambda (val3)
+                 (f val3
+                    (lambda (val4)
+                      (cont (+ val4 val2)))))))))))
+```
