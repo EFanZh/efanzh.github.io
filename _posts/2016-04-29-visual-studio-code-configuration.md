@@ -19,7 +19,6 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
     "editor.smoothScrolling": true,
     "editor.wordBasedSuggestions": false,
     "extensions.ignoreRecommendations": true,
-    "files.autoGuessEncoding": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
