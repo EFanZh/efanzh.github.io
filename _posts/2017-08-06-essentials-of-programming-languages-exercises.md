@@ -4013,3 +4013,9 @@ There are six different evaluation orders.
                     (lambda (val4)
                       (cont (+ val4 val2)))))))))))
 ```
+
+> Exercise 6.7 [★★] Write out the procedural and the inlined representations for the interpreter in figures 5.4, 5.5,
+> and 5.6.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-inlined.rkt)
+and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-procedural.rkt).
