@@ -4019,3 +4019,11 @@ There are six different evaluation orders.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-inlined.rkt)
 and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-procedural.rkt).
+
+> Exercise 6.8 [★★★] Rewrite the interpreter of section 5.4 using a procedural and inlined representation. This is
+> challenging because we effectively have two observers, `apply-cont` and `apply-handler`. As a hint, consider modifying
+> the recipe on page 6.1 so that we add to each procedure two extra arguments, one representing the behavior of the
+> continuation under `apply-cont` and one representing its behavior under `apply-handler`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-inlined.rkt)
+and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-procedural.rkt).
