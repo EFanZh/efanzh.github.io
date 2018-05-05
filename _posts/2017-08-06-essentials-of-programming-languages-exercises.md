@@ -4063,3 +4063,126 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 3. `if zero?(x) then -(x,y) else -(-(x,y),1)` is simple.
 4. `let x = proc (y) (y x) in -(x,3)` is not simple because `(y x)` is a procedure call.
 5. `let f = proc (x) x in (f 3)` is not simple because `(f 3)` is a procedure call.
+
+> Exercise 6.13 [★] Translate each of these expressions in CPS-IN into continuation-passing style using the CPS recipe
+> on page 200 above. Test your transformed programs by running them using the interpreter of figure 6.6. Be sure that
+> the original and transformed versions give the same answer on each input.
+>
+> 1. `removeall`.
+>    ```
+>    letrec
+>     removeall(n,s) =
+>      if null?(s)
+>      then emptylist
+>      else if number?(car(s))
+>           then if equal?(n,car(s))
+>                then (removeall n cdr(s))
+>                else cons(car(s),
+>                          (removeall n cdr(s)))
+>           else cons((removeall n car(s)),
+>                     (removeall n cdr(s)))
+>    ```
+> 2. `occurs-in?`.
+>    ```
+>    letrec
+>     occurs-in?(n,s) =
+>      if null?(s)
+>      then 0
+>      else if number?(car(s))
+>           then if equal?(n,car(s))
+>                then 1
+>                else (occurs-in? n cdr(s))
+>      else if (occurs-in? n car(s))
+>           then 1
+>           else (occurs-in? n cdr(s))
+>    ```
+> 3. `remfirst`. This uses `occurs-in?` from the preceding example.
+>    ```
+>    letrec
+>     remfirst(n,s) =
+>      letrec
+>       loop(s) =
+>        if null?(s)
+>        then emptylist
+>        else if number?(car(s))
+>             then if equal?(n,car(s))
+>                  then cdr(s)
+>                  else cons(car(s),(loop cdr(s)))
+>             else if (occurs-in? n car(s))
+>                  then cons((remfirst n car(s)),
+>                            cdr(s))
+>                  else cons(car(s),
+>                            (remfirst n cdr(s)))
+>      in (loop s)
+>    ```
+> 4. `depth`.
+>    ```
+>    letrec
+>     depth(s) =
+>      if null?(s)
+>      then 1
+>      else if number?(car(s))
+>           then (depth cdr(s))
+>           else if less?(add1((depth car(s))),
+>                         (depth cdr(s)))
+>                then (depth cdr(s))
+>                else add1((depth car(s)))
+>    ```
+> 5. `depth-with-let`.
+>    ```
+>    letrec
+>     depth(s) =
+>      if null?(s)
+>      then 1
+>      else if number?(car(s))
+>           then (depth cdr(s))
+>           else let dfirst = add1((depth car(s)))
+>                    drest = (depth cdr(s))
+>                in if less?(dfirst,drest)
+>                   then drest
+>                   else dfirst
+>    ```
+> 6. `map`.
+>    ```
+>    letrec
+>     map(f, l) = if null?(l)
+>                 then emptylist
+>                 else cons((f car(l)),
+>                           (map f cdr(l)))
+>     square(n) = *(n,n)
+>    in (map square list(1,2,3,4,5))
+>    ```
+> 7. `fnlrgtn`. This procedure takes an n-list, like an s-list (page 9), but with numbers instead of symbols, and a
+>    number `n` and returns the first number in the list (in left-to-right order) that is greater than `n`. Once the
+>    result is found, no further elements in the list are examined. For example,
+>    ```
+>    (fnlrgtn list(1,list(3,list(2),7,list(9)))
+>     6)
+>    ```
+>    finds 7.
+> 8. `every`. This procedure takes a predicate and a list and returns a true value if and only if the predicate holds
+>    for each list element.
+>    ```
+>    letrec
+>     every(pred, l) =
+>      if null?(l)
+>      then 1
+>      else if (pred car(l))
+>           then (every pred cdr(l))
+>           else 0
+>    in (every proc(n) greater?(n,5) list(6,7,8,9))
+>    ```
+
+*Skipped for now.*
+
+> Exercise 6.14 [★] Complete the interpreter of figure 6.6 by supplying definitions for `value-of-program` and
+> `apply-cont`.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.x-cps-lang.rkt). This is copied from
+the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapter6/cps-lang/interp.scm).
+
+> Exercise 6.15 [★] Observe that in the interpreter of the preceding exercise, there is only one possible value for
+> `cont`. Use this observation to remove the `cont` argument entirely.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.15.rkt).
