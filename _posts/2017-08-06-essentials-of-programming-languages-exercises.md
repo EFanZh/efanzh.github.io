@@ -4031,3 +4031,15 @@ and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exerci
 > Exercise 6.9 [★] What property of multiplication makes this program optimization possible?
 
 The [associative property](https://en.wikipedia.org/wiki/Associative_property).
+
+> Exercise 6.10 [★] For `list-sum`, formulate a succinct representation of the continuations, like the one for `fact/k`
+> above.
+
+```scheme
+(define list-sum/k
+  (lambda (loi cont)
+    (if (null? loi)
+        cont
+        (list-sum (cdr loi)
+                  (+ cont (car loi))))))
+```
