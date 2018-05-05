@@ -4027,3 +4027,7 @@ and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exerci
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-inlined.rkt)
 and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-procedural.rkt).
+
+> Exercise 6.9 [★] What property of multiplication makes this program optimization possible?
+
+The [associative property](https://en.wikipedia.org/wiki/Associative_property).
