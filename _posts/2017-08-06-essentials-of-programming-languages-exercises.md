@@ -4049,3 +4049,17 @@ The [associative property](https://en.wikipedia.org/wiki/Associative_property).
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.x-cps-lang.rkt). This is copied from
 the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapter6/cps-lang/interp.scm).
+
+> Exercise 6.12 [★] Determine whether each of the following expressions is simple.
+>
+> 1. `-((f -(x,1)),1)`
+> 2. `(f -(-(x,y),1))`
+> 3. `if zero?(x) then -(x,y) else -(-(x,y),1)`
+> 4. `let x = proc (y) (y x) in -(x,3)`
+> 5. `let f = proc (x) x in (f 3)`
+
+1. `-((f -(x,1)),1)` is not simple because `(f -(x,1))` is a procedure call.
+2. `(f -(-(x,y),1))` is not simple because `(f -(-(x,y),1))` is a procedure call.
+3. `if zero?(x) then -(x,y) else -(-(x,y),1)` is simple.
+4. `let x = proc (y) (y x) in -(x,3)` is not simple because `(y x)` is a procedure call.
+5. `let f = proc (x) x in (f 3)` is not simple because `(f 3)` is a procedure call.
