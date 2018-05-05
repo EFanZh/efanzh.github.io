@@ -4186,3 +4186,11 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 > `cont`. Use this observation to remove the `cont` argument entirely.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.15.rkt).
+
+> Exercise 6.16 [★] Registerize the interpreter of figure 6.6.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.16.rkt).
+
+> Exercise 6.17 [★] Trampoline the interpreter of figure 6.6.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.17.rkt).
