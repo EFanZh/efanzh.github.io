@@ -4,6 +4,9 @@ title: Default Keyboard Shortcuts for Editors
 
 This is a list of default keyboard shortcuts of different editors, IDEs or browsers.
 
+TODO: Investigate softwares list
+[here](https://insights.stackoverflow.com/survey/2018/#technology-most-popular-development-environments).
+
 ## Text editing
 
 |                        | DrRacket         | Eclipse               | gedit            | KWrite              | PyCharm            | Qt Creator          | Sublime Text (Linux) | Visual Studio      | Visual Studio Code (Linux) | Visual Studio Code (Windows) |
