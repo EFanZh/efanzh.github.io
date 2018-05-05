@@ -4043,3 +4043,9 @@ The [associative property](https://en.wikipedia.org/wiki/Associative_property).
         (list-sum/k (cdr loi)
                     (+ cont (car loi))))))
 ```
+
+> Exercise 6.11 [★] Complete the interpreter of figure 6.6 by writing `value-of-simple-exp`.
+
+Solution is implemented
+[here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.x-cps-lang.rkt). This is copied from
+the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapter6/cps-lang/interp.scm).
