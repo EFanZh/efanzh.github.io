@@ -4194,3 +4194,57 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.17 [★] Trampoline the interpreter of figure 6.6.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.17.rkt).
+
+> Exercise 6.18 [★★] Modify the grammar of CPS-OUT so that a simple `diff-exp` or `zero?-exp` can have only a constant
+> or variable as an argument. Thus in the resulting language `value-of-simple-exp` can be made nonrecursive.
+
+*Skipped for now.*
+
+> Exercise 6.19 [★★] Write a Scheme procedure `tail-form?` that takes the syntax tree of a program in CPS-IN,
+> expressed in the grammar of figure 6.3, and determines whether the same string would be in tail form according to the
+> grammar of figure 6.5.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.19.rkt).
+
+```racket
+(define all
+  (lambda (pred items)
+    (let loop ([items items])
+      (or (null? items)
+          (and (pred (car items))
+               (loop (cdr items)))))))
+
+(define simple-exp?
+  (lambda (exp)
+    (cases expression exp
+      [const-exp (num) #t]
+      [diff-exp (exp1 exp2) (and (simple-exp? exp1)
+                                 (simple-exp? exp2))]
+      [zero?-exp (exp1) (simple-exp? exp1)]
+      [var-exp (var) #t]
+      [proc-exp (vars body) (tail-form-exp? body)]
+      [else #f])))
+
+(define tail-form-exp?
+  (lambda (exp)
+    (cases expression exp
+      [const-exp (num) #t]
+      [diff-exp (exp1 exp2) (and (simple-exp? exp1)
+                                 (simple-exp? exp2))]
+      [zero?-exp (exp1) (simple-exp? exp1)]
+      [if-exp (exp1 exp2 exp3) (and (simple-exp? exp1)
+                                    (tail-form-exp? exp2)
+                                    (tail-form-exp? exp3))]
+      [var-exp (var) #t]
+      [let-exp (var exp1 body) (and (simple-exp? exp1)
+                                    (tail-form-exp? body))]
+      [letrec-exp (p-names b-varss p-bodies letrec-body) (and (all tail-form-exp? p-bodies)
+                                                              (tail-form-exp? letrec-body))]
+      [proc-exp (vars body) (tail-form-exp? body)]
+      [call-exp (rator rands) (and (simple-exp? rator) (all simple-exp? rands))])))
+
+(define tail-form?
+  (lambda (pgm)
+    (cases program pgm
+      [a-program (exp) (tail-form-exp? exp)])))
+```
