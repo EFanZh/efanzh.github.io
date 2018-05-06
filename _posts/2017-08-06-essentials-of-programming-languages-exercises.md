@@ -4254,3 +4254,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > `cps-of-exps` so that subexpressions are evaluated from right to left.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.20.rkt).
+
+> Exercise 6.21 [★] Modify `cps-of-call-exp` so that the operands are evaluated from left to right, followed by the
+> operator.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.21.rkt).
