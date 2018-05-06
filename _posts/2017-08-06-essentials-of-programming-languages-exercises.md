@@ -4199,7 +4199,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.18 [★★] Modify the grammar of CPS-OUT so that a simple `diff-exp` or `zero?-exp` can have only a constant
 > or variable as an argument. Thus in the resulting language `value-of-simple-exp` can be made nonrecursive.
 
-*Skipped for now.*
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.18.rkt).
 
 > Exercise 6.19 [★★] Write a Scheme procedure `tail-form?` that takes the syntax tree of a program in CPS-IN,
 > expressed in the grammar of figure 6.3, and determines whether the same string would be in tail form according to the
