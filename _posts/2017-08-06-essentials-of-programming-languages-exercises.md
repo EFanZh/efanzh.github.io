@@ -4061,7 +4061,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 1. `-((f -(x,1)),1)` is not simple because `(f -(x,1))` is a procedure call.
 2. `(f -(-(x,y),1))` is not simple because `(f -(-(x,y),1))` is a procedure call.
 3. `if zero?(x) then -(x,y) else -(-(x,y),1)` is simple.
-4. `let x = proc (y) (y x) in -(x,3)` is not simple because `(y x)` is a procedure call.
+4. `let x = proc (y) (y x) in -(x,3)` is simple.
 5. `let f = proc (x) x in (f 3)` is not simple because `(f 3)` is a procedure call.
 
 > Exercise 6.13 [★] Translate each of these expressions in CPS-IN into continuation-passing style using the CPS recipe
