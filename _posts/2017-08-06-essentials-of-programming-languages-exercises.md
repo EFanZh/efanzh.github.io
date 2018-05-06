@@ -4249,3 +4249,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
     (cases program pgm
       [a-program (exp) (tail-form-exp? exp)])))
 ```
+
+> Exercise 6.20 [★] Our procedure `cps-of-exps` causes subexpressions to be evaluated from left to right. Modify
+> `cps-of-exps` so that subexpressions are evaluated from right to left.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.20.rkt).
