@@ -4288,3 +4288,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.22.rkt).
 
 The new rule applies when transform a expression on a operand position.
+
+> Exercise 6.23 [★★] Observe that our rule for `if` makes two copies of the continuation *K*, so in a nested `if` the
+> size of the transformed program can grow exponentially. Run an example to confirm this observation. Then show how this
+> may be avoided by changing the transformation to bind a fresh variable to `K`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.23.rkt).
