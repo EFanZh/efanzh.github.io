@@ -4259,3 +4259,32 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > operator.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.21.rkt).
+
+> Exercise 6.22 [★] Sometimes, when we generate `(`*K*` `*simp*`)`, *K* is already a `proc-exp`. So instead of
+> generating
+>
+> ``` scheme
+> (proc (var1) ... simp)
+> ```
+>
+> we could generate
+>
+> ```
+> let var1 = simp
+> in ...
+> ```
+>
+> This leads to CPS code with the property that it never contains a subexpression of the form
+>
+> ```scheme
+> (proc (var) exp1
+>  simp)
+> ```
+>
+> unless that subexpressionwas in the original expression.
+>
+> Modify `make-send-to-cont` to generate this better code. When does the new rule apply?
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.22.rkt).
+
+The new rule applies when transform a expression on a operand position.
