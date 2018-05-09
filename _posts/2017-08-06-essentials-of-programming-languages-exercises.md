@@ -4294,3 +4294,8 @@ The new rule applies when transform a expression on a operand position.
 > may be avoided by changing the transformation to bind a fresh variable to `K`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.23.rkt).
+
+> Exercise 6.24 [★★] Add lists to the language (exercise 3.10). Remember that the arguments to a list are not in tail
+> position.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.24.rkt).
