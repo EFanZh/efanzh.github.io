@@ -4299,3 +4299,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > position.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.24.rkt).
+
+> Exercise 6.25 [★★] Extend CPS-IN so that a `let` expression can declare an arbitrary number of variables
+> (exercise 3.16).
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.25.rkt).
