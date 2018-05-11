@@ -4305,6 +4305,20 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.25.rkt).
 
+> Exercise 6.26 [★★] A continuation variable introduced by `cps-of-exps` will only occur once in the continuation.
+> Modify `make-send-to-cont` so that instead of generating
+>
+> ```
+> let var1 = simp1
+> in T
+> ```
+>
+> as in exercise 6.22, it generates *T*[*simp*<sub>1</sub>/*var*<sub>1</sub>], where the notation
+> *E*<sub>1</sub>[*E*<sub>2</sub>/*var*] means expression *E*<sub>1</sub> with every free occurrence of the variable
+> *var* replaced by *E*<sub>2</sub>.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.26.rkt).
+
 > Exercise 6.27 [★★] As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
 > procedure so that the continuation variable is the same as the let variable. Then if *exp*<sub>1</sub> is nonsimple,
 >
