@@ -4304,3 +4304,11 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > (exercise 3.16).
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.25.rkt).
+
+> Exercise 6.27 [★★] As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
+> procedure so that the continuation variable is the same as the let variable. Then if *exp*<sub>1</sub> is nonsimple,
+>
+> `(cps-of-exp <<let `*var*<sub>1</sub>` = `*exp*<sub>1</sub>` in `*exp*<sub>2</sub>`>> `*K*`)` \\
+> `= (cps-of-exp `*exp*<sub>1</sub>` <<proc (`*var*<sub>1</sub>`) (cps-of-exp `*exp*<sub>2</sub>` `*K*`)>>`
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.27.rkt).
