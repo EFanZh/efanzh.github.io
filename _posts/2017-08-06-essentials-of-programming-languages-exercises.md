@@ -4398,5 +4398,5 @@ there are multiple non-simple expressions in `exps`.
 >
 > For the use of `cps-of-exps` in `cps-of-call-exp`, we can use `cps-of-exp/ctx` on the `rator`, but we still need
 > `cps-of-exps` for the rands. Remove all other occurrences of `cps-of-exps` from the translator.
->
+
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.30.rkt).
