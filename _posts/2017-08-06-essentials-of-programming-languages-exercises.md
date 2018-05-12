@@ -122,13 +122,13 @@ Let $$ T = N $$.
 
 > Exercise 1.4 [★] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
 
-*List-of-Int* \\
-⇒ `(`*Int*` . `*List-of-Int*`)` \\
-⇒ `(-7 . `*List-of-Int*`)` \\
-⇒ `(-7 . (`*Int*` . `*List-of-Int*`))` \\
-⇒ `(-7 . (3 . `*List-of-Int*`))` \\
-⇒ `(-7 . (3 . (`*Int*` . `*List-of-Int*`)))` \\
-⇒ `(-7 . (3 . (14 . `*List-of-Int*`)))` \\
+*List-of-Int*\\
+⇒ `(`*Int*` . `*List-of-Int*`)`\\
+⇒ `(-7 . `*List-of-Int*`)`\\
+⇒ `(-7 . (`*Int*` . `*List-of-Int*`))`\\
+⇒ `(-7 . (3 . `*List-of-Int*`))`\\
+⇒ `(-7 . (3 . (`*Int*` . `*List-of-Int*`)))`\\
+⇒ `(-7 . (3 . (14 . `*List-of-Int*`)))`\\
 ⇒ `(-7 . (3 . (14 . ())))`
 
 > Exercise 1.5 [★★] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
@@ -2301,7 +2301,7 @@ proc (x)
 > Exercise 3.21 [★★] Extend the language of this section to include procedures with multiple arguments and calls with
 > multiple operands, as suggested by the grammar
 >
-> *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`) `*Expression* \\
+> *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`) `*Expression*\\
 > *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
 
 Solution is implemented
@@ -3828,12 +3828,12 @@ Base case: if *n* < 2, `(fib/k `*n*` `*g*`)` = `(`*g*` `1`)` = `(`*g*` (fib `*n*
 
 Inductive case: if *n* ≥ 2,
 
-`(fib/k `*n*` `*g*`)` \\
-= `(fib/k (- `*n*` 1) (lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))))` \\
-= `((lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))) (fib (- `*n*` 1)))` (by induction) \\
-= `(fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))))` \\
-= `((lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))) (fib (- `*n*` 2)))` (by induction) \\
-= `(`*g*` (+ (fib (- `*n*` 1)) (fib (- `*n*` 2))))` \\
+`(fib/k `*n*` `*g*`)`\\
+= `(fib/k (- `*n*` 1) (lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))))`\\
+= `((lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))) (fib (- `*n*` 1)))` (by induction)\\
+= `(fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))))`\\
+= `((lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))) (fib (- `*n*` 2)))` (by induction)\\
+= `(`*g*` (+ (fib (- `*n*` 1)) (fib (- `*n*` 2))))`\\
 = `(`*g*` (fib `*n*`))`
 
 > Exercise 6.3 [★] Rewrite each of the following Scheme expressions in continuation-passing style. Assume that any
@@ -4322,7 +4322,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.27 [★★] As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
 > procedure so that the continuation variable is the same as the let variable. Then if *exp*<sub>1</sub> is nonsimple,
 >
-> `(cps-of-exp <<let `*var*<sub>1</sub>` = `*exp*<sub>1</sub>` in `*exp*<sub>2</sub>`>> `*K*`)` \\
+> `(cps-of-exp <<let `*var*<sub>1</sub>` = `*exp*<sub>1</sub>` in `*exp*<sub>2</sub>`>> `*K*`)`\\
 > `= (cps-of-exp `*exp*<sub>1</sub>` <<proc (`*var*<sub>1</sub>`) (cps-of-exp `*exp*<sub>2</sub>` `*K*`)>>`
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.27.rkt).

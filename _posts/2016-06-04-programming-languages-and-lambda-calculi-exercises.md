@@ -430,14 +430,14 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 {: exercise}
 
 - (*λx*.*x*)
-- (*λx*.(*λy*.*y* *x*)) (*λy*.*y*) (*λx*.*x* *x*) \\
-    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* (*λy*.*y*)) (*λx*.*x* *x*) \\
-    →<sub>**n**</sub><sup>*β*</sup> (*λx*.*x* *x*) (*λy*.*y*) \\
-    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y*) (*λy*.*y*) \\
+- (*λx*.(*λy*.*y* *x*)) (*λy*.*y*) (*λx*.*x* *x*)\\
+    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* (*λy*.*y*)) (*λx*.*x* *x*)\\
+    →<sub>**n**</sub><sup>*β*</sup> (*λx*.*x* *x*) (*λy*.*y*)\\
+    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y*) (*λy*.*y*)\\
     →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y*)
-- (*λx*.(*λy*.*y* *x*)) ((*λx*.*x* *x*) (*λx*.*x* *x*)) \\
-    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* ((*λx*.*x* *x*) (*λx*.*x* *x*))) \\
-    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* ((*λx*.*x* *x*) (*λx*.*x* *x*))) \\
+- (*λx*.(*λy*.*y* *x*)) ((*λx*.*x* *x*) (*λx*.*x* *x*))\\
+    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* ((*λx*.*x* *x*) (*λx*.*x* *x*)))\\
+    →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* ((*λx*.*x* *x*) (*λx*.*x* *x*)))\\
     →<sub>**n**</sub><sup>*β*</sup> …
 
 > **Exercise 4.2.** Prove the following equivalences by showing reductions.
@@ -451,25 +451,25 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 - **Case** (*λx*.*x*) =<sub>**n**</sub> (*λy*.*y*):
     - (*λx*.*x*) →<sub>**n**</sub><sup>*α*</sup> (*λy*.*y*)
 - **Case** (*λx*.(*λy*.(*λz*.*z* *z*) *y*) *x*) (*λx*.*x* *x*) =<sub>**n**</sub> (*λa*.*a* ((*λg*.*g*) *a*)) (*λb*.*b* *b*):
-    - (*λx*.(*λy*.(*λz*.*z* *z*) *y*) *x*) (*λx*.*x* *x*) \\
-        →<sub>**n**</sub><sup>*η*</sup> (*λy*.(*λz*.*z* *z*) *y*) (*λx*.*x* *x*) \\
+    - (*λx*.(*λy*.(*λz*.*z* *z*) *y*) *x*) (*λx*.*x* *x*)\\
+        →<sub>**n**</sub><sup>*η*</sup> (*λy*.(*λz*.*z* *z*) *y*) (*λx*.*x* *x*)\\
         →<sub>**n**</sub><sup>*β*</sup> (*λy*.*y* *y*) (*λx*.*x* *x*)
-    - (*λa*.*a* ((*λg*.*g*) *a*)) (*λb*.*b* *b*) \\
-        →<sub>**n**</sub><sup>*β*</sup> (*λa*.*a* *a*) (*λb*.*b* *b*) \\
-        →<sub>**n**</sub><sup>*α*</sup> (*λy*.*y* *y*) (*λb*.*b* *b*) \\
+    - (*λa*.*a* ((*λg*.*g*) *a*)) (*λb*.*b* *b*)\\
+        →<sub>**n**</sub><sup>*β*</sup> (*λa*.*a* *a*) (*λb*.*b* *b*)\\
+        →<sub>**n**</sub><sup>*α*</sup> (*λy*.*y* *y*) (*λb*.*b* *b*)\\
         →<sub>**n**</sub><sup>*α*</sup> (*λy*.*y* *y*) (*λx*.*x* *x*)
     - So that (*λx*.(*λy*.(*λz*.*z* *z*) *y*) *x*) (*λx*.*x* *x*)
         =<sub>**n**</sub> (*λa*.*a* ((*λg*.*g*) *a*)) (*λb*.*b* *b*)
 - **Case** *λy*.(*λx*.*λy*.*x*) (*y* *y*) =<sub>**n**</sub> *λa*.*λb*.(*a* *a*):
-    - *λy*.(*λx*.*λy*.*x*) (*y* *y*) \\
-        →<sub>**n**</sub><sup>*α*</sup> *λa*.(*λx*.*λy*.*x*) (*a* *a*) \\
-        →<sub>**n**</sub><sup>*β*</sup> *λa*.*λy*.(*a* *a*) \\
+    - *λy*.(*λx*.*λy*.*x*) (*y* *y*)\\
+        →<sub>**n**</sub><sup>*α*</sup> *λa*.(*λx*.*λy*.*x*) (*a* *a*)\\
+        →<sub>**n**</sub><sup>*β*</sup> *λa*.*λy*.(*a* *a*)\\
         →<sub>**n**</sub><sup>*α*</sup> *λa*.*λb*.(*a* *a*)
 - **Case** (*λf*.*λg*.*λx*.*f* *x* (*g* *x*)) (*λx*.*λy*.*x*) (*λx*.*λy*.*x*) =<sub>**n**</sub> *λx*.*x*:
-    - (*λf*.*λg*.*λx*.*f* *x* (*g* *x*)) (*λx*.*λy*.*x*) (*λx*.*λy*.*x*) \\
-        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.(*λx*.*λy*.*x*) *x* (*g* *x*)) (*λx*.*λy*.*x*) \\
-        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.(*λy*.*x*) (*g* *x*)) (*λx*.*λy*.*x*) \\
-        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.*x*) (*λx*.*λy*.*x*) \\
+    - (*λf*.*λg*.*λx*.*f* *x* (*g* *x*)) (*λx*.*λy*.*x*) (*λx*.*λy*.*x*)\\
+        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.(*λx*.*λy*.*x*) *x* (*g* *x*)) (*λx*.*λy*.*x*)\\
+        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.(*λy*.*x*) (*g* *x*)) (*λx*.*λy*.*x*)\\
+        →<sub>**n**</sub><sup>*β*</sup> (*λg*.*λx*.*x*) (*λx*.*λy*.*x*)\\
         →<sub>**n**</sub><sup>*β*</sup> *λx*.*x*
 
 #### 4.3 Encoding Booleans
@@ -481,21 +481,21 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 > **Exercise 4.3.** Show that (`if` `true`) =<sub>**n**</sub> `true` and (`if` `false`) =<sub>**n**</sub> `false`.
 {: exercise}
 
-(`if` `true`) \\
-= ((*λv*.*λt*.*λf*.*v* *t* *f*) (*λx*.*λy*.*x*)) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λx*.*λy*.*x*) *t* *f*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λy*.*t*) *f*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.*t*) \\
-→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λy*.*x*) \\
+(`if` `true`)\\
+= ((*λv*.*λt*.*λf*.*v* *t* *f*) (*λx*.*λy*.*x*))\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λx*.*λy*.*x*) *t* *f*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λy*.*t*) *f*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.*t*)\\
+→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λy*.*x*)\\
 = `true`
 
-(`if` `false`) \\
-= ((*λv*.*λt*.*λf*.*v* *t* *f*) (*λx*.*λy*.*y*)) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λx*.*λy*.*y*) *t* *f*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λy*.*y*) *f*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.*f*) \\
-→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λf*.*f*) \\
-→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λy*.*y*) \\
+(`if` `false`)\\
+= ((*λv*.*λt*.*λf*.*v* *t* *f*) (*λx*.*λy*.*y*))\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λx*.*λy*.*y*) *t* *f*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.(*λy*.*y*) *f*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λt*.*λf*.*f*)\\
+→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λf*.*f*)\\
+→<sub>**n**</sub><sup>*α*</sup> (*λx*.*λy*.*y*)\\
 = `false`
 
 #### 4.4 Encoding Pairs
@@ -522,24 +522,24 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 > **Exercise 4.5.** Show that `mkpair`, `fst`, and `snd` obey the equations at the beginning of this section.
 {: exercise}
 
-`fst` (`mkpair` *M* *N*) \\
-= (*λp*.*p* `true`) ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) \\
-→<sub>**n**</sub><sup>*β*</sup> ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) `true` \\
-→<sub>**n**</sub><sup>*β*</sup> ((*λy*.*λs*.*s* *M* *y*) *N*) `true` \\
-→<sub>**n**</sub><sup>*β*</sup> (*λs*.*s* *M* *N*) `true` \\
-→<sub>**n**</sub><sup>*β*</sup> `true` *M* *N* \\
-= (*λx*.*λy*.*x*) *M* *N* \\
-→<sub>**n**</sub><sup>*β*</sup> (*λy*.*M*) *N* \\
+`fst` (`mkpair` *M* *N*)\\
+= (*λp*.*p* `true`) ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*)\\
+→<sub>**n**</sub><sup>*β*</sup> ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) `true`\\
+→<sub>**n**</sub><sup>*β*</sup> ((*λy*.*λs*.*s* *M* *y*) *N*) `true`\\
+→<sub>**n**</sub><sup>*β*</sup> (*λs*.*s* *M* *N*) `true`\\
+→<sub>**n**</sub><sup>*β*</sup> `true` *M* *N*\\
+= (*λx*.*λy*.*x*) *M* *N*\\
+→<sub>**n**</sub><sup>*β*</sup> (*λy*.*M*) *N*\\
 →<sub>**n**</sub><sup>*β*</sup> *M*
 
-`snd` (`mkpair` *M* *N*) \\
-= (*λp*.*p* `false`) ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) \\
-→<sub>**n**</sub><sup>*β*</sup> ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) `false` \\
-→<sub>**n**</sub><sup>*β*</sup> ((*λy*.*λs*.*s* *M* *y*) *N*) `false` \\
-→<sub>**n**</sub><sup>*β*</sup> (*λs*.*s* *M* *N*) `false` \\
-→<sub>**n**</sub><sup>*β*</sup> `false` *M* *N* \\
-= (*λx*.*λy*.*y*) *M* *N* \\
-→<sub>**n**</sub><sup>*β*</sup> (*λy*.*y*) *N* \\
+`snd` (`mkpair` *M* *N*)\\
+= (*λp*.*p* `false`) ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*)\\
+→<sub>**n**</sub><sup>*β*</sup> ((*λx*.*λy*.*λs*.*s* *x* *y*) *M* *N*) `false`\\
+→<sub>**n**</sub><sup>*β*</sup> ((*λy*.*λs*.*s* *M* *y*) *N*) `false`\\
+→<sub>**n**</sub><sup>*β*</sup> (*λs*.*s* *M* *N*) `false`\\
+→<sub>**n**</sub><sup>*β*</sup> `false` *M* *N*\\
+= (*λx*.*λy*.*y*) *M* *N*\\
+→<sub>**n**</sub><sup>*β*</sup> (*λy*.*y*) *N*\\
 →<sub>**n**</sub><sup>*β*</sup> *N*
 
 #### 4.5 Encoding Numbers
@@ -562,39 +562,39 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 > **Exercise 4.6.** Show that `add1` 1 =<sub>**n**</sub> 2.
 {: exercise}
 
-`add1` 1 \\
-= (*λn*.*λf*.*λx*.*f* (*n* *f* *x*)) (*λf*.*λx*.*f* *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λf*.*λx*.*f* *x*) *f* *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λx*.*f* *x*) *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λx*.*f* *x*) *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* (*f* *x*) \\
+`add1` 1\\
+= (*λn*.*λf*.*λx*.*f* (*n* *f* *x*)) (*λf*.*λx*.*f* *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λf*.*λx*.*f* *x*) *f* *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λx*.*f* *x*) *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* ((*λx*.*f* *x*) *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.*f* (*f* *x*)\\
 = 2
 
 > **Exercise 4.7.** Show that `iszero` 1 =<sub>**n**</sub> `false`.
 {: exercise}
 
-`iszero` 1 \\
-= (*λn*.*n* (*λx*.`false`) `true`) (*λf*.*λx*.*f* *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λf*.*λx*.*f* *x*) (*λx*.`false`) `true` \\
-→<sub>**n**</sub><sup>*β*</sup> (*λx*.(*λx*.`false`) *x*) `true` \\
-→<sub>**n**</sub><sup>*β*</sup> (*λx*.`false`) `true` \\
+`iszero` 1\\
+= (*λn*.*n* (*λx*.`false`) `true`) (*λf*.*λx*.*f* *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λf*.*λx*.*f* *x*) (*λx*.`false`) `true`\\
+→<sub>**n**</sub><sup>*β*</sup> (*λx*.(*λx*.`false`) *x*) `true`\\
+→<sub>**n**</sub><sup>*β*</sup> (*λx*.`false`) `true`\\
 →<sub>**n**</sub><sup>*β*</sup> `false`
 
 > **Exercise 4.8.** Show that `sub1` 1 =<sub>**n**</sub> 0.
 {: exercise}
 
-`sub1` 1 \\
-= (*λn*.*λf*.*λx*.`snd` (*n* (`wrap` *f*) ⟨`true`, *x*⟩)) (*λf*.*λx*.*f* *x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λf*.*λx*.*f* *x*) (`wrap` *f*) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λx*.(`wrap` *f*) *x*) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((`wrap` *f*) ⟨`true`, *x*⟩) \\
-= *λf*.*λx*.`snd` (((*λf*.*λp*.⟨`false`, `if` (`fst` *p*) (`snd` *p*) (*f* (`snd` *p*))⟩) *f*) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λp*.⟨`false`, `if` (`fst` *p*) (`snd` *p*) (*f* (`snd` *p*))⟩) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` (⟨`false`, `if` (`fst` ⟨`true`, *x*⟩) (`snd` ⟨`true`, *x*⟩) (*f* (`snd` ⟨`true`, *x*⟩))⟩) \\
-↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, `if` `true` (`snd` ⟨`true`, *x*⟩) (*f* (`snd` ⟨`true`, *x*⟩))⟩ \\
-↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, (`snd` ⟨`true`, *x*⟩)⟩ \\
-↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, *x*⟩ \\
-↠<sub>**n**</sub> *λf*.*λx*.*x* \\
+`sub1` 1\\
+= (*λn*.*λf*.*λx*.`snd` (*n* (`wrap` *f*) ⟨`true`, *x*⟩)) (*λf*.*λx*.*f* *x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λf*.*λx*.*f* *x*) (`wrap` *f*) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λx*.(`wrap` *f*) *x*) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((`wrap` *f*) ⟨`true`, *x*⟩)\\
+= *λf*.*λx*.`snd` (((*λf*.*λp*.⟨`false`, `if` (`fst` *p*) (`snd` *p*) (*f* (`snd` *p*))⟩) *f*) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λp*.⟨`false`, `if` (`fst` *p*) (`snd` *p*) (*f* (`snd` *p*))⟩) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` (⟨`false`, `if` (`fst` ⟨`true`, *x*⟩) (`snd` ⟨`true`, *x*⟩) (*f* (`snd` ⟨`true`, *x*⟩))⟩)\\
+↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, `if` `true` (`snd` ⟨`true`, *x*⟩) (*f* (`snd` ⟨`true`, *x*⟩))⟩\\
+↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, (`snd` ⟨`true`, *x*⟩)⟩\\
+↠<sub>**n**</sub> *λf*.*λx*.`snd` ⟨`false`, *x*⟩\\
+↠<sub>**n**</sub> *λf*.*λx*.*x*\\
 = 0
 
 > **Exercise 4.9.** Define `mult` using the technique that allowed us to define `add`. In other words, implement (`mult`
@@ -610,17 +610,17 @@ Since *B*<sub>0</sub> =<sub>**r**</sub> *R*<sub>0</sub> for some *R*<sub>0</sub>
 
 Let’s try:
 
-`sub1` 0 \\
-= (*λn*.*λf*.*λx*.`snd` (*n* (`wrap` *f*) ⟨`true`, *x*⟩)) (*λf*.*λx*.*x*) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λf*.*λx*.*x*) (`wrap` *f*) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λx*.*x*) ⟨`true`, *x*⟩) \\
-→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ⟨`true`, *x*⟩ \\
-↠<sub>**n**</sub> *λf*.*λx*.*x* \\
+`sub1` 0\\
+= (*λn*.*λf*.*λx*.`snd` (*n* (`wrap` *f*) ⟨`true`, *x*⟩)) (*λf*.*λx*.*x*)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λf*.*λx*.*x*) (`wrap` *f*) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ((*λx*.*x*) ⟨`true`, *x*⟩)\\
+→<sub>**n**</sub><sup>*β*</sup> *λf*.*λx*.`snd` ⟨`true`, *x*⟩\\
+↠<sub>**n**</sub> *λf*.*λx*.*x*\\
 = 0
 
-`iszero` `true` \\
-= (*λn*.*n* (*λx*.`false`)) (*λx*.*λy*.*x*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λx*.*λy*.*x*) (*λx*.`false`) \\
+`iszero` `true`\\
+= (*λn*.*n* (*λx*.`false`)) (*λx*.*λy*.*x*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λx*.*λy*.*x*) (*λx*.`false`)\\
 →<sub>**n**</sub><sup>*β*</sup> *λy*.*λx*.`false`
 
 I think that’s it.
@@ -642,13 +642,13 @@ I think that’s it.
 > **Exercise 4.12.** Prove that *M* (`Y` *M*) =<sub>**n**</sub> (`Y` *M*) for any *M*.
 {: exercise}
 
-(`Y` *M*) \\
-= ((*λf*.(*λx*.*f* (*x* *x*)) (*λx*.*f* (*x* *x*))) *M*) \\
-→<sub>**n**</sub><sup>*β*</sup> (*λx*.*M* (*x* *x*)) (*λx*.*M* (*x* *x*)) \\
+(`Y` *M*)\\
+= ((*λf*.(*λx*.*f* (*x* *x*)) (*λx*.*f* (*x* *x*))) *M*)\\
+→<sub>**n**</sub><sup>*β*</sup> (*λx*.*M* (*x* *x*)) (*λx*.*M* (*x* *x*))\\
 →<sub>**n**</sub><sup>*β*</sup> (*M* ((*λx*.*M* (*x* *x*)) (*λx*.*M* (*x* *x*))))
 
-*M* (`Y` *M*) \\
-= *M* ((*λf*.(*λx*.*f* (*x* *x*)) (*λx*.*f* (*x* *x*))) *M*) \\
+*M* (`Y` *M*)\\
+= *M* ((*λf*.(*λx*.*f* (*x* *x*)) (*λx*.*f* (*x* *x*))) *M*)\\
 →<sub>**n**</sub><sup>*β*</sup> (*M* ((*λx*.*M* (*x* *x*)) (*λx*.*M* (*x* *x*))))
 
 The claim holds.
@@ -715,17 +715,17 @@ a normal form expression, therefore ((*λx*.*x* *x*) (*λx*.*x* *x*)) has no nor
 
 #### 5.2 ISWIM Reductions
 
-> **Exercise 5.1.** Show a reduction of \\
-> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*)) \\
+> **Exercise 5.1.** Show a reduction of\\
+> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*))\\
 > to a value with →<sub>**v**</sub>.
 {: exercise}
 
-(*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*)) \\
-→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λyz*.(+ *z* *y*) ⌈10⌉) \\
-→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λz*.(+ *z* ⌈10⌉)) \\
-→<sub>**v**</sub> (− ((*λz*.(+ *z* ⌈10⌉)) ⌈1⌉) ⌈5⌉) \\
-→<sub>**v**</sub> (− (+ ⌈1⌉ ⌈10⌉) ⌈5⌉) \\
-→<sub>**v**</sub> (− ⌈11⌉ ⌈5⌉) \\
+(*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) ((*λx*.*x* ⌈10⌉) *λyz*.(+ *z* *y*))\\
+→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λyz*.(+ *z* *y*) ⌈10⌉)\\
+→<sub>**v**</sub> (*λw*.(− (*w* ⌈1⌉) ⌈5⌉)) (*λz*.(+ *z* ⌈10⌉))\\
+→<sub>**v**</sub> (− ((*λz*.(+ *z* ⌈10⌉)) ⌈1⌉) ⌈5⌉)\\
+→<sub>**v**</sub> (− (+ ⌈1⌉ ⌈10⌉) ⌈5⌉)\\
+→<sub>**v**</sub> (− ⌈11⌉ ⌈5⌉)\\
 →<sub>**v**</sub> ⌈6⌉
 
 #### 5.4 Evaluation
