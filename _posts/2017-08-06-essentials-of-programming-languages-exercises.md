@@ -4326,3 +4326,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > `= (cps-of-exp `*exp*<sub>1</sub>` <<proc (`*var*<sub>1</sub>`) (cps-of-exp `*exp*<sub>2</sub>` `*K*`)>>`
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.27.rkt).
+
+> Exercise 6.28 [★] Food for thought: imagine a CPS transformer for Scheme programs, and imagine that you apply it to
+> the first interpreter from chapter 3. What would the result look like?
+
+It would look like a continuation-passing interpreter.
