@@ -4360,3 +4360,43 @@ It would look like a continuation-passing interpreter.
 
 Because this variant only scan `exps` once without looking back, the original one will scan `exps` multiple times if
 there are multiple non-simple expressions in `exps`.
+
+> Exercise 6.30 [★★] A call to `cps-of-exps` with a list of expressions of length one can be simplified as follows:
+>
+> `(cps-of-exps (list `*exp*`) `*builder*`)`\\
+> = `(cps-of-exp/ctx `*exp*` (lambda (simp) (`*builder*` (list simp))))`
+>
+> where
+>
+> **cps-of-exp/ctx** : *InpExp* × (*SimpleExp* → *TfExp*) → *TfExp*
+>
+> ```scheme
+> (define cps-of-exp/ctx
+>   (lambda (exp context)
+>     (if (inp-exp-simple? exp)
+>       (context (cps-of-simple-exp exp))
+>       (let ((var (fresh-identifier 'var)))
+>         (cps-of-exp exp
+>           (cps-proc-exp (list var)
+>             (context (cps-var-exp var))))))))
+> ```
+>
+> Thus, we can simplify occurrences of `(cps-of-exps (list ...))`, since the number of arguments to list is known.
+> Therefore the definition of, for example, `cps-of-diff-exp` could be defined with `cps-of-exp/ctx` instead of with
+> `cps-of-exps`.
+>
+> ```scheme
+> (define cps-of-diff-exp
+>   (lambda (exp1 exp2 k-exp)
+>     (cps-of-exp/ctx exp1
+>       (lambda (simp1)
+>         (cps-of-exp/ctx exp2
+>           (lambda (simp2)
+>             (make-send-to-cont k-exp
+>               (cps-diff-exp simp1 simp2))))))))
+> ```
+>
+> For the use of `cps-of-exps` in `cps-of-call-exp`, we can use `cps-of-exp/ctx` on the `rator`, but we still need
+> `cps-of-exps` for the rands. Remove all other occurrences of `cps-of-exps` from the translator.
+>
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.30.rkt).
