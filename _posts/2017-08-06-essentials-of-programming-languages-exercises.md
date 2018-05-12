@@ -4331,3 +4331,32 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > the first interpreter from chapter 3. What would the result look like?
 
 It would look like a continuation-passing interpreter.
+
+> Exercise 6.29 [★★] Consider this variant of `cps-of-exps`.
+>
+> ```scheme
+> (define cps-of-exps
+>   (lambda (exps builder)
+>     (let cps-of-rest ((exps exps) (acc '()))
+>       cps-of-rest : Listof(InpExp) × Listof(SimpleExp) → TfExp
+>       (cond
+>         ((null? exps) (builder (reverse acc)))
+>         ((inp-exp-simple? (car exps))
+>          (cps-of-rest (cdr exps)
+>            (cons
+>              (cps-of-simple-exp (car exps))
+>               acc)))
+>         (else
+>          (let ((var (fresh-identifier 'var)))
+>            (cps-of-exp (car exps)
+>              (cps-proc-exp (list var)
+>                (cps-of-rest (cdr exps)
+>                  (cons
+>                    (cps-of-simple-exp (var-exp var))
+>                    acc))))))))))
+> ```
+>
+> Why is this variant of cps-of-exp more efficient than the one in figure 6.8?
+
+Because this variant only scan `exps` once without looking back, the original one will scan `exps` multiple times if
+there are multiple non-simple expressions in `exps`.
