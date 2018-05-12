@@ -4400,3 +4400,20 @@ there are multiple non-simple expressions in `exps`.
 > `cps-of-exps` for the rands. Remove all other occurrences of `cps-of-exps` from the translator.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.30.rkt).
+
+> Exercise 6.31 [★★★] Write a translator that takes the output of `cps-of-program` and produces an equivalent program
+> in which all the continuations are represented by data structures, as in chapter 5. Represent data structures like
+> those constructed using `define-datatype` as lists. Since our language does not have symbols, you can use an integer
+> tag in the car position to distinguish the variants of a data type.
+
+*Skipped for now.*
+
+> Exercise 6.32 [★★★] Write a translator like the one in exercise 6.31, except that it represents all procedures by
+> data structures.
+
+*Skipped for now.*
+
+> Exercise 6.33 [★★★] Write a translator that takes the output from exercise 6.32 and converts it to a register
+> program like the one in figure 6.1.
+
+*Skipped for now.*
