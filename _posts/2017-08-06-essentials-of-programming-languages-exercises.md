@@ -4417,3 +4417,28 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > program like the one in figure 6.1.
 
 *Skipped for now.*
+
+> Exercise 6.34 [★★] When we convert a program to CPS, we do more than produce a program in which the control contexts
+> become explicit. We also choose the exact order in which the operations are done, and choose names for each
+> intermediate result. The latter is called *sequentialization*. If we don’t care about obtaining iterative behavior, we
+> can sequentialize a program by converting it to *A-normal form* or *ANF*. Here’s an example of a program in ANF.
+>
+> ```scheme
+> (define fib/anf
+>   (lambda (n)
+>     (if (< n 2)
+>       1
+>       (let ((val1 (fib/anf (- n 1))))
+>         (let ((val2 (fib/anf (- n 2))))
+>           (+ val1 val2))))))
+> ```
+>
+> Whereas a program in CPS sequentializes computation by passing continuations that name intermediate results, a
+> program in ANF sequentializes computation by using `let` expressions that name all of the intermediate results.
+>
+> Retarget `cps-of-exp` so that it generates programs in ANF instead of CPS. (For conditional expressions occurring in
+> nontail position, use the ideas in exercise 6.23.) Then, show that applying the revised `cps-of-exp` to, e.g., the
+> definition of `fib` yields the definition of `fib/anf`. Finally, show that given an input program which is already in
+> ANF, your translator produces the same program except for the names of bound variables.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.34.rkt).
