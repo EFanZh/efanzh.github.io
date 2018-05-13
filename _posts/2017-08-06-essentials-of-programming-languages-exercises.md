@@ -4442,3 +4442,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > ANF, your translator produces the same program except for the names of bound variables.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.34.rkt).
+
+> Exercise 6.35 [★] Verify on a few examples that if the optimization of exercise 6.27 is installed, CPS-transforming
+> the output of your ANF transformer (exercise 6.34) on a program yields the same result as CPS-transforming the
+> program.
+
+*Skipped for now.*
