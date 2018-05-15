@@ -4448,3 +4448,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > program.
 
 *Skipped for now.*
+
+> Exercise 6.36 [★★] Add a `begin` expression (exercise 4.4) to CPS-IN. You should not need to add anything to
+> CPS-OUT.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.36.rkt).
