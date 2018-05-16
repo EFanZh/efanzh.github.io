@@ -4453,3 +4453,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > CPS-OUT.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.36.rkt).
+
+> Exercise 6.37 [★★★] Add implicit references (section 4.3) to CPS-IN. Use the same version of CPS-OUT, with explicit
+> references, and make sure your translator inserts allocation and dereference where necessary. As a hint, recall that
+> in the presence of implicit references, a `var-exp` is no longer simple, since it reads from the store.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.37.rkt).
