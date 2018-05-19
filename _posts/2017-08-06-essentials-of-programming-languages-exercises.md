@@ -4459,3 +4459,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > in the presence of implicit references, a `var-exp` is no longer simple, since it reads from the store.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.37.rkt).
+
+> Exercise 6.38 [★★★] If a variable never appears on the left-hand side of a `set` expression, then it is immutable,
+> and could be treated as simple. Extend your solution to the preceding exercise so that all such variables are treated
+> as simple.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.38.rkt).
