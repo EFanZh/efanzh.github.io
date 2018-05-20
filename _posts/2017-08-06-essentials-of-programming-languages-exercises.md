@@ -4469,3 +4469,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.39 [★] Implement `letcc` and `throw` in the CPS translator.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.39.rkt).
+
+> Exercise 6.40 [★★] Implement `try/catch` and `throw` from section 5.4 by adding them to the CPS translator. You
+> should not need to add anything to CPS-OUT. Instead, modify `cps-of-exp` to take two continuations: a success
+> continuation and an error continuation.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.40.rkt).
