@@ -4465,3 +4465,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > as simple.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.38.rkt).
+
+> Exercise 6.39 [★] Implement `letcc` and `throw` in the CPS translator.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.39.rkt).
