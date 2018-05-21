@@ -4602,3 +4602,26 @@ No, I don’t think so.
 > Exercise 7.3 [★★] For the language LETREC, is it decidable whether an expressed value *val* is of type *t*?
 
 *Not sure about this one.*
+
+> Exercise 7.4 [★] Using the rules of this section, write derivations, like the one on page 5, that assign types for
+> `proc (x) x` and `proc (x) proc (y) (x y)`. Use the rules to assign at least two types for each of these terms. Do the
+> values of these expressions have the same types?
+
+```
+       (type-of <<x>> [x=t]tenv) = t
+--------------------------------------------
+  (type-of <<proc (x) x>> tenv) = (t -> t)
+```
+
+```
+  (type-of <<x>> [y=t1][x=(t1 -> t2)]tenv) = (t1 -> t2)  (type-of <<y>> [y=t1][x=(t1 -> t2)]tenv)= t1
+-------------------------------------------------------------------------------------------------------
+                           (type-of <<(x y)>> [y=t1][x=(t1 -> t2)]tenv) = t2
+                   ----------------------------------------------------------------
+                     (type-of <<proc (y) (x y)>> [x=(t1 -> t2)]tenv) = (t1 -> t2)
+               -------------------------------------------------------------------------
+                 (type-of <<proc (x) proc (y) (x y)>> tenv) = (t1 -> t2) -> (t1 -> t2)
+```
+
+The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
+type may be different.
