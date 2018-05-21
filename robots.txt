@@ -1,1 +1,1 @@
-Sitemap: http://efanzh.org/sitemap.xml
+Sitemap: https://efanzh.org/sitemap.xml
