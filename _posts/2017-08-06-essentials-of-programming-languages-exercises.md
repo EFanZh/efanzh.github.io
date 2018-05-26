@@ -4647,3 +4647,31 @@ This expression behaves differently in the new verion of checker:
 ```
 if 1 then -(zero?(1), 4) else 2
 ```
+
+> Exercise 7.8 [★★] Add `pairof` types to the language. Say that a value is of type
+> `pairof `*t*<sub>1</sub>` * `*t*<sub>2</sub> if and only if it is a pair consisting of a value of type *t*<sub>1</sub>
+> and a value of type *t*<sub>2</sub>. Add to the language the following productions:
+>
+> | *Type*       | ::= | `pairof `*Type*` * `*Type*                                               |
+> |              |     | <span style="border: 1px solid">`pair-type (ty1 ty2)`</span>             |
+> | *Expression* | ::= | `newpair (`*Expression*` , `*Expression*`)`                              |
+> |              |     | <span style="border: 1px solid">`pair-exp (exp1 exp2)`</span>            |
+> | *Expression* | ::= | `unpair `*Identifier*` `*Identifier*` = `*Expression*                    |
+> |              |     | `in `*Expression*                                                        |
+> |              |     | <span style="border: 1px solid">`unpair-exp (var1 var2 exp body)`</span> |
+>
+> A `pair` expression creates a pair; an `unpair` expression (like exercise 3.18) binds its two variables to the two
+> parts of the expression; the scope of these variables is `body`. The typing rules for `pair` and `unpair` are:
+>
+> $$ \frac{\array{\texttt{(type-of $e_1$ $tenv$)} = t_1 \\
+>                 \texttt{(type-of $e_1$ $tenv$)} = t_2}}
+>          {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} $$
+>
+> $$ \frac{\array{\texttt{(type-of $e_{pair}$ $tenv$)} = \texttt{pairof $t_1$ $t_2$} \\
+>                 \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} = t_{body}}}
+>         {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} $$
+>
+> Extend CHECKED to implement these rules. In `type-to-external-form`, produce the list
+> `(pairof `*t*<sub>1</sub>` `*t*<sub>2</sub>`)` for a pair type.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
