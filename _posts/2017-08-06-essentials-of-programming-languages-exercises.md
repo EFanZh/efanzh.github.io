@@ -4635,3 +4635,15 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 7.6 [★] Extend the checker to handle assignments (section 4.3).
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.6.rkt).
+
+> Exercise 7.7 [★] Change the code for checking an `if-exp` so that if the test expression is not a boolean, the other
+> expressions are not checked. Give an expression for which the new version of the checker behaves differently from the
+> old version.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.7.rkt).
+
+This expression behaves differently in the new verion of checker:
+
+```
+if 1 then -(zero?(1), 4) else 2
+```
