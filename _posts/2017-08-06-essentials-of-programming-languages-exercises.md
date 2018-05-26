@@ -4608,19 +4608,19 @@ No, I don’t think so.
 > values of these expressions have the same types?
 
 ```
-       (type-of <<x>> [x=t]tenv) = t
---------------------------------------------
-  (type-of <<proc (x) x>> tenv) = (t -> t)
+       (type-of «x» [x=t]tenv) = t
+------------------------------------------
+  (type-of «proc (x) x» tenv) = (t -> t)
 ```
 
 ```
-  (type-of <<x>> [y=t1][x=(t1 -> t2)]tenv) = (t1 -> t2)  (type-of <<y>> [y=t1][x=(t1 -> t2)]tenv)= t1
--------------------------------------------------------------------------------------------------------
-                           (type-of <<(x y)>> [y=t1][x=(t1 -> t2)]tenv) = t2
-                   ----------------------------------------------------------------
-                     (type-of <<proc (y) (x y)>> [x=(t1 -> t2)]tenv) = (t1 -> t2)
-               -------------------------------------------------------------------------
-                 (type-of <<proc (x) proc (y) (x y)>> tenv) = (t1 -> t2) -> (t1 -> t2)
+  (type-of «x» [y=t1][x=(t1 -> t2)]tenv) = (t1 -> t2)  (type-of «y» [y=t1][x=(t1 -> t2)]tenv)= t1
+---------------------------------------------------------------------------------------------------
+                          (type-of «(x y)» [y=t1][x=(t1 -> t2)]tenv) = t2
+                   --------------------------------------------------------------
+                     (type-of «proc (y) (x y)» [x=(t1 -> t2)]tenv) = (t1 -> t2)
+              -----------------------------------------------------------------------
+                (type-of «proc (x) proc (y) (x y)» tenv) = (t1 -> t2) -> (t1 -> t2)
 ```
 
 The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
