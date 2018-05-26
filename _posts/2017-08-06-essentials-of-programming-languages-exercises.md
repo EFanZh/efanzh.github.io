@@ -4625,3 +4625,13 @@ No, I don’t think so.
 
 The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
 type may be different.
+
+> Exercise 7.5 [★★] Extend the checker to handle multiple `let` declarations, multiargument procedures, and multiple
+> `letrec` declarations. You will need to add types of the form
+> `(`*t*<sub>1</sub>` * `*t*<sub>2</sub>` * ... * `*t*<sub>*n*</sub>` -> `*t*`)` to handle multiargument procedures.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.5.rkt).
+
+> Exercise 7.6 [★] Extend the checker to handle assignments (section 4.3).
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.6.rkt).
