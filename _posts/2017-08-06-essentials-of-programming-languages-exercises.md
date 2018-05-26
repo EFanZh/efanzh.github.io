@@ -2126,13 +2126,14 @@ our implementation of subtraction is incorrect, we can discover the error quickl
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
 
-\$$ (((((tt "value-of" quad «tt x» quad ρ) = 33) / ((tt "value-of" quad «tt "-(x, 11)"» quad ρ) = 22)) /
-      ((tt "value-of" quad «tt "zero?(-(x, 11))"» quad ρ) = (tt "bool-val" quad tt "#f"))) /
-     ((tt "value-of" quad «tt "if zero?(-(x, 11)) then -(y, 2) else -(y, 4)"» quad ρ) =
-      (tt "value-of" quad «tt "-(y, 4)"» quad ρ))
-     quad quad
-     ((tt "value-of" quad «tt y» quad ρ) = 22) / ((tt "value-of" quad «tt "-(y, 4)"» quad ρ) = 18)) /
-    ((tt "value-of" quad «tt "if zero?(-(x, 11)) then -(y, 2) else -(y, 4)"» quad ρ) = 18) $$
+$$ \dfrac{\dfrac{\dfrac{\dfrac{\texttt{(value-of «x» $ρ$)} = 33}
+                              {\texttt{(value-of «-(x, 11)» $ρ$)} = 22}}
+                       {\texttt{(value-of «zero?(-(x, 11))» $ρ$)} = \texttt{(bool-val #f)}}}
+                {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} =
+                     \texttt{(value-of «-(y, 4)» $ρ$)}} \quad
+          \dfrac{\texttt{(value-of «y» $ρ$)} = 22}
+                {\texttt{(value-of «-(y, 4)» $ρ$)} = 18}}
+         {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} = 18} $$
 
 > Exercise 3.5 [★] Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
 
@@ -2712,17 +2713,17 @@ final value that referenced by `counter` will be the same.
 
 > Exercise 4.2 [★] Write down the specification for a `zero?-exp`.
 
-\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)} /
-    {(tt "value-of" quad (tt "zero?-exp" quad e\xp_1) quad ρ quad σ_0) =
-         {(((tt "bool-val" quad tt "#t"), σ_1), if (tt "expval->num" quad val_1) = 0),
-          (((tt "bool-val" quad tt "#f"), σ_1), if (tt "expval->num" quad val_1) ≠ 0):}} $$
+$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+         {\texttt{(value-of (zero?-exp $exp_1$) $ρ$ $σ_0$)} =
+              \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\
+                     (\texttt{(bool-val #f)}, σ_1) &if $\texttt{(expval->num $val_1$)} ≠ 0$}} $$
 
 > Exercise 4.3 [★] Write down the specification for a `call-exp`.
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
-    {(tt "value-of" quad (tt "call-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
-     (tt "apply-procedure" quad val_1 quad val_2 quad σ_2)} $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+         {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
+              \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} $$
 
 > Exercise 4.4 [★★] Write down the specification for a `begin` expresssion.
 >
@@ -2731,31 +2732,30 @@ final value that referenced by `counter` will be the same.
 > A `begin` expression may contain one or more subexpressions separated by semicolons. These are evaluated in order and
 > the value of the last is returned.
 
-\$$ ((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)) /
-    {:((tt "value-of" quad (tt "begin-exp" quad e\xp_1 quad tt "'" ()) quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad (tt "begin-exp" quad e\xp_1 quad (tt "cons" quad e\xp_2 quad e\xps)) quad ρ quad σ_0) =
-       (tt "value-of" quad (tt "begin-exp" quad e\xp_2 quad e\xps) quad ρ quad σ_1)):} $$
+$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+         {\eqalign{\texttt{(value-of (begin-exp $exp_1$ '()) $ρ$ $σ_0$)}                   &= (val_1, σ_1) \\
+                   \texttt{(value-of (begin-exp $exp_1$ (cons $exp_2$ $exps$)) $ρ$ $σ_0$)} &=
+                       \texttt{(value-of (begin-exp $exp_2$ $exps$) $ρ$ $σ_1$)}}} $$
 
 > Exercise 4.5 [★★] Write down the specification for `list` (exercise 3.10).
 
-\$$ (tt "value-of" quad (tt "list-exp" quad tt "'()")) = (tt "empty-list") $$
+$$ \texttt{(value-of (list-exp '()))} = \texttt{(empty-list)} $$
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad (tt "list-exp" quad e\xps) quad ρ quad σ_1) = (val_2, σ_2)):} /
-    ((tt "value-of" quad (tt "list-exp" quad (tt "cons" quad e\xp_1 quad e\xps))) =
-     ((tt "pair-val" quad val_1 quad val_2), σ_2)) $$
+$$ \dfrac{\eqalign{          \texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+                   \texttt{(value-of (list-exp $exps$) $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+         {\texttt{(value-of (list-exp (cons $exp_1$ $exps$)))} = (\texttt{(pair-val $val_1$ $val_2$)}, σ_2)} $$
 
 > Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (l, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val, σ_2)):} /
-    (tt "value-of" quad (tt "setref-exp" quad e\xp_1 quad e\xp_2 quad ρ quad σ_0) = (val, [l=val]σ_2)) $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
+         {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (val, [l=val]σ_2)} $$
 
 > Exercise 4.7 [★] Modify the rule given above so that a `setref-exp` returns the old contents of the location.
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (l, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val, σ_2)):} /
-    (tt "value-of" quad (tt "setref-exp" quad e\xp_1 quad e\xp_2 quad ρ quad σ_0) = (σ_0(l), [l=val]σ_2)) $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
+         {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (σ_0(l), [l=val]σ_2)} $$
 
 > Exercise 4.8 [★] Show exactly where in our implementation of the store these operations take linear time rather than
 > constant time.
@@ -2857,9 +2857,9 @@ Solution is implemented
 
 > Exercise 4.14 [★] Write the rule for `let`.
 
-\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)} /
-    {(tt "value-of" quad (tt "let-exp" quad var quad e\xp_1 quad body) quad ρ quad σ_0) =
-     (tt "value-of" quad body quad [var = l]ρ quad [l = val_1]σ_1)} $$
+$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+         {\texttt{(value-of (let-exp $var$ $exp_1$ $body$) $ρ$ $σ_0$)} =
+              \texttt{(value-of $body$ $[var = l]ρ$ $[l = val_1]σ_1$)}} $$
 
 > Exercise 4.15 [★] In figure 4.8, why are variables in the environment bound to plain integers rather than expressed
 > values, as in figure 4.5?
@@ -2897,49 +2897,24 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 
 > Exercise 4.17 [★★] Write the rules for and implement multiargument procedures and `let` expressions.
 
-\$$ {:(,
-       (tt "apply-procedure" quad (tt "procedure" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
-                                                  quad body
-                                                  quad ρ)
-                             quad (tt "list" quad val_1 quad val_2 quad … quad val_n)
-                             quad σ)),
-      (=,
-       (tt "value-of" quad body
-                      quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
-                      quad [l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ)):} $$
+$$ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\
+            = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ$)}} $$
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)),
-      (…),
-      ((tt "value-of" quad e\xp_n quad ρ quad σ_(n - 1)) = (val_n, σ_n)):} /
-    {:(,
-       (tt "value-of" quad (tt "let-exp" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
-                                         quad (tt "list" quad e\xp_1 quad e\xp_2 quad … quad e\xp_n)
-                                         quad body)
-                      quad ρ
-                      quad σ_0)),
-      (=,
-       (tt "value-of" quad body
-                      quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
-                      quad [l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n)):} $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2) \\
+                                                         &… \\
+             \texttt{(value-of $exp_n$ $ρ$ $σ_{n - 1}$)} &= (val_n, σ_n)}}
+         {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\
+                   = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n$)}}} $$
 
 > Exercise 4.18 [★★] Write the rule for and implement multiprocedure `letrec` expressions.
 
-\$$ {:(,
-       (tt "value-of" quad (tt "letrec-exp" quad (tt "list" quad var_1 quad var_2 quad … quad var_n)
-                                         quad (tt "list" quad bvars_1 quad bvars_2 quad … quad bvars_n)
-                                         quad (tt "list" quad pbody_1 quad pbody_2 quad … quad pbody_n)
-                                         quad l\etrecbody)
-                   quad ρ
-                   quad σ)),
-      (=,
-       (tt "let" quad ([tt "body-env" quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ])
-                 quad (tt "value-of" quad l\etrecbody
-                                     quad tt "body-env"
-                                     quad [l_n = (tt "procedure" quad bvars_n quad pbody_n quad tt "body-env")]
-                                          …
-                                          [l_2 = (tt "procedure" quad bvars_2 quad pbody_2 quad tt "body-env")]
-                                          [l_1 = (tt "procedure" quad bvars_1 quad pbody_1 quad tt "body-env")]σ))):} $$
+$$ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\
+            = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\
+              &\quad \texttt{(value-of $letrecbody$ letrec-env $[l_n = \texttt{(procedure $bvars_n$ $pbody_n$ letrec-env)}]
+                                                                …
+                                                                [l_2 = \texttt{(procedure $bvars_2$ $pbody_2$ letrec-env)}]
+                                                                [l_1 = \texttt{(procedure $bvars_1$ $pbody_1$ letrec-env)}]σ$))}} $$
 
 > Exercise 4.19 [★★] Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
 > only one location is allocated for it. This is like exercise 3.35.
@@ -3017,7 +2992,7 @@ Solution is implemented
 >
 > Write the specification for statements using assertions like
 >
-> \$$ (tt "result-of" quad stmt quad ρ quad σ_0) = σ_1 $$
+> $$ \texttt{(result-of $stmt$ $ρ$ $σ_0$)} = σ_1 $$
 >
 > **Examples** Here are some examples.
 >
@@ -3055,38 +3030,31 @@ Solution is implemented
 
 Specification for statements:
 
-\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
-    {(tt "result-of" quad (tt "assign-statement" quad var quad e\xp) quad ρ quad σ_0) = [ρ(var) = val]σ_1} $$
+$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+         {\texttt{(result-of (assign-statement $var$ $exp$) $ρ$ $σ_0$)} = [ρ(var) = val]σ_1} $$
 
-\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
-    {(tt "result-of" quad (tt "print-statement" quad e\xp) quad ρ quad σ_0) = σ_1} $$
+$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+         {\texttt{(result-of (print-statement $exp$) $ρ$ $σ_0$)} = σ_1} $$
 
-\$$ {:((tt "result-of" quad stmt_1 quad ρ quad σ_0) = σ_1),
-      ((tt "result-of" quad stmt_2 quad ρ quad σ_1) = σ_2),
-      (…),
-      ((tt "result-of" quad stmt_n quad ρ quad σ_(n - 1)) = σ_n):} /
-    {(tt "result-of" quad (tt "brace-statement" quad (tt "list" quad stmt_1 quad stmt_1 quad … quad stmt_n))
-                     quad ρ
-                     quad σ_0) = σ_n} $$
+$$ \dfrac{\eqalign{      \texttt{(result-of $stmt_1$ $ρ$ $σ_0$)} &= σ_1 \\
+                         \texttt{(result-of $stmt_2$ $ρ$ $σ_1$)} &= σ_2 \\
+                                                                 &… \\
+                   \texttt{(result-of $stmt_n$ $ρ$ $σ_{n - 1}$)} &= σ_n}}
+         {\texttt{(result-of (brace-statement (list $stmt_1$ $stmt_1$ $…$ $stmt_n$)) $ρ$ $σ_0$)} = σ_n} $$
 
-\$$ {(tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)} /
-    {(tt "result-of" quad (tt "if-statement" quad e\xp quad stmt_1 quad stmt_2) quad ρ quad σ_0) =
-     {((tt "result-of" quad stmt_1 quad ρ quad σ_1), if (tt "expval->bool" quad val) = tt "#t"),
-      ((tt "result-of" quad stmt_2 quad ρ quad σ_1), if (tt "expval->bool" quad val) = tt "#f"):}} $$
+$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+         {\texttt{(result-of (if-statement $exp$ $stmt_1$ $stmt_2$) $ρ$ $σ_0$)} =
+              \cases{\texttt{(result-of $stmt_1$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\
+                     \texttt{(result-of $stmt_2$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}} $$
 
-\$$ {:((tt "value-of" quad e\xp quad ρ quad σ_0) = (val, σ_1)),
-      ((tt "result-of" quad stmt quad ρ quad σ_1) = σ_2):} /
-    {(tt "result-of" quad (tt "while-statement" quad e\xp quad stmt) quad ρ quad σ_0) =
-     {((tt "result-of" quad (tt "while-statement" quad e\xp quad stmt) quad ρ quad σ_2),
-       if (tt "expval->bool" quad val) = tt "#t"),
-      (σ_1, if (tt "expval->bool" quad val) = tt "#f"):}} $$
+$$ \dfrac{\eqalign{  \texttt{(value-of $exp$ $ρ$ $σ_0$)} &= (val, σ_1) \\
+                   \texttt{(result-of $stmt$ $ρ$ $σ_1$)} &= σ_2}}
+         {\eqalign{  &\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} \\
+                   = &\cases{\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\
+                             σ_1                                                           &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}}} $$
 
-\$$ (tt "result-of" quad (tt "block-statement" quad (tt "list" quad var_1 quad var_2 quad … quad var_n) quad stmt)
-                    quad ρ
-                    quad σ_0) =
-    (tt "result-of" quad stmt
-                    quad [var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ
-                    quad [l_n = undefi\n\ed]…[l_2 = undefi\n\ed][l_1 = undefi\n\ed]σ_0)$$
+$$ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\
+            = &\texttt{(result-of $stmt$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = undefined]…[l_2 = undefined][l_1 = undefined]σ_0$)}} $$
 
 > Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read `*var*. This statement
 > reads a nonnegative integer from the input and stores it in the given variable.
@@ -3128,26 +3096,24 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 
 > Exercise 4.28 [★★] Write down the specification rules for the five mutable-pair operations.
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = (val_1, σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
-    {(tt "value-of" quad (tt "newpair-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
-     ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), [l_2 = val_2][l_1 = val_1]σ_2)} $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+         {\texttt{(value-of (newpair-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
+              (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, [l_2 = val_2][l_1 = val_1]σ_2)} $$
 
-\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)} /
-    {(tt "value-of" quad (tt "left-exp" quad e\xp_1) quad ρ quad σ_0) = (σ_1(l_1), σ_1)} $$
+$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
+         {\texttt{(value-of (left-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_1), σ_1)} $$
 
-\$$ {(tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)} /
-    {(tt "value-of" quad (tt "right-exp" quad e\xp_1) quad ρ quad σ_0) = (σ_1(l_2), σ_1)} $$
+$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
+         {\texttt{(value-of (right-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_2), σ_1)} $$
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
-    {(tt "value-of" quad (tt "setleft-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
-     ((tt "num-val" quad tt "82"), [l_1 = val_2]σ_2)} $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+         {\texttt{(value-of (setleft-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 82)}, [l_1 = val_2]σ_2)} $$
 
-\$$ {:((tt "value-of" quad e\xp_1 quad ρ quad σ_0) = ((tt "mutpair-val" quad (tt "a-pair" quad l_1 quad l_2)), σ_1)),
-      ((tt "value-of" quad e\xp_2 quad ρ quad σ_1) = (val_2, σ_2)):} /
-    {(tt "value-of" quad (tt "setright-exp" quad e\xp_1 quad e\xp_2) quad ρ quad σ_0) =
-     ((tt "num-val" quad tt "83"), [l_2 = val_2]σ_2)} $$
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+         {\texttt{(value-of (setright-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 83)}, [l_2 = val_2]σ_2)} $$
 
 > Exercise 4.29 [★★] Add arrays to this language. Introduce new operators `newarray`, `arrayref`, and `arrayset` that
 > create, dereference, and update arrays. This leads to
@@ -4607,21 +4573,17 @@ No, I don’t think so.
 > `proc (x) x` and `proc (x) proc (y) (x y)`. Use the rules to assign at least two types for each of these terms. Do the
 > values of these expressions have the same types?
 
-```
-       (type-of «x» [x=t]tenv) = t
-------------------------------------------
-  (type-of «proc (x) x» tenv) = (t -> t)
-```
+$$ \dfrac{\texttt{(type-of «x» $[\texttt{x}=t]tenv$)} = t}
+         {\texttt{(type-of «proc (x) x» $tenv$)} = \texttt{($t$ -> $t$)}} $$
 
-```
-  (type-of «x» [y=t1][x=(t1 -> t2)]tenv) = (t1 -> t2)  (type-of «y» [y=t1][x=(t1 -> t2)]tenv)= t1
----------------------------------------------------------------------------------------------------
-                          (type-of «(x y)» [y=t1][x=(t1 -> t2)]tenv) = t2
-                   --------------------------------------------------------------
-                     (type-of «proc (y) (x y)» [x=(t1 -> t2)]tenv) = (t1 -> t2)
-              -----------------------------------------------------------------------
-                (type-of «proc (x) proc (y) (x y)» tenv) = (t1 -> t2) -> (t1 -> t2)
-```
+$$ \dfrac{\dfrac{\dfrac{\eqalign{\texttt{(type-of «x» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
+                                     \texttt{($t_1$ -> $t_2$)} \\
+                                 \texttt{(type-of «y» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
+                                     t_1}}
+                       {\texttt{(type-of «(x y)» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} = t_2}}
+                {\texttt{(type-of «proc (y) (x y)» $[\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} =
+                             \texttt{($t_1$ -> $t_2$)}}}
+         {\texttt{(type-of «proc (x) proc (y) (x y)» $tenv$)} = \texttt{($t_1$ -> $t_2$) -> ($t_1$ -> $t_2$)}} $$
 
 The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
 type may be different.
@@ -4663,13 +4625,13 @@ if 1 then -(zero?(1), 4) else 2
 > A `pair` expression creates a pair; an `unpair` expression (like exercise 3.18) binds its two variables to the two
 > parts of the expression; the scope of these variables is `body`. The typing rules for `pair` and `unpair` are:
 >
-> $$ \frac{\array{\texttt{(type-of $e_1$ $tenv$)} = t_1 \\
->                 \texttt{(type-of $e_1$ $tenv$)} = t_2}}
->          {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} $$
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\
+>                    \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
+>           {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} $$
 >
-> $$ \frac{\array{\texttt{(type-of $e_{pair}$ $tenv$)} = \texttt{pairof $t_1$ $t_2$} \\
->                 \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} = t_{body}}}
->         {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} $$
+> $$ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\
+>                    \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
+>          {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} $$
 >
 > Extend CHECKED to implement these rules. In `type-to-external-form`, produce the list
 > `(pairof `*t*<sub>1</sub>` `*t*<sub>2</sub>`)` for a pair type.
