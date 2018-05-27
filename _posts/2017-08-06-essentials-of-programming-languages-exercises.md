@@ -4637,3 +4637,50 @@ if 1 then -(zero?(1), 4) else 2
 > `(pairof `*t*<sub>1</sub>` `*t*<sub>2</sub>`)` for a pair type.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
+
+> Exercise 7.9 [★★] Add `listof` types to the language, with operations similar to those of exercise 3.9. A value is of
+> type `listof `*t* if and only if it is a list and all of its elements are of type *t*. Extend the language with the
+> productions
+>
+> | *Type*       | ::= | `listof `*Type*                                               |
+> |              |     | <span style="border: 1px solid">`list-type (ty)`</span>       |
+> | *Expression* | ::= | `list (`*Expression*` `{`, `*Expression*}<sup>∗</sup>`)`      |
+> |              |     | <span style="border: 1px solid">`list-exp (exp1 exps)`</span> |
+> | *Expression* | ::= | `cons (`*Expression*` , `*Expression*`)`                      |
+> |              |     | <span style="border: 1px solid">`cons-exp (exp1 exp2)`</span> |
+> | *Expression* | ::= | `null? (`*Expression*`)`                                      |
+> |              |     | <span style="border: 1px solid">`null-exp (exp1)`</span>      |
+> | *Expression* | ::= | `emptylist [`*Type*`]`                                        |
+> |              |     | <span style="border: 1px solid">`emptylist-exp (ty)`</span>   |
+>
+> with types given by the following four rules:
+>
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\
+>                    \texttt{(type-of $e_2$ $tenv$)} &= t \\
+>                                                    &⋮ \\
+>                    \texttt{(type-of $e_n$ $tenv$)} &= t}}
+>          {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) tenv)} = \texttt{listof $t$}} $$
+>
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\
+>                    \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
+>          {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} $$
+>
+> $$ \dfrac{\texttt{(type-of $e_1$ $tenv$)} = \texttt{listof $t$}}
+>          {\texttt{(type-of «null?($e_1$)» $tenv$)} = \texttt{bool}} $$
+>
+> $$ \texttt{(type-of «emptylist[$t$]» $tenv$)} = \texttt{listof $t$} $$
+>
+> Although `cons` is similar to `pair`, it has a very different typing rule.
+>
+> Write similar rules for `car` and `cdr`, and extend the checker to handle these as well as the other expressions. Use
+> a trick similar to the one in exercise 7.8 to avoid conflict with `proc-type-exp`. These rules should guarantee that
+> `car` and `cdr` are applied to lists, but they should not guarantee that the lists be non-empty. Why would it be
+> unreasonable for the rules to guarantee that the lists be non-empty? Why is the type parameter in emptylist necessary?
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
+
+Because a list may be dynamic generated, we have no way to know the length of the list statically, so we can not
+guarantee a list is non-empty.
+
+Because our implementation only must know the exact type of every expression. If we omit the type parameter, we couldn’t
+determine the type the expression `emptylist`.
