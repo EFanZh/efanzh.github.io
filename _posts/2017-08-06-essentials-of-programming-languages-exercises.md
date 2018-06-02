@@ -4680,12 +4680,25 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Write similar rules for `car` and `cdr`, and extend the checker to handle these as well as the other expressions. Use
 > a trick similar to the one in exercise 7.8 to avoid conflict with `proc-type-exp`. These rules should guarantee that
 > `car` and `cdr` are applied to lists, but they should not guarantee that the lists be non-empty. Why would it be
-> unreasonable for the rules to guarantee that the lists be non-empty? Why is the type parameter in emptylist necessary?
+> unreasonable for the rules to guarantee that the lists be non-empty? Why is the type parameter in `emptylist`
+> necessary?
 
-Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.9.rkt).
 
 Because a list may be dynamic generated, we have no way to know the length of the list statically, so we can not
 guarantee a list is non-empty.
 
 Because our implementation only must know the exact type of every expression. If we omit the type parameter, we couldn’t
 determine the type the expression `emptylist`.
+
+> Exercise 7.10 [★★] Extend the checker to handle EXPLICIT-REFS. You will need to do the following:
+>
+> - Add to the type system the types `refto `*t*, where *t* is any type. This is the type of references to locations
+>   containing a value of type *t*. Thus, if *e* is of type *t*, `(newref `*e*`)` is of type `refto `*t*.
+> - Add to the type system the type `void`. This is the type of the value returned by `setref`. You can’t apply any
+>   operation to a value of type `void`, so it doesn’t matter what value `setref` returns. This is an example of types
+>   serving as an information-hiding mechanism.
+> - Write down typing rules for `newref`, `deref`, and `setref`.
+> - Implement these rules in the checker.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.10.rkt).
