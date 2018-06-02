@@ -61,22 +61,22 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - \$$ () / (1 in S) $$
      - \$$ (n in S) / ((n + 2) in S) $$
      - \$$ (n in S) / ((n + 3) in S) $$
-3.  \$$ {(n, 2n + 1) \| n in N} $$
-    - Top-down:
+3. \$$ {(n, 2n + 1) \| n in N} $$
+   - Top-down:
 
-      $$ (m, n) in S $$ if
+     $$ (m, n) in S $$ if
 
-      - $$ m = 0 $$ and $$ n = 1 $$, or
-      - \$$ (m - 1, n - 2) in S $$
-    - Bottom-up:
+     - $$ m = 0 $$ and $$ n = 1 $$, or
+     - \$$ (m - 1, n - 2) in S $$
+   - Bottom-up:
 
-      $$ S $$ is the smallest set that satisfying the following two properties:
+     $$ S $$ is the smallest set that satisfying the following two properties:
 
-      - $$ (0, 1) in S $$, and
-      - If $$ (m, n) in S $$, then $$ (m + 1, n + 2) in S $$
-    - Rules of inference:
-      - \$$ () / ((0, 1) in S) $$
-      - \$$ ((m, n) in S) / ((m + 1, n + 2) in S) $$
+     - $$ (0, 1) in S $$, and
+     - If $$ (m, n) in S $$, then $$ (m + 1, n + 2) in S $$
+   - Rules of inference:
+     - \$$ () / ((0, 1) in S) $$
+     - \$$ ((m, n) in S) / ((m + 1, n + 2) in S) $$
 4. \$$ {(n, n ^ 2) \| n in N} $$
 
     - Top-down:
@@ -4499,44 +4499,54 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 1. ```
    proc (x) -(x,3)
    ```
+
    `int -> int`
 2. ```
    proc (f) proc (x) -((f x), 1)
    ```
+
    `(`*t*` -> int) -> (`*t*` -> int)`
 3. ```
    proc (x) x
    ```
+
    *t*` -> `*t*
 4. ```
    proc (x) proc (y) (x y)
    ```
+
    `(`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`
 5. ```
    proc (x) (x 3)
    ```
+
    `(int -> `*t*`) -> `*t*
 6. ```
    proc (x) (x x)
    ```
+
    Not describable
 7. ```
    proc (x) if x then 88 else 99
    ```
+
    `bool -> int`
 8. ```
    proc (x) proc (y) if x then y else 99
    ```
+
    `bool -> (int -> int)`
 9. ```
    (proc (p) if p then 88 else 99
     33)
    ```
+
    Type error
 10. ```
     (proc (p) if p then 88 else 99
      proc (z) z)
     ```
+
     Type error
 11. ```
     proc (f)
@@ -4544,6 +4554,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
       proc (p)
        proc (x) if (p (f x)) then (g 1) else -((f x),1)
     ```
+
     `(`*t*` -> int) -> ((int -> int) -> ((int -> bool) -> (`*t*` -> int)))`
 12. ```
     proc (x)
@@ -4551,6 +4562,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
       proc (f)
        if (p x) then -(x,1) else (f p)
     ```
+
     `int -> ((int -> bool) -> (((int -> bool) -> int) -> int))`
 13. ```
     proc (f)
@@ -4558,6 +4570,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
               proc (z) ((f (x x)) z)
      in proc (n) ((f (d d)) n)
     ```
+
     `((`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`
     *(Not sure about this one)*
 
