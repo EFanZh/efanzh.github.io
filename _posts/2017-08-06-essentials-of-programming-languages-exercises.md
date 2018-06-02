@@ -20,105 +20,97 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
 >
-> 1. \$$ {3n + 2 \| n in N } $$
-> 2. \$$ {2n + 3m + 1 \| n, m in N} $$
-> 3. \$$ {(n, 2n + 1) \| n in N} $$
-> 4. $$ {(n, n ^ 2) \| n in N} $$ Do not mention squaring in your rules. As a hint, remember the equation
->    $$ (n + 1) ^ 2 = n ^ 2 + 2n + 1 $$.
+> 1. {3*n* + 2 \| *n* ∈ *N*}
+> 2. {2*n* + 3*m* + 1 \| *n*, *m* ∈ *N*}
+> 3. {(*n*, 2*n* + 1) \| *n* ∈ *N*}
+> 4. {(*n*, *n*<sup>2</sup>) \| *n* ∈ *N*} Do not mention squaring in your rules. As a hint, remember the equation
+>    (*n* + 1)<sup>2</sup> = *n*<sup>2</sup> + 2*n* + 1.
 
-1. \$$ {3n + 2 \| n in N } $$
+1. {3*n* + 2 \| *n* ∈ *N*}
    - Top-down:
 
-     $$ n in S $$ if
+     *n* ∈ *S* if
 
-     - $$ n = 2 $$, or
-     - \$$ n - 3 in S $$
+     - *n* = 2, or
+     - *n* − 3 ∈ *S*
    - Bottom-up:
 
-     $$ S $$ is the smallest set that satisfying the following two properties:
+     *S* is the smallest set that satisfying the following two properties:
 
-     - $$ 2 in S $$, and
-     - If $$ n in S $$, then $$ n + 3 in S $$
+     - 2 ∈ *S*, and
+     - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - \$$ () / (2 in S) $$
-     - \$$ (n in S) / ((n + 3) in S) $$
-2. \$$ {2n + 3m + 1 \| n, m in N} $$
+     - \$$ \dfrac{}{2 ∈ S} $$
+     - \$$ \dfrac{n ∈ S}{n + 3 ∈ S} $$
+2. {2*n* + 3*m* + 1 \| *n*, *m* ∈ *N*}
    - Top-down:
 
-     $$ n in S $$ if
+     *n* ∈ *S* if
 
-     - $$ n = 1 $$, or
-     - $$ n - 2 in S $$, or
-     - \$$ n - 3 in S $$
+     - *n* = 1, or
+     - *n* − 2 ∈ *S*, or
+     - *n* − 3 ∈ *S*
    - Bottom-up:
 
-     $$ S $$ is the smallest set that satisfying the following two properties:
+     *S* is the smallest set that satisfying the following two properties:
 
-     - $$ 1 in S $$, and
-     - If $$ n in S $$, then $$ n + 2 in S $$, and
-     - If $$ n in S $$, then $$ n + 3 in S $$
+     - 1 ∈ *S*, and
+     - If *n* ∈ *S*, then *n* + 2 ∈ *S*, and
+     - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - \$$ () / (1 in S) $$
-     - \$$ (n in S) / ((n + 2) in S) $$
-     - \$$ (n in S) / ((n + 3) in S) $$
-3. \$$ {(n, 2n + 1) \| n in N} $$
+     - \$$ \dfrac{}{1 ∈ S} $$
+     - \$$ \dfrac{n ∈ S}{n + 2 ∈ S} $$
+     - \$$ \dfrac{n ∈ S}{n + 3 ∈ S} $$
+3. {(*n*, 2*n* + 1) \| *n* ∈ *N*}
    - Top-down:
 
-     $$ (m, n) in S $$ if
+     (*m*, *n*) ∈ *S* if
 
-     - $$ m = 0 $$ and $$ n = 1 $$, or
-     - \$$ (m - 1, n - 2) in S $$
+     - *m* = 0 and *n* = 1, or
+     - (*m* − 1, *n* − 2) ∈ *S*
    - Bottom-up:
 
-     $$ S $$ is the smallest set that satisfying the following two properties:
+     *S* is the smallest set that satisfying the following two properties:
 
-     - $$ (0, 1) in S $$, and
-     - If $$ (m, n) in S $$, then $$ (m + 1, n + 2) in S $$
+     - (0, 1) ∈ *S*, and
+     - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2) ∈ *S*
    - Rules of inference:
-     - \$$ () / ((0, 1) in S) $$
-     - \$$ ((m, n) in S) / ((m + 1, n + 2) in S) $$
-4. \$$ {(n, n ^ 2) \| n in N} $$
+     - \$$ \dfrac{}{(0, 1) ∈ S} $$
+     - \$$ \dfrac{(m, n) ∈ S}{(m + 1, n + 2) ∈ S} $$
+4. {(*n*, *n*<sup>2</sup>) \| *n* ∈ *N*}
 
     - Top-down:
 
-      $$ (m, n) in S $$ if
+      (*m*, *n*) ∈ *S* if
 
-      - $$ m = 0 $$ and $$ n = 0 $$, or
-      - \$$ (m - 1, n - 2m + 1) in S $$
+      - *m* = 0 and *n* = 0, or
+      - (*m* − 1, *n* − 2*m* + 1) ∈ *S*
     - Bottom-up:
 
-      $$ S $$ is the smallest set that satisfying the following two properties:
+      *S* is the smallest set that satisfying the following two properties:
 
-      - $$ (0, 0) in S $$, and
-      - If $$ (m, n) in S $$, then $$ (m + 1, n + 2m + 1) in S $$
+      - (0, 0) ∈ *S*, and
+      - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2*m* + 1) ∈ *S*
     - Rules of inference:
-      - \$$ () / ((0, 0) in S) $$
-      - \$$ ((m, n) in S) / ((m + 1, n + 2m + 1) in S) $$
+      - \$$ \dfrac{}{(0, 0) ∈ S} $$
+      - \$$ \dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S} $$
 
 > Exercise 1.2 [★★] What sets are defined by the following pairs of rules? Explain why.
 >
-> 1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
-> 2. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, 2k) in S) $$
-> 3. \$$ (0, 0, 1) in S quad ((n, i, j) in S) / ((n + 1, j, i + j) in S) $$
-> 4. [★★★] $$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
+> 1. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S} $$
+> 2. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S} $$
+> 3. \$$ (0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S} $$
+> 4. [★★★] $$ (0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S} $$
 
-1. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, k + 7) in S) $$
+1. {(*n*, 7*n* + 1) \| *n* ∈ *N*}
+2. {(*n*, 2<sup>*n*</sup>) \| *n* ∈ *N*}
+3. {(*n*, *f*(*n*), *f*(*n* + 1)) \| *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
+4. {(*n*, 2*n* + 1, *n*<sup>2</sup>) \| *n* ∈ *N*}
 
-   \$$ {(n, 7n + 1) \| n in N} $$
-2. \$$ (0, 1) in S quad ((n, k) in S) / ((n + 1, 2k) in S) $$
+> Exercise 1.3 [★★★] Find a set *T* of natural numbers such that 0 ∈ *T*, and whenever *n* ∈ *T*, then *n* + 3 ∈ *T*,
+> but *T* ≠ *S*, where *S* is the set defined in definition 1.1.2.
 
-   \$$ {(n, 2 ^ n) \| n in N} $$
-3. \$$ (0, 0, 1) in S quad ((n, i, j) in S) / ((n + 1, j, i + j) in S) $$
-
-   \$$ {(n, f(n), f(n + 1)) \| n in N, f(0) = 0, f(1) = 1, f(n + 2) = f(n) + f(n + 1)} $$
-4. \$$ (0, 1, 0) in S quad ((n, i, j) in S) / ((n + 1, i + 2, i + j) in S) $$
-
-   \$$ {(n, 2n + 1, n ^ 2) \| n in N} $$
-
-> Exercise 1.3 [★★★] Find a set $$ T $$ of natural numbers such that $$ 0 in T $$, and whenever $$ n in T $$, then
-> $$ n + 3 in T $$, but $$ T != S $$, where $$ S $$ is the set defined in definition 1.1.2.
-
-Let $$ T = N $$.
+Let *T* = *N*.
 
 > Exercise 1.4 [★] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
 
@@ -135,15 +127,15 @@ Let $$ T = N $$.
 
 By induction on the structre of *LcExp*.
 
-If *e* is of *Identifier* form, it has $$ 0 $$ left parenthesis and $$ 0 $$ right parenthesis, the hypothesis holds.
+If *e* is of *Identifier* form, it has 0 left parenthesis and 0 right parenthesis, the hypothesis holds.
 
-If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has $$ 0 $$ parenthese. By induction, *LcExp*
-has the same number of left and right parentheses. Let the number be $$ n $$, then *e* has $$ n + 2 $$ left parentheses
-and $$ n + 2 $$ right parentheses. The hypothesis holds.
+If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has 0 parenthese. By induction, *LcExp* has
+the same number of left and right parentheses. Let the number be *n*, then *e* has *n* + 2 left parentheses and *n* + 2
+right parentheses. The hypothesis holds.
 
-If *e* is of `(`*LcExp*` `*LcExp*`)` form, let $$ m $$ be the number of left or right parentheses in the first *LcExp*,
-let $$ n $$ be the number of left or right parentheses in the second *LcExp*, then *e* has $$ m + n + 1 $$ left
-parentheses and $$ m + n + 1 $$ right parentheses. The hypothesis holds.
+If *e* is of `(`*LcExp*` `*LcExp*`)` form, let *m* be the number of left or right parentheses in the first *LcExp*, let
+*n* be the number of left or right parentheses in the second *LcExp*, then *e* has *m* + *n* + 1 left parentheses and
+*m* + *n* + 1 right parentheses. The hypothesis holds.
 
 > Exercise 1.6 [★] If we reversed the order of the tests in `nth-element`, what would go wrong?
 
@@ -251,11 +243,11 @@ Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at leat 1, so tha
 prove `partial-vector-sum` is correct by induction over *n*.
 
 Base case: if *n* equals to 0, `(partial-vector-sum `*v*` `*n*`)` equals to `(vector-ref `*v*` 0)`, which equals to
-$$ sum _ (i = 0) ^ (i = 0) v _ i $$, the claim holds.
+$$\sum_{i = 0}^0 v_i$$, the claim holds.
 
 Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum `*v*` `*n*`)` equals to
 `(add (vector-ref `*v*` `*n*`) (partial-vector-sum `*v*` (- `*n*` 1)))`, which equals to
-$$ v _ n + sum _ (i = 0) ^ (i = n - 1) v _ i $$, which equals to $$ sum _ (i = 0) ^ (i = n) v _ i $$, the claim holds.
+$$v_n + \sum_{i = 0}^{n - 1} v_i$$, which equals to $$\sum_{i = 0}^n v_i$$, the claim holds.
 
 > Exercise 1.15 [★] `(duple n x)` returns a list containing `n` copies of `x`.
 >
@@ -963,8 +955,8 @@ when the base becomes larger.
 >
 > *Diff-tree* ::= `(one)` \| `(diff `*Diff-tree*` `*Diff-tree*`)`
 >
-> The list `(one)` represents 1. If $$ t _ 1 $$ represents $$ n _ 1 $$ and $$ t _ 2 $$ represents $$ n _ 2 $$, then
-> `(diff t1 t2)` is a representation of $$ n _ 1 - n _ 2 $$.
+> The list `(one)` represents 1. If *t*<sub>1</sub> represents *n*<sub>1</sub> and *t*<sub>2</sub> represents
+> *n*<sub>2</sub>, then `(diff t1 t2)` is a representation of *n*<sub>1</sub> − *n*<sub>2</sub>.
 >
 > So both `(one)` and `(diff (one) (diff (one) (one)))` are representations of 1; `(diff (diff (one) (one)) (one))` is a
 > representation of -1.
@@ -2121,7 +2113,7 @@ Not sure, but maybe when *val* is constructed using a *Bool*?
 
 > Exercise 3.3 [★] Why is subtraction a better choice than addition for our single arithmetic operation?
 
-One reason I can think of, is that subtraction is not commutative, that is $$ a - b $$ may not equal to $$ b - a $$. If
+One reason I can think of, is that subtraction is not commutative, that is $$a - b$$ may not equal to $$b - a$$. If
 our implementation of subtraction is incorrect, we can discover the error quickly.
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
@@ -2139,7 +2131,7 @@ $$ \dfrac{\dfrac{\dfrac{\dfrac{\texttt{(value-of «x» $ρ$)} = 33}
 
 *Skipped for now.*
 
-> Exercise 3.6 [★] Extend the language by adding a new operator minus that takes one argument, *n*, and returns -*n*.
+> Exercise 3.6 [★] Extend the language by adding a new operator minus that takes one argument, *n*, and returns −*n*.
 > For example, the value of `minus(-(minus(5), 9))` should be 14.
 
 Solution is implemented
@@ -2958,7 +2950,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > ```
 >
 > the value of `x`, which is free in procedure `p`, is 17 in the call `(p 22)`, but is reset to 11 in the call `(p 13)`,
-> so the value of the expression is 5 - 2 = 3.
+> so the value of the expression is 5 − 2 = 3.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
@@ -4672,7 +4664,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 >                    \texttt{(type-of $e_2$ $tenv$)} &= t \\
 >                                                    &⋮ \\
 >                    \texttt{(type-of $e_n$ $tenv$)} &= t}}
->          {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) tenv)} = \texttt{listof $t$}} $$
+>          {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} $$
 >
 > $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\
 >                    \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
