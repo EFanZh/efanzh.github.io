@@ -4702,3 +4702,7 @@ determine the type the expression `emptylist`.
 > - Implement these rules in the checker.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.10.rkt).
+
+> Exercise 7.11 [★★] Extend the checker to handle MUTABLE-PAIRS.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.11.rkt).
