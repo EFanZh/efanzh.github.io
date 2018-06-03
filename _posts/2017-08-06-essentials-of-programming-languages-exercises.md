@@ -4714,3 +4714,37 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 7.11 [★★] Extend the checker to handle MUTABLE-PAIRS.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.11.rkt).
+
+> Exercise 7.12 [★] Using the methods in this section, derive types for each of the expressions in exercise 7.1, or
+> determine that no such type exists. As in the other examples of this section, assume there is a `?` attached to each
+> bound variable.
+
+Turns out most of my solutions are correct, except for the last one. I think the last one
+
+```
+proc (f)
+ let d = proc (x)
+          proc (z) ((f (x x)) z)
+ in proc (n) ((f (d d)) n)
+```
+
+is a [fixed-point combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator), and should have the type
+`((`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`.
+But due to our limited type system, we couldn’t assign a concrete type to `d` or `x`, so we failed to infer the who
+program.
+
+In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts-guide/index.html) type checks.
+
+```racket
+#lang typed/racket/base
+
+(: fix (∀ (𝑡₁ 𝑡₂) ((𝑡₁ → 𝑡₂) → (𝑡₁ → 𝑡₂)) → (𝑡₁ → 𝑡₂)))
+
+(define fix
+  (λ (f)
+    (let ([d (λ ([x : (Rec r (r → (𝑡₁ → 𝑡₂)))])
+               (λ ([z : 𝑡₁])
+                 ((f (x x)) z)))])
+      (λ (n)
+        ((f (d d)) n)))))
+```
