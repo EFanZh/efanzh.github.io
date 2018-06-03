@@ -4748,3 +4748,29 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
       (λ (n)
         ((f (d d)) n)))))
 ```
+
+> Exercise 7.13 [★] Write down a rule for doing type inference for `let` expressions. Using your rule, derive types for
+> each of the following expressions, or determine that no such type exists.
+>
+> 1. `let x = 4 in (x 3)`
+> 2. `let f = proc (z) z in proc (x) -((f x), 1)`
+> 3. `let p = zero?(1) in if p then 88 else 99`
+> 4. `let p = proc (z) z in if p then 88 else 99`
+
+$$ \begin{alignat}{2}
+       \texttt{(let-exp $var$ $e_1$ $body$)} &: & t_{var}  &= t_{e_1} \\
+                                             &  & t_{body} &= t_\texttt{(let-exp $var$ $e_1$ $body$)}
+   \end{alignat} $$
+
+1. `let x = 4 in (x 3)`
+
+   Type error.
+2. `let f = proc (z) z in proc (x) -((f x), 1)`
+
+   `int -> int`
+3. `let p = zero?(1) in if p then 88 else 99`
+
+   `int`
+4. `let p = proc (z) z in if p then 88 else 99`
+
+   Type error.
