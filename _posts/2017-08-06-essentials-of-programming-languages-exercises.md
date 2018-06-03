@@ -102,10 +102,18 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
 > 3. \$$ (0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S} $$
 > 4. [★★★] $$ (0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S} $$
 
-1. {(*n*, 7*n* + 1) \| *n* ∈ *N*}
-2. {(*n*, 2<sup>*n*</sup>) \| *n* ∈ *N*}
-3. {(*n*, *f*(*n*), *f*(*n* + 1)) \| *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
-4. {(*n*, 2*n* + 1, *n*<sup>2</sup>) \| *n* ∈ *N*}
+1. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S} $$
+
+   {(*n*, 7*n* + 1) \| *n* ∈ *N*}
+2. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S} $$
+
+   {(*n*, 2<sup>*n*</sup>) \| *n* ∈ *N*}
+3. \$$ (0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S} $$
+
+   {(*n*, *f*(*n*), *f*(*n* + 1)) \| *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
+4. \$$ (0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S} $$
+
+   {(*n*, 2*n* + 1, *n*<sup>2</sup>) \| *n* ∈ *N*}
 
 > Exercise 1.3 [★★★] Find a set *T* of natural numbers such that 0 ∈ *T*, and whenever *n* ∈ *T*, then *n* + 3 ∈ *T*,
 > but *T* ≠ *S*, where *S* is the set defined in definition 1.1.2.
