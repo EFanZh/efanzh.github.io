@@ -4774,3 +4774,84 @@ $$ \begin{alignat}{2}
 4. `let p = proc (z) z in if p then 88 else 99`
 
    Type error.
+
+> Exercise 7.14 [★] What is wrong with this expression?
+>
+> ```
+> letrec
+>  ? even(odd : ?) =
+>     proc (x : ?)
+>      if zero?(x) then 1 else (odd -(x,1))
+> in letrec
+>     ? odd(x : bool) =
+>        if zero?(x) then 0 else ((even odd) -(x,1))
+>    in (odd 13)
+> ```
+
+The parameter `x` of `odd` should be of type `int`.
+
+> Exercise 7.15 [★★] Write down a rule for doing type inference for a `letrec` expression. Your rule should handle
+> multiple declarations in a `letrec`. Using your rule, derive types for each of the following expressions, or determine
+> that no such type exists:
+>
+> 1. ```
+>    letrec ? f (x : ?)
+>            = if zero?(x) then 0 else -((f -(x,1)), -2)
+>    in f
+>    ```
+> 2. ```
+>    letrec ? even (x : ?)
+>              = if zero?(x) then 1 else (odd -(x,1))
+>           ? odd (x : ?)
+>              = if zero?(x) then 0 else (even -(x,1))
+>    in (odd 13)
+>    ```
+> 3. ```
+>    letrec ? even (odd : ?)
+>              = proc (x) if zero?(x)
+>                         then 1
+>                         else (odd -(x,1))
+>    in letrec ? odd (x : ?) =
+>                 if zero?(x)
+>                 then 0
+>                 else ((even odd) -(x,1))
+>       in (odd 13)
+>    ```
+
+$$ \begin{alignat}{2}
+       \texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)} &: & t_{pname_1}    &= \texttt{($t_{bvar_1}$ -> $t_{pbody_1}$)} \\
+                                                                     &  & t_{pname_2}    &= \texttt{($t_{bvar_2}$ -> $t_{pbody_2}$)} \\
+                                                                     &  &                &⋮ \\
+                                                                     &  & t_{pname_n}    &= \texttt{($t_{bvar_n}$ -> $t_{pbody_n}$)} \\
+                                                                     &  & t_{letrecbody} &= t_\texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)}
+   \end{alignat} $$
+
+1. ```
+   letrec ? f (x : ?)
+           = if zero?(x) then 0 else -((f -(x,1)), -2)
+   in f
+   ```
+
+   `(int -> int)`
+2. ```
+   letrec ? even (x : ?)
+             = if zero?(x) then 1 else (odd -(x,1))
+          ? odd (x : ?)
+             = if zero?(x) then 0 else (even -(x,1))
+   in (odd 13)
+   ```
+
+   `int`
+3. ```
+   letrec ? even (odd : ?)
+             = proc (x : ?) if zero?(x)
+                            then 1
+                            else (odd -(x,1))
+   in letrec ? odd (x : ?) =
+                if zero?(x)
+                then 0
+                else ((even odd) -(x,1))
+      in (odd 13)
+   ```
+
+   `int`
