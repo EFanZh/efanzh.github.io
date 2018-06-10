@@ -4855,3 +4855,8 @@ $$ \begin{alignat}{2}
    ```
 
    `int`
+
+> Exercise 7.16 [★★★] Modify the grammar of INFERRED so that missing types are simply omitted, rather than marked with
+> `?`.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.16.rkt).
