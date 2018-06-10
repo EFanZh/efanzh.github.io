@@ -133,11 +133,11 @@ Let *T* = *N*.
 
 > Exercise 1.5 [★★] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
 
-By induction on the structre of *LcExp*.
+By induction on the structure of *LcExp*.
 
 If *e* is of *Identifier* form, it has 0 left parenthesis and 0 right parenthesis, the hypothesis holds.
 
-If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has 0 parenthese. By induction, *LcExp* has
+If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has 0 parenthesis. By induction, *LcExp* has
 the same number of left and right parentheses. Let the number be *n*, then *e* has *n* + 2 left parentheses and *n* + 2
 right parentheses. The hypothesis holds.
 
@@ -213,8 +213,8 @@ Exclusive or.
 Because `subst` recurs on smaller substructure. We can replace the call to `subst-in-s-exp` with the body of
 `subst-in-s-exp`, then `subst` becomes a normal recursive on a smaller substructure.
 
-> Exercise 1.12 [★] Eliminate the one call to `subst-in-s-exp` in subst by replacing it by its definition and
-> simplifying the resulting procedure. The result will be a version of subst that does not need `subst-in-s-exp`. This
+> Exercise 1.12 [★] Eliminate the one call to `subst-in-s-exp` in `subst` by replacing it by its definition and
+> simplifying the resulting procedure. The result will be a version of `subst` that does not need `subst-in-s-exp`. This
 > technique is called *inlining*, and is used by optimizing compilers.
 
 ```racket
@@ -247,7 +247,7 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
 
 > Exercise 1.14 [★★] Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
 
-Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at leat 1, so that *v* contains at least one element. We
+Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at least 1, so that *v* contains at least one element. We
 prove `partial-vector-sum` is correct by induction over *n*.
 
 Base case: if *n* equals to 0, `(partial-vector-sum `*v*` `*n*`)` equals to `(vector-ref `*v*` 0)`, which equals to
@@ -1156,7 +1156,7 @@ Observers: `top` and `empty-stack?`.
                      (cons (cons (car vars) (car vals)) env)))))
 ```
 
-> Exercise 2.11 [★★] A naive implementation of `extend-env*` from the preceding exercise requires time proportional to
+> Exercise 2.11 [★★] A naïve implementation of `extend-env*` from the preceding exercise requires time proportional to
 > *k* to run. It is possible to represent environments so that `extend-env*` requires only constant time: represent
 > the empty environment by the empty list, and represent a non-empty environment by the data structure
 >
@@ -2563,7 +2563,7 @@ closure, we create it by calling `proc-val`.
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
-> Exercise 3.32 [★★] Extend the language above to allow the declaration of any number of mututally recursive unary
+> Exercise 3.32 [★★] Extend the language above to allow the declaration of any number of mutually recursive unary
 > procedures, for example:
 >
 > ```
@@ -2586,8 +2586,8 @@ Solution is implemented
 
 *Skipped for now.*
 
-> Exercise 3.35 [★] The representationswe have seen so far are inefficient, because they build a new closure every time
-> the procedure is retrieved. But the closure is the same every time. We can build the closures only once, by putting
+> Exercise 3.35 [★] The representations we have seen so far are inefficient, because they build a new closure every
+> time the procedure is retrieved. But the closure is the same every time. We can build the closures only once, by putting
 > the value in a vector of length 1 and building an explicit circular structure, like
 >
 > *TODO: Add this figure later.*
@@ -2725,7 +2725,7 @@ $$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
          {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
               \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} $$
 
-> Exercise 4.4 [★★] Write down the specification for a `begin` expresssion.
+> Exercise 4.4 [★★] Write down the specification for a `begin` expression.
 >
 > *Expression* ::= `begin `*Expression*` `{`; `*Expression*}<sup>∗</sup>` end`
 >
@@ -2820,7 +2820,7 @@ In `setref!`, `setref-inner` loops through the store, which takes linear time, s
 ```
 
 Note that `newref` still takes linear time. It is possible to implement the store that allocates locations in constant
-time on average by preallocating more locations in advance, but it is a little complecated, so I’ll just choose the easy
+time on average by preallocating more locations in advance, but it is a little complicated, so I’ll just choose the easy
 way to implement the store.
 
 As for the disadvantages of using a Scheme vector to implement the store, may be sharing values between stores becomes
@@ -2835,14 +2835,14 @@ more difficult.
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
-> Exercise 4.12 [★★★] Our understanding of the store, as expressed in this interpreter, depends on themeaning of
+> Exercise 4.12 [★★★] Our understanding of the store, as expressed in this interpreter, depends on the meaning of
 > effects in Scheme. In particular, it depends on us knowing *when* these effects take place in a Scheme program. We can
 > avoid this dependency by writing an interpreter that more closely mimics the specification. In this interpreter,
 > `value-of` would return both a value and a store, just as in the specification. A fragment of this interpreter appears
 > in figure 4.6. We call this a *store-passing interpreter*. Extend this interpreter to cover all of the language
 > EXPLICIT-REFS.
 >
-> Every procedure that mightmodify the store returns not just its usual value but also a new store. These are packaged
+> Every procedure that might modify the store returns not just its usual value but also a new store. These are packaged
 > in a data type called `answer`. Complete this definition of `value-of`.
 
 Solution is implemented
@@ -3077,7 +3077,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 No, the scope of a variable does not include the initializer for variables declared later in the same block statement.
 
 > Exercise 4.26 [★★★] Extend the solution to the preceding exercise so that procedures declared in a single block
-> aremutually recursive. Consider restricting the language so that the variable declarations in a block are followed by
+> are mutually recursive. Consider restricting the language so that the variable declarations in a block are followed by
 > the procedure declarations.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.26.rkt).
@@ -3090,7 +3090,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.27.rkt).
 
-Denoted values does not change, expressed values now conain a `sub-val` variant.
+Denoted values does not change, expressed values now contains a `sub-val` variant.
 
 Error will happen if procedure is referenced in a subroutine call, or vice versa.
 
@@ -3411,8 +3411,8 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
 > instrumentation to track instead only the *size* of the largest continuation used during the calculation. We measure
 > the size of a continuation by the number of continuation-builders employed in its construction, so the size of the
 > largest continuation in the calculation on page 150 is 3. Then calculate the values of `fact` and `fact-iter` applied
-> to several operands. Confirmthat the size of the largest continuation used by `fact` grows linearly with its argument,
-> but the size of the largest continuation used by `fact-iter` is a constant.
+> to several operands. Confirm that the size of the largest continuation used by `fact` grows linearly with its
+> argument, but the size of the largest continuation used by `fact-iter` is a constant.
 
 *Skipped for now.*
 
@@ -3539,7 +3539,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 *Skipped for now.*
 
-> Exercise 5.31 [★] Eliminate the remaining let expressions in this code by using additional global registers.
+> Exercise 5.31 [★] Eliminate the remaining `let` expressions in this code by using additional global registers.
 
 *Skipped for now.*
 
@@ -3551,11 +3551,11 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 > Exercise 5.33 [★★] Translate the interpreter of this section into an imperative language. Do this twice: once using
 > zero-argument procedure calls in the host language, and once replacing each zero-argument procedure call by a `goto`.
-> Howdo these alternatives perform as the computation gets longer?
+> How do these alternatives perform as the computation gets longer?
 
 *Skipped for now.*
 
-> Exercise 5.34 [★★] As noted on page 157,most imperative languagesmake it difficult to do this translation, because
+> Exercise 5.34 [★★] As noted on page 157, most imperative languages make it difficult to do this translation, because
 > they use the stack for all procedure calls, even tail calls. Furthermore, for large interpreters, the pieces of code
 > linked by `goto`’s may be too large for some compilers to handle. Translate the interpreter of this section into an
 > imperative language, circumventing this difficulty by using the technique of trampolining, as in exercise 5.26.
@@ -3644,7 +3644,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.44.rkt).
 
-To translate a languate with `letcc` and `throw` into the language without `letcc` and `throw`, just do the following:
+To translate a language with `letcc` and `throw` into the language without `letcc` and `throw`, just do the following:
 
 - Translate `letcc `*var*` in `*body* into `callcc(proc (`*var*`) `*body*`)`;
 - Translate `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub> into `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
@@ -3657,7 +3657,7 @@ Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-threads-lang.rkt). It is copied from
 the reference implementation.
 
-> Exercise 5.46 [★★] In the systemof exercise 5.45, a thread may be placed on the ready queue either because its time
+> Exercise 5.46 [★★] In the system of exercise 5.45, a thread may be placed on the ready queue either because its time
 > slot has been exhausted or because it chose to yield. In the latter case, it will be restarted with a full time slice.
 > Modify the system so that the ready queue keeps track of the remaining time slice (if any) of each thread, and
 > restarts the thread only with the time it has remaining.
@@ -3785,8 +3785,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.1 [★] Consider figure 6.2 without `(set! pc fact/k)` in the definition of `fact/k` and without
 > `(set! pc apply-cont)` in the definition of `apply-cont`. Why does the program still work?
 
-Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` inorder to
-continue computation. Same for `apply-cont`.
+Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` in order
+to continue computation. Same for `apply-cont`.
 
 > Exercise 6.2 [★] Prove by induction on *n* that for any *g*, `(fib/k `*n*` `*g*`)` = `(`*g*` (fib `*n*`))`.
 
@@ -4247,7 +4247,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 >  simp)
 > ```
 >
-> unless that subexpressionwas in the original expression.
+> unless that subexpression was in the original expression.
 >
 > Modify `make-send-to-cont` to generate this better code. When does the new rule apply?
 
@@ -4617,7 +4617,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.7.rkt).
 
-This expression behaves differently in the new verion of checker:
+This expression behaves differently in the new version of checker:
 
 ```
 if 1 then -(zero?(1), 4) else 2
