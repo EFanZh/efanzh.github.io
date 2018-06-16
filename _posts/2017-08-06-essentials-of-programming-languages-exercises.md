@@ -4875,3 +4875,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > no-occurrence invariant needed?
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.17.rkt).
+
+> Exercise 7.18 [★★] Modify the implementation in the preceding exercise so that `apply-subst-to-type` computes the
+> substitution for any type variable at most once.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.18.rkt).
