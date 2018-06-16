@@ -4860,3 +4860,18 @@ $$ \begin{alignat}{2}
 > `?`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.16.rkt).
+
+> Exercise 7.17 [★★] In our representation, `extend-subst` may do a lot of work if *σ* is large. Implement an alternate
+> representation in which `extend-subst` is implemented as
+>
+> ```scheme
+> (define extend-subst
+>   (lambda (subst tvar ty)
+>     (cons (cons tvar ty) subst)))
+> ```
+>
+> and the extra work is shifted to `apply-subst-to-type`, so that the property
+> *t*(*σ*[*tv* = *t*′]) = (*tσ*)[*tv* = *t*′] is still satisfied. For this definition of `extend-subst`, is the
+> no-occurrence invariant needed?
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.17.rkt).
