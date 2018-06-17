@@ -4876,6 +4876,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.17.rkt).
 
+The no-occurrence invariant is not needed for this definition of `extend-subst`.
+
 > Exercise 7.18 [★★] Modify the implementation in the preceding exercise so that `apply-subst-to-type` computes the
 > substitution for any type variable at most once.
 
