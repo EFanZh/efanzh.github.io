@@ -4882,3 +4882,10 @@ The no-occurrence invariant is not needed for this definition of `extend-subst`.
 > substitution for any type variable at most once.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.18.rkt).
+
+> Exercise 7.19 [★] We wrote: “If `ty1` is an unknown type, then the no-occurrence invariant tells us that it is not
+> bound in the substitution.” Explain in detail why this is so.
+
+Because `ty1` the result type after applying the substitution, so it is on the right hand side of the substitution.
+Since the no-occurrence forbids bounded variable occurs on the right hand side of the substitution, so `ty1` is not
+bound in the substitution.
