@@ -4886,6 +4886,6 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 7.19 [★] We wrote: “If `ty1` is an unknown type, then the no-occurrence invariant tells us that it is not
 > bound in the substitution.” Explain in detail why this is so.
 
-Because `ty1` is the result type after applying the substitution, when `ty1` is an unknown type, either it is unbound
-in the substitution, or it is on the right hand side of the substitution. Since the no-occurrence invariant forbids
-bounded variable occurs on the right hand side of the substitution, `ty1` is not bound in the substitution.
+Because `ty1` is the result type after applying the substitution, if it is an unknown type, either it is not bound in
+the substitution, or it is on the right hand side of the substitution. Since the no-occurrence invariant forbids bounded
+variable occurs on the right hand side of the substitution, `ty1` is not bound in the substitution.
