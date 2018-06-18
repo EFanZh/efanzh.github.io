@@ -4889,3 +4889,22 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Because `ty1` is the result type after applying the substitution, if it is an unknown type, either it is not bound in
 the substitution, or it is on the right hand side of the substitution. Since the no-occurrence invariant forbids bounded
 variable occurs on the right hand side of the substitution, `ty1` is not bound in the substitution.
+
+> Exercise 7.20 [★★] Modify the unifier so that it calls `apply-subst-to-type` only on type variables, rather than on
+> its arguments.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.20.rkt).
+
+> Exercise 7.21 [★★] We said the substitution is like a store. Implement the unifier, using the representation of
+> substitutions from exercise 7.17, and keeping the substitution in a global Scheme variable, as we did in figures 4.1
+> and 4.2.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.21.rkt).
+
+> Exercise 7.22 [★★] Refine the implementation of the preceding exercise so that the binding of each type variable can
+> be obtained in constant time.
+
+The best I can do is linear time look up, I think I’ll need hash table to implement constant time look up. Still, in my
+implementation, faster look up time is at the cost of slower extension.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.22.rkt).
