@@ -4908,3 +4908,7 @@ The best I can do is linear time look up, I think I’ll need hash table to impl
 implementation, faster look up time is at the cost of slower extension.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.22.rkt).
+
+> Exercise 7.23 [★★] Extend the inferencer to handle pair types, as in exercise 7.8.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.23.rkt).
