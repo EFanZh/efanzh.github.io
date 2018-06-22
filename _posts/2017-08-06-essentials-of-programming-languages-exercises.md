@@ -4742,8 +4742,9 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
 
 (define fix
   (λ (f)
-    (let ([d (λ ([x : (Rec r (r → (𝑡₁ → 𝑡₂)))])
-               (λ ([z : 𝑡₁])
+    (let ([d : ((Rec r (r → (𝑡₁ → 𝑡₂))) → (𝑡₁ → 𝑡₂))
+             (λ (x)
+               (λ (z)
                  ((f (x x)) z)))])
       (λ (n)
         ((f (d d)) n)))))
@@ -4912,3 +4913,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 7.23 [★★] Extend the inferencer to handle pair types, as in exercise 7.8.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.23.rkt).
+
+> Exercise 7.24 [★★] Extend the inferencer to handle multiple `let` declarations, multiargument procedures, and
+> multiple `letrec` declarations.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.24.rkt).
