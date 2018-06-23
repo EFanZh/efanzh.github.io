@@ -4696,7 +4696,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Because a list may be dynamic generated, we have no way to know the length of the list statically, so we can not
 guarantee a list is non-empty.
 
-Because our implementation only must know the exact type of every expression. If we omit the type parameter, we couldn’t
+Because our implementation must know the exact type of every expression. If we omit the type parameter, we couldn’t
 determine the type the expression `emptylist`.
 
 > Exercise 7.10 [★★] Extend the checker to handle EXPLICIT-REFS. You will need to do the following:
@@ -4918,3 +4918,16 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > multiple `letrec` declarations.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.24.rkt).
+
+> Exercise 7.25 [★★] Extend the inferencer to handle list types, as in exercise 7.9. Modify the language to use the
+> production
+>
+> *Expression* ::= `emptylist`
+>
+> instead of
+>
+> *Expression* ::= `emptylist_`*Type*
+>
+> As a hint, consider creating a type variable in place of the missing `_`*t*.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.25.rkt).
