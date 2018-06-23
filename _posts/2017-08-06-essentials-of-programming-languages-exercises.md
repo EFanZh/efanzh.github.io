@@ -4931,3 +4931,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > As a hint, consider creating a type variable in place of the missing `_`*t*.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.25.rkt).
+
+> Exercise 7.26 [★★] Extend the inferencer to handle EXPLICIT-REFS, as in exercise 7.10.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.26.rkt).
