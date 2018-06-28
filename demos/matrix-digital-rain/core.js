@@ -295,6 +295,7 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+        const scale = window.devicePixelRatio;
         const backend = new Backend();
         const backgroundColor = 'black';
         const cellWidth = 24.0;
@@ -328,8 +329,10 @@
         }
 
         window.onresize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            canvas.width = window.innerWidth * scale;
+            canvas.height = window.innerHeight * scale;
+            canvas.style.width = `${window.innerWidth}px`;
+            canvas.style.height = `${window.innerHeight}px`;
         };
 
         window.onresize();
@@ -402,6 +405,7 @@
             const timeEllapsed = currentTime - lastFrameTime;
             const view = backend.getView(columns, rows, isPause ? 0.0 : timeEllapsed * speed);
 
+            canvasContext.setTransform(scale, 0, 0, scale, 0, 0);
             canvasContext.textBaseline = 'top';
             canvasContext.textAlign = 'center';
             canvasContext.globalCompositeOperation = 'source-over';
