@@ -1,70 +1,56 @@
-(() =>
-{
+(() => {
     'use strict';
 
-    function randomInteger(minimal, maximal)
-    {
+    function randomInteger(minimal, maximal) {
         return minimal + Math.floor(Math.random() * (maximal - minimal));
     }
 
-    function round(value, precision)
-    {
+    function round(value, precision) {
         const k = Math.pow(10, precision);
 
         return Math.round(value * k) / k;
     }
 
-    class Vector
-    {
-        constructor(capacity = 0)
-        {
+    class Vector {
+        constructor(capacity = 0) {
             const data = new Array(capacity);
             let lengthValue = 0;
 
             Object.defineProperties(this, { 'length': { get: () => lengthValue } })
 
-            function ensure(condition)
-            {
-                if (!condition)
-                {
+            function ensure(condition) {
+                if (!condition) {
                     throw new Error();
                 }
             }
 
-            this[Symbol.iterator] = function* ()
-            {
-                for (let i = 0; i < this.length; i++)
-                {
+            this[Symbol.iterator] = function* () {
+                for (let i = 0; i < this.length; i++) {
                     yield data[i];
                 }
             }
 
-            this.get = (i) =>
-            {
+            this.get = (i) => {
                 ensure(i >= 0 && i < this.length);
 
                 return data[i];
             }
 
-            this.set = (i, value) =>
-            {
+            this.set = (i, value) => {
                 ensure(i >= 0 && i < this.length);
 
                 data[i] = value;
             }
 
-            this.push = function ()
-            {
-                for (const item of arguments)
-                {
+            this.push = function () {
+                for (const item of arguments) {
                     data[this.length] = item;
 
                     lengthValue++;
                 }
             }
 
-            this.pop = () =>
-            {
+            this.pop = () => {
                 ensure(this.length > 0);
 
                 lengthValue--;
@@ -76,22 +62,17 @@
                 return result;
             }
 
-            this.clear = () =>
-            {
-                for (let i = 0; i < this.length; i++)
-                {
+            this.clear = () => {
+                for (let i = 0; i < this.length; i++) {
                     data[i] = undefined;
                 }
 
                 lengthValue = 0;
             }
 
-            this.contains = (item) =>
-            {
-                for (const element of this)
-                {
-                    if (element === item)
-                    {
+            this.contains = (item) => {
+                for (const element of this) {
+                    if (element === item) {
                         return true;
                     }
                 }
@@ -99,40 +80,32 @@
                 return false;
             }
 
-            this.forEach = (action) =>
-            {
-                for (let i = 0; i < this.length; i++)
-                {
+            this.forEach = (action) => {
+                for (let i = 0; i < this.length; i++) {
                     action(data[i]);
                 }
             }
 
-            this.removeIf = (condition) =>
-            {
+            this.removeIf = (condition) => {
                 let i = 0;
 
-                for (; i < this.length; i++)
-                {
-                    if (condition(data[i]))
-                    {
+                for (; i < this.length; i++) {
+                    if (condition(data[i])) {
                         break;
                     }
                 }
 
                 let position = i;
 
-                for (; i < this.length; i++)
-                {
-                    if (!condition(data[i]))
-                    {
+                for (; i < this.length; i++) {
+                    if (!condition(data[i])) {
                         data[position] = data[i];
 
                         position++;
                     }
                 }
 
-                for (let i = position; i < this.length; ++i)
-                {
+                for (let i = position; i < this.length; ++i) {
                     data[i] = undefined;
                 }
 
@@ -141,32 +114,26 @@
         }
     }
 
-    class TheMatrixRaindrop
-    {
-        constructor(position, speed, characters)
-        {
+    class TheMatrixRaindrop {
+        constructor(position, speed, characters) {
             this.position = position;
             this.speed = speed;
             this.characters = Uint16Array.from(characters);
         }
 
-        get size()
-        {
+        get size() {
             return this.characters.length;
         }
 
-        reset(position, speed, characters)
-        {
+        reset(position, speed, characters) {
             this.position = position;
             this.speed = speed;
             this.characters.set(characters);
         }
     }
 
-    class BackendConfiguration
-    {
-        constructor(configuration = {})
-        {
+    class BackendConfiguration {
+        constructor(configuration = {}) {
             this.λMutation = 0.2;
             this.λGenerate = 1.0;
             this.minimalSpeed = 16.0;
@@ -175,15 +142,13 @@
             this.maximalRaindropSize = 36;
             this.characterCandidates = '!"#$%&\()*+-/0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_abcdefghijklmnopqrstuvwxyz{|}~¡¢£¤¥¦§¨©ª«¬±µ¶º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿĀāĂăĄąĆćĈĉĊċČčĎďĐđĒēĔĕĖėĘęĚěĜĝĞğĠġĢģĤĥĦħĨĩĪīĬĭĮįİıĲĳĴĵĶķĸĹĺĻļĽľĿŀŁłŃńŅņŇňŉŊŋŌōŎŏŐőŒœŔŕŖŗŘřŚśŜŝŞşŠšŢţŤťŦŧŨũŪūŬŭŮůŰűŲųŴŵŶŷŸŹźŻżŽžſƀƊƋƌƍƎƏƐƑƒƓƔƕƖƗƘƙƚƛƜƝƞƟƠơƢƣƤƥƦƧƨƩƪƫƬƭƮƯưƱƲƳƴƵƶƷƸƹƺƻƼƽƾƿǀǁǂǃǄǅǆǇǈǉǊǋǌǍǎǏǐǑǒǓǔǕǖǗǘǙǚǛǜǝǞǟǠǡǢǣǤǥǦǧǨǩǪǫǬǭǮǯǰǱǲǳǴǵǶǷǸǹǺǻǼǽǾǿȀȁȂȃȄȅȆȇȈȉȊȋȌȍȎȏȐȑȒȓȔȕȖȗȘșȚțȜȝȞȟȠȡȢȣȤȥȦȧȨȩȪȫȬȭȮȯȰȱȲȳȴȵȶȸȹȺȻȼȽȾȿɀɁɂɃɄɅɆɇɈɉɊɋɌɍɎɏɐɑɒɓɔɕɖɗɘəɚɛɜɝɞɟɠɡɢɣɤɥɦɧɨɩɪɫɬɭɮɯɰɱɲɳɴɵɶɷɸɹɺɻɼɽɾɿʀʁʂʃʄʅʆʇʈʉʊʋʌʍʎʏʐʑʒʓʔʕʖʗʘʙʚʛʜʝʞʟʠʡʢʣʤʥʦʧʨʩʪʫʬʭʮʯΎΏΐΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩΪΫάέήίΰαβγδεζηθικλμνξοπρςστυφχψωϊϋόύώϐϑϒϓϔϕϖϗϘϙϚϛϜϝϞϟϠϡϢϣϤϥϦϧϨϩϪϫϬϭϮϯϰϱϲϳϴϵ϶ϷϸϹϺϻϼϾϿЀЁЂЃЄЅІЇЈЉЊЋЌЍЎЏАБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯабвгдежзийклмнопрстуфхцчшщъыьэюяѐёђѓєѕіїјљњћќѝўџѠѡѢѣѤѥѦѧѨѩѪѫѬѭѮѯѰѱѲѳѴѵѶѷѸѹѺѻѼѽѾѿҀҁ҂ҊҋҌҍҎҏҐґҒғҔҕҖҗҘҙҚқҜҝҞҟҠҡҢңҤҥҦҧҨҩҪҫҬҭҮүҰұҲҳҴҵҶҷҸҹҺһҼҽҾҿӀӁӂӃӄӅӆӇӈӉӊӋӌӍӎӏӐӑӒӓӔӕӖӗӘәӚӛӜӝӞӟӠӡӢӣӤӥӦӧӨөӪӫӬӭӮӯӰӱӲӳӴӵӶӷӸӹӺӻӼӽӾӿԀԁԂԃԄԅԆԇԈԉԊԋԌԍԎԏԐԑԒԓ';
 
-            for (let attribute in configuration)
-            {
+            for (let attribute in configuration) {
                 this[attribute] = configuration[attribute];
             }
 
             let newCharacterCandidates = [];
 
-            for (let i = 0; i < this.characterCandidates.length; i++)
-            {
+            for (let i = 0; i < this.characterCandidates.length; i++) {
                 newCharacterCandidates.push(this.characterCandidates.codePointAt(i));
             }
 
@@ -191,91 +156,70 @@
         }
     }
 
-    class Backend
-    {
-        constructor(configuration = new BackendConfiguration())
-        {
+    class Backend {
+        constructor(configuration = new BackendConfiguration()) {
             const rainColumns = new Vector();
             let rows = -1;
             const raindropRecycleBin = new Map();
             const sharedRemoveList = new Vector();
 
-            function getRandomCharacter()
-            {
+            function getRandomCharacter() {
                 return configuration.characterCandidates[randomInteger(0, configuration.characterCandidates.length)];
             }
 
-            function probabilityGate(probability)
-            {
+            function probabilityGate(probability) {
                 return Math.random() < probability;
             }
 
-            function getTimeToBirth()
-            {
+            function getTimeToBirth() {
                 return Math.log2(1.0 / (1.0 - Math.random())) * configuration.λGenerate;
             }
 
-            function generateSpeedValue()
-            {
+            function generateSpeedValue() {
                 return configuration.minimalSpeed + (configuration.maximalSpeed - configuration.minimalSpeed) * Math.random();
             }
 
-            function* generateCharacters(size)
-            {
-                for (let i = 0; i < size; i++)
-                {
+            function* generateCharacters(size) {
+                for (let i = 0; i < size; i++) {
                     yield getRandomCharacter();
                 }
             }
 
-            function updateRaindrop(raindrop, timeElapsed, mutationProbability)
-            {
+            function updateRaindrop(raindrop, timeElapsed, mutationProbability) {
                 const oldIntegerPosition = Math.floor(raindrop.position);
 
                 raindrop.position += raindrop.speed * timeElapsed;
 
-                if (raindrop.position - raindrop.size < rows)
-                {
+                if (raindrop.position - raindrop.size < rows) {
                     const newIntegerPosition = Math.floor(raindrop.position);
                     const integerStep = newIntegerPosition - oldIntegerPosition;
 
                     // Do character rotation.
 
-                    for (let i = raindrop.size - 1; i >= integerStep; i--)
-                    {
-                        if (probabilityGate(mutationProbability))
-                        {
+                    for (let i = raindrop.size - 1; i >= integerStep; i--) {
+                        if (probabilityGate(mutationProbability)) {
                             raindrop.characters[i] = getRandomCharacter();
-                        }
-                        else
-                        {
+                        } else {
                             raindrop.characters[i] = raindrop.characters[i - integerStep];
                         }
                     }
 
                     // Fill remaining positions.
 
-                    for (let i = 0; i < Math.min(raindrop.size, integerStep); i++)
-                    {
+                    for (let i = 0; i < Math.min(raindrop.size, integerStep); i++) {
                         raindrop.characters[i] = getRandomCharacter();
                     }
 
                     return true;
-                }
-                else
-                {
+                } else {
                     return false;
                 }
             }
 
-            function recycleRaindrop(raindrop)
-            {
-                if (raindropRecycleBin.has(raindrop.size))
-                {
+            function recycleRaindrop(raindrop) {
+                if (raindropRecycleBin.has(raindrop.size)) {
                     raindropRecycleBin.get(raindrop.size).push(raindrop);
-                }
-                else
-                {
+                } else {
                     const newColumn = new Vector();
 
                     newColumn.push(raindrop);
@@ -284,14 +228,11 @@
                 }
             }
 
-            function createRaindrop(position, speed, size)
-            {
-                if (raindropRecycleBin.has(size))
-                {
+            function createRaindrop(position, speed, size) {
+                if (raindropRecycleBin.has(size)) {
                     const bucket = raindropRecycleBin.get(size);
 
-                    if (bucket.length > 0)
-                    {
+                    if (bucket.length > 0) {
                         const result = bucket.pop();
 
                         result.reset(position, speed, generateCharacters(size));
@@ -303,14 +244,11 @@
                 return new TheMatrixRaindrop(position, speed, generateCharacters(size));
             }
 
-            function updateColumn(column, timeElapsed, mutationProbability)
-            {
+            function updateColumn(column, timeElapsed, mutationProbability) {
                 // Assume `sharedRemoveList` is empty.
 
-                for (const raindrop of column)
-                {
-                    if (!updateRaindrop(raindrop, timeElapsed, mutationProbability))
-                    {
+                for (const raindrop of column) {
+                    if (!updateRaindrop(raindrop, timeElapsed, mutationProbability)) {
                         sharedRemoveList.push(raindrop);
                     }
                 }
@@ -319,33 +257,27 @@
                 sharedRemoveList.forEach(recycleRaindrop);
                 sharedRemoveList.clear();
 
-                for (let raindropBirthTime = getTimeToBirth(); raindropBirthTime <= timeElapsed; raindropBirthTime += getTimeToBirth())
-                {
+                for (let raindropBirthTime = getTimeToBirth(); raindropBirthTime <= timeElapsed; raindropBirthTime += getTimeToBirth()) {
                     const speed = generateSpeedValue();
                     const position = speed * (timeElapsed - raindropBirthTime);
                     const size = randomInteger(configuration.minimalRaindropSize, configuration.maximalRaindropSize);
 
-                    if (position - size < rows)
-                    {
+                    if (position - size < rows) {
                         column.push(createRaindrop(position, speed, size));
                     }
                 }
             }
 
-            function setRows(value)
-            {
+            function setRows(value) {
                 rows = value;
             }
 
-            this.getView = (columns, rows, timeEllapsed) =>
-            {
-                while (rainColumns.length < columns)
-                {
+            this.getView = (columns, rows, timeEllapsed) => {
+                while (rainColumns.length < columns) {
                     rainColumns.push(new Vector());
                 }
 
-                while (rainColumns.length > columns)
-                {
+                while (rainColumns.length > columns) {
                     rainColumns.pop().forEach(recycleRaindrop);
                 }
 
@@ -353,8 +285,7 @@
 
                 const mutationProbability = 1.0 - Math.pow(2.0, -timeEllapsed / configuration.λMutation);
 
-                for (const rainColumn of rainColumns)
-                {
+                for (const rainColumn of rainColumns) {
                     updateColumn(rainColumn, timeEllapsed, mutationProbability);
                 }
 
@@ -363,8 +294,7 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', () =>
-    {
+    document.addEventListener('DOMContentLoaded', () => {
         const backend = new Backend();
         const backgroundColor = 'black';
         const cellWidth = 24.0;
@@ -383,13 +313,11 @@
         let isRendering = true;
         let isDebug = false;
 
-        function generateColorComponent(from, to, position)
-        {
+        function generateColorComponent(from, to, position) {
             return from + (to - from) * position;
         }
 
-        for (let i = 0; i < colorSteps; i++)
-        {
+        for (let i = 0; i < colorSteps; i++) {
             const position = i / (colorSteps - 1);
             const r = generateColorComponent(tailColor1[0], tailColor2[0], position);
             const g = generateColorComponent(tailColor1[1], tailColor2[1], position);
@@ -399,18 +327,15 @@
             colorCache[i] = `rgba(${r}, ${g}, ${b}, ${a})`;
         }
 
-        window.onresize = () =>
-        {
+        window.onresize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
 
         window.onresize();
 
-        window.onkeydown = (ev) =>
-        {
-            switch (ev.key)
-            {
+        window.onkeydown = (ev) => {
+            switch (ev.key) {
                 case ' ':
                     isPause = !isPause;
                     break;
@@ -439,35 +364,29 @@
             }
         };
 
-        function getTailColor(position)
-        {
+        function getTailColor(position) {
             return colorCache[Math.floor(colorSteps * position)];
         }
 
-        function drawRaindrop(context, column, raindrop, rows)
-        {
+        function drawRaindrop(context, column, raindrop, rows) {
             const integerPosition = Math.floor(raindrop.position);
             const rowEnd = Math.min(integerPosition + 1, raindrop.size);
 
-            for (let row = Math.max(0, integerPosition - rows); row < rowEnd; row++)
-            {
+            for (let row = Math.max(0, integerPosition - rows); row < rowEnd; row++) {
                 const text = String.fromCodePoint(raindrop.characters[row]);
                 const x = cellWidth / 2.0 + cellWidth * column;
                 const y = cellHeight * (integerPosition - row);
                 const position = (row + raindrop.position % 1.0) / raindrop.size;
                 const normalizedPosition = 1.0 - Math.pow(1.0 - position, 1.6);
 
-                if (row === 0)
-                {
+                if (row === 0) {
                     context.font = headFont;
                     context.fillStyle = headColor;
 
                     context.fillText(text, x, y);
 
                     context.font = tailFont;
-                }
-                else
-                {
+                } else {
                     context.fillStyle = getTailColor(normalizedPosition);
                     context.fillText(text, x, y);
                 }
@@ -476,8 +395,7 @@
 
         const canvasContext = canvas.getContext('2d');
 
-        function onDraw(timestamp)
-        {
+        function onDraw(timestamp) {
             const currentTime = timestamp / 1000.0;
             const columns = Math.ceil(canvas.width / cellWidth);
             const rows = Math.ceil(canvas.height / cellHeight);
@@ -491,19 +409,15 @@
             canvasContext.fillRect(0, 0, canvas.width, canvas.height);
             canvasContext.globalCompositeOperation = 'screen';
 
-            if (isRendering)
-            {
-                for (let column = 0; column < columns; column++)
-                {
-                    for (const raindrop of view.get(column))
-                    {
+            if (isRendering) {
+                for (let column = 0; column < columns; column++) {
+                    for (const raindrop of view.get(column)) {
                         drawRaindrop(canvasContext, column, raindrop, rows);
                     }
                 }
             }
 
-            if (isDebug)
-            {
+            if (isDebug) {
                 canvasContext.textBaseline = 'top';
                 canvasContext.textAlign = 'left';
                 canvasContext.fillStyle = 'white';
@@ -517,8 +431,7 @@
             window.requestAnimationFrame(onDraw);
         }
 
-        window.requestAnimationFrame(timestamp =>
-        {
+        window.requestAnimationFrame(timestamp => {
             lastFrameTime = timestamp;
 
             window.requestAnimationFrame(onDraw);
