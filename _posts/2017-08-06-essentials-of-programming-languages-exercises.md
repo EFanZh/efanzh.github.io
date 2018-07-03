@@ -4935,3 +4935,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 7.26 [★★] Extend the inferencer to handle EXPLICIT-REFS, as in exercise 7.10.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.26.rkt).
+
+> Exercise 7.27 [★★] Rewrite the inferencer so that it works in two phases. In the first phase it should generate a set
+> of equations, and in the second phase, it should repeatedly call `unify` to solve them.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
