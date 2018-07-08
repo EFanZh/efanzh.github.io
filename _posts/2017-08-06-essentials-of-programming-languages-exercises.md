@@ -4940,3 +4940,55 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > of equations, and in the second phase, it should repeatedly call `unify` to solve them.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
+
+> Exercise 7.28 [★★] Our inferencer is very useful, but it is not powerful enough to allow the programmer to define
+> procedures that are polymorphic, like the polymorphic primitives `pair` or `cons`, which can be used at many types.
+> For example, our inferencer would reject the program
+>
+> ```
+> let f = proc (x : ?) x
+> in if (f zero?(0))
+>    then (f 11)
+>    else (f 22)
+> ```
+>
+> even though its execution is safe, because `f` is used both at type `(bool -> bool)` and at type `(int -> int)`. Since
+> the inferencer of this section is allowed to find at most one type for `f`, it will reject this program.
+>
+> For a more realistic example, one would like to write programs like
+>
+> ```
+> letrec
+>  ? map (f : ?) =
+>     letrec
+>      ? foo (x : ?) = if null?(x)
+>                      then emptylist
+>                      else cons((f car(x)),
+>                                ((map f) cdr(x)))
+>     in foo
+> in letrec
+>     ? even (y : ?) = if zero?(y)
+>                      then zero?(0)
+>                      else if zero?(-(y,1))
+>                           then zero?(1)
+>                           else (even -(y,2))
+>    in pair(((map proc(x : int)-(x,1))
+>            cons(3,cons(5,emptylist))),
+>            ((map even)
+>             cons(3,cons(5,emptylist))))
+> ```
+>
+> This expression uses `map` twice, once producing a list of `int`s and once producing a list of `bool`s. Therefore it
+> needs two different types for the two uses. Since the inferencer of this section will find at most one type for `map`,
+> it will detect the clash between `int` and `bool` and reject the program.
+>
+> One way to avoid this problem is to allow polymorphic values to be introduced only by `let`, and then to treat
+> `(let-exp `*var*` `*e*<sub>1</sub>` `*e*<sub>2</sub>`)` differently from
+> `(call-exp (proc-exp `*var*` `*e*<sub>2</sub>`) `*e*<sub>1</sub>`)` for type-checking purposes.
+>
+> Add polymorphic bindings to the inferencer by treating `(let-exp var `*e*<sub>1</sub>` `*e*<sub>2</sub>`)` like the
+> expression obtained by substituting *e*<sub>1</sub> for each free occurrence of `var` in *e*<sub>2</sub>. Then, from
+> the point of view of the inferencer, there are many different copies of *e*<sub>1</sub> in the body of the `let`, so
+> they can have different types, and the programs above will be accepted.
+
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
