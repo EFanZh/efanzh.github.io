@@ -4992,3 +4992,23 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > they can have different types, and the programs above will be accepted.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
+
+> Exercise 7.29 [★★★] The type inference algorithm suggested in the preceding exercise will analyze *e*<sub>1</sub>
+> many times, once for each of its occurrences in *e*<sub>2</sub>. Implement Milner’s Algorithm W, which analyzes
+> *e*<sub>1</sub> only once.
+
+*Skipped for now.*
+
+> Exercise 7.30 [★★★] The interaction between polymorphism and effects is subtle. Consider a program starting
+>
+> ```
+> let p = newref(proc (x : ?) x)
+> in ...
+> ```
+>
+> 1. Finish this program to produce a program that passes the polymorphic inferencer, but whose evaluation is not safe
+>    according to the definition at the beginning of the chapter.
+> 2. Avoid this difficulty by restricting the right-hand side of a let to have no effect on the store. This is called
+>    the *value restriction*.
+
+*Skipped for now.*
