@@ -7,13 +7,13 @@ title: Some useful commands
 ### Normalize package dependencies
 
 ```bash
-aptitude search -F '%p' '~i !~M (~R~i | ~P~R~i)' | xargs -r sudo aptitude markauto -y
+aptitude search -F '%p' '~i !~M (~R~i | ~P~R~i)' | xargs -r aptitude markauto -y
 ```
 
 ### Remove recommended packages.
 
 ```bash
-aptitude search -F '%p' '!~E ~M !(~R~i | ~P~R~i)' | xargs -r sudo aptitude purge --purge-unused -y
+aptitude search -F '%p' '!~E ~M !(~R~i | ~P~R~i)' | xargs -r aptitude purge --purge-unused -y
 ```
 
 ## [FFmpeg](https://www.ffmpeg.org)
@@ -31,13 +31,13 @@ ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
 ```bash
 # For Bash.
 
-comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r sudo pacman -D --asdeps
+comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r pacman -D --asdeps
 ```
 
 ```
 # For Fish.
 
-comm -23 (pacman -Qeq | psub) (pacman -Qeqtt | psub) | xargs -r sudo pacman -D --asdeps
+comm -23 (pacman -Qeq | psub) (pacman -Qeqtt | psub) | xargs -r pacman -D --asdeps
 ```
 
 ## Others
