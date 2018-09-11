@@ -81,3 +81,58 @@ title: Category Theory for Programmers Challenges
    > corresponding to all possible functions between these types. Label the arrows with the names of the functions.
 
    *Not sure.*
+
+## 3. Categories Great and Small
+
+1. > Generate a free category from:
+   >
+   > 1. A graph with one node and no edges
+   > 2. A graph with one node and one (directed) edge (hint: this edge can be composed with itself)
+   > 3. A graph with two nodes and a single arrow between them
+   > 4. A graph with a single node and 26 arrows marked with the letters of the alphabet: a, b, c … z.
+
+   1. Add an edge from the node to itself.
+   2. Do nothing.
+   3. Add an edge to each node from that node to itself.
+   4. *Not sure.*
+2. > What kind of order is this?
+   >
+   > 1. A set of sets with the inclusion relation: *A* is included in *B* if every element of *A* is also an element of
+   >    *B*.
+   > 2. C++ types with the following subtyping relation: `T1` is a subtype of `T2` if a pointer to `T1` can be passed to
+   >    a function that expects a pointer to `T2` without triggering a compilation error.
+
+   1. Partial order.
+   2. Partial order.
+3. > Considering that `Bool` is a set of two values `True` and `False`, show that it forms two (set-theoretical) monoids
+   > with respect to, respectively, operator `&&` (AND) and `||` (OR).
+
+   1. For `&&`:
+      - Neutral value is `True`.
+      - `a && True == True && a`.
+      - `(a && b) && c  == a && (b && c)`.
+   2. For `||`:
+      - Neutral value is `False`.
+      - `a || False == False || a`.
+      - `(a || b) || c  == a || (b || c)`.
+4. > Represent the `Bool` monoid with the AND operator as a category: List the morphisms and their rules of composition.
+
+   Morphisms:
+      - `\x -> x && False`
+      - `\x -> x && True`
+
+   Rules of composition:
+      - `(\x -> x && False) . (\x -> x && False) == \x -> x && False`
+      - `(\x -> x && False) . (\x -> x && True) == \x -> x && False`
+      - `(\x -> x && True) . (\x -> x && False) == \x -> x && False`
+      - `(\x -> x && True) . (\x -> x && True) == \x -> x && True`
+5. > Represent addition modulo 3 as a monoid category.
+
+   Morphisms:
+      - `\x -> mod (x + 0) 3`
+      - `\x -> mod (x + 1) 3`
+      - `\x -> mod (x + 2) 3`
+      - …
+
+   Rules of composition:
+      - `(\x -> mod (x + m) 3) . (\x -> mod (x + n) 3) == \x -> mod (x + (m + n)) 3`
