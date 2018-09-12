@@ -136,3 +136,48 @@ title: Category Theory for Programmers Challenges
 
    Rules of composition:
       - `(\x -> mod (x + m) 3) . (\x -> mod (x + n) 3) == \x -> mod (x + (m + n)) 3`
+
+## 4. Kleisli Categories
+
+> A function that is not defined for all possible values of its argument is called a partial function. It’s not really a
+> function in the mathematical sense, so it doesn’t fit the standard categorical mold. It can, however, be represented
+> by a function that returns an embellished type `optional`:
+>
+> ```c++
+> template<class A> class optional {
+>     bool _isValid;
+>     A _value;
+> public:
+>     optional() : _isValid(false) {}
+>     optional(A v) : _isValid(true), _value(v) {}
+>     bool isValid() const { return _isValid; }
+>     A value() const { return _value; }
+> };
+> ```
+>
+> As an example, here’s the implementation of the embellished function `safe_root`:
+>
+> ```c++
+> optional<double> safe_root(double x) {
+>     if (x >= 0) return optional<double>{sqrt(x)};
+>     else return optional<double>{};
+> }
+> ```
+>
+> Here’s the challenge:
+>
+> 1. Construct the Kleisli category for partial functions (define composition and identity).
+> 2. Implement the embellished function `safe_reciprocal` that returns a valid reciprocal of its argument, if it’s
+>    different from zero.
+> 3. Compose `safe_root` and `safe_reciprocal` to implement `safe_root_reciprocal` that calculates `sqrt(1/x)` whenever
+>    possible.
+
+1. Composition:
+
+   - `(A -> optional<B>) . (B -> optional<C>) => A -> optional<C>`.
+
+   Identity:
+
+   - The `optional` constructor, which has the type `A -> optional<A>`.
+2. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
+3. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
