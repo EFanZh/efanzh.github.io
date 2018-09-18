@@ -181,3 +181,65 @@ title: Category Theory for Programmers Challenges
    - The `optional` constructor, which has the type `A -> optional<A>`.
 2. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
 3. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
+
+## 5. Products and Coproducts
+
+1. > Show that the terminal object is unique up to unique isomorphism.
+
+   Suppose that we have two terminal objects *t1* and *t2*. Since *t1* is terminal, there is a unique morphism *f* from
+   *t2* to *t1*. By the same token, since *t2* is terminal, there is a unique morphism *g* from *t1* to *t2*. The
+   composition *g* ∘ *f* must be a morphism from *t2* to *t2*. But *t2* is terminal so there can only be one morphism
+   going from *t2* to *t2*. Since we are in a category, we know that there is an identity morphism from *t2* to *t2*,
+   and since there is room from only one, that must be it. Therefore *g* ∘ *f* is equal to identity. Similarly,
+   *f* ∘ *g* must be equal to identity, because there can be only one morphism from *t1* back to *t1*. This proves that
+   *f* and *g* must be the inverse of each other. Therefore any two terminal objects are isomorphic.
+2. > What is a product of two objects in a poset? Hint: Use the universal construction.
+
+   A product of two objects *a* and *b* in a poset is the object *c* that *c* ≤ *a* and *c* ≤ *b* such that for any
+   other object *c*′ that *c*′ ≤ *a* and *c*′ ≤ *b*, *c*′ ≤ *c*.
+3. > What is a coproduct of two objects in a poset?
+
+   A coproduct of two objects *a* and *b* in a poset is the object *c* that *a* ≤ *c* and *b* ≤ *c* such that for any
+   other object *c*′ that *a* ≤ *c*′ and *b* ≤ *c*′, *c* ≤ *c*′.
+4. > Implement the equivalent of Haskell `Either` as a generic type in your favorite language (other than Haskell).
+
+   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_4.rs).
+5. > Show that `Either` is a “better” coproduct than `int` equipped with two injections:
+   >
+   > ```c++
+   > int i(int n) { return n; }
+   > int j(bool b) { return b ? 0: 1; }
+   > ```
+   >
+   > Hint: Define a function
+   >
+   > ```c++
+   > int m(Either const & e);
+   > ```
+   >
+   > that factorizes `i` and `j`.
+
+   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_5.rs).
+6. > Continuing the previous problem: How would you argue that `int` with the two injections `i` and `j` cannot be
+   > “better” than `Either`?
+
+   If `int` with the two injections `i` and `j` is better than `Either`, there should be a function `f` that maps `int`
+   to `Either` where `f` ∘ `i` == `Left` and `f` ∘ `j` == `Right`. But after applying `i` or `j`, We can not know the
+   origin object is `int` or `bool`, so we can not determine wether to use `Left` or `Right` to construct `Either`.
+7. > Still continuing: What about these injections?
+   >
+   > ```c++
+   > int i(int n) {
+   >     if (n < 0) return n;
+   >     return n + 2;
+   > }
+   >
+   > int j(bool b) { return b ? 0: 1; }
+   > ```
+
+   No, because the codomain of `i` is smaller than the domain. For each result from `i`, there may be more than one
+   input corresponds to it. So information is lost. We cannot construct an `Either` object without losing information.
+8. > Come up with an inferior candidate for a coproduct of `int` and `bool` that cannot be better than `Either` because
+   > it allows multiple acceptable morphisms from it to `Either`.
+
+   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_8.rs).
