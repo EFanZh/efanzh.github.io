@@ -174,7 +174,7 @@ title: Category Theory for Programmers Challenges
 
 1. Composition:
 
-   - `(A -> optional<B>) . (B -> optional<C>) => A -> optional<C>`.
+   - `(A -> optional<B>) . (B -> optional<C>)` ⇒ `A -> optional<C>`.
 
    Identity:
 
@@ -294,3 +294,48 @@ title: Category Theory for Programmers Challenges
 
    See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_5.rs) for definitions for
    morphisms.
+
+## 7. Functors
+
+1. > Can we turn the `Maybe` type constructor into a functor by defining:
+   >
+   > ```haskell
+   > fmap _ _ = Nothing
+   > ```
+   >
+   > which ignores both of its arguments? (Hint: Check the functor laws.)
+
+   No. Because `fmap id (Just 4)` = `Nothing`, while `id (Just 4)` = `Just 4`, you can see that this version of `fmap`
+   does not preserve identity.
+2. > Prove functor laws for the reader functor. Hint: itʼs really simple.
+
+   - `fmap id x` = `id . x` = `x`, so identity is preserved.
+   - `fmap (f . g) x` = `(f . g) . x`,
+     `(fmap f . fmap g) x` = `fmap f (fmap g x)` =  `fmap f (g . x)` = `f . (g . x)` = `(f . g) . x`, so
+     `fmap (f . g) x` = `(fmap f . fmap g) x`, so composition is preserved.
+3. > Implement the reader functor in your second favorite language (the first being Haskell, of course).
+
+   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_7_4_3.rs).
+4. > Prove the functor laws for the list functor. Assume that the laws are true for the tail part of the list youʼre
+   > applying it to (in other words, use *induction*).
+
+   - `Nil` case:
+     - Preservation of identity:
+
+       `fmap id Nil` = `Nil`.
+     - Preservation of composition:
+
+       `fmap (f . g) Nil` = `Nil`, and `(fmap f . fmap g) Nil` = `fmap f (fmap g Nil)` = `fmap f Nil` = `Nil`, so
+       `fmap (f . g) Nil` = `(fmap f . fmap g) Nil`
+   - `Cons x t` case:
+     - Preservation of identity:
+
+       `fmap id (Cons x t)` = `Cons (id x) (fmap id t)`. Since `id x` = `x`, and by induction, `fmap id t` = `t`, so
+       `Cons (id x) (fmap id t)` = `Cons x t`, so `fmap id (Cons x t)` = `Cons x t`
+     - Preservation of composition:
+
+       `fmap (f . g) (Cons x t)` = `Cons ((f . g) x) (fmap (f . g) t)`, and `(fmap f . fmap g) (Cons x t)` =
+       `fmap f (fmap g (Cons x t))` = `fmap f (Cons (g x) (fmap g t))` = `Cons (f (g x)) (fmap f (fmap g t))` =
+       `Cons ((f . g) x) ((fmap f . fmap g) t)`. By induction, `fmap (f . g) t` = `(fmap f . fmap g) t`, so
+       `Cons ((f . g) x) (fmap (f . g) t)` = `Cons ((f . g) x) ((fmap f . fmap g) t)`, so
+       `fmap (f . g) (Cons x t)` = `(fmap f . fmap g) (Cons x t)`.
