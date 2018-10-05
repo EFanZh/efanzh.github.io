@@ -2,6 +2,8 @@
 title: Some useful commands
 ---
 
+# Some useful commands
+
 ## [aptitude](https://aptitude.alioth.debian.org/)
 
 ### Normalize package dependencies
@@ -10,7 +12,7 @@ title: Some useful commands
 aptitude search -F '%p' '~i !~M (~R~i | ~P~R~i)' | xargs -r aptitude markauto -y
 ```
 
-### Remove recommended packages.
+### Remove recommended packages
 
 ```bash
 aptitude search -F '%p' '!~E ~M !(~R~i | ~P~R~i)' | xargs -r aptitude purge --purge-unused -y
@@ -47,11 +49,11 @@ comm -23 (pacman -Qeq | psub) (pacman -Qeqtt | psub) | xargs -r pacman -D --asde
 ```sh
 # For sh.
 
-sudo swapoff -a && sudo swapon -a
+swapoff -a && swapon -a
 ```
 
 ```
 # For Fish.
 
-sudo swapoff -a; and sudo swapon -a
+swapoff -a; and swapon -a
 ```
