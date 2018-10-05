@@ -1,5 +1,6 @@
 ---
 title: Introduction to Algorithms Exercises
+enable_mathjax: true
 ---
 
 # Introduction to Algorithms Exercises
