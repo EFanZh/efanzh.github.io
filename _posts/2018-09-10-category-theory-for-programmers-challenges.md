@@ -2,9 +2,11 @@
 title: Category Theory for Programmers Challenges
 ---
 
-# Part One
+# Category Theory for Programmers Challenges
 
-## 1. Category: The Essence of Composition
+## Part One
+
+### 1 Category: The Essence of Composition
 
 1. > Implement, as best as you can, the identity function in your favorite language (or the second favorite, if your
    > favorite language happens to be Haskell).
@@ -28,7 +30,7 @@ title: Category Theory for Programmers Challenges
    When for every node, there is a edge from it to itself, and for every pair of edges a -> b and b -> c, there is an
    edge a -> c.
 
-## 2. Types and Functions
+### 2 Types and Functions
 
 1. > Define a higher-order function (or a function object) `memoize` in your favorite language. This function takes a
    > pure function `f` as an argument and returns a function that behaves almost exactly like `f`, except that it only
@@ -82,7 +84,7 @@ title: Category Theory for Programmers Challenges
 
    *Not sure.*
 
-## 3. Categories Great and Small
+### 3 Categories Great and Small
 
 1. > Generate a free category from:
    >
@@ -137,7 +139,7 @@ title: Category Theory for Programmers Challenges
    Rules of composition:
       - `(\x -> mod (x + m) 3) . (\x -> mod (x + n) 3) == \x -> mod (x + (m + n)) 3`
 
-## 4. Kleisli Categories
+### 4 Kleisli Categories
 
 > A function that is not defined for all possible values of its argument is called a partial function. It’s not really a
 > function in the mathematical sense, so it doesn’t fit the standard categorical mold. It can, however, be represented
@@ -182,7 +184,7 @@ title: Category Theory for Programmers Challenges
 2. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
 3. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
 
-## 5. Products and Coproducts
+### 5 Products and Coproducts
 
 1. > Show that the terminal object is unique up to unique isomorphism.
 
@@ -244,7 +246,7 @@ title: Category Theory for Programmers Challenges
 
    See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_8.rs).
 
-## 6. Simple Algebraic Data Types
+### 6 Simple Algebraic Data Types
 
 1. > Show the isomorphism between `Maybe a` and `Either () a`.
 
@@ -295,7 +297,7 @@ title: Category Theory for Programmers Challenges
    See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_5.rs) for definitions for
    morphisms.
 
-## 7. Functors
+### 7 Functors
 
 1. > Can we turn the `Maybe` type constructor into a functor by defining:
    >
