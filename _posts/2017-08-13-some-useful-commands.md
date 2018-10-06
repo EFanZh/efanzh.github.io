@@ -1,5 +1,4 @@
 ---
-title: Some useful commands
 ---
 
 # Some useful commands

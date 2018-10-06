@@ -1,6 +1,7 @@
 ---
-title: Fix Adobe Acrobat Reader DC start menu icon
 ---
+
+# Fix Adobe Acrobat Reader DC start menu icon
 
 For many years, I keep finding the icon of different versions of Adobe Reader in the start menu somehow became wrong.
 Now, finally, I’m able to solve this annoying problem.
