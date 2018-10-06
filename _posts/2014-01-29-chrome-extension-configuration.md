@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s Google Chrome extension configuration
 ---
+
+# EFanZh’s Google Chrome extension configuration
 
 ## SwitchyOmega
 

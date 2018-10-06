@@ -1,6 +1,7 @@
 ---
-title: Remove Adobe Acrobat Reader DC’s tool pane
 ---
+
+# Remove Adobe Acrobat Reader DC’s tool pane
 
 Edit this file (as Administrator if necessary):
 

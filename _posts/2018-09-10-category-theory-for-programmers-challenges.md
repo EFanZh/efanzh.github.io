@@ -1,5 +1,4 @@
 ---
-title: Category Theory for Programmers Challenges
 ---
 
 # Category Theory for Programmers Challenges

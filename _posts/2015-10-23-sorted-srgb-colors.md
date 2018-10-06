@@ -1,6 +1,7 @@
 ---
-title: Sorted sRGB Colors
 ---
+
+# Sorted sRGB Colors
 
 This is a picture that contains all 8 bit depth sRGB colors which are sorted by their luminance:
 

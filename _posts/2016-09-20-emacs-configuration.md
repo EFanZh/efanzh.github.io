@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s Emacs configuration
 ---
+
+# EFanZh’s Emacs configuration
 
 ```elisp
 ;; Added by Package.el.  This must come before configurations of

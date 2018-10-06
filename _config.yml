@@ -10,8 +10,14 @@ links:
 defaults:
   - scope:
         path: ""
-        type: "posts"
+        type: posts
     values:
-        layout: "page"
-plugins:
-  - jekyll-sitemap
+        layout: page
+markdown: CommonMarkGhPages
+commonmark:
+    options:
+      - FOOTNOTES
+    extensions:
+      - table
+titles_from_headings:
+    collections: true

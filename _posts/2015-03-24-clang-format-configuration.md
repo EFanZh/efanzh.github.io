@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s ClangFormat configuration
 ---
+
+# EFanZh’s ClangFormat configuration
 
 This is my [ClangFormat](http://clang.llvm.org/docs/ClangFormat.html) configuration:
 

@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s Visual Studio configuration
 ---
+
+# EFanZh’s Visual Studio configuration
 
 ## Options
 

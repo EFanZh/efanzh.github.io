@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s Sublime Text configuration
 ---
+
+# EFanZh’s Sublime Text configuration
 
 ```json
 {

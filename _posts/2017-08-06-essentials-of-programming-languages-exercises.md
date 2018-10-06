@@ -1,7 +1,8 @@
 ---
-title: Essentials of Programming Languages Exercises
 enable_mathjax: true
 ---
+
+# Essentials of Programming Languages Exercises
 
 ## Codes
 
@@ -20,13 +21,13 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
 >
-> 1. {3*n* + 2 \| *n* ∈ *N*}
-> 2. {2*n* + 3*m* + 1 \| *n*, *m* ∈ *N*}
-> 3. {(*n*, 2*n* + 1) \| *n* ∈ *N*}
-> 4. {(*n*, *n*<sup>2</sup>) \| *n* ∈ *N*} Do not mention squaring in your rules. As a hint, remember the equation
+> 1. {3*n* + 2 | *n* ∈ *N*}
+> 2. {2*n* + 3*m* + 1 | *n*, *m* ∈ *N*}
+> 3. {(*n*, 2*n* + 1) | *n* ∈ *N*}
+> 4. {(*n*, *n*<sup>2</sup>) | *n* ∈ *N*} Do not mention squaring in your rules. As a hint, remember the equation
 >    (*n* + 1)<sup>2</sup> = *n*<sup>2</sup> + 2*n* + 1.
 
-1. {3*n* + 2 \| *n* ∈ *N*}
+1. {3*n* + 2 | *n* ∈ *N*}
    - Top-down:
 
      *n* ∈ *S* if
@@ -40,9 +41,9 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - 2 ∈ *S*, and
      - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - \$$ \dfrac{}{2 ∈ S} $$
-     - \$$ \dfrac{n ∈ S}{n + 3 ∈ S} $$
-2. {2*n* + 3*m* + 1 \| *n*, *m* ∈ *N*}
+     - $\dfrac{}{2 ∈ S}$
+     - $\dfrac{n ∈ S}{n + 3 ∈ S}$
+2. {2*n* + 3*m* + 1 | *n*, *m* ∈ *N*}
    - Top-down:
 
      *n* ∈ *S* if
@@ -58,10 +59,10 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - If *n* ∈ *S*, then *n* + 2 ∈ *S*, and
      - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - \$$ \dfrac{}{1 ∈ S} $$
-     - \$$ \dfrac{n ∈ S}{n + 2 ∈ S} $$
-     - \$$ \dfrac{n ∈ S}{n + 3 ∈ S} $$
-3. {(*n*, 2*n* + 1) \| *n* ∈ *N*}
+     - $\dfrac{}{1 ∈ S}$
+     - $\dfrac{n ∈ S}{n + 2 ∈ S}$
+     - $\dfrac{n ∈ S}{n + 3 ∈ S}$
+3. {(*n*, 2*n* + 1) | *n* ∈ *N*}
    - Top-down:
 
      (*m*, *n*) ∈ *S* if
@@ -75,9 +76,9 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - (0, 1) ∈ *S*, and
      - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2) ∈ *S*
    - Rules of inference:
-     - \$$ \dfrac{}{(0, 1) ∈ S} $$
-     - \$$ \dfrac{(m, n) ∈ S}{(m + 1, n + 2) ∈ S} $$
-4. {(*n*, *n*<sup>2</sup>) \| *n* ∈ *N*}
+     - $\dfrac{}{(0, 1) ∈ S}$
+     - $\dfrac{(m, n) ∈ S}{(m + 1, n + 2) ∈ S}$
+4. {(*n*, *n*<sup>2</sup>) | *n* ∈ *N*}
 
     - Top-down:
 
@@ -92,28 +93,28 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
       - (0, 0) ∈ *S*, and
       - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2*m* + 1) ∈ *S*
     - Rules of inference:
-      - \$$ \dfrac{}{(0, 0) ∈ S} $$
-      - \$$ \dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S} $$
+      - $\dfrac{}{(0, 0) ∈ S}$
+      - $\dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S}$
 
 > Exercise 1.2 [★★] What sets are defined by the following pairs of rules? Explain why.
 >
-> 1. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S} $$
-> 2. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S} $$
-> 3. \$$ (0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S} $$
-> 4. [★★★] $$ (0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S} $$
+> 1. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}$
+> 2. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}$
+> 3. $(0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}$
+> 4. [★★★] $(0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}$
 
-1. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S} $$
+1. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}$
 
-   {(*n*, 7*n* + 1) \| *n* ∈ *N*}
-2. \$$ (0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S} $$
+   {(*n*, 7*n* + 1) | *n* ∈ *N*}
+2. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}$
 
-   {(*n*, 2<sup>*n*</sup>) \| *n* ∈ *N*}
-3. \$$ (0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S} $$
+   {(*n*, 2<sup>*n*</sup>) | *n* ∈ *N*}
+3. $(0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}$
 
-   {(*n*, *f*(*n*), *f*(*n* + 1)) \| *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
-4. \$$ (0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S} $$
+   {(*n*, *f*(*n*), *f*(*n* + 1)) | *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
+4. $(0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}$
 
-   {(*n*, 2*n* + 1, *n*<sup>2</sup>) \| *n* ∈ *N*}
+   {(*n*, 2*n* + 1, *n*<sup>2</sup>) | *n* ∈ *N*}
 
 > Exercise 1.3 [★★★] Find a set *T* of natural numbers such that 0 ∈ *T*, and whenever *n* ∈ *T*, then *n* + 3 ∈ *T*,
 > but *T* ≠ *S*, where *S* is the set defined in definition 1.1.2.
@@ -122,13 +123,13 @@ Let *T* = *N*.
 
 > Exercise 1.4 [★] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
 
-*List-of-Int*\\
-⇒ `(`*Int*` . `*List-of-Int*`)`\\
-⇒ `(-7 . `*List-of-Int*`)`\\
-⇒ `(-7 . (`*Int*` . `*List-of-Int*`))`\\
-⇒ `(-7 . (3 . `*List-of-Int*`))`\\
-⇒ `(-7 . (3 . (`*Int*` . `*List-of-Int*`)))`\\
-⇒ `(-7 . (3 . (14 . `*List-of-Int*`)))`\\
+*List-of-Int*\
+⇒ `(`*Int* `.` *List-of-Int*`)`\
+⇒ `(-7 .` *List-of-Int*`)`\
+⇒ `(-7 . (`*Int* `.` *List-of-Int*`))`\
+⇒ `(-7 . (3 .` *List-of-Int*`))`\
+⇒ `(-7 . (3 . (`*Int* `.` *List-of-Int*`)))`\
+⇒ `(-7 . (3 . (14 .` *List-of-Int*`)))`\
 ⇒ `(-7 . (3 . (14 . ())))`
 
 > Exercise 1.5 [★★] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
@@ -137,11 +138,11 @@ By induction on the structure of *LcExp*.
 
 If *e* is of *Identifier* form, it has 0 left parenthesis and 0 right parenthesis, the hypothesis holds.
 
-If *e* is of `(lambda (`*Identifier*`) `*LcExp*`)` form, the *Identifier* has 0 parenthesis. By induction, *LcExp* has
+If *e* is of `(lambda (`*Identifier*`)` *LcExp*`)` form, the *Identifier* has 0 parenthesis. By induction, *LcExp* has
 the same number of left and right parentheses. Let the number be *n*, then *e* has *n* + 2 left parentheses and *n* + 2
 right parentheses. The hypothesis holds.
 
-If *e* is of `(`*LcExp*` `*LcExp*`)` form, let *m* be the number of left or right parentheses in the first *LcExp*, let
+If *e* is of `(`*LcExp* *LcExp*`)` form, let *m* be the number of left or right parentheses in the first *LcExp*, let
 *n* be the number of left or right parentheses in the second *LcExp*, then *e* has *m* + *n* + 1 left parentheses and
 *m* + *n* + 1 right parentheses. The hypothesis holds.
 
@@ -177,7 +178,7 @@ If *e* is of `(`*LcExp*` `*LcExp*`)` form, let *m* be the number of left or righ
 
 **remove-first** : *Sym* × *Listof*(*Sym*) → *Listof*(*Sym*)
 
-**usage**: `(remove-first `*s*` `*los*`)` returns a sub of list from *los*, starting from the symbol after the first
+**usage**: `(remove-first` *s* *los*`)` returns a sub of list from *los*, starting from the symbol after the first
 *s*. If *los* doesn’t contain *s*, an empty list is returned.
 
 ```scheme
@@ -250,12 +251,12 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
 Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at least 1, so that *v* contains at least one element. We
 prove `partial-vector-sum` is correct by induction over *n*.
 
-Base case: if *n* equals to 0, `(partial-vector-sum `*v*` `*n*`)` equals to `(vector-ref `*v*` 0)`, which equals to
-$$\sum_{i = 0}^0 v_i$$, the claim holds.
+Base case: if *n* equals to 0, `(partial-vector-sum` *v* *n*`)` equals to `(vector-ref` *v* `0)`, which equals to
+$\sum_{i = 0}^0 v_i$, the claim holds.
 
-Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum `*v*` `*n*`)` equals to
-`(add (vector-ref `*v*` `*n*`) (partial-vector-sum `*v*` (- `*n*` 1)))`, which equals to
-$$v_n + \sum_{i = 0}^{n - 1} v_i$$, which equals to $$\sum_{i = 0}^n v_i$$, the claim holds.
+Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
+`(add (vector-ref` *v* *n*`) (partial-vector-sum` *v* `(-` *n* `1)))`, which equals to
+$v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the claim holds.
 
 > Exercise 1.15 [★] `(duple n x)` returns a list containing `n` copies of `x`.
 >
@@ -961,7 +962,7 @@ when the base becomes larger.
 > Exercise 2.3 [★★] Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
 > diff-tree is a list defined by the grammar
 >
-> *Diff-tree* ::= `(one)` \| `(diff `*Diff-tree*` `*Diff-tree*`)`
+> *Diff-tree* ::= `(one)` | `(diff` *Diff-tree* *Diff-tree*`)`
 >
 > The list `(one)` represents 1. If *t*<sub>1</sub> represents *n*<sub>1</sub> and *t*<sub>2</sub> represents
 > *n*<sub>2</sub>, then `(diff t1 t2)` is a representation of *n*<sub>1</sub> − *n*<sub>2</sub>.
@@ -981,7 +982,7 @@ when the base becomes larger.
 >    its inputs). In particular, it should not be recursive.
 
 1. 0 has infinitely many representations: `(diff (one) (one))`, `(diff (diff (one) (one)) (diff (one) (one)))`, and so
-   on. *n* can be represented as `(diff `*n*` `0`)`, since 0 has infinitely many representations, *n* has infinitely
+   on. *n* can be represented as `(diff` *n* 0`)`, since 0 has infinitely many representations, *n* has infinitely
    many representations.
 2. ```scheme
    (define zero
@@ -1018,10 +1019,10 @@ when the base becomes larger.
 > the example above. Which operations are constructors and which are observers?
 
 - `(empty-stack)` = ⌈∅⌉
-- `(push `⌈*f*⌉` `*v*`)` = ⌈*g*⌉, where *g*(0) = *v*, and *g*(*n* + 1) = *f*(*n*)
-- `(pop `⌈*f*⌉`)` = *g*, where *g*(*n*) = *f*(*n* + 1)
-- `(top `⌈*f*⌉`)` = ⌈*f*(0)⌉
-- `(empty-stack? `⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise
+- `(push` ⌈*f*⌉ *v*`)` = ⌈*g*⌉, where *g*(0) = *v*, and *g*(*n* + 1) = *f*(*n*)
+- `(pop` ⌈*f*⌉`)` = *g*, where *g*(*n*) = *f*(*n* + 1)
+- `(top` ⌈*f*⌉`)` = ⌈*f*(0)⌉
+- `(empty-stack?` ⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise
 
 Constructors: `empty-stack`, `push` and `pop`.
 
@@ -1118,7 +1119,7 @@ Observers: `top` and `empty-stack?`.
 > Exercise 2.8 [★] Add to the environment interface an observer called `empty-env?` and implement it using the
 > a-list representation.
 
-`(emtpy-env? `⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise.
+`(emtpy-env?` ⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise.
 
 ```scheme
 (define empty-env? null?)
@@ -1128,7 +1129,7 @@ Observers: `top` and `empty-stack?`.
 > and a variable *s* and tests to see if *s* has an associated value in *env*. Implement it using the a-list
 > representation.
 
-`(has-binding? `⌈*f*⌉`)` = `#t` if *f*(*var*) = *val* for some *var* and *val*, `#f` otherwise.
+`(has-binding?` ⌈*f*⌉`)` = `#t` if *f*(*var*) = *val* for some *var* and *val*, `#f` otherwise.
 
 ```racket
 (define has-binding?
@@ -1142,7 +1143,7 @@ Observers: `top` and `empty-stack?`.
 > representation. This constructor takes a list of variables, a list of values of the same length, and an environment,
 > and is specified by
 >
-> `(extend-env* (`*var*<sub>1</sub> … *var*<sub>*k*</sub>`) (`*val*<sub>1</sub> … *val*<sub>*k*</sub>`) `⌈*f*⌉`)` = ⌈*g*⌉,
+> `(extend-env* (`*var*<sub>1</sub> … *var*<sub>*k*</sub>`) (`*val*<sub>1</sub> … *val*<sub>*k*</sub>`)` ⌈*f*⌉`)` = ⌈*g*⌉,
 > where *g*(*var*) = *val*<sub>*i*</sub> if *var* = *var*<sub>*i*</sub> for some *i* such that 1 ≤ *i* ≤ *k*, *f*(*var*)
 > otherwise.
 
@@ -1387,7 +1388,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > from one element in a sequence to the next, but it is hard to move from one element to the preceding one without the
 > help of context arguments. Implement non-empty bidirectional sequences of integers, as suggested by the grammar
 >
-> *NodeInSequence* ::= `(`*Int*` `*Listof*`(`*Int*`) `*Listof*`(`*Int*`))`
+> *NodeInSequence* ::= `(`*Int* *Listof*`(`*Int*`)` *Listof*`(`*Int*`))`
 >
 > The first list of numbers is the elements of the sequence preceding the current one, in reverse order, and the second
 > list is the elements of the sequence after the current one. For example, `(6 (5 4 3 2 1) (7 8 9))` represents the list
@@ -1468,7 +1469,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > Exercise 2.19 [★] A binary tree with empty leaves and with interior nodes labeled with integers could be represented
 > using the grammar
 >
-> Bintree ::= `()` \| `(`*Int*` `*Bintree*` `*Bintree*`)`
+> Bintree ::= `()` | `(`*Int* *Bintree* *Bintree*`)`
 >
 > In this representation, implement the procedure `number->bintree`, which takes a number and produces a binary tree
 > consisting of a single node containing that number. Also implement `current-element`, `move-to-left-son`,
@@ -1790,10 +1791,11 @@ Remaining implementations are the same as the ones in exercise 2.15.
 
 > Exercise 2.26 [★★] Here is another version of exercise 1.33. Consider a set of trees given by the following grammar:
 >
-> | *Red-blue-tree*    | ::= *Red-blue-subtree*                                     |
-> | *Red-blue-subtree* | ::= `(red-node `*Red-blue-subtree*` `*Red-blue-subtree*`)` |
-> |                    | ::= `(blue-node `{*Red-blue-subtree*}<sup>∗</sup>`)`       |
-> |                    | ::= `(leaf-node Int)`                                      |
+> *Red-blue-tree*    ::= *Red-blue-subtree*
+>
+> *Red-blue-subtree* ::= `(red-node` *Red-blue-subtree* *Red-blue-subtree*`)`\
+> ::= `(blue-node` {*Red-blue-subtree*}<sup>∗</sup>`)`\
+> ::= `(leaf-node Int)`
 >
 > Write an equivalent definition using `define-datatype`, and use the resulting interface to write a procedure that
 > takes a tree and builds a tree of the same shape, except that each leaf node is replaced by a leaf node that contains
@@ -1943,12 +1945,12 @@ bound-var     body
 > *list* of associated subtrees when constructing an abstract syntax tree. For example, if the grammar for
 > lambda-calculus expressions had been
 >
-> | *Lc-exp* | ::= | *Identifier*                                                          |
-> |          |     | <span style="border: 1px solid">`var-exp (var)`</span>                |
-> |          | ::= | `(lambda (`{*Identifier*}<sup>∗</sup>`) `*Lc-exp*`)`                  |
-> |          |     | <span style="border: 1px solid">`lambda-exp (bound-vars body)`</span> |
-> |          | ::= | `(`*Lc-exp* {*Lc-exp*}<sup>∗</sup>`)`                                 |
-> |          |     | <span style="border: 1px solid">`app-exp (rator rands)`               |
+> *Lc-exp* ::= *Identifier*\
+> <span style="border: 1px solid">`var-exp (var)`</span>\
+> ::= `(lambda (`{*Identifier*}<sup>∗</sup>`)` *Lc-exp*`)`\
+> <span style="border: 1px solid">`lambda-exp (bound-vars body)`</span>\
+> ::= `(`*Lc-exp* {*Lc-exp*}<sup>∗</sup>`)`\
+> <span style="border: 1px solid">`app-exp (rator rands)`
 >
 > then the predicate for the `bound-vars` field could be `(list-of identifier?)`, and the predicate for the `rands`
 > field could be `(list-of lc-exp?)`. Write a `define-datatype` and a parser for this grammar that works in this way.
@@ -2048,9 +2050,10 @@ bound-var     body
 > Exercise 2.31 [★★] Sometimes it is useful to specify a concrete syntax as a sequence of symbols and integers,
 > surrounded by parentheses. For example, one might define the set of *prefix lists* by
 >
-> | *Prefix-list* | ::= `(`*Prefix-exp*`)`              |
-> | *Prefix-exp*  | ::= *Int*                           |
-> |               | ::= `- `*Prefix-exp*` `*Prefix-exp* |
+> *Prefix-list* ::= `(`*Prefix-exp*`)`
+>
+> *Prefix-exp* ::= *Int*\
+> ::= `-` *Prefix-exp* *Prefix-exp*
 >
 > so that `(- - 3 2 - 4 - 12 7)` is a legal prefix list. This is sometimes called *Polish prefix notation*, after its
 > inventor, Jan Łukasiewicz. Write a parser to convert a prefix-list to the abstract syntax
@@ -2121,7 +2124,7 @@ Not sure, but maybe when *val* is constructed using a *Bool*?
 
 > Exercise 3.3 [★] Why is subtraction a better choice than addition for our single arithmetic operation?
 
-One reason I can think of, is that subtraction is not commutative, that is $$a - b$$ may not equal to $$b - a$$. If
+One reason I can think of, is that subtraction is not commutative, that is $a - b$ may not equal to $b - a$. If
 our implementation of subtraction is incorrect, we can discover the error quickly.
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
@@ -2194,7 +2197,7 @@ Solution is implemented
 
 > Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
 >
-> *Expression* ::= `cond `{*Expression*` ==> `*Expression*}<sup>∗</sup>` end`
+> *Expression* ::= `cond` {*Expression* `==>` *Expression*}<sup>∗</sup> `end`
 >
 > In this expression, the expressions on the left-hand sides of the `==>`’s are evaluated in order until one of them
 > returns a true value. Then the value of the entire expression is the value of the corresponding right-hand expression.
@@ -2211,7 +2214,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 3.14 [★★] As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
 > expressions to the language. Change the production for conditional expressions to say
 >
-> *Expression* ::= `if `*Bool-exp*` then `*Expression*` else `*Expression*
+> *Expression* ::= `if` *Bool-exp* `then` *Expression* `else` *Expression*
 >
 > Write suitable productions for *Bool-exp* and implement `value-of-bool-exp`. Where do the predicates of exercise 3.8
 > wind up in this organization?
@@ -2229,7 +2232,7 @@ Because `print` cause a side effect while our specification framework does not h
 > Exercise 3.16 [★★] Extend the language so that a `let` declaration can declare an arbitrary number of variables,
 > using the grammar
 >
-> *Expression* ::= `let `{*Identifier*` = `*Expression*}<sup>∗</sup>` in `*Expression*
+> *Expression* ::= `let` {*Identifier* `=` *Expression*}<sup>∗</sup> `in` *Expression*
 >
 > As in Scheme’s `let`, each of the right-hand sides is evaluated in the current environment, and the body is evaluated
 > with each new variable bound to the value of its associated right-hand side. For example,
@@ -2261,7 +2264,7 @@ Solution is implemented
 
 > Exercise 3.18 [★★] Add an expression to the defined language:
 >
-> *Expression* ::= `unpack `{*Identifier*}<sup>∗</sup>` = `*Expression*` in `*Expression*
+> *Expression* ::= `unpack` {*Identifier*}<sup>∗</sup> `=` *Expression* `in` *Expression*
 >
 > so that `unpack x y z = lst in ...` binds `x`, `y`, and `z` to the elements of `lst` if `lst` is a list of exactly
 > three elements, and reports an error otherwise. For example, the value of
@@ -2291,7 +2294,7 @@ Solution is implemented
 > ```
 >
 > This trick is called *Currying*, and the procedure is said to be *Curried*. Write a Curried procedure that takes two
-> arguments and returns their sum. You can write *x* + *y* in our language by writing `-(`*x*`, -(0, `*y*`))`.
+> arguments and returns their sum. You can write *x* + *y* in our language by writing `-(`*x*`, -(0,` *y*`))`.
 
 ```
 proc (x)
@@ -2302,8 +2305,8 @@ proc (x)
 > Exercise 3.21 [★★] Extend the language of this section to include procedures with multiple arguments and calls with
 > multiple operands, as suggested by the grammar
 >
-> *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`) `*Expression*\\
-> *Expression* ::= `(`*Expression*` `{*Expression*}<sup>∗</sup>`)`
+> *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`)` *Expression*\
+> *Expression* ::= `(`*Expression* {*Expression*}<sup>∗</sup>`)`
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
@@ -2664,7 +2667,7 @@ Solution is implemented
 
 > Exercise 3.42 [★★★] Modify the lexical address translator and interpreter to use the trimmed representation of
 > procedures from exercise 3.26. For this, you will need to translate the body of the procedure not
-> `(extend-senv `*var*` `*senv*`)`, but in a new static environment that tells exactly where each variable will be kept
+> `(extend-senv` *var* *senv*`)`, but in a new static environment that tells exactly where each variable will be kept
 > in the trimmed representation.
 
 Solution is implemented
@@ -2715,25 +2718,25 @@ final value that referenced by `counter` will be the same.
 
 $$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
          {\texttt{(value-of (zero?-exp $exp_1$) $ρ$ $σ_0$)} =
-              \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\
+              \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\\\
                      (\texttt{(bool-val #f)}, σ_1) &if $\texttt{(expval->num $val_1$)} ≠ 0$}} $$
 
 > Exercise 4.3 [★] Write down the specification for a `call-exp`.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
          {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
               \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} $$
 
 > Exercise 4.4 [★★] Write down the specification for a `begin` expression.
 >
-> *Expression* ::= `begin `*Expression*` `{`; `*Expression*}<sup>∗</sup>` end`
+> *Expression* ::= `begin` *Expression* {`;` *Expression*}<sup>∗</sup> `end`
 >
 > A `begin` expression may contain one or more subexpressions separated by semicolons. These are evaluated in order and
 > the value of the last is returned.
 
 $$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
-         {\eqalign{\texttt{(value-of (begin-exp $exp_1$ '()) $ρ$ $σ_0$)}                   &= (val_1, σ_1) \\
+         {\eqalign{\texttt{(value-of (begin-exp $exp_1$ '()) $ρ$ $σ_0$)}                   &= (val_1, σ_1) \\\\
                    \texttt{(value-of (begin-exp $exp_1$ (cons $exp_2$ $exps$)) $ρ$ $σ_0$)} &=
                        \texttt{(value-of (begin-exp $exp_2$ $exps$) $ρ$ $σ_1$)}}} $$
 
@@ -2741,19 +2744,19 @@ $$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
 
 $$ \texttt{(value-of (list-exp '()))} = \texttt{(empty-list)} $$
 
-$$ \dfrac{\eqalign{          \texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+$$ \dfrac{\eqalign{          \texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
                    \texttt{(value-of (list-exp $exps$) $ρ$ $σ_1$)} &= (val_2, σ_2)}}
          {\texttt{(value-of (list-exp (cons $exp_1$ $exps$)))} = (\texttt{(pair-val $val_1$ $val_2$)}, σ_2)} $$
 
 > Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
          {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (val, [l=val]σ_2)} $$
 
 > Exercise 4.7 [★] Modify the rule given above so that a `setref-exp` returns the old contents of the location.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
          {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (σ_0(l), [l=val]σ_2)} $$
 
@@ -2897,20 +2900,20 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 
 > Exercise 4.17 [★★] Write the rules for and implement multiargument procedures and `let` expressions.
 
-$$ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\
+$$ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\\\
             = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ$)}} $$
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2) \\
-                                                         &… \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
+                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2) \\\\
+                                                         &… \\\\
              \texttt{(value-of $exp_n$ $ρ$ $σ_{n - 1}$)} &= (val_n, σ_n)}}
-         {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\
+         {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\\\
                    = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n$)}}} $$
 
 > Exercise 4.18 [★★] Write the rule for and implement multiprocedure `letrec` expressions.
 
-$$ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\
-            = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\
+$$ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\\\
+            = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\\\
               &\quad \texttt{(value-of $letrecbody$ letrec-env $[l_n = \texttt{(procedure $bvars_n$ $pbody_n$ letrec-env)}]
                                                                 …
                                                                 [l_2 = \texttt{(procedure $bvars_2$ $pbody_2$ letrec-env)}]
@@ -2934,7 +2937,7 @@ Solution is implemented
 > Modify the language of this section so that `let` introduces immutable variables, as before, but mutable variables are
 > introduced by a `letmutable` expression, with syntax given by
 >
-> *Expression* ::= `letmutable `*Identifier*` = `*Expression*` in `*Expression*
+> *Expression* ::= `letmutable` *Identifier* `=` *Expression* `in` *Expression*
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.20-test.rkt).
 
@@ -2943,8 +2946,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > it. Very often such an assignment should only be temporary, lasting for the execution of a procedure call. Add to the
 > language a facility for *dynamic assignment* (also called *fluid binding*) to accomplish this. Use the production
 >
-> | *Expression* ::= | `setdynamic `*Identifier*` = `*Expression*` during `*Expression*                               |
-> |                  | <span style="border: 1px solid">`setdynamic-exp (`*var*` `*exp*<sub>1</sub>` `*body*`)`</span> |
+> *Expression* ::= `setdynamic` *Identifier* `=` *Expression* `during` *Expression*\
+> <span style="border: 1px solid">`setdynamic-exp (`*var* *exp*<sub>1</sub> *body*`)`</span>
 >
 > The effect of the `setdynamic` expression is to assign temporarily the value of *exp*<sub>1</sub> to *var*, evaluate
 > *body*, reassign *var* to its original value, and return the value of *body*. The variable *var* must already be
@@ -2972,13 +2975,14 @@ Solution is implemented
 >
 > **Syntax** Use the following syntax:
 >
-> | *Program*   | ::= *Statement*                                           |
-> | *Statement* | ::= *Identifier*` = `*Expression*                         |
-> |             | ::= `print `*Expression*                                  |
-> |             | ::= `{ `{*Statement*}<sup>∗(`;`)</sup>` }`                |
-> |             | ::= `if `*Expression*` `*Statement*` `*Statement*         |
-> |             | ::= `while `*Expression*` `*Statement*                    |
-> |             | ::= `var `{*Identifier*}<sup>∗(`,`)</sup>` ; `*Statement* |
+> *Program* ::= *Statement*
+>
+> *Statement* ::= *Identifier* `=` *Expression*\
+> ::= `print` *Expression*\
+> ::= `{` {*Statement*}<sup>∗(`;`)</sup> `}`\
+> ::= `if` *Expression* *Statement* *Statement*\
+> ::= `while` *Expression* *Statement*\
+> ::= `var` {*Identifier*}<sup>∗(`,`)</sup> `;` *Statement*
 >
 > The nonterminal *Expression* refers to the language of expressions of IMPLICIT-REFS, perhaps with some extensions.
 >
@@ -3036,27 +3040,27 @@ $$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
 $$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
          {\texttt{(result-of (print-statement $exp$) $ρ$ $σ_0$)} = σ_1} $$
 
-$$ \dfrac{\eqalign{      \texttt{(result-of $stmt_1$ $ρ$ $σ_0$)} &= σ_1 \\
-                         \texttt{(result-of $stmt_2$ $ρ$ $σ_1$)} &= σ_2 \\
-                                                                 &… \\
+$$ \dfrac{\eqalign{      \texttt{(result-of $stmt_1$ $ρ$ $σ_0$)} &= σ_1 \\\\
+                         \texttt{(result-of $stmt_2$ $ρ$ $σ_1$)} &= σ_2 \\\\
+                                                                 &… \\\\
                    \texttt{(result-of $stmt_n$ $ρ$ $σ_{n - 1}$)} &= σ_n}}
          {\texttt{(result-of (brace-statement (list $stmt_1$ $stmt_1$ $…$ $stmt_n$)) $ρ$ $σ_0$)} = σ_n} $$
 
 $$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
          {\texttt{(result-of (if-statement $exp$ $stmt_1$ $stmt_2$) $ρ$ $σ_0$)} =
-              \cases{\texttt{(result-of $stmt_1$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\
+              \cases{\texttt{(result-of $stmt_1$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
                      \texttt{(result-of $stmt_2$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}} $$
 
-$$ \dfrac{\eqalign{  \texttt{(value-of $exp$ $ρ$ $σ_0$)} &= (val, σ_1) \\
+$$ \dfrac{\eqalign{  \texttt{(value-of $exp$ $ρ$ $σ_0$)} &= (val, σ_1) \\\\
                    \texttt{(result-of $stmt$ $ρ$ $σ_1$)} &= σ_2}}
-         {\eqalign{  &\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} \\
-                   = &\cases{\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\
+         {\eqalign{  &\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} \\\\
+                   = &\cases{\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
                              σ_1                                                           &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}}} $$
 
-$$ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\
+$$ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\\\
             = &\texttt{(result-of $stmt$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = undefined]…[l_2 = undefined][l_1 = undefined]σ_0$)}} $$
 
-> Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read `*var*. This statement
+> Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read` *var*. This statement
 > reads a nonnegative integer from the input and stores it in the given variable.
 
 Solution is implemented
@@ -3096,7 +3100,7 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 
 > Exercise 4.28 [★★] Write down the specification rules for the five mutable-pair operations.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
          {\texttt{(value-of (newpair-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
               (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, [l_2 = val_2][l_1 = val_1]σ_2)} $$
@@ -3107,11 +3111,11 @@ $$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pai
 $$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
          {\texttt{(value-of (right-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_2), σ_1)} $$
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
          {\texttt{(value-of (setleft-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 82)}, [l_1 = val_2]σ_2)} $$
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\
+$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
          {\texttt{(value-of (setright-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 83)}, [l_2 = val_2]σ_2)} $$
 
@@ -3171,8 +3175,8 @@ Solution is implemented
 > Exercise 4.35 [★★] We can get some of the benefits of call-by-reference without leaving the call-by-value framework.
 > Extend the language IMPLICIT-REFS by adding a new expression
 >
-> | *Expression* ::= | `ref `*Identifier*                                     |
-> |                  | <span style="border: 1px solid">`ref-exp (var)`</span> |
+> *Expression* ::= `ref` *Identifier*\
+> <span style="border: 1px solid">`ref-exp (var)`</span>
 >
 > This differs from the language EXPLICIT-REFS, since references are only of variables. This allows us to write familiar
 > programs such as `swap` within our call-by-value language. What should be the value of this expression?
@@ -3454,7 +3458,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 The definition of *Bounce* need not to change.
 
 > Exercise 5.20 [★] In exercise 5.19, the last bounce before `trampoline` returns a *FinalAnswer* is always something
-> like `(apply-cont (end-cont) `*val*`)`, where `val` is some `ExpVal`. Optimize your representation of bounces in
+> like `(apply-cont (end-cont)` *val*`)`, where `val` is some `ExpVal`. Optimize your representation of bounces in
 > exercise 5.19 to take advantage of this fact.
 
 *Skipped for now.*
@@ -3608,21 +3612,21 @@ I had to use a one-argument procedure to represent the action under `apply-handl
 procedure.
 
 > Exercise 5.42 [★★] The preceding exercise captures the continuation only when an exception is raised. Add to the
-> language the ability to capture a continuation anywhere by adding the form `letcc `*Identifier*` in `*Expression* with
+> language the ability to capture a continuation anywhere by adding the form `letcc` *Identifier* `in` *Expression* with
 > the specification
 >
-> `(value-of/k (letcc `*var*` `*body*`) `*ρ*` `*cont*`)`<br />
-> `= (value-of/k `*body*` (extend-env `*var*` `*cont*` `*ρ*`) `*cont*`)`
+> `(value-of/k (letcc` *var* *body*`)` *ρ* *cont*`)`<br />
+> `= (value-of/k` *body* `(extend-env` *var* *cont* *ρ*`)` *cont*`)`
 >
-> Such a captured continuation may be invoked with `throw`: the expression `throw `*Expression*` to `*Expression*
+> Such a captured continuation may be invoked with `throw`: the expression `throw` *Expression* `to` *Expression*
 > evaluates the two subexpressions. The second expression should return a continuation, which is applied to the value of
 > the first expression. The current continuation of the throw expression is ignored.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.42.rkt).
 
 > Exercise 5.43 [★★] Modify `letcc` as defined in the preceding exercise so that the captured continuation becomes a
-> new kind of procedure, so instead of writing `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub>, one would write
-> `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
+> new kind of procedure, so instead of writing `throw` *exp*<sub>1</sub> `to` *exp*<sub>2</sub>, one would write
+> `(`*exp*<sub>2</sub> *exp*<sub>1</sub>`)`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.43.rkt).
 
@@ -3646,8 +3650,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 To translate a language with `letcc` and `throw` into the language without `letcc` and `throw`, just do the following:
 
-- Translate `letcc `*var*` in `*body* into `callcc(proc (`*var*`) `*body*`)`;
-- Translate `throw `*exp*<sub>1</sub>` to `*exp*<sub>2</sub> into `(`*exp*<sub>2</sub>` `*exp*<sub>1</sub>`)`.
+- Translate `letcc` *var* `in` *body* into `callcc(proc (`*var*`)` *body*`)`;
+- Translate `throw` *exp*<sub>1</sub> `to` *exp*<sub>2</sub> into `(`*exp*<sub>2</sub> *exp*<sub>1</sub>`)`.
 
 > Exercise 5.45 [★] Add to the language of this section a construct called `yield`. Whenever a thread executes a
 > `yield`, it is placed on the ready queue, and the thread at the head of the ready queue is run. When the thread is
@@ -3788,19 +3792,19 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` in order
 to continue computation. Same for `apply-cont`.
 
-> Exercise 6.2 [★] Prove by induction on *n* that for any *g*, `(fib/k `*n*` `*g*`)` = `(`*g*` (fib `*n*`))`.
+> Exercise 6.2 [★] Prove by induction on *n* that for any *g*, `(fib/k` *n* *g*`)` = `(`*g* `(fib` *n*`))`.
 
-Base case: if *n* < 2, `(fib/k `*n*` `*g*`)` = `(`*g*` `1`)` = `(`*g*` (fib `*n*`))`.
+Base case: if *n* < 2, `(fib/k` *n* *g*`)` = `(`*g* 1`)` = `(`*g* `(fib` *n*`))`.
 
 Inductive case: if *n* ≥ 2,
 
-`(fib/k `*n*` `*g*`)`\\
-= `(fib/k (- `*n*` 1) (lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))))`\\
-= `((lambda (val1) (fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ val1 val2))))) (fib (- `*n*` 1)))` (by induction)\\
-= `(fib/k (- `*n*` 2) (lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))))`\\
-= `((lambda (val2) (`*g*` (+ (fib (- `*n*` 1)) val2))) (fib (- `*n*` 2)))` (by induction)\\
-= `(`*g*` (+ (fib (- `*n*` 1)) (fib (- `*n*` 2))))`\\
-= `(`*g*` (fib `*n*`))`
+`(fib/k` *n* *g*`)`\
+= `(fib/k (-` *n* `1) (lambda (val1) (fib/k (-` *n* `2) (lambda (val2) (`*g* `(+ val1 val2))))))`\
+= `((lambda (val1) (fib/k (-` *n* `2) (lambda (val2) (`*g* `(+ val1 val2))))) (fib (-` *n* `1)))` (by induction)\
+= `(fib/k (-` *n* `2) (lambda (val2) (`*g* `(+ (fib (-` *n* `1)) val2))))`\
+= `((lambda (val2) (`*g* `(+ (fib (-` *n* `1)) val2))) (fib (-` *n* `2)))` (by induction)\
+= `(`*g* `(+ (fib (-` *n* `1)) (fib (-` *n* `2))))`\
+= `(`*g* `(fib` *n*`))`
 
 > Exercise 6.3 [★] Rewrite each of the following Scheme expressions in continuation-passing style. Assume that any
 > unknown functions have also been rewritten in CPS.
@@ -4226,7 +4230,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.21.rkt).
 
-> Exercise 6.22 [★] Sometimes, when we generate `(`*K*` `*simp*`)`, *K* is already a `proc-exp`. So instead of
+> Exercise 6.22 [★] Sometimes, when we generate `(`*K* *simp*`)`, *K* is already a `proc-exp`. So instead of
 > generating
 >
 > ```scheme
@@ -4288,8 +4292,8 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > Exercise 6.27 [★★] As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
 > procedure so that the continuation variable is the same as the let variable. Then if *exp*<sub>1</sub> is nonsimple,
 >
-> `(cps-of-exp <<let `*var*<sub>1</sub>` = `*exp*<sub>1</sub>` in `*exp*<sub>2</sub>`>> `*K*`)`\\
-> `= (cps-of-exp `*exp*<sub>1</sub>` <<proc (`*var*<sub>1</sub>`) (cps-of-exp `*exp*<sub>2</sub>` `*K*`)>>`
+> `(cps-of-exp <<let` *var*<sub>1</sub> `=` *exp*<sub>1</sub> `in` *exp*<sub>2</sub>`>>` *K*`)`\
+> `= (cps-of-exp` *exp*<sub>1</sub> `<<proc (`*var*<sub>1</sub>`) (cps-of-exp` *exp*<sub>2</sub> *K*`)>>`
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.27.rkt).
 
@@ -4329,8 +4333,8 @@ there are multiple non-simple expressions in `exps`.
 
 > Exercise 6.30 [★★] A call to `cps-of-exps` with a list of expressions of length one can be simplified as follows:
 >
-> `(cps-of-exps (list `*exp*`) `*builder*`)`\\
-> = `(cps-of-exp/ctx `*exp*` (lambda (simp) (`*builder*` (list simp))))`
+> `(cps-of-exps (list` *exp*`)` *builder*`)`\
+> = `(cps-of-exp/ctx` *exp* `(lambda (simp) (`*builder* `(list simp))))`
 >
 > where
 >
@@ -4505,22 +4509,22 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
    proc (f) proc (x) -((f x), 1)
    ```
 
-   `(`*t*` -> int) -> (`*t*` -> int)`
+   `(`*t* `-> int) -> (`*t* `-> int)`
 3. ```
    proc (x) x
    ```
 
-   *t*` -> `*t*
+   *t* `->` *t*
 4. ```
    proc (x) proc (y) (x y)
    ```
 
-   `(`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`
+   `(`*t*<sub>1</sub> `->` *t*<sub>2</sub>`) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)`
 5. ```
    proc (x) (x 3)
    ```
 
-   `(int -> `*t*`) -> `*t*
+   `(int ->` *t*`) ->` *t*
 6. ```
    proc (x) (x x)
    ```
@@ -4555,7 +4559,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
        proc (x) if (p (f x)) then (g 1) else -((f x),1)
     ```
 
-    `(`*t*` -> int) -> ((int -> int) -> ((int -> bool) -> (`*t*` -> int)))`
+    `(`*t* `-> int) -> ((int -> int) -> ((int -> bool) -> (`*t* `-> int)))`
 12. ```
     proc (x)
      proc(p)
@@ -4571,7 +4575,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
      in proc (n) ((f (d d)) n)
     ```
 
-    `((`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`
+    `((`*t*<sub>1</sub> `->` *t*<sub>2</sub>`) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)`
     *(Not sure about this one)*
 
 > Exercise 7.2 [★★] Are there any expressed values that have exactly two types according to definition 7.1.1?
@@ -4590,7 +4594,7 @@ $$ \dfrac{\texttt{(type-of «x» $[\texttt{x}=t]tenv$)} = t}
          {\texttt{(type-of «proc (x) x» $tenv$)} = \texttt{($t$ -> $t$)}} $$
 
 $$ \dfrac{\dfrac{\dfrac{\eqalign{\texttt{(type-of «x» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
-                                     \texttt{($t_1$ -> $t_2$)} \\
+                                     \texttt{($t_1$ -> $t_2$)} \\\\
                                  \texttt{(type-of «y» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
                                      t_1}}
                        {\texttt{(type-of «(x y)» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} = t_2}}
@@ -4603,7 +4607,7 @@ type may be different.
 
 > Exercise 7.5 [★★] Extend the checker to handle multiple `let` declarations, multiargument procedures, and multiple
 > `letrec` declarations. You will need to add types of the form
-> `(`*t*<sub>1</sub>` * `*t*<sub>2</sub>` * ... * `*t*<sub>*n*</sub>` -> `*t*`)` to handle multiargument procedures.
+> `(`*t*<sub>1</sub> `*` *t*<sub>2</sub> `* ... *` *t*<sub>*n*</sub> `->` *t*`)` to handle multiargument procedures.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.5.rkt).
 
@@ -4624,57 +4628,63 @@ if 1 then -(zero?(1), 4) else 2
 ```
 
 > Exercise 7.8 [★★] Add `pairof` types to the language. Say that a value is of type
-> `pairof `*t*<sub>1</sub>` * `*t*<sub>2</sub> if and only if it is a pair consisting of a value of type *t*<sub>1</sub>
+> `pairof` *t*<sub>1</sub> `*` *t*<sub>2</sub> if and only if it is a pair consisting of a value of type *t*<sub>1</sub>
 > and a value of type *t*<sub>2</sub>. Add to the language the following productions:
 >
-> | *Type*       | ::= | `pairof `*Type*` * `*Type*                                               |
-> |              |     | <span style="border: 1px solid">`pair-type (ty1 ty2)`</span>             |
-> | *Expression* | ::= | `newpair (`*Expression*` , `*Expression*`)`                              |
-> |              |     | <span style="border: 1px solid">`pair-exp (exp1 exp2)`</span>            |
-> | *Expression* | ::= | `unpair `*Identifier*` `*Identifier*` = `*Expression*                    |
-> |              |     | `in `*Expression*                                                        |
-> |              |     | <span style="border: 1px solid">`unpair-exp (var1 var2 exp body)`</span> |
+> *Type* ::= `pairof` *Type* `*` *Type*\
+> <span style="border: 1px solid">`pair-type (ty1 ty2)`</span>
+>
+> *Expression* ::= `newpair (`*Expression* `,` *Expression*`)`\
+> <span style="border: 1px solid">`pair-exp (exp1 exp2)`</span>
+>
+> *Expression* ::= `unpair` *Identifier* *Identifier* `=` *Expression*\
+> `in` *Expression*\
+> <span style="border: 1px solid">`unpair-exp (var1 var2 exp body)`</span>
 >
 > A `pair` expression creates a pair; an `unpair` expression (like exercise 3.18) binds its two variables to the two
 > parts of the expression; the scope of these variables is `body`. The typing rules for `pair` and `unpair` are:
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\\\
 >                    \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
 >           {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} $$
 >
-> $$ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\
+> $$ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\\\
 >                    \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
 >          {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} $$
 >
 > Extend CHECKED to implement these rules. In `type-to-external-form`, produce the list
-> `(pairof `*t*<sub>1</sub>` `*t*<sub>2</sub>`)` for a pair type.
+> `(pairof` *t*<sub>1</sub> *t*<sub>2</sub>`)` for a pair type.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
 
 > Exercise 7.9 [★★] Add `listof` types to the language, with operations similar to those of exercise 3.9. A value is of
-> type `listof `*t* if and only if it is a list and all of its elements are of type *t*. Extend the language with the
+> type `listof` *t* if and only if it is a list and all of its elements are of type *t*. Extend the language with the
 > productions
 >
-> | *Type*       | ::= | `listof `*Type*                                               |
-> |              |     | <span style="border: 1px solid">`list-type (ty)`</span>       |
-> | *Expression* | ::= | `list (`*Expression*` `{`, `*Expression*}<sup>∗</sup>`)`      |
-> |              |     | <span style="border: 1px solid">`list-exp (exp1 exps)`</span> |
-> | *Expression* | ::= | `cons (`*Expression*` , `*Expression*`)`                      |
-> |              |     | <span style="border: 1px solid">`cons-exp (exp1 exp2)`</span> |
-> | *Expression* | ::= | `null? (`*Expression*`)`                                      |
-> |              |     | <span style="border: 1px solid">`null-exp (exp1)`</span>      |
-> | *Expression* | ::= | `emptylist [`*Type*`]`                                        |
-> |              |     | <span style="border: 1px solid">`emptylist-exp (ty)`</span>   |
+> *Type* ::= `listof` *Type*\
+> <span style="border: 1px solid">`list-type (ty)`</span>
+>
+> *Expression* ::= `list (`*Expression* {`,` *Expression*}<sup>∗</sup>`)`\
+> <span style="border: 1px solid">`list-exp (exp1 exps)`</span>
+>
+> *Expression* ::= `cons (`*Expression* `,` *Expression*`)`\
+> <span style="border: 1px solid">`cons-exp (exp1 exp2)`</span>
+>
+> *Expression* ::= `null? (`*Expression*`)`\
+> <span style="border: 1px solid">`null-exp (exp1)`</span>
+>
+> *Expression* ::= `emptylist [`*Type*`]`\
+> <span style="border: 1px solid">`emptylist-exp (ty)`</span>
 >
 > with types given by the following four rules:
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\
->                    \texttt{(type-of $e_2$ $tenv$)} &= t \\
->                                                    &⋮ \\
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
+>                    \texttt{(type-of $e_2$ $tenv$)} &= t \\\\
+>                                                    &⋮ \\\\
 >                    \texttt{(type-of $e_n$ $tenv$)} &= t}}
 >          {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} $$
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\
+> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
 >                    \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
 >          {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} $$
 >
@@ -4701,8 +4711,8 @@ determine the type the expression `emptylist`.
 
 > Exercise 7.10 [★★] Extend the checker to handle EXPLICIT-REFS. You will need to do the following:
 >
-> - Add to the type system the types `refto `*t*, where *t* is any type. This is the type of references to locations
->   containing a value of type *t*. Thus, if *e* is of type *t*, `(newref `*e*`)` is of type `refto `*t*.
+> - Add to the type system the types `refto` *t*, where *t* is any type. This is the type of references to locations
+>   containing a value of type *t*. Thus, if *e* is of type *t*, `(newref` *e*`)` is of type `refto` *t*.
 > - Add to the type system the type `void`. This is the type of the value returned by `setref`. You can’t apply any
 >   operation to a value of type `void`, so it doesn’t matter what value `setref` returns. This is an example of types
 >   serving as an information-hiding mechanism.
@@ -4729,7 +4739,7 @@ proc (f)
 ```
 
 is a [fixed-point combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator), and should have the type
-`((`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)) -> (`*t*<sub>1</sub>` -> `*t*<sub>2</sub>`)`.
+`((`*t*<sub>1</sub> `->` *t*<sub>2</sub>`) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)`.
 But due to our limited type system, we couldn’t assign a concrete type to `d` or `x`, so we failed to infer the who
 program.
 
@@ -4983,10 +4993,10 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > it will detect the clash between `int` and `bool` and reject the program.
 >
 > One way to avoid this problem is to allow polymorphic values to be introduced only by `let`, and then to treat
-> `(let-exp `*var*` `*e*<sub>1</sub>` `*e*<sub>2</sub>`)` differently from
-> `(call-exp (proc-exp `*var*` `*e*<sub>2</sub>`) `*e*<sub>1</sub>`)` for type-checking purposes.
+> `(let-exp` *var* *e*<sub>1</sub> *e*<sub>2</sub>`)` differently from
+> `(call-exp (proc-exp` *var* *e*<sub>2</sub>`)` *e*<sub>1</sub>`)` for type-checking purposes.
 >
-> Add polymorphic bindings to the inferencer by treating `(let-exp var `*e*<sub>1</sub>` `*e*<sub>2</sub>`)` like the
+> Add polymorphic bindings to the inferencer by treating `(let-exp var` *e*<sub>1</sub> *e*<sub>2</sub>`)` like the
 > expression obtained by substituting *e*<sub>1</sub> for each free occurrence of `var` in *e*<sub>2</sub>. Then, from
 > the point of view of the inferencer, there are many different copies of *e*<sub>1</sub> in the body of the `let`, so
 > they can have different types, and the programs above will be accepted.

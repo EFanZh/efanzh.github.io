@@ -1,5 +1,4 @@
 ---
-title: Introduction to Algorithms Exercises
 enable_mathjax: true
 ---
 
@@ -56,21 +55,21 @@ mime under a button base on the numbers that you recovered. That is an algorithm
 
 > ***1.2-2***
 >
-> Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size
-> $$n$$, insertion sort runs in $$8 n^2$$ steps, while merge sort runs in $$64 n \lg n$$ steps. For which values of
-> $$n$$ does insertion sort beat merge sort?
+> Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size $n$,
+> insertion sort runs in $8 n^2$ steps, while merge sort runs in $64 n \lg n$ steps. For which values of $n$ does
+> insertion sort beat merge sort?
 
-We can solve $$8 n^2 < 64 n \lg n$$ for $$n$$. Assume $$n ≥ 0$$, we get $$n < 8 \lg n$$. With the help of
+We can solve $8 n^2 < 64 n \lg n$ for $n$. Assume $n ≥ 0$, we get $n < 8 \lg n$. With the help of
 [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5Bn+%3C+8+Log%5B2,+n%5D,+n%5D), we know that
-$$1.1 < n < 43.5593$$. So for $$n ∈ \left[2, 43\right]$$, insertion sort beats merge sort.
+$1.1 < n < 43.5593$. So for $n ∈ \left[2, 43\right]$, insertion sort beats merge sort.
 
 > ***1.2-3***
 >
-> What is the smallest value of $$n$$ such that an algorithm whose running time is $$100 n^2$$ runs faster than an
-> algorithm whose running time is $$2^n$$ on the same machine?
+> What is the smallest value of $n$ such that an algorithm whose running time is $100 n^2$ runs faster than an algorithm
+> whose running time is $2^n$ on the same machine?
 
-Solve $$100 n^2 < 2^n$$ for $$n$$
+Solve $100 n^2 < 2^n$ for $n$
 (using [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5B100+n+%5E+2+%3C+2+%5E+n,+n%5D)), we get
-$$-0.096704 < n < 0.103658$$ or $$n > 14.3247$$, so the smallest value of $$n$$ is $$0$$.
+$-0.096704 < n < 0.103658$ or $n > 14.3247$, so the smallest value of $n$ is $0$.
 
-Question: Should I only consider positive integer values for $$n$$?
+Question: Should I only consider positive integer values for $n$?

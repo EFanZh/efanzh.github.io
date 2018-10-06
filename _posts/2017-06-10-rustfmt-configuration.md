@@ -1,6 +1,7 @@
 ---
-title: EFanZh’s Rustfmt configuration
 ---
+
+# EFanZh’s Rustfmt configuration
 
 This is my [Rustfmt](https://github.com/rust-lang-nursery/rustfmt) configuration:
 

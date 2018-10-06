@@ -1,6 +1,7 @@
 ---
-title: Default Keyboard Shortcuts for Editors
 ---
+
+# Default Keyboard Shortcuts for Editors
 
 This is a list of default keyboard shortcuts of different editors, IDEs or browsers.
 
