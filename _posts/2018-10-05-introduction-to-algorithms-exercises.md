@@ -73,3 +73,174 @@ Solve $100 n^2 < 2^n$ for $n$
 $-0.096704 < n < 0.103658$ or $n > 14.3247$, so the smallest value of $n$ is $0$.
 
 Question: Should I only consider positive integer values for $n$?
+
+#### Problems
+
+> ***1-1 Comparison of running times***
+>
+> For each function $f\left(n\right)$ and time $t$ in the following table, determine the largest size $n$ of a problem
+> that can be solved in time $t$, assuming that the algorithm to solve the problem takes $f\left(n\right)$ microseconds.
+>
+> |            | 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
+> | ---------- | -------- | -------- | ------ | ----- | ------- | ------ | --------- |
+> | $\lg n$    |          |          |        |       |         |        |           |
+> | $\sqrt{n}$ |          |          |        |       |         |        |           |
+> | $n$        |          |          |        |       |         |        |           |
+> | $n \lg n$  |          |          |        |       |         |        |           |
+> | $n^2$      |          |          |        |       |         |        |           |
+> | $n^3$      |          |          |        |       |         |        |           |
+> | $2^n$      |          |          |        |       |         |        |           |
+> | $n!$       |          |          |        |       |         |        |           |
+
+- 1 second = 10⁶ microseconds
+- 1 minute = 6 × 10⁷  microseconds
+- 1 hour = 3.6 × 10⁹ microseconds
+- 1 day = 8.64 × 10¹⁰ microseconds
+- 1 month = 2.628 × 10¹² microseconds
+- 1 year = 3.154 × 10¹³  microseconds
+- 1 century = 3.156 × 10¹⁵ microseconds
+
+|            | 1 second           | 1 minute             | 1 hour                 | 1 day                  | 1 month                  | 1 year                   | 1 century                |
+| ---------- | ------------------ | -------------------- | ---------------------- | ---------------------- | ------------------------ | ------------------------ | ------------------------ |
+| $\lg n$    | $10^{301029.9957}$ | $10^{18061799.7398}$ | $10^{1083707984.3903}$ | $10^{26008991625.368}$ | $10^{791106828604.9426}$ | $10^{9494486063241.967}$ | $10^{950050666315524.8}$ |
+| $\sqrt{n}$ | $10^{12}$          | $10^{15.5563}$       | $10^{19.1126}$         | $10^{21.873}$          | $10^{24.8393}$           | $10^{26.9977}$           | $10^{30.9983}$           |
+| $n$        | $10^{6}$           | $10^{7.7782}$        | $10^{9.5563}$          | $10^{10.9365}$         | $10^{12.4196}$           | $10^{13.4989}$           | $10^{15.4991}$           |
+| $n \lg n$  | $10^{4.7976}$      | $10^{6.4474}$        | $10^{8.1251}$          | $10^{9.4401}$          | $10^{10.8623}$           | $10^{11.9019}$           | $10^{13.8367}$           |
+| $n^2$      | $10^{3}$           | $10^{3.8891}$        | $10^{4.7782}$          | $10^{5.4683}$          | $10^{6.2098}$            | $10^{6.7494}$            | $10^{7.7496}$            |
+| $n^3$      | $10^{2}$           | $10^{2.5927}$        | $10^{3.1854}$          | $10^{3.6455}$          | $10^{4.1399}$            | $10^{4.4996}$            | $10^{5.1664}$            |
+| $2^n$      | $10^{1.2995}$      | $10^{1.4123}$        | $10^{1.5017}$          | $10^{1.5603}$          | $10^{1.6155}$            | $10^{1.6517}$            | $10^{1.7117}$            |
+| $n!$       | $10^{0.9636}$      | $10^{1.0432}$        | $10^{1.0984}$          | $10^{1.1458}$          | $10^{1.178}$             | $10^{1.205}$             | $10^{1.2421}$            |
+
+The table is generated using following JavaScript code:
+
+```js
+function generateTable() {
+    function binarySearch(f, target) {
+        const start = 0.000001;
+        const epsilon = 0.0000000001;
+        let left = start;
+        let right = start;
+
+        while (f(right) < target) {
+            right *= 2;
+        }
+
+        while (right - left > epsilon) {
+            const middle = left + (right - left) / 2;
+            const value = f(middle);
+
+            if (value < target) {
+                left = middle;
+            } else if (value > target) {
+                right = middle;
+            } else {
+                return middle;
+            }
+        }
+
+        return left + (right - left) / 2;
+    }
+
+    function normalize(x) {
+        return Math.round(x * 10000) / 10000;
+    }
+
+    const algorithms = [
+        {
+            label: "$\\lg n$",
+            func: (t) => Math.log10(2) * t
+        },
+        {
+            label: "$\\sqrt{n}$",
+            func: (t) => Math.log10(t) * 2
+        },
+        {
+            label: "$n$",
+            func: (t) => Math.log10(t)
+        },
+        {
+            label: "$n \\lg n$",
+            func: (t) => binarySearch(n => n * Math.pow(10, n) * Math.log2(10), t)
+        },
+        {
+            label: "$n^2$",
+            func: (t) => Math.log10(t) / 2
+        },
+        {
+            label: "$n^3$",
+            func: (t) => Math.log10(t) / 3
+        },
+        {
+            label: "$2^n$",
+            func: (t) => Math.log10(Math.log2(t))
+        },
+        {
+            label: "$n!$",
+            func: function (t) {
+                function fact(n) {
+                    let result = 1;
+                    let i = 2;
+
+                    for (; i <= n; i++) {
+                        result *= i;
+                    }
+
+                    if (i > n) {
+                        result += result * (i - 1) * (n + 1 - i);
+                    }
+
+                    return result;
+                }
+
+                return binarySearch((x) => fact(Math.pow(10, x)), t);
+            }
+        }
+    ];
+
+    const times = [
+        {
+            label: "1 second",
+            microseconds: 1e6
+        },
+        {
+            label: "1 minute",
+            microseconds: 6e7
+        },
+        {
+            label: "1 hour",
+            microseconds: 3.6e9
+        },
+        {
+            label: "1 day",
+            microseconds: 8.64e10
+        },
+        {
+            label: "1 month",
+            microseconds: 2.628e12
+        },
+        {
+            label: "1 year",
+            microseconds: 3.154e13
+        },
+        {
+            label: "1 century",
+            microseconds: 3.156e15
+        }
+    ];
+
+    let result = `| | ${times.map((x) => x.label).join(" | ")} |\n` +
+        `| -- | ${times.map((x) => "--").join(" | ")} |\n`;
+
+    for (const algorithm of algorithms) {
+        result += `| ${algorithm.label} |`;
+
+        for (const time of times) {
+            result += ` $10^{${normalize(algorithm.func(time.microseconds))}}$ |`;
+        }
+
+        result += "\n";
+    }
+
+    return result;
+}
+```
