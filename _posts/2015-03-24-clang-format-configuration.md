@@ -15,7 +15,6 @@ BinPackArguments: false
 BreakBeforeBraces: Allman
 BreakBeforeTernaryOperators: false
 ColumnLimit: 120
-Cpp11BracedListStyle: false
 IndentWidth: 4
 IndentWrappedFunctionNames: true
 NamespaceIndentation: All
