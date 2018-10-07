@@ -177,6 +177,7 @@ function generateTable() {
         {
             label: "$n!$",
             func: function (t) {
+                // TODO: use the Γ function (use Stirling's approximation?).
                 function fact(n) {
                     let result = 1;
                     let i = 2;
