@@ -1,8 +1,3 @@
-code.highlighter-rouge
-{
-    color: #1896ab;
-}
-
 body
 {
     background-color: #ecf0f1;
@@ -24,22 +19,27 @@ button, input, textarea
     font-family: inherit;
 }
 
-pre.highlight, .post blockquote
-{
-    border: 1px solid #ccc;
-}
-
-pre.highlight
-{
-    padding: 0.5em;
-}
-
 .post blockquote
 {
     padding: 0 0.5em;
 }
 
-pre.highlight
+.post :not(pre)>code
+{
+    color: #1896ab;
+}
+
+.post pre, .post blockquote
+{
+    border: 1px solid #ccc;
+}
+
+.post pre
+{
+    padding: 0.5em;
+}
+
+.post pre
 {
     background-color: rgba(0, 0, 0, 0.05);
     overflow: auto;
