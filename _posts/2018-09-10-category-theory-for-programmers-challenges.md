@@ -340,3 +340,153 @@
        `Cons ((f . g) x) ((fmap f . fmap g) t)`. By induction, `fmap (f . g) t` = `(fmap f . fmap g) t`, so
        `Cons ((f . g) x) (fmap (f . g) t)` = `Cons ((f . g) x) ((fmap f . fmap g) t)`, so
        `fmap (f . g) (Cons x t)` = `(fmap f . fmap g) (Cons x t)`.
+
+### 8 Functoriality
+
+1. > Show that the data type:
+   >
+   > ```haskell
+   > data Pair a b = Pair a b
+   > ```
+   >
+   > is a bifunctor. For additional credit implement all three methods of `Bifunctor` and use equational reasoning to
+   > show that these definitions are compatible with the default implementations whenever they can be applied.
+
+   Haskell implementations:
+
+   ```haskell
+   instance Bifunctor Pair where
+       bimap f g (a, b) = (f a, g b)
+       first f (a, b) = (f a, b)
+       second g (a, b) = (a, g b)
+   ```
+
+   Proofs that my implementations are compatible with the default implementations:
+
+   - Proof that `bimap f g (a, b)` = `(first f . second g) (a, b)`:
+
+     - `bimap f g (a, b)` = `(f a, g b)`
+     - `(first f . second g) (a, b)` = `first f (second g (a, b))` = `first f (a, g b)` = `(f a, g b)`
+   - Proof that `first f (a, b)` = `bimap f id (a, b)`:
+
+     - `first f (a, b)` = `(f a, b)`
+     - `bimap f id (a, b)` = `(f a, id b)` = `(f a, b)`
+   - Proof that `second g (a, b)` = `bimap id g (a, b)`:
+
+     - `second g (a, b)` = `(a, g b)`
+     - `bimap id g (a, b)` = `(id a, g b)` = `(a, g b)`
+
+2. > Show the isomorphism between the standard definition of `Maybe` and this desugaring:
+   >
+   > ```haskell
+   > type Maybe' a = Either (Const () a) (Identity a)
+   > ```
+   >
+   > Hint: Define two mappings between the two implementations. For additional credit, show that they are the inverse of
+   > each other using equational reasoning.
+
+   ```haskell
+   standardToDesugaring Nothing = Left (Const ())
+   standardToDesugaring (Just a) = Right a
+
+   desugaringToStandard Left (Const ()) = Nothing
+   desugaringToStandard Right a = Just a
+   ```
+
+   Proofs that `standardToDesugaring` and `desugaringToStandard` are the inverse of each other.
+
+   - Proof that `standardToDesugaring (desugaringToStandard a)` = `a`:
+
+     - `standardToDesugaring (desugaringToStandard (Left (Const ())))` = `standardToDesugaring Nothing` = `Left (Const ())`
+     - `standardToDesugaring (desugaringToStandard (Right a))` = `standardToDesugaring (Just a))` = `Right a`
+   - Proof that `desugaringToStandard (standardToDesugaring a)` = `a`:
+
+     - `desugaringToStandard (standardToDesugaring Nothing)` = `desugaringToStandard (Left (Const ()))` = `Nothing`
+     - `desugaringToStandard (standardToDesugaring (Just a))` = `desugaringToStandard (Right a))` = `Just a`
+3. > Letʼs try another data structure. I call it a `PreList` because itʼs a precursor to a `List`. It replaces recursion
+   > with a type parameter `b`.
+   >
+   > ```haskell
+   > data PreList a b = Nil | Cons a b
+   > ```
+   >
+   > You could recover our earlier definition of a `List` by recursively applying `PreList` to itself (weʼll see how
+   > itʼs done when we talk about fixed points).
+   >
+   > Show that `PreList` is an instance of `Bifunctor`.
+
+   First, I will implement `bimap`:
+
+   ```haskell
+   bimap f g Nil = Nil
+   bimap f g (Cons a b) = Cons (f a) (g b)
+   ```
+
+   Then, I will show that `(bimap f g . bimap m n) a` = `bimap (f . m) (g . n) a`:
+
+   - Case `Nil`:
+
+     - `(bimap f g . bimap m n) Nil` = `bimap f g (bimap m n Nil)` = `bimap f g Nil` = `Nil`
+     - `bimap (f . m) (g . n) Nil` = `Nil`
+   - Case `(Cons a b)`:
+
+     - `(bimap f g . bimap m n) (Cons a b)` = `bimap f g (bimap m n (Cons a b))` = `bimap f g (Cons (m a) (n b))` = `Cons (f (m a)) (g (n b))`
+     - `bimap (f . m) (g . n) (Cons a b)` = `Cons ((f . m) a) ((g . n) b)` = `Cons (f (m a)) (g (n b))`
+
+   So in both cases, composition is preserved.
+
+   Finally, I will show that `bimap id id a` = `a`:
+
+   - Case `Nil`:
+
+     - `bimap id id Nil` = `Nil`
+   - Case `(Cons a b)`:
+
+     - `bimap id id (Cons a b)` = `Cons (id a) (id b)` = `(Cons a b)`
+
+   So in both cases, identity is preserved.
+
+   So `PreList` is an instance of `Bifunctor`.
+4. > Show that the following data types define bifunctors in `a` and `b`:
+   >
+   > ```haskell
+   > data K2 c a b = K2 c
+   > ```
+   >
+   > ```haskell
+   > data Fst a b = Fst a
+   > ```
+   >
+   > ```haskell
+   > data Snd a b = Snd b
+   > ```
+   >
+   > For additional credit, check your solutions against Conor McBrideʼs paper [Clowns to the Left of me, Jokers to the
+   > Right](http://strictlypositive.org/CJ.pdf).
+
+   For `K2`, define `bimap` as follows:
+
+   ```haskell
+   bimap f g = id
+   ```
+
+   So `bimap f g . bimap m n` = `id . id` = `id`, and `bimap (f . m) (g . n)` = `id`, so
+   `bimap f g . bimap m n` = `bimap (f . m) (g . n)`. Also, `bimap id id` = `id`, so `K2 c` is a bifunctor.
+
+   For `Fst`, define `bimap` as follows:
+
+   ```haskell
+   bimap f g (Fst a) = Fst (f a)
+   ```
+
+   So `(bimap f g . bimap m n) (Fst a)` = `bimap f g (bimap m n (Fst a))` = `bimap f g (Fst (m a))` = `Fst (f (m a))`,
+   and `bimap (f . m) (g . n) (Fst a)` = `Fst ((f . m) a)` = `Fst (f (m a))`. So
+   `(bimap f g . bimap m n) (Fst a)` = `bimap (f . m) (g . n) (Fst a)`. Also, `bimap id id (Fst a)` = `Fst (id a)` =
+   `Fst a`, so `Fst` is a bifunctor. The same for `Snd`.
+5. > Define a bifunctor in a language other than Haskell. Implement `bimap` for a generic pair in that language.
+
+   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_8_9_5.rs).
+6. > Should `std::map` be considered a bifunctor or a profunctor in the two template arguments `Key` and `T`? How would
+   > you redesign this data type to make it so?
+
+   *Not sure.*
