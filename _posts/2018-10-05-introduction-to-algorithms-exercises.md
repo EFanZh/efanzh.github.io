@@ -252,7 +252,7 @@ function generateTable() {
 
 > ***2.1-1***
 >
-> Using Figure 2.2 as a model, illustrate the operation of *INSERTION-SORT* on the array *A* = 〈31, 41, 59, 26, 41, 58〉.
+> Using Figure 2.2 as a model, illustrate the operation of *INSERTION-SORT* on the array *A* = ⟨31, 41, 59, 26, 41, 58⟩.
 
 *Skipped.*
 
@@ -266,7 +266,7 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 >
 > Consider the ***searching problem***:
 >
-> **Input**: A sequence of $n$ numbers $A = 〈a_1, a_2, …, a_n〉$ and a value $v$.
+> **Input**: A sequence of $n$ numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value $v$.
 >
 > **Output**: An index $i$ such that $v = A[i]$ or the special value *NIL* if $v$ does not appear in $A$.
 >
