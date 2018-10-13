@@ -245,3 +245,65 @@ function generateTable() {
     return result;
 }
 ```
+
+### 2 Getting Started
+
+#### 2.1 Insertion sort
+
+> ***2.1-1***
+>
+> Using Figure 2.2 as a model, illustrate the operation of *INSERTION-SORT* on the array *A* = 〈31, 41, 59, 26, 41, 58〉.
+
+*Skipped.*
+
+> ***2.1-2***
+>
+> Rewrite the *INSERTION-SORT* procedure to sort into nonincreasing instead of nondecreasing order.
+
+Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
+
+> ***2.1-3***
+>
+> Consider the ***searching problem***:
+>
+> **Input**: A sequence of $n$ numbers $A = 〈a_1, a_2, …, a_n〉$ and a value $v$.
+>
+> **Output**: An index $i$ such that $v = A[i]$ or the special value *NIL* if $v$ does not appear in $A$.
+>
+> Write pseudocode for ***linear search***, which scans through the sequence, looking for $v$. Using a loop invariant,
+> prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
+
+LINEAR-SEARCH(*A*, *v*)\
+1\. **for** *i* = 1 **to** *A*.*length*\
+2\.     **if** *A*[*i*] == *v*\
+3\.         **return** *i*\
+4\. **return** *NIL*
+
+Loop invariant: *A*[1..*i* - 1] does not contain value *v*. The only way the loop continues is that *A*[*i*] ≠ *v*, so
+we know *A*[1..*i*] does not contain value *v*. Then we increase *i* by 1, so again, *A*[1..*i* - 1] still does not
+contain value *v*. If the loop is completed, *i* must be equal to *A*.*length* + 1, so the whole array does not contain
+value *v*, then we return *NIL*.
+
+If for some *i*, *A*[*i*] == *v*, we will find it in line 2 and return *i* in line 3. The only way to escape the loop is
+either for some *i*, *A*[*i*] == *v*, or none of the elements equals to *v*. we can guarantee that if there is an
+element in *A*, we will find it.
+
+> ***2.1-4***
+>
+> Consider the problem of adding two *n*-bit binary integers, stored in two *n*-element arrays *A* and *B*. The sum of
+> the two integers should be stored in binary form in an (*n* + 1)-element array *C*. State the problem formally and
+> write pseudocode for adding the two integers.
+
+Problem: Array *A* and *B* only contain elements of 0 and 1, and *A*.*length* == *B*.*length* == *n*. Array *C* that
+have length *n* + 1. Rewrite the elements in *C* so that *C* only contains 0s and 1s, and
+$\sum_{i=1}^n A[i] × 2^{n - i} + \sum_{i=1}^n B[i] × 2^{n - i} = \sum_{i=1}^{n + 1} C[i] × 2^{n + 1 - i}$.
+
+Pseudocode:
+
+ADD-BINARY(*A*, *B*, *C*)\
+1\. *carry* = 0\
+2\. **for** *i* = 1 **to** *A*.*length*\
+3\.     *sum* = *A*[*n* - *i*] + *B*[*n* - *i*] + *carry*\
+4\.     *C*[*n* + 1 - *i*] = *sum* mod 2\
+5\.     *carry* = *sum* / 2\
+6\. *C*[0] = *carry*
