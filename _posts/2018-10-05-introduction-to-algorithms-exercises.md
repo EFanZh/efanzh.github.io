@@ -252,13 +252,13 @@ function generateTable() {
 
 > ***2.1-1***
 >
-> Using Figure 2.2 as a model, illustrate the operation of *INSERTION-SORT* on the array *A* = ⟨31, 41, 59, 26, 41, 58⟩.
+> Using Figure 2.2 as a model, illustrate the operation of *Insertion-Sort* on the array *A* = ⟨31, 41, 59, 26, 41, 58⟩.
 
 *Skipped.*
 
 > ***2.1-2***
 >
-> Rewrite the *INSERTION-SORT* procedure to sort into nonincreasing instead of nondecreasing order.
+> Rewrite the *Insertion-Sort* procedure to sort into nonincreasing instead of nondecreasing order.
 
 Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 
@@ -268,21 +268,21 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 >
 > **Input**: A sequence of $n$ numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value $v$.
 >
-> **Output**: An index $i$ such that $v = A[i]$ or the special value *NIL* if $v$ does not appear in $A$.
+> **Output**: An index $i$ such that $v = A[i]$ or the special value *nil* if $v$ does not appear in $A$.
 >
 > Write pseudocode for ***linear search***, which scans through the sequence, looking for $v$. Using a loop invariant,
 > prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
 
-LINEAR-SEARCH(*A*, *v*)\
+Linear-Search(*A*, *v*)\
 1\. **for** *i* = 1 **to** *A*.*length*\
 2\.     **if** *A*[*i*] == *v*\
 3\.         **return** *i*\
-4\. **return** *NIL*
+4\. **return** *nil*
 
 Loop invariant: *A*[1..*i* - 1] does not contain value *v*. The only way the loop continues is that *A*[*i*] ≠ *v*, so
 we know *A*[1..*i*] does not contain value *v*. Then we increase *i* by 1, so again, *A*[1..*i* - 1] still does not
 contain value *v*. If the loop is completed, *i* must be equal to *A*.*length* + 1, so the whole array does not contain
-value *v*, then we return *NIL*.
+value *v*, then we return *nil*.
 
 If for some *i*, *A*[*i*] == *v*, we will find it in line 2 and return *i* in line 3. The only way to escape the loop is
 either for some *i*, *A*[*i*] == *v*, or none of the elements equals to *v*. we can guarantee that if there is an
@@ -300,7 +300,7 @@ $\sum_{i=1}^n A[i] × 2^{n - i} + \sum_{i=1}^n B[i] × 2^{n - i} = \sum_{i=1}^{n
 
 Pseudocode:
 
-ADD-BINARY(*A*, *B*, *C*)\
+Add-Binary(*A*, *B*, *C*)\
 1\. *carry* = 0\
 2\. **for** *i* = 1 **to** *A*.*length*\
 3\.     *sum* = *A*[*n* - *i*] + *B*[*n* - *i*] + *carry*\
