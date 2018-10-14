@@ -4,6 +4,8 @@ enable_mathjax: true
 
 # Introduction to Algorithms Exercises
 
+I will put the actual implementation of exercises [here](https://github.com/EFanZh/Introduction-to-Algorithms).
+
 ## I Foundations
 
 ### 1 The Role of Algorithms in Computing
@@ -307,3 +309,49 @@ Add-Binary(*A*, *B*, *C*)\
 4\.     *C*[*n* + 1 - *i*] = *sum* mod 2\
 5\.     *carry* = *sum* / 2\
 6\. *C*[0] = *carry*
+
+#### 2.2 Analyzing algorithms
+
+> ***2.2-1***
+>
+> Express the function $n^3/1000 - 100 n^2 - 100 n + 3$ in terms of Θ-notation.
+
+$Θ\left(n^3\right)$.
+
+> ***2.2-2***
+>
+> Consider sorting *n* numbers stored in array *A* by first finding the smallest element of *A* and exchanging it with
+> the element in *A*[1]. Then find the second smallest element of *A*, and exchange it with *A*[2]. Continue in this
+> manner for the first *n* - 1 elements of *A*. Write pseudocode for this algorithm, which is known as ***selection
+> sort***. What loop invariant does this algorithm maintain? Why does it need to run for only the first *n* - 1
+> elements, rather than for all *n* elements? Give the best-case and worst-case running times of selection sort in
+> Θ-notation.
+
+The loop invariant: at the start of each iteration of loop, The first *i* elements contains the smallest *i* elements in
+*A*, and they are in nondecreasing order.
+
+It only need to run for first *n* - 1 elements because after the loop, we have rearrange the smallest *n* - 1 elements,
+to the front of *A*, so the last element must be the biggest one, so the whole array is ordered.
+
+Best-case and worst-case running times are both $Θ\left(n^2\right)$.
+
+> ***2.2-3***
+>
+> Consider linear search again (see Exercise 2.1-3). How many elements of the input sequence need to be checked on the
+> average, assuming that the element being searched for is equally likely to be any element in the array? How about in
+> the worst case? What are the average-case and worst-case running times of linear search in Θ-notation? Justify your
+> answers.
+
+Assume the element to be searched is in the array, then the average elements to be checked is (*n* + 1) / 2.
+
+Best case running time is Θ(1), worst case running time is Θ(*n*). If we are lucky, we can find the element at the first
+position, where only one element need to be checked. If we are unlucky, we can find the element at the last position,
+where all elements will be checked.
+
+> ***2.2-4***
+>
+> How can we modify almost any algorithm to have a good best-case running time?
+
+*What? We can do that?*
+
+*Skipped.*
