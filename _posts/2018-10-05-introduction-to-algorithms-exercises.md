@@ -76,7 +76,7 @@ $-0.096704 < n < 0.103658$ or $n > 14.3247$, so the smallest value of $n$ is $0$
 
 Question: Should I only consider positive integer values for $n$?
 
-#### Problems
+#### 1.X Problems
 
 > ***1-1 Comparison of running times***
 >
@@ -369,8 +369,9 @@ where all elements will be checked.
 > Rewrite the *Merge* procedure so that it does not use sentinels, instead stopping once either array *L* or *R* has had
 > all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
 
-See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
-implementation.
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+for implementation.
 
 > ***2.3-3***
 >
@@ -396,8 +397,9 @@ implementation.
 > *A*[1‥*n* - 1] and then insert *A*[*n*] into the sorted array *A*[1‥*n* - 1]. Write a recurrence for the running
 > time of this recursive version of insertion sort.
 
-See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
-implementation.
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+for implementation.
 
 $$T\left(n\right) = \begin{cases}
     1 &\text{if $n < 2$} \\\\
@@ -412,8 +414,9 @@ $$T\left(n\right) = \begin{cases}
 > pseudocode, either iterative or recursive, for binary search. Argue that the worst-case running time of binary search
 > is Θ(lg *n*).
 
-See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
-Rust implementations.
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+for implementations.
 
 *Binary-Search*(*A*, *v*)\
 1\. *left* = 1\
@@ -454,5 +457,6 @@ scenario, which taks Θ(*n*) time.
 > Describe a Θ(*n* lg *n*)-time algorithm that, given a set *S* of *n* integers and another integer *x*, determines
 > whether or not there exist two elements in *S* whose sum is exactly *x*.
 
-See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
-implementations.
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+for implementations.
