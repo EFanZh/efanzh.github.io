@@ -275,14 +275,14 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 > Write pseudocode for ***linear search***, which scans through the sequence, looking for $v$. Using a loop invariant,
 > prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
 
-Linear-Search(*A*, *v*)\
+*Linear-Search*(*A*, *v*)\
 1\. **for** *i* = 1 **to** *A*.*length*\
 2\.     **if** *A*[*i*] == *v*\
 3\.         **return** *i*\
 4\. **return** *nil*
 
-Loop invariant: *A*[1..*i* - 1] does not contain value *v*. The only way the loop continues is that *A*[*i*] ≠ *v*, so
-we know *A*[1..*i*] does not contain value *v*. Then we increase *i* by 1, so again, *A*[1..*i* - 1] still does not
+Loop invariant: *A*[1‥*i* - 1] does not contain value *v*. The only way the loop continues is that *A*[*i*] ≠ *v*, so
+we know *A*[1‥*i*] does not contain value *v*. Then we increase *i* by 1, so again, *A*[1‥*i* - 1] still does not
 contain value *v*. If the loop is completed, *i* must be equal to *A*.*length* + 1, so the whole array does not contain
 value *v*, then we return *nil*.
 
@@ -302,7 +302,7 @@ $\sum_{i=1}^n A[i] × 2^{n - i} + \sum_{i=1}^n B[i] × 2^{n - i} = \sum_{i=1}^{n
 
 Pseudocode:
 
-Add-Binary(*A*, *B*, *C*)\
+*Add-Binary*(*A*, *B*, *C*)\
 1\. *carry* = 0\
 2\. **for** *i* = 1 **to** *A*.*length*\
 3\.     *sum* = *A*[*n* - *i*] + *B*[*n* - *i*] + *carry*\
@@ -355,3 +355,104 @@ where all elements will be checked.
 *What? We can do that?*
 
 *Skipped.*
+
+#### 2.3 Designing algorithms
+
+> ***2.3-1***
+>
+> Using Figure 2.4 as a model, illustrate the operation of merge sort on the array *A* = ⟨3, 41, 52, 26, 38, 57, 9, 49⟩.
+
+*Skipped.*
+
+> ***2.3-2***
+>
+> Rewrite the *Merge* procedure so that it does not use sentinels, instead stopping once either array *L* or *R* has had
+> all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
+
+See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
+implementation.
+
+> ***2.3-3***
+>
+> Use mathematical induction to show that when $n$ is an exact power of 2, the solution of the recurrence
+>
+> $T\left(n\right) = \cases{
+> 2                         &if $n = 2$ \\\\
+> 2 T\left(n / 2\right) + n &if $n = 2^k$, for $k > 1$
+> }$
+>
+> is $T\left(n\right) = n \lg n$.
+
+- Base case: If $n = 2$, $T\left(n\right) = 2$. Since $n \lg n = 2 \lg 2 = 2$, $T\left(n\right) = n \lg n$, so the claim
+  holds.
+- Inductive case: If $n > 2$, $T\left(n\right) = 2 T\left(n / 2\right) + n$, by induction, we know that
+  $T\left(n / 2\right) = \left(n / 2\right) \lg \left(n / 2\right)$, so
+  $T\left(n\right) = 2 \left(n / 2\right) \lg \left(n / 2\right) + n = n \lg \left(n / 2\right) + n = n \left(\lg n - 1\right) + n = n \lg n$,
+  The claim holds.
+
+> ***2.3-4***
+>
+> We can express insertion sort as a recursive procedure as follows. In order to sort *A*[1‥*n*], we recursively sort
+> *A*[1‥*n* - 1] and then insert *A*[*n*] into the sorted array *A*[1‥*n* - 1]. Write a recurrence for the running
+> time of this recursive version of insertion sort.
+
+See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
+implementation.
+
+$$T\left(n\right) = \begin{cases}
+    1 &\text{if $n < 2$} \\\\
+    T(n - 1) + Θ\left(n\right) &\text{if $n >= 2$}
+\end{cases}$$
+
+> ***2.3-5***
+>
+> Referring back to the searching problem (see Exercise 2.1-3), observe that if the sequence *A* is sorted, we can check
+> the midpoint of the sequence against *v* and eliminate half of the sequence from further consideration. The ***binary
+> search*** algorithm repeats this procedure, halving the size of the remaining portion of the sequence each time. Write
+> pseudocode, either iterative or recursive, for binary search. Argue that the worst-case running time of binary search
+> is Θ(lg *n*).
+
+See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
+Rust implementations.
+
+*Binary-Search*(*A*, *v*)\
+1\. *left* = 1\
+2\. *right* = *A*.*length* + 1\
+3\. ***while*** *left* < *right*\
+4\.     *middle* = ⌊(*left* + *right*) / 2⌋\
+5\.     ***if*** *A*[*middle*] < *v*\
+6\.         *left* = *middle* + 1\
+7\.     ***else***\
+8\.         *right* = *middle*\
+9\. ***if*** *left* ≤ *A*.*length* and *A*[*left*] == *v*\
+10\.     ***return*** *left*\
+11\. ***else***\
+12\.     ***return*** *nil*
+
+After each iteration, the length of the searching range reduces by half, until the range is empty. So we have:
+
+*T*(*n*) = *c*₁, if *n* = 0\
+*T*(*n*) = *T*(*n* / 2) + *c*₂, if *n* > 0
+
+We prove *T*(*n*) = Θ(lg *n*) by induction:
+
+- If *n* = 0, Θ(lg *n*) = Θ(lg 0) = Θ(-∞), … Not sure how to go from here.
+- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + *c*₂. By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)), so
+  Θ(lg *n*) = Θ(lg (*n* / 2)) + *c*₂ = Θ((lg *n*)  - 1) + *c*₂ = Θ(lg *n*) + *c*₂ = Θ(lg *n*).
+
+> ***2.3-6***
+>
+> Observe that the **while** loop of lines 5–7 of the *Insertion-Sort* procedure in Section 2.1 uses a linear search to
+> scan (backward) through the sorted subarray *A*[1‥*j* - 1]. Can we use a binary search (see Exercise 2.3-5) instead
+> to improve the overall worst-case running time of insertion sort to Θ(*n* lg *n*)?
+
+No, we can not. Because despite the searching takes Θ(lg *n*) time, we still need to move *n* elements in the worst-case
+scenario, which taks Θ(*n*) time.
+
+> ***2.3-7*** ★
+>
+> Describe a Θ(*n* lg *n*)-time algorithm that, given a set *S* of *n* integers and another integer *x*, determines
+> whether or not there exist two elements in *S* whose sum is exactly *x*.
+
+See [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms.rs) for
+implementations.
