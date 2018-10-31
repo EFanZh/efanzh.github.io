@@ -377,10 +377,10 @@ for implementation.
 >
 > Use mathematical induction to show that when $n$ is an exact power of 2, the solution of the recurrence
 >
-> $T\left(n\right) = \cases{
-> 2                         &if $n = 2$ \\\\
-> 2 T\left(n / 2\right) + n &if $n = 2^k$, for $k > 1$
-> }$
+> $T\left(n\right) = \begin{cases}
+> 2                         &\text{if } n = 2 \\\\
+> 2 T\left(n / 2\right) + n &\text{if } n = 2^k, \text{ for } k > 1
+> \end{cases}$
 >
 > is $T\left(n\right) = n \lg n$.
 
@@ -434,14 +434,14 @@ for implementations.
 
 After each iteration, the length of the searching range reduces by half, until the range is empty. So we have:
 
-*T*(*n*) = *c*₁, if *n* = 0\
-*T*(*n*) = *T*(*n* / 2) + *c*₂, if *n* > 0
+*T*(*n*) = *c*₁, if *n* = 0;\
+*T*(*n*) = *T*(*n* / 2) + *c*₂, if *n* > 0.
 
 We prove *T*(*n*) = Θ(lg *n*) by induction:
 
 - If *n* = 0, Θ(lg *n*) = Θ(lg 0) = Θ(-∞), … Not sure how to go from here.
-- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + *c*₂. By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)), so
-  Θ(lg *n*) = Θ(lg (*n* / 2)) + *c*₂ = Θ((lg *n*)  - 1) + *c*₂ = Θ(lg *n*) + *c*₂ = Θ(lg *n*).
+- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + *c*₂ = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
+  so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*)  - 1) = Θ(lg *n*).
 
 > ***2.3-6***
 >
@@ -460,3 +460,32 @@ scenario, which taks Θ(*n*) time.
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
 for implementations.
+
+#### 2.X Problems
+
+> ***2-1 Insertion sort on small arrays in merge sort***
+>
+> Although merge sort runs in $Θ\left(n \lg n\right)$ worst-case time and insertion sort runs in $Θ\left(n^2\right)$
+> worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many
+> machines. Thus, it makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort
+> when subproblems become sufficiently small. Consider a modification to merge sort in which $n / k$ sublists of length
+> $k$ are sorted using insertion sort and then merged using the standard merging mechanism, where $k$ is a value to be
+> determined.
+>
+> 1. Show that insertion sort can sort the $n / k$ sublists, each of length $k$, in $Θ\left(n k\right)$ worst-case
+>    time.
+> 2. Show how to merge the sublists in $Θ\left(n \lg \left(n / k\right)\right)$ worst-case time.
+> 3. Given that the modified algorithm runs in $Θ\left(n k + n \lg \left(n / k\right)\right)$ worst-case time, what is
+>    the largest value of $k$ as a function of $n$ for which the modified algorithm has the same running time as
+>    standard merge sort, in terms of $Θ$-notation?
+> 4. How should we choose $k$ in practice?
+
+1. Sort a sublist of length $k$ takes $k^2$ time, so sorting $n / k$ sublists takes
+   $\left(n / k\right) Θ\left(k^2\right) = Θ\left(\left(n / k\right) k^2\right) = Θ\left(n k\right)$ time.
+2. Assume merging $n$ sublists takes $T(n)$ time, we have $T\left(n\right) = 2 T\left(n\right) + c_1 n$, if $n > 1$.
+   Also, $T\left(n\right) = c_2$, if $n = 1$. Notice this is the same as equation 2.1 and 2.2. So we have
+   $T\left(n\right) = Θ\left(n \lg n\right)$. So merging $n / k$ sublists takes
+   $T\left(n / k\right) = Θ\left(\left(n / k\right) \lg \left(n / k\right)\right) = Θ\left(n \lg \left(n / k\right)\right)$.
+3. We need to solve the equation $n k + n \lg \left(n / k\right) < c n \lg \left(n\right)$. We can get
+   $k - \lg k < \left(c-1\right) \lg n$ from it. I think $k < Θ\left(\lg n\right)$, but I can’t prove it.
+4. With benchmarks and profiling.
