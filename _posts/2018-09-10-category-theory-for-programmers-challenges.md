@@ -1,4 +1,5 @@
 ---
+enable_mathjax: true
 ---
 
 # Category Theory for Programmers Challenges
@@ -490,3 +491,94 @@
    > you redesign this data type to make it so?
 
    *Not sure.*
+
+### 9 Function Types
+
+### 10 Natural Transformations
+
+1. > Define a natural transformation from the `Maybe` functor to the list functor. Prove the naturality condition for
+   > it.
+
+   ```haskell
+   alpha Nothing = Nil
+   alpha (Just a) = Cons a Nil
+   ```
+
+   We need to prove `(fmap f . alpha) x` = `(alpha . fmap f) x`:
+
+   - `Nothing` case:
+     - `(fmap f . alpha) Nothing`\
+       = `fmap f (alpha Nothing)`\
+       = `fmap f Nil`\
+       = `Nil`
+     - `(alpha . fmap f) Nothing`\
+       = `alpha (fmap f Nothing)`\
+       = `alpha Nothing`\
+       = `Nil`
+   - `Just a` case:
+     - `(fmap f . alpha) (Just a)`\
+       = `fmap f (alpha (Just a))`\
+       = `fmap f (Cons a Nil)`\
+       = `Cons (f a) Nil`
+     - `(alpha . fmap f) (Just a)`\
+       = `alpha (fmap f (Just a))`\
+       = `alpha (Just (f a))`\
+       = `Cons (f a) Nil`
+2. > Define at least two different natural transformations betwee `Reader ()` and the list functor. How many different
+   > lists of `()` are there?
+
+   ```Haskell
+   alpha1 f = Cons (f ()) Nil
+   ```
+
+   ```Haskell
+   alpha2 f = Cons (f ()) (Cons (f ()) Nil)
+   ```
+
+   There are infinite countable number of lists of `()`.
+3. > Continue the previous exercise with `Reader Bool` and `Maybe`.
+
+   ```Haskell
+   alpha1 f = Nothing
+   ```
+
+   ```Haskell
+   alpha2 f = Just (f False)
+   ```
+
+   I can also define `alpha3 f = Just (f True)`.
+4. > Show that horizontal composition of natural transformation satisfies the naturality condition (hint: use
+   > components). Itʼs a good exercise in diagram chasing.
+
+   We need to prove $\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a = \left(β \circ α\right)_b \circ \left(G \circ F\right) f$.
+
+   Let $f : a → b$, then\
+   $\left(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a\right) \left(\left(G \circ F\right) a\right) = \left(\left(G' \circ F'\right) f\right) \left(\left(G' \circ F'\right) a\right) = \left(G' \circ F'\right) b$,
+   Also, \
+   $\left(\left(β \circ α\right)_b \circ \left(G \circ F\right) f\right) \left(\left(G \circ F\right) a\right) = \left(β \circ α\right)_b \left(\left(G \circ F\right) b\right) = \left(G' \circ F'\right) b$.
+
+5. > Write a short essay about how you may enjoy writing down the evident diagrams needed to prove the interchange law.
+
+   What?
+6. > Create a few test cases for the opposite naturality condition of transformations between different `Op` functors.
+   > Hereʼs one choice:
+   >
+   > ```haskell
+   > op :: Op Bool Int
+   > op = Op (\x -> x > 0)
+   > ```
+   >
+   > and
+   >
+   > ```haskell
+   > f :: String -> Int
+   > f x = read x
+   > ```
+
+   ```haskell
+   op2 :: Op () Int
+   op2 = Op (\x -> ())
+
+   g :: String -> Int
+   g x = read x
+   ```
