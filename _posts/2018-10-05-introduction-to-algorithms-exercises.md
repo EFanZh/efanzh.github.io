@@ -275,11 +275,12 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 > Write pseudocode for ***linear search***, which scans through the sequence, looking for $v$. Using a loop invariant,
 > prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
 
-*Linear-Search*(*A*, *v*)\
-1\. **for** *i* = 1 **to** *A*.*length*\
-2\.     **if** *A*[*i*] == *v*\
-3\.         **return** *i*\
-4\. **return** *nil*
+*Linear-Search*(*A*, *v*)
+
+1. **for** *i* = 1 **to** *A*.*length*
+2. &nbsp;&nbsp;&nbsp;&nbsp;**if** *A*[*i*] == *v*
+3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**return** *i*
+4. **return** *nil*
 
 Loop invariant: *A*[1‥*i* - 1] does not contain value *v*. The only way the loop continues is that *A*[*i*] ≠ *v*, so
 we know *A*[1‥*i*] does not contain value *v*. Then we increase *i* by 1, so again, *A*[1‥*i* - 1] still does not
@@ -302,13 +303,14 @@ $\sum_{i=1}^n A[i] × 2^{n - i} + \sum_{i=1}^n B[i] × 2^{n - i} = \sum_{i=1}^{n
 
 Pseudocode:
 
-*Add-Binary*(*A*, *B*, *C*)\
-1\. *carry* = 0\
-2\. **for** *i* = 1 **to** *A*.*length*\
-3\.     *sum* = *A*[*n* - *i*] + *B*[*n* - *i*] + *carry*\
-4\.     *C*[*n* + 1 - *i*] = *sum* mod 2\
-5\.     *carry* = *sum* / 2\
-6\. *C*[0] = *carry*
+*Add-Binary*(*A*, *B*, *C*)
+
+1. *carry* = 0
+2. **for** *i* = 1 **to** *A*.*length*
+3. &nbsp;&nbsp;&nbsp;&nbsp;*sum* = *A*[*n* - *i*] + *B*[*n* - *i*] + *carry*
+4. &nbsp;&nbsp;&nbsp;&nbsp;*C*[*n* + 1 - *i*] = *sum* mod 2
+5. &nbsp;&nbsp;&nbsp;&nbsp;*carry* = *sum* / 2
+6. *C*[0] = *carry*
 
 #### 2.2 Analyzing algorithms
 
@@ -418,19 +420,20 @@ See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
 for implementations.
 
-*Binary-Search*(*A*, *v*)\
-1\. *left* = 1\
-2\. *right* = *A*.*length* + 1\
-3\. ***while*** *left* < *right*\
-4\.     *middle* = ⌊(*left* + *right*) / 2⌋\
-5\.     ***if*** *A*[*middle*] < *v*\
-6\.         *left* = *middle* + 1\
-7\.     ***else***\
-8\.         *right* = *middle*\
-9\. ***if*** *left* ≤ *A*.*length* and *A*[*left*] == *v*\
-10\.     ***return*** *left*\
-11\. ***else***\
-12\.     ***return*** *nil*
+*Binary-Search*(*A*, *v*)
+
+1. *left* = 1
+2. *right* = *A*.*length* + 1
+3. **while** *left* < *right*
+4. &nbsp;&nbsp;&nbsp;&nbsp;*middle* = ⌊(*left* + *right*) / 2⌋
+5. &nbsp;&nbsp;&nbsp;&nbsp;**if** *A*[*middle*] < *v*
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*left* = *middle* + 1
+7. &nbsp;&nbsp;&nbsp;&nbsp;**else**
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*right* = *middle*
+9. **if** *left* ≤ *A*.*length* and *A*[*left*] == *v*
+10. &nbsp;&nbsp;&nbsp;&nbsp;**return** *left*
+11. **else**
+12. &nbsp;&nbsp;&nbsp;&nbsp;**return** *nil*
 
 After each iteration, the length of the searching range reduces by half, until the range is empty. So we have:
 
@@ -489,3 +492,67 @@ for implementations.
 3. We need to solve the equation $n k + n \lg \left(n / k\right) < c n \lg \left(n\right)$. We can get
    $k - \lg k < \left(c-1\right) \lg n$ from it. I think $k < Θ\left(\lg n\right)$, but I can’t prove it.
 4. With benchmarks and profiling.
+
+> ***2-2 Correctness of bubblesort***
+>
+> Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that
+> are out of order.
+>
+> *Bubblesort*(*A*)
+>
+> 1. **for** *i* = 1 **to** *A*.*length* - 1
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;**for** *j* = *A*.*length* **downto** *i* + 1
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *A*[*j*] < *A*[*j* - 1]
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exchange *A*[*j*] with *A*[*j* - 1]
+>
+> 1) Let *A*′ denote the output of *Bubblesort*(*A*). To prove that *Bubblesort* is correct, we need to prove that it
+>    terminates and that
+>
+>    *A*′[1] ≤ *A*′[2] ≤ … ≤ *A*′[*n*], (2.3)
+>
+>    where *n* = *A*.*length*. In order to show that *Bubblesort* actually sorts, what else do we need to prove?
+>
+>    The next two parts will prove inequality (2.3).
+> 2) State precisely a loop invariant for the **for** loop in lines 2–4, and prove that this loop invariant holds. Your
+>    proof should use the structure of the loop invariant proof presented in this chapter.
+> 3) Using the termination condition of the loop invariant proved in part (b), state a loop invariant for the **for**
+>    loop in lines 1–4 that will allow you to prove inequality (2.3). Your proof should use the structure of the loop
+>    invariant proof presented in this chapter.
+> 4) What is the worst-case running time of bubblesort? How does it compare to the running time of insertion sort?
+
+1. We also need to prove that the elements in *A* is the same as in *A*′.
+2. The loop invariant: At the start of each iteration, *A*[*j*] is the smallest element in *A*[*j*…*A*.*length*].
+
+   Proof:
+
+   - **Initialization:** At the start of each iteration, *j* = *A*.*length*, So *A*[*j*] is the only element in
+     *A*[*j*…*A*.*length*], the claim holds.
+   - **Maintenance:**
+     - If *A*[*j*] < *A*[*j* - 1], because we know that *A*[*j*] is the smallest element in
+       *A*[*j*…*A*.*length*], we can be sure *A*[*j*] is the smallest element in *A*[*j* - 1…*A*.*length*], after
+       swapping *A*[*j*] and *A*[*j* - 1], *A*[*j* - 1] became the smallest element in *A*[*j* - 1…*A*.*length*]. After
+       decreasing *j*, the loop invariant holds.
+     - If *A*[*j*] ≥ *A*[*j* - 1], we know that *A*[*j* - 1] is the smallest element in *A*[*j* - 1…*A*.*length*]. After
+       decreasing *j*, the loop invariant holds.
+   - **Termination:** After termination, *j* = *i*, so we know that *A*[*i*] is the smallest element in
+     *A*[*i*…*A*.*length*].
+3. The loop invariant: At the start of the loop, *A*[1…*i* - 1] is empty or contains the smallest *i* elements and are
+   sorted.
+
+   Proof:
+
+   - **Initialization:** At the start of each iteration, *i* = 1, So *A*[1…*i* - 1] is empty, the claim holds.
+   - **Maintenance:** After the inner loop, we know that *A*[*i*] is the smallest element in *A*[*i*…*A*.*length*].
+     - If *A*[1…*i* - 1] is empty, *i* = 1, then *A*[1…*i*] contains only one element and it is the smallest one in
+       *A*[*i*…*A*.*length*], so *A*[1…*i*] is sorted and contains the smallest *i* element in *A*[1…*A*.*length*].
+       After increasing *i*, the loop invariant holds.
+     - If *A*[1…*i* - 1] is not empty, then *A*[1…*i* - 1] contains the smallest *i* - 1 element in *A*[1…*A*.*length*]
+       in sorted order, so *A*[*i* - 1] ≤ *A*[*i*]. Because *A*[*i*] is the smallest element in *A*[*i*…*A*.*length*],
+       we know that *A*[1…*i*] is sorted and contains the smallest *i* element in *A*[1…*A*.*length*]. After increasing
+       *i*, the loop invariant holds.
+   - **Termination:** After termination, *i* = *A*.*length*, and *A*[1…*A*.*length* - 1] contains the smallest
+     *A*.*length* - 1 elements in sorted order, so we know *A*[*A*.*length* - 1] ≤ *A*[*A*.*length*], so the whole
+     array is sorted.
+4. Worst-case running time is $Θ\left(n^2\right)$, it is the same as insertion sort. But insertion sort have a
+   best-case running time which is $Θ\left(n\right)$, while the best-case running time of bubble sort is still
+   $Θ\left(n^2\right)$.
