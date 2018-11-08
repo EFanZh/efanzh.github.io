@@ -525,7 +525,7 @@ for implementations.
 
    Proof:
 
-   - **Initialization:** At the start of each iteration, *j* = *A*.*length*, So *A*[*j*] is the only element in
+   - **Initialization:** Before the first iteration, *j* = *A*.*length*, So *A*[*j*] is the only element in
      *A*[*j*…*A*.*length*], the claim holds.
    - **Maintenance:**
      - If *A*[*j*] < *A*[*j* - 1], because we know that *A*[*j*] is the smallest element in
@@ -541,7 +541,7 @@ for implementations.
 
    Proof:
 
-   - **Initialization:** At the start of each iteration, *i* = 1, So *A*[1…*i* - 1] is empty, the claim holds.
+   - **Initialization:** Before the first iteration, *i* = 1, So *A*[1…*i* - 1] is empty, the claim holds.
    - **Maintenance:** After the inner loop, we know that *A*[*i*] is the smallest element in *A*[*i*…*A*.*length*].
      - If *A*[1…*i* - 1] is empty, *i* = 1, then *A*[1…*i*] contains only one element and it is the smallest one in
        *A*[*i*…*A*.*length*], so *A*[1…*i*] is sorted and contains the smallest *i* element in *A*[1…*A*.*length*].
@@ -556,3 +556,62 @@ for implementations.
 4. Worst-case running time is $Θ\left(n^2\right)$, it is the same as insertion sort. But insertion sort have a
    best-case running time which is $Θ\left(n\right)$, while the best-case running time of bubble sort is still
    $Θ\left(n^2\right)$.
+
+> ***2-3 Correctness of Horner’s rule***
+>
+> The following code fragment implements Horner’s rule for evaluating a polynomial
+>
+> $\begin{aligned}
+> P\left(x\right) &= \sum_{k=0}^n a_k x^k \\\\
+> &=a_0 + x\left(a_1 + x\left(a_2 + … + x\left(a_{n - 1} + x a_n\right) …\right)\right),
+> \end{aligned}$
+>
+> given the coefficients $a_0$, $a_1$, …, $a_n$ and a value for $x$:
+>
+> 1. *y* = 0
+> 2. **for** *i* = *n* **downto** 0
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;*y* = $a_i$ + *x* ⋅ *y*
+>
+> 1) In terms of Θ-notation, what is the running time of this code fragment for Horner’s rule?
+> 2) Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial
+>    from scratch. What is the running time of this algorithm? How does it compare to Horner’s rule?
+> 3) Consider the following loop invariant:
+>
+>    At the start of each iteration of the **for** loop of lines 2–3,
+>
+>    $y = \displaystyle\sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k$.
+>
+>    Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in
+>    this chapter, use this loop invariant to show that, at termination, $y = \sum_{k = 0}^n a_k x^k$.
+> 4) Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients
+>    $a_0$, $a_1$, …, $a_n$.
+
+Codes are implemeted
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
+
+1. Θ(*n*).
+2. The psudocode:
+
+   1. *y* = 0
+   2. **for** *i* = 0 **to** *n*
+   3. &nbsp;&nbsp;&nbsp;&nbsp;*p* = $a_i$
+   4. &nbsp;&nbsp;&nbsp;&nbsp;**for** *j* = 0 **to** *i*
+   5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*p* = *p* ⋅ *x*
+   6. &nbsp;&nbsp;&nbsp;&nbsp;*y* = *y* + *p*
+
+   The running time of this algorithm is $Θ\left(n^2\right)$. It takes more time than Horner’s rule.
+3. Proof:
+
+   - **Initialization:** Before the first iteration, *i* = *n*,
+     $y = \sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
+     = \sum_{k = 0}^{-1} a_{k + n + 1} x^k
+     = 0$, so the claim holds.
+   - **Maintenance:** After line 3, $y' = a_i + x ⋅ y
+     = a_i + x \left(\sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\right)
+     = a_i ⋅ x^0 + \sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^{k + 1}
+     = a_i ⋅ x^0 + \sum_{k = 1}^{n - i} a_{k + i} x^k
+     = \sum_{k = 0}^{n - i} a_{k + i} x^k$. After decreasing *i*, the claim holds.
+   - **Termination:** At termination, *i* = -1, so
+     $y = \sum_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
+     = \sum_{k = 0}^n a_k x^k$.
+4. I thought I have proved it at step 3.
