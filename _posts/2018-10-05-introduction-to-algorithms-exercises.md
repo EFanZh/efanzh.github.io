@@ -521,36 +521,36 @@ for implementations.
 > 4) What is the worst-case running time of bubblesort? How does it compare to the running time of insertion sort?
 
 1. We also need to prove that the elements in *A* is the same as in *A*′.
-2. The loop invariant: At the start of each iteration, *A*[*j*] is the smallest element in *A*[*j*…*A*.*length*].
+2. The loop invariant: At the start of each iteration, *A*[*j*] is the smallest element in *A*[*j*‥*A*.*length*].
 
    Proof:
 
    - **Initialization:** Before the first iteration, *j* = *A*.*length*, So *A*[*j*] is the only element in
-     *A*[*j*…*A*.*length*], the claim holds.
+     *A*[*j*‥*A*.*length*], the claim holds.
    - **Maintenance:**
      - If *A*[*j*] < *A*[*j* - 1], because we know that *A*[*j*] is the smallest element in
-       *A*[*j*…*A*.*length*], we can be sure *A*[*j*] is the smallest element in *A*[*j* - 1…*A*.*length*], after
-       swapping *A*[*j*] and *A*[*j* - 1], *A*[*j* - 1] became the smallest element in *A*[*j* - 1…*A*.*length*]. After
+       *A*[*j*‥*A*.*length*], we can be sure *A*[*j*] is the smallest element in *A*[*j* - 1‥*A*.*length*], after
+       swapping *A*[*j*] and *A*[*j* - 1], *A*[*j* - 1] became the smallest element in *A*[*j* - 1‥*A*.*length*]. After
        decreasing *j*, the loop invariant holds.
-     - If *A*[*j*] ≥ *A*[*j* - 1], we know that *A*[*j* - 1] is the smallest element in *A*[*j* - 1…*A*.*length*]. After
+     - If *A*[*j*] ≥ *A*[*j* - 1], we know that *A*[*j* - 1] is the smallest element in *A*[*j* - 1‥*A*.*length*]. After
        decreasing *j*, the loop invariant holds.
    - **Termination:** After termination, *j* = *i*, so we know that *A*[*i*] is the smallest element in
-     *A*[*i*…*A*.*length*].
-3. The loop invariant: At the start of the loop, *A*[1…*i* - 1] is empty or contains the smallest *i* elements and are
+     *A*[*i*‥*A*.*length*].
+3. The loop invariant: At the start of the loop, *A*[1‥*i* - 1] is empty or contains the smallest *i* elements and are
    sorted.
 
    Proof:
 
-   - **Initialization:** Before the first iteration, *i* = 1, So *A*[1…*i* - 1] is empty, the claim holds.
-   - **Maintenance:** After the inner loop, we know that *A*[*i*] is the smallest element in *A*[*i*…*A*.*length*].
-     - If *A*[1…*i* - 1] is empty, *i* = 1, then *A*[1…*i*] contains only one element and it is the smallest one in
-       *A*[*i*…*A*.*length*], so *A*[1…*i*] is sorted and contains the smallest *i* element in *A*[1…*A*.*length*].
+   - **Initialization:** Before the first iteration, *i* = 1, So *A*[1‥*i* - 1] is empty, the claim holds.
+   - **Maintenance:** After the inner loop, we know that *A*[*i*] is the smallest element in *A*[*i*‥*A*.*length*].
+     - If *A*[1‥*i* - 1] is empty, *i* = 1, then *A*[1‥*i*] contains only one element and it is the smallest one in
+       *A*[*i*‥*A*.*length*], so *A*[1‥*i*] is sorted and contains the smallest *i* element in *A*[1‥*A*.*length*].
        After increasing *i*, the loop invariant holds.
-     - If *A*[1…*i* - 1] is not empty, then *A*[1…*i* - 1] contains the smallest *i* - 1 element in *A*[1…*A*.*length*]
-       in sorted order, so *A*[*i* - 1] ≤ *A*[*i*]. Because *A*[*i*] is the smallest element in *A*[*i*…*A*.*length*],
-       we know that *A*[1…*i*] is sorted and contains the smallest *i* element in *A*[1…*A*.*length*]. After increasing
+     - If *A*[1‥*i* - 1] is not empty, then *A*[1‥*i* - 1] contains the smallest *i* - 1 element in *A*[1‥*A*.*length*]
+       in sorted order, so *A*[*i* - 1] ≤ *A*[*i*]. Because *A*[*i*] is the smallest element in *A*[*i*‥*A*.*length*],
+       we know that *A*[1‥*i*] is sorted and contains the smallest *i* element in *A*[1‥*A*.*length*]. After increasing
        *i*, the loop invariant holds.
-   - **Termination:** After termination, *i* = *A*.*length*, and *A*[1…*A*.*length* - 1] contains the smallest
+   - **Termination:** After termination, *i* = *A*.*length*, and *A*[1‥*A*.*length* - 1] contains the smallest
      *A*.*length* - 1 elements in sorted order, so we know *A*[*A*.*length* - 1] ≤ *A*[*A*.*length*], so the whole
      array is sorted.
 4. Worst-case running time is $Θ\left(n^2\right)$, it is the same as insertion sort. But insertion sort have a
