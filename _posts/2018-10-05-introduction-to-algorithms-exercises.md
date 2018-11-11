@@ -615,3 +615,24 @@ Codes are implemeted
      $y = \sum_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
      = \sum_{k = 0}^n a_k x^k$.
 4. I thought I have proved it at step 3.
+
+> ***2-4 Inversions***
+>
+> Let *A*[1‥*n*] be an array of *n* distinct numbers. If *i* < *j* and *A*[*i*] > *A*[*j*], then the pair (*i*, *j*) is
+> called an ***inversion*** of *A*.
+>
+> 1. List the five inversions of the array ⟨2, 3, 8, 6, 1⟩.
+> 2. What array with elements from the set {1, 2, …, *n*} has the most inversions? How many does it have?
+> 3. What is the relationship between the running time of insertion sort and the number of inversions in the input
+>    array? Justify your answer.
+> 4. Give an algorithm that determines the number of inversions in any permutation on *n* elements in Θ(*n* lg *n*)
+>    worst-case time. (*Hint:* Modify merge sort.)
+
+1. The five inversions are (1, 5), (2, 5), (3, 4), (3, 5) and (4, 5).
+2. The array ⟨*n*, …, 2, 1⟩ has the most inversions. It has *n* × (*n* - 1) / 2 inversions.
+3. Let *k* be the inversion of an array, the the running time of insertion sort on it is Θ(*k*).
+
+   Let $k_i$ be the numbers of inversions whose second element is $i$. The total sorting time is
+   $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
+4. See
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
