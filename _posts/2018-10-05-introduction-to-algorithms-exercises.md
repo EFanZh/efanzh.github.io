@@ -649,11 +649,33 @@ Codes are implemeted
 In the following statments, *n* is big enough that both *f*(*n*) and *g*(*n*) is nonnegative.
 
 Because *f*(*n*) ≤ max(*f*(*n*), *g*(*n*)), and *g*(*n*) ≤ max(*f*(*n*), *g*(*n*)), we know that
-*f*(*n*) + *g*(*n*) ≤ 2 max(*f*(*n*), *g*(*n*)). Because *f*(*n*) ≥ 0 and *g*(*n*) ≥ 0,
-0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)).
+*f*(*n*) + *g*(*n*) ≤ 2 max(*f*(*n*), *g*(*n*)). So 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)).
 
 Because *f*(*n*) ≤ *f*(*n*) + *g*(*n*), and *g*(*n*) ≤ *f*(*n*) + *g*(*n*), we know that
 max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*).
 
 So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*), max(*f*(*n*),
 *g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
+
+> ***3.1-2***
+>
+> Show that for any real constants *a* and *b*, where *b* > 0,
+>
+> $\left(n + a\right)^b = Θ\left(n^b\right)$. (3.2)
+
+We want to find constant $c_1$, $c_2$ and $n_0$ so that if $n > n_0$, $c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$.
+
+$c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$\
+⇔ $\left({c_1}^{1 / b}\right)^b n^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b}\right)^b n^b$\
+⇔ $\left({c_1}^{1 / b} n\right)^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b} n\right)^b$\
+⇔ ${c_1}^{1 / b} n ≤ n + a ≤ {c_2}^{1 / b} n$\
+⇔ ${c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n$\
+⇔ $\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n$
+
+We need $n$ to be greater than some $n_0$, so we should have ${c_1}^{1 / b} - 1 < 0$, and ${c_2}^{1 / b} - 1 > 0$, then
+we have $n ≥ \frac{a}{{c_1}^{1 / b} - 1}$, and $n ≥ \frac{a}{{c_1}^{1 / b} - 1}$, i.e.
+$n ≥ \max\left(\frac{a}{{c_1}^{1 / b} - 1}, \frac{a}{{c_2}^{1 / b} - 1}\right)$. Let $c_1 = \left(\frac{1}{2}\right)^b$,
+$c_2 = 2^b$, we have $n ≥ \max\left(-2 a, a\right)$. So $n_0$ can be $\max\left(-2 a, a\right)$.
+
+Formally, for any $n > \max\left(-2 a, a\right)$,
+$\left(\frac{1}{2}\right)^b n^b ≤ n + a ≤ 2^b n^b$, $n + a = Θ(n^b)$.
