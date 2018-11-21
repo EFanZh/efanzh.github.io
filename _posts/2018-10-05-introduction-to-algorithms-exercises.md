@@ -673,9 +673,10 @@ $c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$\
 ⇔ $\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n$
 
 We need $n$ to be greater than some $n_0$, so we should have ${c_1}^{1 / b} - 1 < 0$, and ${c_2}^{1 / b} - 1 > 0$, then
-we have $n ≥ \frac{a}{{c_1}^{1 / b} - 1}$, and $n ≥ \frac{a}{{c_1}^{1 / b} - 1}$, i.e.
-$n ≥ \max\left(\frac{a}{{c_1}^{1 / b} - 1}, \frac{a}{{c_2}^{1 / b} - 1}\right)$. Let $c_1 = \left(\frac{1}{2}\right)^b$,
-$c_2 = 2^b$, we have $n ≥ \max\left(-2 a, a\right)$. So $n_0$ can be $\max\left(-2 a, a\right)$.
+we have $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, and $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, i.e.
+$n ≥ \max\left(\frac{a}{ {c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)$.
+Let $c_1 = \left(\frac{1}{2}\right)^b$, $c_2 = 2^b$, we have $n ≥ \max\left(-2 a, a\right)$. So $n_0$ can be
+$\max\left(-2 a, a\right)$.
 
 Formally, for any $n > \max\left(-2 a, a\right)$,
-$\left(\frac{1}{2}\right)^b n^b ≤ n + a ≤ 2^b n^b$, $n + a = Θ(n^b)$.
+$\left(\frac{1}{2}\right)^b n^b ≤ \left(n + a\right)^b ≤ 2^b n^b$, $\left(n + a\right)^b = Θ(n^b)$.
