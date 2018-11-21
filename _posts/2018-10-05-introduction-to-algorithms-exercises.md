@@ -636,3 +636,24 @@ Codes are implemeted
    $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
+
+### 3 Growth of Functions
+
+#### 3.1 Asymptotic notation
+
+> ***3.1-1***
+>
+> Let *f*(*n*) and *g*(*n*) be asymptotically nonnegative functions. Using the basic definition of Θ-notation, prove
+> that max(*f*(*n*), *g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
+
+In the following statments, *n* is big enough that both *f*(*n*) and *g*(*n*) is nonnegative.
+
+Because *f*(*n*) ≤ max(*f*(*n*), *g*(*n*)), and *g*(*n*) ≤ max(*f*(*n*), *g*(*n*)), we know that
+*f*(*n*) + *g*(*n*) ≤ 2 max(*f*(*n*), *g*(*n*)). Because *f*(*n*) ≥ 0 and *g*(*n*) ≥ 0,
+0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)).
+
+Because *f*(*n*) ≤ *f*(*n*) + *g*(*n*), and *g*(*n*) ≤ *f*(*n*) + *g*(*n*), we know that
+max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*).
+
+So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*), max(*f*(*n*),
+*g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
