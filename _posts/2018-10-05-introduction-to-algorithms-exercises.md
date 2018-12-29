@@ -777,3 +777,78 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
 > Prove equation (3.16).
 
 $a^{\log_b c} = \left(c^{\log_c a}\right)^{\log_b c} = c^{\left(\log_c a\right)\left(\log_b c\right)} = c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}} = c^{\frac{\ln a}{\ln b}} = c^{\log_b a}$.
+
+> ***3.2-3***
+>
+> Prove equation (3.19). Also prove that *n*! = *ω*($2^n$) and *n*! = *o*($n^n$).
+
+Proving equation (3.19):
+
+According to equation (3.18), we know that
+
+$\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)$
+
+So
+
+$\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)$\
+⇒ $\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
+⇒ $n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
+⇒ $n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
+⇒ $n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
+⇒ $n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln \left(n!\right) ≤ n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_2}{n}\right)}$.
+
+So we have $\ln \left(n!\right) = Ω\left(n \ln n\right)$, and $\ln \left(n!\right) = O\left(n \ln n\right)$, so
+$\ln \left(n!\right) = Θ\left(n \ln n\right)$.
+
+Proving *n*! = *ω*($2^n$):
+
+$\frac{n!}{2^n} = \frac{1 × 2 × 3 × 4 × 5 × … × n}{2 × 2 × 2 × 2 × 2 × … × 2} = \frac{1}{2} × \frac{2}{2} × \frac{3}{2} × \frac{4}{2} × \frac{5}{2} × … × \frac{n}{2} = \frac{3}{2} × \frac{5}{2} × … × \frac{n}{2} > 1$. So *n*! = *ω*($2^n$).
+
+Proving *n*! = *o*($n^n$):
+
+$\frac{n^n}{n!} = \frac{n × n × n × n × n × … × n}{1 × 2 × 3 × 4 × 5 × … × n} = \frac{n}{1} × \frac{n}{2} × \frac{n}{3} × \frac{n}{4} × \frac{n}{5} × … × \frac{n}{n}$ > 1. So *n*! = *o*($n^n$).
+
+> ***3.2-4*** ★
+>
+> Is the function ⌈lg *n*⌉! polynomially bounded? Is the function ⌈lg lg *n*⌉! polynomially bounded?
+
+*Skipped.*
+
+> ***3.2-5*** ★
+>
+> Which is asymptotically larger: $\lg \left(\lg^* n\right)$ or $\lg^* \left(\lg n\right)$?
+
+*Skipped.*
+
+> ***3.2-6***
+>
+> Show that the golden ratio $ϕ$ and its conjugate $\hat{ϕ}$ both satisfy the equation $x^2 = x + 1$.
+
+$ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1$.
+
+$\hat{ϕ}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{ϕ} + 1$.
+
+> ***3.2-7***
+>
+> Prove by induction that the *i*th Fibonacci number satisfies the equality
+>
+> $F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$,
+>
+> where $ϕ$ is the golden ratio and $\hat{ϕ}$ is its conjugate.
+
+Base cases:
+
+- If *i* = 0, $\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0$, the claim holds.
+- If *i* = 1, $\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{ϕ - \hat{ϕ}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1$, the claim holds.
+
+Inductive case:
+
+- By induction, we have $F_{i - 2} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}}$ and $F_{i - 1} = \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}}$.
+  So $F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} \left(1 + ϕ\right) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}$. Base on the conclusion of exercise 3.2-6, we have
+  $1 + ϕ = ϕ^2$ and $1 + \hat{ϕ} = \hat{ϕ}^2$, so $F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$, the claim holds.
+
+> ***3.2-8***
+>
+> Show that *k* ln *k* = Θ(*n*) implies *k* = Θ(*n* / ln *n*).
+
+*Skipped*.
