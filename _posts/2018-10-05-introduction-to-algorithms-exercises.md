@@ -858,3 +858,92 @@ Inductive case:
 > Show that *k* ln *k* = Θ(*n*) implies *k* = Θ(*n* / ln *n*).
 
 *Skipped*.
+
+#### 3.X Problems
+
+> ***3-1 Asymptotic behavior of polynomials***
+>
+> Let
+>
+> $p(n) = \displaystyle\sum_{i=0}^d a_i n^i$,
+>
+> where $a_d > 0$, be a degree-$d$ polynomial in $n$, and let $k$ be a constant. Use the definitions of the asymptotic
+> notations to prove the following properties.
+>
+> 1. If $k ≥ d$, then $p\left(n\right) = O\left(n^k\right)$.
+> 2. If $k ≤ d$, then $p\left(n\right) = Ω\left(n^k\right)$.
+> 3. If $k = d$, then $p\left(n\right) = Θ\left(n^k\right)$.
+> 4. If $k > d$, then $p\left(n\right) = o\left(n^k\right)$.
+> 5. If $k < d$, then $p\left(n\right) = ω\left(n^k\right)$.
+
+*Skipped.*
+
+> ***3-2 Relative asymptotic growths***
+>
+> Indicate, for each pair of expressions (*A*, *B*) in the table below, whether *A* is *O*, *o*, Ω, *ω*, or Θ of *B*.
+> Assume that *k* ≥ 1, *ϵ* > 0, and *c* > 1 are constants. Your answer should be in the form of the table with “yes” or
+> “no” written in each box.
+>
+> |    | *A*                  | *B*                   | *O* | *o* | Ω | *ω* | Θ |
+> | -- | -------------------- | --------------------- | --- | --- | - | --- | - |
+> | a. | $\lg^k n$            | $n^ϵ$                 |     |     |   |     |   |
+> | b. | $n^k$                | $c^n$                 |     |     |   |     |   |
+> | c. | $\sqrt{n}$           | $n^{\sin n}$          |     |     |   |     |   |
+> | d. | $2^n$                | $2^{n / 2}$           |     |     |   |     |   |
+> | e. | $n^{\lg c}$          | $c^{\lg n}$           |     |     |   |     |   |
+> | f. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ |     |     |   |     |   |
+
+|    | *A*                  | *B*                   | *O* | *o* | Ω   | *ω* | Θ   |
+| -- | -------------------- | --------------------- | --- | --- | --- | --- | --- |
+| a. | $\lg^k n$            | $n^ϵ$                 | yes | yes | no  | no  | no  |
+| b. | $n^k$                | $c^n$                 | yes | yes | no  | no  | no  |
+| c. | $\sqrt{n}$           | $n^{\sin n}$          | no  | no  | no  | no  | no  |
+| d. | $2^n$                | $2^{n / 2}$           | no  | no  | yes | yes | no  |
+| e. | $n^{\lg c}$          | $c^{\lg n}$           | yes | no  | yes | no  | yes |
+| f. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ | yes | no  | yes | no  | yes |
+
+> ***3-3 Ordering by asymptotic growth rates***
+>
+> 1. Rank the following functions by order of growth; that is, find an arrangement $g_1$, $g_2$, …, $g_{30}$ of the
+>    functions satisfying $g_1 = Ω\left(g_2\right)$, $g_2 = Ω\left(g_3\right)$, …, $g_{29} = Ω\left(g_{30}\right)$.
+>    Partition your list into equivalence classes such that functions $f\left(n\right)$ and $g\left(n\right)$ are in the
+>    same class if and only if $f\left(n\right) = Θ\left(g\left(n\right)\right)$.
+>
+>    |                              |                              |                                 |                      |                       |                       |
+>    | ---------------------------- | ---------------------------- | ------------------------------- | -------------------- | --------------------- | --------------------- |
+>    | $\lg\left(\lg^* n\right)$    | $2^{\lg^* n}$                | $\left(\sqrt{2}\right)^{\lg n}$ | $n^2$                | $n!$                  | $\left(\lg n\right)!$ |
+>    | $\left(\frac{3}{2}\right)^n$ | $n^3$                        | $\lg^2 n$                       | $\lg\left(n!\right)$ | $2^{2^n}$             | $n^{1 / \lg n}$       |
+>    | $\ln \ln n$                  | $\lg^* n$                    | $n ⋅ 2^n$                       | $n^{\lg \lg n}$      | $\ln n$               | $1$                   |
+>    | $2^{\lg n}$                  | $\left(\lg n\right)^{\lg n}$ | $e^n$                           | $4^{\lg n}$          | $\left(n + 1\right)!$ | $\sqrt{\lg n}$        |
+>    | $\lg^*\left(\lg n\right)$    | $2^{\sqrt{2 \lg n}}$         | $n$                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
+> 2. Give an example of a single nonnegative function $f\left(n\right)$ such that for all functions $g_i\left(n\right)$
+>    in part (a), $f\left(n\right)$ is neither $O\left(g_i\left(n\right)\right)$ nor $Ω\left(g_i\left(n\right)\right)$.
+
+*Skipped.*
+
+> ***3-4 Asymptotic notation properties***
+>
+> Let $f\left(n\right)$ and $g\left(n\right)$ be asymptotically positive functions. Prove or disprove each of the
+> following conjectures.
+>
+> 1. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $g\left(n\right) = O\left(f\left(n\right)\right)$.
+> 2. $f\left(n\right) + g\left(n\right) = Θ\left(\min\left(f\left(n\right), g\left(n\right)\right)\right)$.
+> 3. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies
+>    $\lg\left(f\left(n\right)\right) = O\left(\lg\left(g\left(n\right)\right)\right)$, where
+>    $\lg\left(g\left(n\right)\right) ≥ 1$ and $f\left(n\right) ≥ 1$ for all sufficiently large $n$.
+> 4. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)$.
+> 5. $f\left(n\right) = O\left(\left(f\left(n\right)\right)^2\right)$.
+> 6. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $g\left(n\right) = Ω\left(f\left(n\right)\right)$.
+> 7. $f\left(n\right) = Θ\left(f\left(n / 2\right)\right)$.
+> 8. $f\left(n\right) + o\left(f\left(n\right)\right) = Θ\left(f\left(n\right)\right)$.
+
+*Too lazy to prove. Just list my guessings here.*
+
+1. False.
+2. False.
+3. *Not sure.*
+4. *Not sure.*
+5. *Not sure.*
+6. True.
+7. False.
+8. True.
