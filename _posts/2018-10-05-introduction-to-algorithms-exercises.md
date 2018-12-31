@@ -802,11 +802,11 @@ $\ln \left(n!\right) = Θ\left(n \ln n\right)$.
 
 Proving *n*! = *ω*($2^n$):
 
-$\frac{n!}{2^n} = \frac{1 × 2 × 3 × 4 × 5 × … × n}{2 × 2 × 2 × 2 × 2 × … × 2} = \frac{1}{2} × \frac{2}{2} × \frac{3}{2} × \frac{4}{2} × \frac{5}{2} × … × \frac{n}{2} = \frac{3}{2} × \frac{5}{2} × … × \frac{n}{2} > 1$. So *n*! = *ω*($2^n$).
+$\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{m}\right) ≤ \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \left(\frac{2}{3}\right)^{n - 2}\right) = 2 \lim_{n → ∞}\left(\left(\frac{2}{3}\right)^{n - 2}\right) = 0$.
 
 Proving *n*! = *o*($n^n$):
 
-$\frac{n^n}{n!} = \frac{n × n × n × n × n × … × n}{1 × 2 × 3 × 4 × 5 × … × n} = \frac{n}{1} × \frac{n}{2} × \frac{n}{3} × \frac{n}{4} × \frac{n}{5} × … × \frac{n}{n}$ > 1. So *n*! = *o*($n^n$).
+$\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{\sqrt{2 π n} \left(\frac{n}{e}\right)^n e^{α_n}}{n^n} = \lim_{n → ∞}\left(\sqrt{2 π n} \left(e^{α_n - n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\left(\sqrt{n} \left(e^{α_n - n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\left(\sqrt{n} \left(e^{-n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\frac{\sqrt{n}}{e^n}$. Since $\sqrt{n} = o(e^n)$, $\lim_{n → ∞}\frac{\sqrt{n}}{e^n} = 0$, so $\lim_{n → ∞}\frac{n!}{n^n} = \sqrt{2 π} \lim_{n → ∞}\frac{\sqrt{n}}{e^n} = 0$.
 
 > ***3.2-4*** ★
 >
@@ -818,7 +818,13 @@ $\frac{n^n}{n!} = \frac{n × n × n × n × n × … × n}{1 × 2 × 3 × 4 × 5
 >
 > Which is asymptotically larger: $\lg \left(\lg^* n\right)$ or $\lg^* \left(\lg n\right)$?
 
-*Skipped.*
+By the definition of $\lg^*$, we have
+
+$\lg^* n = \begin{cases}0&n ≤ 1\\\\
+\lg^* \left(\lg n\right) + 1&n > 1\end{cases}$.
+
+So $\lg^* n = Θ\left(\lg^* \left(\lg n\right)\right)$. Because $\lg^* n$ is asymptotically larger than $\lg \left(\lg^* n\right)$,
+we know that $\lg^* \left(\lg n\right)$ is asymptotically larger than $\lg \left(\lg^* n\right)$.
 
 > ***3.2-6***
 >
