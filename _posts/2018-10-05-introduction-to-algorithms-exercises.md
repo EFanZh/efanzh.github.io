@@ -884,23 +884,23 @@ Inductive case:
 > Assume that *k* ≥ 1, *ϵ* > 0, and *c* > 1 are constants. Your answer should be in the form of the table with “yes” or
 > “no” written in each box.
 >
-> |    | *A*                  | *B*                   | *O* | *o* | Ω | *ω* | Θ |
-> | -- | -------------------- | --------------------- | --- | --- | - | --- | - |
-> | a. | $\lg^k n$            | $n^ϵ$                 |     |     |   |     |   |
-> | b. | $n^k$                | $c^n$                 |     |     |   |     |   |
-> | c. | $\sqrt{n}$           | $n^{\sin n}$          |     |     |   |     |   |
-> | d. | $2^n$                | $2^{n / 2}$           |     |     |   |     |   |
-> | e. | $n^{\lg c}$          | $c^{\lg n}$           |     |     |   |     |   |
-> | f. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ |     |     |   |     |   |
+> |          | *A*                  | *B*                   | *O* | *o* | Ω | *ω* | Θ |
+> | -------- | -------------------- | --------------------- | --- | --- | - | --- | - |
+> | ***a***. | $\lg^k n$            | $n^ϵ$                 |     |     |   |     |   |
+> | ***b***. | $n^k$                | $c^n$                 |     |     |   |     |   |
+> | ***c***. | $\sqrt{n}$           | $n^{\sin n}$          |     |     |   |     |   |
+> | ***d***. | $2^n$                | $2^{n / 2}$           |     |     |   |     |   |
+> | ***e***. | $n^{\lg c}$          | $c^{\lg n}$           |     |     |   |     |   |
+> | ***f***. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ |     |     |   |     |   |
 
-|    | *A*                  | *B*                   | *O* | *o* | Ω   | *ω* | Θ   |
-| -- | -------------------- | --------------------- | --- | --- | --- | --- | --- |
-| a. | $\lg^k n$            | $n^ϵ$                 | yes | yes | no  | no  | no  |
-| b. | $n^k$                | $c^n$                 | yes | yes | no  | no  | no  |
-| c. | $\sqrt{n}$           | $n^{\sin n}$          | no  | no  | no  | no  | no  |
-| d. | $2^n$                | $2^{n / 2}$           | no  | no  | yes | yes | no  |
-| e. | $n^{\lg c}$          | $c^{\lg n}$           | yes | no  | yes | no  | yes |
-| f. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ | yes | no  | yes | no  | yes |
+|          | *A*                  | *B*                   | *O* | *o* | Ω   | *ω* | Θ   |
+| -------- | -------------------- | --------------------- | --- | --- | --- | --- | --- |
+| ***a***. | $\lg^k n$            | $n^ϵ$                 | yes | yes | no  | no  | no  |
+| ***b***. | $n^k$                | $c^n$                 | yes | yes | no  | no  | no  |
+| ***c***. | $\sqrt{n}$           | $n^{\sin n}$          | no  | no  | no  | no  | no  |
+| ***d***. | $2^n$                | $2^{n / 2}$           | no  | no  | yes | yes | no  |
+| ***e***. | $n^{\lg c}$          | $c^{\lg n}$           | yes | no  | yes | no  | yes |
+| ***f***. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ | yes | no  | yes | no  | yes |
 
 > ***3-3 Ordering by asymptotic growth rates***
 >
