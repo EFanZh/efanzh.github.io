@@ -57,37 +57,37 @@ mime under a button base on the numbers that you recovered. That is an algorithm
 
 > ***1.2-2***
 >
-> Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size $n$,
-> insertion sort runs in $8 n^2$ steps, while merge sort runs in $64 n \lg n$ steps. For which values of $n$ does
+> Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size *n*,
+> insertion sort runs in $8 n^2$ steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
 > insertion sort beat merge sort?
 
-We can solve $8 n^2 < 64 n \lg n$ for $n$. Assume $n ≥ 0$, we get $n < 8 \lg n$. With the help of
+We can solve $8 n^2 < 64 n \lg n$ for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *n*. With the help of
 [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5Bn+%3C+8+Log%5B2,+n%5D,+n%5D), we know that
-$1.1 < n < 43.5593$. So for $n ∈ \left[2, 43\right]$, insertion sort beats merge sort.
+1.1 < *n* < 43.5593. So for *n* ∈ [2, 43], insertion sort beats merge sort.
 
 > ***1.2-3***
 >
-> What is the smallest value of $n$ such that an algorithm whose running time is $100 n^2$ runs faster than an algorithm
+> What is the smallest value of *n* such that an algorithm whose running time is $100 n^2$ runs faster than an algorithm
 > whose running time is $2^n$ on the same machine?
 
-Solve $100 n^2 < 2^n$ for $n$
+Solve $100 n^2 < 2^n$ for *n*
 (using [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5B100+n+%5E+2+%3C+2+%5E+n,+n%5D)), we get
-$-0.096704 < n < 0.103658$ or $n > 14.3247$, so the smallest value of $n$ is $0$.
+-0.096704 < *n* < 0.103658 or *n* > 14.3247, so the smallest value of *n* is 0.
 
-Question: Should I only consider positive integer values for $n$?
+Question: Should I only consider positive integer values for *n*?
 
 #### 1.X Problems
 
 > ***1-1 Comparison of running times***
 >
-> For each function $f\left(n\right)$ and time $t$ in the following table, determine the largest size $n$ of a problem
-> that can be solved in time $t$, assuming that the algorithm to solve the problem takes $f\left(n\right)$ microseconds.
+> For each function *f*(*n*) and time *t* in the following table, determine the largest size *n* of a problem
+> that can be solved in time *t*, assuming that the algorithm to solve the problem takes *f*(*n*) microseconds.
 >
 > |            | 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
 > | ---------- | -------- | -------- | ------ | ----- | ------- | ------ | --------- |
 > | $\lg n$    |          |          |        |       |         |        |           |
 > | $\sqrt{n}$ |          |          |        |       |         |        |           |
-> | $n$        |          |          |        |       |         |        |           |
+> | *n*        |          |          |        |       |         |        |           |
 > | $n \lg n$  |          |          |        |       |         |        |           |
 > | $n^2$      |          |          |        |       |         |        |           |
 > | $n^3$      |          |          |        |       |         |        |           |
@@ -268,11 +268,11 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 >
 > Consider the ***searching problem***:
 >
-> **Input**: A sequence of $n$ numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value $v$.
+> **Input**: A sequence of *n* numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value *v*.
 >
-> **Output**: An index $i$ such that $v = A[i]$ or the special value *nil* if $v$ does not appear in $A$.
+> **Output**: An index *i* such that $v = A[i]$ or the special value *nil* if *v* does not appear in *A*.
 >
-> Write pseudocode for ***linear search***, which scans through the sequence, looking for $v$. Using a loop invariant,
+> Write pseudocode for ***linear search***, which scans through the sequence, looking for *v*. Using a loop invariant,
 > prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
 
 *Linear-Search*(*A*, *v*)
@@ -377,7 +377,7 @@ for implementation.
 
 > ***2.3-3***
 >
-> Use mathematical induction to show that when $n$ is an exact power of 2, the solution of the recurrence
+> Use mathematical induction to show that when *n* is an exact power of 2, the solution of the recurrence
 >
 > $T\left(n\right) = \begin{cases}
 > 2                         &\text{if } n = 2 \\\\
@@ -472,20 +472,20 @@ for implementations.
 > worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many
 > machines. Thus, it makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort
 > when subproblems become sufficiently small. Consider a modification to merge sort in which $n / k$ sublists of length
-> $k$ are sorted using insertion sort and then merged using the standard merging mechanism, where $k$ is a value to be
+> *k* are sorted using insertion sort and then merged using the standard merging mechanism, where *k* is a value to be
 > determined.
 >
-> 1. Show that insertion sort can sort the $n / k$ sublists, each of length $k$, in $Θ\left(n k\right)$ worst-case
+> 1. Show that insertion sort can sort the $n / k$ sublists, each of length *k*, in $Θ\left(n k\right)$ worst-case
 >    time.
 > 2. Show how to merge the sublists in $Θ\left(n \lg \left(n / k\right)\right)$ worst-case time.
 > 3. Given that the modified algorithm runs in $Θ\left(n k + n \lg \left(n / k\right)\right)$ worst-case time, what is
->    the largest value of $k$ as a function of $n$ for which the modified algorithm has the same running time as
+>    the largest value of *k* as a function of *n* for which the modified algorithm has the same running time as
 >    standard merge sort, in terms of $Θ$-notation?
-> 4. How should we choose $k$ in practice?
+> 4. How should we choose *k* in practice?
 
-1. Sort a sublist of length $k$ takes $k^2$ time, so sorting $n / k$ sublists takes
+1. Sort a sublist of length *k* takes $k^2$ time, so sorting $n / k$ sublists takes
    $\left(n / k\right) Θ\left(k^2\right) = Θ\left(\left(n / k\right) k^2\right) = Θ\left(n k\right)$ time.
-2. Assume merging $n$ sublists takes $T(n)$ time, we have $T\left(n\right) = 2 T\left(n\right) + c_1 n$, if $n > 1$.
+2. Assume merging *n* sublists takes $T(n)$ time, we have $T\left(n\right) = 2 T\left(n\right) + c_1 n$, if $n > 1$.
    Also, $T\left(n\right) = c_2$, if $n = 1$. Notice this is the same as equation 2.1 and 2.2. So we have
    $T\left(n\right) = Θ\left(n \lg n\right)$. So merging $n / k$ sublists takes
    $T\left(n / k\right) = Θ\left(\left(n / k\right) \lg \left(n / k\right)\right) = Θ\left(n \lg \left(n / k\right)\right)$.
@@ -566,7 +566,7 @@ for implementations.
 > &=a_0 + x\left(a_1 + x\left(a_2 + … + x\left(a_{n - 1} + x a_n\right) …\right)\right),
 > \end{aligned}$
 >
-> given the coefficients $a_0$, $a_1$, …, $a_n$ and a value for $x$:
+> given the coefficients $a_0$, $a_1$, …, $a_n$ and a value for *x*:
 >
 > 1. *y* = 0
 > 2. **for** *i* = *n* **downto** 0
@@ -632,7 +632,7 @@ Codes are implemeted
 2. The array ⟨*n*, …, 2, 1⟩ has the most inversions. It has *n* × (*n* - 1) / 2 inversions.
 3. Let *k* be the inversion of an array, the the running time of insertion sort on it is Θ(*k*).
 
-   Let $k_i$ be the numbers of inversions whose second element is $i$. The total sorting time is
+   Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
    $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
@@ -680,7 +680,7 @@ $c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$\
 ⇔ ${c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n$\
 ⇔ $\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n$
 
-We need $n$ to be greater than some $n_0$, so we should have ${c_1}^{1 / b} - 1 < 0$, and ${c_2}^{1 / b} - 1 > 0$, then
+We need *n* to be greater than some $n_0$, so we should have ${c_1}^{1 / b} - 1 < 0$, and ${c_2}^{1 / b} - 1 > 0$, then
 we have $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, and $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, i.e.
 $n ≥ \max\left(\frac{a}{ {c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)$.
 Let $c_1 = \left(\frac{1}{2}\right)^b$, $c_2 = 2^b$, we have $n ≥ \max\left(-2 a, a\right)$. So $n_0$ can be
@@ -802,11 +802,11 @@ $\ln \left(n!\right) = Θ\left(n \ln n\right)$.
 
 Proving *n*! = *ω*($2^n$):
 
-$\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{m}\right) ≤ \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \left(\frac{2}{3}\right)^{n - 2}\right) = 2 \lim_{n → ∞}\left(\left(\frac{2}{3}\right)^{n - 2}\right) = 0$.
+$\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) = 2 \lim_{n → ∞}\left(\frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) ≤ 2 \lim_{n → ∞}\left(\frac{2}{n}\right) = 0$.
 
 Proving *n*! = *o*($n^n$):
 
-$\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{\sqrt{2 π n} \left(\frac{n}{e}\right)^n e^{α_n}}{n^n} = \lim_{n → ∞}\left(\sqrt{2 π n} \left(e^{α_n - n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\left(\sqrt{n} \left(e^{α_n - n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\left(\sqrt{n} \left(e^{-n}\right)\right) = \sqrt{2 π} \lim_{n → ∞}\frac{\sqrt{n}}{e^n}$. Since $\sqrt{n} = o(e^n)$, $\lim_{n → ∞}\frac{\sqrt{n}}{e^n} = 0$, so $\lim_{n → ∞}\frac{n!}{n^n} = \sqrt{2 π} \lim_{n → ∞}\frac{\sqrt{n}}{e^n} = 0$.
+$\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n} = \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right) ≤ \lim_{n → ∞}\left(\frac{1}{n}\right) = 0$.
 
 > ***3.2-4*** ★
 >
@@ -867,14 +867,14 @@ Inductive case:
 >
 > $p(n) = \displaystyle\sum_{i=0}^d a_i n^i$,
 >
-> where $a_d > 0$, be a degree-$d$ polynomial in $n$, and let $k$ be a constant. Use the definitions of the asymptotic
+> where $a_d > 0$, be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
 > notations to prove the following properties.
 >
-> 1. If $k ≥ d$, then $p\left(n\right) = O\left(n^k\right)$.
-> 2. If $k ≤ d$, then $p\left(n\right) = Ω\left(n^k\right)$.
-> 3. If $k = d$, then $p\left(n\right) = Θ\left(n^k\right)$.
-> 4. If $k > d$, then $p\left(n\right) = o\left(n^k\right)$.
-> 5. If $k < d$, then $p\left(n\right) = ω\left(n^k\right)$.
+> 1. If *k* ≥ *d*, then *p*(*n*) = O($n^k$).
+> 2. If *k* ≤ *d*, then *p*(*n*) = Ω($n^k$).
+> 3. If *k* = *d*, then *p*(*n*) = Θ($n^k$).
+> 4. If *k* > *d*, then *p*(*n*) = o($n^k$).
+> 5. If *k* < *d*, then *p*(*n*) = ω($n^k$).
 
 *Skipped.*
 
@@ -906,7 +906,7 @@ Inductive case:
 >
 > 1. Rank the following functions by order of growth; that is, find an arrangement $g_1$, $g_2$, …, $g_{30}$ of the
 >    functions satisfying $g_1 = Ω\left(g_2\right)$, $g_2 = Ω\left(g_3\right)$, …, $g_{29} = Ω\left(g_{30}\right)$.
->    Partition your list into equivalence classes such that functions $f\left(n\right)$ and $g\left(n\right)$ are in the
+>    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
 >    same class if and only if $f\left(n\right) = Θ\left(g\left(n\right)\right)$.
 >
 >    |                              |                              |                                 |                      |                       |                       |
@@ -915,27 +915,26 @@ Inductive case:
 >    | $\left(\frac{3}{2}\right)^n$ | $n^3$                        | $\lg^2 n$                       | $\lg\left(n!\right)$ | $2^{2^n}$             | $n^{1 / \lg n}$       |
 >    | $\ln \ln n$                  | $\lg^* n$                    | $n ⋅ 2^n$                       | $n^{\lg \lg n}$      | $\ln n$               | $1$                   |
 >    | $2^{\lg n}$                  | $\left(\lg n\right)^{\lg n}$ | $e^n$                           | $4^{\lg n}$          | $\left(n + 1\right)!$ | $\sqrt{\lg n}$        |
->    | $\lg^*\left(\lg n\right)$    | $2^{\sqrt{2 \lg n}}$         | $n$                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
-> 2. Give an example of a single nonnegative function $f\left(n\right)$ such that for all functions $g_i\left(n\right)$
->    in part (a), $f\left(n\right)$ is neither $O\left(g_i\left(n\right)\right)$ nor $Ω\left(g_i\left(n\right)\right)$.
+>    | $\lg^*\left(\lg n\right)$    | $2^{\sqrt{2 \lg n}}$         | *n*                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
+> 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions $g_i\left(n\right)$
+>    in part (a), *f*(*n*) is neither $O\left(g_i\left(n\right)\right)$ nor $Ω\left(g_i\left(n\right)\right)$.
 
 *Skipped.*
 
 > ***3-4 Asymptotic notation properties***
 >
-> Let $f\left(n\right)$ and $g\left(n\right)$ be asymptotically positive functions. Prove or disprove each of the
+> Let *f*(*n*) and *g*(*n*) be asymptotically positive functions. Prove or disprove each of the
 > following conjectures.
 >
-> 1. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $g\left(n\right) = O\left(f\left(n\right)\right)$.
-> 2. $f\left(n\right) + g\left(n\right) = Θ\left(\min\left(f\left(n\right), g\left(n\right)\right)\right)$.
-> 3. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies
->    $\lg\left(f\left(n\right)\right) = O\left(\lg\left(g\left(n\right)\right)\right)$, where
->    $\lg\left(g\left(n\right)\right) ≥ 1$ and $f\left(n\right) ≥ 1$ for all sufficiently large $n$.
-> 4. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)$.
-> 5. $f\left(n\right) = O\left(\left(f\left(n\right)\right)^2\right)$.
-> 6. $f\left(n\right) = O\left(g\left(n\right)\right)$ implies $g\left(n\right) = Ω\left(f\left(n\right)\right)$.
-> 7. $f\left(n\right) = Θ\left(f\left(n / 2\right)\right)$.
-> 8. $f\left(n\right) + o\left(f\left(n\right)\right) = Θ\left(f\left(n\right)\right)$.
+> 1. *f*(*n*) = *O*(*g*(*n*)) implies *g*(*n*) = *O*(*f*(*n*)).
+> 2. *f*(*n*) + *g*(*n*) = Θ(min(*f*(*n*), *g*(*n*))).
+> 3. *f*(*n*) = *O*(*g*(*n*)) implies lg(*f*(*n*)) = *O*(lg(*g*(*n*))), where lg(*g*(*n*)) ≥ 1 and *f*(*n*) ≥ 1 for all
+>    sufficiently large *n*.
+> 4. *f*(*n*) = *O*(*g*(*n*)) implies $2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)$.
+> 5. *f*(*n*) = *O*($\left(f\left(n\right)\right)^2$).
+> 6. *f*(*n*) = *O*(*g*(*n*)) implies *g*(*n*) = Ω(*f*(*n*)).
+> 7. *f*(*n*) = Θ(*f*(*n* / 2)).
+> 8. *f*(*n*) + *o*(*f*(*n*)) = Θ(*f*(*n*)).
 
 *Too lazy to prove. Just list my guessings here.*
 
@@ -947,3 +946,56 @@ Inductive case:
 6. True.
 7. False.
 8. True.
+
+> ***3-5 Variations on O and Ω***
+>
+> Some authors define Ω in a slightly different way than we do; let’s use $\overset{∞}{Ω}$ (read “omega infinity”) for
+> this alternative definition. We say that $f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)$ if there
+> exists a positive constant *c* such that $f\left(n\right) ≥ c g\left(n\right) ≥ 0$ for infinitely many integers *n*.
+>
+> 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
+>    $f \left(n\right) = O\left(g\left(n\right)\right)$ or
+>    $f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)$ or both, whereas this is not true if we use $Ω$ in
+>    place of $\overset{∞}{Ω}$.
+> 2. Describe the potential advantages and disadvantages of using $\overset{∞}{Ω}$ instead of $Ω$ to characterize the
+>    running times of programs.
+>
+> Some authors also define *O* in a slightly different manner; let’s use $O'$ for the alternative definition. We say
+> that $f\left(n\right) = O'\left(g\left(n\right)\right)$ if and only if
+> $\left|f\left(n\right)\right| = O\left(g\left(n\right)\right)$.
+>
+> 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute $O'$ for *O* but still use
+>    $Ω$?
+>
+> Some authors define $\widetilde{O}$ (read “soft-oh”) to mean *O* with logarithmic factors ignored:
+>
+> $\widetilde{O}\left(g\left(n\right)\right)$ = { *f*(*n*) : there exist positive constants *c*, *k*, and $n_0$
+> such that $0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)$ for all $n ≥ n_0$ }.
+>
+> 1. Define $\widetilde{Ω}$ and $\widetilde{Θ}$ in a similar manner. Prove the corresponding analog to Theorem 3.1.
+
+*Skipped*.
+
+> ***3-6 Iterated functions***
+>
+> We can apply the iteration operator $^\ast$ used in the $\lg^\ast$ function to any monotonically increasing function
+> *f*(*n*) over the reals. For a given constant $c ∈ ℝ$, we define the iterated function $f_c^*$ by
+>
+> $f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace$,
+>
+> which need not be well defined in all cases. In other words, the quantity $f_c^*\left(n\right)$ is the number of
+> iterated applications of the function *f* required to reduce its argument down to *c* or less.
+>
+> For each of the following functions *f*(*n*) and constants *c*, give as tight a bound as possible on
+> $f_c^*\left(n\right)$.
+
+|          | *f*(*n*)          | *c* | $f_c^*\left(n\right)$ |
+| -------- | ------------------| --- | --------------------- |
+| ***a***. | *n* - 1           | 0   | ⌈*n*⌉                 |
+| ***b***. | lg *n*            | 1   | *Don’t know*          |
+| ***c***. | *n* / 2           | 1   | ⌈lg *n*⌉              |
+| ***d***. | *n* / 2           | 2   | ⌈lg *n* - 1⌉          |
+| ***e***. | $\sqrt{n}$        | 2   | ⌈lg lg *n*⌉           |
+| ***f***. | $\sqrt{n}$        | 1   | ∞                     |
+| ***g***. | $n^{1 / 3}$       | 2   | ⌈$\log_3 \lg n$⌉      |
+| ***h***. | *n* / lg *n*      | 2   | *Don’t know*          |
