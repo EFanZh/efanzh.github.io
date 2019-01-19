@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Wave Interference</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        "use strict";
+
+        class Source {
+            /**
+             * @param {number} x
+             * @param {number} y
+             * @param {number} amplitude
+             * @param {number} phase
+             * @param {number} speed
+             */
+            constructor(x, y, amplitude, phase, speed) {
+                this.x = x;
+                this.y = y;
+                this.amplitude = amplitude;
+                this.phase = phase;
+                this.speed = speed;
+            }
+        }
+
+
+        /**
+         * @param {number} width
+         * @param {number} height
+         */
+        function makeSources(width, height) {
+            const t = height / 3;
+
+            return [
+                new Source(width / 2, t, 1, 0, 2),
+                new Source(width / 2 - t / Math.sqrt(3), t * 2, 1, 0, 2),
+                new Source(width / 2 + t / Math.sqrt(3), t * 2, 1, 0, 2)
+            ];
+        }
+
+        /**
+         * @param {Source[]} sources
+         * @returns {(x: number, y: number) => number}
+         */
+        function makeDrawFunction(sources) {
+            const maxAmplitude = sources.reduce((acc, s) => acc + Math.abs(s.amplitude), 0);
+            const factor = 255 / maxAmplitude;
+
+            return (x, y) => {
+                let p1 = 0;
+                let p2 = 0;
+
+                for (const source of sources) {
+                    const distanceX = x - source.x;
+                    const distanceY = y - source.y;
+                    const distance = Math.sqrt(distanceX * distanceX + distanceY * distanceY);
+                    const temp = source.phase - distance / source.speed;
+
+                    p1 += source.amplitude * Math.cos(temp);
+                    p2 += source.amplitude * Math.sin(temp);
+                }
+
+                return Math.sqrt(p1 * p1 + p2 * p2) * factor;
+            };
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.body.appendChild(document.createElement("canvas"));
+
+            canvas.width = 800
+            canvas.height = 600
+
+            const canvasContext = canvas.getContext("2d");
+            const imageData = canvasContext.createImageData(canvas.width, canvas.height);
+            const sources = makeSources(canvas.width, canvas.height);
+            const drawFunction = makeDrawFunction(sources);
+
+            let i = 0;
+
+            for (let y = 0; y < canvas.height; y++) {
+                for (let x = 0; x < canvas.width; x++) {
+                    const value = drawFunction(x, y);
+
+                    imageData.data[i + 0] = value;
+                    imageData.data[i + 1] = value;
+                    imageData.data[i + 2] = value;
+                    imageData.data[i + 3] = 255;
+
+                    i += 4;
+                }
+            }
+
+            canvasContext.putImageData(imageData, 0, 0);
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
