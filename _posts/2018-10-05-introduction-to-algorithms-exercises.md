@@ -372,7 +372,7 @@ where all elements will be checked.
 > all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
 for implementation.
 
 > ***2.3-3***
@@ -400,7 +400,7 @@ for implementation.
 > time of this recursive version of insertion sort.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
 for implementation.
 
 $$T\left(n\right) = \begin{cases}
@@ -417,8 +417,8 @@ $$T\left(n\right) = \begin{cases}
 > is Θ(lg *n*).
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
-for implementations.
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_5.rs)
+for implementation.
 
 *Binary-Search*(*A*, *v*)
 
@@ -461,7 +461,7 @@ scenario, which taks Θ(*n*) time.
 > whether or not there exist two elements in *S* whose sum is exactly *x*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_7.rs)
 for implementations.
 
 #### 2.X Problems
@@ -586,8 +586,9 @@ for implementations.
 > 4) Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients
 >    $a_0$, $a_1$, …, $a_n$.
 
-Codes are implemeted
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems/problem_2_3.rs)
+for implementation.
 
 1. Θ(*n*).
 2. The psudocode:
@@ -635,7 +636,8 @@ Codes are implemeted
    Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
    $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
-   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems.rs).
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems/problem_2_4.rs)
+   for implementation.
 
 ### 3 Growth of Functions
 
@@ -989,13 +991,13 @@ Inductive case:
 > For each of the following functions *f*(*n*) and constants *c*, give as tight a bound as possible on
 > $f_c^*\left(n\right)$.
 
-|          | *f*(*n*)          | *c* | $f_c^*\left(n\right)$ |
-| -------- | ------------------| --- | --------------------- |
-| ***a***. | *n* - 1           | 0   | ⌈*n*⌉                 |
-| ***b***. | lg *n*            | 1   | *Don’t know*          |
-| ***c***. | *n* / 2           | 1   | ⌈lg *n*⌉              |
-| ***d***. | *n* / 2           | 2   | ⌈lg *n* - 1⌉          |
-| ***e***. | $\sqrt{n}$        | 2   | ⌈lg lg *n*⌉           |
-| ***f***. | $\sqrt{n}$        | 1   | ∞                     |
-| ***g***. | $n^{1 / 3}$       | 2   | ⌈$\log_3 \lg n$⌉      |
-| ***h***. | *n* / lg *n*      | 2   | *Don’t know*          |
+|          | *f*(*n*)     | *c* | $f_c^*\left(n\right)$ |
+| -------- | ------------ | --- | --------------------- |
+| ***a***. | *n* - 1      | 0   | ⌈*n*⌉                 |
+| ***b***. | lg *n*       | 1   | *Don’t know*         |
+| ***c***. | *n* / 2      | 1   | ⌈lg *n*⌉              |
+| ***d***. | *n* / 2      | 2   | ⌈lg *n* - 1⌉          |
+| ***e***. | $\sqrt{n}$   | 2   | ⌈lg lg *n*⌉           |
+| ***f***. | $\sqrt{n}$   | 1   | ∞                     |
+| ***g***. | $n^{1 / 3}$  | 2   | ⌈$\log_3 \lg n$⌉      |
+| ***h***. | *n* / lg *n* | 2   | *Don’t know*         |
