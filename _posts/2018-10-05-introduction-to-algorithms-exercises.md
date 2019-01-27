@@ -1001,3 +1001,71 @@ Inductive case:
 | ***f***. | $\sqrt{n}$   | 1   | ∞                     |
 | ***g***. | $n^{1 / 3}$  | 2   | ⌈$\log_3 \lg n$⌉      |
 | ***h***. | *n* / lg *n* | 2   | *Don’t know*         |
+
+### 4 Divide-and-Conquer
+
+#### 4.1 The maximum-subarray problem
+
+> ***4.1-1***
+>
+> What does *Find-Maximum-Subarray* return when all elements of *A* are negative?
+
+An array containing the single maximum element of the original array.
+
+> ***4.1-2***
+>
+> Write pseudocode for the brute-force method of solving the maximum-subarray problem. Your procedure should run in
+> Θ($n^2$) time.
+
+*Find-Maximum-Subarray-Brute-Force*(*A*)
+
+1. *max-left* = 0
+2. *max-right* = 0
+3. *max-sum* = -∞
+4. **for** *i* = 1 **to** *A*.*Length*
+5. &nbsp;&nbsp;&nbsp;&nbsp;*sum* = 0
+6. &nbsp;&nbsp;&nbsp;&nbsp;**for** *j* = *i* **to** *A*.*Length*
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*sum* = *sum* + *A*[*j*]
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *sum* > *max-sum*
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*max-left* = *i*
+10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*max-right* = *j*
+11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*max-sum* = *sum*
+12. **return** (*max-left*, *max-right*, *max-sum*)
+
+> ***4.1-3***
+>
+> Implement both the brute-force and recursive algorithms for the maximum-subarray problem on your own computer. What
+> problem size $n_0$ gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then,
+> change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less
+> than $n_0$. Does that change the crossover point?
+
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/mod.rs)
+for recursive implementation.
+
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_3.rs)
+for brute-force implementation.
+
+*Skipped crossover point test for now.*
+
+> ***4.1-4***
+>
+> Suppose we change the definition of the maximum-subarray problem to allow the result to be an empty subarray, where
+> the sum of the values of an empty subarray is 0. How would you change any of the algorithms that do not allow empty
+> subarrays to permit an empty subarray to be the result?
+
+Run the original algorithm first, if the maximum sum is negative, return an empty subarray.
+
+> ***4.1-5***
+>
+> Use the following ideas to develop a nonrecursive, linear-time algorithm for the maximum-subarray problem. Start at
+> the left end of the array, and progress toward the right, keeping track of the maximum subarray seen so far. Knowing a
+> maximum subarray of *A*[1‥*j*], extend the answer to find a maximum subarray ending at index *j* + 1 by using the
+> following observation: a maximum subarray of *A*[1‥*j* + 1] is either a maximum subarray of *A*[1‥*j*] or a subarray
+> *A*[*i*‥*j* + 1], for some 1 ≤ *i* ≤ *j* + 1. Determine a maximum subarray of the form *A*[i‥*j* + 1] in constant
+> time based on knowing a maximum subarray ending at index *j*.
+
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
+for implementation.
