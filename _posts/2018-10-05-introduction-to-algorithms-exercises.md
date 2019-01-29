@@ -1069,3 +1069,63 @@ Run the original algorithm first, if the maximum sum is negative, return an empt
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
 for implementation.
+
+#### 4.2 Strassen’s algorithm for matrix multiplication
+
+> ***4.2-1***
+>
+> Use Strassen’s algorithm to compute the matrix product
+>
+> $\begin{pmatrix}1 & 3\\\\7 & 5\end{pmatrix}\begin{pmatrix}6 & 8\\\\4 & 2\end{pmatrix}$.
+>
+> Show your work.
+
+*Skipped.*
+
+> ***4.2-2***
+>
+> Write pseudocode for Strassen’s algorithm.
+
+*Skipped.*
+
+> ***4.2-3***
+>
+> How would you modify Strassen’s algorithm to multiply *n* × *n* matrices in which *n* is not an exact power of 2? Show
+> that the resulting algorithm runs in time Θ($n^{\lg 7}$).
+
+*Skipped.*
+
+> ***4.2-4***
+>
+> What is the largest *k* such that if you can multiply 3 × 3 matrices using *k* multiplications (not assuming
+> commutativity of multiplication), then you can multiply *n* × *n* matrices in time o($n^{\lg 7}$)? What would the
+> running time of this algorithm be?
+
+*Skipped.*
+
+> ***4.2-5***
+>
+> V. Pan has discovered a way of multiplying 68 × 68 matrices using 132,464 multiplications, a way of multiplying
+> 70 × 70 matrices using 143,640 multiplications, and a way of multiplying 72 × 72 matrices using 155,424
+> multiplications. Which method yields the best asymptotic running time when used in a divide-and-conquer
+> matrix-multiplication algorithm? How does it compare to Strassen’s algorithm?
+
+*Skipped.*
+
+> ***4.2-6***
+>
+> How quickly can you multiply a *k* *n* × *n* matrix by an *n* × *k* *n* matrix, using Strassen’s algorithm as a
+> subroutine? Answer the same question with the order of the input matrices reversed.
+
+*Skipped.*
+
+> ***4.2-7***
+>
+> Show how to multiply the complex numbers *a* + *b* *i* and *c* + *d* *i* using only three multiplications of real
+> numbers. The algorithm should take *a*, *b*, *c*, and *d* as input and produce the real component *a* *c* - *b* *d*
+> and the imaginary component *a* *d* + *b* *c* separately.
+
+Reference: (*a* + *b* *i*) × (*c* + *d* *i*) = *a* *c* - *b* *d* + (*a* *d* + *b* *c*) *i*.
+
+Let *w* = (*a* + *b*) × (*c* - *d*), *x* = *a* × *d*, *y* = *b* × *c*, which uses three real number multiplications,
+then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
