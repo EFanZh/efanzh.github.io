@@ -1129,3 +1129,21 @@ Reference: (*a* + *b* *i*) × (*c* + *d* *i*) = *a* *c* - *b* *d* + (*a* *d* + *
 
 Let *w* = (*a* + *b*) × (*c* - *d*), *x* = *a* × *d*, *y* = *b* × *c*, which uses three real number multiplications,
 then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
+
+#### 4.3 The substitution method for solving recurrences
+
+> ***4.3-1***
+>
+> Show that the solution of *T*(*n*) = *T*(*n* - 1) + *n* is *O*($n^2$).
+
+*T*(*n*)\
+= *T*(*n* - 1) + *n*\
+≤ *c* $\left(n - 1\right)^2$ + *n*\
+= *c* $n^2$ - 2 *c* *n* + *c* + *n*\
+= *c* $n^2$ - (2 *c* - 1) *n* + *c*
+
+Here we choose *c* = 1, we have
+
+*c* $n^2$ - (2 *c* - 1) *n* + *c* = $n^2$ - *n* + 1
+
+If *n* ≥ 1, we have $n^2$ - *n* + 1 ≤ $n^2$, that is, *T*(*n*) ≤ *c* $n^2$, since *c* = 1.
