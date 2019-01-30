@@ -1144,6 +1144,25 @@ then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
 
 Here we choose *c* = 1, we have
 
-*c* $n^2$ - (2 *c* - 1) *n* + *c* = $n^2$ - *n* + 1
+*c* $n^2$ - (2 *c* - 1) *n* + *c* = $n^2$ - *n* + 1.
 
 If *n* ≥ 1, we have $n^2$ - *n* + 1 ≤ $n^2$, that is, *T*(*n*) ≤ *c* $n^2$, since *c* = 1.
+
+> ***4.3-2***
+>
+> Show that the solution of *T*(*n*) = *T*(⌈*n* / 2⌉) + 1 is *O*(lg *n*).
+
+*T*(*n*)\
+= *T*(⌈*n* / 2⌉) + 1\
+≤ *c* lg ⌈*n* / 2⌉ + 1\
+= *c* lg (⌈*n* / 2⌉ $2^{1 / c}$)\
+< *c* lg ((*n* / 2 + 1) $2^{1 / c}$)\
+= *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$)
+
+If we choose *c* = 2, we have
+
+*c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) = 2 lg ($2^{-1 / 2}$ *n* + $2^{1 / 2}$).
+
+If *n* ≥ 2 $\sqrt{2}$ + 2, we have $2^{-1 / 2}$ *n* + $2^{1 / 2}$ ≤ *n*.
+
+So for *c* = 2, and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) ≤ *c* lg *n*.
