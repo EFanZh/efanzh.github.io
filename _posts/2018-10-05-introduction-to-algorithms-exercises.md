@@ -1165,4 +1165,57 @@ If we choose *c* = 2, we have
 
 If *n* ≥ 2 $\sqrt{2}$ + 2, we have $2^{-1 / 2}$ *n* + $2^{1 / 2}$ ≤ *n*.
 
-So for *c* = 2, and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) ≤ *c* lg *n*.
+So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) ≤ *c* lg *n*.
+
+> ***4.3-3***
+>
+> We saw that the solution of *T*(*n*) = 2 *T*(⌊*n* / 2⌋) + *n* is *O*(*n* lg *n*). Show that the solution of this
+> recurrence is also Ω(*n* lg *n*). Conclude that the solution is Θ(*n* lg *n*).
+
+*T*(*n*)\
+= 2 *T*(⌊*n* / 2⌋) + *n*\
+≥ 2 *c* ⌊*n* / 2⌋ lg ⌊*n* / 2⌋ + *n*\
+\> 2 *c* (*n* / 2 - 1) lg (*n* / 2 - 1) + *n*
+
+*Skipped.*
+
+> ***4.3-4***
+>
+> Show that by making a different inductive hypothesis, we can overcome the difficulty with the boundary condition
+> *T*(1) = 1 for recurrence (4.19) without adjusting the boundary conditions for the inductive proof.
+
+*Skipped.*
+
+> ***4.3-5***
+>
+> Show that Θ(*n* lg *n*) is the solution to the “exact” recurrence (4.3) for merge sort.
+
+*Skipped.*
+
+> ***4.3-6***
+>
+> Show that the solution to *T*(*n*) = 2 *T*(⌊n / 2⌋ + 17) + *n* is *O*(*n* lg *n*).
+
+*T*(*n*)\
+= 2 *T*(⌊n / 2⌋ + 17) + *n*\
+≤ 2 *c* (⌊n / 2⌋ + 17) lg (⌊n / 2⌋ + 17) + *n*\
+< 2 *c* ((n + 2) / 2 + 17) lg ((n + 2) / 2 + 17) + *n*
+
+*Skipped.*
+
+> 4.3-7
+>
+> Using the master method in Section 4.5, you can show that the solution to the recurrence
+> *T*(*n*) = 4 *T*(*n* / 3) + *n* is *T*(*n*) = Θ($n^{\log_3 4}$). Show that a substitution proof with the assumption
+> *T*(*n*) ≤ *c* $n^{\log_3 4}$ fails. Then show how to subtract off a lower-order term to make a substitution proof
+> work.
+
+Suppose *T*(*n*) ≤ *c* $n^{\log_3 4}$ - 3 *n*, we have:
+
+*T*(*n*)\
+= 4 *T*(*n* / 3) + *n*\
+≤ 4 (*c* $\left(n / 3\right)^{\log_3 4}$ - 3 (*n* / 3)) + *n*\
+= 4 (*c* $n^{\log_3 4}$ / 4 - *n*) + *n*\
+= *c* $n^{\log_3 4}$ - 3 *n*.
+
+That is exactly what we want.
