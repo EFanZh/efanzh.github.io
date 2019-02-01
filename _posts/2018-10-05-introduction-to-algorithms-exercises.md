@@ -1203,7 +1203,7 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 
 *Skipped.*
 
-> 4.3-7
+> ***4.3-7***
 >
 > Using the master method in Section 4.5, you can show that the solution to the recurrence
 > *T*(*n*) = 4 *T*(*n* / 3) + *n* is *T*(*n*) = Θ($n^{\log_3 4}$). Show that a substitution proof with the assumption
