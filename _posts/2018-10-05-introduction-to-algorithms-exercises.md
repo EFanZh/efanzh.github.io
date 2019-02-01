@@ -1232,6 +1232,37 @@ Suppose *T*(*n*) = *c* $n^2$ - *n*, we have
 = 4 (*c* $\left(n / 2\right)^2$ - *n* / 2) + *n*\
 = 4 (*c* $n^2$ / 4 - *n* / 2) + *n*\
 = *c* $n^2$ - 2 *n* + *n*\
-= *c* $n^2$ + *n*
+= *c* $n^2$ + *n*.
 
 That is exactly what we want.
+
+> ***4.3-9***
+>
+> Solve the recurrence *T*(*n*) = 3 *T*($\sqrt{n}$) + log *n* by making a change of variables. Your solution should be
+> asymptotically tight. Do not worry about whether values are integral.
+
+Let *m* = log *n*, we have *n* = $10^m$, so
+
+*T*($10^m$)\
+= 3 *T*($\sqrt{10^m}$) + log $10^m$\
+= 3 *T*($10^{m / 2}$) + *m*.
+
+Let *S*(*m*) = *T*($10^m$), we have:
+
+*S*(*m*) = 3 *S*(*m* / 2) + *m*.
+
+I guess *S*(*m*) = *c* $m^{\lg 3}$ - 2 *m*,
+
+*S*(*m*)\
+= 3 (*c* $(m / 2)^{\lg 3}$ - 2 (*m* / 2)) + *m*\
+= 3 (*c* $m^{\lg 3}$ / 3 - *m*) + *m*\
+= *c* $m^{\lg 3}$ - 3 *m* + *m*\
+= *c* $m^{\lg 3}$ - 2 *m*.
+
+So my guess is right.
+
+*T*(n)
+= *S*(log *n*)\
+= *c* $(\log n)^{\lg 3}$ - 2 log *n*.
+
+Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* *n*, try *T*(*n*) = *c* $n^{\log_b a}$ - (*b* *k* / (*a* - *b*)) *n*.
