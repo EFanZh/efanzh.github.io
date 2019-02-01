@@ -396,8 +396,8 @@ for implementation.
 > ***2.3-4***
 >
 > We can express insertion sort as a recursive procedure as follows. In order to sort *A*[1‥*n*], we recursively sort
-> *A*[1‥*n* - 1] and then insert *A*[*n*] into the sorted array *A*[1‥*n* - 1]. Write a recurrence for the running
-> time of this recursive version of insertion sort.
+> *A*[1‥*n* - 1] and then insert *A*[*n*] into the sorted array *A*[1‥*n* - 1]. Write a recurrence for the worst-case
+> running time of this recursive version of insertion sort.
 
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
@@ -1210,12 +1210,28 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 > *T*(*n*) ≤ *c* $n^{\log_3 4}$ fails. Then show how to subtract off a lower-order term to make a substitution proof
 > work.
 
-Suppose *T*(*n*) ≤ *c* $n^{\log_3 4}$ - 3 *n*, we have:
+Suppose *T*(*n*) = *c* $n^{\log_3 4}$ - 3 *n*, we have:
 
 *T*(*n*)\
 = 4 *T*(*n* / 3) + *n*\
-≤ 4 (*c* $\left(n / 3\right)^{\log_3 4}$ - 3 (*n* / 3)) + *n*\
+= 4 (*c* $\left(n / 3\right)^{\log_3 4}$ - 3 (*n* / 3)) + *n*\
 = 4 (*c* $n^{\log_3 4}$ / 4 - *n*) + *n*\
 = *c* $n^{\log_3 4}$ - 3 *n*.
+
+That is exactly what we want.
+
+> ***4.3-8***
+>
+> Using the master method in Section 4.5, you can show that the solution to the recurrence
+> *T*(*n*) = 4 *T*(*n* / 2) + *n* is *T*(*n*) = Θ($n^2$). Show that a substitution proof with the assumption
+> *T*(*n*) ≤ *c* $n^2$ fails. Then show how to subtract off a lower-order term to make a substitution proof work.
+
+Suppose *T*(*n*) = *c* $n^2$ - *n*, we have
+
+*T*(*n*)\
+= 4 (*c* $\left(n / 2\right)^2$ - *n* / 2) + *n*\
+= 4 (*c* $n^2$ / 4 - *n* / 2) + *n*\
+= *c* $n^2$ - 2 *n* + *n*\
+= *c* $n^2$ + *n*
 
 That is exactly what we want.
