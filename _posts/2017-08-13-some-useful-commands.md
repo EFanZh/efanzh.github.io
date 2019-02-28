@@ -32,13 +32,13 @@ ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
 ```bash
 # For Bash.
 
-comm -23 <(pacman -Qeq) <(pacman -Qeqtt) | xargs -r pacman -D --asdeps
+comm -23 <(pacman -Qeq | sort) <(pacman -Qeqtt | sort) | xargs -r pacman -D --asdeps
 ```
 
 ```
 # For Fish.
 
-comm -23 (pacman -Qeq | psub) (pacman -Qeqtt | psub) | xargs -r pacman -D --asdeps
+comm -23 (pacman -Qeq | sort | psub) (pacman -Qeqtt | sort | psub) | xargs -r pacman -D --asdeps
 ```
 
 ## Others
