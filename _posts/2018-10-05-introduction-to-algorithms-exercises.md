@@ -1265,4 +1265,137 @@ So my guess is right.
 = *S*(log *n*)\
 = *c* $(\log n)^{\lg 3}$ - 2 log *n*.
 
-Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* *n*, try *T*(*n*) = *c* $n^{\log_b a}$ - (*b* *k* / (*a* - *b*)) *n*.
+Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* $n^p$, try *T*(*n*) = *c* $n^{\log_b a}$ + ($b^p$ *k* / ($b^p$ - *a*)) $n^p$.
+
+#### 4.4 The recursion-tree method for solving recurrences
+
+> ***4.4-1***
+>
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 3 *T*(⌊*n* / 2⌋) + *n*.
+> Use the substitution method to verify your answer.
+
+*T*(*n*) ≤ *c* $n^{\lg 3}$ - 2 *n*.
+
+Verification:
+
+*T*(*n*)\
+= 3 *T*(⌊*n* / 2⌋) + *n*\
+≤ 3 (*c* $\lfloor{}n / 2\rfloor^{\lg 3}$ - 2 ⌊*n* / 2⌋) + *n*\
+≤ 3 (*c* $\left(n / 2\right)^{\lg 3}$ - 2 (*n* / 2)) + *n*\
+= 3 (*c* $n^{\lg 3}$ / 3 - *n*) + *n*\
+= 3 *c* $n^{\lg 3}$ / 3 - 3 *n* + *n*\
+= *c* $n^{\lg 3}$ - 2 *n*.
+
+> ***4.4-2***
+>
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = *T*(*n* / 2) + $n^2$. Use
+> the substitution method to verify your answer.
+
+*T*(*n*) = *c* + (4 / 3) $n^2$.
+
+Verification:
+
+*T*(*n*)\
+= *c* + (4 / 3) $\left(n / 2\right)^2$ + $n^2$\
+= *c* + (1 / 3) $n^2$ + $n^2$\
+= *c* + (4 / 3) $n^2$.
+
+> ***4.4-3***
+>
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 4 *T*(*n* / 2 + 2) + *n*.
+> Use the substitution method to verify your answer.
+
+*T*(*n*) = *c* $n^2$ - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
+
+Verification:
+
+*T*(*n*)\
+= 4 *T*(*n* / 2 + 2) + *n*\
+= 4 (*c* $\left(n / 2 + 2\right)^2$ - (8 *c* + 1) (*n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
+= 4 (*c* ($n^2$ / 4 + 2 *n* + 4) - (4 *c* *n* + 16 *c* + *n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
+= 4 (*c* $n^2$ / 4 - (2 *c* + 1 / 2) *n* + 4 *c* + 2 / 3) + *n*\
+= *c* $n^2$ - (8 *c* + 2) *n* + 16 *c* + 8 / 3 + *n*\
+= *c* $n^2$ - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
+
+> ***4.4-4***
+>
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 2 *T*(*n* - 1) + 1. Use
+> the substitution method to verify your answer.
+
+*T*(*n*) = *c* $2^n$ - 1
+
+Verification:
+
+*T*(*n*)\
+= 2 *T*(*n* - 1) + 1\
+= 2 (*c* $2^{n - 1}$ - 1) + 1\
+= *c* $2^n$ - 2 + 1\
+= *c* $2^n$ - 1.
+
+> ***4.4-5***
+>
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence
+> *T*(*n*) = T(*n* - 1) + *T*(*n* / 2) + *n*. Use the substitution method to verify your answer.
+
+*T*(*n*) = *O*($2^n$), and *T*(*n*) = Ω(*n* lg *n*).
+
+*Skipped.*
+
+> ***4.4-6***
+>
+> Argue that the solution to the recurrence *T*(*n*) = *T*(*n* / 3) + *T*(2 *n* / 3) + *c* *n*, where *c* is a constant,
+> is Ω(*n* lg *n*) by appealing to a recursion tree.
+
+On each level of recursion whose depth is less than lg *n* / lg 3, the cost on this level is *c* *n*, so the cost is at
+least *c* *n* lg *n* / lg 3, that is T(*n*) = Ω(*n* lg *n*).
+
+> ***4.4-7***
+>
+> Draw the recursion tree for *T*(*n*) = 4 *T*(⌊*n* / 2⌋) + *c* *n*, where *c* is a constant, and provide a tight
+> asymptotic bound on its solution. Verify your bound by the substitution method.
+
+*T*(*n*) ≥ *k* $n^2$ - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
+
+Verification:
+
+*T*(*n*)\
+= 4 *T*(⌊*n* / 2⌋) + *c* *n*\
+≥ 4 *T*(*n* / 2 - 1) + *c* *n*\
+≥ 4 (*k* $(n / 2 - 1)^2$ - (*c* - 4 *k*) (*n* / 2 - 1) + 4 *k* - 4 *c* / 3) + *c* *n*\
+= *k* $n^2$ - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
+
+*T*(*n*) ≤ *k* $n^2$ - *c* *n*.
+
+Verification:
+
+*T*(*n*)\
+= 4 *T*(⌊*n* / 2⌋) + *c* *n*\
+≤ 4 *T*(*n* / 2) + *c* *n*\
+≤ 4 (*k* $(n / 2)^2$ - *c* (*n* / 2)) + *c* *n*\
+= *k* $n^2$ - *c* *n*.
+
+So *T*(*n*) = Θ($n^2$).
+
+> ***4.4-8***
+>
+> Use a recursion tree to give an asymptotically tight solution to the recurrence
+> *T*(*n*) = T(*n* - *a*) + *T*(*a*) + *c* *n*, where *a* ≥ 1 and *c* > 0 are constants.
+
+*T*(*n*) = (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*.
+
+Verification:
+
+*T*(*n*)\
+= T(*n* - *a*) + *T*(*a*) + *c* *n*\
+= (*c* / (2 *a*)) $\left(n - a\right)^2$ + *k* (*n* - a) - *a* *c* + (*c* / (2 *a*)) $a^2$ + *k* *a* - *a* *c* + *c* *n*\
+= (*c* / (2 *a*)) ($n^2$ - 2 *a* *n* + $a^2$) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
+= (*c* / (2 *a*)) $n^2$ - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
+= (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*
+
+> ***4.4-9***
+>
+> Use a recursion tree to give an asymptotically tight solution to the recurrence
+> *T*(*n*) = *T*(*α* *n*) + *T*((1 - *α*) *n*) + *c* *n*, where *α* is a constant in the range 0 < *α* < 1 and *c* > 0
+> is also a constant.
+
+Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(*n* lg *n*), so *T*(*n*) = Θ(*n* lg *n*).
