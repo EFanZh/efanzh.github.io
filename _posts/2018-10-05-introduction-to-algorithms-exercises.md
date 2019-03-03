@@ -1265,7 +1265,7 @@ So my guess is right.
 = *S*(log *n*)\
 = *c* $(\log n)^{\lg 3}$ - 2 log *n*.
 
-Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* $n^p$, try *T*(*n*) = *c* $n^{\log_b a}$ + ($b^p$ *k* / ($b^p$ - *a*)) $n^p$.
+Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$, otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
 
 #### 4.4 The recursion-tree method for solving recurrences
 
@@ -1399,3 +1399,19 @@ Verification:
 > is also a constant.
 
 Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(*n* lg *n*), so *T*(*n*) = Θ(*n* lg *n*).
+
+#### 4.5 The master method for solving recurrences
+
+> ***4.5-1***
+>
+> Use the master method to give tight asymptotic bounds for the following recurrences.
+>
+> 1. *T*(*n*) = 2 *T*(*n* / 4) + 1.
+> 2. *T*(*n*) = 2 *T*(*n* / 4) + $\sqrt{n}$.
+> 3. *T*(*n*) = 2 *T*(*n* / 4) + *n*.
+> 4. *T*(*n*) = 2 *T*(*n* / 4) + $n^2$.
+
+1. *T*(*n*) = Θ($\sqrt{n}$).
+2. *T*(*n*) = Θ($\sqrt{n}$ lg *n*).
+3. *T*(*n*) = Θ(*n*).
+4. *T*(*n*) = Θ($n^2$).
