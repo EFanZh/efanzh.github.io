@@ -1422,7 +1422,7 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 > algorithm. His algorithm will use the divide-and-conquer method, dividing each matrix into pieces of size
 > *n* / 4 × *n* / 4, and the divide and combine steps together will take Θ($n^2$) time. He needs to determine how many
 > subproblems his algorithm has to create in order to beat Strassen’s algorithm. If his algorithm creates a subproblems,
-> then the recurrence for the running time T(n) becomes T(n) = a T(n / 4) + Θ($n^2$). What is the largest integer value
-> of a for which Professor Caesar’s algorithm would be asymptotically faster than Strassen’s algorithm?
+> then the recurrence for the running time *T*(*n*) becomes *T*(*n*) = *a* *T*(*n* / 4) + Θ($n^2$). What is the largest
+> integer value of a for which Professor Caesar’s algorithm would be asymptotically faster than Strassen’s algorithm?
 
 The answer is 49. Since $log_4 49$ = lg 7.
