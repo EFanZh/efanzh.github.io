@@ -1426,3 +1426,10 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 > integer value of a for which Professor Caesar’s algorithm would be asymptotically faster than Strassen’s algorithm?
 
 The answer is 49. Since $log_4 49$ = lg 7.
+
+> ***4.5-3***
+>
+> Use the master method to show that the solution to the binary-search recurrence *T*(*n*) = *T*(*n* / 2) + Θ(1) is
+> *T*(*n*) = Θ(lg *n*). (See Exercise 2.3-5 for a description of binary search.)
+
+Since Θ(1) = Θ($n^{\log_2 1}$), *T*(*n*) = Θ($n^{\log_2 1}$ lg *n*) = Θ(lg *n*).
