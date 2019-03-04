@@ -1433,3 +1433,23 @@ The answer is 49. Since $log_4 49$ = lg 7.
 > *T*(*n*) = Θ(lg *n*). (See Exercise 2.3-5 for a description of binary search.)
 
 Since Θ(1) = Θ($n^{\log_2 1}$), *T*(*n*) = Θ($n^{\log_2 1}$ lg *n*) = Θ(lg *n*).
+
+> ***4.5-4***
+>
+> Can the master method be applied to the recurrence *T*(*n*) = 4 *T*(*n* / 2) + $n^2$ lg *n*? Why or why not? Give an
+> asymptotic upper bound for this recurrence.
+
+The master methoid can not be applied to that recurrence, because $n^2$ lg *n* is asymptotically large than
+$n^{\log_2 4} = n^2$, but it is not polynomially asymptotically large than $n^{\log_2 4}$.
+
+*T*(*n*) = $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
+
+Verification:
+
+*T*(*n*)\
+= 4 *T*(*n* / 2) + $n^2$ lg *n*\
+= 4 $(n / 2)^2 \left(\lg^2 (n / 2) + \lg (n / 2) + c\right)$ / 2 + $n^2$ lg *n*\
+= 4 $(n / 2)^2 \left((\lg n - 1)^2 + \lg n - 1 + c\right)$ / 2 + $n^2$ lg *n*\
+= 4 $(n / 2)^2 \left(\lg^2 n - 2 \lg n + 1 + \lg n - 1 + c\right)$ / 2 + $n^2$ lg *n*\
+= $n^2 \left(\lg^2 n - \lg n + c\right)$ / 2 + $n^2$ lg *n*\
+= $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
