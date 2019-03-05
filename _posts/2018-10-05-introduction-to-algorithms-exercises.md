@@ -1425,7 +1425,7 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 > then the recurrence for the running time *T*(*n*) becomes *T*(*n*) = *a* *T*(*n* / 4) + Θ($n^2$). What is the largest
 > integer value of a for which Professor Caesar’s algorithm would be asymptotically faster than Strassen’s algorithm?
 
-The answer is 49. Since $log_4 49$ = lg 7.
+The answer is 48. Since $log_4 49$ = lg 7.
 
 > ***4.5-3***
 >
