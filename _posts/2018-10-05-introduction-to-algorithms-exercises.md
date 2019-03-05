@@ -1453,3 +1453,11 @@ Verification:
 = 4 $(n / 2)^2 \left(\lg^2 n - 2 \lg n + 1 + \lg n - 1 + c\right)$ / 2 + $n^2$ lg *n*\
 = $n^2 \left(\lg^2 n - \lg n + c\right)$ / 2 + $n^2$ lg *n*\
 = $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
+
+> ***4.5-5*** ★
+>
+> Consider the regularity condition *a* *f*(*n* / *b*) ≤ *c* *f*(*n*) for some constant *c* < 1, which is part of case 3
+> of the master theorem. Give an example of constants *a* ≥ 1 and *b* > 1 and a function *f*(*n*) that satisfies all the
+> conditions in case 3 of the master theorem except the regularity condition.
+
+*Skipped.*
