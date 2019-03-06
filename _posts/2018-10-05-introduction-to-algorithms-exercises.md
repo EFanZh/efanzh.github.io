@@ -1280,7 +1280,7 @@ Verification:
 
 *T*(*n*)\
 = 3 *T*(⌊*n* / 2⌋) + *n*\
-≤ 3 (*c* $\lfloor{}n / 2\rfloor^{\lg 3}$ - 2 ⌊*n* / 2⌋) + *n*\
+≤ 3 (*c* $\left\lfloor{}n / 2\right\rfloor^{\lg 3}$ - 2 ⌊*n* / 2⌋) + *n*\
 ≤ 3 (*c* $\left(n / 2\right)^{\lg 3}$ - 2 (*n* / 2)) + *n*\
 = 3 (*c* $n^{\lg 3}$ / 3 - *n*) + *n*\
 = 3 *c* $n^{\lg 3}$ / 3 - 3 *n* + *n*\
@@ -1461,3 +1461,25 @@ Verification:
 > conditions in case 3 of the master theorem except the regularity condition.
 
 *Skipped.*
+
+#### 4.6 Proof of the master theorem ★
+
+> ***4.6-1*** ★
+>
+> Give a simple and exact expression for $n_j$ in equation (4.27) for the case in which *b* is a positive integer
+> instead of an arbitrary real number.
+
+Theorem 3.4 and 3.5:
+
+For any real number *x* ≥ 0 and integers *a*, *b* > 0:
+
+- $\left\lceil\frac{\left\lceil x / a\right\rceil}{b}\right\rceil = \left\lceil\frac{x}{a b}\right\rceil$,
+- $\left\lfloor\frac{\left\lfloor x / a\right\rfloor}{b}\right\rfloor = \left\lfloor\frac{x}{a b}\right\rfloor$.
+
+$n_j$ = ⌈n / $b^j$⌉.
+
+Proof by induction:
+
+- If *j* = 0, $n_j$ = ⌈n / $b^j$⌉ = ⌈*n* / $b^0$⌉ = ⌈*n*⌉ = *n*, the claim holds.
+- If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈n / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
+  ⌈⌈n / $b^{j - 1}$⌉ / *b*⌉ = ⌈n / $b^{j - 1}$ / *b*⌉ = ⌈n / $b^j$⌉. So $n_j$ = ⌈n / $b^j$⌉, the claim holds.
