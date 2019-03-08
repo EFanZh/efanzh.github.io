@@ -1261,11 +1261,11 @@ I guess *S*(*m*) = *c* $m^{\lg 3}$ - 2 *m*,
 
 So my guess is right.
 
-*T*(n)
+*T*(*n*)
 = *S*(log *n*)\
 = *c* $(\log n)^{\lg 3}$ - 2 log *n*.
 
-Note: Solving *T*(*n*) = *a* T(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$, otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
+Note: Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$, otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
 
 #### 4.4 The recursion-tree method for solving recurrences
 
@@ -1335,7 +1335,7 @@ Verification:
 > ***4.4-5***
 >
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence
-> *T*(*n*) = T(*n* - 1) + *T*(*n* / 2) + *n*. Use the substitution method to verify your answer.
+> *T*(*n*) = *T*(*n* - 1) + *T*(*n* / 2) + *n*. Use the substitution method to verify your answer.
 
 *T*(*n*) = *O*($2^n$), and *T*(*n*) = Ω(*n* lg *n*).
 
@@ -1347,7 +1347,7 @@ Verification:
 > is Ω(*n* lg *n*) by appealing to a recursion tree.
 
 On each level of recursion whose depth is less than lg *n* / lg 3, the cost on this level is *c* *n*, so the cost is at
-least *c* *n* lg *n* / lg 3, that is T(*n*) = Ω(*n* lg *n*).
+least *c* *n* lg *n* / lg 3, that is *T*(*n*) = Ω(*n* lg *n*).
 
 > ***4.4-7***
 >
@@ -1379,14 +1379,14 @@ So *T*(*n*) = Θ($n^2$).
 > ***4.4-8***
 >
 > Use a recursion tree to give an asymptotically tight solution to the recurrence
-> *T*(*n*) = T(*n* - *a*) + *T*(*a*) + *c* *n*, where *a* ≥ 1 and *c* > 0 are constants.
+> *T*(*n*) = *T*(*n* - *a*) + *T*(*a*) + *c* *n*, where *a* ≥ 1 and *c* > 0 are constants.
 
 *T*(*n*) = (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*.
 
 Verification:
 
 *T*(*n*)\
-= T(*n* - *a*) + *T*(*a*) + *c* *n*\
+= *T*(*n* - *a*) + *T*(*a*) + *c* *n*\
 = (*c* / (2 *a*)) $\left(n - a\right)^2$ + *k* (*n* - a) - *a* *c* + (*c* / (2 *a*)) $a^2$ + *k* *a* - *a* *c* + *c* *n*\
 = (*c* / (2 *a*)) ($n^2$ - 2 *a* *n* + $a^2$) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
 = (*c* / (2 *a*)) $n^2$ - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
