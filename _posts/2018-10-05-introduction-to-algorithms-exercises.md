@@ -1500,3 +1500,17 @@ Proof by induction:
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\log_b n \lg^k n - \lg^k n\right)$\
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\lg^{k + 1} n\right)$\
 = Θ($n^{\log_b a} \lg^{k + 1} n$).
+
+> ***4.6-3*** ★
+>
+> Show that case 3 of the master theorem is overstated, in the sense that the regularity condition
+> *a* *f*(*n* / *b*) ≤ *c* *f*(*n*) for some constant *c* < 1 implies that there exists a constant *ϵ* > 0 such that
+> *f*(*n*) = Ω($n^{\log_b a + ϵ}$).
+
+Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
+
+f(n)\
+≥ (*a* / *c*) *f*(*n* / *b*)\
+= (*a* / *c*) Ω($\left(n / b\right)^{\log_b a - \log_b c}$)\
+= (*a* / *c*) Ω($n^{\log_b a - \log_b c} / \left(a / c\right)$)\
+= Ω($n^{\log_b a - \log_b c}$).
