@@ -1514,3 +1514,26 @@ f(n)\
 = (*a* / *c*) Ω($\left(n / b\right)^{\log_b a - \log_b c}$)\
 = (*a* / *c*) Ω($n^{\log_b a - \log_b c} / \left(a / c\right)$)\
 = Ω($n^{\log_b a - \log_b c}$).
+
+#### 4.X Problems
+
+> ***4-1 Recurrence examples***
+>
+> Give asymptotic upper and lower bounds for *T*(*n*) in each of the following recurrences. Assume that *T*(*n*) is
+> constant for *n* ≤ 2. Make your bounds as tight as possible, and justify your answers.
+>
+> 1. *T*(*n*) = 2 *T*(*n* / 2) + $n^4$.
+> 2. *T*(*n*) = *T*(7 *n*  / 10) + *n*.
+> 3. *T*(*n*) = 16 *T*(*n* / 4) + $n^2$.
+> 4. *T*(*n*) = 7 *T*(*n* / 3) + $n^2$.
+> 5. *T*(*n*) = 7 *T*(*n* / 2) + $n^2$.
+> 6. *T*(*n*) = 2 *T*(*n* / 4) + $\sqrt{n}$
+> 7. *T*(*n*) = *T*(*n* - 2) + $n^2$.
+
+1. *T*(*n*) = *c* *n* + (8 / 7) $n^4$.
+2. *T*(*n*) = (10 / 3) *n* + *c*.
+3. *T*(*n*) = $n^2 \log_4 n$ + *c* $n^2$.
+4. *T*(*n*) = (9 / 2) $n^2$ + *c* $n^{\log_3 7}$..
+5. *T*(*n*) = *c* $n^{\lg 7}$ - (4 / 3) $n^2$.
+6. *T*(*n*) = $\sqrt{n} \log_4 n$ + *c* $\sqrt{n}$.
+7. *T*(*n*) = $n^3$ / 6 + $n^2$ / 2 + *n* / 3 + *c*.
