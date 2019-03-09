@@ -1194,12 +1194,12 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 
 > ***4.3-6***
 >
-> Show that the solution to *T*(*n*) = 2 *T*(⌊n / 2⌋ + 17) + *n* is *O*(*n* lg *n*).
+> Show that the solution to *T*(*n*) = 2 *T*(⌊*n* / 2⌋ + 17) + *n* is *O*(*n* lg *n*).
 
 *T*(*n*)\
-= 2 *T*(⌊n / 2⌋ + 17) + *n*\
-≤ 2 *c* (⌊n / 2⌋ + 17) lg (⌊n / 2⌋ + 17) + *n*\
-< 2 *c* ((n + 2) / 2 + 17) lg ((n + 2) / 2 + 17) + *n*
+= 2 *T*(⌊*n* / 2⌋ + 17) + *n*\
+≤ 2 *c* (⌊*n* / 2⌋ + 17) lg (⌊*n* / 2⌋ + 17) + *n*\
+< 2 *c* ((*n* + 2) / 2 + 17) lg ((*n* + 2) / 2 + 17) + *n*
 
 *Skipped.*
 
@@ -1387,7 +1387,7 @@ Verification:
 
 *T*(*n*)\
 = *T*(*n* - *a*) + *T*(*a*) + *c* *n*\
-= (*c* / (2 *a*)) $\left(n - a\right)^2$ + *k* (*n* - a) - *a* *c* + (*c* / (2 *a*)) $a^2$ + *k* *a* - *a* *c* + *c* *n*\
+= (*c* / (2 *a*)) $\left(n - a\right)^2$ + *k* (*n* - *a*) - *a* *c* + (*c* / (2 *a*)) $a^2$ + *k* *a* - *a* *c* + *c* *n*\
 = (*c* / (2 *a*)) ($n^2$ - 2 *a* *n* + $a^2$) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
 = (*c* / (2 *a*)) $n^2$ - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
 = (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*
@@ -1476,10 +1476,10 @@ For any real number *x* ≥ 0 and integers *a*, *b* > 0:
 - $\left\lceil\frac{\left\lceil x / a\right\rceil}{b}\right\rceil = \left\lceil\frac{x}{a b}\right\rceil$,
 - $\left\lfloor\frac{\left\lfloor x / a\right\rfloor}{b}\right\rfloor = \left\lfloor\frac{x}{a b}\right\rfloor$.
 
-$n_j$ = ⌈n / $b^j$⌉.
+$n_j$ = ⌈*n* / $b^j$⌉.
 
 Proof by induction:
 
-- If *j* = 0, $n_j$ = ⌈n / $b^j$⌉ = ⌈*n* / $b^0$⌉ = ⌈*n*⌉ = *n*, the claim holds.
-- If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈n / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
-  ⌈⌈n / $b^{j - 1}$⌉ / *b*⌉ = ⌈n / $b^{j - 1}$ / *b*⌉ = ⌈n / $b^j$⌉. So $n_j$ = ⌈n / $b^j$⌉, the claim holds.
+- If *j* = 0, $n_j$ = ⌈*n* / $b^j$⌉ = ⌈*n* / $b^0$⌉ = ⌈*n*⌉ = *n*, the claim holds.
+- If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
+  ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉ = ⌈*n* / $b^{j - 1}$ / *b*⌉ = ⌈*n* / $b^j$⌉. So $n_j$ = ⌈*n* / $b^j$⌉, the claim holds.
