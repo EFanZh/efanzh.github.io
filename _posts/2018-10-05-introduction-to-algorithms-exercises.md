@@ -1483,3 +1483,20 @@ Proof by induction:
 - If *j* = 0, $n_j$ = ⌈*n* / $b^j$⌉ = ⌈*n* / $b^0$⌉ = ⌈*n*⌉ = *n*, the claim holds.
 - If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
   ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉ = ⌈*n* / $b^{j - 1}$ / *b*⌉ = ⌈*n* / $b^j$⌉. So $n_j$ = ⌈*n* / $b^j$⌉, the claim holds.
+
+> ***4.6-2*** ★
+>
+> Show that if *f*(*n*) = Θ($n^{\log_b a} \lg^k n$), where *k* ≥ 0, then the master recurrence has solution
+> *T*(*n*) = Θ($n^{\log_b a} \lg^{k + 1} n$). For simplicity, confine your analysis to exact powers of *b*.
+
+*T*(*n*)\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} a^j f(n / b^j)$\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} a^j Θ\left(\left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(a^j \left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - \lg \left(b^j\right)\right)^k\right)$\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - j \lg b\right)^k\right)$\
+= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \lg^k n\right)$\
+= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\left(\log_b n - 1\right)\lg^k n\right)$\
+= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\log_b n \lg^k n - \lg^k n\right)$\
+= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\lg^{k + 1} n\right)$\
+= Θ($n^{\log_b a} \lg^{k + 1} n$).
