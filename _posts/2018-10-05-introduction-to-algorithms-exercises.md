@@ -1600,7 +1600,80 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 4. *T*(*n*) = (1 / 2) *n* $\log_3 \left(n + 3\right)$ + *c* *n* + (3 / 2) $\log_3 \left(n + 3\right)$ + 3 *c* + 3 / 4.
 5. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
 6. *T*(*n*) = 8 *n*.
-7. *T*(*n*) = *c* + $\sum_{j = 2}^{n} \left(1 / j\right)$ = Θ(lg *n*).
-8. *Skipped*.
+7. *T*(*n*) = *c* + $\sum_{j = 2}^n \left(1 / j\right)$ = Θ(lg *n*).
+8. *T*(*n*) = *c* + $\sum_{j = 2}^n \lg n$ = *c* + $\lg \prod_{j = 2}^n n$ = *c* + lg *n*! = Θ(*n* lg *n*).
 9. *Skipped*.
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
+
+> ***4-4 Fibonacci numbers***
+>
+> This problem develops properties of the Fibonacci numbers, which are defined by recurrence (3.22). We shall use the
+> technique of generating functions to solve the Fibonacci recurrence. Define the ***generating function*** (or
+> ***formal power series***) ℱ as
+>
+> $\begin{aligned}
+> ℱ\left(z\right) &= \displaystyle\sum_{i = 0}^∞ F_i z^i\\\\
+> &= 0 + z + z^2 + 2 z^3 + 3 z^4 + 5 z^5 + 8 z^6 + 13 z^7 + 21 z^8 + ⋯,
+> \end{aligned}$
+>
+> where $F_i$ is the *i*th Fibonacci number.
+>
+> 1. Show that ℱ(*z*) = *z* + *z* ℱ(*z*) + $z^2$ ℱ(*z*).
+> 2. Show that
+>
+>    $\begin{aligned}
+>    ℱ\left(z\right) &= \frac{z}{1 - z - z^2}\\\\
+>    &= \frac{z}{\left(1 - ϕ z\right)\left(1 - \hat{ϕ} z\right)}\\\\
+>    &= \frac{1}{\sqrt{5}}\left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right),
+>    \end{aligned}$
+>
+>    where
+>
+>    $ϕ$ = $\dfrac{1 + \sqrt{5}}{2}$ = 1.61803…
+>
+>    and
+>
+>    $\hat{ϕ}$ = $\dfrac{1 - \sqrt{5}}{2}$ = - 1.61803… .
+> 3. Show that
+>
+>    ℱ(*z*) = $\displaystyle\sum_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$.
+> 4. Use part (c) to prove that $F_i = ϕ^i / \sqrt{5}$ for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
+>    that |$\hat{ϕ}$| < 1.)
+
+1. By definition:
+
+   $\begin{aligned}
+   z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z \sum_{i = 0}^∞ F_i z^i + z^2 \sum_{i = 0}^∞ F_i z^i\\\\
+   &= z + \sum_{i = 0}^∞ F_i z^{i + 1} + \sum_{i = 0}^∞ F_i z^{i + 2}\\\\
+   &= z + \sum_{i = 1}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= z + F_0 z^1 + \sum_{i = 2}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= F_1 z^1 + F_0 z^0 + \sum_{i = 2}^∞ F_i z^i\\\\
+   &= \sum_{i = 0}^∞ F_i z^i\\\\
+   &= ℱ\left(z\right).
+   \end{aligned}$
+2. ℱ(*z*) = *z* + *z* ℱ(*z*) + $z^2$ ℱ(*z*)\
+   ⇒ ℱ(*z*) - *z* ℱ(*z*) - $z^2$ ℱ(*z*) = *z*\
+   ⇒ ℱ(*z*) (1 - *z* - $z^2$) = *z*\
+   ⇒ ℱ(*z*) = *z* / (1 - *z* - $z^2$).
+
+   *z* / ((1 - *ϕ* *z*) (1 - $\hat{ϕ}$ *z*))\
+   = *z* / (1 - (*ϕ* + $\hat{ϕ}$) *z* + *ϕ* $\hat{ϕ} z^2$)\
+   = *z* / (1 - *z* - $z^2$)\
+   = ℱ(*z*).
+
+   $\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)$\
+   = $\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - \left(1 - ϕ z\right)}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
+   = $\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
+   = $\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
+   = $\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
+   = ℱ(*z*).
+3. $\sum_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$\
+   = $\frac{1}{\sqrt{5}} \sum_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i$\
+   = $\frac{1}{\sqrt{5}} \left(\sum_{i = 0}^∞ \left(ϕ z\right)^i - \sum_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)$\
+   = $\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)$\
+   = ℱ(*z*).
+4. $F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}$\
+   ⇒ $F_i - ϕ^i / \sqrt{5} = - \hat{ϕ}^i / \sqrt{5}$.
+
+   Since $\left|- \hat{ϕ}^i / \sqrt{5}\right|$ < 0.5, and $F_i$ is an integer, $F_i = ϕ^i / \sqrt{5}$, rounded to the
+   nearest integer.
