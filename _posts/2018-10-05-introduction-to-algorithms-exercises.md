@@ -1509,7 +1509,7 @@ Proof by induction:
 
 Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 
-f(n)\
+*f*(*n*)\
 ≥ (*a* / *c*) *f*(*n* / *b*)\
 = (*a* / *c*) Ω($\left(n / b\right)^{\log_b a - \log_b c}$)\
 = (*a* / *c*) Ω($n^{\log_b a - \log_b c} / \left(a / c\right)$)\
@@ -1537,3 +1537,43 @@ f(n)\
 5. *T*(*n*) = *c* $n^{\lg 7}$ - (4 / 3) $n^2$.
 6. *T*(*n*) = $\sqrt{n} \log_4 n$ + *c* $\sqrt{n}$.
 7. *T*(*n*) = $n^3$ / 6 + $n^2$ / 2 + *n* / 3 + *c*.
+
+> ***4-2 Parameter-passing costs***
+>
+> Throughout this book, we assume that parameter passing during procedure calls takes constant time, even if an
+> *N*-element array is being passed. This assumption is valid in most systems because a pointer to the array is passed,
+> not the array itself. This problem examines the implications of three parameter-passing strategies:
+>
+> 1) An array is passed by pointer. Time = Θ(1).
+> 2) An array is passed by copying. Time = Θ(*N*), where *N* is the size of the array.
+> 3) An array is passed by copying only the subrange that might be accessed by the called procedure.
+>    Time = Θ(*q* - *p* + 1) if the subarray *A*[*p*‥*q*] is passed.
+>
+> 1. Consider the recursive binary search algorithm for finding a number in a sorted array (see Exercise 2.3-5). Give
+> recurrences for the worst-case running times of binary search when arrays are passed using each of the three methods
+> above, and give good upper bounds on the solutions of the recurrences. Let *N* be the size of the original problem and
+> *n* be the size of a subproblem.
+> 2. Redo part (a) for the Merge-Sort algorithm from Section 2.3.1.
+
+1. Binary search algorithm
+   1. By pointer: *T*(*n*) = *T*(*n* / 2) + Θ(1).
+
+      *T*(*N*) = Θ(lg *N*).
+   2. By copying: *T*(*n*) = *T*(*n* / 2) + Θ(*N*).
+
+      *T*(*N*) = Θ(*N* lg *N*).
+   3. By copying subrange: *T*(*n*) = *T*(*n* / 2) + Θ(*n*).
+
+      *T*(*N*) = Θ(*N*).
+2. Merge sort algorithm
+   1. By pointer: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*).
+
+      *T*(*N*) = Θ(*N* lg *N*).
+   2. By copying: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*) + Θ(N*).
+
+      *T*(*n*)\
+      = Θ(*n*) + $\sum_{j = 0}^{\lg n - 1} Θ\left(2^j (n / 2^j)\right)$ + $\sum_{j = 0}^{\lg n - 1} Θ\left(2^j N\right)$\
+      = Θ(*n*) + Θ(*n* lg *n*) + Θ(*N* *n*)
+
+      *T*(*N*) = Θ($N^2$).
+   3. By copying subrange: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*), *T*(*N*) = Θ(*N* lg *N*).
