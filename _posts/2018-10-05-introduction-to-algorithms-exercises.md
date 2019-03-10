@@ -1577,3 +1577,30 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 
       *T*(*N*) = Θ($N^2$).
    3. By copying subrange: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*), *T*(*N*) = Θ(*N* lg *N*).
+
+> ***4-3 More recurrence examples***
+>
+> Give asymptotic upper and lower bounds for *T*(*n*) in each of the following recurrences. Assume that *T*(*n*) is
+> constant for sufficiently small *n*. Make your bounds as tight as possible, and justify your answers.
+>
+> 1. *T*(*n*) = 4 *T*(*n* / 3) + *n* lg *n*.
+> 2. *T*(*n*) = 3 *T*(*n* / 3) + *n* / lg *n*.
+> 3. *T*(*n*) = 4 *T*(*n* / 2) + $n^2 \sqrt{n}$.
+> 4. *T*(*n*) = 3 *T*(*n* / 3 - 2) + *n* / 2.
+> 5. *T*(*n*) = 2 *T*(*n* / 2) + *n* /  lg n.
+> 6. *T*(*n*) = *T*(*n* / 2) + *T*(*n* / 4) + *T*(*n* / 8) + *n*.
+> 7. *T*(*n*) = *T*(*n* - 1) + 1 / *n*.
+> 8. *T*(*n*) = *T*(*n* - 1) + lg *n*.
+> 9. *T*(*n*) = *T*(*n* - 2) + 1 / lg *n*.
+> 10. *T*(*n*) = $\sqrt{n}$ *T*($\sqrt{n}$) + *n*
+
+1. *T*(*n*) = *c* $n^{\log_3 4}$ - 3 *n* lg *n* - 12 *n* lg 3.
+2. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
+3. *T*(*n*) = (2 + $\sqrt{2}$) $n^{5 / 2}$ + *c* $n^2$.
+4. *T*(*n*) = (1 / 2) *n* $\log_3 \left(n + 3\right)$ + *c* *n* + (3 / 2) $\log_3 \left(n + 3\right)$ + 3 *c* + 3 / 4.
+5. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
+6. *T*(*n*) = 8 *n*.
+7. *T*(*n*) = *c* + $\sum_{j = 2}^{n} \left(1 / j\right)$ = Θ(lg *n*).
+8. *Skipped*.
+9. *Skipped*.
+10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
