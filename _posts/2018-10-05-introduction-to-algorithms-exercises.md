@@ -1646,8 +1646,10 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z \sum_{i = 0}^∞ F_i z^i + z^2 \sum_{i = 0}^∞ F_i z^i\\\\
    &= z + \sum_{i = 0}^∞ F_i z^{i + 1} + \sum_{i = 0}^∞ F_i z^{i + 2}\\\\
    &= z + \sum_{i = 1}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
-   &= z + F_0 z^1 + \sum_{i = 2}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= z + \left(F_0 z^1 + \sum_{i = 2}^∞ F_{i - 1} z^i\right) + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= z + F_0 z^1 + \left(\sum_{i = 2}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\right)\\\\
    &= F_1 z^1 + F_0 z^0 + \sum_{i = 2}^∞ F_i z^i\\\\
+   &= F_0 z^0 + F_1 z^1 + \sum_{i = 2}^∞ F_i z^i\\\\
    &= \sum_{i = 0}^∞ F_i z^i\\\\
    &= ℱ\left(z\right).
    \end{aligned}$
@@ -1667,6 +1669,11 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    = $\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
    = $\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
    = ℱ(*z*).
+
+   An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - $1^2$) =  -1. Also, according to the
+   definition of ℱ, we have: $ℱ\left(1\right) = \sum_{i = 0}^∞ F_i 1^i = \sum_{i = 0}^∞ F_i$.
+
+   So we have $\sum_{i = 0}^∞ F_i$ = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
 3. $\sum_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$\
    = $\frac{1}{\sqrt{5}} \sum_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i$\
    = $\frac{1}{\sqrt{5}} \left(\sum_{i = 0}^∞ \left(ϕ z\right)^i - \sum_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)$\
@@ -1677,3 +1684,62 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 
    Since $\left|- \hat{ϕ}^i / \sqrt{5}\right|$ < 0.5, and $F_i$ is an integer, $F_i = ϕ^i / \sqrt{5}$, rounded to the
    nearest integer.
+
+> ***4-5 Chip testing***
+>
+> Professor Diogenes has *n* supposedly identical integrated-circuit chips that in principle are capable of testing each
+> other. The professor’s test jig accommodates two chips at a time. When the jig is loaded, each chip tests the other
+> and reports whether it is good or bad. A good chip always reports accurately whether the other chip is good or bad,
+> but the professor cannot trust the answer of a bad chip. Thus, the four possible outcomes of a test are as follows:
+>
+> | Chip *A* says | Chip *B* says | Conclusion                     |
+> | ------------- | ------------- | ------------------------------ |
+> | *B* is good   | *A* is good   | both are good, or both are bad |
+> | *B* is good   | *A* is bad    | at least one is bad            |
+> | *B* is bad    | *A* is good   | at least one is bad            |
+> | *B* is bad    | *A* is bad    | at least one is bad            |
+>
+> 1. Show that if at least *n* / 2 chips are bad, the professor cannot necessarily determine which chips are good using
+>    any strategy based on this kind of pairwise test. Assume that the bad chips can conspire to fool the professor.
+> 2. Consider the problem of finding a single good chip from among *n* chips, assuming that more than *n* / 2 of the
+>    chips are good. Show that ⌊*n* / 2⌋ pairwise tests are sufficient to reduce the problem to one of nearly half the
+>    size.
+> 3. Show that the good chips can be identified with ϴ(*n*) pairwise tests, assuming that more than *n* / 2 of the chips
+>    are good. Give and solve the recurrence that describes the number of tests.
+
+1. If there are at least *n* / 2 chips are bad, there must exist same number of bad chips from good chips, and the bad
+   chips can simulate whatever the behavior the good chips have, so it is not possible to distinguish bad chips from
+   good chips.
+2. Generalize the original problem to this:
+
+   There are no less good chip than bad chips:
+
+   - If the number of good chips is greater than the number of bad chips, find a good chip.
+   - If the number of good chips is greater than or equal to the number of bad chips, find a good chip or say the number
+     of good chips equal to the number of bad chips.
+   - Otherwise, the result is undefined.
+
+   Solution:
+
+   - Base cases:
+     - If there is zero chip, we say that the number of good chips equal to the number of bad chips.
+     - If there is one chip, then the only one chip is a good chip.
+   - Inductive cases:
+     - If the number of chips is even, we group them into pairs, then in each pair, we test each chip with the other
+       chip. If the chips in one pair both say the other one is a good chip, we throw away any one chip in this pair;
+       otherwise, we throw away both chips. Then we will be left with at most half of the original chips. And since chip
+       pairs that do not say each other is good ether have one bad chip or have two bad chips, throwing them away does
+       not change the fact that good chips are not less than bad chips. The remaining chip pairs are either both good
+       chips or bad chips, after throwing away one chip in those pair, we have reduced the size of the problem to at
+       most half of the original problem size.
+     - If the number of chips is odd, we know that the number of good chip must be greater than the number of bad chips,
+       since there can not be the same number of good chips and bad chips. We randomly remove one chip from the chips,
+       and we will be left with even number of chips in which good chips are no less than bad chips. We process the
+       remaning chips with the method used in the even number case. After the remaining chips being processed, either we
+       get a good chip, or we are told that the number of good chips are the same as the number of bad chips, which
+       means the chip we removed is a good chip. Either way, we can get a good chip.
+
+   The solution to the generalized problem applies to the original problem.
+3. With the solution above, we can find one good chip in number *T*(*n*) ≤ *T*(*n* / 2) + Θ(*n*) pair tests. According
+   to the master theorem, we have *T*(*n*) = *O*(*n*). After we found one good we can identify all good chips with that
+   good chip in Θ(*n*) time, so the total number of pairwise tests equals to *O*(*n*) + Θ(*n*) = Θ(*n*).
