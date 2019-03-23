@@ -12,34 +12,34 @@ I will put the actual implementation of exercises [here](https://github.com/EFan
 
 #### 1.1 Algorithms
 
-> ***1.1-1***
->
+##### 1.1-1
+
 > Give a real-world example that requires sorting or a real-world example that requires computing a convex hull.
 
 *Skipped.*
 
-> ***1.1-2***
->
+##### 1.1-2
+
 > Other than speed, what other measures of efficiency might one use in a real-world setting?
 
 Memory consumption.
 
-> ***1.1-3***
->
+##### 1.1-3
+
 > Select a data structure that you have seen previously, and discuss its strengths and limitations.
 
 [Linked lists](https://en.wikipedia.org/wiki/Linked_list), where insertion and deletion take constant time, but locating
 an element by index takes linear time.
 
-> ***1.1-4***
->
+##### 1.1-4
+
 > How are the shortest-path and traveling-salesman problems given above similar? How are they different?
 
 They both need to minimize the total distance for travelling. But shortest-path is to find the shortest path between
 only two locations, while traveling-salesman is to find the shortest path containing all given locations.
 
-> ***1.1-5***
->
+##### 1.1-5
+
 > Come up with a real-world problem in which only the best solution will do. Then come up with one in which a solution
 > that is “approximately” the best is good enough.
 
@@ -47,16 +47,16 @@ only two locations, while traveling-salesman is to find the shortest path contai
 
 #### 1.2 Algorithms as a technology
 
-> ***1.2-1***
->
+##### 1.2-1
+
 > Give an example of an application that requires algorithmic content at the application level, and discuss the function
 > of the algorithms involved.
 
 The [Minesweeper](https://en.wikipedia.org/wiki/Minesweeper_(video_game)) game. You have to figure out if there is a
 mime under a button base on the numbers that you recovered. That is an algorithm.
 
-> ***1.2-2***
->
+##### 1.2-2
+
 > Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size *n*,
 > insertion sort runs in $8 n^2$ steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
 > insertion sort beat merge sort?
@@ -65,8 +65,8 @@ We can solve $8 n^2 < 64 n \lg n$ for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *
 [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5Bn+%3C+8+Log%5B2,+n%5D,+n%5D), we know that
 1.1 < *n* < 43.5593. So for *n* ∈ [2, 43], insertion sort beats merge sort.
 
-> ***1.2-3***
->
+##### 1.2-3
+
 > What is the smallest value of *n* such that an algorithm whose running time is $100 n^2$ runs faster than an algorithm
 > whose running time is $2^n$ on the same machine?
 
@@ -78,8 +78,8 @@ Question: Should I only consider positive integer values for *n*?
 
 #### 1.X Problems
 
-> ***1-1 Comparison of running times***
->
+##### 1-1 Comparison of running times
+
 > For each function *f*(*n*) and time *t* in the following table, determine the largest size *n* of a problem
 > that can be solved in time *t*, assuming that the algorithm to solve the problem takes *f*(*n*) microseconds.
 >
@@ -252,20 +252,20 @@ function generateTable() {
 
 #### 2.1 Insertion sort
 
-> ***2.1-1***
->
+##### 2.1-1
+
 > Using Figure 2.2 as a model, illustrate the operation of *Insertion-Sort* on the array *A* = ⟨31, 41, 59, 26, 41, 58⟩.
 
 *Skipped.*
 
-> ***2.1-2***
->
+##### 2.1-2
+
 > Rewrite the *Insertion-Sort* procedure to sort into nonincreasing instead of nondecreasing order.
 
 Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 
-> ***2.1-3***
->
+##### 2.1-3
+
 > Consider the ***searching problem***:
 >
 > **Input**: A sequence of *n* numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value *v*.
@@ -291,8 +291,8 @@ If for some *i*, *A*[*i*] == *v*, we will find it in line 2 and return *i* in li
 either for some *i*, *A*[*i*] == *v*, or none of the elements equals to *v*. we can guarantee that if there is an
 element in *A*, we will find it.
 
-> ***2.1-4***
->
+##### 2.1-4
+
 > Consider the problem of adding two *n*-bit binary integers, stored in two *n*-element arrays *A* and *B*. The sum of
 > the two integers should be stored in binary form in an (*n* + 1)-element array *C*. State the problem formally and
 > write pseudocode for adding the two integers.
@@ -314,14 +314,14 @@ Pseudocode:
 
 #### 2.2 Analyzing algorithms
 
-> ***2.2-1***
->
+##### 2.2-1
+
 > Express the function $n^3/1000 - 100 n^2 - 100 n + 3$ in terms of Θ-notation.
 
 $Θ\left(n^3\right)$.
 
-> ***2.2-2***
->
+##### 2.2-2
+
 > Consider sorting *n* numbers stored in array *A* by first finding the smallest element of *A* and exchanging it with
 > the element in *A*[1]. Then find the second smallest element of *A*, and exchange it with *A*[2]. Continue in this
 > manner for the first *n* - 1 elements of *A*. Write pseudocode for this algorithm, which is known as ***selection
@@ -337,8 +337,8 @@ to the front of *A*, so the last element must be the biggest one, so the whole a
 
 Best-case and worst-case running times are both $Θ\left(n^2\right)$.
 
-> ***2.2-3***
->
+##### 2.2-3
+
 > Consider linear search again (see Exercise 2.1-3). How many elements of the input sequence need to be checked on the
 > average, assuming that the element being searched for is equally likely to be any element in the array? How about in
 > the worst case? What are the average-case and worst-case running times of linear search in Θ-notation? Justify your
@@ -350,8 +350,8 @@ Best case running time is Θ(1), worst case running time is Θ(*n*). If we are l
 position, where only one element need to be checked. If we are unlucky, we can find the element at the last position,
 where all elements will be checked.
 
-> ***2.2-4***
->
+##### 2.2-4
+
 > How can we modify almost any algorithm to have a good best-case running time?
 
 *What? We can do that?*
@@ -360,14 +360,14 @@ where all elements will be checked.
 
 #### 2.3 Designing algorithms
 
-> ***2.3-1***
->
+##### 2.3-1
+
 > Using Figure 2.4 as a model, illustrate the operation of merge sort on the array *A* = ⟨3, 41, 52, 26, 38, 57, 9, 49⟩.
 
 *Skipped.*
 
-> ***2.3-2***
->
+##### 2.3-2
+
 > Rewrite the *Merge* procedure so that it does not use sentinels, instead stopping once either array *L* or *R* has had
 > all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
 
@@ -375,8 +375,8 @@ See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
 for implementation.
 
-> ***2.3-3***
->
+##### 2.3-3
+
 > Use mathematical induction to show that when *n* is an exact power of 2, the solution of the recurrence
 >
 > $T\left(n\right) = \begin{cases}
@@ -393,8 +393,8 @@ for implementation.
   $T\left(n\right) = 2 \left(n / 2\right) \lg \left(n / 2\right) + n = n \lg \left(n / 2\right) + n = n \left(\lg n - 1\right) + n = n \lg n$,
   The claim holds.
 
-> ***2.3-4***
->
+##### 2.3-4
+
 > We can express insertion sort as a recursive procedure as follows. In order to sort *A*[1‥*n*], we recursively sort
 > *A*[1‥*n* - 1] and then insert *A*[*n*] into the sorted array *A*[1‥*n* - 1]. Write a recurrence for the worst-case
 > running time of this recursive version of insertion sort.
@@ -408,8 +408,8 @@ $$T\left(n\right) = \begin{cases}
     T(n - 1) + Θ\left(n\right) &\text{if $n >= 2$}
 \end{cases}$$
 
-> ***2.3-5***
->
+##### 2.3-5
+
 > Referring back to the searching problem (see Exercise 2.1-3), observe that if the sequence *A* is sorted, we can check
 > the midpoint of the sequence against *v* and eliminate half of the sequence from further consideration. The ***binary
 > search*** algorithm repeats this procedure, halving the size of the remaining portion of the sequence each time. Write
@@ -446,8 +446,8 @@ We prove *T*(*n*) = Θ(lg *n*) by induction:
 - If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + *c*₂ = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
   so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*)  - 1) = Θ(lg *n*).
 
-> ***2.3-6***
->
+##### 2.3-6
+
 > Observe that the **while** loop of lines 5–7 of the *Insertion-Sort* procedure in Section 2.1 uses a linear search to
 > scan (backward) through the sorted subarray *A*[1‥*j* - 1]. Can we use a binary search (see Exercise 2.3-5) instead
 > to improve the overall worst-case running time of insertion sort to Θ(*n* lg *n*)?
@@ -455,8 +455,8 @@ We prove *T*(*n*) = Θ(lg *n*) by induction:
 No, we can not. Because despite the searching takes Θ(lg *n*) time, we still need to move *n* elements in the worst-case
 scenario, which taks Θ(*n*) time.
 
-> ***2.3-7*** ★
->
+##### 2.3-7 ★
+
 > Describe a Θ(*n* lg *n*)-time algorithm that, given a set *S* of *n* integers and another integer *x*, determines
 > whether or not there exist two elements in *S* whose sum is exactly *x*.
 
@@ -466,8 +466,8 @@ for implementations.
 
 #### 2.X Problems
 
-> ***2-1 Insertion sort on small arrays in merge sort***
->
+##### 2-1 Insertion sort on small arrays in merge sort
+
 > Although merge sort runs in $Θ\left(n \lg n\right)$ worst-case time and insertion sort runs in $Θ\left(n^2\right)$
 > worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many
 > machines. Thus, it makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort
@@ -493,8 +493,8 @@ for implementations.
    $k - \lg k < \left(c-1\right) \lg n$ from it. I think $k < Θ\left(\lg n\right)$, but I can’t prove it.
 4. With benchmarks and profiling.
 
-> ***2-2 Correctness of bubblesort***
->
+##### 2-2 Correctness of bubblesort
+
 > Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that
 > are out of order.
 >
@@ -557,8 +557,8 @@ for implementations.
    best-case running time which is $Θ\left(n\right)$, while the best-case running time of bubble sort is still
    $Θ\left(n^2\right)$.
 
-> ***2-3 Correctness of Horner’s rule***
->
+##### 2-3 Correctness of Horner’s rule
+
 > The following code fragment implements Horner’s rule for evaluating a polynomial
 >
 > $\begin{aligned}
@@ -617,8 +617,8 @@ for implementation.
      = \sum_{k = 0}^n a_k x^k$.
 4. I thought I have proved it at step 3.
 
-> ***2-4 Inversions***
->
+##### 2-4 Inversions
+
 > Let *A*[1‥*n*] be an array of *n* distinct numbers. If *i* < *j* and *A*[*i*] > *A*[*j*], then the pair (*i*, *j*) is
 > called an ***inversion*** of *A*.
 >
@@ -651,8 +651,8 @@ for implementation.
 | *f*(*n*) = *o*(*g*(*n*)) | ∀ *c* > 0: ∃ $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *f*(*n*) < *c* *g*(*n*)                               |
 | *f*(*n*) = *ω*(*g*(*n*)) | ∀ *c* > 0: ∃ $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *c* *g*(*n*) < *f*(*n*)                               |
 
-> ***3.1-1***
->
+##### 3.1-1
+
 > Let *f*(*n*) and *g*(*n*) be asymptotically nonnegative functions. Using the basic definition of Θ-notation, prove
 > that max(*f*(*n*), *g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
 
@@ -667,8 +667,8 @@ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*).
 So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + *g*(*n*), max(*f*(*n*),
 *g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
 
-> ***3.1-2***
->
+##### 3.1-2
+
 > Show that for any real constants *a* and *b*, where *b* > 0,
 >
 > $\left(n + a\right)^b = Θ\left(n^b\right)$. (3.2)
@@ -691,20 +691,20 @@ $\max\left(-2 a, a\right)$.
 Formally, for any $n > \max\left(-2 a, a\right)$,
 $\left(\frac{1}{2}\right)^b n^b ≤ \left(n + a\right)^b ≤ 2^b n^b$, $\left(n + a\right)^b = Θ(n^b)$.
 
-> ***3.1-3***
->
+##### 3.1-3
+
 > Explain why the statement, “The running time of algorithm *A* is at least $O\left(n^2\right)$,” is meaningless.
 
 It is like saying *x* is at least less than or equal to 10.
 
-> ***3.1-4***
->
+##### 3.1-4
+
 > Is $2^{n + 1} = O\left(2 ^ n\right)$? Is $2^{2 n} = O\left(2^n\right)$?
 
 $2^{n + 1} = 2 × 2^n = O\left(2 ^ n\right)$, $2^{2 n} = \left(2^n\right)^2 ≠ O\left(2^n\right)$.
 
-> ***3.1-5***
->
+##### 3.1-5
+
 > Prove Theorem 3.1.
 
 If *f*(*n*) = Θ(*g*(*n*)), *c*1 *g*(*n*) ≤ *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ *n*0, for some *c*1, *c*2 and *n*0.
@@ -715,8 +715,8 @@ If *f*(*n*) = *O*(*g*(*n*)) then *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ *n*
 *f*(*n*) = Ω(*g*(*n*)), then *c*1 *g*(*n*) ≤ *f*(*n*), for all *n* ≥ *n*1, for some *c*1 and *n*1. So
 *c*1 *g*(*n*) ≤ *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ max(*n*0, *n*1).
 
-> ***3.1-6***
->
+##### 3.1-6
+
 > Prove that the running time of an algorithm is Θ(*g*(*n*)) if and only if its worst-case running time is *O*(*g*(*n*))
 > and its best-case running time is Ω(*g*(*n*)).
 
@@ -731,8 +731,8 @@ it means the running time is bounded from below by a function *f*2(*n*) that *c*
 large *n* for some *c*1. Because *f*1(*n*) and *f*2(*n*) is the worst-cast running time and the best-case running time,
 the running time is bounded by *c*1 *g*(*n*) *c*2 *g*(*n*), so the running time is Θ(*g*(*n*)).
 
-> ***3.1-7***
->
+##### 3.1-7
+
 > Prove that *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is the empty set.
 
 Assume there exist a function *f*(*n*) that *f*(*n*) = *o*(*g*(*n*)) and *f*(*n*) = *ω*(*g*(*n*)), we have:
@@ -743,8 +743,8 @@ Assume there exist a function *f*(*n*) that *f*(*n*) = *o*(*g*(*n*)) and *f*(*n*
 Let *c*2 = *c*1, *n* = max(*n*0, *n*1), we have *c*1 *f*(*n*) < *g*(*n*) and *c*1 *f*(*n*) > *g*(*n*) which is
 impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is the empty set.
 
-> ***3.1-8***
->
+##### 3.1-8
+
 > We can extend our notation to the case of two parameters *n* and *m* that can go to infinity independently at
 > different rates. For a given function *g*(*n*, *m*), we denote by *O*(*g*(*n*, *m*)) the set of functions
 >
@@ -761,8 +761,8 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
 
 #### 3.2 Standard notations and common functions
 
-> ***3.2-1***
->
+##### 3.2-1
+
 > Show that if *f*(*n*) and *g*(*n*) are monotonically increasing functions, then so are the functions *f*(*n*) + g(*n*)
 > and *f*(*g*(*n*)), and if *f*(*n*) and *g*(*n*) are in addition nonnegative, then *f*(*n*) ⋅ *g*(*n*) is monotonically
 > increasing.
@@ -774,14 +774,14 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
    ⇒ *f*(*m*) ⋅ *g*(*m*) ≤ *f*(*n*) ⋅ *g*(*m*) ≤ *f*(*n*) ⋅ *g*(*n*)\
    ⇒ *f*(*m*) ⋅ *g*(*m*) ≤ *f*(*n*) ⋅ *g*(*n*).
 
-> ***3.2-2***
->
+##### 3.2-2
+
 > Prove equation (3.16).
 
 $a^{\log_b c} = \left(c^{\log_c a}\right)^{\log_b c} = c^{\left(\log_c a\right)\left(\log_b c\right)} = c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}} = c^{\frac{\ln a}{\ln b}} = c^{\log_b a}$.
 
-> ***3.2-3***
->
+##### 3.2-3
+
 > Prove equation (3.19). Also prove that *n*! = *ω*($2^n$) and *n*! = *o*($n^n$).
 
 Proving equation (3.19):
@@ -810,14 +810,14 @@ Proving *n*! = *o*($n^n$):
 
 $\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n} = \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right) ≤ \lim_{n → ∞}\left(\frac{1}{n}\right) = 0$.
 
-> ***3.2-4*** ★
->
+##### 3.2-4 ★
+
 > Is the function ⌈lg *n*⌉! polynomially bounded? Is the function ⌈lg lg *n*⌉! polynomially bounded?
 
 *Skipped.*
 
-> ***3.2-5*** ★
->
+##### 3.2-5 ★
+
 > Which is asymptotically larger: $\lg \left(\lg^* n\right)$ or $\lg^* \left(\lg n\right)$?
 
 By the definition of $\lg^*$, we have
@@ -828,16 +828,16 @@ $\lg^* n = \begin{cases}0&n ≤ 1\\\\
 So $\lg^* n = Θ\left(\lg^* \left(\lg n\right)\right)$. Because $\lg^* n$ is asymptotically larger than $\lg \left(\lg^* n\right)$,
 we know that $\lg^* \left(\lg n\right)$ is asymptotically larger than $\lg \left(\lg^* n\right)$.
 
-> ***3.2-6***
->
+##### 3.2-6
+
 > Show that the golden ratio $ϕ$ and its conjugate $\hat{ϕ}$ both satisfy the equation $x^2 = x + 1$.
 
 $ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1$.
 
 $\hat{ϕ}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{ϕ} + 1$.
 
-> ***3.2-7***
->
+##### 3.2-7
+
 > Prove by induction that the *i*th Fibonacci number satisfies the equality
 >
 > $F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$,
@@ -855,16 +855,16 @@ Inductive case:
   So $F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} \left(1 + ϕ\right) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}$. Base on the conclusion of exercise 3.2-6, we have
   $1 + ϕ = ϕ^2$ and $1 + \hat{ϕ} = \hat{ϕ}^2$, so $F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$, the claim holds.
 
-> ***3.2-8***
->
+##### 3.2-8
+
 > Show that *k* ln *k* = Θ(*n*) implies *k* = Θ(*n* / ln *n*).
 
 *Skipped*.
 
 #### 3.X Problems
 
-> ***3-1 Asymptotic behavior of polynomials***
->
+##### 3-1 Asymptotic behavior of polynomials
+
 > Let
 >
 > $p(n) = \displaystyle\sum_{i=0}^d a_i n^i$,
@@ -880,8 +880,8 @@ Inductive case:
 
 *Skipped.*
 
-> ***3-2 Relative asymptotic growths***
->
+##### 3-2 Relative asymptotic growths
+
 > Indicate, for each pair of expressions (*A*, *B*) in the table below, whether *A* is *O*, *o*, Ω, *ω*, or Θ of *B*.
 > Assume that *k* ≥ 1, *ϵ* > 0, and *c* > 1 are constants. Your answer should be in the form of the table with “yes” or
 > “no” written in each box.
@@ -904,8 +904,8 @@ Inductive case:
 | ***e***. | $n^{\lg c}$          | $c^{\lg n}$           | yes | no  | yes | no  | yes |
 | ***f***. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ | yes | no  | yes | no  | yes |
 
-> ***3-3 Ordering by asymptotic growth rates***
->
+##### 3-3 Ordering by asymptotic growth rates
+
 > 1. Rank the following functions by order of growth; that is, find an arrangement $g_1$, $g_2$, …, $g_{30}$ of the
 >    functions satisfying $g_1 = Ω\left(g_2\right)$, $g_2 = Ω\left(g_3\right)$, …, $g_{29} = Ω\left(g_{30}\right)$.
 >    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
@@ -923,8 +923,8 @@ Inductive case:
 
 *Skipped.*
 
-> ***3-4 Asymptotic notation properties***
->
+##### 3-4 Asymptotic notation properties
+
 > Let *f*(*n*) and *g*(*n*) be asymptotically positive functions. Prove or disprove each of the
 > following conjectures.
 >
@@ -949,8 +949,8 @@ Inductive case:
 7. False.
 8. True.
 
-> ***3-5 Variations on O and Ω***
->
+##### 3-5 Variations on O and Ω
+
 > Some authors define Ω in a slightly different way than we do; let’s use $\overset{∞}{Ω}$ (read “omega infinity”) for
 > this alternative definition. We say that $f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)$ if there
 > exists a positive constant *c* such that $f\left(n\right) ≥ c g\left(n\right) ≥ 0$ for infinitely many integers *n*.
@@ -978,8 +978,8 @@ Inductive case:
 
 *Skipped*.
 
-> ***3-6 Iterated functions***
->
+##### 3-6 Iterated functions
+
 > We can apply the iteration operator $^\ast$ used in the $\lg^\ast$ function to any monotonically increasing function
 > *f*(*n*) over the reals. For a given constant $c ∈ ℝ$, we define the iterated function $f_c^*$ by
 >
@@ -1006,14 +1006,14 @@ Inductive case:
 
 #### 4.1 The maximum-subarray problem
 
-> ***4.1-1***
->
+##### 4.1-1
+
 > What does *Find-Maximum-Subarray* return when all elements of *A* are negative?
 
 An array containing the single maximum element of the original array.
 
-> ***4.1-2***
->
+##### 4.1-2
+
 > Write pseudocode for the brute-force method of solving the maximum-subarray problem. Your procedure should run in
 > Θ($n^2$) time.
 
@@ -1032,8 +1032,8 @@ An array containing the single maximum element of the original array.
 11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*max-sum* = *sum*
 12. **return** (*max-left*, *max-right*, *max-sum*)
 
-> ***4.1-3***
->
+##### 4.1-3
+
 > Implement both the brute-force and recursive algorithms for the maximum-subarray problem on your own computer. What
 > problem size $n_0$ gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then,
 > change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less
@@ -1049,16 +1049,16 @@ for brute-force implementation.
 
 *Skipped crossover point test for now.*
 
-> ***4.1-4***
->
+##### 4.1-4
+
 > Suppose we change the definition of the maximum-subarray problem to allow the result to be an empty subarray, where
 > the sum of the values of an empty subarray is 0. How would you change any of the algorithms that do not allow empty
 > subarrays to permit an empty subarray to be the result?
 
 Run the original algorithm first, if the maximum sum is negative, return an empty subarray.
 
-> ***4.1-5***
->
+##### 4.1-5
+
 > Use the following ideas to develop a nonrecursive, linear-time algorithm for the maximum-subarray problem. Start at
 > the left end of the array, and progress toward the right, keeping track of the maximum subarray seen so far. Knowing a
 > maximum subarray of *A*[1‥*j*], extend the answer to find a maximum subarray ending at index *j* + 1 by using the
@@ -1072,8 +1072,8 @@ for implementation.
 
 #### 4.2 Strassen’s algorithm for matrix multiplication
 
-> ***4.2-1***
->
+##### 4.2-1
+
 > Use Strassen’s algorithm to compute the matrix product
 >
 > $\begin{pmatrix}1 & 3\\\\7 & 5\end{pmatrix}\begin{pmatrix}6 & 8\\\\4 & 2\end{pmatrix}$.
@@ -1082,29 +1082,29 @@ for implementation.
 
 *Skipped.*
 
-> ***4.2-2***
->
+##### 4.2-2
+
 > Write pseudocode for Strassen’s algorithm.
 
 *Skipped.*
 
-> ***4.2-3***
->
+##### 4.2-3
+
 > How would you modify Strassen’s algorithm to multiply *n* × *n* matrices in which *n* is not an exact power of 2? Show
 > that the resulting algorithm runs in time Θ($n^{\lg 7}$).
 
 *Skipped.*
 
-> ***4.2-4***
->
+##### 4.2-4
+
 > What is the largest *k* such that if you can multiply 3 × 3 matrices using *k* multiplications (not assuming
 > commutativity of multiplication), then you can multiply *n* × *n* matrices in time o($n^{\lg 7}$)? What would the
 > running time of this algorithm be?
 
 *Skipped.*
 
-> ***4.2-5***
->
+##### 4.2-5
+
 > V. Pan has discovered a way of multiplying 68 × 68 matrices using 132,464 multiplications, a way of multiplying
 > 70 × 70 matrices using 143,640 multiplications, and a way of multiplying 72 × 72 matrices using 155,424
 > multiplications. Which method yields the best asymptotic running time when used in a divide-and-conquer
@@ -1112,15 +1112,15 @@ for implementation.
 
 *Skipped.*
 
-> ***4.2-6***
->
+##### 4.2-6
+
 > How quickly can you multiply a *k* *n* × *n* matrix by an *n* × *k* *n* matrix, using Strassen’s algorithm as a
 > subroutine? Answer the same question with the order of the input matrices reversed.
 
 *Skipped.*
 
-> ***4.2-7***
->
+##### 4.2-7
+
 > Show how to multiply the complex numbers *a* + *b* *i* and *c* + *d* *i* using only three multiplications of real
 > numbers. The algorithm should take *a*, *b*, *c*, and *d* as input and produce the real component *a* *c* - *b* *d*
 > and the imaginary component *a* *d* + *b* *c* separately.
@@ -1132,8 +1132,8 @@ then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
 
 #### 4.3 The substitution method for solving recurrences
 
-> ***4.3-1***
->
+##### 4.3-1
+
 > Show that the solution of *T*(*n*) = *T*(*n* - 1) + *n* is *O*($n^2$).
 
 *T*(*n*)\
@@ -1148,8 +1148,8 @@ Here we choose *c* = 1, we have
 
 If *n* ≥ 1, we have $n^2$ - *n* + 1 ≤ $n^2$, that is, *T*(*n*) ≤ *c* $n^2$, since *c* = 1.
 
-> ***4.3-2***
->
+##### 4.3-2
+
 > Show that the solution of *T*(*n*) = *T*(⌈*n* / 2⌉) + 1 is *O*(lg *n*).
 
 *T*(*n*)\
@@ -1167,8 +1167,8 @@ If *n* ≥ 2 $\sqrt{2}$ + 2, we have $2^{-1 / 2}$ *n* + $2^{1 / 2}$ ≤ *n*.
 
 So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) ≤ *c* lg *n*.
 
-> ***4.3-3***
->
+##### 4.3-3
+
 > We saw that the solution of *T*(*n*) = 2 *T*(⌊*n* / 2⌋) + *n* is *O*(*n* lg *n*). Show that the solution of this
 > recurrence is also Ω(*n* lg *n*). Conclude that the solution is Θ(*n* lg *n*).
 
@@ -1179,21 +1179,21 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 
 *Skipped.*
 
-> ***4.3-4***
->
+##### 4.3-4
+
 > Show that by making a different inductive hypothesis, we can overcome the difficulty with the boundary condition
 > *T*(1) = 1 for recurrence (4.19) without adjusting the boundary conditions for the inductive proof.
 
 *Skipped.*
 
-> ***4.3-5***
->
+##### 4.3-5
+
 > Show that Θ(*n* lg *n*) is the solution to the “exact” recurrence (4.3) for merge sort.
 
 *Skipped.*
 
-> ***4.3-6***
->
+##### 4.3-6
+
 > Show that the solution to *T*(*n*) = 2 *T*(⌊*n* / 2⌋ + 17) + *n* is *O*(*n* lg *n*).
 
 *T*(*n*)\
@@ -1203,8 +1203,8 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 
 *Skipped.*
 
-> ***4.3-7***
->
+##### 4.3-7
+
 > Using the master method in Section 4.5, you can show that the solution to the recurrence
 > *T*(*n*) = 4 *T*(*n* / 3) + *n* is *T*(*n*) = Θ($n^{\log_3 4}$). Show that a substitution proof with the assumption
 > *T*(*n*) ≤ *c* $n^{\log_3 4}$ fails. Then show how to subtract off a lower-order term to make a substitution proof
@@ -1220,8 +1220,8 @@ Suppose *T*(*n*) = *c* $n^{\log_3 4}$ - 3 *n*, we have:
 
 That is exactly what we want.
 
-> ***4.3-8***
->
+##### 4.3-8
+
 > Using the master method in Section 4.5, you can show that the solution to the recurrence
 > *T*(*n*) = 4 *T*(*n* / 2) + *n* is *T*(*n*) = Θ($n^2$). Show that a substitution proof with the assumption
 > *T*(*n*) ≤ *c* $n^2$ fails. Then show how to subtract off a lower-order term to make a substitution proof work.
@@ -1236,8 +1236,8 @@ Suppose *T*(*n*) = *c* $n^2$ - *n*, we have
 
 That is exactly what we want.
 
-> ***4.3-9***
->
+##### 4.3-9
+
 > Solve the recurrence *T*(*n*) = 3 *T*($\sqrt{n}$) + log *n* by making a change of variables. Your solution should be
 > asymptotically tight. Do not worry about whether values are integral.
 
@@ -1269,8 +1269,8 @@ Note: Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T
 
 #### 4.4 The recursion-tree method for solving recurrences
 
-> ***4.4-1***
->
+##### 4.4-1
+
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 3 *T*(⌊*n* / 2⌋) + *n*.
 > Use the substitution method to verify your answer.
 
@@ -1286,8 +1286,8 @@ Verification:
 = 3 *c* $n^{\lg 3}$ / 3 - 3 *n* + *n*\
 = *c* $n^{\lg 3}$ - 2 *n*.
 
-> ***4.4-2***
->
+##### 4.4-2
+
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = *T*(*n* / 2) + $n^2$. Use
 > the substitution method to verify your answer.
 
@@ -1300,8 +1300,8 @@ Verification:
 = *c* + (1 / 3) $n^2$ + $n^2$\
 = *c* + (4 / 3) $n^2$.
 
-> ***4.4-3***
->
+##### 4.4-3
+
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 4 *T*(*n* / 2 + 2) + *n*.
 > Use the substitution method to verify your answer.
 
@@ -1317,8 +1317,8 @@ Verification:
 = *c* $n^2$ - (8 *c* + 2) *n* + 16 *c* + 8 / 3 + *n*\
 = *c* $n^2$ - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
 
-> ***4.4-4***
->
+##### 4.4-4
+
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 2 *T*(*n* - 1) + 1. Use
 > the substitution method to verify your answer.
 
@@ -1332,8 +1332,8 @@ Verification:
 = *c* $2^n$ - 2 + 1\
 = *c* $2^n$ - 1.
 
-> ***4.4-5***
->
+##### 4.4-5
+
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence
 > *T*(*n*) = *T*(*n* - 1) + *T*(*n* / 2) + *n*. Use the substitution method to verify your answer.
 
@@ -1341,16 +1341,16 @@ Verification:
 
 *Skipped.*
 
-> ***4.4-6***
->
+##### 4.4-6
+
 > Argue that the solution to the recurrence *T*(*n*) = *T*(*n* / 3) + *T*(2 *n* / 3) + *c* *n*, where *c* is a constant,
 > is Ω(*n* lg *n*) by appealing to a recursion tree.
 
 On each level of recursion whose depth is less than lg *n* / lg 3, the cost on this level is *c* *n*, so the cost is at
 least *c* *n* lg *n* / lg 3, that is *T*(*n*) = Ω(*n* lg *n*).
 
-> ***4.4-7***
->
+##### 4.4-7
+
 > Draw the recursion tree for *T*(*n*) = 4 *T*(⌊*n* / 2⌋) + *c* *n*, where *c* is a constant, and provide a tight
 > asymptotic bound on its solution. Verify your bound by the substitution method.
 
@@ -1376,8 +1376,8 @@ Verification:
 
 So *T*(*n*) = Θ($n^2$).
 
-> ***4.4-8***
->
+##### 4.4-8
+
 > Use a recursion tree to give an asymptotically tight solution to the recurrence
 > *T*(*n*) = *T*(*n* - *a*) + *T*(*a*) + *c* *n*, where *a* ≥ 1 and *c* > 0 are constants.
 
@@ -1392,8 +1392,8 @@ Verification:
 = (*c* / (2 *a*)) $n^2$ - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
 = (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*
 
-> ***4.4-9***
->
+##### 4.4-9
+
 > Use a recursion tree to give an asymptotically tight solution to the recurrence
 > *T*(*n*) = *T*(*α* *n*) + *T*((1 - *α*) *n*) + *c* *n*, where *α* is a constant in the range 0 < *α* < 1 and *c* > 0
 > is also a constant.
@@ -1402,8 +1402,8 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 
 #### 4.5 The master method for solving recurrences
 
-> ***4.5-1***
->
+##### 4.5-1
+
 > Use the master method to give tight asymptotic bounds for the following recurrences.
 >
 > 1. *T*(*n*) = 2 *T*(*n* / 4) + 1.
@@ -1416,8 +1416,8 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 3. *T*(*n*) = Θ(*n*).
 4. *T*(*n*) = Θ($n^2$).
 
-> ***4.5-2***
->
+##### 4.5-2
+
 > Professor Caesar wishes to develop a matrix-multiplication algorithm that is asymptotically faster than Strassen’s
 > algorithm. His algorithm will use the divide-and-conquer method, dividing each matrix into pieces of size
 > *n* / 4 × *n* / 4, and the divide and combine steps together will take Θ($n^2$) time. He needs to determine how many
@@ -1427,15 +1427,15 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 
 The answer is 48. Since $log_4 49$ = lg 7.
 
-> ***4.5-3***
->
+##### 4.5-3
+
 > Use the master method to show that the solution to the binary-search recurrence *T*(*n*) = *T*(*n* / 2) + Θ(1) is
 > *T*(*n*) = Θ(lg *n*). (See Exercise 2.3-5 for a description of binary search.)
 
 Since Θ(1) = Θ($n^{\log_2 1}$), *T*(*n*) = Θ($n^{\log_2 1}$ lg *n*) = Θ(lg *n*).
 
-> ***4.5-4***
->
+##### 4.5-4
+
 > Can the master method be applied to the recurrence *T*(*n*) = 4 *T*(*n* / 2) + $n^2$ lg *n*? Why or why not? Give an
 > asymptotic upper bound for this recurrence.
 
@@ -1454,8 +1454,8 @@ Verification:
 = $n^2 \left(\lg^2 n - \lg n + c\right)$ / 2 + $n^2$ lg *n*\
 = $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
 
-> ***4.5-5*** ★
->
+##### 4.5-5 ★
+
 > Consider the regularity condition *a* *f*(*n* / *b*) ≤ *c* *f*(*n*) for some constant *c* < 1, which is part of case 3
 > of the master theorem. Give an example of constants *a* ≥ 1 and *b* > 1 and a function *f*(*n*) that satisfies all the
 > conditions in case 3 of the master theorem except the regularity condition.
@@ -1464,8 +1464,8 @@ Verification:
 
 #### 4.6 Proof of the master theorem ★
 
-> ***4.6-1*** ★
->
+##### 4.6-1 ★
+
 > Give a simple and exact expression for $n_j$ in equation (4.27) for the case in which *b* is a positive integer
 > instead of an arbitrary real number.
 
@@ -1484,8 +1484,8 @@ Proof by induction:
 - If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
   ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉ = ⌈*n* / $b^{j - 1}$ / *b*⌉ = ⌈*n* / $b^j$⌉. So $n_j$ = ⌈*n* / $b^j$⌉, the claim holds.
 
-> ***4.6-2*** ★
->
+##### 4.6-2 ★
+
 > Show that if *f*(*n*) = Θ($n^{\log_b a} \lg^k n$), where *k* ≥ 0, then the master recurrence has solution
 > *T*(*n*) = Θ($n^{\log_b a} \lg^{k + 1} n$). For simplicity, confine your analysis to exact powers of *b*.
 
@@ -1501,8 +1501,8 @@ Proof by induction:
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\lg^{k + 1} n\right)$\
 = Θ($n^{\log_b a} \lg^{k + 1} n$).
 
-> ***4.6-3*** ★
->
+##### 4.6-3 ★
+
 > Show that case 3 of the master theorem is overstated, in the sense that the regularity condition
 > *a* *f*(*n* / *b*) ≤ *c* *f*(*n*) for some constant *c* < 1 implies that there exists a constant *ϵ* > 0 such that
 > *f*(*n*) = Ω($n^{\log_b a + ϵ}$).
@@ -1517,8 +1517,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 
 #### 4.X Problems
 
-> ***4-1 Recurrence examples***
->
+##### 4-1 Recurrence examples
+
 > Give asymptotic upper and lower bounds for *T*(*n*) in each of the following recurrences. Assume that *T*(*n*) is
 > constant for *n* ≤ 2. Make your bounds as tight as possible, and justify your answers.
 >
@@ -1538,8 +1538,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 6. *T*(*n*) = $\sqrt{n} \log_4 n$ + *c* $\sqrt{n}$.
 7. *T*(*n*) = $n^3$ / 6 + $n^2$ / 2 + *n* / 3 + *c*.
 
-> ***4-2 Parameter-passing costs***
->
+##### 4-2 Parameter-passing costs
+
 > Throughout this book, we assume that parameter passing during procedure calls takes constant time, even if an
 > *N*-element array is being passed. This assumption is valid in most systems because a pointer to the array is passed,
 > not the array itself. This problem examines the implications of three parameter-passing strategies:
@@ -1578,8 +1578,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
       *T*(*N*) = Θ($N^2$).
    3. By copying subrange: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*), *T*(*N*) = Θ(*N* lg *N*).
 
-> ***4-3 More recurrence examples***
->
+##### 4-3 More recurrence examples
+
 > Give asymptotic upper and lower bounds for *T*(*n*) in each of the following recurrences. Assume that *T*(*n*) is
 > constant for sufficiently small *n*. Make your bounds as tight as possible, and justify your answers.
 >
@@ -1605,8 +1605,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 9. *Skipped*.
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
 
-> ***4-4 Fibonacci numbers***
->
+##### 4-4 Fibonacci numbers
+
 > This problem develops properties of the Fibonacci numbers, which are defined by recurrence (3.22). We shall use the
 > technique of generating functions to solve the Fibonacci recurrence. Define the ***generating function*** (or
 > ***formal power series***) ℱ as
@@ -1685,8 +1685,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    Since $\left|- \hat{ϕ}^i / \sqrt{5}\right|$ < 0.5, and $F_i$ is an integer, $F_i = ϕ^i / \sqrt{5}$, rounded to the
    nearest integer.
 
-> ***4-5 Chip testing***
->
+##### 4-5 Chip testing
+
 > Professor Diogenes has *n* supposedly identical integrated-circuit chips that in principle are capable of testing each
 > other. The professor’s test jig accommodates two chips at a time. When the jig is loaded, each chip tests the other
 > and reports whether it is good or bad. A good chip always reports accurately whether the other chip is good or bad,
@@ -1744,8 +1744,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    to the master theorem, we have *T*(*n*) = *O*(*n*). After we found one good we can identify all good chips with that
    good chip in Θ(*n*) time, so the total number of pairwise tests equals to *O*(*n*) + Θ(*n*) = Θ(*n*).
 
-> ***4-6 Monge arrays***
->
+##### 4-6 Monge arrays
+
 > An *m* × *n* array *A* of real numbers is a ***Monge array*** if for all *i*, *j*, *k*, and *l* such that
 > 1 ≤ *i* < *k* ≤ *m* and 1 ≤ *j* < *l* ≤ *n*, we have
 >
