@@ -1743,3 +1743,128 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 3. With the solution above, we can find one good chip in number *T*(*n*) ≤ *T*(*n* / 2) + Θ(*n*) pair tests. According
    to the master theorem, we have *T*(*n*) = *O*(*n*). After we found one good we can identify all good chips with that
    good chip in Θ(*n*) time, so the total number of pairwise tests equals to *O*(*n*) + Θ(*n*) = Θ(*n*).
+
+> ***4-6 Monge arrays***
+>
+> An *m* × *n* array *A* of real numbers is a ***Monge array*** if for all *i*, *j*, *k*, and *l* such that
+> 1 ≤ *i* < *k* ≤ *m* and 1 ≤ *j* < *l* ≤ *n*, we have
+>
+> *A*[*i*, *j*] + *A*[*k*, *l*] ≤ *A*[*i*, *l*] + *A*[*k*, *j*].
+>
+> In other words, whenever we pick two rows and two columns of a Monge array and consider the four elements at the
+> intersections of the rows and the columns, the sum of the upper-left and lower-right elements is less than or equal to
+> the sum of the lower-left and upper-right elements. For example, the following array is Monge:
+>
+> |    |    |    |    |    |
+> | -- | -- | -- | -- | -- |
+> | 10 | 17 | 13 | 28 | 23 |
+> | 17 | 22 | 16 | 29 | 23 |
+> | 24 | 28 | 22 | 34 | 24 |
+> | 11 | 13 | 6  | 17 | 7  |
+> | 45 | 44 | 32 | 37 | 23 |
+> | 36 | 33 | 19 | 21 | 6  |
+> | 75 | 66 | 51 | 53 | 34 |
+>
+> 1. Prove that an array is Monge if and only if for all *i* = 1, 2, …, *m* - 1 and *j* = 1, 2, …, *n* - 1, we have
+>    *A*[*i*, *j*] + *A*[*i* + 1, *j* + 1] ≤ *A*[*i*, *j* + 1] + *A*[*i* + 1, *j*].
+>
+>    (*Hint:* For the “if” part, use induction separately on rows and columns.)
+>
+> 2. The following array is not Monge. Change one element in order to make it Monge. (*Hint:* Use part (a).)
+>
+>    |    |    |    |    |
+>    | -- | -- | -- | -- |
+>    | 37 | 23 | 22 | 32 |
+>    | 21 | 6  | 7  | 10 |
+>    | 53 | 34 | 30 | 31 |
+>    | 32 | 13 | 9  | 6  |
+>    | 43 | 21 | 15 | 8  |
+>
+> 3. Let *f*(*i*) be the index of the column containing the leftmost minimum element of row *i*. Prove that
+>    *f*(1) ≤ *f*(2) ≤ ⋯ ≤ *f*(*m*) for any *m* × *n* Monge array.
+> 4. Here is a description of a divide-and-conquer algorithm that computes the leftmost minimum element in each row of
+>    an *m* × *n* Monge array *A*:
+>
+>    Construct a submatrix *A*′ of *A* consisting of the even-numbered rows of *A*. Recursively determine the leftmost
+>    minimum for each row of *A*′. Then compute the leftmost minimum in the odd-numbered rows of *A*.
+>
+>    Explain how to compute the leftmost minimum in the odd-numbered rows of *A* (given that the leftmost minimum of the
+>    even-numbered rows is known) in *O*(*m* + *n*) time.
+> 5. Write the recurrence describing the running time of the algorithm described in part (d). Show that its solution is
+>    *O*(*m* + *n* log *m*).
+
+1. Proof:
+
+   - The “only if” part is trivial.
+   - The “if” part：
+     - First, we prove that: for all *i*, *j*, and *l* such that 1 ≤ *i* < *m* and 1 ≤ *j* < *l* ≤ *n*, we have
+       *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *j*].
+
+       Proof by induction:
+
+       - Base case: Trivially, *A*[*i*, *j*] + *A*[*i* + 1, *j* + 1] ≤ *A*[*i*, *j* + 1] + *A*[*i* + 1, *j*].
+       - Inductive case: by induction, we have
+         *A*[*i*, *j*] + *A*[*i* + 1, *l* - 1] ≤ *A*[*i*, *l* - 1] + *A*[*i* + 1, *j*]. Since
+         *A*[*i*, *l* - 1] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *l* - 1], we have:
+
+         (*A*[*i*, *j*] + *A*[*i* + 1, *l* - 1]) + (*A*[*i*, *l* - 1] + *A*[*i* + 1, *l*]) ≤ (*A*[*i*, *l* - 1] + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + *A*[*i* + 1, *l* - 1])\
+         ⇒ (*A*[*i*, *j*] + ~~*A*[*i* + 1, *l* - 1]~~) + (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *l*]) ≤ (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + ~~*A*[*i* + 1, *l* - 1]~~)\
+         ⇒ *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i* + 1, *j*] + *A*[*i*, *l*]\
+         ⇒ *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *j*].
+     - Second, we prove the original claim by induction.
+       - Base case: according to the first step, we have: for all *i*, *j*, and *l* such that 1 ≤ *i* < *m* and
+         1 ≤ *j* < *l* ≤ *n*, we have *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *j*].
+       - Inductive case: by induction, *A*[*i*, *j*] + *A*[*k* - 1, *l*] ≤ *A*[*i*, *l*] + *A*[*k* - 1, *j*].
+         Since *A*[*k* - 1, *j*] + *A*[*k*, *l*] ≤ *A*[*k* - 1, *l*] + *A*[*k*, *j*], we have:
+
+         (*A*[*i*, *j*] + *A*[*k* - 1, *l*]) + (*A*[*k* - 1, *j*] + *A*[*k*, *l*]) ≤ (*A*[*i*, *l*] + *A*[*k* - 1, *j*]) + (*A*[*k* - 1, *l*] + *A*[*k*, *j*])\
+         ⇒ (*A*[*i*, *j*] + ~~*A*[*k* - 1, *l*]~~) + (~~*A*[*k* - 1, *j*]~~ + *A*[*k*, *l*]) ≤ (*A*[*i*, *l*] + ~~*A*[*k* - 1, *j*]~~) + (~~*A*[*k* - 1, *l*]~~ + *A*[*k*, *j*])\
+         ⇒ *A*[*i*, *j*] + *A*[*k*, *l*] ≤ *A*[*i*, *l*] + *A*[*k*, *j*]
+2. Result:
+
+   |     |     |        |     |
+   | --- | --- | ------ | --- |
+   | 37  | 23  | **24** | 32  |
+   | 21  | 6   | 7      | 10  |
+   | 53  | 34  | 30     | 31  |
+   | 32  | 13  | 9      | 6   |
+   | 43  | 21  | 15     | 8   |
+3. Proof by contradiction:
+
+   Assume for some *i*, *f*(*i*) > *f*(*i* + 1), let *f*(*i*) = *j*, and *f*(*i* + 1) = *l*. Since *f*(*i*) is the
+   leftmost minimum element of row *i*, and *f*(*i* + 1) is the leftmost minimum element of row *i* + 1, we have
+
+   *A*[*i*, *l*] > *A*[*i*, *j*], and *A*[*i* + 1, *j*] > *A*[*i* + 1, *l*]\
+   ⇒ *A*[*i*, *l*] + *A*[*i* + 1, *j*] > *A*[*i*, *j*] + *A*[*i* + 1, *l*].
+
+   That violates the condition of Monge array, so our assumption is wrong. That proves the claim is right.
+4. If *f*(*i* - 1) = *j*, and *f*(*i* + 1) = *l*, *j* ≤ *f*(*i*) ≤ *l*.
+
+   The time for computing the leftmost minimal element of odd row *i* is Θ(*f*(*i* + 1) - *f*(*i* - 1) + 1).
+
+   - If the number of rows is even, the time for computing the leftmost minimal element of all odd rows is
+
+     Θ(*f*(2) + $\sum_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$)\
+     = Θ(*f*(2) + (*f*(*m*) - *f*(2) + *m* / 2 - 1))\
+     = Θ(*f*(*m*) + *m* / 2 - 1)\
+     = *O*(*n* + *m* / 2 - 1)\
+     = *O*(*n* + *m*)
+   - If the number of rows is odd, the time for computing the leftmost minimal element of all odd rows is:
+
+     Θ(*f*(2) + $\sum_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$ + (*n* - *f*(*m* - 1) + 1))\
+     = Θ(*f*(2) + (*f*(*m* - 1) - *f*(2) + (*m* - 3) / 2) + (*n* - *f*(*m* - 1) + 1))\
+     = Θ((*m* - 3) / 2 + *n* + 1)\
+     = Θ(*m* / 2 + *n* - 1 / 2)\
+     = *O*(*m* + *n*)
+
+   So the time cost for computing the leftmost minimum in the odd-numbered rows is *O*(*m* + *n*).
+5. *T*(*m*, *n*) = *T*(*m* / 2, *n*) + *O*(*m* + *n*).
+
+   *T*(*m*, *n*)\
+   = Θ(1) + *O*($\sum_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)$)\
+   = Θ(1) + *O*($\sum_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + \sum_{i=0}^{\lg m - 1} n$)\
+   = Θ(1) + *O*(*m* $\sum_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + \sum_{i=0}^{\lg m - 1} n$)\
+   = Θ(1) + *O*(*m* (1 - $\left(1 / 2\right)^{\lg m}$) / (1 - 1 / 2) + *n* lg *m*)\
+   = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
+   = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
+   = *O*(*m* + *n* lg *m*)
