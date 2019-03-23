@@ -1704,7 +1704,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > 2. Consider the problem of finding a single good chip from among *n* chips, assuming that more than *n* / 2 of the
 >    chips are good. Show that ⌊*n* / 2⌋ pairwise tests are sufficient to reduce the problem to one of nearly half the
 >    size.
-> 3. Show that the good chips can be identified with ϴ(*n*) pairwise tests, assuming that more than *n* / 2 of the chips
+> 3. Show that the good chips can be identified with Θ(*n*) pairwise tests, assuming that more than *n* / 2 of the chips
 >    are good. Give and solve the recurrence that describes the number of tests.
 
 1. If there are at least *n* / 2 chips are bad, there must exist same number of bad chips from good chips, and the bad
@@ -1796,7 +1796,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 1. Proof:
 
    - The “only if” part is trivial.
-   - The “if” part：
+   - The “if” part:
      - First, we prove that: for all *i*, *j*, and *l* such that 1 ≤ *i* < *m* and 1 ≤ *j* < *l* ≤ *n*, we have
        *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *j*].
 
