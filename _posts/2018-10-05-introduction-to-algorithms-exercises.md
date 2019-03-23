@@ -1721,9 +1721,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 
    Solution:
 
-   - Base cases:
-     - If there is zero chip, we say that the number of good chips equal to the number of bad chips.
-     - If there is one chip, then the only one chip is a good chip.
+   - Base case: If there is zero chip, we say that the number of good chips equal to the number of bad chips.
    - Inductive cases:
      - If the number of chips is even, we group them into pairs, then in each pair, we test each chip with the other
        chip. If the chips in one pair both say the other one is a good chip, we throw away any one chip in this pair;
