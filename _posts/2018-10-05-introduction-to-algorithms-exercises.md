@@ -1712,7 +1712,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    good chips.
 2. Generalize the original problem to this:
 
-   There are no less good chip than bad chips:
+   Assume there are no less good chip than bad chips:
 
    - If the number of good chips is greater than the number of bad chips, find a good chip.
    - If the number of good chips is greater than or equal to the number of bad chips, find a good chip or say the number
@@ -1730,11 +1730,11 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
        otherwise, we throw away both chips. Then we will be left with at most half of the original chips. And since chip
        pairs that do not say each other is good ether have one bad chip or have two bad chips, throwing them away does
        not change the fact that good chips are not less than bad chips. The remaining chip pairs are either both good
-       chips or bad chips, after throwing away one chip in those pair, we have reduced the size of the problem to at
-       most half of the original problem size.
+       chips or bad chips, after throwing away one chip in every those pairs, we have reduced the size of the problem to
+       at most half of the original problem size.
      - If the number of chips is odd, we know that the number of good chip must be greater than the number of bad chips,
-       since there can not be the same number of good chips and bad chips. We randomly remove one chip from the chips,
-       and we will be left with even number of chips in which good chips are no less than bad chips. We process the
+       since there can not be the same number of good chips and bads chips. We randomly remove one chip from the chips,
+       and we will be left with even number of chips, in which good chips are no less than bad chips. We process the
        remaning chips with the method used in the even number case. After the remaining chips being processed, either we
        get a good chip, or we are told that the number of good chips are the same as the number of bad chips, which
        means the chip we removed is a good chip. Either way, we can get a good chip.
