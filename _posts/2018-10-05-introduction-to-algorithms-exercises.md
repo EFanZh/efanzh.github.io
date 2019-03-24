@@ -372,7 +372,7 @@ where all elements will be checked.
 > all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
 for implementation.
 
 ##### 2.3-3
@@ -400,7 +400,7 @@ for implementation.
 > running time of this recursive version of insertion sort.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
 for implementation.
 
 $$T\left(n\right) = \begin{cases}
@@ -417,7 +417,7 @@ $$T\left(n\right) = \begin{cases}
 > is Θ(lg *n*).
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_5.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_5.rs)
 for implementation.
 
 *Binary-Search*(*A*, *v*)
@@ -461,7 +461,7 @@ scenario, which taks Θ(*n*) time.
 > whether or not there exist two elements in *S* whose sum is exactly *x*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/exercises/exercise_2_3_7.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_7.rs)
 for implementations.
 
 #### 2.X Problems
@@ -587,7 +587,7 @@ for implementations.
 >    $a_0$, $a_1$, …, $a_n$.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems/problem_2_3.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/problems/problem_2_3.rs)
 for implementation.
 
 1. Θ(*n*).
@@ -636,7 +636,7 @@ for implementation.
    Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
    $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
-   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_3_designing_algorithms/problems/problem_2_4.rs)
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/problems/problem_2_4.rs)
    for implementation.
 
 ### 3 Growth of Functions
@@ -1040,11 +1040,11 @@ An array containing the single maximum element of the original array.
 > than $n_0$. Does that change the crossover point?
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/mod.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/mod.rs)
 for recursive implementation.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_3.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_3.rs)
 for brute-force implementation.
 
 *Skipped crossover point test for now.*
@@ -1067,7 +1067,7 @@ Run the original algorithm first, if the maximum sum is negative, return an empt
 > time based on knowing a maximum subarray ending at index *j*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
 for implementation.
 
 #### 4.2 Strassen’s algorithm for matrix multiplication
@@ -1902,6 +1902,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
    = *O*(*m* + *n* lg *m*)
 
+The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/problems/problem_4_5_chip_testing.rs).
+
 ### 5 Probabilistic Analysis and Randomized Algorithms
 
 #### 5.1 The hiring problem
@@ -1925,3 +1927,8 @@ Proof:
   or equal to candidate *a*, but they are not the same people, we can not decide which one is the best.
 - Transitive is violated: If candidate *a* is better than or equal to candidate *b*, and candidate *b* is better than
   or equal to candidate *c*, but *a* is not better than or equal to candidate *c*, we can not decide which one is best.
+
+##### 5.1-2 ★
+
+> Describe an implementation of the procedure *Random*(*a*, *b*) that only makes calls to *Random*(0, 1). What is the
+> expected running time of your procedure, as a function of *a* and *b*?
