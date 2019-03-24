@@ -2939,7 +2939,7 @@ Solution is implemented
 >
 > *Expression* ::= `letmutable` *Identifier* `=` *Expression* `in` *Expression*
 
-Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.20-test.rkt).
+Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.20.rkt).
 
 > Exercise 4.21 [★★] We suggested earlier the use of assignment to make a program more modular by allowing one
 > procedure to communicate information to a distant procedure without requiring intermediate procedures to be aware of

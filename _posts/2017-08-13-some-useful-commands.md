@@ -3,7 +3,7 @@
 
 # Some useful commands
 
-## [aptitude](https://aptitude.alioth.debian.org/)
+## [aptitude](https://wiki.debian.org/Aptitude)
 
 ### Normalize package dependencies
 
