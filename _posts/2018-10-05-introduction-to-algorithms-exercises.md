@@ -1932,3 +1932,27 @@ Proof:
 
 > Describe an implementation of the procedure *Random*(*a*, *b*) that only makes calls to *Random*(0, 1). What is the
 > expected running time of your procedure, as a function of *a* and *b*?
+
+The procedure is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_1_the_hiring_problem/exercises/exercise_5_1_2.rs).
+
+let *n* = ⌈lg (*b* - *a* + 1)⌉ be the number of bits need to generate.
+
+After generating *n* bits of number we are in a space of $2^n$ numbers. But the space we need to generate is of size
+*b* - *a* + 1. We have the possibility of *p* = (*b* - *a* + 1) / $2^n$ to get a usable random number, and
+possibility of 1 - *p* to generate the number again.
+
+Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
+
+*T*(*a*, *b*) = *p* *k* + (1 - *p*) (*k* + *T*(*a*, *b*)).\
+⇒ *T*(*a*, *b*) = *p* *k* + (1 - *p*) *k* + (1 - *p*) *T*(*a*, *b*).\
+⇒ *T*(*a*, *b*) = *k* + (1 - *p*) *T*(*a*, *b*).\
+⇒ *T*(*a*, *b*) = *k* / (1 - (1 - *p*)).\
+⇒ *T*(*a*, *b*) = *k* / *p*.\
+⇒ *T*(*a*, *b*) = Θ(*n*) / ((*b* - *a* + 1) / $2^n$).\
+⇒ *T*(*a*, *b*) = Θ(*n*) $2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}$ / (*b* - *a* + 1).\
+⇒ *T*(*a*, *b*) = Θ(*n* $2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}$ / (*b* - *a* + 1)).\
+⇒ *T*(*a*, *b*) = Θ(*n* $2^{\lg \left(b - a + 1\right)}$ / (*b* - *a* + 1)), because $Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)$.\
+⇒ *T*(*a*, *b*) = Θ(*n* (*b* - *a* + 1) / (*b* - *a* + 1)).\
+⇒ *T*(*a*, *b*) = Θ(*n*).\
+⇒ *T*(*a*, *b*) = Θ(⌈lg (*b* - *a* + 1)⌉).
