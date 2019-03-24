@@ -4769,7 +4769,7 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
 > 4. `let p = proc (z) z in if p then 88 else 99`
 
 $$ \begin{alignat}{2}
-       \texttt{(let-exp $var$ $e_1$ $body$)} &: & t_{var}  &= t_{e_1} \\
+       \texttt{(let-exp $var$ $e_1$ $body$)} &: & t_{var}  &= t_{e_1} \\\\
                                              &  & t_{body} &= t_\texttt{(let-exp $var$ $e_1$ $body$)}
    \end{alignat} $$
 
@@ -4830,10 +4830,10 @@ The parameter `x` of `odd` should be of type `int`.
 >    ```
 
 $$ \begin{alignat}{2}
-       \texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)} &: & t_{pname_1}    &= \texttt{($t_{bvar_1}$ -> $t_{pbody_1}$)} \\
-                                                                     &  & t_{pname_2}    &= \texttt{($t_{bvar_2}$ -> $t_{pbody_2}$)} \\
-                                                                     &  &                &⋮ \\
-                                                                     &  & t_{pname_n}    &= \texttt{($t_{bvar_n}$ -> $t_{pbody_n}$)} \\
+       \texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)} &: & t_{pname_1}    &= \texttt{($t_{bvar_1}$ -> $t_{pbody_1}$)} \\\\
+                                                                     &  & t_{pname_2}    &= \texttt{($t_{bvar_2}$ -> $t_{pbody_2}$)} \\\\
+                                                                     &  &                &⋮ \\\\
+                                                                     &  & t_{pname_n}    &= \texttt{($t_{bvar_n}$ -> $t_{pbody_n}$)} \\\\
                                                                      &  & t_{letrecbody} &= t_\texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)}
    \end{alignat} $$
 
