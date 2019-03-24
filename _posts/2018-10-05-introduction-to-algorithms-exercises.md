@@ -1783,8 +1783,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > 4. Here is a description of a divide-and-conquer algorithm that computes the leftmost minimum element in each row of
 >    an *m* × *n* Monge array *A*:
 >
->    Construct a submatrix *A*′ of *A* consisting of the even-numbered rows of *A*. Recursively determine the leftmost
->    minimum for each row of *A*′. Then compute the leftmost minimum in the odd-numbered rows of *A*.
+>    - Construct a submatrix *A*′ of *A* consisting of the even-numbered rows of *A*. Recursively determine the leftmost
+>      minimum for each row of *A*′. Then compute the leftmost minimum in the odd-numbered rows of *A*.
 >
 >    Explain how to compute the leftmost minimum in the odd-numbered rows of *A* (given that the leftmost minimum of the
 >    even-numbered rows is known) in *O*(*m* + *n*) time.
@@ -1866,3 +1866,27 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
    = *O*(*m* + *n* lg *m*)
+
+### 5 Probabilistic Analysis and Randomized Algorithms
+
+#### 5.1 The hiring problem
+
+##### 5.1-1
+
+> Show that the assumption that we are always able to determine which candidate is best, in line 4 of procedure
+> *Hire-Assistant*, implies that we know a total order on the ranks of the candidates.
+
+We can prove it by proving its contrapositive:
+
+- If the ranks of the candidates don’t form a total order, there exist a set of candidates in which we are not able to
+  deternube which candidate is best.
+
+Proof:
+
+- Total relation is violated: If there exist two candidates that we can not compare them, then we can not decide which
+  one is best.
+- Reflexive is violated: *Skipped.*
+- Antisymmetric is violated: If candidate *a* is better than or equal to candidate *b*, and candidate *b* is better than
+  or equal to candidate *a*, but they are not the same people, we can not decide which one is the best.
+- Transitive is violated: If candidate *a* is better than or equal to candidate *b*, and candidate *b* is better than
+  or equal to candidate *c*, but *a* is not better than or equal to candidate *c*, we can not decide which one is best.
