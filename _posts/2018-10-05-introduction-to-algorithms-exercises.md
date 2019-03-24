@@ -1484,6 +1484,41 @@ Proof by induction:
 - If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
   ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉ = ⌈*n* / $b^{j - 1}$ / *b*⌉ = ⌈*n* / $b^j$⌉. So $n_j$ = ⌈*n* / $b^j$⌉, the claim holds.
 
+Notes:
+
+In the book [Concrete Mathematics](https://en.wikipedia.org/wiki/Concrete_Mathematics), there is a theorem:
+
+- Let *f*(*x*) be any continuous, monotonically increasing function with the property that
+
+  - *f*(*x*) = integer ⇒ *x* = integer.
+
+  Then we have
+
+  - ⌊*f*(*x*)⌋ = ⌊*f*(⌊*x*⌋)⌋ and ⌈*f*(*x*)⌉ = ⌈*f*(⌈*x*⌉)⌉,
+
+  whenever *f*(*x*), *f*(⌊*x*⌋), and *f*(⌈*x*⌉) are defined.
+
+Proof:
+
+*f*(⌊*x*⌋) - 1 < ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋)\
+⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋) < ⌊*f*(⌊*x*⌋)⌋ + 1\
+⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ $f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)$ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
+⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ ⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$.
+
+Since $\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1$ is an integer, and we also have
+*f*(*x*) = integer ⇒ *x* = integer, we know that
+$f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$ is an integer. Because
+⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$, we have
+*x* < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$. So:
+
+$f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ ⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
+⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ *x* < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
+⇒ $f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\right)$ ≤ *f*(*x*) < $f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\right)$\
+⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(*x*) < ⌊*f*(⌊*x*⌋)⌋ + 1\
+⇒ *f*(*x*) = ⌊*f*(⌊*x*⌋)⌋.
+
+The same method can be applied to proving ⌈*f*(*x*)⌉ = ⌈*f*(⌈*x*⌉)⌉.
+
 ##### 4.6-2 ★
 
 > Show that if *f*(*n*) = Θ($n^{\log_b a} \lg^k n$), where *k* ≥ 0, then the master recurrence has solution
