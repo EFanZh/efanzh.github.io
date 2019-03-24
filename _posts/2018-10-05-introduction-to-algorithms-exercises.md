@@ -1956,3 +1956,11 @@ Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
 ⇒ *T*(*a*, *b*) = Θ(*n* (*b* - *a* + 1) / (*b* - *a* + 1)).\
 ⇒ *T*(*a*, *b*) = Θ(*n*).\
 ⇒ *T*(*a*, *b*) = Θ(⌈lg (*b* - *a* + 1)⌉).
+
+##### 5.1-3 ★
+
+> Suppose that you want to output 0 with probability 1 / 2 and 1 with probability 1 / 2. At your disposal is a procedure
+> *Biased-Random*, that outputs either 0 or 1. It outputs 1 with some probability *p* and 0 with probability 1 - *p*,
+> where 0 < *p* < 1, but you do not know what *p* is. Give an algorithm that uses *Biased-Random* as a subroutine, and
+> returns an unbiased answer, returning 0 with probability 1 / 2 and 1 with probability 1 / 2. What is the expected
+> running time of your algorithm as a function of *p*?
