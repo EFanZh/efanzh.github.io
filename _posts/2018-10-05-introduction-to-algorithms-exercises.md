@@ -1777,6 +1777,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    to the master theorem, we have *T*(*n*) = *O*(*n*). After we found one good we can identify all good chips with that
    good chip in Θ(*n*) time, so the total number of pairwise tests equals to *O*(*n*) + Θ(*n*) = Θ(*n*).
 
+The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/problems/problem_4_5_chip_testing.rs).
+
 ##### 4-6 Monge arrays
 
 > An *m* × *n* array *A* of real numbers is a ***Monge array*** if for all *i*, *j*, *k*, and *l* such that
@@ -1901,8 +1903,6 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
    = *O*(*m* + *n* lg *m*)
-
-The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/problems/problem_4_5_chip_testing.rs).
 
 ### 5 Probabilistic Analysis and Randomized Algorithms
 
