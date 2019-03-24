@@ -3,7 +3,7 @@
 
 # Enable visual styles on existing applications
 
-Some old application doesn’t enable [visual styles](http://msdn.microsoft.com/library/bb773187.aspx) by default. But you can add an extra [manifest](http://msdn.microsoft.com/library/aa375365.aspx) file to the application’s executable file to [enable the visual style](http://msdn.microsoft.com/library/bb773175.aspx).
+Some old application doesn’t enable [visual styles](https://docs.microsoft.com/en-us/windows/desktop/controls/themes-overview) by default. But you can add an extra [manifest](https://docs.microsoft.com/en-us/windows/desktop/sbscs/manifests) file to the application’s executable file to [enable the visual style](https://docs.microsoft.com/en-us/windows/desktop/controls/cookbook-overview).
 
 First, write a manifest file:
 
@@ -18,7 +18,7 @@ First, write a manifest file:
 </assembly>
 ```
 
-Assume the mainifest file is “app.exe.manifest” and the executable file is “app.exe”, you can use “[mt.exe](http://msdn.microsoft.com/library/aa375649.aspx)” to add the manifest file to the executable file:
+Assume the mainifest file is “app.exe.manifest” and the executable file is “app.exe”, you can use “[mt.exe](https://docs.microsoft.com/en-us/windows/desktop/sbscs/mt-exe)” to add the manifest file to the executable file:
 
     mt.exe -manifest "app.exe.manifest" -outputresource:"app.exe"
 
