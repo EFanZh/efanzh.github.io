@@ -3,7 +3,7 @@
 
 # EFanZh’s Rustfmt configuration
 
-This is my [Rustfmt](https://github.com/rust-lang-nursery/rustfmt) configuration:
+This is my [Rustfmt](https://github.com/rust-lang/rustfmt) configuration:
 
 ```toml
 array_width = 120
