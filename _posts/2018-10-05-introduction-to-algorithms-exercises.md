@@ -2003,10 +2003,10 @@ Base case: Pr{$A_1$} ≤ Pr{$A_1$}.
 
 Inductive case:
 
-$\text{Pr}\left\{\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\}$ \
-≤ $\text{Pr}\left\{\bigcup_{i = 1}^j A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$\
-≤ $\sum_{i = 1}^j \text{Pr}\left\{A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$ (By induction)\
-= $\sum_{i = 1}^{j + 1} \text{Pr}\left\{A_i\right\}$.
+$\Pr\left\{\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\}$ \
+≤ $\Pr\left\{\bigcup_{i = 1}^j A_i\right\} + \Pr\left\{A_{i + 1}\right\}$\
+≤ $\sum_{i = 1}^j \Pr\left\{A_i\right\} + \Pr\left\{A_{i + 1}\right\}$ (By induction)\
+= $\sum_{i = 1}^{j + 1} \Pr\left\{A_i\right\}$.
 
 ##### C.2-3
 
@@ -2026,3 +2026,28 @@ Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*}\
 = Pr{(*A* ⋂ *B*) ∪ ($\bar{A}$ ⋂ *B*)} / Pr{*B*} (Since *A* and $\bar{A}$ are mutually exclusive)\
 = Pr{*B*} / Pr{*B*}
 = 1.
+
+##### C.2-5
+
+> Prove that for any collection of events $A_1$, $A_2$, …, $A_n$,
+>
+> $\begin{aligned}
+> \Pr\left\{A_1 \cap A_2 \cap ⋯ \cap A_n\right\} = &\Pr\left\{A_1\right\} ⋅ \Pr\left\{A_2 \middle| A_1\right\} ⋅ \Pr\left\{A_3 \middle| A_1 \cap A_2\right\} ⋯\\
+> &\Pr\left\{A_n \middle| A_1 \cap A_2 \cap ⋯ \cap A_{n - 1}\right\}\text{.}
+> \end{aligned}$
+
+Proof by induction:
+
+Base case: $\Pr\left\{A_1\right\} = \Pr\left\{A_1\right\}$.
+
+Inductive case: By induction, we have:
+
+$\Pr\left\{\bigcap_{i = 1}^n A_i\right\} = ∏_{i = 1}^n \Pr\left\{A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\}$.
+
+So
+
+$\Pr\left\{\bigcap_{i = 1}^{n + 1} A_i\right\}$\
+= $\Pr\left\{\left(\bigcap_{i = 1}^n A_i\right) \cap A_{n + 1}\right\}$\
+= $\Pr\left\{\bigcap_{i = 1}^n A_i\right\} ⋅ \Pr\left\{A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\}$\
+= $\left(∏_{i = 1}^n \Pr\left\{A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\}\right) ⋅ \Pr\left\{A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\}$\
+= $∏_{i = 1}^{n + 1} \Pr\left\{A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\}$.
