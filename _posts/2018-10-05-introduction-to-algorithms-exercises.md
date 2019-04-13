@@ -1987,9 +1987,9 @@ algorithm, we have:
 
 *S* = { (H, HH), (H, HT), (H, TH), (H, TT), (T, HH), (T, HT), (T, TH), (T, TT) }.
 
-*A* = { (H, HH), (T, HH), (T, HT), (T, TH) }.
+*A* = { (H, TT) }.
 
-Pr{*A*} = 4 / 8 = 1 / 2.
+Pr{*A*} = 1 / 8.
 
 ##### C.2-2
 
@@ -2007,3 +2007,11 @@ $\text{Pr}\left\{\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\}$ \
 ≤ $\text{Pr}\left\{\bigcup_{i = 1}^j A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$\
 ≤ $\sum_{i = 1}^j \text{Pr}\left\{A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$ (By induction)\
 = $\sum_{i = 1}^{j + 1} \text{Pr}\left\{A_i\right\}$.
+
+##### C.2-3
+
+> Suppose we shuffle a deck of 10 cards, each bearing a distinct number from 1 to 10, to mix the cards thoroughly. We
+> then remove three cards, one at a time, from the deck. What is the probability that we select the three cards in
+> sorted (increasing) order?
+
+The order of the selected cards is independ of the number of cards, so the probability is 1 / 3! = 1 / 6.
