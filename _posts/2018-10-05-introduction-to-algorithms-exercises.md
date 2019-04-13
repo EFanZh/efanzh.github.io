@@ -2051,3 +2051,11 @@ $\Pr\left\lbrace\bigcap_{i = 1}^{n + 1} A_i\right\rbrace$\
 = $\Pr\left\lbrace\bigcap_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\rbrace$\
 = $\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\rbrace$\
 = $∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\rbrace$.
+
+##### C.2-6 ★
+
+> Describe a procedure that takes as input two integers *a* and *b* such that 0 < *a* < *b* and, using fair coin flips,
+> produces as output heads with probability *a* / *b* and tails with probability (*b* - *a*) / *b*. Give a bound on the
+> expected number of coin flips, which should be *O*(1). (*Hint:* Represent *a* / *b* in binary.)
+
+Solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_c_counting_and_probability/section_c_2_probability/exercises/exercise_c_2_6.rs).
