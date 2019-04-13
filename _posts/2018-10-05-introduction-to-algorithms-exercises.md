@@ -2015,3 +2015,14 @@ $\text{Pr}\left\{\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\}$ \
 > sorted (increasing) order?
 
 The order of the selected cards is independ of the number of cards, so the probability is 1 / 3! = 1 / 6.
+
+##### C.2-4
+
+> Prove that Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*} = 1.
+
+Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*}\
+= Pr{*A* ⋂ *B*} / Pr{*B*} + Pr{$\bar{A}$ ⋂ *B*} / Pr{*B*}\
+= (Pr{*A* ⋂ *B*} + Pr{$\bar{A}$ ⋂ *B*}) / Pr{*B*}\
+= Pr{(*A* ⋂ *B*) ∪ ($\bar{A}$ ⋂ *B*)} / Pr{*B*} (Since *A* and $\bar{A}$ are mutually exclusive)\
+= Pr{*B*} / Pr{*B*}
+= 1.
