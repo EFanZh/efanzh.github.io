@@ -2059,3 +2059,47 @@ $\Pr\left\lbrace\bigcap_{i = 1}^{n + 1} A_i\right\rbrace$\
 > expected number of coin flips, which should be *O*(1). (*Hint:* Represent *a* / *b* in binary.)
 
 Solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_c_counting_and_probability/section_c_2_probability/exercises/exercise_c_2_6.rs).
+
+The expected number of coin flips is 2.
+
+##### C.2-7 ★
+
+> Show how to construct a set of *n* events that are pairwise independent but such that no subset of *k* > 2 of them is
+> mutually independent.
+
+*Skipped.*
+
+##### C.2-8 ★
+
+> Two events *A* and *B* are **conditionally independent**, given *C*, if
+>
+> Pr{*A* ⋂ *B* | *C*} = Pr{*A* | *C*} ⋅ Pr{*B* | *C*}.
+>
+> Give a simple but nontrivial example of two events that are not independent but are conditionally independent given a
+> third event.
+
+*Skipped.*
+
+##### C.2-9 ★
+
+> You are a contestant in a game show in which a prize is hidden behind one of three curtains. You will win the prize if
+> you select the correct curtain. After you have picked one curtain but before the curtain is lifted, the emcee lifts
+> one of the other curtains, knowing that it will reveal an empty stage, and asks if you would like to switch from your
+> current selection to the remaining curtain. How would your chances change if you switch? (This question is the
+> celebrated ***Monty Hall*** problem, named after a game-show host who often presented contestants with just this
+> dilemma.)
+
+The winning chance changes from 1 / 3 to 2 / 3.
+
+##### C.2-10 ★
+
+> A prison warden has randomly picked one prisoner among three to go free. The other two will be executed. The guard
+> knows which one will go free but is forbidden to give any prisoner information regarding his status. Let us call the
+> prisoners *X*, *Y*, and *Z*. Prisoner *X* asks the guard privately which of *Y* or *Z* will be executed, arguing that
+> since he already knows that at least one of them must die, the guard won’t be revealing any information about his own
+> status. The guard tells *X* that *Y* is to be executed. Prisoner *X* feels happier now, since he figures that either
+> he or prisoner *Z* will go free, which means that his probability of going free is now 1 / 2. Is he right, or are his
+> chances still 1 / 3? Explain.
+
+Still 1 / 3. Like the previous exercise, the chance of prisoner *Z* will go free is 2 / 3 after the guard says *Y* will
+be executed.
