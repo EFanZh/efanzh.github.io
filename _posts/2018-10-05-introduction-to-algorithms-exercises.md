@@ -1973,3 +1973,37 @@ algorithm, we have:
 
 *T*(*p*) = 2 *p* (1 - *p*) *k* + (1 - 2 *p* (1 - *p*)) (*k* + *T*(*p*))\
 ⇒ *T*(*p*) = *k* / (2 *p* ( 1 - *p*)) = Θ(1 / (*p* (1 - *p*))).
+
+## VIII Appendix: Mathematical Background
+
+### C Counting and Probability
+
+#### C.2 Probability
+
+##### C.2-1
+
+> Professor Rosencrantz flips a fair coin once. Professor Guildenstern flips a fair coin twice. What is the probability
+> that Professor Rosencrantz obtains more heads than Professor Guildenstern?
+
+*S* = { (H, HH), (H, HT), (H, TH), (H, TT), (T, HH), (T, HT), (T, TH), (T, TT) }.
+
+*A* = { (H, HH), (T, HH), (T, HT), (T, TH) }.
+
+Pr{*A*} = 4 / 8 = 1 / 2.
+
+##### C.2-2
+
+> Prove ***Boole’s inequality***: For any finite or countably infinite sequence of events $A_1$, $A_2$, …,
+>
+> Pr {$A_1$ ∪ $A_2$ ∪ ⋯} ≤ Pr{$A_1$} + Pr{$A_2$} + ⋯. (C.19)
+
+Proof by induction:
+
+Base case: Pr{$A_1$} ≤ Pr{$A_1$}.
+
+Inductive case:
+
+$\text{Pr}\left\{\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\}$ \
+≤ $\text{Pr}\left\{\bigcup_{i = 1}^j A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$\
+≤ $\sum_{i = 1}^j \text{Pr}\left\{A_i\right\} + \text{Pr}\left\{A_{i + 1}\right\}$ (By induction)\
+= $\sum_{i = 1}^{j + 1} \text{Pr}\left\{A_i\right\}$.
