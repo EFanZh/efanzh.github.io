@@ -2155,3 +2155,29 @@ So, do not gamble.
 > E[max(*X*, *Y*)] ≤ E[*X*] + E[*Y*].
 
 Since *X* and *Y* are nonnegative, E[max(*X*, *Y*)] ≤ E[*X* + *Y*] = E[*X*] + E[*Y*].
+
+##### C.3-5 ★
+
+> Let *X* and *Y* be independent random variables. Prove that *f*(*X*) and *g*(*Y*) are independent for any choice of
+> functions *f* and *g*.
+
+*Skipped.*
+
+##### C.3-6 ★
+
+> Let *X* be a nonnegative random variable, and suppose that E[*X*] is well defined. Prove ***Markov’s inequality***:
+>
+> Pr{*X* ≥ *t*} ≤ E[*X*] / *t* (C.30)
+>
+> for all *t* > 0.
+
+*Skipped.*
+
+##### C.3-7 ★
+
+> Let *S* be a sample space, and let *X* and *X*′ be random variables such that *X*(s) ≥ *X*′(*s*) for all *s* ∈ *S*.
+> Prove that for any real constant *t*,
+>
+> Pr{*X* ≥ *t*} ≥ Pr{*X*′ ≥ *t*}.
+
+*Skipped.*
