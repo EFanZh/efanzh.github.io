@@ -2202,3 +2202,13 @@ Var[*X*]\
 = E[*X*] - $\operatorname{E}^2\left[X\right]$\
 = E[*X*](1 - E[*X*])\
 = E[*X*]E[1 - *X*]
+
+##### C.3-10
+
+> Prove that Var[*a* *X*] = $a^2$ Var[*X*] from the definition (C.27) of variance.
+
+Var[*a* *X*]\
+= E[$a^2 X^2$] - $\operatorname{E}^2\left[a X\right]$\
+= $a^2$ E[$X^2$] - $a^2 \operatorname{E}^2\left[X\right]$\
+= $a^2$(E[$X^2$] - $\operatorname{E}^2\left[X\right]$)\
+= $a^2$ Var[*X*].
