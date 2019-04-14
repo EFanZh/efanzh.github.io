@@ -2122,3 +2122,13 @@ E[max(*X*, *Y*)]\
 = $\sum_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ⋀ Y ≥ i\right\rbrace$\
 = $\sum_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36$\
 = 161 / 36.
+
+##### C.3-2
+
+> An array *A*[1‥n] contains *n* distinct numbers that are randomly ordered, with each permutation of the *n* numbers
+> being equally likely. What is the expectation of the index of the maximum element in the array? What is the
+> expectation of the index of the minimum element in the array?
+
+E[arg max(*A*)] = (1 + *n*) / 2.
+
+E[arg min(*A*)] = (1 + *n*) / 2.
