@@ -2147,3 +2147,11 @@ E\
 = - 17 / 216.
 
 So, do not gamble.
+
+##### C.3-4
+
+> Argue that if *X* and *Y* are nonnegative random variables, then
+>
+> E[max(*X*, *Y*)] ≤ E[*X*] + E[*Y*].
+
+Since *X* and *Y* are nonnegative, E[max(*X*, *Y*)] ≤ E[*X* + *Y*] = E[*X*] + E[*Y*].
