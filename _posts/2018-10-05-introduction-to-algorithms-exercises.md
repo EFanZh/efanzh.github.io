@@ -2181,3 +2181,12 @@ Since *X* and *Y* are nonnegative, E[max(*X*, *Y*)] ≤ E[*X* + *Y*] = E[*X*] + 
 > Pr{*X* ≥ *t*} ≥ Pr{*X*′ ≥ *t*}.
 
 *Skipped.*
+
+##### C.3-8
+
+> Which is larger: the expectation of the square of a random variable, or the square of its expectation?
+
+E[$X^2$] - $\operatorname{E}^2\left[Y\right]$\
+= E[$X^2$] - $\operatorname{E}^2\left[X\right]$\
+= Var[*X*]\
+≥ 0
