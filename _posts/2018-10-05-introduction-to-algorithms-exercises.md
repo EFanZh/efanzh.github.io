@@ -2103,3 +2103,22 @@ The winning chance changes from 1 / 3 to 2 / 3.
 
 Still 1 / 3. Like the previous exercise, the chance of prisoner *Z* will go free is 2 / 3 after the guard says *Y* will
 be executed.
+
+#### C.3 Discrete random variables
+
+##### C.3-1
+
+> Suppose we roll two ordinary, 6-sided dice. What is the expectation of the sum of the two values showing? What is the
+> expectation of the maximum of the two values showing?
+
+E[*X* + *Y*] = E[*X*] + E[*Y*] = 7 / 2 + 7 / 2 = 7.
+
+According to equation C.25:
+
+E[max(*X*, *Y*)]\
+= $\sum_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
+= $\sum_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
+= $\sum_{i = 1}^6 \Pr\left\lbrace X ≥ i ⋁ Y ≥ i\right\rbrace$\
+= $\sum_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ⋀ Y ≥ i\right\rbrace$\
+= $\sum_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36$\
+= 161 / 36.
