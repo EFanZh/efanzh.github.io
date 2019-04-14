@@ -2132,3 +2132,18 @@ E[max(*X*, *Y*)]\
 E[arg max(*A*)] = (1 + *n*) / 2.
 
 E[arg min(*A*)] = (1 + *n*) / 2.
+
+##### C.3-3
+
+> A carnival game consists of three dice in a cage. A player can bet a dollar on any of the numbers 1 through 6. The
+> cage is shaken, and the payoff is as follows. If the player’s number doesn’t appear on any of the dice, he loses his
+> dollar. Otherwise, if his number appears on exactly *k* of the three dice, for *k* = 1, 2, 3, he keeps his dollar and
+> wins *k* more dollars. What is his expected gain from playing the carnival game once?
+
+E\
+= - Pr{*k* = 0} + $\sum_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace$\
+= - 125 / 216 + $\sum_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}$\
+= - 125 / 216 + 1 × 3 × 1 / 6 × 25 / 36 + 2 × 3 × 1 / 36 × 5 / 6 + 3 × 1 × 1 / 216 × 1\
+= - 17 / 216.
+
+So, do not gamble.
