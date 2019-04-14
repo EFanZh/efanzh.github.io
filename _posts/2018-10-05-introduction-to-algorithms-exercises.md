@@ -2190,3 +2190,15 @@ E[$X^2$] - $\operatorname{E}^2\left[Y\right]$\
 = E[$X^2$] - $\operatorname{E}^2\left[X\right]$\
 = Var[*X*]\
 ≥ 0
+
+##### C.3-9
+
+> Show that for any random variable *X* that takes on only the values 0 and 1, we have Var[*X*] = E[*X*] E[1 - *X*].
+
+Since *X* takes on only the values 0 and 1, we have $X^2$ = *X*.
+
+Var[*X*]\
+= E[$X^2$] - $\operatorname{E}^2\left[X\right]$\
+= E[*X*] - $\operatorname{E}^2\left[X\right]$\
+= E[*X*](1 - E[*X*])\
+= E[*X*]E[1 - *X*]
