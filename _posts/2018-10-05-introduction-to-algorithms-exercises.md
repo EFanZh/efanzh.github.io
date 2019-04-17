@@ -1978,12 +1978,30 @@ algorithm, we have:
 
 ##### 5.2-1
 
-> In Hire-Assistant, assuming that the candidates are presented in a random order, what is the probability that you hire
-> exactly one time? What is the probability that you hire exactly *n* times?
+> In *Hire-Assistant*, assuming that the candidates are presented in a random order, what is the probability that you
+> hire exactly one time? What is the probability that you hire exactly *n* times?
 
 The probability of hiring exactly one time is 1 / *n*.
 
 The probability of hiring exactly *n* times is 1 / *n*!.
+
+##### 5.2-2
+
+> In *Hire-Assistant*, assuming that the candidates are presented in a random order, what is the probability that you
+> hire exactly twice?
+
+The first candidate will be hired, so if there are two candidates being hired, the second candidate must be the best
+one, and all candidates between the first candidate and the best candidate are less good than the first candidate.
+
+Let *i* be the rank of the first candidate, then there is *i* candidates are better than the first candidate, and
+*n* - *i* - 1 candidates are less good than the first candidate. If there are *j* candidates between the first candidate
+and the best candidate, there are *P*(*n* - *i* - 1, *j*) (*n* - *j* - 2)! different situations.
+
+So the probability is
+
+$\frac{\sum_{i = 1}^{n - 1} \sum_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)!}{n!} = H_{n - 1} / n$,
+
+where $H_n$ is the *n*th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number).
 
 ## VIII Appendix: Mathematical Background
 
