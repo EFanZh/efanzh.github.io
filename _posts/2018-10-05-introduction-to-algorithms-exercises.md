@@ -1974,6 +1974,17 @@ algorithm, we have:
 *T*(*p*) = 2 *p* (1 - *p*) *k* + (1 - 2 *p* (1 - *p*)) (*k* + *T*(*p*))\
 ⇒ *T*(*p*) = *k* / (2 *p* ( 1 - *p*)) = Θ(1 / (*p* (1 - *p*))).
 
+#### 5.2 Indicator random variables
+
+##### 5.2-1
+
+> In Hire-Assistant, assuming that the candidates are presented in a random order, what is the probability that you hire
+> exactly one time? What is the probability that you hire exactly *n* times?
+
+The probability of hiring exactly one time is 1 / *n*.
+
+The probability of hiring exactly *n* times is 1 / *n*!.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
