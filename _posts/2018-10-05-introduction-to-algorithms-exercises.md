@@ -2017,6 +2017,21 @@ So the expected value of *n* dices is:
 
 $\operatorname{E}\left[\sum_{j = 1}^{n} X\right]$ = $\sum_{j = 1}^{n}\operatorname{E}\left[X\right]$ = 7 *n* / 2.
 
+##### 5.2-4
+
+> Use indicator random variables to solve the following problem, which is known as the ***hat-check*** problem. Each of
+> *n* customers gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the
+> customers in a random order. What is the expected number of customers who get back their own hat?
+
+Let $X_i$ be the indicator variable associated with the event in which the *i*th customer get back its own hat.
+
+E[*X*]\
+= $\operatorname{E}\left[\sum_{i = 1}^n X_i\right]$\
+= $\sum_{i = 1}^n \operatorname{E}\left[X_i\right]$\
+= $\sum_{i = 1}^n 1 / n$\
+= $\sum_{i = 1}^n 1 / n$\
+= 1.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
