@@ -2003,6 +2003,20 @@ $\frac{\sum_{i = 1}^{n - 1} \sum_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)
 
 where $H_n$ is the *n*th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number).
 
+##### 5.2-3
+
+> Use indicator random variables to compute the expected value of the sum of *n* dice.
+
+Let $X_i$ be the indicator variable associated with the event in which the value of one dice is *i*.
+
+So the expected value of one dice is:
+
+E[*X*] = $\sum_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace$ = $\sum_{i = 1}^6 i / 6$ = 7 / 2.
+
+So the expected value of *n* dices is:
+
+$\operatorname{E}\left[\sum_{j = 1}^{n} X\right]$ = $\sum_{j = 1}^{n}\operatorname{E}\left[X\right]$ = 7 *n* / 2.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
