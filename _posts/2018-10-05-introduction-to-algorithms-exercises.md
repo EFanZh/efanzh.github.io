@@ -2032,6 +2032,23 @@ E[*X*]\
 = $\sum_{i = 1}^n 1 / n$\
 = 1.
 
+##### 5.2-5
+
+> Let *A*[1‥*n*] be an array of *n* distinct numbers. If *i* < *j* and *A*[*i*] > *A*[*j*], then the pair (*i*, *j*) is
+> called an ***inversion*** of *A*. (See Problem 2-4 for more on inversions.) Suppose that the elements of *A* form a
+> uniform random permutation of ⟨1, 2, …, *n*⟩. Use indicator random variables to compute the expected number of
+> inversions.
+
+Let $X_{ij}$ be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
+
+E[*X*]\
+= $E\left[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} X_{ij}\right]$\
+= $\sum_{i = 1}^{n - 1} E\left[\sum_{j = i + 1}^{n} X_{ij}\right]$\
+= $\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} E\left[X_{ij}\right]$\
+= $\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} 1 / 2$\
+= $\sum_{i = 1}^{n - 1} \left(n - i\right) / 2$\
+= *n* (*n* - 1) / 4.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
