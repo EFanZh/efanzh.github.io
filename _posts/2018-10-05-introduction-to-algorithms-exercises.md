@@ -2139,6 +2139,54 @@ $P\left(n^3, n\right) / \left(n^3\right)^n$\
 
 *Not sure how to go from here.*
 
+##### 5.3-6
+
+> Explain how to implement the algorithm *Permute-By-Sorting* to handle the case in which two or more priorities are
+> identical. That is, your algorithm should produce a uniform random permutation, even if two or more priorities are
+> identical.
+
+*Skipped*.
+
+##### 5.3-7
+
+> Suppose we want to create a ***random sample*** of the set {1, 2, 3, …, *n*}, that is, an *m*-element subset *S*,
+> where 0 ≤ *m* ≤ *n*, such that each *m*-subset is equally likely to be created. One way would be to set *A*[*i*] = *i*
+> for *i* = 1, 2, 3, …, *n*, call *Randomize-In-Place*(*A*), and then take just the first *m* array elements. This
+> method would make *n* calls to the *Random* procedure. If *n* is much larger than *m*, we can create a random sample
+> with fewer calls to *Random*. Show that the following recursive procedure returns a random *m*-subset *S* of
+> {1, 2, 3, …, *n*}, in which each *m*-subset is equally likely, while making only *m* calls to *Random*:
+>
+> *Random-Sample*(*m*, *n*)
+>
+> 1. **if** *m* == 0
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;**return** ∅
+> 3. **else** *S* = *Random-Sample*(*m* - 1, *n* - 1)
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;*i* = *Random*(1, *n*)
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;**if** *i* ∈ *S*
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*S* = *S* ∪ {*n*}
+> 7. &nbsp;&nbsp;&nbsp;&nbsp;**else** *S* = *S* ∪ {*i*}
+> 8. &nbsp;&nbsp;&nbsp;&nbsp;**return** *S*
+
+Lemma: ∀ *i* ∈ ℕ and 1 ≤ *i* ≤ *n*, the probability of *i* ∈ *Random-Sample*(*m*, *n*) is *m* / *n*.
+
+- Base case: *Random-Sample*(0, *n* - *m*) only returns empty set, the probability of any *i* is an element of that set
+  is 0, the claim holds.
+- Inductive case:
+  - For *n*: there are two ways for *n* to be added to *S*:
+    - *i* ∈ *S*, which have the probability of (*m* - 1) / *n*,
+    - *i* = *n*, which have the probability of 1 / *n*,
+
+    So the total probability of *n* being added to *S* is (*m* - 1) / *n* + 1 / *n* = *m* / *n*.
+  - For *k* < *n*, either it is added to *S* before the current iteration, or it is added in current iteration.
+
+    - The probabilioty of *k* being added before this iteration is (*m* - 1) / (*n* - 1).
+    - The probabilioty of *k* being added in this iteration is ((*n* - *m*) / (*n* - 1)) (1 / *n*).
+
+    So the total probability of *k* being added to *S* is
+    (*m* - 1) / (*n* - 1) + ((*n* - *m*) / (*n* - 1)) (1 / *n*) = *m* / *n*.
+
+  So every number in [1, *n*] have the probability of *m* / *n* to be added to *S*, the claim holds.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
