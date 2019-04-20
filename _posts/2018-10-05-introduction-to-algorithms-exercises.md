@@ -2077,6 +2077,25 @@ Solution is implemented
 No, the algorithm above could not produce the permutation ⟨*A*[1], *A*[3], *A*[2], *A*[4], *A*[5], …, A[*n*]⟩ which is
 not the identity permutation, because the first element always is always swapped away from its original position.
 
+##### 5.3-3
+
+> Suppose that instead of swapping element *A*[*i*] with a random element from the subarray *A*[*i*‥*n*], we swapped it
+> with a random element from anywhere in the array:
+>
+> *Permute-With-All*(*A*)
+>
+> 1. *n* = *A*.*length*
+> 2. **for** *i* = 1 **to** *n*
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;swap *A*[*i*] with *A*[*Random*(1, *n*)]
+>
+> Does this code produce a uniform random permutation? Why or why not?
+
+In each iteration, there are *n* different possible outcomes of the *Random* function with the same possiblility, so
+there are total of $n^n$ (possiblly same) outcomes of the algorithm with the same possibility. But the uniform random
+permutation requires there are *n*! different possible outcomes. It is possible that $n^n / n!$ is not an integer, in
+which case, it is impossible to divide $n^n$ probabilities into $n!$ same probabilities. So, the code does not produce a
+uniform random permutation.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
