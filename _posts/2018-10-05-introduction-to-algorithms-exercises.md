@@ -2049,6 +2049,18 @@ E[*X*]\
 = $\sum_{i = 1}^{n - 1} \left(n - i\right) / 2$\
 = *n* (*n* - 1) / 4.
 
+##### 5.3-1
+
+> Professor Marceau objects to the loop invariant used in the proof of Lemma 5.5. He questions whether it is true prior
+> to the first iteration. He reasons that we could just as easily declare that an empty subarray contains no
+> 0-permutations. Therefore, the probability that an empty subarray contains a 0-permutation should be 0, thus
+> invalidating the loop invariant prior to the first iteration. Rewrite the procedure Randomize-In-Place so that its
+> associated loop invariant applies to a nonempty subarray prior to the first iteration, and modify the proof of Lemma
+> 5.5 for your procedure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_1.rs).
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
