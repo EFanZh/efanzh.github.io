@@ -2061,6 +2061,22 @@ E[*X*]\
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_1.rs).
 
+##### 5.3-2
+
+> Professor Kelp decides to write a procedure that produces at random any permutation besides the identity permutation.
+> He proposes the following procedure:
+>
+> *Permute-Without-Identity*(*A*)
+>
+> 1. *n* = *A*.*length*
+> 2. **for** *i* = 1 **to** *n* - 1
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;swap *A*[*i*] with *A*[*Random*(*i* + 1, *n*)]
+>
+> Does this code do what Professor Kelp intends?
+
+No, the algorithm above could not produce the permutation ⟨*A*[1], *A*[3], *A*[2], *A*[4], *A*[5], …, A[*n*]⟩ which is
+not the identity permutation, because the first element always is always swapped away from its original position.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
