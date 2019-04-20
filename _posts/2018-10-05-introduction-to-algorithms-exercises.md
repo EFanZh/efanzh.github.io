@@ -2121,6 +2121,24 @@ wind up at that position with probability of 1 / *n*.
 There can only be *n* different outcomes with *Permute-By-Cyclic*, while the uniform distribution requires *n*!
 different results. So the result permutation can not be uniformly random.
 
+##### 5.3-5 ★
+
+> Prove that in the array *P* in procedure *Permute-By-Sorting*, the probability that all elements are unique is at
+> least 1 - 1 / *n*.
+
+The probability is:
+
+$P\left(n^3, n\right) / \left(n^3\right)^n$\
+= $\left(n^3! / \left(n^3 - n\right)!\right) / \left(n^3\right)^n$\
+= $\left(\prod_{i = 0}^{n - 1} \left(n^3 - i\right)\right) / \left(\prod_{i = 0}^{n - 1} n^3\right)$\
+= $\prod_{i = 0}^{n - 1} \left(\left(n^3 - i\right) / n^3\right)$\
+= $\prod_{i = 0}^{n - 1} \left(1 - i / n^3\right)$\
+≥ $\prod_{i = 0}^{n - 1} \left(1 - n / n^3\right)$\
+= $\prod_{i = 0}^{n - 1} \left(1 - 1 / n^2\right)$\
+= $\left(1 - 1 / n^2\right)^n$
+
+*Not sure how to go from here.*
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
