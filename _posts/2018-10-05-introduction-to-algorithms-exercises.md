@@ -2230,6 +2230,29 @@ So the expected number of ball tosses is:
 
 $\sum_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k$
 
+##### 5.4-3 ★
+
+> For the analysis of the birthday paradox, is it important that the birthdays be mutually independent, or is pairwise
+> independence sufficient? Justify your answer.
+
+*Skipped.*
+
+##### 5.4-4 ★
+
+> How many people should be invited to a party in order to make it likely that there are *three* people with the same
+> birthday?
+
+*Skipped.*
+
+##### 5.4-5 ★
+
+> What is the probability that a *k*-string over a set of size *n* forms a *k*-permutation? How does this question
+> relate to the birthday paradox?
+
+The probability is *P*(*n*, *k*) / $n^k$.
+
+It’s the same as saying *k* people whose birthdays are in *n* days all have different birthday.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
