@@ -357,9 +357,8 @@ where all elements will be checked.
 
 > How can we modify almost any algorithm to have a good best-case running time?
 
-*What? We can do that?*
-
-*Skipped.*
+Precompute the result for some special cases, and test the inputs for such cases. If the input matches such cases we
+return the precomputed result.
 
 #### 2.3 Designing algorithms
 
