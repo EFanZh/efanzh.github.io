@@ -2218,6 +2218,18 @@ Proof by induction on *m*:
 
    Solving 1 - *C*(*k*, 0) $364^k / 365^k$ - *C*(*k*, 1) $364^{k - 1} / 365^k$ > 1 / 2, we get k ≥ 613.
 
+##### 5.4-2
+
+> Suppose that we toss balls into *b* bins until some bin contains two balls. Each toss is independent, and each ball is
+> equally likely to end up in any bin. What is the expected number of ball tosses?
+
+The probability that toss *k* balls into *b* bins to get the first bin containing two balls is:
+(*P*(*b*, *k* - 1) / $b^{k - 1}$) ((*k* - 1) / *b*).
+
+So the expected number of ball tosses is:
+
+$\sum_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k$
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
