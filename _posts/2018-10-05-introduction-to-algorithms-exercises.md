@@ -2202,6 +2202,22 @@ Proof by induction on *m*:
 
   So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
 
+#### 5.4 Probabilistic analysis and further uses of indicator random variables ★
+
+##### 5.4-1
+
+> How many people must there be in a room before the probability that someone has the same birthday as you do is at
+> least 1 / 2? How many people must there be before the probability that at least two people have a birthday on July 4
+> is greater than 1 / 2?
+
+1. The probability that no people in a room has the same birthday as me is $364^{k - 1} / 365^{k - 1}$, so the
+   probability that someone has the same birthday as me is $1 - 364^{k - 1} / 365^{k - 1}$.
+
+   Solving 1 - $364^{k - 1} / 365^{k - 1}$ ≥ 1 / 2, we get *k* ≥ 254.
+2. The probability that *x* people in a room has the a birthday on July 4 is *C*(*k*, *x*) $364^{k - x} / 365^k$,
+
+   Solving 1 - *C*(*k*, 0) $364^k / 365^k$ - *C*(*k*, 1) $364^{k - 1} / 365^k$ > 1 / 2, we get k ≥ 613.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
