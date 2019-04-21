@@ -2169,6 +2169,9 @@ $P\left(n^3, n\right) / \left(n^3\right)^n$\
 > 7. &nbsp;&nbsp;&nbsp;&nbsp;**else** *S* = *S* ∪ {*i*}
 > 8. &nbsp;&nbsp;&nbsp;&nbsp;**return** *S*
 
+The algorithm is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_7.rs).
+
 Like exercise 5.3-4, it is not enough by just proving ∀ *i* ∈ ℕ and 1 ≤ *i* ≤ *n*, the probability of
 *i* ∈ *Random-Sample*(*m*, *n*) is *m* / *n*.
 
