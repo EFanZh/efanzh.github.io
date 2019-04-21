@@ -329,6 +329,9 @@ $Θ\left(n^3\right)$.
 > elements, rather than for all *n* elements? Give the best-case and worst-case running times of selection sort in
 > Θ-notation.
 
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_2_analyzing_algorithms/exercises/exercise_2_2_2.rs).
+
 The loop invariant: at the start of each iteration of loop, The first *i* elements contains the smallest *i* elements in
 *A*, and they are in nondecreasing order.
 
