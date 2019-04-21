@@ -2167,25 +2167,35 @@ $P\left(n^3, n\right) / \left(n^3\right)^n$\
 > 7. &nbsp;&nbsp;&nbsp;&nbsp;**else** *S* = *S* ∪ {*i*}
 > 8. &nbsp;&nbsp;&nbsp;&nbsp;**return** *S*
 
-Lemma: ∀ *i* ∈ ℕ and 1 ≤ *i* ≤ *n*, the probability of *i* ∈ *Random-Sample*(*m*, *n*) is *m* / *n*.
+Like exercise 5.3-4, it is not enough by just proving ∀ *i* ∈ ℕ and 1 ≤ *i* ≤ *n*, the probability of
+*i* ∈ *Random-Sample*(*m*, *n*) is *m* / *n*.
 
-- Base case: *Random-Sample*(0, *n* - *m*) only returns empty set, the probability of any *i* is an element of that set
-  is 0, the claim holds.
-- Inductive case:
-  - For *n*: there are two ways for *n* to be added to *S*:
-    - *i* ∈ *S*, which have the probability of (*m* - 1) / *n*,
-    - *i* = *n*, which have the probability of 1 / *n*,
+Lemma: *Random-Sample*(*m*, *n*) generates any *m*-subset with the probability of 1 / *C*(*n*, *m*).
 
-    So the total probability of *n* being added to *S* is (*m* - 1) / *n* + 1 / *n* = *m* / *n*.
-  - For *k* < *n*, either it is added to *S* before the current iteration, or it is added in current iteration.
+Proof by induction on *m*:
 
-    - The probabilioty of *k* being added before this iteration is (*m* - 1) / (*n* - 1).
-    - The probabilioty of *k* being added in this iteration is ((*n* - *m*) / (*n* - 1)) (1 / *n*).
+- Base case: *Random-Sample*(0, *n*) only returns the empty set, and the only 0-subset is the empty set, so the
+  probability is 1, which equals to 1 / *C*(*n*, 0), the claim holds.
+- Inductive cases:
 
-    So the total probability of *k* being added to *S* is
-    (*m* - 1) / (*n* - 1) + ((*n* - *m*) / (*n* - 1)) (1 / *n*) = *m* / *n*.
+  - For a certail *m*-subset containing *n*, there are two different ways to generate it:
 
-  So every number in [1, *n*] have the probability of *m* / *n* to be added to *S*, the claim holds.
+    - When *i* ∈ *S*, which has the probability of (*m* - 1) / *n*,
+    - Or *i* = *n*, which has the probability of 1 / *n*,
+
+    So the probability of generating an *m*-subset containing *n* is (*m* - 1) / *n* + 1 / *n* = *m* / *n*.
+
+    By induction, generating an (*m* - 1)-subset on the set [1, *n* - 1] has the probability of
+    1 / *C*(*n* - 1, *m* - 1), so generating an *m*-subset on the set [1, *n*] on set [1, *n* - 1] has the probability
+    of (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
+  - For a certain *m*-subset does not contain *n*, let the last element being added to *S* can be *k*, then *k* can be
+    any element in the *m*-subset.
+
+    So the probability of generating a certain *m*-subset does not contain *n* is
+    $\sum_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)$ =
+    (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
+
+  So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
 
 ## VIII Appendix: Mathematical Background
 
