@@ -861,7 +861,7 @@ Inductive case:
 
 > Show that *k* ln *k* = Θ(*n*) implies *k* = Θ(*n* / ln *n*).
 
-*Skipped*.
+*Skipped.*
 
 #### 3.X Problems
 
@@ -978,7 +978,7 @@ Inductive case:
 >
 > 1. Define $\widetilde{Ω}$ and $\widetilde{Θ}$ in a similar manner. Prove the corresponding analog to Theorem 3.1.
 
-*Skipped*.
+*Skipped.*
 
 ##### 3-6 Iterated functions
 
@@ -2147,7 +2147,7 @@ $P\left(n^3, n\right) / \left(n^3\right)^n$\
 > identical. That is, your algorithm should produce a uniform random permutation, even if two or more priorities are
 > identical.
 
-*Skipped*.
+*Skipped.*
 
 ##### 5.3-7
 
@@ -2278,6 +2278,13 @@ So the expected number of bins with exactly 1 ball is:
 
 *n* *C*(*n*, 1) $\left(1 / n\right)^1 \left(1 - 1 / n\right)^{n - 1}$\
 = *n* $\left(1 - 1 / n\right)^{n - 1}$.
+
+##### 5.4-7 ★
+
+> Sharpen the lower bound on streak length by showing that in *n* flips of a fair coin, the probability is less than
+> 1 / *n* that no streak longer than lg *n* - 2 lg lg *n* consecutive heads occurs.
+
+*Skipped.*
 
 ## VIII Appendix: Mathematical Background
 
