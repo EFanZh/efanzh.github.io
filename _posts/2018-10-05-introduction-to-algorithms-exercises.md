@@ -2253,6 +2253,32 @@ The probability is *P*(*n*, *k*) / $n^k$.
 
 It’s the same as saying *k* people whose birthdays are in *n* days all have different birthday.
 
+##### 5.4-6 ★
+
+> Suppose that *n* balls are tossed into *n* bins, where each toss is independent and the ball is equally likely to end
+> up in any bin. What is the expected number of empty bins? What is the expected number of bins with exactly one ball?
+
+Let $X_{i}$ being the indicator variable in which bin *i* have *k* balls, then
+
+E[$X_{ik}$] = *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
+
+So the expected number of bins with exactly *k* balls is
+
+E[$\sum_{i = 1}^{n} X_{ik}$]\
+= $\sum_{i = 1}^{n} \operatorname{E}\left[X_{ik}\right]$\
+= $\sum_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$\
+= *n* *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
+
+So the expected number of bins with exactly 0 ball is:
+
+*n* *C*(*n*, 0) $\left(1 / n\right)^0 \left(1 - 1 / n\right)^{n - 0}$\
+= *n* $\left(1 - 1 / n\right)^n$.
+
+So the expected number of bins with exactly 1 ball is:
+
+*n* *C*(*n*, 1) $\left(1 / n\right)^1 \left(1 - 1 / n\right)^{n - 1}$\
+= *n* $\left(1 - 1 / n\right)^{n - 1}$.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
