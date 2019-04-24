@@ -2286,6 +2286,44 @@ So the expected number of bins with exactly 1 ball is:
 
 *Skipped.*
 
+#### 5.X Problems
+
+##### 5-1 Probabilistic counting
+
+> With a *b*-bit counter, we can ordinarily only count up to $2^b$ - 1. With R. Morris’s ***probabilistic counting***,
+> we can count up to a much larger value at the expense of some loss of precision.
+>
+> We let a counter value of *i* represent a count of $n_i$ for *i* = 0, 1, …, $2^b$ - 1, where the $n_i$ form an
+> increasing sequence of nonnegative values. We assume that the initial value of the counter is 0, representing a count
+> of $n_0$ = 0. The *Increment* operation works on a counter containing the value *i* in a probabilistic manner. If
+> *i* = $2^b$ - 1, then the operation reports an overflow error. Otherwise, the *Increment* operation increases the
+> counter by 1 with probability 1 / ($n_{i + 1} - n_i$), and it leaves the counter unchanged with probability
+> 1 - 1 / ($n_{i + 1} - n_i$).
+>
+> If we select $n_i$ = *i* for all *i* ≥ 0, then the counter is an ordinary one. More interesting situations arise if we
+> select, say, $n_i = 2^{i - 1}$ for *i* > 0 or $n_i = F_i$ (the *i*th Fibonacci number—see Section 3.2).
+>
+> For this problem, assume that $n_{2^b - 1}$ is large enough that the probability of an overflow error is negligible.
+>
+> 1. Show that the expected value represented by the counter after *n* *Increment* operations have been performed is
+>    exactly *n*.
+> 2. The analysis of the variance of the count represented by the counter depends on the sequence of the $n_i$. Let us
+>    consider a simple case: $n_i$ = 100 *i* for all *i* ≥ 0. Estimate the variance in the value represented by the
+>    register after *n* *Increment* operations have been performed.
+
+1. For any counter value $n_i$, the expected value increased by one increment operation is:
+
+   $\left(n_{i + 1} - n_i\right) \left(1 / \left(n_{i + 1} - n_i\right)\right) + 0 \left(1 / \left(n_{i + 1} - n_i\right)\right)$ = 1.
+
+   Let $X_i$ be the random variable in which the counter values increased by the *i*th increment operation. So the
+   expected value of the counter after *n* *Increment* operations is:
+
+   E[$\sum_{i = 1}^{n} X_i$]\
+   = $\sum_{i = 1}^{n} \operatorname{E}\left[X_i\right]$\
+   = $\sum_{i = 1}^{n} 1$.\
+   = *n*.
+2. *Skipped*.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
