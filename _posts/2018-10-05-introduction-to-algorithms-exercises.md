@@ -2386,38 +2386,28 @@ So the expected number of bins with exactly 1 ball is:
 9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*c* = *c* + 1
 10. **return** *Nil*
 
-***b.***
+***b.*** Each pick has the probability of 1 / *n* of being succeed, so the expected number of indices to pick is *n*.
 
-Each pick has the probability of 1 / *n* of being succeed, so the expected number of indices to pick is *n*.
+***c.*** Each pick has the probability of *k* / *n* of being succeed, so the expected number of indices to pick is
+*n* / *k*.
 
-***c.***
+***d.*** It is like the ***coupon collector’s problem***, the expected number of indices to pick is
+*n*(ln *n* + *O*(1)).
 
-Each pick has the probability of *k* / *n* of being succeed, so the expected number of indices to pick is *n* / *k*.
+***e.*** Average-case running time is Θ((1 + *n*) / 2), Worst-case running time is Θ(*n*).
 
-***d.***
-
-It is like the ***coupon collector’s problem***, the expected number of indices to pick is *n*(ln *n* + *O*(1)).
-
-***e.***
-
-Average-case running time is Θ((1 + *n*) / 2), Worst-case running time is Θ(*n*).
-
-***f.***
-
-The expected number of indices to pick is:
+***f.*** The expected number of indices to pick is:
 
 $\sum_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)$ = (n + 1) / (k + 1).
 (By [WolframAlpha](https://www.wolframalpha.com/input/?i=sum(i+P(n+-+k,+i+-+1)+k+P(n+-+i,+n+-+i)+%2F+P(n,+n),+(i,+1,+n+-+k+%2B+1))))
 
 Worst-case running time is Θ(*n* - *k* + 1).
 
-***g.***
+***g.*** They are both Θ(*n*).
 
-They are both Θ(*n*).
+***h.*** The worst-case, expected running time are all Θ(*n*).
 
-***h.***
-
-The worst-case, expected running time are all Θ(*n*).
+***i.*** I will use *Deterministic-Search*, it is superior in every way.
 
 ## VIII Appendix: Mathematical Background
 
