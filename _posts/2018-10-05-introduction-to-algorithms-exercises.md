@@ -2324,6 +2324,101 @@ So the expected number of bins with exactly 1 ball is:
    = *n*.
 2. *Skipped*.
 
+##### 5-2 Searching an unsorted array
+
+> This problem examines three algorithms for searching for a value *x* in an unsorted array *A* consisting of *n*
+> elements.
+>
+> Consider the following randomized strategy: pick a random index *i* into *A*. If *A*[*i*] = *x*, then we terminate;
+> otherwise, we continue the search by picking a new random index into *A*. We continue picking random indices into *A*
+> until we find an index *j* such that *A*[*j*] = *x* or until we have checked every element of *A*. Note that we pick
+> from the whole set of indices each time, so that we may examine a given element more than once.
+>
+> ***a.*** Write pseudocode for a procedure *Random-Search* to implement the strategy above. Be sure that your algorithm
+> terminates when all indices into *A* have been picked.
+>
+> ***b.*** Suppose that there is exactly one index *i* such that *A*[*i*] = *x*. What is the expected number of indices
+> into *A* that we must pick before we find *x* and *Random-Search* terminates?
+>
+> ***c.*** Generalizing your solution to part (b), suppose that there are *k* ≥ 1 indices *i* such that *A*[*i*] = *x*.
+> What is the expected number of indices into *A* that we must pick before we find *x* and *Random-Search* terminates?
+> Your answer should be a function of *n* and *k*.
+>
+> ***d.*** Suppose that there are no indices *i* such that *A*[*i*] = *x*. What is the expected number of indices into
+> *A* that we must pick before we have checked all elements of *A* and *Random-Search* terminates?
+>
+> Now consider a deterministic linear search algorithm, which we refer to as *Deterministic-Search*. Specifically, the
+> algorithm searches *A* for *x* in order, considering *A*[1], *A*[2], *A*[3], …, *A*[*n*] until either it finds
+> *A*[*i*] = *x* or it reaches the end of the array. Assume that all possible permutations of the input array are
+> equally likely.
+>
+> ***e.*** Suppose that there is exactly one index *i* such that *A*[*i*] = *x*. What is the average-case running time
+> of *Deterministic-Search*? What is the worstcase running time of *Deterministic-Search*?
+>
+> ***f.*** Generalizing your solution to part (e), suppose that there are *k* ≥ 1 indices *i* such that *A*[*i*] = *x*.
+> What is the average-case running time of *Deterministic-Search*? What is the worst-case running time of
+> *Deterministic-Search*? Your answer should be a function of *n* and *k*.
+>
+> ***g.*** Suppose that there are no indices *i* such that *A*[*i*] = *x*. What is the average-case running time of
+> *Deterministic-Search*? What is the worst-case running time of *Deterministic-Search*?
+>
+> Finally, consider a randomized algorithm *Scramble-Search* that works by first randomly permuting the input array and
+> then running the deterministic linear search given above on the resulting permuted array.
+>
+> ***h.*** Letting *k* be the number of indices *i* such that *A*[*i*] = *x*, give the worst-case and expected running
+> times of *Scramble-Search* for the cases in which *k* = 0 and *k* = 1. Generalize your solution to handle the case in
+> which *k* ≥ 1.
+>
+> ***i.*** Which of the three searching algorithms would you use? Explain your answer.
+
+***a.***
+
+*Scramble-Search*(*A*, *v*)
+
+1. *V* = an array with *A*.*length* *False* values
+2. *c* = 0
+3. **while** *c* < *A*.*length*
+4. &nbsp;&nbsp;&nbsp;&nbsp;*i* = *Random*(1, *n*)
+5. &nbsp;&nbsp;&nbsp;&nbsp;**if** not *V*[*i*]
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *A*[*i*] == *v*
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**return** *i*
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*V*[*i*] = *True*
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*c* = *c* + 1
+10. **return** *Nil*
+
+***b.***
+
+Each pick has the probability of 1 / *n* of being succeed, so the expected number of indices to pick is *n*.
+
+***c.***
+
+Each pick has the probability of *k* / *n* of being succeed, so the expected number of indices to pick is *n* / *k*.
+
+***d.***
+
+It is like the ***coupon collector’s problem***, the expected number of indices to pick is *n*(ln *n* + *O*(1)).
+
+***e.***
+
+Average-case running time is Θ((1 + *n*) / 2), Worst-case running time is Θ(*n*).
+
+***f.***
+
+The expected number of indices to pick is:
+
+$\sum_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)$ = (n + 1) / (k + 1).
+(By [WolframAlpha](https://www.wolframalpha.com/input/?i=sum(i+P(n+-+k,+i+-+1)+k+P(n+-+i,+n+-+i)+%2F+P(n,+n),+(i,+1,+n+-+k+%2B+1))))
+
+Worst-case running time is Θ(*n* - *k* + 1).
+
+***g.***
+
+They are both Θ(*n*).
+
+***h.***
+
+The worst-case, expected running time are all Θ(*n*).
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
