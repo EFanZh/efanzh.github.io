@@ -2409,6 +2409,18 @@ Worst-case running time is Θ(*n* - *k* + 1).
 
 ***i.*** I will use *Deterministic-Search*, it is superior in every way.
 
+## II Sorting and Order Statistics
+
+### 6 Heapsort
+
+#### 6.1 Heaps
+
+##### 6.1-1
+
+> What are the minimum and maximum numbers of elements in a heap of height *h*?
+
+The minimum number of elements is $2^h$, the maximum number of elements is $2^{h + 1} - 1$.
+
 ## VIII Appendix: Mathematical Background
 
 ### C Counting and Probability
