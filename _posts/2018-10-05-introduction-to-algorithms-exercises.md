@@ -94,13 +94,13 @@ Question: Should I only consider positive integer values for *n*?
 > | $2^n$      |          |          |        |       |         |        |           |
 > | $n!$       |          |          |        |       |         |        |           |
 
-- 1 second = 10⁶ microseconds
-- 1 minute = 6 × 10⁷  microseconds
-- 1 hour = 3.6 × 10⁹ microseconds
-- 1 day = 8.64 × 10¹⁰ microseconds
-- 1 month = 2.628 × 10¹² microseconds
-- 1 year = 3.154 × 10¹³  microseconds
-- 1 century = 3.156 × 10¹⁵ microseconds
+- 1 second = $10^6$ microseconds
+- 1 minute = 6 × $10^7$ microseconds
+- 1 hour = 3.6 × $10^9$ microseconds
+- 1 day = 8.64 × $10^{10}$ microseconds
+- 1 month = 2.628 × $10^{12}$ microseconds
+- 1 year = 3.154 × $10^{13}$ microseconds
+- 1 century = 3.156 × $10^{15}$ microseconds
 
 |            | 1 second           | 1 minute             | 1 hour                 | 1 day                  | 1 month                  | 1 year                   | 1 century                |
 | ---------- | ------------------ | -------------------- | ---------------------- | ---------------------- | ------------------------ | ------------------------ | ------------------------ |
@@ -299,7 +299,7 @@ element in *A*, we will find it.
 
 Problem: Array *A* and *B* only contain elements of 0 and 1, and *A*.*length* == *B*.*length* == *n*. Array *C* that
 have length *n* + 1. Rewrite the elements in *C* so that *C* only contains 0s and 1s, and
-$\sum_{i=1}^n A[i] × 2^{n - i} + \sum_{i=1}^n B[i] × 2^{n - i} = \sum_{i=1}^{n + 1} C[i] × 2^{n + 1 - i}$.
+$∑_{i=1}^n A[i] × 2^{n - i} + ∑_{i=1}^n B[i] × 2^{n - i} = ∑_{i=1}^{n + 1} C[i] × 2^{n + 1 - i}$.
 
 Pseudocode:
 
@@ -439,14 +439,14 @@ for implementation.
 
 After each iteration, the length of the searching range reduces by half, until the range is empty. So we have:
 
-*T*(*n*) = *c*₁, if *n* = 0;\
-*T*(*n*) = *T*(*n* / 2) + *c*₂, if *n* > 0.
+*T*(*n*) = $c_1$, if *n* = 0;\
+*T*(*n*) = *T*(*n* / 2) + $c_2$, if *n* > 0.
 
 We prove *T*(*n*) = Θ(lg *n*) by induction:
 
 - If *n* = 0, Θ(lg *n*) = Θ(lg 0) = Θ(-∞), … Not sure how to go from here.
-- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + *c*₂ = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
-  so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*)  - 1) = Θ(lg *n*).
+- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + $c_2$ = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
+  so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*) - 1) = Θ(lg *n*).
 
 ##### 2.3-6
 
@@ -564,7 +564,7 @@ for implementations.
 > The following code fragment implements Horner’s rule for evaluating a polynomial
 >
 > $\begin{aligned}
-> P\left(x\right) &= \sum_{k=0}^n a_k x^k \\\\
+> P\left(x\right) &= ∑_{k=0}^n a_k x^k \\\\
 > &=a_0 + x\left(a_1 + x\left(a_2 + … + x\left(a_{n - 1} + x a_n\right) …\right)\right),
 > \end{aligned}$
 >
@@ -581,10 +581,10 @@ for implementations.
 >
 >    At the start of each iteration of the **for** loop of lines 2–3,
 >
->    $y = \displaystyle\sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k$.
+>    $y = \displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k$.
 >
 >    Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in
->    this chapter, use this loop invariant to show that, at termination, $y = \sum_{k = 0}^n a_k x^k$.
+>    this chapter, use this loop invariant to show that, at termination, $y = ∑_{k = 0}^n a_k x^k$.
 > 4) Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients
 >    $a_0$, $a_1$, …, $a_n$.
 
@@ -606,17 +606,17 @@ for implementation.
 3. Proof:
 
    - **Initialization:** Before the first iteration, *i* = *n*,
-     $y = \sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
-     = \sum_{k = 0}^{-1} a_{k + n + 1} x^k
+     $y = ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
+     = ∑_{k = 0}^{-1} a_{k + n + 1} x^k
      = 0$, so the claim holds.
    - **Maintenance:** After line 3, $y' = a_i + x ⋅ y
-     = a_i + x \left(\sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\right)
-     = a_i ⋅ x^0 + \sum_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^{k + 1}
-     = a_i ⋅ x^0 + \sum_{k = 1}^{n - i} a_{k + i} x^k
-     = \sum_{k = 0}^{n - i} a_{k + i} x^k$. After decreasing *i*, the claim holds.
+     = a_i + x \left(∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\right)
+     = a_i ⋅ x^0 + ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^{k + 1}
+     = a_i ⋅ x^0 + ∑_{k = 1}^{n - i} a_{k + i} x^k
+     = ∑_{k = 0}^{n - i} a_{k + i} x^k$. After decreasing *i*, the claim holds.
    - **Termination:** At termination, *i* = -1, so
-     $y = \sum_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
-     = \sum_{k = 0}^n a_k x^k$.
+     $y = ∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
+     = ∑_{k = 0}^n a_k x^k$.
 4. I thought I have proved it at step 3.
 
 ##### 2-4 Inversions
@@ -636,7 +636,7 @@ for implementation.
 3. Let *k* be the inversion of an array, the the running time of insertion sort on it is Θ(*k*).
 
    Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
-   $\sum_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
+   $∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/problems/problem_2_4.rs)
    for implementation.
@@ -869,7 +869,7 @@ Inductive case:
 
 > Let
 >
-> $p(n) = \displaystyle\sum_{i=0}^d a_i n^i$,
+> $p(n) = \displaystyle ∑_{i=0}^d a_i n^i$,
 >
 > where $a_d > 0$, be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
 > notations to prove the following properties.
@@ -1527,12 +1527,12 @@ The same method can be applied to proving ⌈*f*(*x*)⌉ = ⌈*f*(⌈*x*⌉)⌉.
 > *T*(*n*) = Θ($n^{\log_b a} \lg^{k + 1} n$). For simplicity, confine your analysis to exact powers of *b*.
 
 *T*(*n*)\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} a^j f(n / b^j)$\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} a^j Θ\left(\left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(a^j \left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - \lg \left(b^j\right)\right)^k\right)$\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - j \lg b\right)^k\right)$\
-= Θ($n^{\log_b a}$) + $\sum_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \lg^k n\right)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} a^j f(n / b^j)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} a^j Θ\left(\left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(a^j \left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - \lg \left(b^j\right)\right)^k\right)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - j \lg b\right)^k\right)$\
+= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \lg^k n\right)$\
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\left(\log_b n - 1\right)\lg^k n\right)$\
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\log_b n \lg^k n - \lg^k n\right)$\
 = Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\lg^{k + 1} n\right)$\
@@ -1560,7 +1560,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > constant for *n* ≤ 2. Make your bounds as tight as possible, and justify your answers.
 >
 > 1. *T*(*n*) = 2 *T*(*n* / 2) + $n^4$.
-> 2. *T*(*n*) = *T*(7 *n*  / 10) + *n*.
+> 2. *T*(*n*) = *T*(7 *n* / 10) + *n*.
 > 3. *T*(*n*) = 16 *T*(*n* / 4) + $n^2$.
 > 4. *T*(*n*) = 7 *T*(*n* / 3) + $n^2$.
 > 5. *T*(*n*) = 7 *T*(*n* / 2) + $n^2$.
@@ -1609,7 +1609,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    2. By copying: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*) + Θ(N*).
 
       *T*(*n*)\
-      = Θ(*n*) + $\sum_{j = 0}^{\lg n - 1} Θ\left(2^j (n / 2^j)\right)$ + $\sum_{j = 0}^{\lg n - 1} Θ\left(2^j N\right)$\
+      = Θ(*n*) + $∑_{j = 0}^{\lg n - 1} Θ\left(2^j (n / 2^j)\right)$ + $∑_{j = 0}^{\lg n - 1} Θ\left(2^j N\right)$\
       = Θ(*n*) + Θ(*n* lg *n*) + Θ(*N* *n*)
 
       *T*(*N*) = Θ($N^2$).
@@ -1624,7 +1624,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > 2. *T*(*n*) = 3 *T*(*n* / 3) + *n* / lg *n*.
 > 3. *T*(*n*) = 4 *T*(*n* / 2) + $n^2 \sqrt{n}$.
 > 4. *T*(*n*) = 3 *T*(*n* / 3 - 2) + *n* / 2.
-> 5. *T*(*n*) = 2 *T*(*n* / 2) + *n* /  lg n.
+> 5. *T*(*n*) = 2 *T*(*n* / 2) + *n* / lg n.
 > 6. *T*(*n*) = *T*(*n* / 2) + *T*(*n* / 4) + *T*(*n* / 8) + *n*.
 > 7. *T*(*n*) = *T*(*n* - 1) + 1 / *n*.
 > 8. *T*(*n*) = *T*(*n* - 1) + lg *n*.
@@ -1637,8 +1637,8 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 4. *T*(*n*) = (1 / 2) *n* $\log_3 \left(n + 3\right)$ + *c* *n* + (3 / 2) $\log_3 \left(n + 3\right)$ + 3 *c* + 3 / 4.
 5. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
 6. *T*(*n*) = 8 *n*.
-7. *T*(*n*) = *c* + $\sum_{j = 2}^n \left(1 / j\right)$ = Θ(lg *n*).
-8. *T*(*n*) = *c* + $\sum_{j = 2}^n \lg n$ = *c* + $\lg \prod_{j = 2}^n n$ = *c* + lg *n*! = Θ(*n* lg *n*).
+7. *T*(*n*) = *c* + $∑_{j = 2}^n \left(1 / j\right)$ = Θ(lg *n*).
+8. *T*(*n*) = *c* + $∑_{j = 2}^n \lg n$ = *c* + $\lg ∏_{j = 2}^n n$ = *c* + lg *n*! = Θ(*n* lg *n*).
 9. *Skipped*.
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
 
@@ -1649,7 +1649,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > ***formal power series***) ℱ as
 >
 > $\begin{aligned}
-> ℱ\left(z\right) &= \displaystyle\sum_{i = 0}^∞ F_i z^i\\\\
+> ℱ\left(z\right) &= \displaystyle ∑_{i = 0}^∞ F_i z^i\\\\
 > &= 0 + z + z^2 + 2 z^3 + 3 z^4 + 5 z^5 + 8 z^6 + 13 z^7 + 21 z^8 + ⋯,
 > \end{aligned}$
 >
@@ -1673,21 +1673,21 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 >    $\hat{ϕ}$ = $\dfrac{1 - \sqrt{5}}{2}$ = - 1.61803… .
 > 3. Show that
 >
->    ℱ(*z*) = $\displaystyle\sum_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$.
+>    ℱ(*z*) = $\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$.
 > 4. Use part (c) to prove that $F_i = ϕ^i / \sqrt{5}$ for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
 >    that |$\hat{ϕ}$| < 1.)
 
 1. By definition:
 
    $\begin{aligned}
-   z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z \sum_{i = 0}^∞ F_i z^i + z^2 \sum_{i = 0}^∞ F_i z^i\\\\
-   &= z + \sum_{i = 0}^∞ F_i z^{i + 1} + \sum_{i = 0}^∞ F_i z^{i + 2}\\\\
-   &= z + \sum_{i = 1}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
-   &= z + \left(F_0 z^1 + \sum_{i = 2}^∞ F_{i - 1} z^i\right) + \sum_{i = 2}^∞ F_{i - 2} z^i\\\\
-   &= z + F_0 z^1 + \left(\sum_{i = 2}^∞ F_{i - 1} z^i + \sum_{i = 2}^∞ F_{i - 2} z^i\right)\\\\
-   &= F_1 z^1 + F_0 z^0 + \sum_{i = 2}^∞ F_i z^i\\\\
-   &= F_0 z^0 + F_1 z^1 + \sum_{i = 2}^∞ F_i z^i\\\\
-   &= \sum_{i = 0}^∞ F_i z^i\\\\
+   z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z ∑_{i = 0}^∞ F_i z^i + z^2 ∑_{i = 0}^∞ F_i z^i\\\\
+   &= z + ∑_{i = 0}^∞ F_i z^{i + 1} + ∑_{i = 0}^∞ F_i z^{i + 2}\\\\
+   &= z + ∑_{i = 1}^∞ F_{i - 1} z^i + ∑_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= z + \left(F_0 z^1 + ∑_{i = 2}^∞ F_{i - 1} z^i\right) + ∑_{i = 2}^∞ F_{i - 2} z^i\\\\
+   &= z + F_0 z^1 + \left(∑_{i = 2}^∞ F_{i - 1} z^i + ∑_{i = 2}^∞ F_{i - 2} z^i\right)\\\\
+   &= F_1 z^1 + F_0 z^0 + ∑_{i = 2}^∞ F_i z^i\\\\
+   &= F_0 z^0 + F_1 z^1 + ∑_{i = 2}^∞ F_i z^i\\\\
+   &= ∑_{i = 0}^∞ F_i z^i\\\\
    &= ℱ\left(z\right).
    \end{aligned}$
 2. ℱ(*z*) = *z* + *z* ℱ(*z*) + $z^2$ ℱ(*z*)\
@@ -1707,13 +1707,13 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    = $\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
    = ℱ(*z*).
 
-   An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - $1^2$) =  -1. Also, according to the
-   definition of ℱ, we have: $ℱ\left(1\right) = \sum_{i = 0}^∞ F_i 1^i = \sum_{i = 0}^∞ F_i$.
+   An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - $1^2$) = -1. Also, according to the
+   definition of ℱ, we have: $ℱ\left(1\right) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i$.
 
-   So we have $\sum_{i = 0}^∞ F_i$ = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
-3. $\sum_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$\
-   = $\frac{1}{\sqrt{5}} \sum_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i$\
-   = $\frac{1}{\sqrt{5}} \left(\sum_{i = 0}^∞ \left(ϕ z\right)^i - \sum_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)$\
+   So we have $∑_{i = 0}^∞ F_i$ = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
+3. $∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$\
+   = $\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i$\
+   = $\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ \left(ϕ z\right)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)$\
    = $\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)$\
    = ℱ(*z*).
 4. $F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}$\
@@ -1881,14 +1881,14 @@ The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Alg
 
    - If the number of rows is even, the time for computing the leftmost minimal element of all odd rows is
 
-     Θ(*f*(2) + $\sum_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$)\
+     Θ(*f*(2) + $∑_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$)\
      = Θ(*f*(2) + (*f*(*m*) - *f*(2) + *m* / 2 - 1))\
      = Θ(*f*(*m*) + *m* / 2 - 1)\
      = *O*(*n* + *m* / 2 - 1)\
      = *O*(*n* + *m*)
    - If the number of rows is odd, the time for computing the leftmost minimal element of all odd rows is:
 
-     Θ(*f*(2) + $\sum_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$ + (*n* - *f*(*m* - 1) + 1))\
+     Θ(*f*(2) + $∑_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$ + (*n* - *f*(*m* - 1) + 1))\
      = Θ(*f*(2) + (*f*(*m* - 1) - *f*(2) + (*m* - 3) / 2) + (*n* - *f*(*m* - 1) + 1))\
      = Θ((*m* - 3) / 2 + *n* + 1)\
      = Θ(*m* / 2 + *n* - 1 / 2)\
@@ -1898,9 +1898,9 @@ The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Alg
 5. *T*(*m*, *n*) = *T*(*m* / 2, *n*) + *O*(*m* + *n*).
 
    *T*(*m*, *n*)\
-   = Θ(1) + *O*($\sum_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)$)\
-   = Θ(1) + *O*($\sum_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + \sum_{i=0}^{\lg m - 1} n$)\
-   = Θ(1) + *O*(*m* $\sum_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + \sum_{i=0}^{\lg m - 1} n$)\
+   = Θ(1) + *O*($∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)$)\
+   = Θ(1) + *O*($∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + ∑_{i=0}^{\lg m - 1} n$)\
+   = Θ(1) + *O*(*m* $∑_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + ∑_{i=0}^{\lg m - 1} n$)\
    = Θ(1) + *O*(*m* (1 - $\left(1 / 2\right)^{\lg m}$) / (1 - 1 / 2) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
@@ -2001,7 +2001,7 @@ and the best candidate, there are *P*(*n* - *i* - 1, *j*) (*n* - *j* - 2)! diffe
 
 So the probability is
 
-$\frac{\sum_{i = 1}^{n - 1} \sum_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)!}{n!} = H_{n - 1} / n$,
+$\frac{∑_{i = 1}^{n - 1} ∑_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)!}{n!} = H_{n - 1} / n$,
 
 where $H_n$ is the *n*th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number).
 
@@ -2013,11 +2013,11 @@ Let $X_i$ be the indicator variable associated with the event in which the value
 
 So the expected value of one dice is:
 
-E[*X*] = $\sum_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace$ = $\sum_{i = 1}^6 i / 6$ = 7 / 2.
+E[*X*] = $∑_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace$ = $∑_{i = 1}^6 i / 6$ = 7 / 2.
 
 So the expected value of *n* dices is:
 
-$\operatorname{E}\left[\sum_{j = 1}^{n} X\right]$ = $\sum_{j = 1}^{n}\operatorname{E}\left[X\right]$ = 7 *n* / 2.
+$\operatorname{E}\left[∑_{j = 1}^{n} X\right]$ = $∑_{j = 1}^{n}\operatorname{E}\left[X\right]$ = 7 *n* / 2.
 
 ##### 5.2-4
 
@@ -2028,10 +2028,10 @@ $\operatorname{E}\left[\sum_{j = 1}^{n} X\right]$ = $\sum_{j = 1}^{n}\operatorna
 Let $X_i$ be the indicator variable associated with the event in which the *i*th customer get back its own hat.
 
 E[*X*]\
-= $\operatorname{E}\left[\sum_{i = 1}^n X_i\right]$\
-= $\sum_{i = 1}^n \operatorname{E}\left[X_i\right]$\
-= $\sum_{i = 1}^n 1 / n$\
-= $\sum_{i = 1}^n 1 / n$\
+= $\operatorname{E}\left[∑_{i = 1}^n X_i\right]$\
+= $∑_{i = 1}^n \operatorname{E}\left[X_i\right]$\
+= $∑_{i = 1}^n 1 / n$\
+= $∑_{i = 1}^n 1 / n$\
 = 1.
 
 ##### 5.2-5
@@ -2044,11 +2044,11 @@ E[*X*]\
 Let $X_{ij}$ be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
 
 E[*X*]\
-= $E\left[\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} X_{ij}\right]$\
-= $\sum_{i = 1}^{n - 1} E\left[\sum_{j = i + 1}^{n} X_{ij}\right]$\
-= $\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} E\left[X_{ij}\right]$\
-= $\sum_{i = 1}^{n - 1} \sum_{j = i + 1}^{n} 1 / 2$\
-= $\sum_{i = 1}^{n - 1} \left(n - i\right) / 2$\
+= $E\left[∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} X_{ij}\right]$\
+= $∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{ij}\right]$\
+= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{ij}\right]$\
+= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} 1 / 2$\
+= $∑_{i = 1}^{n - 1} \left(n - i\right) / 2$\
 = *n* (*n* - 1) / 4.
 
 ##### 5.3-1
@@ -2132,11 +2132,11 @@ The probability is:
 
 $P\left(n^3, n\right) / \left(n^3\right)^n$\
 = $\left(n^3! / \left(n^3 - n\right)!\right) / \left(n^3\right)^n$\
-= $\left(\prod_{i = 0}^{n - 1} \left(n^3 - i\right)\right) / \left(\prod_{i = 0}^{n - 1} n^3\right)$\
-= $\prod_{i = 0}^{n - 1} \left(\left(n^3 - i\right) / n^3\right)$\
-= $\prod_{i = 0}^{n - 1} \left(1 - i / n^3\right)$\
-≥ $\prod_{i = 0}^{n - 1} \left(1 - n / n^3\right)$\
-= $\prod_{i = 0}^{n - 1} \left(1 - 1 / n^2\right)$\
+= $\left(∏_{i = 0}^{n - 1} \left(n^3 - i\right)\right) / \left(∏_{i = 0}^{n - 1} n^3\right)$\
+= $∏_{i = 0}^{n - 1} \left(\left(n^3 - i\right) / n^3\right)$\
+= $∏_{i = 0}^{n - 1} \left(1 - i / n^3\right)$\
+≥ $∏_{i = 0}^{n - 1} \left(1 - n / n^3\right)$\
+= $∏_{i = 0}^{n - 1} \left(1 - 1 / n^2\right)$\
 = $\left(1 - 1 / n^2\right)^n$
 
 *Not sure how to go from here.*
@@ -2197,7 +2197,7 @@ Proof by induction on *m*:
     any element in the *m*-subset.
 
     So the probability of generating a certain *m*-subset does not contain *n* is
-    $\sum_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)$ =
+    $∑_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)$ =
     (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
 
   So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
@@ -2228,7 +2228,7 @@ The probability that toss *k* balls into *b* bins to get the first bin containin
 
 So the expected number of ball tosses is:
 
-$\sum_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k$
+$∑_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k$
 
 ##### 5.4-3 ★
 
@@ -2264,9 +2264,9 @@ E[$X_{ik}$] = *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}
 
 So the expected number of bins with exactly *k* balls is
 
-E[$\sum_{i = 1}^{n} X_{ik}$]\
-= $\sum_{i = 1}^{n} \operatorname{E}\left[X_{ik}\right]$\
-= $\sum_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$\
+E[$∑_{i = 1}^{n} X_{ik}$]\
+= $∑_{i = 1}^{n} \operatorname{E}\left[X_{ik}\right]$\
+= $∑_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$\
 = *n* *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
 
 So the expected number of bins with exactly 0 ball is:
@@ -2318,9 +2318,9 @@ So the expected number of bins with exactly 1 ball is:
    Let $X_i$ be the random variable in which the counter values increased by the *i*th increment operation. So the
    expected value of the counter after *n* *Increment* operations is:
 
-   E[$\sum_{i = 1}^{n} X_i$]\
-   = $\sum_{i = 1}^{n} \operatorname{E}\left[X_i\right]$\
-   = $\sum_{i = 1}^{n} 1$.\
+   E[$∑_{i = 1}^{n} X_i$]\
+   = $∑_{i = 1}^{n} \operatorname{E}\left[X_i\right]$\
+   = $∑_{i = 1}^{n} 1$.\
    = *n*.
 2. *Skipped*.
 
@@ -2398,7 +2398,7 @@ So the expected number of bins with exactly 1 ball is:
 
 ***f.*** The expected number of indices to pick is:
 
-$\sum_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)$ = (n + 1) / (k + 1).
+$∑_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)$ = (n + 1) / (k + 1).
 (By [WolframAlpha](https://www.wolframalpha.com/input/?i=sum(i+P(n+-+k,+i+-+1)+k+P(n+-+i,+n+-+i)+%2F+P(n,+n),+(i,+1,+n+-+k+%2B+1))))
 
 Worst-case running time is Θ(*n* - *k* + 1).
@@ -2420,6 +2420,21 @@ Worst-case running time is Θ(*n* - *k* + 1).
 > What are the minimum and maximum numbers of elements in a heap of height *h*?
 
 The minimum number of elements is $2^h$, the maximum number of elements is $2^{h + 1} - 1$.
+
+##### 6.1-2
+
+> Show that an *n*-element heap has height ⌊lg *n*⌋.
+
+According to exercise 6.1-1, we know that if the height of a heap is *h*, the number of elements is in range
+[$2^h$, $2^{h + 1} - 1$]. Also, if $2^h$ ≤ *n* ≤ $2^{h + 1} - 1$, we must have ⌊lg *n*⌋ = *h*, so an *n*-element heap
+must have height ⌊lg *n*⌋.
+
+> List of common symbols:
+>
+> ```text
+> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ```
+>
 
 ## VIII Appendix: Mathematical Background
 
@@ -2452,8 +2467,8 @@ Inductive case:
 
 $\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace$ \
 ≤ $\Pr\left\lbrace\bigcup_{i = 1}^j A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$\
-≤ $\sum_{i = 1}^j \Pr\left\lbrace A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$ (By induction)\
-= $\sum_{i = 1}^{j + 1} \Pr\left\lbrace A_i\right\rbrace$.
+≤ $∑_{i = 1}^j \Pr\left\lbrace A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$ (By induction)\
+= $∑_{i = 1}^{j + 1} \Pr\left\lbrace A_i\right\rbrace$.
 
 ##### C.2-3
 
@@ -2489,15 +2504,15 @@ Base case: $\Pr\left\lbrace A_1\right\rbrace = \Pr\left\lbrace A_1\right\rbrace$
 
 Inductive case: By induction, we have:
 
-$\Pr\left\lbrace\bigcap_{i = 1}^n A_i\right\rbrace = ∏_{i = 1}^n \Pr\left\lbrace A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\rbrace$.
+$\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace = ∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace$.
 
 So
 
-$\Pr\left\lbrace\bigcap_{i = 1}^{n + 1} A_i\right\rbrace$\
-= $\Pr\left\lbrace\left(\bigcap_{i = 1}^n A_i\right) \cap A_{n + 1}\right\rbrace$\
-= $\Pr\left\lbrace\bigcap_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\rbrace$\
-= $\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| \bigcap_{i = 1}^n A_i\right\rbrace$\
-= $∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| \bigcap_{j = 1}^{i - 1} A_j \right\rbrace$.
+$\Pr\left\lbrace ⋂_{i = 1}^{n + 1} A_i\right\rbrace$\
+= $\Pr\left\lbrace\left(⋂_{i = 1}^n A_i\right) \cap A_{n + 1}\right\rbrace$\
+= $\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace$\
+= $\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace$\
+= $∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace$.
 
 ##### C.2-6 ★
 
@@ -2563,11 +2578,11 @@ E[*X* + *Y*] = E[*X*] + E[*Y*] = 7 / 2 + 7 / 2 = 7.
 According to equation C.25:
 
 E[max(*X*, *Y*)]\
-= $\sum_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
-= $\sum_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
-= $\sum_{i = 1}^6 \Pr\left\lbrace X ≥ i ⋁ Y ≥ i\right\rbrace$\
-= $\sum_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ⋀ Y ≥ i\right\rbrace$\
-= $\sum_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36$\
+= $∑_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
+= $∑_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
+= $∑_{i = 1}^6 \Pr\left\lbrace X ≥ i ∨ Y ≥ i\right\rbrace$\
+= $∑_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ∧ Y ≥ i\right\rbrace$\
+= $∑_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36$\
 = 161 / 36.
 
 ##### C.3-2
@@ -2588,8 +2603,8 @@ E[arg min(*A*)] = (1 + *n*) / 2.
 > wins *k* more dollars. What is his expected gain from playing the carnival game once?
 
 E\
-= - Pr{*k* = 0} + $\sum_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace$\
-= - 125 / 216 + $\sum_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}$\
+= - Pr{*k* = 0} + $∑_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace$\
+= - 125 / 216 + $∑_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}$\
 = - 125 / 216 + 1 × 3 × 1 / 6 × 25 / 36 + 2 × 3 × 1 / 36 × 5 / 6 + 3 × 1 × 1 / 216 × 1\
 = - 17 / 216.
 
