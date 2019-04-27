@@ -2474,12 +2474,29 @@ Nope.
 The index of the last element is *n*, so the index of the parent of the last element is ⌊*n* / 2⌋, so the leaves are the
 nodes starts with ⌊*n* / 2⌋, and ends with *n*.
 
+#### 6.2 Maintaining the heap property
+
+##### 6.2-1
+
+> Using Figure 6.2 as a model, illustrate the operation of *Max-Heapify*(*A*, 3) on the array
+> *A* = ⟨27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0⟩.
+
+*Skipped*.
+
+##### 6.2-2
+
+> Starting with the procedure *Max-Heapify*, write pseudocode for the procedure *Min-Heapify*(*A*, *i*), which performs
+> the corresponding manipulation on a min-heap. How does the running time of *Min-Heapify* compare to that of
+> *Max-Heapify*?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_2.rs).
+
 > List of common symbols:
 >
 > ```text
 > ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
->
 
 ## VIII Appendix: Mathematical Background
 
