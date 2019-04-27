@@ -2494,6 +2494,37 @@ Solution is implemented
 
 The running time of *Min-Heapify* is the same as *Max-Heapify*.
 
+##### 6.2-3
+
+> What is the effect of calling *Max-Heapify*(*A*, *i*) when the element *A*[*i*] is larger than its children?
+
+Nothing happens.
+
+##### 6.2-4
+
+> What is the effect of calling *Max-Heapify*(*A*, *i*) for *i* > *A*.*heap-size* / 2?
+
+Nothing happens.
+
+##### 6.2-5
+
+> The code for *Max-Heapify* is quite efficient in terms of constant factors, except possibly for the recursive call in
+> line 10, which might cause some compilers to produce inefficient code. Write an efficient *Max-Heapify* that uses an
+> iterative control construct (a loop) instead of recursion.
+
+The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_5.rs).
+
+##### 6.2-6
+
+> Show that the worst-case running time of *Max-Heapify* on a heap of size *n* is Ω(lg *n*). (Hint: For a heap with *n*
+> nodes, give node values that cause *Max-Heapify* to be called recursively at every node on a simple path from the root
+> down to a leaf.)
+
+The height of a heap of size *n* is ⌊lg *n*⌋, if *Max-Heapify* is calld at every node on a simple path from the root
+down to a leaf, the expected running time is linear to the height of the heap, that is ⌊lg *n*⌋, so the worst-case
+running time is Ω(lg *n*).
+
 > List of common symbols:
 >
 > ```text
