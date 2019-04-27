@@ -2429,6 +2429,23 @@ According to exercise 6.1-1, we know that if the height of a heap is *h*, the nu
 [$2^h$, $2^{h + 1} - 1$]. Also, if $2^h$ ≤ *n* ≤ $2^{h + 1} - 1$, we must have ⌊lg *n*⌋ = *h*, so an *n*-element heap
 must have height ⌊lg *n*⌋.
 
+##### 6.1-3
+
+> Show that in any subtree of a max-heap, the root of the subtree contains the largest value occurring anywhere in that
+> subtree.
+
+Proof by induction:
+
+Base case: if a max-heap has one element, then the only subtree is the one-element tree, the root contains the largest
+value, since it is the only value the tree has.
+
+Inductive case: if a max-heap *H* has more than one element, by induction, we know that for any subtree in the *H*’s
+children, the subtree’s root contains the largest value in the subtree. So the left child *H* contains the largest value
+in the left subtree; and if *H* have a right child, it must also contain the largest value in the right subtree. Since
+we have that for every node in the heap, the value of the parent is always greater or equal than its children, we know
+that the value of the root of *H* must be always greater or equal than its children. So it must be the largest element
+in the heap.
+
 > List of common symbols:
 >
 > ```text
