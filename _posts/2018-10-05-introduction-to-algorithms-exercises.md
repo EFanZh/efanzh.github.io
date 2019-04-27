@@ -2460,6 +2460,20 @@ Yes, since the index of a child node must be greater than the corresponding pare
 order, we know that the value of the child node must be greater or equal to the corresponding parent node, which
 satisfies the min-heap property.
 
+##### 6.1-6
+
+> Is the array with values ⟨23, 17, 14, 6, 13, 10, 1, 5, 7, 12⟩ a max-heap?
+
+Nope.
+
+##### 6.1-7
+
+> Show that, with the array representation for storing an *n*-element heap, the leaves are the nodes indexed by
+> ⌊*n* / 2⌋ + 1, ⌊*n* / 2⌋ + 2, …, *n*.
+
+The index of the last element is *n*, so the index of the parent of the last element is ⌊*n* / 2⌋, so the leaves are the
+nodes starts with ⌊*n* / 2⌋, and ends with *n*.
+
 > List of common symbols:
 >
 > ```text
