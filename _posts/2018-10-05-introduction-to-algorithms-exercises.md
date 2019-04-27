@@ -2483,9 +2483,9 @@ The order of the selected cards is independ of the number of cards, so the proba
 > Prove that Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*} = 1.
 
 Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*}\
-= Pr{*A* ⋂ *B*} / Pr{*B*} + Pr{$\bar{A}$ ⋂ *B*} / Pr{*B*}\
-= (Pr{*A* ⋂ *B*} + Pr{$\bar{A}$ ⋂ *B*}) / Pr{*B*}\
-= Pr{(*A* ⋂ *B*) ∪ ($\bar{A}$ ⋂ *B*)} / Pr{*B*} (Since *A* and $\bar{A}$ are mutually exclusive)\
+= Pr{*A* ∩ *B*} / Pr{*B*} + Pr{$\bar{A}$ ∩ *B*} / Pr{*B*}\
+= (Pr{*A* ∩ *B*} + Pr{$\bar{A}$ ∩ *B*}) / Pr{*B*}\
+= Pr{(*A* ∩ *B*) ∪ ($\bar{A}$ ∩ *B*)} / Pr{*B*} (Since *A* and $\bar{A}$ are mutually exclusive)\
 = Pr{*B*} / Pr{*B*}
 = 1.
 
@@ -2535,7 +2535,7 @@ The expected number of coin flips is 2.
 
 > Two events *A* and *B* are **conditionally independent**, given *C*, if
 >
-> Pr{*A* ⋂ *B* | *C*} = Pr{*A* | *C*} ⋅ Pr{*B* | *C*}.
+> Pr{*A* ∩ *B* | *C*} = Pr{*A* | *C*} ⋅ Pr{*B* | *C*}.
 >
 > Give a simple but nontrivial example of two events that are not independent but are conditionally independent given a
 > third event.
