@@ -2492,6 +2492,8 @@ nodes starts with ⌊*n* / 2⌋, and ends with *n*.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_2.rs).
 
+The running time of *Min-Heapify* is the same as *Max-Heapify*.
+
 > List of common symbols:
 >
 > ```text
