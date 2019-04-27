@@ -2446,6 +2446,12 @@ we have that for every node in the heap, the value of the parent is always great
 that the value of the root of *H* must be always greater or equal than its children. So it must be the largest element
 in the heap.
 
+##### 6.1-4
+
+> Where in a max-heap might the smallest element reside, assuming that all elements are distinct?
+
+The smallest element must be in the leaf nodes, otherwise the heap property will be violated.
+
 > List of common symbols:
 >
 > ```text
