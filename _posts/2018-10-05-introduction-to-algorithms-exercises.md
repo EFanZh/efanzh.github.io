@@ -2452,6 +2452,14 @@ in the heap.
 
 The smallest element must be in the leaf nodes, otherwise the heap property will be violated.
 
+##### 6.1-5
+
+> Is an array that is in sorted order a min-heap?
+
+Yes, since the index of a child node must be greater than the corresponding parent node, and the array is in sorted
+order, we know that the value of the child node must be greater or equal to the corresponding parent node, which
+satisfies the min-heap property.
+
 > List of common symbols:
 >
 > ```text
