@@ -2558,6 +2558,44 @@ Inductive case: by induction, we know that in height *h* + 1, there are at most 
 at most ⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ nodes in height *h*. According to equation (3.4), we have
 ⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ = ⌈*n* / $2^{h + 2}$ / 2⌉ = ⌈*n* / $2^{h + 1}$⌉.
 
+#### 6.4 The heapsort algorithm
+
+##### 6.4-1
+
+> Using Figure 6.4 as a model, illustrate the operation of *Heapsort* on the array
+> *A* = ⟨5, 13, 2, 25, 7, 17, 20, 8, 4⟩.
+
+*Skipped.*
+
+##### 6.4-2
+
+> Argue the correctness of *Heapsort* using the following loop invariant:
+>
+> > At the start of each iteration of the **for** loop of lines 2–5, the subarray *A*[1‥*i*] is a max-heap containing
+> > the *i* smallest elements of *A*[1‥*n*], and the subarray *A*[*i* + 1‥*n*] contains the *n* - *i* largest elements
+> > of *A*[1‥*n*], sorted.
+
+*Skipped.*
+
+##### 6.4-3
+
+> What is the running time of *Heapsort* on an array *A* of length *n* that is already sorted in increasing order? What
+> about decreasing order?
+
+Both Θ(*n* lg *n*).
+
+##### 6.4-4
+
+> Show that the worst-case running time of *Heapsort* is Ω(*n* lg *n*).
+
+*Skipped.*
+
+##### 6.4-5 ★
+
+> Show that when all elements are distinct, the best-case running time of *Heapsort* is Ω(*n* lg *n*).
+
+*Skipped.*
+
 ----
 
 > List of common symbols:
