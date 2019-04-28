@@ -1267,7 +1267,10 @@ So my guess is right.
 = *S*(log *n*)\
 = *c* $(\log n)^{\lg 3}$ - 2 log *n*.
 
-Note: Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$, otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
+Notes:
+
+Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$,
+otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
 
 #### 4.4 The recursion-tree method for solving recurrences
 
@@ -2524,6 +2527,38 @@ The solution is implemented
 The height of a heap of size *n* is ⌊lg *n*⌋, if *Max-Heapify* is calld at every node on a simple path from the root
 down to a leaf, the expected running time is linear to the height of the heap, that is ⌊lg *n*⌋, so the worst-case
 running time is Ω(lg *n*).
+
+#### 6.3 Building a heap
+
+##### 6.3-1
+
+> Using Figure 6.3 as a model, illustrate the operation of *Build-Max-Heap* on the array
+> *A* = ⟨5, 3, 17, 10, 84, 19, 6, 22, 9⟩.
+
+*Skipped.*
+
+##### 6.3-2
+
+> Why do we want the loop index *i* in line 2 of *Build-Max-Heap* to decrease from ⌊*A*.*length* / 2⌋ to 1 rather than
+> increase from 1 to ⌊*A*.*length* / 2⌋?
+
+Because *Max-Heapify* requires that its child subtree being a heap, so we have to do this bottom-up style.
+
+##### 6.3-3
+
+> Show that there are at most ⌈*n* / $2^{h + 1}$⌉ nodes of height *h* in any *n*-element heap.
+
+Proof by induction:
+
+Base case: the nodes of height 0 are leaf nodes. according to exercise 6.1-7, we know that the number of leaf nodes is
+*n* - (⌊*n* / 2⌋ + 1) + 1 = *n* - ⌊*n* / 2⌋ = ⌈*n* / 2⌉ = ⌈*n* / $2^{0 + 1}$⌉, since “For any integer *n*,
+⌈*n* / 2⌉ + ⌊*n* / 2⌋ = *n*”.
+
+Inductive case: by induction, we know that in height *h* + 1, there are at most ⌈*n* / $2^{h + 2}$⌉ nodes. So there are
+at most ⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ nodes in height *h*. According to equation (3.4), we have
+⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ = ⌈*n* / $2^{h + 2}$ / 2⌉ = ⌈*n* / $2^{h + 1}$⌉.
+
+----
 
 > List of common symbols:
 >
