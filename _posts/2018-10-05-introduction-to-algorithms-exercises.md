@@ -996,13 +996,13 @@ Inductive case:
 |          | *f*(*n*)     | *c* | $f_c^*\left(n\right)$ |
 | -------- | ------------ | --- | --------------------- |
 | ***a***. | *n* - 1      | 0   | ⌈*n*⌉                 |
-| ***b***. | lg *n*       | 1   | *Don’t know*         |
+| ***b***. | lg *n*       | 1   | *Don’t know*          |
 | ***c***. | *n* / 2      | 1   | ⌈lg *n*⌉              |
 | ***d***. | *n* / 2      | 2   | ⌈lg *n* - 1⌉          |
 | ***e***. | $\sqrt{n}$   | 2   | ⌈lg lg *n*⌉           |
 | ***f***. | $\sqrt{n}$   | 1   | ∞                     |
 | ***g***. | $n^{1 / 3}$  | 2   | ⌈$\log_3 \lg n$⌉      |
-| ***h***. | *n* / lg *n* | 2   | *Don’t know*         |
+| ***h***. | *n* / lg *n* | 2   | *Don’t know*          |
 
 ### 4 Divide-and-Conquer
 
@@ -2596,6 +2596,28 @@ Both Θ(*n* lg *n*).
 
 *Skipped.*
 
+#### 6.5 Priority queues
+
+##### 6.5-1
+
+> Illustrate the operation of *Heap-Extract-Max* on the heap *A* = ⟨15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1⟩.
+
+*Skipped.*
+
+##### 6.5-2
+
+> Illustrate the operation of *Max-Heap-Insert*(*A*, 10) on the heap *A* = ⟨15, 13, 9, 5, 12, 8, 7, 4, 0, 6, 2, 1⟩.
+
+*Skipped.*
+
+##### 6.5-3
+
+> Write pseudocode for the procedures *Heap-Minimum*, *Heap-Extract-Min*, *Heap-Decrease-Key*, and *Min-Heap-Insert*
+> that implement a min-priority queue with a min-heap.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_3.rs).
+
 ----
 
 > List of common symbols:
@@ -2603,6 +2625,8 @@ Both Θ(*n* lg *n*).
 > ```text
 > ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
+
+----
 
 ## VIII Appendix: Mathematical Background
 
