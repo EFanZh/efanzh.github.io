@@ -2626,6 +2626,14 @@ Solution is implemented
 > ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
 
+##### 6.5-4
+
+> Why do we bother setting the key of the inserted node to -∞ in line 2 of *Max-Heap-Insert* when the next thing we do
+> is increase its key to the desired value?
+
+We must ensure that when calling *Heap-Increase-Key*, the value of *key* must be equal to or greater than *A*[*i*], so
+we use -∞ to do this.
+
 ----
 
 ## VIII Appendix: Mathematical Background
