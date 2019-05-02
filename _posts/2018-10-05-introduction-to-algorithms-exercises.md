@@ -2663,6 +2663,14 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_8.rs).
 
+##### 6.5-9
+
+> Give an *O*(*n* lg *k*)-time algorithm to merge *k* sorted lists into one sorted list, where *n* is the total number
+> of elements in all the input lists. (Hint: Use a min-heap for *k*-way merging.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
+
 ----
 
 > List of common symbols:
