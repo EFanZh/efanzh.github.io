@@ -2618,14 +2618,6 @@ Both Θ(*n* lg *n*).
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_3.rs).
 
-----
-
-> List of common symbols:
->
-> ```text
-> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
-> ```
-
 ##### 6.5-4
 
 > Why do we bother setting the key of the inserted node to -∞ in line 2 of *Max-Heap-Insert* when the next thing we do
@@ -2633,6 +2625,35 @@ Solution is implemented
 
 We must ensure that when calling *Heap-Increase-Key*, the value of *key* must be equal to or greater than *A*[*i*], so
 we use -∞ to do this.
+
+##### 6.5-5
+
+> Argue the correctness of *Heap-Increase-Key* using the following loop invariant:
+>
+> > At the start of each iteration of the **while** loop of lines 4–6, *A*[*Parent*(*i*)] ≥ *A*[*Left*(*i*)] and
+> > *A*[*Parent*(*i*)] ≥ *A*[*Right*(*i*)], if these nodes exist, and the subarray *A*[1‥*A*.*heap-size*] satisfies the
+> > max-heap property, except that there may be one violation: *A*[*i*] may be larger than *A*[*Parent*(*i*)].
+>
+> You may assume that the subarray *A*[1‥*A*.*heap-size*] satisfies the max-heap property at the time
+> *Heap-Increase-Key* is called.
+
+*Skipped.*
+
+##### 6.5-6
+
+> Each exchange operation on line 5 of *Heap-Increase-Key* typically requires three assignments. Show how to use the
+> idea of the inner loop of Insertion-Sort to reduce the three assignments down to just one assignment.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_6.rs).
+
+----
+
+> List of common symbols:
+>
+> ```text
+> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ```
 
 ----
 
