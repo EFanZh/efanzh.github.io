@@ -2647,6 +2647,14 @@ we use -∞ to do this.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_6.rs).
 
+##### 6.5-7
+
+> Show how to implement a first-in, first-out queue with a priority queue. Show how to implement a stack with a priority
+> queue. (Queues and stacks are defined in Section 10.1.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_7.rs).
+
 ----
 
 > List of common symbols:
