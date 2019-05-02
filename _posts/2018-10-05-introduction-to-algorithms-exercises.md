@@ -2655,6 +2655,14 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_7.rs).
 
+##### 6.5-8
+
+> The operation *Heap-Delete*(*A*, *i*) deletes the item in node *i* from heap *A*. Give an implementation of
+> *Heap-Delete* that runs in *O*(lg *n*) time for an *n*-element max-heap.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_8.rs).
+
 ----
 
 > List of common symbols:
