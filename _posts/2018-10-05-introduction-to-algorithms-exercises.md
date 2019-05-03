@@ -2718,7 +2718,7 @@ run time of Θ(*n* lg *n*).
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
 
 ***b.*** The maximum number of elements of height *h* is $∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}$, so we have
-$\frac{1 - d^{h - 1}}{1 - d}$ < *n* ≤ $\frac{1 - d^h}{1 - d}$. Solving it, we have
+$\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}$. Solving it, we have
 $\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\right) n + 1\right) + 1$. Since *h* is an
 integer we have *h* = $\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil$ = Θ($\log_d n$).
 
