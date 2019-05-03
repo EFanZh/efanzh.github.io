@@ -2695,6 +2695,47 @@ Solution is implemented
 ***b.*** If *A* is in increasing order, every insertion will have to travel all the way from leaf to root, which has the
 run time of Θ(*n* lg *n*).
 
+##### 6-2 Analysis of d-ary heaps
+
+> A ***d-ary heap*** is like a binary heap, but (with one possible exception) non-leaf nodes have *d* children instead
+> of 2 children.
+>
+> ***a.*** How would you represent a *d*-ary heap in an array?
+>
+> ***b.*** What is the height of a *d*-ary heap of *n* elements in terms of *n* and *d*?
+>
+> ***c.*** Give an efficient implementation of *Extract-Max* in a *d*-ary max-heap. Analyze its running time in terms of
+> *d* and *n*.
+>
+> ***d.*** Give an efficient implementation of *Insert* in a *d*-ary max-heap. Analyze its running time in terms of *d*
+> and *n*.
+>
+> ***e.*** Give an efficient implementation of *Increase-Key*(*A*, *i*, *k*), which flags an error if *k* < *A*[*i*],
+> but otherwise sets *A*[*i*] = *k* and then updates the *d*-ary max-heap structure appropriately. Analyze its running
+> time in terms of *d* and *n*.
+
+***a.*** The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+
+***b.*** The maximum number of elements of height *h* is $∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}$, so we have
+$\frac{1 - d^{h - 1}}{1 - d}$ < *n* ≤ $\frac{1 - d^h}{1 - d}$. Solving it, we have
+$\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\right) n + 1\right) + 1$. Since *h* is an
+integer we have *h* = $\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil$ = Θ($\log_d n$).
+
+***c.*** The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+The worst-case running time is linear to the height of the heap, and on every level we have to find the maximum element
+in Θ(*d*) time. So the worst case running time is Θ(*d* $\log_d n$).
+
+***d.*** The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+The worst-case running time is linear to the height of the heap. So the worst case running time is
+*O*($\log_d n$).
+
+***e.*** The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+The worst case running time is Θ(*d* $\log_d n$).
+
 ----
 
 > List of common symbols:
