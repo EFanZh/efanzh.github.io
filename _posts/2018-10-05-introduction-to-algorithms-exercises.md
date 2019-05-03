@@ -2734,7 +2734,7 @@ The worst-case running time is linear to the height of the heap. So the worst ca
 
 ***e.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
-The worst case running time is Θ(*d* $\log_d n$).
+The worst case running time is Θ($\log_d n$).
 
 ----
 
