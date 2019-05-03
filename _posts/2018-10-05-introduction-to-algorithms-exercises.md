@@ -2671,6 +2671,30 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
 
+#### Problems
+
+##### 6-1 Building a heap using insertion
+
+> We can build a heap by repeatedly calling *Max-Heap-Insert* to insert the elements into the heap. Consider the
+> following variation on the *Build-Max-Heap* procedure:
+>
+> *Build-Max-Heap′*(*A*)
+>
+> 1. *A*.*heap-size* = 1
+> 2. **for** *i* = 2 **to** *A*.*length*
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;*Build-Max-Heap′*(*A*, *A*[*i*])
+>
+> ***a.*** Do the procedures *Build-Max-Heap* and *Build-Max-Heap′* always create the same heap when run on the same
+> input array? Prove that they do, or provide a counterexample.
+>
+> ***b.*** Show that in the worst case, *Build-Max-Heap′* requires Θ(*n* lg *n*) time to build an *n*-element heap.
+
+***a.*** No. For array ⟨0, 1, 2, 3⟩, *Build-Max-Heap* procduces ⟨3, 1, 2, 0⟩, while *Build-Max-Heap′* produces
+⟨3, 2, 1, 0⟩.
+
+***b.*** If *A* is in increasing order, every insertion will have to travel all the way from leaf to root, which has the
+run time of Θ(*n* lg *n*).
+
 ----
 
 > List of common symbols:
