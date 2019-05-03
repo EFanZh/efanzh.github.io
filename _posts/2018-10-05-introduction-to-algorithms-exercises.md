@@ -2736,6 +2736,72 @@ The worst-case running time is linear to the height of the heap. So the worst ca
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
 The worst case running time is Θ($\log_d n$).
 
+##### 6-3 Young tableaus
+
+> An *m* × *n* ***Young tableau*** is an *m* × *n* matrix such that the entries of each row are in sorted order from
+> left to right and the entries of each column are in sorted order from top to bottom. Some of the entries of a Young
+> tableau may be ∞, which we treat as nonexistent elements. Thus, a Young tableau can be used to hold *r* ≤ *m* *n*
+> finite numbers.
+>
+> ***a.*** Draw a 4 × 4 Young tableau containing the elements {9, 16, 3, 2, 4, 8, 5, 14, 12}.
+>
+> ***b.*** Argue that an *m* × *n* Young tableau *Y* is empty if *Y*[1, 1] = ∞. Argue that *Y* is full (contains *m* *n*
+> elements) if *Y*[*m*, *n*] < ∞.
+>
+> ***c.*** Give an algorithm to implement *Extract-Min* on a nonempty *m* × *n* Young tableau that runs in
+> *O*(*m* + *n*) time. Your algorithm should use a recursive subroutine that solves an *m* × *n* problem by recursively
+> solving either an (*m* - 1) × *n* or an *m* × (*n* - 1) subproblem. (*Hint:* Think about *Max-Heapify*.) Define
+> *T*(*p*), where *p* = *m* + *n*, to be the maximum running time of *Extract-Min* on any *m* × *n* Young tableau. Give
+> and solve a recurrence for *T*(*p*) that yields the *O*(*m* + *n*) time bound.
+>
+> ***d.*** Show how to insert a new element into a nonfull *m* × *n* Young tableau in *O*(*m* + *n*) time.
+>
+> ***e.*** Using no other sorting method as a subroutine, show how to use an *n* × *n* Young tableau to sort $n^2$
+> numbers in *O*($n^3$) time.
+>
+> ***f.*** Give an *O*(*m* + *n*)-time algorithm to determine whether a given number is stored in a given *m* × *n*
+> Young tableau.
+
+***a.***
+
+|     |     |     |     |
+| --- | --- | --- | --- |
+| 2   | 3   | 4   | 5   |
+| 8   | 9   | 12  | 14  |
+| 16  | ∞   | ∞   | ∞   |
+| ∞   | ∞   | ∞   | ∞   |
+
+***b.***
+
+1. Since *Y*[1, 1] = ∞, the first row will only contain ∞, which means that the first element of every column is ∞,
+   which means every column will only contain ∞, which means the table will only contain ∞, which means *Y* is empty.
+2. Since *Y*[*m*, *n*] < ∞, the last row will not contain ∞, which means that the last element of every column is not ∞,
+   which means every column will not contain ∞, which means the table will not contain ∞, which means *Y* full.
+
+***c.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+
+*T*(*p*) = *T*(*p* - 1) + *O*(1).
+
+***d.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+
+The solution is very similar to the *Extract-Min* and they have the same running time bound.
+
+***e.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+
+***f.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+
 ----
 
 > List of common symbols:
