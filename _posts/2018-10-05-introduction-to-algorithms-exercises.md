@@ -2804,6 +2804,25 @@ You are thinking about binary search, aren’t you? Too bad this problem isn’t
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
 
+### 7 Quicksort
+
+#### 7.1 Description of quicksort
+
+##### 7.1-1
+
+> Using Figure 7.1 as a model, illustrate the operation of *Partition* on the array *A* = ⟨13, 19, 9, 5, 12, 8, 7, 4,
+> 21, 2, 6, 11⟩.
+
+*Skipped.*
+
+##### 7.1-2
+
+> What value of *q* does *Partition* return when all elements in the array *A*[*p*‥*r*] have the same value? Modify
+> *Partition* so that *q* = ⌊(*p* + *r*) / 2⌋ when all elements in the array *A*[*p*‥*r*] have the same value.
+
+1. *Partition* returns *r* when all elements have the same value.
+2. Solution is implemented
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_2.rs).
 
 ----
 
