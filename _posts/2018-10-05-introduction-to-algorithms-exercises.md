@@ -2839,6 +2839,15 @@ running time is Θ(*r* - *p*) = Θ(*n* - 1) = Θ(*n*).
 > ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
 
+##### 7.1-4
+
+> How would you modify *Quicksort* to sort into nonincreasing order?
+
+Do you mean that I can’t modify *Partition*?
+
+Fine, the solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_4.rs)
+
 ----
 
 ## VIII Appendix: Mathematical Background
