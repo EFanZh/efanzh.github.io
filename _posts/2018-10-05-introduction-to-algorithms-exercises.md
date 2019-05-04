@@ -2799,8 +2799,11 @@ Solution is implemented
 
 ***f.***
 
+You are thinking about binary search, aren’t you? Too bad this problem isn’t about that.
+
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+
 
 ----
 
