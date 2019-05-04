@@ -2824,6 +2824,13 @@ Solution is implemented
 2. Solution is implemented
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_2.rs).
 
+##### 7.1-3
+
+> Give a brief argument that the running time of *Partition* on a subarray of size *n* is Θ(*n*).
+
+There is only one loop that updates *j* from *p* to *r* - 1, and the loop body requires constant time to run, so the
+running time is Θ(*r* - *p*) = Θ(*n* - 1) = Θ(*n*).
+
 ----
 
 > List of common symbols:
