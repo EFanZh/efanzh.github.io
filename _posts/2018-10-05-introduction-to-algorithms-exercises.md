@@ -2977,6 +2977,19 @@ Suppose *T*(*n*) ≥ *c* (*n* + 1) lg (*n* + 1) for some *c*, we have:
 = *c* (*n* + 1) lg (*n* + 1) - *c* (*n* + 1) + Θ(*n*)\
 ≥ *c* (*n* + 1) lg (*n* + 1).
 
+##### 7.4-3
+
+> Show that the expression $q^2 + \left(n - q - 1\right)^2$ achieves a maximum over *q* = 0, 1, …, *n* - 1 when
+> *q* = 0 or *q* = *n* - 1.
+
+$\frac{\partial\left(q^2 + \left(n - q - 1\right)^2\right)}{\partial q}$\
+= 2 *q* - 2 (*n* - q - 1)\
+= 4 *q* - 2 *n* + 2
+
+When q < (*n* - 1) / 2, 4 *q* - 2 *n* + 2 > 0; when q > (*n* - 1) / 2, 4 *q* - 2 *n* + 2 < 0, so we have the value of
+$q^2 + \left(n - q - 1\right)^2$ decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
+0 ≤ *q* ≤ *n* - 1, we have maximum when *q* = 0 or *q* = *n* - 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
