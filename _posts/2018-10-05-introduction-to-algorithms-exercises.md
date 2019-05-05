@@ -1234,7 +1234,7 @@ Suppose *T*(*n*) = *c* $n^2$ - *n*, we have
 = 4 (*c* $\left(n / 2\right)^2$ - *n* / 2) + *n*\
 = 4 (*c* $n^2$ / 4 - *n* / 2) + *n*\
 = *c* $n^2$ - 2 *n* + *n*\
-= *c* $n^2$ + *n*.
+= *c* $n^2$ - *n*.
 
 That is exactly what we want.
 
@@ -2831,14 +2831,6 @@ Solution is implemented
 There is only one loop that updates *j* from *p* to *r* - 1, and the loop body requires constant time to run, so the
 running time is Θ(*r* - *p*) = Θ(*n* - 1) = Θ(*n*).
 
-----
-
-> List of common symbols:
->
-> ```text
-> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
-> ```
-
 ##### 7.1-4
 
 > How would you modify *Quicksort* to sort into nonincreasing order?
@@ -2848,7 +2840,15 @@ Do you mean that I can’t modify *Partition*?
 Fine, the solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_4.rs).
 
-----
+------------------------------------------------------------------------------------------------------------------------
+
+> List of common symbols:
+>
+> ```text
+> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ```
+
+------------------------------------------------------------------------------------------------------------------------
 
 ## VIII Appendix: Mathematical Background
 
