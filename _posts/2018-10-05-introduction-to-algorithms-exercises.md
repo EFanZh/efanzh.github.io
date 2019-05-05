@@ -2911,6 +2911,17 @@ Solving $α^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
 
 Solving $\left(1 - α\right)^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
 
+##### 7.2-6 ★
+
+> Argue that for any constant 0 < *α* ≤ 1 / 2, the probability is approximately 1 - 2 *α* that on a random input array,
+> *Partition* produces a split more balanced than 1 - *α* to *α*.
+
+Let *n* be the size of the array. Being more balanced than 1 - *α* to *α* means that the number of elements is greater
+than or equal to *A*[*n*] is greater than *a* *n* and less than (1 - *a*) *n*, which means *A*[*n*] must be greater than
+the (*a* *n*)-th smallest element and less than the ((1 - *a*) *n*)-th biggest element. There are
+(1 - *a*) *n* - *a* *n* = (1 - 2 *a*) *n* different cases to choose. So the probability is
+(1 - 2 *a*) *n* / *n* = 1 - 2 *a*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
