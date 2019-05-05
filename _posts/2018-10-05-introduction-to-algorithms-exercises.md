@@ -2884,6 +2884,19 @@ Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2
 subproblem of the original problem. Since the first two partitions of the partition is the worst cast scenario, we know
 that the subproblem will also be the worst case scenario. So the running time is Θ($n^2$).
 
+##### 7.2-4
+
+> Banks often record transactions on an account in order of the times of the transactions, but many people like to
+> receive their bank statements with checks listed in order by check number. People usually write checks in order by
+> check number, and merchants usually cash them with reasonable dispatch. The problem of converting time-of-transaction
+> ordering to check-number ordering is therefore the problem of sorting almost-sorted input. Argue that the procedure
+> *Insertion-Sort* would tend to beat the procedure *Quicksort* on this problem.
+
+According to problem 2-4, the *Insertion-Sort* algorithm has the running time of Θ(*k*), where *k* is the inversions of
+the array. An almost sorted array as a few number of inversions, so the expected running time of *Insertion-Sort* should
+be low, while the *Quicksort* algorithm requires at Ω(*n* lg *n*) time. So *Insertion-Sort* would tend to beat the
+procedure *Quicksort* on this problem.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
