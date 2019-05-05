@@ -2840,6 +2840,27 @@ Do you mean that I can’t modify *Partition*?
 Fine, the solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_4.rs).
 
+#### 7.2 Performance of quicksort
+
+##### 7.2-1
+
+> Use the substitution method to prove that the recurrence *T*(*n*) = *T*(*n* - 1) + Θ(*n*) has the solution
+> *T*(*n*) = Θ($n^2$), as claimed at the beginning of Section 7.2.
+
+Let *T*(*n*) = *T*(*n* - 1) + *f*(*n*), where for some $c_1$, $c_2$ and $n_0$, for any *n* > $n_0$,
+$c_1 n ≤ f\left(n\right) ≤ c_2 n$.
+
+Suppose *T*(*n*) ≥ $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$ for large enough *n*, we have
+
+*T*(*n*)\
+= *T*(*n* - 1) + *f*(*n*)\
+≥ *T*(*n* - 1) + $c_1$ n\
+≥ $\left(c_1 / 2\right) \left(n - 1\right)^2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n$\
+= $\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n$\
+= $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$.
+
+So *T*(*n*) = Ω($n^2$). Similarily, we can prove *T*(*n*) = *O*($n^2$), so *T*(*n*) = Θ(*n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
