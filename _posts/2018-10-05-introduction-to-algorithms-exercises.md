@@ -2861,6 +2861,12 @@ Suppose *T*(*n*) ≥ $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$ f
 
 So *T*(*n*) = Ω($n^2$). Similarily, we can prove *T*(*n*) = *O*($n^2$), so *T*(*n*) = Θ(*n*).
 
+##### 7.2-2
+
+> What is the running time of *Quicksort* when all elements of array *A* have the same value?
+
+Θ($n^2$).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
