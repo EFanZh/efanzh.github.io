@@ -2939,6 +2939,26 @@ case by chance.
 - Best case: *T*(*n*) = 2 *T*((*n* - 1) / 2) + 1 ⇒ *T*(*n*) = Θ(*n*).
 - Worst case: *T*(*n*) = *T*(*n* - 1) + 1 ⇒ *T*(*n*) = Θ(*n*).
 
+#### 7.4 Analysis of quicksort
+
+##### 7.4-1
+
+> Show that in the recurrence
+>
+> *T*(*n*) = $\underset{0 ≤ q ≤ n - 1}{\max} \left(T\left(q\right) + T\left(n - q - 1\right)\right) + Θ\left(n\right)$,
+>
+> *T*(*n*) = Ω($n^2$).
+
+Suppose *T*(*n*) ≥ *c* $n^2$ for some *c*, we have:
+
+*T*(*n*)\
+= $\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ\left(n\right)$\
+≥ $\underset{0 ≤ q ≤ n - 1}{\max} \left(c q^2 + c \left(n - q - 1\right)^2\right)$ + Θ(*n*)\
+= *c* ⋅ $\underset{0 ≤ q ≤ n - 1}{\max} \left(q^2 + \left(n - q - 1\right)^2\right)$ + Θ(*n*)\
+= *c* ⋅ $\left(n - 1\right)^2$ + Θ(*n*)\
+= *c* $n^2$ - *c* (2 *n* - 1) + Θ(*n*)\
+≥ *c* $n^2$.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
