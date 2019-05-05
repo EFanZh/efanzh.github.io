@@ -2990,6 +2990,30 @@ When q < (*n* - 1) / 2, 4 *q* - 2 *n* + 2 > 0; when q > (*n* - 1) / 2, 4 *q* - 2
 $q^2 + \left(n - q - 1\right)^2$ decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
 0 ≤ *q* ≤ *n* - 1, we have maximum when *q* = 0 or *q* = *n* - 1.
 
+##### 7.4-4
+
+> Show that *Randomized-Quicksort*’s expected running time is Ω(*n* lg *n*).
+
+*Skipped.*
+
+##### 7.4-5
+
+> We can improve the running time of quicksort in practice by taking advantage of the fast running time of insertion
+> sort when its input is “nearly” sorted. Upon calling quicksort on a subarray with fewer than *k* elements, let it
+> simply return without sorting the subarray. After the top-level call to quicksort returns, run insertion sort on the
+> entire array to finish the sorting process. Argue that this sorting algorithm runs in
+> *O*(*n* *k* + *n* lg (*n* / *k*)) expected time. How should we pick *k*, both in theory and in practice?
+
+*Skipped.*
+
+##### 7.4-6 ★
+
+> Consider modifying the *Partition* procedure by randomly picking three elements from array *A* and partitioning about
+> their median (the middle value of the three elements). Approximate the probability of getting at worst an
+> *α*-to-(1 - *α*) split, as a function of *α* in the range 0 < *α* < 1.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
