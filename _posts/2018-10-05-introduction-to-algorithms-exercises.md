@@ -2897,6 +2897,20 @@ the array. An almost sorted array as a few number of inversions, so the expected
 be low, while the *Quicksort* algorithm requires at Ω(*n* lg *n*) time. So *Insertion-Sort* would tend to beat the
 procedure *Quicksort* on this problem.
 
+##### 7.2-5
+
+> Suppose that the splits at every level of quicksort are in the proportion 1 - *α* to *α*, where 0 < *α* ≤ 1 / 2 is a
+> constant. Show that the minimum depth of a leaf in the recursion tree is approximately -lg *n* / lg *α* and the
+> maximum depth is approximately -lg *n* / lg(1 - *α*). (Don’t worry about integer round-off.)
+
+At each level of recursion the problem of size *n* is divided into problems of size *α* *n* and size (1 - *α*) *n*.
+Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → $α^2$ *n* → ⋯ → 1, the maximum depth is on the path
+*n* → (1 - *α*) *n* → $\left(1 - α\right)^2$ *n* → ⋯ → 1.
+
+Solving $α^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
+
+Solving $\left(1 - α\right)^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
