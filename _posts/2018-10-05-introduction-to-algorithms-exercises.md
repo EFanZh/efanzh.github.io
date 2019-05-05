@@ -2867,6 +2867,23 @@ So *T*(*n*) = Ω($n^2$). Similarily, we can prove *T*(*n*) = *O*($n^2$), so *T*(
 
 Θ($n^2$).
 
+##### 7.2-3
+
+> Show that the running time of *Quicksort* is Θ($n^2$) when the array *A* contains distinct elements and is sorted in
+> decreasing order.
+
+Let’s say we have an array ⟨*n*, *n* - 1, …, 2, 1⟩ to sort.
+
+At the first partition, we will choose 1 as the pivot element. so after partition, we get two arrays: ⟨⟩ and
+⟨*n* - 1, *n* - 2, …, 2, *n*⟩. This is the worst case scenario.
+
+At the second partition, we will choose *n* as the pivot element. so after partition, we get two arrays:
+⟨*n* - 1, *n* - 2, …, 2⟩ and ⟨⟩. . This is the worst case scenario.
+
+Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2⟩ is in decreasing order, so we get ourself a
+subproblem of the original problem. Since the first two partitions of the partition is the worst cast scenario, we know
+that the subproblem will also be the worst case scenario. So the running time is Θ($n^2$).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
