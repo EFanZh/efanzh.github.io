@@ -2922,6 +2922,15 @@ the (*a* *n*)-th smallest element and less than the ((1 - *a*) *n*)-th biggest e
 (1 - *a*) *n* - *a* *n* = (1 - 2 *a*) *n* different cases to choose. So the probability is
 (1 - 2 *a*) *n* / *n* = 1 - 2 *a*.
 
+#### 7.3 A randomized version of quicksort
+
+##### 7.3-1
+
+> Why do we analyze the expected running time of a randomized algorithm and not its worst-case running time?
+
+The worst-case running time doesn’t change if we randomize the algorithm, since we might generate the very same worst
+case by chance.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
