@@ -2931,6 +2931,14 @@ the (*a* *n*)-th smallest element and less than the ((1 - *a*) *n*)-th biggest e
 The worst-case running time doesn’t change if we randomize the algorithm, since we might generate the very same worst
 case by chance.
 
+##### 7.3-2
+
+> When *Randomized-Quicksort* runs, how many calls are made to the random-number generator *Random* in the worst case?
+> How about in the best case? Give your answer in terms of Θ-notation.
+
+- Best case: *T*(*n*) = 2 *T*((*n* - 1) / 2) + 1 ⇒ *T*(*n*) = Θ(*n*).
+- Worst case: *T*(*n*) = *T*(*n* - 1) + 1 ⇒ *T*(*n*) = Θ(*n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
