@@ -1573,7 +1573,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 1. *T*(*n*) = *c* *n* + (8 / 7) $n^4$.
 2. *T*(*n*) = (10 / 3) *n* + *c*.
 3. *T*(*n*) = $n^2 \log_4 n$ + *c* $n^2$.
-4. *T*(*n*) = (9 / 2) $n^2$ + *c* $n^{\log_3 7}$..
+4. *T*(*n*) = (9 / 2) $n^2$ + *c* $n^{\log_3 7}$.
 5. *T*(*n*) = *c* $n^{\lg 7}$ - (4 / 3) $n^2$.
 6. *T*(*n*) = $\sqrt{n} \log_4 n$ + *c* $\sqrt{n}$.
 7. *T*(*n*) = $n^3$ / 6 + $n^2$ / 2 + *n* / 3 + *c*.
@@ -3013,6 +3013,145 @@ $q^2 + \left(n - q - 1\right)^2$ decreasing when q < (*n* - 1) / 2, and increasi
 > *α*-to-(1 - *α*) split, as a function of *α* in the range 0 < *α* < 1.
 
 *Skipped.*
+
+#### 7.X Problems
+
+##### 7-1 Hoare partition correctness
+
+> The version of *Partition* given in this chapter is not the original partitioning algorithm. Here is the original
+> partition algorithm, which is due to C. A. R. Hoare:
+>
+> *Hoare-Partition*(*A*, *p*, *r*)
+>
+> 1. *x* = *A*[*p*]
+> 2. *i* = *p* - 1
+> 3. *j* = *r* + 1
+> 4. **while** *True*
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;**repeat**
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*j* = *j* - 1
+> 7. &nbsp;&nbsp;&nbsp;&nbsp;**until** *A*[*j*] ≤ *x*
+> 8. &nbsp;&nbsp;&nbsp;&nbsp;**repeat**
+> 9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i* = *i* + 1
+> 10. &nbsp;&nbsp;&nbsp;&nbsp;**until** *A*[*i*] ≥ *x*
+> 11. &nbsp;&nbsp;&nbsp;&nbsp;**if** *i* < *j*
+> 12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exchange *A*[*i*] with *A*[*j*]
+> 13. &nbsp;&nbsp;&nbsp;&nbsp;**else** **return** *j*
+>
+> ***a.*** Demonstrate the operation of *Hoare-Partition* on the array *A* = ⟨13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21⟩,
+> showing the values of the array and auxiliary values after each iteration of the **while** loop in lines 4–13.
+>
+> The next three questions ask you to give a careful argument that the procedure *Hoare-Partition* is correct. Assuming
+> that the subarray *A*[*p*‥*r*] contains at least two elements, prove the following:
+>
+> ***b.*** The indices *i* and *j* are such that we never access an element of *A* outside the subarray *A*[*p*‥*r*].
+>
+> ***c.*** When *Hoare-Partition* terminates, it returns a value *j* such that *p* ≤ *j* < *r*.
+>
+> ***d.*** Every element of *A*[*p*‥*j*] is less than or equal to every element of *A*[*j* + 1‥*r*] when
+> *Hoare-Partition* terminates.
+>
+> The *Partition* procedure in Section 7.1 separates the pivot value (originally in *A*[*r*]) from the two partitions it
+> forms. The *Hoare-Partition* procedure, on the other hand, always places the pivot value (originally in *A*[*p*]) into
+> one of the two partitions *A*[*p*‥*j*] and *A*[*j* + 1‥*r*]. Since *p* ≤ *j* < *r*, this split is always nontrivial.
+>
+> ***e.*** Rewrite the *Quicksort* procedure to use *Hoare-Partition*.
+
+***a.***
+
+*Skipped.*
+
+***b.***
+
+At the first iteration of the outer loop, the algorithm first find the first element from right that is less than or
+equal to *x*, and the index element won’t be less than *p* since *A*[*p*] = *x*. Then the program find the first element
+that is greater or equal than *x*, which will have the index of *p*. If the algorithm doesn’t terminate, the rest of the
+first element is just swapping element *A*[*i*] and *A*[*j*]. So the first iteration won’t access outside the subarray
+*A*[*p*‥*r*].
+
+After the first iteration, the following loop invariant will hold for each outer loop iteration:
+
+- At the beginning of each iteration, *i* < *j*, and *A*[*i*] ≤ *x*, *A*[*j*] ≥ *x*.
+- In the body of each iteration, *i* will be less than or equal to the initial value of *j*, and *j* will be more than
+  or equal to the initial value of *i*.
+
+Proof by induction:
+
+- Base case: If the first iteration doesn’t terminate, *A*[*i*] will be equal to some value that is less than or equal
+  to *x*, and *A*[*j*] will be equal to *x*, so the loop invariant holds for the second iteration of the outer loop.
+- Inductive case: For the *n*th iteration, where *n* > 1, by induction, we know that at the beginning, *i* < *j*, and
+  *A*[*i*] ≤ *x*, *A*[*j*] ≥ *x*. Let *m*, *n* be the values of *i*, *j* at the beginning of this iteration, we know at
+  line 11:
+
+  - *i* ≤ *n*,
+  - *j* ≥ *m*,
+  - *A*[*i*] ≥ *x*,
+  - *A*[*j*] ≤ *x*.
+
+  If *i* < *j* at line 11, after swapping *A*[*i*] and *A*[*j*]. we have *A*[*i*] ≤ *x*, and *A*[*j*] ≥ *x*. Now the
+  (*n* + 1)-th iteration begins, the loop invariant still holds.
+
+  If *i* ≥ *j* at line 11, the algorithm terminates, so the loop invariant still holds.
+
+***c.***
+
+Since *A*[*p*‥*r*] contains at least two elements, we know that *p* < *r*.
+
+First, we prove that the returned *j* is less than *r*:
+
+At the beginning of the first iteration, *i* = *p* - 1, and *j* = *r* + 1. Notice that line 6 and line 9 will be
+executed at least once, also, we have *A*[*p*] = *x*, so we know *i* must equal to *p* in line 11. If line 6 is executed
+only once, *j* will equal to *p* at line 11. Since *p* < *r*, we know *i* < *j*, so the second iteration of the outer
+loop will be executed, which will cause *j* being decremented to a value that is less than *r*. If line 6 is executed
+more than once, *j* is still decremented to a value that is less than *r*.
+
+Then, we prove that the returned *j* is greater than or equal to *i*:
+
+If the loop terminates at the first iteration,
+*i* will be equal to *p*, otherwise the second iteration will be executed, which will cause *i* being incremented to a
+value that is more than *p*.
+
+***d.***
+
+The outer loop has the following loop invariant:
+
+- At the beginning of each iteration, elements in *A*[*p*‥*i*] is less than or equal to *x*, and elements in
+  *A*[*j*‥*r*] is greater than or equal to *x*.
+
+Proof by induction:
+
+- Base case: In the beginning of the first iteration, both *A*[*p*‥*i*] and *A*[*j*‥*r*] is empty, so the claim holds.
+- Inductive case: In each iteration of the outer loop, Let *m*, *n* be the initial values of *i*, *j*. In the loop body,
+  we find the fist element from the right that is less than or equal to *x*, and the first element from the left that is
+  greater than or equal to *x*, then swap them. After swapping, we know that every element in *A*[*m* + 1‥*i*] is less
+  than or equal to *x*, and every element in *A*[*j* + 1‥*n*] is greater than or equal to *x*. By induction, we know
+  that *A*[*p*‥*m*] is less than or equal to *x*, and *A*[*n*‥*r*] is greater than or equal to *x*. So elements in
+  *A*[*p*‥*i*] is less than or equal to *x*, and elements in *A*[*j*‥*r*] is greater than or equal to *x* at the
+  beginning of next iteration.
+
+  If the algorithm terminates, at line 11, we have *i* ≥ *j*, and elements in *A*[*p*‥*i* - 1] is less than or equal to
+  *x*, and elements in *A*[*j* + 1‥*r*] is greater than or equal to *x*. So there are two cases:
+
+  ```text
+  ┌─────┬─────┬─────┬─────┬─────┐
+  │  p  │  …  │ i j │  …  │  r  │
+  ├─────┼─────┼─────┼─────┼─────┤
+  │ ≤ x │ ≤ x │ = x │ ≥ x │ ≥ x │
+  └─────┴─────┴─────┴─────┴─────┘
+
+  ┌─────┬─────┬─────┬─────┬─────┬─────┐
+  │  p  │  …  │  j  │  i  │  …  │  r  │
+  ├─────┼─────┼─────┼─────┼─────┼─────┤
+  │ ≤ x │ ≤ x │ ≤ x │ ≥ x │ ≥ x │ ≥ x │
+  └─────┴─────┴─────┴─────┴─────┴─────┘
+  ```
+
+  In both cases, elements in *A*[*p*‥*j*] is less than or equal to *x*, and elements in *A*[*j* + 1‥*r*] is greater
+  than or equal to *x*.
+
+***e.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_1_hoare_partition_correctness.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
