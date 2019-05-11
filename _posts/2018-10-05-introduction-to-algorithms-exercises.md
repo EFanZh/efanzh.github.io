@@ -455,7 +455,7 @@ We prove *T*(*n*) = Θ(lg *n*) by induction:
 > to improve the overall worst-case running time of insertion sort to Θ(*n* lg *n*)?
 
 No, we can not. Because despite the searching takes Θ(lg *n*) time, we still need to move *n* elements in the worst-case
-scenario, which taks Θ(*n*) time.
+scenario, which takes Θ(*n*) time.
 
 ##### 2.3-7 ★
 
@@ -593,7 +593,7 @@ See
 for implementation.
 
 1. Θ(*n*).
-2. The psudocode:
+2. The pseudocode:
 
    1. *y* = 0
    2. **for** *i* = 0 **to** *n*
@@ -658,7 +658,7 @@ for implementation.
 > Let *f*(*n*) and *g*(*n*) be asymptotically nonnegative functions. Using the basic definition of Θ-notation, prove
 > that max(*f*(*n*), *g*(*n*)) = Θ(*f*(*n*) + *g*(*n*)).
 
-In the following statments, *n* is big enough that both *f*(*n*) and *g*(*n*) is nonnegative.
+In the following statements, *n* is big enough that both *f*(*n*) and *g*(*n*) is nonnegative.
 
 Because *f*(*n*) ≤ max(*f*(*n*), *g*(*n*)), and *g*(*n*) ≤ max(*f*(*n*), *g*(*n*)), we know that
 *f*(*n*) + *g*(*n*) ≤ 2 max(*f*(*n*), *g*(*n*)). So 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)).
@@ -940,7 +940,7 @@ Inductive case:
 > 7. *f*(*n*) = Θ(*f*(*n* / 2)).
 > 8. *f*(*n*) + *o*(*f*(*n*)) = Θ(*f*(*n*)).
 
-*Too lazy to prove. Just list my guessings here.*
+*Too lazy to prove. Just list my guessing here.*
 
 1. False.
 2. False.
@@ -1065,7 +1065,7 @@ Run the original algorithm first, if the maximum sum is negative, return an empt
 > the left end of the array, and progress toward the right, keeping track of the maximum subarray seen so far. Knowing a
 > maximum subarray of *A*[1‥*j*], extend the answer to find a maximum subarray ending at index *j* + 1 by using the
 > following observation: a maximum subarray of *A*[1‥*j* + 1] is either a maximum subarray of *A*[1‥*j*] or a subarray
-> *A*[*i*‥*j* + 1], for some 1 ≤ *i* ≤ *j* + 1. Determine a maximum subarray of the form *A*[i‥*j* + 1] in constant
+> *A*[*i*‥*j* + 1], for some 1 ≤ *i* ≤ *j* + 1. Determine a maximum subarray of the form *A*[*i*‥*j* + 1] in constant
 > time based on knowing a maximum subarray ending at index *j*.
 
 See
@@ -1444,7 +1444,7 @@ Since Θ(1) = Θ($n^{\log_2 1}$), *T*(*n*) = Θ($n^{\log_2 1}$ lg *n*) = Θ(lg *
 > Can the master method be applied to the recurrence *T*(*n*) = 4 *T*(*n* / 2) + $n^2$ lg *n*? Why or why not? Give an
 > asymptotic upper bound for this recurrence.
 
-The master methoid can not be applied to that recurrence, because $n^2$ lg *n* is asymptotically large than
+The master method can not be applied to that recurrence, because $n^2$ lg *n* is asymptotically large than
 $n^{\log_2 4} = n^2$, but it is not polynomially asymptotically large than $n^{\log_2 4}$.
 
 *T*(*n*) = $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
@@ -1771,10 +1771,10 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
        chips or bad chips, after throwing away one chip in every those pairs, we have reduced the size of the problem to
        at most half of the original problem size.
      - If the number of chips is odd, we know that the number of good chip must be greater than the number of bad chips,
-       since there can not be the same number of good chips and bads chips. We randomly remove one chip from the chips,
+       since there can not be the same number of good chips and bad chips. We randomly remove one chip from the chips,
        and we will be left with even number of chips, in which good chips are no less than bad chips. We process the
-       remaning chips with the method used in the even number case. After the remaining chips being processed, either we
-       get a good chip, or we are told that the number of good chips are the same as the number of bad chips, which
+       remaining chips with the method used in the even number case. After the remaining chips being processed, either
+       we get a good chip, or we are told that the number of good chips are the same as the number of bad chips, which
        means the chip we removed is a good chip. Either way, we can get a good chip.
 
    The solution to the generalized problem applies to the original problem.
@@ -1921,7 +1921,7 @@ The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Alg
 We can prove it by proving its contrapositive:
 
 - If the ranks of the candidates don’t form a total order, there exist a set of candidates in which we are not able to
-  deternube which candidate is best.
+  determine which candidate is best.
 
 Proof:
 
@@ -2044,12 +2044,12 @@ E[*X*]\
 > uniform random permutation of ⟨1, 2, …, *n*⟩. Use indicator random variables to compute the expected number of
 > inversions.
 
-Let $X_{ij}$ be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
+Let $X_{i j}$ be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
 
 E[*X*]\
-= $E\left[∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} X_{ij}\right]$\
-= $∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{ij}\right]$\
-= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{ij}\right]$\
+= $E\left[∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} X_{i j}\right]$\
+= $∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{i j}\right]$\
+= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{i j}\right]$\
 = $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} 1 / 2$\
 = $∑_{i = 1}^{n - 1} \left(n - i\right) / 2$\
 = *n* (*n* - 1) / 4.
@@ -2095,8 +2095,8 @@ not the identity permutation, because the first element always is always swapped
 >
 > Does this code produce a uniform random permutation? Why or why not?
 
-In each iteration, there are *n* different possible outcomes of the *Random* function with the same possiblility, so
-there are total of $n^n$ (possiblly same) outcomes of the algorithm with the same possibility. But the uniform random
+In each iteration, there are *n* different possible outcomes of the *Random* function with the same possibility, so
+there are total of $n^n$ (possibly same) outcomes of the algorithm with the same possibility. But the uniform random
 permutation requires there are *n*! different possible outcomes. It is possible that $n^n / n!$ is not an integer, in
 which case, it is impossible to divide $n^n$ probabilities into $n!$ same probabilities. So, the code does not produce a
 uniform random permutation.
@@ -2186,7 +2186,7 @@ Proof by induction on *m*:
   probability is 1, which equals to 1 / *C*(*n*, 0), the claim holds.
 - Inductive cases:
 
-  - For a certail *m*-subset containing *n*, there are two different ways to generate it:
+  - For a certain *m*-subset containing *n*, there are two different ways to generate it:
 
     - When *i* ∈ *S*, which has the probability of (*m* - 1) / *n*,
     - Or *i* = *n*, which has the probability of 1 / *n*,
@@ -2263,12 +2263,12 @@ It’s the same as saying *k* people whose birthdays are in *n* days all have di
 
 Let $X_{i}$ being the indicator variable in which bin *i* have *k* balls, then
 
-E[$X_{ik}$] = *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
+E[$X_{i k}$] = *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
 
 So the expected number of bins with exactly *k* balls is
 
-E[$∑_{i = 1}^{n} X_{ik}$]\
-= $∑_{i = 1}^{n} \operatorname{E}\left[X_{ik}\right]$\
+E[$∑_{i = 1}^{n} X_{i k}$]\
+= $∑_{i = 1}^{n} \operatorname{E}\left[X_{i k}\right]$\
 = $∑_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$\
 = *n* *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
 
@@ -2318,7 +2318,7 @@ So the expected number of bins with exactly 1 ball is:
 
    $\left(n_{i + 1} - n_i\right) \left(1 / \left(n_{i + 1} - n_i\right)\right) + 0 \left(1 / \left(n_{i + 1} - n_i\right)\right)$ = 1.
 
-   Let $X_i$ be the random variable in which the counter values increased by the *i*th increment operation. So the
+   Let $X_i$ be the random variable in which the counter values increased by the *i*-th increment operation. So the
    expected value of the counter after *n* *Increment* operations is:
 
    E[$∑_{i = 1}^{n} X_i$]\
@@ -2356,7 +2356,7 @@ So the expected number of bins with exactly 1 ball is:
 > equally likely.
 >
 > ***e.*** Suppose that there is exactly one index *i* such that *A*[*i*] = *x*. What is the average-case running time
-> of *Deterministic-Search*? What is the worstcase running time of *Deterministic-Search*?
+> of *Deterministic-Search*? What is the worst-case running time of *Deterministic-Search*?
 >
 > ***f.*** Generalizing your solution to part (e), suppose that there are *k* ≥ 1 indices *i* such that *A*[*i*] = *x*.
 > What is the average-case running time of *Deterministic-Search*? What is the worst-case running time of
@@ -2524,7 +2524,7 @@ The solution is implemented
 > nodes, give node values that cause *Max-Heapify* to be called recursively at every node on a simple path from the root
 > down to a leaf.)
 
-The height of a heap of size *n* is ⌊lg *n*⌋, if *Max-Heapify* is calld at every node on a simple path from the root
+The height of a heap of size *n* is ⌊lg *n*⌋, if *Max-Heapify* is called at every node on a simple path from the root
 down to a leaf, the expected running time is linear to the height of the heap, that is ⌊lg *n*⌋, so the worst-case
 running time is Ω(lg *n*).
 
@@ -2689,7 +2689,7 @@ Solution is implemented
 >
 > ***b.*** Show that in the worst case, *Build-Max-Heap′* requires Θ(*n* lg *n*) time to build an *n*-element heap.
 
-***a.*** No. For array ⟨0, 1, 2, 3⟩, *Build-Max-Heap* procduces ⟨3, 1, 2, 0⟩, while *Build-Max-Heap′* produces
+***a.*** No. For array ⟨0, 1, 2, 3⟩, *Build-Max-Heap* produces ⟨3, 1, 2, 0⟩, while *Build-Max-Heap′* produces
 ⟨3, 2, 1, 0⟩.
 
 ***b.*** If *A* is in increasing order, every insertion will have to travel all the way from leaf to root, which has the
@@ -2859,7 +2859,7 @@ Suppose *T*(*n*) ≥ $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$ f
 = $\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n$\
 = $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$.
 
-So *T*(*n*) = Ω($n^2$). Similarily, we can prove *T*(*n*) = *O*($n^2$), so *T*(*n*) = Θ(*n*).
+So *T*(*n*) = Ω($n^2$). Similarly, we can prove *T*(*n*) = *O*($n^2$), so *T*(*n*) = Θ(*n*).
 
 ##### 7.2-2
 
@@ -2880,9 +2880,9 @@ At the first partition, we will choose 1 as the pivot element. so after partitio
 At the second partition, we will choose *n* as the pivot element. so after partition, we get two arrays:
 ⟨*n* - 1, *n* - 2, …, 2⟩ and ⟨⟩. . This is the worst case scenario.
 
-Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2⟩ is in decreasing order, so we get ourself a
-subproblem of the original problem. Since the first two partitions of the partition is the worst cast scenario, we know
-that the subproblem will also be the worst case scenario. So the running time is Θ($n^2$).
+Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2⟩ is in decreasing order, so we get
+ourselves a subproblem of the original problem. Since the first two partitions of the partition is the worst cast
+scenario, we know that the subproblem will also be the worst case scenario. So the running time is Θ($n^2$).
 
 ##### 7.2-4
 
@@ -3064,7 +3064,7 @@ $\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace$ \
 > then remove three cards, one at a time, from the deck. What is the probability that we select the three cards in
 > sorted (increasing) order?
 
-The order of the selected cards is independ of the number of cards, so the probability is 1 / 3! = 1 / 6.
+The order of the selected cards is independent of the number of cards, so the probability is 1 / 3! = 1 / 6.
 
 ##### C.2-4
 
