@@ -3288,6 +3288,34 @@ When the array is in increasing order.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_4_stack_depth_for_quicksort.rs).
 
+##### 7-5 Median-of-3 partition
+
+> One way to improve the *Randomized-Quicksort* procedure is to partition around a pivot that is chosen more carefully
+> than by picking a random element from the subarray. One common approach is the ***median-of-3*** method: choose the
+> pivot as the median (middle element) of a set of 3 elements randomly selected from the subarray. (See Exercise 7.4-6.)
+> For this problem, let us assume that the elements in the input array *A*[1‥*n*] are distinct and that *n* ≥ 3. We
+> denote the sorted output array by *A*′[1‥*n*]. Using the median-of-3 method to choose the pivot element *x*, define
+> $p_i$ = Pr{*x* = *A*′[*i*]}.
+>
+> ***a.*** Give an exact formula for $p_i$ as a function of *n* and *i* for *i* = 2, 3, …, *n* - 1. (Note that
+> $p_1 = p_n = 0$.)
+>
+> ***b.*** By what amount have we increased the likelihood of choosing the pivot as *x* = *A*′[⌊(*n* + 1) / 2⌋], the
+> median of *A*[1‥*n*], compared with the ordinary implementation? Assume that *n* → ∞, and give the limiting ratio of
+> these probabilities.
+>
+> ***c.*** If we define a “good” split to mean choosing the pivot as *x* = *A*′[*i*], where *n* / 3 ≤ *i* ≤ 2 *n* / 3,
+> by what amount have we increased the likelihood of getting a good split compared with the ordinary implementation?
+> (*Hint:* Approximate the sum by an integral.)
+>
+> ***d.*** Argue that in the Ω(*n* lg *n*) running time of quicksort, the median-of-3 method affects only the constant
+> factor.
+
+*Skipped.*
+
+The median-of-3 quicksort is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_5_median_of_3_partition.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
