@@ -3316,6 +3316,30 @@ Solution is implemented
 The median-of-3 quicksort is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_5_median_of_3_partition.rs).
 
+##### 7-6 Fuzzy sorting of intervals
+
+> Consider a sorting problem in which we do not know the numbers exactly. Instead, for each number, we know an interval
+> on the real line to which it belongs. That is, we are given *n* closed intervals of the form [$a_i$, $b_i$], where
+> $a_i$ ≤ $b_i$. We wish to ***fuzzy-sort*** these intervals, i.e., to produce a permutation ⟨$i_1$, $i_2$, …, $i_n$⟩ of
+> the intervals such that for *j* = 1, 2, …, *n*, there exist $c_j$ ∈ [$a_{i_j}$, $a_{i_j}$] satisfying
+> $c_1$ ≤ $c_2$ ≤ ⋯ ≤ $c_n$.
+>
+> ***a.*** Design a randomized algorithm for fuzzy-sorting *n* intervals. Your algorithm should have the general
+> structure of an algorithm that quicksorts the left endpoints (the $a_i$ values), but it should take advantage of
+> overlapping intervals to improve the running time. (As the intervals overlap more and more, the problem of
+> fuzzy-sorting the intervals becomes progressively easier. Your algorithm should take advantage of such overlapping, to
+> the extent that it exists.)
+>
+> ***b.*** Argue that your algorithm runs in expected time Θ(*n* lg *n*) in general, but runs in expected time Θ(*n*)
+> when all of the intervals overlap (i.e., when there exists a value *x* such that *x* ϵ [$a_i$, $b_i$] for all *i*).
+> Your algorithm should not be checking for this case explicitly; rather, its performance should naturally improve as
+> the amount of overlap increases.
+
+***a.*** Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_6_fuzzy_sorting_of_intervals.rs).
+
+***b.*** *Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
