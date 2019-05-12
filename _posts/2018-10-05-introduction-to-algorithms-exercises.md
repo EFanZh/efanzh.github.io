@@ -3153,6 +3153,49 @@ Proof by induction:
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_1_hoare_partition_correctness.rs).
 
+##### 7-2 Quicksort with equal element values
+
+> The analysis of the expected running time of randomized quicksort in Section 7.4.2 assumes that all element values are
+> distinct. In this problem, we examine what happens when they are not.
+>
+> ***a.*** Suppose that all element values are equal. What would be randomized quicksort’s running time in this case?
+>
+> ***b.*** The *Partition* procedure returns an index *q* such that each element of *A*[*p*‥*q* - 1] is less than or
+> equal to *A*[*q*] and each element of *A*[*q* + 1‥*r*] is greater than *A*[*q*]. Modify the *Partition* procedure to
+> produce a procedure *Partition′*(*A*, *p*, *r*), which permutes the elements of *A*[*p*‥*r*] and returns two indices
+> *q* and *t*, where *p* ≤ *q* ≤ *t* ≤ r, such that
+>
+> - all elements of *A*[*q*‥*t*] are equal,
+> - each element of *A*[*p*‥*q* - 1] is less than *A*[*q*], and
+> - each element of *A*[*t* + 1‥*r*] is greater than *A*[*q*].
+>
+> Like *Partition*, your *Partition′* procedure should take Θ(*r* - *p*) time.
+>
+> ***c.*** Modify the *Randomized-Partition* procedure to call *Partition′*, and name the new procedure
+> *Randomized-Quicksort′*. Then modify the *Quicksort* procedure to produce a procedure *Quicksort′*(*A*, *p*, *r*) that
+> calls *Randomized-Partition′* and recurses only on partitions of elements not known to be equal to each other.
+>
+> ***d.*** Using *Quicksort′*, how would you adjust the analysis in Section 7.4.2 to avoid the assumption that all
+> elements are distinct?
+
+***a.***
+
+Θ($n^2$).
+
+***b.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
+
+***c.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
+
+***d.***
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
