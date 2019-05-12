@@ -3196,6 +3196,98 @@ Solution is implemented
 
 *Skipped.*
 
+##### 7-3 Alternative quicksort analysis
+
+> An alternative analysis of the running time of randomized quicksort focuses on the expected running time of each
+> individual recursive call to *Randomized-Quicksort*, rather than on the number of comparisons performed.
+>
+> ***a.*** Argue that, given an array of size *n*, the probability that any particular element is chosen as the pivot is
+> 1 / *n*. Use this to define indicator random variables $X_i$ = I{*i*th smallest element is chosen as the pivot}. What
+> is E[$X_i$]?
+>
+> ***b.*** Let *T*(*n*) be a random variable denoting the running time of quicksort on an array of size *n*. Argue that
+>
+> - E[*T*(*n*)] = E$\displaystyle\left[∑_{q = 1}^n X_q \left(T\left(q - 1\right) + T\left(n - q\right) + Θ\left(n\right)\right)\right]$. (7.5)
+>
+> ***c.*** Show that we can rewrite equation (7.5) as
+>
+> - E[*T*(*n*)] = $\displaystyle\frac{2}{n} ∑_{q = 2}^{n - 1} \operatorname{E}\left[T\left(q\right)\right] + Θ\left(n\right)$. (7.6)
+>
+> ***d.*** Show that
+>
+> - $\displaystyle ∑_{k = 2}^{n - 1} k \lg k ≤ \frac{1}{2} n^2 \lg n - \frac{1}{8} n^2$. (7.7)
+>
+> (*Hint:* Split the summation into two parts, one for *k* = 2, 3, …, ⌈*n* / 2⌉ - 1 and one for *k* = ⌈*n* / 2⌉, …,
+> *n* - 1.)
+>
+> ***e.*** Using the bound from equation (7.7), show that the recurrence in equation (7.6) has the solution
+> E[*T*(*n*)] = Θ(*n* lg *n*). (*Hint:* Show, by substitution, that E[*T*(*n*)] ≤ *a* *n* lg *n* for sufficiently large
+> *n* and for some positive constant *a*.)
+
+*Skipped.*
+
+##### 7-4 Stack depth for quicksort
+
+> The *Quicksort* algorithm of Section 7.1 contains two recursive calls to itself. After *Quicksort* calls *Partition*,
+> it recursively sorts the left subarray and then it recursively sorts the right subarray. The second recursive call in
+> *Quicksort* is not really necessary; we can avoid it by using an iterative control structure. This technique, called
+> ***tail recursion***, is provided automatically by good compilers. Consider the following version of quicksort, which
+> simulates tail recursion:
+>
+> *Tail-Recursive-Quicksort*(*A*, *p*, *r*)
+>
+> 1. **while** *p* < *r*
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;// Partition and sort left subarray.
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;*q* = *Partition*(*A*, *p*, *r*)
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;*Tail-Recursive-Quicksort*(*A*, *p*, *q* - 1)
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;*p* = *q* + 1
+>
+> ***a.*** Argue that *Tail-Recursive-Quicksort*(*A*, 1, *A*.*length*) correctly sorts the array *A*.
+>
+> Compilers usually execute recursive procedures by using a ***stack*** that contains pertinent information, including
+> the parameter values, for each recursive call. The information for the most recent call is at the top of the stack,
+> and the information for the initial call is at the bottom. Upon calling a procedure, its information is ***pushed***
+> onto the stack; when it terminates, its information is ***popped***. Since we assume that array parameters are
+> represented by pointers, the information for each procedure call on the stack requires *O*(1) stack space. The
+> ***stack depth*** is the maximum amount of stack space used at any time during a computation.
+>
+> ***b.*** Describe a scenario in which *Tail-Recursive-Quicksort*’s stack depth is Θ(*n*) on an *n*-element input
+> array.
+>
+> ***c.*** Modify the code for *Tail-Recursive-Quicksort* so that the worst-case stack depth is Θ(lg *n*). Maintain the
+> O(*n* lg *n*) expected running time of the algorithm.
+
+***a.***
+
+The loop has the following invariant:
+
+- Let *m* be the initial value of *p*. At the beginning of each iteration of the loop, *A*[*m*‥*p* - 1] is in sorted
+  order, and no elements in *A*[*m*‥*p* - 1] is more than *A*[*p*].
+
+Proof by induction:
+
+- Base case: At the beginning of the first iteration, *p* = *m*, so *A*[*m*‥*p* - 1] is empty, the invariant holds.
+- Inductive case: At the beginning of the *n*th iteration, where *n* ≥ 1, by induction, we know that *A*[*m*‥*p* - 1] is
+  in sorted order, and no elements in *A*[*m*‥*p* - 1] is more than *A*[*p*].
+
+  After calling *Partition* in line 3, we know that elements in *A*[*p*‥*q* - 1] is less than or equal to *A*[*q*], and
+  elements in *A*[*q* + 1‥*r*] is greater than *A*[*q*].
+
+  After calling *Tail-Recursive-Quicksort* in line 4, we know that *A*[*p*‥*q* - 1] are in sorted order. Since no
+  elements in *A*[*m*‥*p* - 1] is more than *A*[*p*], *A*[*m*‥*q*] is in sorted order. After setting *p* = *q* + 1 in
+  line 5, the next iteration begins, so the invariant still holds.
+
+When the loop terminates, according to the loop invariant, we know that subarray *A*[*p*‥*r*] will be in sorted order.
+
+***b.***
+
+When the array is in increasing order.
+
+***c.***
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_4_stack_depth_for_quicksort.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
