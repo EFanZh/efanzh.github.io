@@ -330,7 +330,7 @@ $Θ\left(n^3\right)$.
 > Θ-notation.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_2_analyzing_algorithms/exercises/exercise_2_2_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_2_analyzing_algorithms/exercises/exercise_2_2_2.rs).
 
 The loop invariant: at the start of each iteration of loop, The first *i* elements contains the smallest *i* elements in
 *A*, and they are in nondecreasing order.
@@ -374,7 +374,7 @@ return the precomputed result.
 > all its elements copied back to *A* and then copying the remainder of the other array back into *A*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_2.rs)
 for implementation.
 
 ##### 2.3-3
@@ -402,7 +402,7 @@ for implementation.
 > running time of this recursive version of insertion sort.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
 for implementation.
 
 $$T\left(n\right) = \begin{cases}
@@ -419,7 +419,7 @@ $$T\left(n\right) = \begin{cases}
 > is Θ(lg *n*).
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_5.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_5.rs)
 for implementation.
 
 *Binary-Search*(*A*, *v*)
@@ -463,7 +463,7 @@ scenario, which takes Θ(*n*) time.
 > whether or not there exist two elements in *S* whose sum is exactly *x*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_7.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_7.rs)
 for implementations.
 
 #### 2.X Problems
@@ -589,7 +589,7 @@ for implementations.
 >    $a_0$, $a_1$, …, $a_n$.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/problems/problem_2_3.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_3.rs)
 for implementation.
 
 1. Θ(*n*).
@@ -638,7 +638,7 @@ for implementation.
    Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
    $∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
-   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_2_getting_started/problems/problem_2_4.rs)
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_4.rs)
    for implementation.
 
 ### 3 Growth of Functions
@@ -1042,11 +1042,11 @@ An array containing the single maximum element of the original array.
 > than $n_0$. Does that change the crossover point?
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/mod.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/mod.rs)
 for recursive implementation.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_3.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_3.rs)
 for brute-force implementation.
 
 *Skipped crossover point test for now.*
@@ -1069,7 +1069,7 @@ Run the original algorithm first, if the maximum sum is negative, return an empt
 > time based on knowing a maximum subarray ending at index *j*.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/exercises/exercise_4_1_5.rs)
 for implementation.
 
 #### 4.2 Strassen’s algorithm for matrix multiplication
@@ -1782,7 +1782,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    to the master theorem, we have *T*(*n*) = *O*(*n*). After we found one good we can identify all good chips with that
    good chip in Θ(*n*) time, so the total number of pairwise tests equals to *O*(*n*) + Θ(*n*) = Θ(*n*).
 
-The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_4_divide_and_conquer/problems/problem_4_5_chip_testing.rs).
+The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/problems/problem_4_5_chip_testing.rs).
 
 ##### 4-6 Monge arrays
 
@@ -1939,7 +1939,7 @@ Proof:
 > expected running time of your procedure, as a function of *a* and *b*?
 
 The procedure is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_1_the_hiring_problem/exercises/exercise_5_1_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_5_probabilistic_analysis_and_randomized_algorithms/section_5_1_the_hiring_problem/exercises/exercise_5_1_2.rs).
 
 let *n* = ⌈lg (*b* - *a* + 1)⌉ be the number of bits need to generate.
 
@@ -1971,7 +1971,7 @@ Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
 > running time of your algorithm as a function of *p*?
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_1_the_hiring_problem/exercises/exercise_5_1_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_5_probabilistic_analysis_and_randomized_algorithms/section_5_1_the_hiring_problem/exercises/exercise_5_1_3.rs).
 
 Let *k* be the time used to generate and compare two random value, *T*(*p*) be the expected running time of our
 algorithm, we have:
@@ -2064,7 +2064,7 @@ E[*X*]\
 > 5.5 for your procedure.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_1.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_1.rs).
 
 ##### 5.3-2
 
@@ -2173,7 +2173,7 @@ $P\left(n^3, n\right) / \left(n^3\right)^n$\
 > 8. &nbsp;&nbsp;&nbsp;&nbsp;**return** *S*
 
 The algorithm is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_7.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_5_probabilistic_analysis_and_randomized_algorithms/section_5_3_randomized_algorithms/exercises/exercise_5_3_7.rs).
 
 Like exercise 5.3-4, it is not enough by just proving ∀ *i* ∈ ℕ and 1 ≤ *i* ≤ *n*, the probability of
 *i* ∈ *Random-Sample*(*m*, *n*) is *m* / *n*.
@@ -2493,7 +2493,7 @@ nodes starts with ⌊*n* / 2⌋, and ends with *n*.
 > *Max-Heapify*?
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_2.rs).
 
 The running time of *Min-Heapify* is the same as *Max-Heapify*.
 
@@ -2516,7 +2516,7 @@ Nothing happens.
 > iterative control construct (a loop) instead of recursion.
 
 The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_5.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_2_maintaining_the_heap_property/exercises/exercise_6_2_5.rs).
 
 ##### 6.2-6
 
@@ -2616,7 +2616,7 @@ Both Θ(*n* lg *n*).
 > that implement a min-priority queue with a min-heap.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_3.rs).
 
 ##### 6.5-4
 
@@ -2645,7 +2645,7 @@ we use -∞ to do this.
 > idea of the inner loop of Insertion-Sort to reduce the three assignments down to just one assignment.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_6.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_6.rs).
 
 ##### 6.5-7
 
@@ -2653,7 +2653,7 @@ Solution is implemented
 > queue. (Queues and stacks are defined in Section 10.1.)
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_7.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_7.rs).
 
 ##### 6.5-8
 
@@ -2661,7 +2661,7 @@ Solution is implemented
 > *Heap-Delete* that runs in *O*(lg *n*) time for an *n*-element max-heap.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_8.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_8.rs).
 
 ##### 6.5-9
 
@@ -2669,7 +2669,7 @@ Solution is implemented
 > of elements in all the input lists. (Hint: Use a min-heap for *k*-way merging.)
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
 
 #### Problems
 
@@ -2715,7 +2715,7 @@ run time of Θ(*n* lg *n*).
 > time in terms of *d* and *n*.
 
 ***a.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
 
 ***b.*** The maximum number of elements of height *h* is $∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}$, so we have
 $\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}$. Solving it, we have
@@ -2723,17 +2723,17 @@ $\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\rig
 integer, we have *h* = $\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil$ = Θ($\log_d n$).
 
 ***c.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
 The worst-case running time is linear to the height of the heap, and on every level we have to find the maximum element
 in Θ(*d*) time. So the worst case running time is Θ(*d* $\log_d n$).
 
 ***d.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
 The worst-case running time is linear to the height of the heap. So the worst case running time is
 *O*($\log_d n$).
 
 ***e.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
 The worst case running time is Θ($\log_d n$).
 
 ##### 6-3 Young tableaus
@@ -2781,28 +2781,28 @@ The worst case running time is Θ($\log_d n$).
 ***c.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
 
 *T*(*p*) = *T*(*p* - 1) + *O*(1).
 
 ***d.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
 
 The solution is very similar to the *Extract-Min* and they have the same running time bound.
 
 ***e.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
 
 ***f.***
 
 You are thinking about binary search, aren’t you? Too bad this problem isn’t about that.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
 
 ### 7 Quicksort
 
@@ -2822,7 +2822,7 @@ Solution is implemented
 
 1. *Partition* returns *r* when all elements have the same value.
 2. Solution is implemented
-   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_2.rs).
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_2.rs).
 
 ##### 7.1-3
 
@@ -2838,7 +2838,7 @@ running time is Θ(*r* - *p*) = Θ(*n* - 1) = Θ(*n*).
 Do you mean that I can’t modify *Partition*?
 
 Fine, the solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_4.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/section_7_1_description_of_quicksort/exercises/exercise_7_1_4.rs).
 
 #### 7.2 Performance of quicksort
 
@@ -3151,7 +3151,7 @@ Proof by induction:
 ***e.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_1_hoare_partition_correctness.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_1_hoare_partition_correctness.rs).
 
 ##### 7-2 Quicksort with equal element values
 
@@ -3185,12 +3185,12 @@ Solution is implemented
 ***b.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
 
 ***c.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_2_quicksort_with_equal_element_values.rs).
 
 ***d.***
 
@@ -3286,7 +3286,7 @@ When the array is in increasing order.
 ***c.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_4_stack_depth_for_quicksort.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_4_stack_depth_for_quicksort.rs).
 
 ##### 7-5 Median-of-3 partition
 
@@ -3314,7 +3314,7 @@ Solution is implemented
 *Skipped.*
 
 The median-of-3 quicksort is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_5_median_of_3_partition.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_5_median_of_3_partition.rs).
 
 ##### 7-6 Fuzzy sorting of intervals
 
@@ -3336,7 +3336,7 @@ The median-of-3 quicksort is implemented
 > the amount of overlap increases.
 
 ***a.*** Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_7_quicksort/problems/problem_7_6_fuzzy_sorting_of_intervals.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_7_quicksort/problems/problem_7_6_fuzzy_sorting_of_intervals.rs).
 
 ***b.*** *Skipped.*
 
@@ -3434,7 +3434,7 @@ $\Pr\left\lbrace ⋂_{i = 1}^{n + 1} A_i\right\rbrace$\
 > produces as output heads with probability *a* / *b* and tails with probability (*b* - *a*) / *b*. Give a bound on the
 > expected number of coin flips, which should be *O*(1). (*Hint:* Represent *a* / *b* in binary.)
 
-Solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/section_c_counting_and_probability/section_c_2_probability/exercises/exercise_c_2_6.rs).
+Solution is implemented [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_c_counting_and_probability/section_c_2_probability/exercises/exercise_c_2_6.rs).
 
 The expected number of coin flips is 2.
 
