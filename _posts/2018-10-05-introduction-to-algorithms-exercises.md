@@ -3421,6 +3421,29 @@ The algorithm is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_2_counting_sort/exercises/exercise_8_2_4.rs).
 
+#### 8.3 Radix sort
+
+##### 8.3-1
+
+> Using Figure 8.3 as a model, illustrate the operation of *Radix-Sort* on the following list of English words: COW,
+> DOG, SEA, RUG, ROW, MOB, BOX, TAB, BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX.
+
+*Skipped.*
+
+##### 8.3-2
+
+> Which of the following sorting algorithms are stable: insertion sort, merge sort, heapsort, and quicksort? Give a
+> simple scheme that makes any comparison sort stable. How much additional time and space does your scheme entail?
+
+1. Insertion sort and merge sort are stable.
+2. First, convert each element *A*[*i*] to the tuple (*A*[*i*], *i*), then sort the converted array. When comparing two
+   tuples, first compare the first element. If they equal to each other, compare the second element.
+
+   Both additional time and additional space are Θ(*n*).
+
+The algorithm is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_3_radix_sort/exercises/exercise_8_3_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
