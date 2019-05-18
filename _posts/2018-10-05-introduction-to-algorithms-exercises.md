@@ -3463,6 +3463,17 @@ Proof by induction:
   we know that after the *i*th iteration, array *A* is sorted on the *i* lowest-order digits, so the elements in each
   group is sorted, which means the whole array is sorted on the (*i* + 1) lowest-order digits.
 
+##### 8.3-4
+
+> Show how to sort *n* integers in the range 0 to $n^3$ - 1 in *O*(*n*) time.
+
+Represent the integers with lg *n* bit digits, then the running time will be:
+
+Θ(*d* / *r* (*n* + $2^r$))\
+=Θ(lg $n^3$ / lg *n* (*n* + $2^{\lg n}$))\
+= Θ(6 *n*)\
+= *O*(*n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
