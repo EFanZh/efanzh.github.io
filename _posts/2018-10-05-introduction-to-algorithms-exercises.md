@@ -3474,6 +3474,14 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 = Θ(6 *n*)\
 = *O*(*n*).
 
+##### 8.3-5 ★
+
+> In the first card-sorting algorithm in this section, exactly how many sorting passes are needed to sort *d*-digit
+> decimal numbers in the worst case? How many piles of cards would an operator need to keep track of in the worst case?
+
+1. $∑_{i = 0}^{d - 1} 10^i$ = ($10^d - 1$) / 9.
+2. 9 *d*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
