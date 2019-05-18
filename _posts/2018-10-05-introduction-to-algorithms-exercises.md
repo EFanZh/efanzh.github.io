@@ -3412,6 +3412,15 @@ modified algorithm is not stable.
 The algorithm is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_2_counting_sort/exercises/exercise_8_2_3.rs).
 
+##### 8.2-4
+
+> Describe an algorithm that, given *n* integers in the range 0 to *k*, preprocesses its input and then answers any
+> query about how many of the *n* integers fall into a range [*a*‥*b*] in *O*(1) time. Your algorithm should use
+> Θ(*n* + *k*) preprocessing time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_2_counting_sort/exercises/exercise_8_2_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
