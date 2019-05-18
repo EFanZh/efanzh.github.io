@@ -3444,6 +3444,25 @@ Solution is implemented
 The algorithm is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_3_radix_sort/exercises/exercise_8_3_2.rs).
 
+##### 8.3-3
+
+> Use induction to prove that radix sort works. Where does your proof need the assumption that the intermediate sort is
+> stable?
+
+The loop invariant:
+
+- After the *i*th iteration, array *A* is sorted on the *i* lowest-order digits.
+
+Proof by induction:
+
+- Base case: After the first iteration, array *A* is being sorted on the first digit of its elements, so the array is
+  sorted on the lowest-order digit.
+- Indictive case: At the (*i* + 1)-th iteration, the array is being sorted on the (*i* + 1)-th lowest-order digit with a
+  stable sort, which means the elements with the same (*i* + 1)-th lowest-order digit will be grouped together in a
+  sorted order; also, because the sort is stable, the relative order of the elements in any group is kept. By induction,
+  we know that after the *i*th iteration, array *A* is sorted on the *i* lowest-order digits, so the elements in each
+  group is sorted, which means the whole array is sorted on the (*i* + 1) lowest-order digits.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
