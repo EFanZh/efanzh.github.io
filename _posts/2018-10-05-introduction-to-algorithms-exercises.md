@@ -3398,6 +3398,20 @@ For all elements in *A* that equals to *k*, the last one will be put at the posi
 decremented by one, so the second last element will be put before the last element and so on. So the relative order of
 equal elements is kept, which means the algorithm is stable.
 
+##### 8.2-3
+
+> Suppose that we were to rewrite the **for** loop header in line 10 of the *Counting-Sort* as
+>
+> 10 **for** *j* = 1 **to** *A*.*length*
+>
+> Show that the algorithm still works properly. Is the modified algorithm stable?
+
+It is the same as the original algorithm except that the order of the elements with the same value is reversed. The
+modified algorithm is not stable.
+
+The algorithm is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_2_counting_sort/exercises/exercise_8_2_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
