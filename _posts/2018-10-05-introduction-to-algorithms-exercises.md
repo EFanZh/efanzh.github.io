@@ -2878,7 +2878,7 @@ At the first partition, we will choose 1 as the pivot element. so after partitio
 ⟨*n* - 1, *n* - 2, …, 2, *n*⟩. This is the worst case scenario.
 
 At the second partition, we will choose *n* as the pivot element. so after partition, we get two arrays:
-⟨*n* - 1, *n* - 2, …, 2⟩ and ⟨⟩. . This is the worst case scenario.
+⟨*n* - 1, *n* - 2, …, 2⟩ and ⟨⟩. This is the worst case scenario.
 
 Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2⟩ is in decreasing order, so we get
 ourselves a subproblem of the original problem. Since the first two partitions of the partition is the worst cast
@@ -3350,7 +3350,9 @@ The median-of-3 quicksort is implemented
 
 *n* - 1.
 
-*Couldn’t prove it formally.*
+Because for any element in the array to be sorted, it should be compared at lease once, otherwise we couldn’t determine
+its position in the sorted array. So if we must compare every element at least once, we need at least *n* - 1
+comparisons.
 
 ##### 8.1-2
 
@@ -3376,6 +3378,25 @@ The median-of-3 quicksort is implemented
 > simply combine the lower bounds for the individual subsequences.)
 
 *Skipped.*
+
+#### 8.2 Counting sort
+
+##### 8.2-1
+
+> Using Figure 8.2 as a model, illustrate the operation of *Counting-Sort* on the array
+> *A* = ⟨6, 0, 2, 0, 1, 3, 4, 6, 1, 3, 2⟩.
+
+*Skipped.*
+
+##### 8.2-2
+
+> Prove that *Counting-Sort* is stable.
+
+The key is the reverse iterating of line 10.
+
+For all elements in *A* that equals to *k*, the last one will be put at the position *C*[*k*], and then *C*[*k*] will be
+decremented by one, so the second last element will be put before the last element and so on. So the relative order of
+equal elements is kept, which means the algorithm is stable.
 
 ------------------------------------------------------------------------------------------------------------------------
 
