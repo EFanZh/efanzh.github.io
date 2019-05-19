@@ -3482,6 +3482,23 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 1. $∑_{i = 0}^{d - 1} 10^i$ = ($10^d - 1$) / 9.
 2. 9 *d*.
 
+#### 8.4 Bucket sort
+
+##### 8.4-1
+
+> Using Figure 8.4 as a model, illustrate the operation of *Bucket-Sort* on the array
+> *A* = ⟨.79, .13, .16, .64, .39, .20, .89, .53, .71, .42⟩.
+
+*Skipped.*
+
+##### 8.4-2
+
+> Explain why the worst-case running time for bucket sort is Θ($n^2$). What simple change to the algorithm preserves its
+> linear average-case running time and makes its worst-case running time O(*n* lg *n*)?
+
+1. If all elements are put into one single bucket, the running time become Θ($n^2$).
+2. Use merge sort instead of insertion sort to sort elements in buckets.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
