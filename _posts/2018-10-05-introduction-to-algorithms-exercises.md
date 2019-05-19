@@ -3499,6 +3499,19 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 1. If all elements are put into one single bucket, the running time become Θ($n^2$).
 2. Use merge sort instead of insertion sort to sort elements in buckets.
 
+##### 8.4-3
+
+> Let *X* be a random variable that is equal to the number of heads in two flips of a fair coin. What is E[$X^2$]? What
+> is $\operatorname{E}^2\left[X\right]$?
+
+E[$X^2$]\
+= $0^2$ × 1 / 4 + $1^2$ × 1 / 2 + $2^2$ × 1 / 4\
+= 3 / 2.
+
+$\operatorname{E}^2\left[X\right]$\
+= $\left(0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4\right)^2$\
+= 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
