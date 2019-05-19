@@ -3531,6 +3531,39 @@ To implement the algorithm, we need to put point (*x*, *y*), in bucket ⌈*n* ($
 The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_4_bucket_sort/exercises/exercise_8_4_4.rs).
 
+##### 8.4-5 ★
+
+> A ***probability distribution function*** *P*(*x*) for a random variable *X* is defined by *P*(*x*) = Pr{*X* ≤ *x*}.
+> Suppose that we draw a list of *n* random variables $X_1$, $X_2$, …, $X_n$ from a continuous probability distribution
+> function *P* that is computable in *O*(1) time. Give an algorithm that sorts these numbers in linear average-case
+> time.
+
+Using bucket sort by putting *X* into the bucket ⌈*n* *P*(*X*)⌉ - 1.
+
+Proof: the probability of *X* going into bucket *i* is:
+
+Pr{⌈*n* *P*(*X*)⌉ - 1 = *i*}\
+= Pr{⌈*n* *P*(*X*)⌉ = *i* + 1}\
+= Pr{*i* < *n* *P*(*X*) ≤ *i* + 1}\
+= Pr{*i* / *n* < *P*(*X*) ≤ (*i* + 1) / *n*}\
+= Pr{*P*(*X*) ≤ (*i* + 1) / *n*} - Pr{*P*(*X*) ≤ *i* / *n*}.
+
+Since
+
+Pr{*P*(*X*) ≤ *t*}\
+= Pr{*X* ≤ $P^{-1}\left(t\right)$}\
+= $P\left(P^{-1}\left(t\right)\right)$\
+= *t*,
+
+Pr{*P*(*X*) ≤ (*i* + 1) / *n*} - Pr{*P*(*X*) ≤ *i* / *n*}\
+= (*i* + 1) / *n* - *i* / *n*\
+= 1 / *n*.
+
+So the probability of *X* going into bucket *i* is 1 / *n*.
+
+The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_4_bucket_sort/exercises/exercise_8_4_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
