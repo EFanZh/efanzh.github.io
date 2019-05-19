@@ -3512,6 +3512,25 @@ $\operatorname{E}^2\left[X\right]$\
 = $\left(0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4\right)^2$\
 = 1.
 
+##### 8.4-4 ★
+
+> We are given *n* points in the unit circle, $p_i$ = ($x_i$, $y_i$), such that 0 < $x_i^2 + y_i^2$ ≤ 1 for
+> *i* = 1, 2, …, *n*. Suppose that the points are uniformly distributed; that is, the probability of finding a point in
+> any region of the circle is proportional to the area of that region. Design an algorithm with an average-case running
+> time of Θ(*n*) to sort the *n* points by their distances $d_i = \sqrt{x_i^2 + y_i^2}$ from the origin. (*Hint:* Design
+> the bucket sizes in *Bucket-Sort* to reflect the uniform distribution of the points in the unit circle.)
+
+Question: why can’t $x_i^2 + y_i^2$ be zero?
+
+Since the probability is proportional to the area, and the whole area is *π*, the we construct circles with area
+*π* / *n*, 2 *π* / *n*, …, (*n* - 1) *π* / *n*, *π*, and use their boundaries as the bucket boundaries, that is we
+construct buckets with boundaries of $\sqrt{1 / n}$, $\sqrt{2 / n}$, …, $\sqrt{\left(n - 1\right) / n}$, 1.
+
+To implement the algorithm, we need to put point (*x*, *y*), in bucket ⌈*n* ($x^2 + y^2$)⌉ - 1.
+
+The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_4_bucket_sort/exercises/exercise_8_4_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
