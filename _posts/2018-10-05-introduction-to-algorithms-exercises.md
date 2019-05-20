@@ -3426,7 +3426,7 @@ Solution is implemented
 ##### 8.3-1
 
 > Using Figure 8.3 as a model, illustrate the operation of *Radix-Sort* on the following list of English words: COW,
-> DOG, SEA, RUG, ROW, MOB, BOX, TAB, BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX.
+> DOG, SEA, RUG, ROW, MOB, BOX, $T_A$B, BAR, EAR, $T_A$R, DIG, BIG, TEA, NOW, FOX.
 
 *Skipped.*
 
@@ -3563,6 +3563,84 @@ So the probability of *X* going into bucket *i* is 1 / *n*.
 
 The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_4_bucket_sort/exercises/exercise_8_4_5.rs).
+
+#### 8.X Problems
+
+##### 8-1 Probabilistic lower bounds on comparison sorting
+
+> In this problem, we prove a probabilistic Ω(*n* lg *n*) lower bound on the running time of any deterministic or
+> randomized comparison sort on *n* distinct input elements. We begin by examining a deterministic comparison sort *A*
+> with decision tree $T_A$. We assume that every permutation of *A*’s inputs is equally likely.
+>
+> ***a.*** Suppose that each leaf of $T_A$ is labeled with the probability that it is reached given a random input.
+> Prove that exactly *n*! leaves are labeled 1 / *n*! and that the rest are labeled 0.
+>
+> ***b.*** Let *D*(*T*) denote the external path length of a decision tree *T*; that is, *D*(*T*) is the sum of the
+> depths of all the leaves of *T*. Let *T* be a decision tree with *k* > 1 leaves, and let *LT* and *RT* be the left and
+> right subtrees of *T*. Show that *D*(*T*) = *D*(*LT*) + *D*(*RT*) + *k*.
+>
+> ***c.*** Let *d*(*k*) be the minimum value of *D*(*T*) over all decision trees *T* with *k* > 1 leaves. Show that
+> *d*(*k*) = $\min_{1 ≤ i ≤ k - 1} \left\lbrace d(i) + d(k - i) + k\right\rbrace$. (*Hint:* Consider a decision tree *T*
+> with *k* leaves that achieves the minimum. Let $i_0$ be the number of leaves in *LT* and *k* - $i_0$ the number of
+> leaves in *RT*.)
+>
+> ***d.*** Prove that for a given value of *k* > 1 and *i* in the range 1 ≤ *i* ≤ *k* - 1, the function
+> *i* lg *i* + (*k* - *i*) lg(*k* - *i*) is minimized at *i* = *k* / 2. Conclude that *d*(*k*) = Ω(*k* lg *k*).
+>
+> ***e.*** Prove that *D*($T_A$) = Ω(*n*! lg(*n*!)), and conclude that the average-case time to sort *n* elements is
+> Ω(*n* lg *n*).
+>
+> Now, consider a *randomized* comparison sort *B*. We can extend the decision-tree model to handle randomization by
+> incorporating two kinds of nodes: ordinary comparison nodes and “randomization” nodes. A randomization node models a
+> random choice of the form *Random*(1, *r*) made by algorithm *B*; the node has *r* children, each of which is equally
+> likely to be chosen during an execution of the algorithm.
+>
+> ***f.*** Show that for any randomized comparison sort *B*, there exists a deterministic comparison sort *A* whose
+> expected number of comparisons is no more than those made by *B*.
+
+*Skipped.*
+
+##### 8-2 Sorting in place in linear time
+
+> Suppose that we have an array of *n* data records to sort and that the key of each record has the value 0 or 1. An
+> algorithm for sorting such a set of records might possess some subset of the following three desirable
+> characteristics:
+>
+> 1. The algorithm runs in *O*(*n*) time.
+> 2. The algorithm is stable.
+> 3. The algorithm sorts in place, using no more than a constant amount of storage space in addition to the original
+>    array.
+>
+> ***a.*** Give an algorithm that satisfies criteria 1 and 2 above.
+>
+> ***b.*** Give an algorithm that satisfies criteria 1 and 3 above.
+>
+> ***c.*** Give an algorithm that satisfies criteria 2 and 3 above.
+>
+> ***d.*** Can you use any of your sorting algorithms from parts (a)–(c) as the sorting method used in line 2 of
+> *Radix-Sort*, so that *Radix-Sort* sorts *n* records with *b*-bit keys in *O*(*b* *n*) time? Explain how or why not.
+>
+> ***e.*** Suppose that the *n* records have keys in the range from 1 to *k*. Show how to modify counting sort so that
+> it sorts the records in place in *O*(*n* + *k*) time. You may use *O*(*k*) storage outside the input array. Is your
+> algorithm stable? (*Hint:* How would you do it for *k* = 3?)
+
+***a.*** Counting sort.
+
+***b.*** The *Partition* procedure used in quicksort, and use 0 as pivot.
+
+***c.*** Insertion sort.
+
+***d.***
+
+- (a) Counting sort: No. Because it requires Ω($2^b$) running time.
+- (b) Partition: No. It does not sort keys with more than one bit.
+- (c) Insertion sort: Yes.
+
+***e.***
+
+The algorithm is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_2.rs).
+It is unstable.
 
 ------------------------------------------------------------------------------------------------------------------------
 
