@@ -3642,6 +3642,22 @@ The algorithm is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_2.rs).
 It is unstable.
 
+##### 8-3 Sorting variable-length items
+
+> ***a.*** You are given an array of integers, where different integers may have different numbers of digits, but the
+> total number of digits over all the integers in the array is *n*. Show how to sort the array in *O*(*n*) time.
+>
+> ***b.*** You are given an array of strings, where different strings may have different numbers of characters, but the
+> total number of characters over all the strings is *n*. Show how to sort the strings in *O*(*n*) time.
+>
+> (Note that the desired order here is the standard alphabetical order; for example, `a` < `ab` < `b`.)
+
+***a.*** We only consider positive integers without leading zeroes. For each integer *k*, we put it into the bucket *i*
+if it has *i* digits. Then radix sort each bucket. Finally concatenate elements in each bucket.
+
+***b.*** Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
