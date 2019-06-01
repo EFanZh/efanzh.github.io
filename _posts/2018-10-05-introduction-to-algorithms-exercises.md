@@ -3658,6 +3658,36 @@ if it has *i* digits. Then radix sort each bucket. Finally concatenate elements 
 ***b.*** Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_3.rs).
 
+##### 8-4 Water jugs
+
+> Suppose that you are given *n* red and *n* blue water jugs, all of different shapes and sizes. All red jugs hold
+> different amounts of water, as do the blue ones. Moreover, for every red jug, there is a blue jug that holds the same
+> amount of water, and vice versa.
+>
+> Your task is to find a grouping of the jugs into pairs of red and blue jugs that hold the same amount of water. To do
+> so, you may perform the following operation: pick a pair of jugs in which one is red and one is blue, fill the red jug
+> with water, and then pour the water into the blue jug. This operation will tell you whether the red or the blue jug
+> can hold more water, or that they have the same volume. Assume that such a comparison takes one time unit. Your goal
+> is to find an algorithm that makes a minimum number of comparisons to determine the grouping. Remember that you may
+> not directly compare two red jugs or two blue jugs.
+>
+> ***a.*** Describe a deterministic algorithm that uses Θ($n^2$) comparisons to group the jugs into pairs.
+>
+> ***b.*** Prove a lower bound of Ω(*n* lg *n*) for the number of comparisons that an algorithm solving this problem
+> must make.
+>
+> ***c.*** Give a randomized algorithm whose expected number of comparisons is O(*n* lg *n*), and prove that this bound
+> is correct. What is the worst-case number of comparisons for your algorithm?
+
+***a.*** For each red jug, we compare it with every blue jug, and find the one with the same volume.
+
+***b.*** It is like sorting, if our algorithm correctly groups jugs into pairs, there must be *n*! different grouping
+possible result. So the decision tree must at least have the height lg *n*! = Ω(*n* lg *n*).
+
+***c.*** Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_4.rs).
+The worst-cast running time is Θ($n^2$).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
