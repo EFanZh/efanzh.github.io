@@ -3743,6 +3743,177 @@ Proof by contradiction: If *k*-sorting an *n*-element array requires *o*(*n* lg 
 will only need *o*(*n* lg *n*) + *O*(*n* lg *k*) = *o*(*n* lg *n*) time, which is impossible. So *k*-sorting an
 *n*-element array requires Ω(*n* lg *n*) time.
 
+##### 8-6 Lower bound on merging sorted lists
+
+> The problem of merging two sorted lists arises frequently. We have seen a procedure for it as the subroutine *Merge*
+> in Section 2.3.1. In this problem, we will prove a lower bound of 2 *n* - 1 on the worst-case number of comparisons
+> required to merge two sorted lists, each containing *n* items.
+>
+> First we will show a lower bound of 2 *n* - *o*(*n*) comparisons by using a decision tree.
+>
+> ***a.*** Given 2 *n* numbers, compute the number of possible ways to divide them into two sorted lists, each with *n*
+> numbers.
+>
+> ***b.*** Using a decision tree and your answer to part (a), show that any algorithm that correctly merges two sorted
+> lists must perform at least 2 *n* - *o*(*n*) comparisons.
+>
+> Now we will show a slightly tighter 2 *n* - 1 bound.
+>
+> ***c.*** Show that if two elements are consecutive in the sorted order and from different lists, then they must be
+> compared.
+>
+> ***d.*** Use your answer to the previous part to show a lower bound of 2 *n* - 1 comparisons for merging two sorted
+> lists.
+
+***a.***
+
+*C*(2 *n*, *n*) = $\frac{(2 n)!}{\left(n!\right)^2}$.
+
+***b.***
+
+The decision tree has at least $\frac{(2 n)!}{\left(n!\right)^2}$ nodes, so the height of the tree is at least
+
+$\lg \frac{(2 n)!}{\left(n!\right)^2}$\
+= lg ((2 *n*)!) - 2 lg(*n*!)\
+= $∑_{i = 1}^{2 n} \lg i - 2 ∑_{i = 1}^{n} \lg i$\
+= $∑_{i = n + 1}^{2 n} \lg i - ∑_{i = 1}^{n} \lg i$\
+= $∑_{i = 1}^{n} \lg \left(n + i\right) - ∑_{i = 1}^{n} \lg i$\
+= $∑_{i = 1}^{n} \lg (1 + n / i)$.
+
+*Skipped.*
+
+***c.***
+
+*Skipped.*
+
+***d.***
+
+*Skipped.*
+
+##### 8-7 The 0-1 sorting lemma and columnsort
+
+> A ***compare-exchange*** operation on two array elements *A*[*i*] and *A*[*j*], where *i* < *j*, has the form
+>
+> *Compare-Exchange*(*A*, *i*, *j*)
+>
+> 1. **if** *A*[*i*] > *A*[*j*]
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;exchange *A*[*i*] with *A*[*j*]
+>
+> After the compare-exchange operation, we know that *A*[*i*] ≤ *A*[*j*].
+>
+> An ***oblivious compare-exchange algorithm*** operates solely by a sequence of prespecified compare-exchange
+> operations. The indices of the positions compared in the sequence must be determined in advance, and although they can
+> depend on the number of elements being sorted, they cannot depend on the values being sorted, nor can they depend on
+> the result of any prior compare-exchange operation. For example, here is insertion sort expressed as an oblivious
+> compare-exchange algorithm:
+>
+> *Insertion-Sort*(*A*)
+>
+> 1. **for** *j* = 2 **to** *A*.*length*
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;**for** *i* = *j* - 1 **downto** 1
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Compare-Exchange**(*A*, *i*, *i* + 1)
+>
+> The ***0-1 sorting lemma*** provides a powerful way to prove that an oblivious compare-exchange algorithm produces a
+> sorted result. It states that if an oblivious compare-exchange algorithm correctly sorts all input sequences
+> consisting of only 0s and 1s, then it correctly sorts all inputs containing arbitrary values.
+>
+> You will prove the 0-1 sorting lemma by proving its contrapositive: if an oblivious compare-exchange algorithm fails
+> to sort an input containing arbitrary values, then it fails to sort some 0-1 input. Assume that an oblivious
+> compare-exchange algorithm X fails to correctly sort the array *A*[1‥*n*]. Let *A*[*p*] be the smallest value in A
+> that algorithm X puts into the wrong location, and let *A*[*q*] be the value that algorithm X moves to the location
+> into which *A*[*p*] should have gone. Define an array *B*[1‥*n*] of 0s and 1s as follows:
+>
+> *B*[*i*] = $\begin{cases}
+> 0 &&\text{if } A\left[i\right] ≤ A\left[p\right],\\\\
+> 1 &&\text{if } A\left[i\right] > A\left[p\right].
+> \end{cases}$
+>
+> ***a.*** Argue that *A*[*q*] > *A*[*p*], so that *B*[*p*] = 0 and *B*[*q*] = 1.
+>
+> ***b.*** To complete the proof of the 0-1 sorting lemma, prove that algorithm X fails to sort array B correctly.
+>
+> Now you will use the 0-1 sorting lemma to prove that a particular sorting algorithm works correctly. The algorithm,
+> ***columnsort***, works on a rectangular array of *n* elements. The array has *r* rows and *s* columns (so that
+> *n* = *r* *s*), subject to three restrictions:
+>
+> - *r* must be even,
+> - *s* must be a divisor of *r*, and
+> - *r* ≥ 2 $s^2$.
+>
+> When columnsort completes, the array is sorted in ***column-major order***: reading down the columns, from left to
+> right, the elements monotonically increase.
+>
+> Columnsort operates in eight steps, regardless of the value of *n*. The odd steps are all the same: sort each column
+> individually. Each even step is a fixed permutation. Here are the steps:
+>
+> 1. Sort each column.
+> 2. Transpose the array, but reshape it back to *r* rows and *s* columns. In other words, turn the leftmost column into
+>    the top *r* / *s* rows, in order; turn the next column into the next *r* / *s* rows, in order; and so on.
+> 3. Sort each column.
+> 4. Perform the inverse of the permutation performed in step 2.
+> 5. Sort each column.
+> 6. Shift the top half of each column into the bottom half of the same column, and shift the bottom half of each column
+>    into the top half of the next column to the right. Leave the top half of the leftmost column empty. Shift the
+>    bottom half of the last column into the top half of a new rightmost column, and leave the bottom half of this new
+>    column empty.
+> 7. Sort each column.
+> 8. Perform the inverse of the permutation performed in step 6.
+>
+> Figure 8.5 shows an example of the steps of columnsort with *r* = 6 and *s* = 3. (Even though this example violates
+> the requirement that *r* ≥ 2 $s^2$, it happens to work.)
+>
+> ```text
+> 10 14  5     4  1  2     4  8 10     1  3  6     1  4 11
+>  8  7 17     8  3  5    12 16 18     2  5  7     3  8 14
+> 12  1  6    10  7  6     1  3  7     4  8 10     6 10 17
+> 16  9 11    12  9 11     9 14 15     9 13 15     2  9 12
+>  4 15  2    16 14 13     2  5  6    11 14 17     5 13 16
+> 18  3 13    18 15 17    11 13 17    12 16 18     7 15 18
+>   (a)         (b)         (c)         (d)         (e)
+>
+>  1  4 11        5 10 16        4 10 16     1  7 13
+>  2  8 12        6 13 17        5 11 17     2  8 14
+>  3  9 14        7 15 18        6 12 18     3  9 15
+>  5 10 16     1  4 11        1  7 13        4 10 16
+>  6 13 17     2  8 12        2  8 14        5 11 17
+>  7 15 18     3  9 14        3  9 15        6 12 18
+>   (f)           (g)            (h)          (i)
+> ```
+>
+> **Figure 8.5** The steps of columnsort. **(a)** The input array with 6 rows and 3 columns. **(b)** After sorting each
+> column in step 1. **(c)** After transposing and reshaping in step 2. **(d)** After sorting each column in step 3.
+> **(e)** After performing step 4, which inverts the permutation from step 2. **(f)** After sorting each column in step
+> 5. **(g)** After shifting by half a column in step 6. **(h)** After sorting each column in step 7. **(i)** After
+> performing step 8, which inverts the permutation from step 6. The array is now sorted in column-major order.
+>
+> ***c.*** Argue that we can treat columnsort as an oblivious compare-exchange algorithm, even if we do not know what
+> sorting method the odd steps use.
+>
+> Although it might seem hard to believe that columnsort actually sorts, you will use the 0-1 sorting lemma to prove
+> that it does. The 0-1 sorting lemma applies because we can treat columnsort as an oblivious compare-exchange
+> algorithm. A couple of definitions will help you apply the 0-1 sorting lemma. We say that an area of an array is
+> ***clean*** if we know that it contains either all 0s or all 1s. Otherwise, the area might contain mixed 0s and 1s,
+> and it is ***dirty***. From here on, assume that the input array contains only 0s and 1s, and that we can treat it as
+> an array with *r* rows and *s* columns.
+>
+> ***d.*** Prove that after steps 1–3, the array consists of some clean rows of 0s at the top, some clean rows of 1s at
+> the bottom, and at most *s* dirty rows between them.
+>
+> ***e.*** Prove that after step 4, the array, read in column-major order, starts with a clean area of 0s, ends with a
+> clean area of 1s, and has a dirty area of at most $s^2$ elements in the middle.
+>
+> ***f.*** Prove that steps 5–8 produce a fully sorted 0-1 output. Conclude that columnsort correctly sorts all inputs
+> containing arbitrary values.
+>
+> ***g.*** Now suppose that *s* does not divide *r*. Prove that after steps 1–3, the array consists of some clean rows
+> of 0s at the top, some clean rows of 1s at the bottom, and at most 2 *s* - 1 dirty rows between them. How large must
+> *r* be, compared with *s*, for columnsort to correctly sort when *s* does not divide *r*?
+>
+> ***h.*** Suggest a simple change to step 1 that allows us to maintain the requirement that *r* ≥ 2 $s^2$ even when *s*
+> does not divide *r*, and prove that with your change, columnsort correctly sorts.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
