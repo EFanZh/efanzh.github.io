@@ -3688,6 +3688,61 @@ possible result. So the decision tree must at least have the height lg *n*! = Ω
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_4.rs).
 The worst-cast running time is Θ($n^2$).
 
+##### 8-5 Average sorting
+
+> Suppose that, instead of sorting an array, we just require that the elements increase on average. More precisely, we
+> call an *n*-element array *A* ***k-sorted*** if, for all *i* = 1, 2, …, *n* - *k*, the following holds:
+>
+> $\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}$.
+>
+> ***a.*** What does it mean for an array to be 1-sorted?
+>
+> ***b.*** Give a permutation of the numbers 1, 2, …, 10 that is 2-sorted, but not sorted.
+>
+> ***c.*** Prove that an *n*-element array is *k*-sorted if and only if *A*[*i*] ≤ *A*[*i* + *k*] for all
+> *i* = 1, 2, …, *n* - *k*.
+>
+> ***d.*** Give an algorithm that *k*-sorts an *n*-element array in *O*(*n* lg(*n* / *k*)) time.
+>
+> We can also show a lower bound on the time to produce a *k*-sorted array, when *k* is a constant.
+>
+> ***e.*** Show that we can sort a *k*-sorted array of length *n* in *O*(*n* lg *k*) time. (*Hint:* Use the solution to
+> Exercise 6.5-9.)
+>
+> ***f.*** Show that when *k* is a constant, *k*-sorting an *n*-element array requires Ω(*n* lg *n*) time. (*Hint:* Use
+> the solution to the previous part along with the lower bound on comparison sorts.)
+
+***a.***
+
+It means the array is sorted.
+
+***b.***
+
+⟨2, 1, 4, 3, 6, 5, 8, 7, 10, 9⟩.
+
+***c.***
+
+$\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}$\
+⇔ $∑_{j = i}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k} A\left[j\right]$\
+⇔ $A\left[i\right] + ∑_{j = i + 1}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k - 1} A\left[j\right] + A\left[i + k\right]$\
+⇔ $A\left[i\right] ≤ A\left[i + k\right]$.
+
+***d.***
+
+Running an *O*(*n* lg *n*) running time sorting algorithm on subarrays
+⟨*A*[*j*], *A*[*k* + *j*], *A*[2 *k* + *j*], …⟩ for *j* = 0, 1, …, *k* - 1.
+
+***e.***
+
+A *k*-sorted array contains at most *k* sorted subarrays of length *n* / *k*, we can merge *k* sorted arrays in
+*O*(*n* / *k* lg *k*) = *O*(*n* lg *k*) time.
+
+***f.***
+
+Proof by contradiction: If *k*-sorting an *n*-element array requires *o*(*n* lg *n*) time, then sorting an *n* element
+will only need *o*(*n* lg *n*) + *O*(*n* lg *k*) = *o*(*n* lg *n*) time, which is impossible. So *k*-sorting an
+*n*-element array requires Ω(*n* lg *n*) time.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
