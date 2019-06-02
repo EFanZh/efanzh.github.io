@@ -4019,6 +4019,27 @@ Solving *c* ((3 / 4) (*k* + 1) / *k* - 1) + *a* < 0, we get:
 
 When doing partition, use the *Select* procedure to find the median element as the pivot.
 
+##### 9.3-4 ★
+
+> Suppose that an algorithm uses only comparisons to find the *i*th smallest element in a set of *n* elements. Show that
+> it can also find the *i* - 1 smaller elements and the *n* - *i* larger elements without performing any additional
+> comparisons.
+
+*Skipped.*
+
+##### 9.3-5
+
+> Suppose that you have a “black-box” worst-case linear-time median subroutine. Give a simple, linear-time algorithm
+> that solves the selection problem for an arbitrary order statistic.
+
+Replace the first 3 steps of *Select* to a step of using the linear-time median subroutine to find the pivot.
+
+The running time becomes:
+
+*T*(*n*) = *T*(*n* / 2) + *O*(*n*).
+
+Using the master theorem, we have *T*(*n*) = *O*(*n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
