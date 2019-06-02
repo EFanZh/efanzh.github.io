@@ -3979,6 +3979,32 @@ Solution is implemented
 
 On each partition, the maximum element is selected as the pivot.
 
+#### 9.3 Selection in worst-case linear time
+
+##### 9.3-1
+
+> In the algorithm *Select*, the input elements are divided into groups of 5. Will the algorithm work in linear time if
+> they are divided into groups of 7? Argue that *Select* does not run in linear time if groups of 3 are used.
+
+Assume the elements are divided into groups of *k*, we know that the number of elements greater than *x* is at least
+((*k* + 1) / 2) (⌈⌈*n* / *k*⌉ / 2⌉ - 2) ≥ (*k* + 1) *n* / (4 *k*) - *k* - 1. So in the worst cast, the
+recursive call in step 5 is on at most (3 *k* - 1) *n* / (4 *k*) + *k* + 1. So for *n* that is large enough:
+
+*T*(*n*)\
+≤ *c* ⌈*n* / *k*⌉ + *c* ((3 *k* - 1) *n* / (4 *k*) + *k* + 1) + *a* *n*\
+≤ *c* *n* / *k* + *c* + *c* (3 *k* - 1) *n* / (4 *k*) + *c* (*k* + 1) + *a* *n*\
+= (3 / 4) *c* (*k* + 1) *n* / *k* + *c* (*k* + 2) + *a* *n*\
+= (3 / 4) *c* (*k* + 1) *n* / *k* + *c* (*k* + 2) + *a* *n*\
+= *c* *n* + ((*c* ((3 / 4) (*k* + 1) / *k* - 1) + *a*) *n* + *c* (*k* + 2)).
+
+Solving *c* ((3 / 4) (*k* + 1) / *k* - 1) + *a* < 0, we get:
+
+*c* > *a* / (1 - (3 / 4) (*k* + 1) / *k*).
+
+- If *k* = 3, *c* > *a* / (1 - (3 / 4) (3 + 1) / 3) = ∞, so that’s not possible.
+- If *k* = 7, *c* > *a* / (1 - (3 / 4) (7 + 1) / 7) = 7 *a*, so it is possible to select a *c* > 7 *a* to make *T*(*n*)
+  linear.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
