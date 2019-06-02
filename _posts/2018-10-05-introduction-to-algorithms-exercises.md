@@ -3914,6 +3914,18 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 
 *Skipped.*
 
+### 9 Medians and Order Statistics
+
+#### 9.1 Minimum and maximum
+
+##### 9.1-1
+
+> Show that the second smallest of *n* elements can be found with *n* + ⌈lg *n*⌉ - 2 comparisons in the worst case.
+> (*Hint:* Also find the smallest element.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_1_minimum_and_maximum/exercises/exercise_9_1_1.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
