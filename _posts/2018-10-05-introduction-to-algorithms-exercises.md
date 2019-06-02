@@ -3959,6 +3959,19 @@ Solution is implemented
 
   So the recursion call in line 8 is on a non-empty subarray *A*[*q* + 1‥*r*].
 
+##### 9.2-2
+
+> Argue that the indicator random variable $X_k$ and the value *T*(max(*k* - 1, *n* - *k*)) are independent.
+
+*Skipped.*
+
+##### 9.2-3
+
+> Write an iterative version of *Randomized-Select*.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_2_selection_in_expected_linear_time/exercises/exercise_9_2_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
