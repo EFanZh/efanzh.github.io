@@ -3972,6 +3972,13 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_2_selection_in_expected_linear_time/exercises/exercise_9_2_3.rs).
 
+##### 9.2-4
+
+> Suppose we use *Randomized-Select* to select the minimum element of the array *A* = ⟨3, 2, 9, 0, 7, 5, 4, 8, 6, 1⟩.
+> Describe a sequence of partitions that results in a worst-case performance of *Randomized-Select*.
+
+On each partition, the maximum element is selected as the pivot.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
