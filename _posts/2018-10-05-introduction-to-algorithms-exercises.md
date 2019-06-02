@@ -3926,6 +3926,39 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_1_minimum_and_maximum/exercises/exercise_9_1_1.rs).
 
+##### 9.1-2 ★
+
+> Prove the lower bound of ⌈3 *n* / 2⌉ - 2 comparisons in the worst case to find both the maximum and minimum of *n*
+> numbers. (*Hint:* Consider how many numbers are potentially either the maximum or minimum, and investigate how a
+> comparison affects these counts.)
+
+*Skipped.*
+
+#### 9.2 Selection in expected linear time
+
+##### 9.2-1
+
+> Show that *Randomized-Select* never makes a recursive call to a 0-length array.
+
+- At line 8, we know that:
+
+  *i* < *k*\
+  ⇒ *i* < *q* - *p* + 1\
+  ⇒ 1 < *q* - *p* + 1\
+  ⇒ (*q* - 1) - *p* > -1\
+  ⇒ (*q* - 1) - *p* ≥ 0.
+
+  So the recursion call in line 8 is on a non-empty subarray *A*[*p*‥*q* - 1].
+- At line 9, we know that:
+
+  *i* > *k*\
+  ⇒ *i* > *q* - *p* + 1\
+  ⇒ *r* - *p* + 1 > *q* - *p* + 1\
+  ⇒ *r* - (*q* + 1) > -1\
+  ⇒ *r* - (*q* + 1) ≥ 0.
+
+  So the recursion call in line 8 is on a non-empty subarray *A*[*q* + 1‥*r*].
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
