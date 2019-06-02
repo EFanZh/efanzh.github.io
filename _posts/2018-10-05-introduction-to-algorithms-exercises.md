@@ -4005,6 +4005,20 @@ Solving *c* ((3 / 4) (*k* + 1) / *k* - 1) + *a* < 0, we get:
 - If *k* = 7, *c* > *a* / (1 - (3 / 4) (7 + 1) / 7) = 7 *a*, so it is possible to select a *c* > 7 *a* to make *T*(*n*)
   linear.
 
+##### 9.3-2
+
+> Analyze *Select* to show that if *n* ≥ 140, then at least ⌈*n* / 4⌉ elements are greater than the median-of-medians
+> *x* and at least ⌈*n* / 4⌉ elements are less than *x*.
+
+*Skipped.*
+
+##### 9.3-3
+
+> Show how quicksort can be made to run in *O*(*n* lg *n*) time in the worst case, assuming that all elements are
+> distinct.
+
+When doing partition, use the *Select* procedure to find the median element as the pivot.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
