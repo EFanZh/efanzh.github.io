@@ -4071,7 +4071,14 @@ Solution is implemented
 > the total length of the spurs? Show how to determine the optimal location in linear time.
 >
 > ```text
-> <Insert figure here>
+>                Well
+>   Well          │
+>    │   Well     │          Well
+>    │    │       │   Well    │
+> ──┬┴────┴───┬───┴────┴──┬───┴──┬──
+>   │         │           │      │
+>  Well       │         Well     │
+>            Well               Well
 > ```
 >
 > **Figure 9.2** Professor Olay needs to determine the position of the east-west oil pipeline that minimizes the total
@@ -4097,6 +4104,9 @@ If *A*[*i*] ≤ *k* ≤ *A*[*n* + 1 - *i*], |*A*[*i*] - *k*| + |*A*[*n* + 1 - *i
 *A*[⌊*n* / 2⌋] ≤ *A*[*k*] ≤ *A*[*n* + 1 - ⌊*n* / 2⌋], *k* is between every (*A*[*i*], *A*[*n* + 1 - *i*]) pair of wells.
 If *n* is even, we can put the pipeline anywhere between *A*[*n* / 2] and *A*[*n* / 2 + 1]; if *n* is odd, we must put
 the pipeline at coordinate *A*[(*n* + 1) / 2].
+
+So we only need to use the *Select* procedure to find the median of all *y*-coordinates of the wells, which takes linear
+time.
 
 ------------------------------------------------------------------------------------------------------------------------
 
