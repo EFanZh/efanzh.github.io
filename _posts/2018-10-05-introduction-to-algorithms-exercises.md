@@ -4040,6 +4040,28 @@ The running time becomes:
 
 Using the master theorem, we have *T*(*n*) = *O*(*n*).
 
+##### 9.3-6
+
+> The *k*th ***quantiles*** of an *n*-element set are the *k* - 1 order statistics that divide the sorted set into *k*
+> equal-sized sets (to within 1). Give an *O*(*n* lg *k*)-time algorithm to list the *k*th quantiles of a set.
+
+*Skipped.*
+
+##### 9.3-7
+
+> Describe an *O*(*n*)-time algorithm that, given a set *S* of *n* distinct numbers and a positive integer *k* ≤ *n*,
+> determines the *k* numbers in *S* that are closest to the median of *S*.
+
+*Skipped.*
+
+##### 9.3-8
+
+> Let *X*[1‥*n*] and *Y*[1‥*n*] be two arrays, each containing *n* numbers already in sorted order. Give an
+> *O*(lg *n*)-time algorithm to find the median of all 2 *n* elements in arrays *X* and *Y*.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_3_selection_in_worst_case_linear_time/exercises/exercise_9_3_8.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
