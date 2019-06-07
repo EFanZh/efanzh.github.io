@@ -4108,6 +4108,28 @@ the pipeline at coordinate *A*[(*n* + 1) / 2].
 So we only need to use the *Select* procedure to find the median of all *y*-coordinates of the wells, which takes linear
 time.
 
+#### 9.X Problems
+
+##### 9-1 Largest i numbers in sorted order
+
+> Given a set of *n* numbers, we wish to find the *i* largest in sorted order using a comparison-based algorithm. Find
+> the algorithm that implements each of the following methods with the best asymptotic worst-case running time, and
+> analyze the running times of the algorithms in terms of *n* and *i*.
+>
+> ***a.*** Sort the numbers, and list the *i* largest.
+>
+> ***b.*** Build a max-priority queue from the numbers, and call *Extract-Max* *i* times.
+>
+> ***c.*** Use an order-statistic algorithm to find the *i*th largest number, partition around that number, and sort the
+> *i* largest numbers.
+
+***a.*** Merge sort, then list the *i* largest. Running time is *O*(*n* lg *n* + *i*).
+
+***b.*** Running time is *O*(*n* + *i* lg *n*).
+
+***c.*** Use *Select* to find the *i*th largest number, then partition around the *i*th largest number, then merge sort
+*i* largest numbers. Running time is *O*(*n* + *i* lg *i*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
