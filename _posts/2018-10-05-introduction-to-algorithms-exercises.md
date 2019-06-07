@@ -4062,6 +4062,42 @@ Using the master theorem, we have *T*(*n*) = *O*(*n*).
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/section_9_3_selection_in_worst_case_linear_time/exercises/exercise_9_3_8.rs).
 
+##### 9.3-9
+
+> Professor Olay is consulting for an oil company, which is planning a large pipeline running east to west through an
+> oil field of *n* wells. The company wants to connect a spur pipeline from each well directly to the main pipeline
+> along a shortest route (either north or south), as shown in Figure 9.2. Given the *x*- and *y*-coordinates of the
+> wells, how should the professor pick the optimal location of the main pipeline, which would be the one that minimizes
+> the total length of the spurs? Show how to determine the optimal location in linear time.
+>
+> ```text
+> <Insert figure here>
+> ```
+>
+> **Figure 9.2** Professor Olay needs to determine the position of the east-west oil pipeline that minimizes the total
+> length of the north-south spurs.
+
+Notice that the *x*-coordinates does not affect the total length of the north-south spurs, so we only consider the
+*y*-coordinates.
+
+First, the conclusion: we should put the pipeline anywhere between the lower median and upper median of the
+*y*-coordinates of the wells.
+
+Proof:
+
+If we sort the *y*-coordinates of the wells by into an array *A*[1‥*n*], let *k* be the *y* coordinates of the pipeline,
+then total length of the spurs is:
+
+$∑_{i = 1}^n \left|A\left[i\right] - k\right|$ \
+= $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[i\right] - k\right| + ∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[n + 1 - i\right] - k\right|$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
+= $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left(\left|A\left[i\right] - k\right| + \left|A\left[n + 1 - i\right] - k\right|\right)$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
+
+If *A*[*i*] ≤ *k* ≤ *A*[*n* + 1 - *i*], |*A*[*i*] - *k*| + |*A*[*n* + 1 - *i*] - *k*| will have the minimal value of
+*A*[*n* + 1 - *i*] - *A*[*i*], which means *k* should between *A*[*i*] and *A*[*n* + 1 - *i*]. If
+*A*[⌊*n* / 2⌋] ≤ *A*[*k*] ≤ *A*[*n* + 1 - ⌊*n* / 2⌋], *k* is between every (*A*[*i*], *A*[*n* + 1 - *i*]) pair of wells.
+If *n* is even, we can put the pipeline anywhere between *A*[*n* / 2] and *A*[*n* / 2 + 1]; if *n* is odd, we must put
+the pipeline at coordinate *A*[(*n* + 1) / 2].
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
