@@ -4077,7 +4077,7 @@ Solution is implemented
 >    │    │       │   Well    │
 > ──┬┴────┴───┬───┴────┴──┬───┴──┬──
 >   │         │           │      │
->  Well       │         Well     │
+>  Well       │          Well    │
 >            Well               Well
 > ```
 >
@@ -4129,6 +4129,79 @@ time.
 
 ***c.*** Use *Select* to find the *i*th largest number, then partition around the *i*th largest number, then merge sort
 *i* largest numbers. Running time is *O*(*n* + *i* lg *i*).
+
+##### 9-2 Weighted median
+
+> For *n* distinct elements $x_1$, $x_2$, …, $x_n$ with positive weights $w_1$, $w_2$, …, $w_n$ such that
+> $∑_{i = 1}^n w_i$ = 1, the ***weighted (lower) median*** is the element $x_k$ satisfying
+>
+> $\displaystyle ∑_{x_i < x_k} w_i < \frac{1}{2}$
+>
+> and
+>
+> $\displaystyle ∑_{x_i > x_k} w_i ≤ \frac{1}{2}$.
+>
+> For example, if the elements are 0.1, 0.35, 0.05, 0.1, 0.15, 0.05, 0.2 and each element equals its weight (that is,
+> $w_i = x_i$ for *i* = 1, 2, …, 7), then the median is 0.1, but the weighted median is 0.2.
+>
+> ***a.*** Argue that the median of $x_1$, $x_2$, …, $x_n$ is the weighted median of the $x_i$ with weights
+> $w_i$ = 1 / *n* for *i* = 1, 2, …, *n*.
+>
+> ***b.*** Show how to compute the weighted median of *n* elements in *O*(*n* lg *n*) worst-case time using sorting.
+>
+> ***c.*** Show how to compute the weighted median in Θ(*n*) worst-case time using a linear-time median algorithm such
+> as *Select* from Section 9.3.
+>
+> The ***post-office location problem*** is defined as follows. We are given *n* points $p_1$, $p_2$, …, $p_n$ with
+> associated weights $w_1$, $w_2$, …, $w_n$. We wish to find a point *p* (not necessarily one of the input points) that
+> minimizes the sum $∑_{i = 1}^n w_i d\left(p, p_i\right)$, where *d*(*a*, *b*) is the distance between points *a* and
+> *b*.
+>
+> ***d.*** Argue that the weighted median is a best solution for the 1-dimensional post-office location problem, in
+> which points are simply real numbers and the distance between points *a* and *b* is *d*(*a*, *b*) = |*a* - *b*|.
+>
+> ***e.*** Find the best solution for the 2-dimensional post-office location problem, in which the points are (*x*, *y*)
+> coordinate pairs and the distance between points *a* = ($x_1$, $y_1$) and *b* = ($x_2$, $y_2$) is the ***Manhattan
+> distance*** given by *d*(*a*, *b*) = |$x_1 - x_2$| + |$y_1 - y_2$|.
+
+***a.***
+
+4 2
+5 2
+6 3
+7 3
+
+There are ⌊(*n* - 1) / 2⌋ elements that are less than the median, and ⌊*n* / 2⌋ elements that are greater than the
+median. So we have
+
+- $∑_{x_i < x_k} w_i$ = ⌊(*n* - 1) / 2⌋ / *n* < 1 / 2,
+- $∑_{x_i > x_k} w_i$ = ⌊*n* / 2⌋ / *n* ≤ 1 / 2.
+
+That satisfies the weighted median condition.
+
+***b.***
+
+First, sort the elements by their value, then accumulate the weight in the sorted array from left to right, until the
+accumulated value is greater than or equal to 1 / 2. Then the weighted median is the first element that makes the
+accumulated value greater than or equal to 1 / 2.
+
+***c.***
+
+The solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_9_medians_and_order_statistics/problems/problem_9_2_weighted_median.rs).
+
+***d.***
+
+*Skipped.*
+
+***e.***
+
+$∑_{i = 1}^n w_i d\left(p, p_i\right)$\
+= $∑_{i = 1}^n w_i \left(\left|x_1 - x_2\right| + \left|y_1 - y_2\right|\right)$\
+= $∑_{i = 1}^n w_i \left|x_1 - x_2\right| + ∑_{i = 1}^n w_i \left|y_1 - y_2\right|$
+
+So we can find the weight medians of *x*-coordinates and *y*-coordinates individually, then combine the result into a
+new coordinates, which should be the location of the post-office.
 
 ------------------------------------------------------------------------------------------------------------------------
 
