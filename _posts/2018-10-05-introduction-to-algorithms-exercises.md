@@ -4203,6 +4203,54 @@ $∑_{i = 1}^n w_i d\left(p, p_i\right)$\
 So we can find the weight medians of *x*-coordinates and *y*-coordinates individually, then combine the result into a
 new coordinates, which should be the location of the post-office.
 
+##### 9-3 Small order statistics
+
+> We showed that the worst-case number *T*(*n*) of comparisons used by *Select* to select the *i*th order statistic from
+> *n* numbers satisfies *T*(*n*) = Θ(*n*), but the constant hidden by the Θ-notation is rather large. When *i* is small
+> relative to *n*, we can implement a different procedure that uses *Select* as a subroutine but makes fewer comparisons
+> in the worst case.
+>
+> - ***a.*** Describe an algorithm that uses $U_i\left(n\right)$ comparisons to find the *i*th smallest of *n* elements,
+>   where
+>
+>   $U_i\left(n\right)\begin{cases}
+>   T\left(n\right)&\text{if }i ≥ n / 2,\\\\
+>   \left\lfloor n / 2\right\rfloor + U_i\left(\left\lceil n / 2\right\rceil\right) + T\left(2 i\right)&\text{otherwise}.
+>   \end{cases}$
+>
+>   (*Hint:* Begin with ⌊*n* / 2⌋ disjoint pairwise comparisons, and recurse on the set containing the smaller element
+>   from each pair.)
+> - ***b.*** Show that, if *i* < *n* / 2, then $U_i\left(n\right)$ = *n* + *O*(*T*(2 *i* / lg(*n* / *i*)).
+> - ***c.*** Show that if *i* is a constant less than *n* / 2, then $U_i\left(n\right)$ = *n* + *O*(lg *n*).
+> - ***d.*** Show that if *i* = *n* / *k* for *k* ≥ 2, then $U_i\left(n\right)$ = *n* + *O*(*T*(2 *n* / *k*) lg *k*).
+
+*Skipped.*
+
+##### 9-4 Alternative analysis of randomized selection
+
+> In this problem, we use indicator random variables to analyze the *Randomized-Select* procedure in a manner akin to
+> our analysis of *Randomized-Quicksort* in Section 7.4.2.
+>
+> As in the quicksort analysis, we assume that all elements are distinct, and we rename the elements of the input array
+> *A* as $z_1$, $z_2$, …, $z_n$, where $z_i$ is the *i*th smallest element. Thus, the call
+> *Randomized-Select*(*A*, 1, *n*, *k*) returns $z_k$.
+>
+> For 1 ≤ *i* < *j* ≤ *n*, let
+>
+> $X_{i j k}$ = I{$z_i$ is compared with $z_j$ sometime during the execution of the algorithm to find $z_k$}.
+>
+> - ***a.*** Give an exact expression for E[$X_{i j k}$]. (*Hint:* Your expression may have different values, depending
+>   on the values of *i*, *j*, and *k*.)
+> - ***b.*** Let $X_k$ denote the total number of comparisons between elements of array *A* when finding $z_k$. Show
+>   that
+>
+>   $\displaystyle \operatorname{E}\left[X_k\right] ≤ 2 \left(∑_{i = 1}^k ∑_{j = k}^n \frac{1}{j - i + 1} + ∑_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} + ∑_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\right)$.
+> - ***c.*** Show that E[$X_k$] ≤ 4 *n*.
+> - ***d.*** Conclude that, assuming all elements of array *A* are distinct, *Randomized-Select* runs in expected time
+>   *O*(*n*).
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
