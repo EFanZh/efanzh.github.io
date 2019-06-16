@@ -4262,7 +4262,7 @@ new coordinates, which should be the location of the post-office.
 > Using Figure 10.1 as a model, illustrate the result of each operation in the sequence *Push*(*S*, 4), *Push*(*S*, 1),
 > *Push*(*S*, 3), *Pop*(*S*), *Push*(*S*, 8), and *Pop*(*S*) on an initially empty stack *S* stored in array *S*[1‥6].
 
-*Skipped*.
+*Skipped.*
 
 ##### 10.1-2
 
@@ -4271,6 +4271,14 @@ new coordinates, which should be the location of the post-office.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_2.rs).
+
+##### 10.1-3
+
+> Using Figure 10.2 as a model, illustrate the result of each operation in the sequence *Enqueue*(*Q*, 4),
+> *Enqueue*(*Q*, 1), *Enqueue*(*Q*, 3), *Dequeue*(*Q*), *Enqueue*(*Q*, 8), and *Dequeue*(*Q*) on an initially empty
+> queue *Q* stored in array *Q*[1‥6].
+
+*Skipped.*
 
 ------------------------------------------------------------------------------------------------------------------------
 
