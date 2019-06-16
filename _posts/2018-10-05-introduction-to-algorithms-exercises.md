@@ -4251,6 +4251,27 @@ new coordinates, which should be the location of the post-office.
 
 *Skipped.*
 
+## III Data Structures
+
+### 10 Elementary Data Structures
+
+#### 10.1 Stacks and queues
+
+##### 10.1-1
+
+> Using Figure 10.1 as a model, illustrate the result of each operation in the sequence *Push*(*S*, 4), *Push*(*S*, 1),
+> *Push*(*S*, 3), *Pop*(*S*), *Push*(*S*, 8), and *Pop*(*S*) on an initially empty stack *S* stored in array *S*[1‥6].
+
+*Skipped*.
+
+##### 10.1-2
+
+> Explain how to implement two stacks in one array *A*[1…*n*] in such a way that neither stack overflows unless the
+> total number of elements in both stacks together is *n*. The *Push* and *Pop* operations should run in *O*(1) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
