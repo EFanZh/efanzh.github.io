@@ -4287,6 +4287,14 @@ Solution is implemented
 - Underflow condition: *Q*.*tail* == *Q*.*head*.
 - Overflow condition: (*Q*.*tail* + 1) mod *Q*.length + 1 == *Q*.*head*.
 
+##### 10.1-5
+
+> Whereas a stack allows insertion and deletion of elements at only one end, and a queue allows insertion at one end and
+> deletion at the other end, a ***deque*** (double-ended queue) allows insertion and deletion at both ends. Write four
+> *O*(1)-time procedures to insert elements into and delete elements from both ends of a deque implemented by an array.
+
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
