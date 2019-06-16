@@ -4285,7 +4285,7 @@ Solution is implemented
 > Rewrite *Enqueue* and *Dequeue* to detect underflow and overflow of a queue.
 
 - Underflow condition: *Q*.*tail* == *Q*.*head*.
-- Overflow condition: (*Q*.*tail* + 1) % *Q*.length + 1 == *Q*.*head*.
+- Overflow condition: (*Q*.*tail* + 1) mod *Q*.length + 1 == *Q*.*head*.
 
 ------------------------------------------------------------------------------------------------------------------------
 
