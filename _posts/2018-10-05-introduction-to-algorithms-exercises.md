@@ -4295,6 +4295,24 @@ Solution is implemented
 
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_5.rs).
 
+##### 10.1-6
+
+> Show how to implement a queue using two stacks. Analyze the running time of the queue operations.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_6.rs).
+
+*Push* need *O*(1) running time, *Pop* need *O*(1) running time on average, but has worst-case *O*(*n*) running time.
+
+##### 10.1-7
+
+> Show how to implement a stack using two queues. Analyze the running time of the stack operations.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_7.rs).
+
+*Push* need *O*(1) running time, *Pop* need *O*(*n*) running time.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
