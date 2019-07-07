@@ -4313,6 +4313,21 @@ Solution is implemented
 
 *Push* need *O*(1) running time, *Pop* need *O*(*n*) running time.
 
+#### 10.2 Linked lists
+
+##### 10.2-1
+
+> Can you implement the dynamic-set operation *Insert* on a singly linked list in *O*(1) time? How about *Delete*?
+
+*Insert* can be done in *O*(1) time.
+
+As for *Delete*, if the node to be deleted is the last node, I will have to use *O*(*n*) time to delete it, but for
+nodes that are not the last node, I can move the contents of the next node into the node to be deleted, which will make
+the linked list look like the node is deleted. This method takes *O*(1) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_1.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
