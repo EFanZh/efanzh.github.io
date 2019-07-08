@@ -4328,6 +4328,13 @@ the linked list look like the node is deleted. This method takes *O*(1) time.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_1.rs).
 
+##### 10.2-2
+
+> Implement a stack using a singly linked list *L*. The operations *Push* and *Pop* should still take *O*(1) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
