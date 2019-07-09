@@ -4335,6 +4335,13 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_2.rs).
 
+##### 10.2-3
+
+> Implement a queue by a singly linked list *L*. The operations *Enqueue* and *Dequeue* should still take *O*(1) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
