@@ -4342,6 +4342,14 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_2_linked_lists/exercises/exercise_10_2_3.rs).
 
+##### 10.2-4
+
+> As written, each loop iteration in the *List-Search′* procedure requires two tests: one for *x* ≠ *L*.*nil* and one
+> for *x*.*key* ≠ *k*. Show how to eliminate the test for *x* ≠ *L*.*nil* in each iteration.
+
+Set the value of *x*.*nil*.*key* to *k*, so that if every test fails for *k*, we will get *x*.*nil* as the result, which
+is exactly what we wanted.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
