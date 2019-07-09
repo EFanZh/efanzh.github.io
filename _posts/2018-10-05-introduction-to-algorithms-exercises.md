@@ -4366,6 +4366,15 @@ is exactly what we wanted.
 Both singly and doubly linked list are fine, just stitch the tail of the first list onto the head of the second list and
 you are done.
 
+##### 10.2-7
+
+> Give a Θ(*n*)-time nonrecursive procedure that reverses a singly linked list of *n* elements. The procedure should use
+> no more than constant storage beyond that needed for the list itself.
+
+Remember that we have implemented a stack using singly linked list in exercise 10.2-2? To reverse a singly linked list,
+just treat the list as a stack, and pop their elements to construct a new list, the newly constructed list will be the
+reversion of the original list.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
