@@ -4350,6 +4350,22 @@ Solution is implemented
 Set the value of *x*.*nil*.*key* to *k*, so that if every test fails for *k*, we will get *x*.*nil* as the result, which
 is exactly what we wanted.
 
+##### 10.2-5
+
+> Implement the dictionary operations *Insert*, *Delete*, and *Search* using singly linked, circular lists. What are the
+> running times of your procedures?
+
+*Skipped.*
+
+##### 10.2-6
+
+> The dynamic-set operation *Union* takes two disjoint sets $S_1$ and $S_2$ as input, and it returns a set
+> *S* = $S_1 ∪ S_2$ consisting of all the elements of $S_1$ and $S_2$. The sets $S_1$ and $S_2$ are usually destroyed by
+> the operation. Show how to support *Union* in *O*(1) time using a suitable list data structure.
+
+Both singly and doubly linked list are fine, just stitch the tail of the first list onto the head of the second list and
+you are done.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
