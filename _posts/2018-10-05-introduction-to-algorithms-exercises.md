@@ -4402,6 +4402,14 @@ reversion of the original list.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_3_implementing_pointers_and_objects/exercises/exercise_10_3_2.rs).
 
+##### 10.3-3
+
+> Why don’t we need to set or reset the *prev* attributes of objects in the implementation of the *Allocate-Object* and
+> *Free-Object* procedures?
+
+We treat the free list as a singly linked list, which only uses the *next* attribute, we don’t care for attributes
+other than *prev*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
