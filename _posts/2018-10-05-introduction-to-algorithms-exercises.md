@@ -4375,6 +4375,33 @@ Remember that we have implemented a stack using singly linked list in exercise 1
 just treat the list as a stack, and pop their elements to construct a new list, the newly constructed list will be the
 reversion of the original list.
 
+##### 10.2-8 ★
+
+> Explain how to implement doubly linked lists using only one pointer value *x*.*np* per item instead of the usual two
+> (*next* and *prev*). Assume that all pointer values can be interpreted as *k*-bit integers, and define *x*.*np* to be
+> *x*.*np* = *x*.*next* XOR *x*.*prev*, the *k*-bit “exclusive-or” of *x*.*next* and *x*.*prev*. (The value *Nil* is
+> represented by 0.) Be sure to describe what information you need to access the head of the list. Show how to implement
+> the *Search*, *Insert*, and *Delete* operations on such a list. Also show how to reverse such a list in *O*(1) time.
+
+*Skipped.*
+
+#### 10.3 Implementing pointers and objects
+
+##### 10.3-1
+
+> Draw a picture of the sequence ⟨13, 4, 8, 19, 5, 11⟩ stored as a doubly linked list using the multiple-array
+> representation. Do the same for the single-array representation.
+
+*Skipped.*
+
+##### 10.3-2
+
+> Write the procedures Allocate-Object and Free-Object for a homogeneous collection of objects implemented by the
+> single-array representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_3_implementing_pointers_and_objects/exercises/exercise_10_3_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
