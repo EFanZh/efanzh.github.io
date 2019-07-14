@@ -2387,7 +2387,7 @@ So the expected number of bins with exactly 1 ball is:
 7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**return** *i*
 8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*V*[*i*] = *True*
 9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*c* = *c* + 1
-10. **return** *Nil*
+10. **return** *nil*
 
 ***b.*** Each pick has the probability of 1 / *n* of being succeed, so the expected number of indices to pick is *n*.
 
@@ -4379,7 +4379,7 @@ reversion of the original list.
 
 > Explain how to implement doubly linked lists using only one pointer value *x*.*np* per item instead of the usual two
 > (*next* and *prev*). Assume that all pointer values can be interpreted as *k*-bit integers, and define *x*.*np* to be
-> *x*.*np* = *x*.*next* XOR *x*.*prev*, the *k*-bit “exclusive-or” of *x*.*next* and *x*.*prev*. (The value *Nil* is
+> *x*.*np* = *x*.*next* XOR *x*.*prev*, the *k*-bit “exclusive-or” of *x*.*next* and *x*.*prev*. (The value *nil* is
 > represented by 0.) Be sure to describe what information you need to access the head of the list. Show how to implement
 > the *Search*, *Insert*, and *Delete* operations on such a list. Also show how to reverse such a list in *O*(1) time.
 
@@ -4432,6 +4432,35 @@ other than *prev*.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_3_implementing_pointers_and_objects/exercises/exercise_10_3_5.rs).
+
+#### 10.4 Representing rooted trees
+
+##### 10.4-1
+
+> Draw the binary tree rooted at index 6 that is represented by the following attributes:
+>
+> | index | key | left  | right |
+> | ----- | --- | ----- | ----- |
+> | 1     | 12  | 7     | 3     |
+> | 2     | 15  | 8     | *nil* |
+> | 3     | 4   | 10    | *nil* |
+> | 4     | 10  | 5     | 9     |
+> | 5     | 2   | *nil* | *nil* |
+> | 6     | 18  | 1     | 4     |
+> | 7     | 7   | *nil* | *nil* |
+> | 8     | 14  | 6     | 2     |
+> | 9     | 21  | *nil* | *nil* |
+> | 10    | 5   | *nil* | *nil* |
+
+*Skipped.*
+
+##### 10.4-2
+
+> Write an *O*(*n*)-time recursive procedure that, given an *n*-node binary tree, prints out the key of each node in the
+> tree.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_2.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
