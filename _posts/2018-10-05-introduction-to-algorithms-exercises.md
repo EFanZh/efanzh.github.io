@@ -4410,6 +4410,29 @@ Solution is implemented
 We treat the free list as a singly linked list, which only uses the *next* attribute, we don’t care for attributes
 other than *prev*.
 
+##### 10.3-4
+
+> It is often desirable to keep all elements of a doubly linked list compact in storage, using, for example, the first
+> *m* index locations in the multiple-array representation. (This is the case in a paged, virtual-memory computing
+> environment.) Explain how to implement the procedures *Allocate-Object* and *Free-Object* so that the representation
+> is compact. Assume that there are no pointers to elements of the linked list outside the list itself. (*Hint:* Use the
+> array implementation of a stack.)
+
+*Skipped.*
+
+##### 10.3-5
+
+> Let *L* be a doubly linked list of length *n* stored in arrays *key*, *prev*, and *next* of length *m*. Suppose that
+> these arrays are managed by *Allocate-Object* and *Free-Object* procedures that keep a doubly linked free list *F*.
+> Suppose further that of the *m* items, exactly *n* are on list *L* and *m* - *n* are on the free list. Write a
+> procedure *Compactify-List*(*L*, *F*) that, given the list *L* and the free list *F*, moves the items in *L* so that
+> they occupy array positions 1, 2, …, *n* and adjusts the free list *F* so that it remains correct, occupying array
+> positions *n* + 1; *n* + 2, …, *m*. The running time of your procedure should be Θ(*n*), and it should use only a
+> constant amount of extra space. Argue that your procedure is correct.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_3_implementing_pointers_and_objects/exercises/exercise_10_3_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
