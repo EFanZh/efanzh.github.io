@@ -4462,6 +4462,14 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_2.rs).
 
+##### 10.4-3
+
+> Write an *O*(*n*)-time nonrecursive procedure that, given an *n*-node binary tree, prints out the key of each node in
+> the tree. Use a stack as an auxiliary data structure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
