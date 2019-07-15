@@ -4470,6 +4470,18 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_3.rs).
 
+##### 10.4-4
+
+> Write an *O*(*n*)-time procedure that prints all the keys of an arbitrary rooted tree with *n* nodes, where the tree
+> is stored using the left-child, right-sibling representation.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_4.rs).
+
+Notice that the solution is exactly the same as exercise 10.4-2, because the structure of an unbounded branching tree
+with left-child, right-sibling representation is the same as a binary tree, but the children of nodes has different
+meaning, so we can iterate through the tree with the same method used for iterating binary trees.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
