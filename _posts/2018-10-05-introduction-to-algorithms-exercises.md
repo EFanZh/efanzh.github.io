@@ -4482,6 +4482,15 @@ Notice that the solution is exactly the same as exercise 10.4-2, because the str
 with left-child, right-sibling representation is the same as a binary tree, but the children of nodes has different
 meaning, so we can iterate through the tree with the same method used for iterating binary trees.
 
+##### 10.4-5 ★
+
+> Write an *O*(*n*)-time nonrecursive procedure that, given an *n*-node binary tree, prints out the key of each node.
+> Use no more than constant extra space outside of the tree itself and do not modify the tree, even temporarily, during
+> the procedure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
