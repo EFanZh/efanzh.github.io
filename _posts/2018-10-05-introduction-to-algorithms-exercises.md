@@ -4491,6 +4491,21 @@ meaning, so we can iterate through the tree with the same method used for iterat
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_4_representing_rooted_trees/exercises/exercise_10_4_5.rs).
 
+##### 10.4-6 ★
+
+> The left-child, right-sibling representation of an arbitrary rooted tree uses three pointers in each node:
+> *left-child*, *right-sibling*, and *parent*. From any node, its parent can be reached and identified in constant time
+> and all its children can be reached and identified in time linear in the number of children. Show how to use only two
+> pointers and one boolean value in each node so that the parent of a node or all of its children can be reached and
+> identified in time linear in the number of children.
+
+Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-child*.
+
+- If the node is the last child of its parent, store pointer to left child in *left-child*, pointer to parent in
+  *right-sibling-or-parent*, and *true* in *is-last-child*.
+- Otherwise store pointer to left child in *left-child*, pointer to right sibling in *right-sibling-or-parent*, and
+  *true* in *is-last-child*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
