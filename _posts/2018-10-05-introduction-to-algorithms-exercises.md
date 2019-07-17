@@ -2671,7 +2671,7 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
 
-#### Problems
+#### 6.X Problems
 
 ##### 6-1 Building a heap using insertion
 
@@ -4505,6 +4505,33 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
   *right-sibling-or-parent*, and *true* in *is-last-child*.
 - Otherwise store pointer to left child in *left-child*, pointer to right sibling in *right-sibling-or-parent*, and
   *true* in *is-last-child*.
+
+#### 10.X Problems
+
+##### 10-1 Comparisons among lists
+
+> For each of the four types of lists in the following table, what is the asymptotic worst-case running time for each
+> dynamic-set operation listed?
+>
+> |                         | unsorted, singly linked | sorted, singly linked | unsorted, doubly linked | sorted, doubly linked |
+> | ----------------------- | ----------------------- | --------------------- | ----------------------- | --------------------- |
+> | *Search*(*L*, *k*)      |                         |                       |                         |                       |
+> | *Insert*(*L*, *x*)      |                         |                       |                         |                       |
+> | *Delete*(*L*, *x*)      |                         |                       |                         |                       |
+> | *Successor*(*L*, *x*)   |                         |                       |                         |                       |
+> | *Predecessor*(*L*, *x*) |                         |                       |                         |                       |
+> | *Minimum*(*L*)          |                         |                       |                         |                       |
+> | *Maximum*(*L*)          |                         |                       |                         |                       |
+
+|                         | unsorted, singly linked | sorted, singly linked | unsorted, doubly linked | sorted, doubly linked |
+| ----------------------- | ----------------------- | --------------------- | ----------------------- | --------------------- |
+| *Search*(*L*, *k*)      | *O*(*n*)                | *O*(*n*)              | *O*(*n*)                | *O*(*n*)              |
+| *Insert*(*L*, *x*)      | *O*(1)                  | *O*(*n*)              | *O*(1)                  | *O*(*n*)              |
+| *Delete*(*L*, *x*)      | *O*(*n*)                | *O*(*n*)              | *O*(1)                  | *O*(1)                |
+| *Successor*(*L*, *x*)   | *O*(1)                  | *O*(1)                | *O*(1)                  | *O*(1)                |
+| *Predecessor*(*L*, *x*) | *O*(*n*)                | *O*(*n*)              | *O*(1)                  | *O*(1)                |
+| *Minimum*(*L*)          | *O*(*n*)                | *O*(1)                | *O*(*n*)                | *O*(*1*)              |
+| *Maximum*(*L*)          | *O*(*n*)                | *O*(*n*)              | *O*(*n*)                | *O*(*n*)              |
 
 ------------------------------------------------------------------------------------------------------------------------
 
