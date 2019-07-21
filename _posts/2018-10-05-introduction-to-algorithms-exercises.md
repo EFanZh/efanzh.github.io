@@ -4533,6 +4533,105 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 | *Minimum*(*L*)          | *O*(*n*)                | *O*(1)                | *O*(*n*)                | *O*(*1*)              |
 | *Maximum*(*L*)          | *O*(*n*)                | *O*(*n*)              | *O*(*n*)                | *O*(*n*)              |
 
+##### 10-2 Mergeable heaps using linked lists
+
+> A ***mergeable heap*** supports the following operations: *Make-Heap* (which creates an empty mergeable heap),
+> *Insert*, *Minimum*, *Extract-Min*, and *Union*. Show how to implement mergeable heaps using linked lists in each of
+> the following cases. Try to make each operation as efficient as possible. Analyze the running time of each operation
+> in terms of the size of the dynamic set(s) being operated on.
+>
+> - ***a.*** Lists are sorted.
+> - ***b.*** Lists are unsorted.
+> - ***c.*** Lists are unsorted, and dynamic sets to be merged are disjoint.
+
+*Skipped.*
+
+##### 10-3 Searching a sorted compact list
+
+> Exercise 10.3-4 asked how we might maintain an *n*-element list compactly in the first *n* positions of an array. We
+> shall assume that all keys are distinct and that the compact list is also sorted, that is,
+> *key*[*i*] < *key*[*next*[*i*]] for all *i* = 1, 2, …, *n* such that *next*[*i*] ≠ *nil*. We will also assume that we
+> have a variable *L* that contains the index of the first element on the list. Under these assumptions, you will show
+> that we can use the following randomized algorithm to search the list in *O*($\sqrt{n}$) expected time.
+>
+> *Compact-List-Search*(*L*, *n*, *k*)
+>
+>  1. *i* = *L*
+>  2. **while** *i* ≠ *nil* and *key*[*i*] < *k*
+>  3. &nbsp;&nbsp;&nbsp;&nbsp;*j* = *Random*(1, *n*)
+>  4. &nbsp;&nbsp;&nbsp;&nbsp;**if** *key*[*i*] < *key*[*j*] and *key*[*j*] ≤ *k*
+>  5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i* = *j*
+>  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *key*[*i*] == *k*
+>  7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**return** *i*
+>  8. &nbsp;&nbsp;&nbsp;&nbsp;*i* = *next*[*i*]
+>  9. **if** *i* == *nil* or *key*[*i*] > *k*
+> 10. &nbsp;&nbsp;&nbsp;&nbsp;**return** *nil*
+> 11. **else** **return** *i*
+>
+> If we ignore lines 3–7 of the procedure, we have an ordinary algorithm for searching a sorted linked list, in which
+> index *i* points to each position of the list in turn. The search terminates once the index *i* “falls off” the end of
+> the list or once *key*[*i*] ≥ *k*. In the latter case, if *key*[*i*] = *k*, clearly we have found a key with the value
+> *k*. If, however, *key*[*i*] > *k*, then we will never find a key with the value *k*, and so terminating the search
+> was the right thing to do.
+>
+> Lines 3–7 attempt to skip ahead to a randomly chosen position *j*. Such a skip benefits us if *key*[*j*] is larger
+> than *key*[*i*] and no larger than *k*; in such a case, *j* marks a position in the list that *i* would have to reach
+> during an ordinary list search. Because the list is compact, we know that any choice of *j* between 1 and *n* indexes
+> some object in the list rather than a slot on the free list.
+>
+> Instead of analyzing the performance of *Compact-List-Search* directly, we shall analyze a related algorithm,
+> *Compact-List-Search′*, which executes two separate loops. This algorithm takes an additional parameter *t* which
+> determines an upper bound on the number of iterations of the first loop.
+>
+> *Compact-List-Search′*(*L*, *n*, *k*, *t*)
+>
+>  1. *i* = *L*
+>  2. **for** *q* = 1 **to** *t*
+>  3. &nbsp;&nbsp;&nbsp;&nbsp;*j* = *Random*(1, *n*)
+>  4. &nbsp;&nbsp;&nbsp;&nbsp;**if** *key*[*i*] < *key*[*j*] and *key*[*j*] ≤ *k*
+>  5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i* = *j*
+>  6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *key*[*i*] == *k*
+>  7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**return** *i*
+>  8. **while** *i* ≠ *nil* and *key*[*i*] < *k*
+>  9. &nbsp;&nbsp;&nbsp;&nbsp;*i* = *next*[*i*]
+> 10. **if** *i* == *nil* or *key*[*i*] > *k*
+> 11. &nbsp;&nbsp;&nbsp;&nbsp;**return** *nil*
+> 12. **else** **return** *i*
+>
+> To compare the execution of the algorithms *Compact-List-Search*(*L*, *n*, *k*) and
+> *Compact-List-Search′*(*L*, *n*, *k*, *t*), assume that the sequence of integers returned by the calls of
+> *Random*(1, *n*) is the same for both algorithms.
+>
+> - ***a.*** Suppose that *Compact-List-Search*(*L*, *n*, *k*) takes *t* iterations of the **while** loop of lines 2–8.
+>   Argue that *Compact-List-Search′*(*L*, *n*, *k*, *t*) returns the same answer and that the total number of
+>   iterations of both the **for** and **while** loops within *Compact-List-Search′* is at least *t*.
+>
+> In the call *Compact-List-Search′*(*L*, *n*, *k*, *t*), let $X_t$ be the random variable that describes the distance
+> in the linked list (that is, through the chain of *next* pointers) from position *i* to the desired key *k* after *t*
+> iterations of the **for** loop of lines 2–7 have occurred.
+>
+> - ***b.*** Argue that the expected running time of *Compact-List-Search′*(*L*, *n*, *k*, *t*) is *O*(*t* + E[$X_t$]).
+> - ***c.*** Show that E[$X_t$] ≤ $∑_{r = 1}^n \left(1 - r / n\right)^t$. (*Hint:* Use equation (C.25).)
+> - ***d.*** Show that $∑_{r = 0}^{n - 1} r^t ≤ n^{t + 1} / \left(t + 1\right)$.
+> - ***e.*** Prove that E[$X_t$] ≤ *n* / (*t* + 1).
+> - ***f.*** Show that *Compact-List-Search′*(*L*, *n*, *k*, *t*) runs in *O*(*t* + *n* / *t*) expected time.
+> - ***g.*** Conclude that *Compact-List-Search* runs in *O*($\sqrt{n}$) expected time.
+> - ***h.*** Why do we assume that all keys are distinct in *Compact-List-Search*? Argue that random skips do not
+>   necessarily help asymptotically when the list contains repeated key values.
+
+*Skipped.*
+
+### 11 Hash Tables
+
+#### 11.1 Direct-address tables
+
+##### 11.1-1
+
+> Suppose that a dynamic set *S* is represented by a direct-address table *T* of length *m*. Describe a procedure that
+> finds the maximum element of *S*. What is the worst-case performance of your procedure?
+
+Θ(*m*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
