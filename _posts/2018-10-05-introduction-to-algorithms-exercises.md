@@ -4632,6 +4632,14 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 
 Θ(*m*).
 
+##### 11.1-2
+
+> A ***bit vector*** is simply an array of bits (0s and 1s). A bit vector of length *m* takes much less space than an
+> array of *m* pointers. Describe how to use a bit vector to represent a dynamic set of distinct elements with no
+> satellite data. Dictionary operations should run in *O*(1) time.
+
+We use the value of *i*th bit to indicate whether the key *i* exists, then the implementation is trivial.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
