@@ -4640,6 +4640,15 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 
 We use the value of *i*th bit to indicate whether the key *i* exists, then the implementation is trivial.
 
+##### 11.1-3
+
+> Suggest how to implement a direct-address table in which the keys of stored elements do not need to be distinct and
+> the elements can have satellite data. All three dictionary operations (*Insert*, *Delete*, and *Search*) should run in
+> O(1) time. (Don’t forget that *Delete* takes as an argument a pointer to an object to be deleted, not a key.)
+
+For all elements with key *k*, store them in a doubly linked list, then store the doubly linked list in position *i* of
+the direct-address table.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
