@@ -4644,10 +4644,22 @@ We use the value of *i*th bit to indicate whether the key *i* exists, then the i
 
 > Suggest how to implement a direct-address table in which the keys of stored elements do not need to be distinct and
 > the elements can have satellite data. All three dictionary operations (*Insert*, *Delete*, and *Search*) should run in
-> O(1) time. (Don’t forget that *Delete* takes as an argument a pointer to an object to be deleted, not a key.)
+> *O*(1) time. (Don’t forget that *Delete* takes as an argument a pointer to an object to be deleted, not a key.)
 
 For all elements with key *k*, store them in a doubly linked list, then store the doubly linked list in position *i* of
 the direct-address table.
+
+##### 11.1-4 ★
+
+> We wish to implement a dictionary by using direct addressing on a *huge* array. At the start, the array entries may
+> contain garbage, and initializing the entire array is impractical because of its size. Describe a scheme for
+> implementing a direct-address dictionary on a huge array. Each stored object should use *O*(1) space; the operations
+> *Search*, *Insert*, and *Delete* should take *O*(1) time each; and initializing the data structure should take *O*(1)
+> time. (*Hint:* Use an additional array, treated somewhat like a stack whose size is the number of keys actually stored
+> in the dictionary, to help determine whether a given entry in the huge array is valid or not.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_11_hash_tables/section_11_1_direct_address_tables/exercises/exercise_11_1_4.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
