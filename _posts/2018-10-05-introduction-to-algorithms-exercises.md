@@ -4661,6 +4661,37 @@ the direct-address table.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_11_hash_tables/section_11_1_direct_address_tables/exercises/exercise_11_1_4.rs).
 
+#### 11.2 Hash tables
+
+##### 11.2-1
+
+> Suppose we use a hash function *h* to hash *n* distinct keys into an array *T* of length *m*. Assuming simple uniform
+> hashing, what is the expected number of collisions? More precisely, what is the expected cardinality of
+> {{*k*, *l*} : *k* ≠ *l* and *h*(*k*) = *h*(*l*)}?
+
+Let $X_i$ be the random variable that represents the number of elements in the *i*th position, then the expected number
+of collisions is:
+
+E[$∑_{i = 1}^m X_i \left(X_i - 1\right) / 2$]\
+= $∑_{i = 1}^m \operatorname{E} \left[X_i \left(X_i - 1\right) / 2\right]$\
+= *m* E[$X_1 \left(X_1 - 1\right) / 2$]\
+= *m* (E[$X_1^2$] - E[$X_1$]) / 2\
+= *m* (E[$X_1^2$] - *n* / *m*) / 2\
+= *m* ($\operatorname{E}^2 \left[X_i\right]$ + Var[$X_i$] - *n* / *m*) / 2\
+= *m* ($\left(n / m\right)^2$ + *n* (1 / *m*) (*m* - 1) / *m* - *n* / *m*) / 2\
+= *n* (*n* - 1) / (2 *m*).
+
+That is way too complicated.
+
+Another way:
+
+Let $X_i$ be the *i*th key, then the expected number of collisions is:
+
+E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\left(X_j\right) \right\rbrace$]\
+= E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m$]\
+= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m$\
+= *n* (*n* - 1) / (2 *m*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
