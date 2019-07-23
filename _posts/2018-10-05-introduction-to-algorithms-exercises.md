@@ -4667,7 +4667,7 @@ Solution is implemented
 
 > Suppose we use a hash function *h* to hash *n* distinct keys into an array *T* of length *m*. Assuming simple uniform
 > hashing, what is the expected number of collisions? More precisely, what is the expected cardinality of
-> {{*k*, *l*} : *k* ≠ *l* and *h*(*k*) = *h*(*l*)}?
+> {\{*k*, *l*} : *k* ≠ *l* and *h*(*k*) = *h*(*l*)}?
 
 Let $X_i$ be the random variable that represents the number of elements in the *i*th position, then the expected number
 of collisions is:
