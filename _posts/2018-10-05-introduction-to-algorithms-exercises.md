@@ -4692,6 +4692,24 @@ E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\l
 = $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m$\
 = *n* (*n* - 1) / (2 *m*).
 
+##### 11.2-2
+
+> Demonstrate what happens when we insert the keys 5, 28, 19, 15, 20, 33, 12, 17, 10 into a hash table with collisions
+> resolved by chaining. Let the table have 9 slots, and let the hash function be *h*(*k*) = *k* mod 9.
+
+*Skipped.*
+
+##### 11.2-3
+
+> Professor Marley hypothesizes that he can obtain substantial performance gains by modifying the chaining scheme to
+> keep each list in sorted order. How does the professor’s modification affect the running time for successful searches,
+> unsuccessful searches, insertions, and deletions?
+
+- Successful searches: Worst case running time decreases to Θ(lg *n*).
+- Unsuccessful searches: Worst case running time decreases to Θ(lg *n*).
+- Insertions: Worst case running time increases to Θ(*n*).
+- Deletions: Unaffected.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
