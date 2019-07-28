@@ -4710,6 +4710,16 @@ E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\l
 - Insertions: Worst case running time increases to Θ(*n*).
 - Deletions: Unaffected.
 
+##### 11.2-4
+
+> Suggest how to allocate and deallocate storage for elements within the hash table itself by linking all unused slots
+> into a free list. Assume that one slot can store a flag and either one element plus a pointer or two pointers. All
+> dictionary and free-list operations should run in *O*(1) expected time. Does the free list need to be doubly linked,
+> or does a singly linked free list suffice?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_11_hash_tables/section_11_2_hash_tables/exercises/exercise_11_2_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
