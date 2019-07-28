@@ -4720,6 +4720,15 @@ E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\l
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_11_hash_tables/section_11_2_hash_tables/exercises/exercise_11_2_4.rs).
 
+##### 11.2-5
+
+> Suppose that we are storing a set of *n* keys into a hash table of size *m*. Show that if the keys are drawn from a
+> universe *U* with |*U*| > *n* *m*, then *U* has a subset of size *n* consisting of keys that all hash to the same
+> slot, so that the worst-case searching time for hashing with chaining is Θ(*n*).
+
+This is like putting *n* *m* balls into *m* buckets, there must be at least one bucket contains more than or equal to
+*n* balls.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
