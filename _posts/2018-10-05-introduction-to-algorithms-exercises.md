@@ -4729,6 +4729,38 @@ Solution is implemented
 This is like putting *n* *m* balls into *m* buckets, there must be at least one bucket contains more than or equal to
 *n* balls.
 
+##### 11.2-6
+
+> Suppose we have stored *n* keys in a hash table of size *m*, with collisions resolved by chaining, and that we know
+> the length of each chain, including the length *L* of the longest chain. Describe a procedure that selects a key
+> uniformly at random from among the keys in the hash table and returns it in expected time *O*(*L* ⋅ (1 + 1 / *α*)).
+
+First, randomly generate an integer *i* within [1, *m*], then generate an random integer *j* within [1, *L*], if the
+length of the *i*th chain is less than or equal to *j*, return the *j*th element of the *i*th chain as the result,
+otherwise repeat the process.
+
+Rationalization:
+
+```text
+  j
+  ↑
+L │     ▌
+  │ ▌   ▌     ▌
+  │ ▌▌  ▌     ▌   ▌
+  │▌▌▌ ▌▌   ▌ ▌   ▌ ▌ ▌  ▌
+  │▌▌▌ ▌▌▌  ▌ ▌▌▌ ▌▌▌▌▌ ▌▌
+──┼───────────────────────→ i
+0 │                      m
+```
+
+Time complexity analysis:
+
+The process is a sequence of Bernoulli trials with a probability *p* = *n* / (*m* *L*). So the number of iterations
+needed to find an element follows geometric distribution, so the expected number of iterations for finding the position
+of an element is 1 / *p* = *m* *L* / *n* = *L* / *α*. But it is not done, we still need to get the value of the selected
+element in a linked list, which takes *O*(*L*) time. So the total expected running time is
+Θ(*L* / *α*) + *O*(*L*) = *O* (*L* ⋅ (1 + 1 / *α*)).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
