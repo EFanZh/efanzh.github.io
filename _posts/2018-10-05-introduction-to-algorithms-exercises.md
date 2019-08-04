@@ -4761,6 +4761,17 @@ of an element is 1 / *p* = *m* *L* / *n* = *L* / *α*. But it is not done, we st
 element in a linked list, which takes *O*(*L*) time. So the total expected running time is
 Θ(*L* / *α*) + *O*(*L*) = *O* (*L* ⋅ (1 + 1 / *α*)).
 
+#### 11.3 Hash functions
+
+##### 11.3-1
+
+> Suppose we wish to search a linked list of length *n*, where each element contains a key *k* along with a hash value
+> *h*(*k*). Each key is a long character string. How might we take advantage of the hash values when searching the list
+> for an element with a given key?
+
+Precompute the hash value of the given key. Then when searching the linked list, first compare the hash value, only if
+the hash values are equal, we compare the actual string.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
