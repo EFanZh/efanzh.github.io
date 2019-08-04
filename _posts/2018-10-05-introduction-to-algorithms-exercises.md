@@ -4782,6 +4782,33 @@ the hash values are equal, we compare the actual string.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_11_hash_tables/section_11_3_hash_functions/exercises/exercise_11_3_2.rs).
 
+##### 11.3-3
+
+> Consider a version of the division method in which *h*(*k*) = *k* mod *m*, where *m* = $2^p$ - 1 and *k* is a
+> character string interpreted in radix $2^p$. Show that if we can derive string *x* from string *y* by permuting its
+> characters, then *x* and *y* hash to the same value. Give an example of an application in which this property would be
+> undesirable in a hash function.
+
+According to the solution to exercise 11.3-2, we can calculate the hash value using a loop whose body is:
+
+*result* = (*result* × $2^p$ + *S*[*i*]) mod *m*.
+
+If *m* = $2^p$ - 1, the body become:
+
+*result*\
+= (*result* × $2^p$ + *S*[*i*]) mod ($2^p$ - 1)\
+= ((*result* mod ($2^p$ - 1)) × ($2^p$ mod ($2^p$ - 1)) + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
+= ((*result* mod ($2^p$ - 1)) × 1 + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
+= ((*result* mod ($2^p$ - 1)) + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
+= (*result* + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1).
+
+Where *S*[*i*] is the *i*th element of the string.
+
+So the final result is just $\left(∑_{i = 1}^n S[i] \bmod m\right) \bmod m$. Notice that the order of *S*[*i*] does not
+matter in calculating the hash value.
+
+As for the example, consider storing the anagrams of a word in a hash table.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
