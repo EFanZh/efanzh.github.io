@@ -4809,12 +4809,201 @@ matter in calculating the hash value.
 
 As for the example, consider storing the anagrams of a word in a hash table.
 
+##### 11.3-4
+
+> Consider a hash table of size *m* = 1000 and a corresponding hash function *h*(*k*) = ⌊*m* (*k* *A* mod 1)⌋ for
+> *A* = ($\sqrt{5}$ - 1) / 2. Compute the locations to which the keys 61, 62, 63, 64, and 65 are mapped.
+
+*Skipped.*
+
+##### 11.3-5 ★
+
+> Define a family ℋ of hash functions from a finite set *U* to a finite set *B* to be ***ϵ-universal*** if for all
+> pairs of distinct elements *k* and *l* in *U*,
+>
+> Pr{*h*(*k*) = *h*(*l*)} ≤ *ϵ*,
+>
+> where the probability is over the choice of the hash function *h* drawn at random from the family ℋ. Show that an
+> *ϵ*-universal family of hash functions must have
+>
+> *ϵ* ≥ $\displaystyle \frac{1}{\left|B\right|} - \frac{1}{\left|U\right|}$.
+
+*Skipped.*
+
+##### 11.3-6 ★
+
+> Let *U* be the set of *n*-tuples of values drawn from $ℤ_p$, and let *B* = $ℤ_p$, where *p* is prime. Define the hash
+> function $h_b$: *U* → *B* for *b* ∈ $ℤ_p$ on an input *n*-tuple ⟨$a_0$, $a_1$, …, $a_{n - 1}$⟩ from *U* as
+>
+> $h_b\left(⟨a_0, a_1, …, a_{n - 1}⟩\right) = \left(\displaystyle ∑_{j = 0}^{n = 1} a_j b^j\right) \bmod p$.
+>
+> and let ℋ = {$h_b$ : *b* ∈ $ℤ_p$}. Argue that ℋ is ((*n* - 1) / *p*)-universal according to the definition of
+> *ϵ*-universal in Exercise 11.3-5. (*Hint:* See Exercise 31.4-4.)
+
+*Skipped.*
+
+#### 11.4 Open addressing
+
+##### 11.4-1
+
+> Consider inserting the keys 10, 22, 31, 4, 15, 28, 17, 88, 59 into a hash table of length *m* = 11 using open
+> addressing with the auxiliary hash function *h*′(*k*) = *k*. Illustrate the result of inserting these keys using
+> linear probing, using quadratic probing with $c_1$ = 1 and $c_2$ = 3, and using double hashing with $h_1$(*k*) = *k*
+> and $h_2$(*k*) = 1 + (*k* mod (*m* - 1)).
+
+*Skipped.*
+
+##### 11.4-2
+
+> Write pseudocode for *Hash-Delete* as outlined in the text, and modify *Hash-Insert* to handle the special value
+> *deleted*.
+
+*Skipped.*
+
+##### 11.4-3
+
+> Consider an open-address hash table with uniform hashing. Give upper bounds on the expected number of probes in an
+> unsuccessful search and on the expected number of probes in a successful search when the load factor is 3 / 4 and when
+> it is 7 / 8.
+
+*Skipped.*
+
+##### 11.4-4 ★
+
+> Suppose that we use double hashing to resolve collisions—that is, we use the hash function
+> *h*(*k*, *i*) = ($h_1$(*k*) + *i* $h_2$(*k*)) mod *m*. Show that if *m* and $h_2$(*k*) have greatest common divisor
+> *d* ≥ 1 for some key *k*, then an unsuccessful search for key *k* examines (1 / *d*)th of the hash table before
+> returning to slot h_1(*k*). Thus, when *d* = 1, so that *m* and $h_2$(*k*) are relatively prime, the search may
+> examine the entire hash table. (*Hint:* See Chapter 31.)
+
+*Skipped.*
+
+##### 11.4-5 ★
+
+> Consider an open-address hash table with a load factor *α*. Find the nonzero value *α* for which the expected number
+> of probes in an unsuccessful search equals twice the expected number of probes in a successful search. Use the upper
+> bounds given by Theorems 11.6 and 11.8 for these expected numbers of probes.
+
+*Skipped.*
+
+#### 11.5 Perfect hashing
+
+##### 11.5-1 ★
+
+> Suppose that we insert *n* keys into a hash table of size *m* using open addressing and uniform hashing. Let
+> *p*(*n*, *m*) be the probability that no collisions occur. Show that
+> *p*(*n*, *m*) ≤ $e^{-n \left(n - 1\right) / 2 m}$. (*Hint:* See equation (3.12).) Argue that when *n* exceeds
+> $\sqrt{m}$, the probability of avoiding collisions goes rapidly to zero.
+
+*p*(*n*, *m*)\
+= $\frac{P\left(m, n\right)}{m^n}$
+
+*Skipped.*
+
+#### 11.X Problems
+
+##### 11-1 Longest-probe bound for hashing
+
+> Suppose that we use an open-addressed hash table of size *m* to store *n* ≤ *m* / 2 items.
+>
+> ***a.*** Assuming uniform hashing, show that for *i* = 1, 2, …, *n*, the probability is at most $2^{-k}$ that the
+> *i*th insertion requires strictly more than *k* probes.
+>
+> ***b.*** Show that for *i* = 1, 2, …, *n*, the probability is *O*(1 / $n^2$) that the *i*th insertion requires more
+> than 2 lg *n* probes.
+>
+> Let the random variable $X_i$ denote the number of probes required by the *i*th insertion. You have shown in part (b)
+> that Pr{$X_i$ > 2 lg *n*} = *O*(1 / $n^2$). Let the random variable *X* = $\max_{1 ≤ i ≤ n} X_i$ denote the maximum
+> number of probes required by any of the *n* insertions.
+>
+> ***c.*** Show that Pr{*X* > 2 lg *n*} = *O*(1 / *n*).
+>
+> ***d.*** Show that the expected length E[*X*] of the longest probe sequence is *O*(lg *n*).
+
+*Skipped.*
+
+##### 11-2 Slot-size bound for chaining
+
+> Suppose that we have a hash table with *n* slots, with collisions resolved by chaining, and suppose that *n* keys are
+> inserted into the table. Each key is equally likely to be hashed to each slot. Let *M* be the maximum number of keys
+> in any slot after all the keys have been inserted. Your mission is to prove an *O*(lg *n* / lg lg *n*) upper bound on
+> E[*M*], the expected value of *M*.
+>
+> - ***a.*** Argue that the probability $Q_k$ that exactly *k* keys hash to a particular slot is given by
+>   $\displaystyle Q_k = \left(\frac{1}{n}\right)^k \left(1 - \frac{1}{n}\right)^{n - k} \binom{n}{k}$.
+> - ***b.*** Let $P_k$ be the probability that *M* = *k*, that is, the probability that the slot containing the most
+>   keys contains *k* keys. Show that $P_k$ ≤ *n* $Q_k$.
+> - ***c.*** Use Stirling’s approximation, equation (3.18), to show that $Q_k < e^k / k^k$.
+> - ***d.*** Show that there exists a constant *c* > 1 such that $Q_{k_0}$ < 1 / $n^3$ for
+>   $k_0$ = *c* lg *n* / lg lg *n*. Conclude that $P_k$ < 1 / $n^2$ for *k* ≥ $k_0$ = *c* lg *n* / lg lg *n*.
+> - ***e.*** Argue that
+>
+>   $\displaystyle \operatorname{E}\left[M\right] ≤ \Pr\left\lbrace M > \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ n + \Pr\left\lbrace M ≤ \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ \frac{c \lg n}{\lg \lg n}$.
+>
+>   Conclude that E[*M*] = *O*(lg *n* / lg lg *n*).
+
+*Skipped.*
+
+##### 11-3 Quadratic probing
+
+> Suppose that we are given a key *k* to search for in a hash table with positions 0, 1, …, *m* - 1, and suppose that we
+> have a hash function *h* mapping the key space into the set {0, 1, …, *m* - 1}. The search scheme is as follows:
+>
+> 1. Compute the value *j* = *h*(*k*), and set *i* = 0.
+> 2. Probe in position *j* for the desired key *k*. If you find it, or if this position is empty, terminate the search.
+> 3. Set *i* = *i* + 1. If *i* now equals *m*, the table is full, so terminate the search. Otherwise, set
+>    *j* = (*i* + *j*) / mod *m*, and return to step 2.
+>
+> Assume that *m* is a power of 2.
+>
+> ***a.*** Show that this scheme is an instance of the general “quadratic probing” scheme by exhibiting the appropriate
+> constants $c_1$ and $c_2$ for equation (11.5).
+>
+> ***b.*** Prove that this algorithm examines every table position in the worst case.
+
+*Skipped.*
+
+##### 11-4 Hashing and authentication
+
+> Let ℋ be a class of hash functions in which each hash function *h* ∈ ℋ maps the universe *U* of keys to
+> {0, 1, …, m - 1}. We say that ℋ is ***k-universal*** if, for every fixed sequence of *k* distinct keys
+> $⟨x^{(1)}, x^{(2)}, …, x^{(k)}⟩$ and for any *h* chosen at random from ℋ, the sequence
+> $⟨h(x^{(1)}), h(x^{(2)}), …, h(x^{(k)})⟩$ is equally likely to be any of the $m^k$ sequences of length *k* with
+> elements drawn from {0, 1, …, *m* - 1}.
+>
+> - ***a.*** Show that if the family ℋ of hash functions is 2-universal, then it is universal.
+> - ***b.*** Suppose that the universe *U* is the set of *n*-tuples of values drawn from
+>   $ℤ_p$ = {0, 1, …, *p* - 1}, where *p* is prime. Consider an element *x* = $⟨x_0, x_1, …, x_{n - 1}⟩$ ∈ *U*. For any
+>   *n*-tuple *a* = $⟨a_0, a_1, …, a_{n - 1}⟩$ ∈ *U*, define the hash function $h_a$ by
+>
+>   $\displaystyle h_a(x) = \left(∑_{j = 0}^{n - 1} a_j x_j\right) \bmod p$.
+>
+>   Let ℋ = {$h_a$}. Show that ℋ is universal, but not 2-universal. (*Hint:* Find a key for which all hash functions
+>   in ℋ produce the same value.)
+> - ***c.*** Suppose that we modify ℋ slightly from part (b): for any *a* ∈ *U* and for any *b* ∈ $ℤ_p$, define
+>
+>   $\displaystyle h'\_{a b}(x) = \left(∑_{j = 0}^{n - 1} a_j x_j + b\right) \bmod p$
+>
+>   and ℋ′ = {$h'\_{a b}$}. Argue that ℋ′ is 2-universal. (*Hint:* Consider fixed *n*-tuples *x* ∈ *U* and *y* ∈ *U*,
+>   with $x_i$ ≠ $y_i$ for some *i*. What happens to $h'\_{a b}(x)$ and $h'_{a b}(y)$ as $a_i$ and *b* range over
+>   $ℤ_p$?)
+> - ***d.*** Suppose that Alice and Bob secretly agree on a hash function *h* from a 2-universal family ℋ of hash
+>   functions. Each *h* ∈ ℋ maps from a universe of keys *U* to $ℤ_p$, where *p* is prime. Later, Alice sends a message
+>   *m* to Bob over the Internet, where *m* ∈ *U*. She authenticates this message to Bob by also sending an
+>   authentication tag *t* = *h*(*m*), and Bob checks that the pair (*m*, *t*) he receives indeed satisfies
+>   *t* = *h*(*m*). Suppose that an adversary intercepts (*m*, *t*) en route and tries to fool Bob by replacing the pair
+>   (*m*, *t*) with a different pair (*m*′, *t*′). Argue that the probability that the adversary succeeds in fooling Bob
+>   into accepting (*m*′, *t*′) is at most 1 / *p*, no matter how much computing power the adversary has, and even if
+>   the adversary knows the family ℋ of hash functions used.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαπωϕϵ–—’“”‥…′ℕℝℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ×ΓΘΩαπωϕϵ–—’“”‥…′ℋℕℝℤℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
