@@ -5020,6 +5020,15 @@ min-heap property requires nodes in left subtree of every node being greater tha
 We can not print out the keys of an *n*-node tree with min-heap property in sorted order in *O*(*n*) time. Remember
 heapsort? If we can do that, we can get a comparison sorting algorithm runs in *O*(*n*) time, which is impossible.
 
+##### 12.1-3
+
+> Give a nonrecursive algorithm that performs an inorder tree walk. (*Hint:* An easy solution uses a stack as an
+> auxiliary data structure. A more complicated, but elegant, solution uses no stack but assumes that we can test two
+> pointers for equality.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_1_what_is_a_binary_search_tree/exercises/exercise_12_1_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
