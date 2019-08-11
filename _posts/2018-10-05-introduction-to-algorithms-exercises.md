@@ -4998,6 +4998,28 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 *Skipped.*
 
+### 12 Binary Search Trees
+
+#### 12.1 What is a binary search tree?
+
+##### 12.1-1
+
+> For the set of {1, 4, 5, 10, 16, 17, 21} of keys, draw binary search trees of heights 2, 3, 4, 5, and 6.
+
+*Skipped.*
+
+##### 12.1-2
+
+> What is the difference between the binary-search-tree property and the min-heap property (see page 153)? Can the
+> min-heap property be used to print out the keys of an *n*-node tree in sorted order in *O*(*n*) time? Show how, or
+> explain why not.
+
+Binary-search-tree property requires nodes in left subtree of every node being less than or equal to a node, but
+min-heap property requires nodes in left subtree of every node being greater than or equal to the node.
+
+We can not print out the keys of an *n*-node tree with min-heap property in sorted order in *O*(*n*) time. Remember
+heapsort? If we can do that, we can get a comparison sorting algorithm runs in *O*(*n*) time, which is impossible.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
