@@ -5036,6 +5036,15 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_1_what_is_a_binary_search_tree/exercises/exercise_12_1_4.rs).
 
+##### 12.1-5
+
+> Argue that since sorting *n* elements takes Ω(*n* lg *n*) time in the worst case in the comparison model, any
+> comparison-based algorithm for constructing a binary search tree from an arbitrary list of *n* elements takes
+> Ω(*n* lg *n*) time in the worst case.
+
+Like exercise 12.1-2, If we can construct a binary search tree within *o*(*n* lg *n*) time, we can get a comparison
+sorting algorithm that takes *o*(*n* lg *n*) time, which is impossible.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
