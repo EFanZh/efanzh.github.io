@@ -5029,6 +5029,13 @@ heapsort? If we can do that, we can get a comparison sorting algorithm runs in *
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_1_what_is_a_binary_search_tree/exercises/exercise_12_1_3.rs).
 
+##### 12.1-4
+
+> Give recursive algorithms that perform preorder and postorder tree walks in Θ(*n*) time on a tree of n nodes.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_1_what_is_a_binary_search_tree/exercises/exercise_12_1_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
