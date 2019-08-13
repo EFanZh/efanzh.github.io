@@ -5045,6 +5045,24 @@ Solution is implemented
 Like exercise 12.1-2, If we can construct a binary search tree within *o*(*n* lg *n*) time, we can get a comparison
 sorting algorithm that takes *o*(*n* lg *n*) time, which is impossible.
 
+#### 12.2 Querying a binary search tree
+
+##### 12.2-1
+
+> Suppose that we have numbers between 1 and 1000 in a binary search tree, and we want to search for the number 363.
+> Which of the following sequences could not be the sequence of nodes examined?
+>
+> - ***a.*** 2, 252, 401, 398, 330, 344, 397, 363.
+> - ***b.*** 924, 220, 911, 244, 898, 258, 362, 363.
+> - ***c.*** 925, 202, 911, 240, 912, 245, 363.
+> - ***d.*** 2, 399, 387, 219, 266, 382, 381, 278, 363.
+> - ***e.*** 935, 278, 347, 621, 299, 392, 358, 363.
+
+***c*** and ***e*** are not valid sequences.
+
+[Here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_1.rs)
+is an algorithm for detecting valid sequences.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
