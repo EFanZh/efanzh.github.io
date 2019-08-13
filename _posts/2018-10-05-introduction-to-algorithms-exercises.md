@@ -5063,6 +5063,13 @@ sorting algorithm that takes *o*(*n* lg *n*) time, which is impossible.
 [Here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_1.rs)
 is an algorithm for detecting valid sequences.
 
+##### 12.2-2
+
+> Write recursive versions of *Tree-Minimum* and *Tree-Maximum*.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_2.rs)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
