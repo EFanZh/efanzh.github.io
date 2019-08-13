@@ -5077,6 +5077,30 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_3.rs).
 
+##### 12.2-4
+
+> Professor Bunyan thinks he has discovered a remarkable property of binary search trees. Suppose that the search for
+> key *k* in a binary search tree ends up in a leaf. Consider three sets: *A*, the keys to the left of the search path;
+> *B*, the keys on the search path; and *C*, the keys to the right of the search path. Professor Bunyan claims that any
+> three keys *a* ∈ *A*, *b* ∈ *B*, and *c* ∈ *C* must satisfy *a* ≤ *b* ≤ *c*. Give a smallest possible counterexample
+> to the professor’s claim.
+
+```text
+     ┌───┐
+     │ 1 │
+     └─┬─┘
+   ┌───┴───┐
+┌──┴──┐  ┌─┴─┐
+│ nil │  │ 3 │
+└─────┘  └─┬─┘
+        ┌──┴───┐
+      ┌─┴─┐  ┌─┴─┐
+      │ 2 │  │ 4 │
+      └───┘  └───┘
+```
+
+Searching for 4, we have 2 ∈ *A* and 1 ∈ *B*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
