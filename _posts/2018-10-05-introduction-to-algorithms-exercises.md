@@ -5068,7 +5068,14 @@ is an algorithm for detecting valid sequences.
 > Write recursive versions of *Tree-Minimum* and *Tree-Maximum*.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_2.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_2.rs).
+
+##### 12.2-3
+
+> Write the *Tree-Predecessor* procedure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_2_querying_a_binary_search_tree/exercises/exercise_12_2_3.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
