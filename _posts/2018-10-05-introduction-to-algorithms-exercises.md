@@ -5101,6 +5101,16 @@ Solution is implemented
 
 Searching for 4, we have 2 ∈ *A* and 1 ∈ *B*.
 
+##### 12.2-5
+
+> Show that if a node in a binary search tree has two children, then its successor has no left child and its predecessor
+> has no right child.
+
+If a node has left child then its predecessor is the right most node of the left child, if the right most node has right
+child, then it is not the right most child, by contradiction, we know the predecessor has no right child.
+
+The same applies to the successor.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
