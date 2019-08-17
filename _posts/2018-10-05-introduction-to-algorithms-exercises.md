@@ -5111,6 +5111,41 @@ child, then it is not the right most child, by contradiction, we know the predec
 
 The same applies to the successor.
 
+##### 12.2-6
+
+> Consider a binary search tree *T* whose keys are distinct. Show that if the right subtree of a node *x* in *T* is
+> empty and *x* has a successor *y*, then *y* is the lowest ancestor of *x* whose left child is also an ancestor of *x*.
+> (Recall that every node is its own ancestor.)
+
+*Skipped.*
+
+##### 12.2-7
+
+> An alternative method of performing an inorder tree walk of an *n*-node binary search tree finds the minimum element
+> in the tree by calling *Tree-Minimum* and then making *n* - 1 calls to *Tree-Successor*. Prove that this algorithm
+> runs in Θ(*n*) time.
+
+*Skipped.*
+
+##### 12.2-8
+
+> Prove that no matter what node we start at in a height-*h* binary search tree, *k* successive calls to
+> *Tree-Successor* take *O*(*k* + *h*) time.
+
+*Skipped.*
+
+##### 12.2-9
+
+> Let *T* be a binary search tree whose keys are distinct, let *x* be a leaf node, and let *y* be its parent. Show that
+> *y*.*key* is either the smallest key in *T* larger than *x*.*key* or the largest key in *T* smaller than *x*.*key*.
+
+By the definition of *Successor*, we know that:
+
+- If *x* is the left child of *y*, then *y* is the successor of *x*, so *y*.*key* is the smallest key in *T* larger than
+  *x*.*key*.
+- Otherwise, *x* is the right child of *y*, then *x* is the successor of *y*, so *y*.*key* is the largest key in *T*
+  smaller than *x*.*key*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
