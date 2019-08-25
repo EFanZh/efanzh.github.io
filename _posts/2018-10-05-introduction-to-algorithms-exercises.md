@@ -5167,6 +5167,16 @@ positions of the old values, which means once a node is inserted into the tree, 
 The number of nodes to be examined when the node was inserted into the tree equals to the number of ancestors except the
 node itself, and searching examines all the node’s ancestors. So the claim is true.
 
+##### 12.3-3
+
+> We can sort a given set of *n* numbers by first building a binary search tree containing these numbers (using
+> *Tree-Insert* repeatedly to insert the numbers one by one) and then printing the numbers by an inorder tree walk. What
+> are the worst-case and best-case running times for this sorting algorithm?
+
+Worst-case running time is Θ($n^2$) when the numbers are already sorted.
+
+Best-case running time is Θ(*n* log *n*) when the tree is a complete binary tree.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
