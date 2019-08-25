@@ -4886,7 +4886,7 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 *Skipped.*
 
-#### 11.5 Perfect hashing
+#### 11.5 Perfect hashing ★
 
 ##### 11.5-1 ★
 
@@ -5223,6 +5223,71 @@ Delete 2 first, then delete 1, we will get the following tree:
 │ nil │  │ 4 │
 └─────┘  └───┘
 ```
+
+##### 12.3-5
+
+> Suppose that instead of each node *x* keeping the attribute *x*.*p*, pointing to *x*’s parent, it keeps *x*.*succ*,
+> pointing to *x*’s successor. Give pseudocode for *Search*, *Insert*, and *Delete* on a binary search tree *T* using
+> this representation. These procedures should operate in time *O*(*h*), where *h* is the height of the tree *T*.
+> (*Hint:* You may wish to implement a subroutine that returns the parent of a node.)
+
+*Skipped.*
+
+##### 12.3-6
+
+> When node *z* in *Tree-Delete* has two children, we could choose node *y* as its predecessor rather than its
+> successor. What other changes to *Tree-Delete* would be necessary if we did so? Some have argued that a fair strategy,
+> giving equal priority to predecessor and successor, yields better empirical performance. How might *Tree-Delete* be
+> changed to implement such a fair strategy?
+
+*Skipped.*
+
+#### 12.4 Randomly built binary search trees ★
+
+##### 12.4-1
+
+> Prove equation (12.3).
+
+Proof by induction:
+
+- Base case: If *n* = 1,
+
+  $∑_{i = 0}^{n - 1} \binom{i + 3}{3}$ = $∑_{i = 0}^{0} \binom{i + 3}{3}$ = $\binom{3}{3}$ = 1.
+
+  $\binom{n + 3}{4}$ = $\binom{4}{4}$ = 1.
+
+  So the claim holds.
+- Inductive cases: If *n* > 1,
+
+  $∑_{i = 0}^{n - 1} \binom{i + 3}{3}$\
+  = $∑_{i = 0}^{n - 2} \binom{i + 3}{3} + \binom{n + 2}{3}$\
+  = $\binom{n + 2}{4} + \binom{n + 2}{3}$\
+  = $\frac{\left(n + 2\right)!}{4! \left(n - 2\right)!} + \frac{\left(n + 2\right)!}{3! \left(n - 1\right)!}$\
+  = $\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \left(\frac{n - 1}{4!} + \frac{1}{3!}\right)$\
+  = $\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \frac{n + 3}{4!}$\
+  = $\frac{\left(n + 3\right)!}{\left(n - 1\right)! 4!}$\
+  = $\binom{n + 3}{4}$.
+
+##### 12.4-2
+
+> Describe a binary search tree on *n* nodes such that the average depth of a node in the tree is Θ(lg *n*) but the
+> height of the tree is *ω*(lg *n*). Give an asymptotic upper bound on the height of an *n*-node binary search tree in
+> which the average depth of a node is Θ(lg *n*).
+
+##### 12.4-3
+
+> Show that the notion of a randomly chosen binary search tree on *n* keys, where each binary search tree of *n* keys is
+> equally likely to be chosen, is different from the notion of a randomly built binary search tree given in this
+> section. (*Hint:* List the possibilities when *n* = 3.)
+
+##### 12.4-4
+
+> Show that the function *f*(*x*) = $2^x$ is convex.
+
+##### 12.4-5 ★
+
+> Consider *Randomized-Quicksort* operating on a sequence of *n* distinct input numbers. Prove that for any constant
+> *k* > 0, all but *O*(1 / $n^k$) of the *n*! input permutations yield an *O*(*n* lg *n*) running time.
 
 ------------------------------------------------------------------------------------------------------------------------
 
