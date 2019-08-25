@@ -5146,6 +5146,15 @@ By the definition of *Successor*, we know that:
 - Otherwise, *x* is the right child of *y*, then *x* is the successor of *y*, so *y*.*key* is the largest key in *T*
   smaller than *x*.*key*.
 
+#### 12.3 Insertion and deletion
+
+##### 12.3-1
+
+> Give a recursive version of the *Tree-Insert* procedure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_3_insertion_and_deletion/exercises/exercise_12_3_1.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
