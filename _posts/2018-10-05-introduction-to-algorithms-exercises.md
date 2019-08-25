@@ -5177,6 +5177,53 @@ Worst-case running time is Θ($n^2$) when the numbers are already sorted.
 
 Best-case running time is Θ(*n* log *n*) when the tree is a complete binary tree.
 
+##### 12.3-4
+
+> Is the operation of deletion “commutative” in the sense that deleting *x* and then *y* from a binary search tree
+> leaves the same tree as deleting *y* and then *x*? Argue why it is or give a counterexample.
+
+Deletion is not “commutative”.
+
+Counterexample: deleting 1 and 2 from the following tree:
+
+```text
+   ┌───┐
+   │ 2 │
+   └─┬─┘
+  ┌──┴───┐
+┌─┴─┐  ┌─┴─┐
+│ 1 │  │ 4 │
+└───┘  └─┬─┘
+     ┌───┴───┐
+   ┌─┴─┐  ┌──┴──┐
+   │ 3 │  │ nil │
+   └───┘  └─────┘
+```
+
+Delete 1 first, then delete 2, we will get the following tree:
+
+```text
+    ┌───┐
+    │ 4 │
+    └─┬─┘
+  ┌───┴───┐
+┌─┴─┐  ┌──┴──┐
+│ 3 │  │ nil │
+└───┘  └─────┘
+```
+
+Delete 2 first, then delete 1, we will get the following tree:
+
+```text
+     ┌───┐
+     │ 3 │
+     └─┬─┘
+   ┌───┴───┐
+┌──┴──┐  ┌─┴─┐
+│ nil │  │ 4 │
+└─────┘  └───┘
+```
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
