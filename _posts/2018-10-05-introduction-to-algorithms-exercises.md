@@ -5274,27 +5274,64 @@ Proof by induction:
 > height of the tree is *ω*(lg *n*). Give an asymptotic upper bound on the height of an *n*-node binary search tree in
 > which the average depth of a node is Θ(lg *n*).
 
+*Skipped.*
+
 ##### 12.4-3
 
 > Show that the notion of a randomly chosen binary search tree on *n* keys, where each binary search tree of *n* keys is
 > equally likely to be chosen, is different from the notion of a randomly built binary search tree given in this
 > section. (*Hint:* List the possibilities when *n* = 3.)
 
+*Skipped.*
+
 ##### 12.4-4
 
 > Show that the function *f*(*x*) = $2^x$ is convex.
+
+*Skipped.*
 
 ##### 12.4-5 ★
 
 > Consider *Randomized-Quicksort* operating on a sequence of *n* distinct input numbers. Prove that for any constant
 > *k* > 0, all but *O*(1 / $n^k$) of the *n*! input permutations yield an *O*(*n* lg *n*) running time.
 
+*Skipped.*
+
+#### 12.X Problems
+
+##### 12-1 Binary search trees with equal keys
+
+> Equal keys pose a problem for the implementation of binary search trees.
+>
+> - ***a.*** What is the asymptotic performance of *Tree-Insert* when used to insert *n* items with identical keys into
+>   an initially empty binary search tree?
+>
+> We propose to improve *Tree-Insert* by testing before line 5 to determine whether *z*.*key* = *x*.*key* and by testing
+> before line 11 to determine whether *z*.*key* D *y*.*key*.
+>
+> If equality holds, we implement one of the following strategies. For each strategy, find the asymptotic performance of
+> inserting *n* items with identical keys into an initially empty binary search tree. (The strategies are described for
+> line 5, in which we compare the keys of *z* and *x*. Substitute *y* for *x* to arrive at the strategies for line 11.)
+>
+> - ***b.*** Keep a boolean flag *x*.*b* at node *x*, and set *x* to either *x*.*left* or *x*.*right* based on the value
+>   of *x*.*b*, which alternates between *false* and *true* each time we visit *x* while inserting a node with the same
+>   key as *x*.
+> - ***c.*** Keep a list of nodes with equal keys at *x*, and insert *z* into the list.
+> - ***d.*** Randomly set *x* to either *x*.*left* or *x*.*right*. (Give the worst-case performance and informally
+>   derive the expected running time.)
+
+- ***a.*** Θ($n^2$).
+- ***b.*** Θ(*n* lg *n*).
+- ***c.*** Θ(*n* lg *n*).
+- ***d.*** Θ(*n*).
+- ***d.*** Worst-case running time is Θ($n^2$), expected running time is Θ(*n* lg *n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαπωϕϵ–—’“”‥…′ℋℕℝℤℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ×ΓΘΩαλπωϕϵ–—’“”‥…′ℋℕℝℤℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
