@@ -5155,6 +5155,18 @@ By the definition of *Successor*, we know that:
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/section_12_3_insertion_and_deletion/exercises/exercise_12_3_1.rs).
 
+##### 12.3-2
+
+> Suppose that we construct a binary search tree by repeatedly inserting distinct values into the tree. Argue that the
+> number of nodes examined in searching for a value in the tree is one plus the number of nodes examined when the value
+> was first inserted into the tree.
+
+Note that the new value is only inserted to the leaf position, so inserting a new value does not affect the relative
+positions of the old values, which means once a node is inserted into the tree, it stays at its position all the time.
+
+The number of nodes to be examined when the node was inserted into the tree equals to the number of ancestors except the
+node itself, and searching examines all the node’s ancestors. So the claim is true.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
