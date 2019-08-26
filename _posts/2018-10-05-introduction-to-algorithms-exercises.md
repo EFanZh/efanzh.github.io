@@ -2802,7 +2802,7 @@ Solution is implemented
 You are thinking about binary search, aren’t you? Too bad this problem isn’t about that.
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3_young_tableaus.rs).
 
 ### 7 Quicksort
 
