@@ -5343,9 +5343,82 @@ Proof by induction:
 > *S* be a set of distinct bit strings whose lengths sum to *n*. Show how to use a radix tree to sort *S*
 > lexicographically in Θ(*n*) time. For the example in Figure 12.5, the output of the sort should be the sequence 0,
 > 011, 10, 100, 1011.
+>
+> ```text
+>               ┌──┐
+>               │//│
+>               └┬─┘
+>     ┌──────────┴──────────┐
+>     0                     1
+>   ┌─┴─┐                  ┌┴─┐
+>   │ 0 │                  │//│
+>   └─┬─┘                  └┬─┘
+>     └──┐               ┌──┘
+>        1               0
+>       ┌┴─┐           ┌─┴──┐
+>       │//│           │ 10 │
+>       └┬─┘           └─┬──┘
+>        └───┐        ┌──┴───┐
+>            1        0      1
+>         ┌──┴──┐  ┌──┴──┐  ┌┴─┐
+>         │ 011 │  │ 100 │  │//│
+>         └─────┘  └─────┘  └┬─┘
+>                            └───┐
+>                                1
+>                             ┌──┴───┐
+>                             │ 1011 │
+>                             └──────┘
+> ```
+>
+> **Figure 12.5** A radix tree storing the bit strings 1011, 10, 011, 100, and 0. We can determine each node’s key by
+> traversing the simple path from the root to that node. There is no need, therefore, to store the keys in the nodes;
+> the keys appear here for illustrative purposes only. Nodes are heavily shaded if the keys corresponding to them are
+> not in the tree; such nodes are present only to establish a path to other nodes.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/problems/problem_12_2_radix_trees.rs).
+
+##### 12-3 Average node depth in a randomly built binary search tree
+
+> In this problem, we prove that the average depth of a node in a randomly built binary search tree with *n* nodes is
+> *O*(lg *n*). Although this result is weaker than that of Theorem 12.4, the technique we shall use reveals a surprising
+> similarity between the building of a binary search tree and the execution of *Randomized-Quicksort* from Section 7.3.
+>
+> We define the ***total path length*** *P*(*T*) of a binary tree *T* as the sum, over all nodes *x* in *T*, of the
+> depth of node *x*, which we denote by *d*(*x*, *T*).
+>
+> - ***a.*** Argue that the average depth of a node in *T* is
+>
+>   $\displaystyle \frac{1}{n} ∑_{x ∈ T} d(x, T) = \frac{1}{n} P(T)$.
+>
+> Thus, we wish to show that the expected value of *P*(*T*) is *O*(*n* lg *n*).
+>
+> - ***b.*** Let $T_L$ and $T_R$ denote the left and right subtrees of tree *T*, respectively. Argue that if *T* has *n*
+>   nodes, then
+>
+>   *P*(*T*) = *P*($T_L$) + *P*($T_R$) + *n* - 1.
+>
+> - ***c.*** Let *P*(*n*) denote the average total path length of a randomly built binary search tree with *n* nodes.
+>   Show that
+>
+>   $\displaystyle P(n) = \frac{1}{n} ∑_{i = 0}^{n - 1}(P(i) + P(n - i - 1) + n - 1)$.
+>
+> - ***d.*** Show how to rewrite *P*(*n*) as
+>
+>   $\displaystyle P(n) = \frac{2}{n} ∑_{k = 1}^{n - 1} P(k) + Θ(n)$.
+>
+> - ***e.*** Recalling the alternative analysis of the randomized version of quicksort given in Problem 7-3, conclude
+>   that *P*(*n*) = *O*(*n* lg *n*).
+>
+> At each recursive invocation of quicksort, we choose a random pivot element to partition the set of elements being
+> sorted. Each node of a binary search tree partitions the set of elements that fall into the subtree rooted at that
+> node.
+>
+> - ***f.*** Describe an implementation of quicksort in which the comparisons to sort a set of elements are exactly the
+>   same as the comparisons to insert the elements into a binary search tree. (The order in which comparisons are made
+>   may differ, but the same comparisons must occur.)
+
+*Skipped.*
 
 ------------------------------------------------------------------------------------------------------------------------
 
