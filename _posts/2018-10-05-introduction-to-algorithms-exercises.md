@@ -589,7 +589,7 @@ for implementations.
 >    $a_0$, $a_1$, …, $a_n$.
 
 See
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_3.rs)
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_3_correctness_of_horners_rule.rs)
 for implementation.
 
 1. Θ(*n*).
@@ -638,7 +638,7 @@ for implementation.
    Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
    $∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
 4. See
-   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_4.rs)
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_4_inversions.rs)
    for implementation.
 
 ### 3 Growth of Functions
@@ -2715,7 +2715,7 @@ run time of Θ(*n* lg *n*).
 > time in terms of *d* and *n*.
 
 ***a.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 
 ***b.*** The maximum number of elements of height *h* is $∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}$, so we have
 $\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}$. Solving it, we have
@@ -2723,17 +2723,17 @@ $\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\rig
 integer, we have *h* = $\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil$ = Θ($\log_d n$).
 
 ***c.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 The worst-case running time is linear to the height of the heap, and on every level we have to find the maximum element
 in Θ(*d*) time. So the worst case running time is Θ(*d* $\log_d n$).
 
 ***d.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 The worst-case running time is linear to the height of the heap. So the worst case running time is
 *O*($\log_d n$).
 
 ***e.*** The solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 The worst case running time is Θ($\log_d n$).
 
 ##### 6-3 Young tableaus
@@ -2781,21 +2781,21 @@ The worst case running time is Θ($\log_d n$).
 ***c.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3_young_tableaus.rs).
 
 *T*(*p*) = *T*(*p* - 1) + *O*(1).
 
 ***d.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3_young_tableaus.rs).
 
 The solution is very similar to the *Extract-Min* and they have the same running time bound.
 
 ***e.***
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_3_young_tableaus.rs).
 
 ***f.***
 
@@ -3639,7 +3639,7 @@ The solution is implemented
 ***e.***
 
 The algorithm is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_2.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_2_sorting_in_place_in_linear_time.rs).
 It is unstable.
 
 ##### 8-3 Sorting variable-length items
@@ -3656,7 +3656,7 @@ It is unstable.
 if it has *i* digits. Then radix sort each bucket. Finally concatenate elements in each bucket.
 
 ***b.*** Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_3.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_3_sorting_variable_length_items.rs).
 
 ##### 8-4 Water jugs
 
@@ -3685,7 +3685,7 @@ if it has *i* digits. Then radix sort each bucket. Finally concatenate elements 
 possible result. So the decision tree must at least have the height lg *n*! = Ω(*n* lg *n*).
 
 ***c.*** Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_4.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_4_water_jugs.rs).
 The worst-cast running time is Θ($n^2$).
 
 ##### 8-5 Average sorting
@@ -5307,7 +5307,7 @@ Proof by induction:
 >   an initially empty binary search tree?
 >
 > We propose to improve *Tree-Insert* by testing before line 5 to determine whether *z*.*key* = *x*.*key* and by testing
-> before line 11 to determine whether *z*.*key* D *y*.*key*.
+> before line 11 to determine whether *z*.*key* = *y*.*key*.
 >
 > If equality holds, we implement one of the following strategies. For each strategy, find the asymptotic performance of
 > inserting *n* items with identical keys into an initially empty binary search tree. (The strategies are described for
@@ -5325,6 +5325,27 @@ Proof by induction:
 - ***c.*** Θ(*n* lg *n*).
 - ***d.*** Θ(*n*).
 - ***d.*** Worst-case running time is Θ($n^2$), expected running time is Θ(*n* lg *n*).
+
+##### 12-2 Radix trees
+
+> Given two strings *a* = $a_0 a_1 … a_p$ and *b* = $b_0 b_1 … b_q$, where each $a_i$ and each $b_j$ is in some ordered
+> set of characters, we say that string $a$ is lexicographically less than string $b$ if either
+>
+> 1. there exists an integer *j*, where 0 ≤ *j* ≤ min(*p*, *q*), such that $a_i$ = $b_i$ for all *i* = 0, 1, …, *j* - 1
+>    and $a_j$ < $b_j$, or
+> 2. *p* < *q* and $a_i$ = $b_i$ for all *i* = 0, 1, …, *p*.
+>
+> For example, if *a* and *b* are bit strings, then 10100 < 10110 by rule 1 (letting *j* = 3) and 10100 < 101000 by
+> rule 2. This ordering is similar to that used in English-language dictionaries.
+>
+> The ***radix tree*** data structure shown in Figure 12.5 stores the bit strings 1011, 10, 011, 100, and 0. When
+> searching for a key *a* = $a_0 a_1 … a_p$, we go left at a node of depth *i* if $a_i$ = 0 and right if $a_i$ = 1. Let
+> *S* be a set of distinct bit strings whose lengths sum to *n*. Show how to use a radix tree to sort *S*
+> lexicographically in Θ(*n*) time. For the example in Figure 12.5, the output of the sort should be the sequence 0,
+> 011, 10, 100, 1011.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_12_binary_search_trees/problems/problem_12_2_radix_trees.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
