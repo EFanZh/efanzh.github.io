@@ -5554,6 +5554,23 @@ There you go:
 
 Yes.
 
+##### 13.1-4
+
+> Suppose that we “absorb” every red node in a red-black tree into its black parent, so that the children of the red
+> node become children of the black parent. (Ignore what happens to the keys.) What are the possible degrees of a black
+> node after all its red children are absorbed? What can you say about the depths of the leaves of the resulting tree?
+
+*Skipped.*
+
+##### 13.1-5
+
+> Show that the longest simple path from a node *x* in a red-black tree to a descendant leaf has length at most twice
+> that of the shortest simple path from node *x* to a descendant leaf.
+
+Since all simple paths has the same number of black nodes and the children of a red node must be black, the shortest
+path will contain no red nodes, and the longest path will interleave between black and red nodes, it is obvious that the
+longest path has length at most twice that of the shortest path.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
