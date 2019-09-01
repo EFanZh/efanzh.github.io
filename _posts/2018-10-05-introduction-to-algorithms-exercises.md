@@ -5595,6 +5595,14 @@ I’ll do you one better: Write
 [real code](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/section_13_2_rotations/exercises/exercise_13_2_1.rs)
 for *Right-Rotate*.
 
+##### 13.2-2
+
+> Argue that in every *n*-node binary search tree, there are exactly *n* - 1 possible rotations.
+
+If a node is the left child of another node, we can do a right rotation on its parent; if a node is the right child of
+another node, we can do a left rotation on its parent. Since there are *n* - 1 nodes with a parent, we can do *n* - 1
+possible rotations.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
