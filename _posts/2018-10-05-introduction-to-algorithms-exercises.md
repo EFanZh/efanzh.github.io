@@ -5420,6 +5420,58 @@ Solution is implemented
 
 *Skipped.*
 
+##### 12-4 Number of different binary trees
+
+> Let $b_n$ denote the number of different binary trees with *n* nodes. In this problem, you will find a formula for
+> $b_n$, as well as an asymptotic estimate.
+>
+> - ***a.*** Show that $b_0$ = 1 and that, for *n* ≥ 1,
+>
+>   $\displaystyle b_n = ∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}$.
+>
+> - ***b.*** Referring to Problem 4-4 for the definition of a generating function, let *B*(*x*) be the generating
+>   function
+>
+>   *B*(*x*) = $\displaystyle ∑_{n = 0}^∞ b_n x^n$.
+>
+>   Show that *B*(*x*) = *x* $B(x)^2$ + 1, and hence one way to express *B*(*x*) in closed form is
+>
+>   *B*(*x*) = $\dfrac{1}{2 x} \left(1 - \sqrt{1 - 4 x}\right)$.
+>
+> The ***Taylor expansion*** of *f*(*x*) around the point *x* = *a* is given by
+>
+> *f*(*x*) = $\displaystyle ∑_{k = 0}^∞ \frac{f^{(k)}(a)}{k!}(x - a)^k$.
+>
+> where $f^{(k)}(x)$ is the *k*th derivative of *f* evaluated at *x*.
+>
+> - ***c.*** Show that
+>
+>   $\displaystyle b_n = \frac{1}{n + 1} \binom{2 n}{n}$
+>
+>   (the *n*th ***Catalan number***) by using the Taylor expansion of $\sqrt{1 - 4 x}$ around *x* = 0. (If you wish,
+>   instead of using the Taylor expansion, you may use the generalization of the binomial expansion (C.4) to nonintegral
+>   exponents *n*, where for any real number *n* and for any integer *k*, we interpret $\binom{n}{k}$ to be
+>   *n* (*n* - 1) ⋯ (*n* - *k* + 1) / *k*! if *k* ≥ 0, and 0 otherwise.)
+>
+> - ***d.*** Show that
+>
+>   $b_n = \dfrac{4^n}{\sqrt{π} n^{3 / 2}}$ (1 + *O*(1 / *n*)).
+
+- ***a***
+
+  1. There is only one type of binary tree of zero nodes, that is, no tree, so $b_0$ = 1.
+  2. For *n* > 0, if the left child of the root has *k* nodes, then the right child has *n* - 1 - *k* nodes, for this
+     situation, there can be $b_k b_{n - 1 - k}$ different kinds of trees. Since *k* must be in range [0, *n* - 1], the
+     total number of kinds of binary trees is $∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}$.
+- ***b***
+
+  *Skipped.*
+- ***c***
+
+  *Skipped.*
+- ***d***
+  *Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
