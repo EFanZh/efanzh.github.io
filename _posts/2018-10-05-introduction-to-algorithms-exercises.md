@@ -5571,6 +5571,13 @@ Since all simple paths has the same number of black nodes and the children of a 
 path will contain no red nodes, and the longest path will interleave between black and red nodes, it is obvious that the
 longest path has length at most twice that of the shortest path.
 
+##### 13.1-6
+
+> What is the largest possible number of internal nodes in a red-black tree with black-height *k*? What is the smallest
+> possible number?
+
+The largest number of internal nodes is $2^{2 k}$ - 1, the smallest possible number is $2^k$ - 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
