@@ -5578,6 +5578,23 @@ longest path has length at most twice that of the shortest path.
 
 The largest number of internal nodes is $2^{2 k}$ - 1, the smallest possible number is $2^k$ - 1.
 
+##### 13.1-7
+
+> Describe a red-black tree on *n* keys that realizes the largest possible ratio of red internal nodes to black internal
+> nodes. What is this ratio? What tree has the smallest possible ratio, and what is the ratio?
+
+*Skipped.*
+
+#### 13.2 Rotations
+
+##### 13.2-1
+
+> Write pseudocode for *Right-Rotate*.
+
+I’ll do you one better: Write
+[real code](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/section_13_2_rotations/exercises/exercise_13_2_1.rs)
+for *Right-Rotate*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
