@@ -5603,12 +5603,73 @@ If a node is the left child of another node, we can do a right rotation on its p
 another node, we can do a left rotation on its parent. Since there are *n* - 1 nodes with a parent, we can do *n* - 1
 possible rotations.
 
+##### 13.2-3
+
+> Let *a*, *b*, and *c* be arbitrary nodes in subtrees *α*, *β*, and *γ*, respectively, in the right tree of Figure
+> 13.2. How do the depths of *a*, *b*, and *c* change when a left rotation is performed on node *x* in the figure?
+>
+>
+> ```text
+>                 ┌───┐
+>                 │ 7 │
+>                 └─┬─┘
+>            ┌──────┴───────┐
+>          ┌─┴─┐        ┌───┴────┐
+>          │ 4 │        │ 11 (x) │
+>          └─┬─┘        └───┬────┘
+>         ┌──┴───┐      ┌───┴────┐
+>       ┌─┴─┐  ┌─┴─┐  ┌─┴─┐  ┌───┴────┐
+>       │ 3 │  │ 6 │  │ 9 │  │ 18 (y) │
+>       └─┬─┘  └───┘  └───┘  └───┬────┘
+>      ┌──┘               ┌──────┴──────┐
+>    ┌─┴─┐              ┌─┴──┐        ┌─┴──┐
+>    │ 2 │              │ 14 │        │ 19 │
+>    └───┘              └─┬──┘        └─┬──┘
+>                     ┌───┴───┐         └───┐
+>                   ┌─┴──┐  ┌─┴──┐        ┌─┴──┐
+>                   │ 12 │  │ 17 │        │ 22 │
+>                   └────┘  └────┘        └─┬──┘
+>                                        ┌──┘
+>                   ┊                  ┌─┴──┐
+>                   ┊                  │ 20 │
+> Left-Rotate(T, X) ┊                  └────┘
+>                   ┊
+>                   ┊
+>                   ⇣
+>                 ┌───┐
+>                 │ 7 │
+>                 └─┬─┘
+>         ┌─────────┴─────────┐
+>       ┌─┴─┐             ┌───┴────┐
+>       │ 4 │             │ 18 (y) │
+>       └─┬─┘             └───┬────┘
+>      ┌──┴───┐        ┌──────┴───────┐
+>    ┌─┴─┐  ┌─┴─┐  ┌───┴────┐       ┌─┴──┐
+>    │ 3 │  │ 6 │  │ 11 (x) │       │ 19 │
+>    └─┬─┘  └───┘  └───┬────┘       └─┬──┘
+>   ┌──┘            ┌──┴───┐          └───┐
+> ┌─┴─┐           ┌─┴─┐  ┌─┴──┐         ┌─┴──┐
+> │ 2 │           │ 9 │  │ 14 │         │ 22 │
+> └───┘           └───┘  └─┬──┘         └─┬──┘
+>                      ┌───┴───┐       ┌──┘
+>                    ┌─┴──┐  ┌─┴──┐  ┌─┴──┐
+>                    │ 12 │  │ 17 │  │ 20 │
+>                    └────┘  └────┘  └────┘
+> ```
+>
+> **Figure 13.3** An example of how the procedure *Left-Rotate*(*T*, *x*) modifies a binary search tree. Inorder tree
+> walks of the input tree and the modified tree produce the same listing of key values.
+
+- *a* increases by 1.
+- *b* stays the same.
+- *c* decreases by 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαλπωϕϵ–—’“”‥…′ℋℕℝℤℱ→⇒⇔∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋀⋁⋂⋃⋅⋯⌈⌉⌊⌋★⟨⟩
+> ×ΓΘΩαβγπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
