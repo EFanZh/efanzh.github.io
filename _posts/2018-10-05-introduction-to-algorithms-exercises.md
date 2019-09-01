@@ -5664,6 +5664,22 @@ possible rotations.
 - *b* stays the same.
 - *c* decreases by 1.
 
+##### 13.2-4
+
+> Show that any arbitrary *n*-node binary search tree can be transformed into any other arbitrary *n*-node binary search
+> tree using *O*(*n*) rotations. (*Hint:* First show that at most *n* - 1 right rotations suffice to transform the tree
+> into a right-going chain.)
+
+One right rotation operation decrease the total number of left child by exactly one and increase the total number of
+right child by exactly one. So *n* - 1 right rotations suffice to transform the tree into a tree with at least *n* - 1
+right child, which can only be a right-going chain. This step takes *O*(*n* - 1) time.
+
+Since the left rotation and right rotation are symmetric, we can recover the original tree structure from a right going
+chain using left rotations in a reversed order, which takes *O*(*n* - 1) time.
+
+So to transform one tree *A* to another tree *B*, we can first transform it into a right going chain, then recover the
+struct of tree *B*. Both steps takes *O*(*n* - 1) time, so the total running time is *O*(*n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
