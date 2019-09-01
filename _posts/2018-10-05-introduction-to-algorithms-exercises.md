@@ -5539,6 +5539,21 @@ There you go:
 └─────┘  └─────┘  └─────┘  └─────┘  └─────┘  └──────┘  └──────┘  └──────┘
 ```
 
+##### 13.1-2
+
+> Draw the red-black tree that results after *Tree-Insert* is called on the tree in Figure 13.1 with key 36. If the
+> inserted node is colored red, is the resulting tree a red-black tree? What if it is colored black?
+
+*Skipped.*
+
+##### 13.1-3
+
+> Let us define a ***relaxed red-black tree*** as a binary search tree that satisfies red-black properties 1, 3, 4,
+> and 5. In other words, the root may be either red or black. Consider a relaxed red-black tree *T* whose root is red.
+> If we color the root of *T* black but make no other changes to *T*, is the resulting tree a red-black tree?
+
+Yes.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
