@@ -8,13 +8,13 @@
 ### Normalize package dependencies
 
 ```bash
-aptitude search -F '%p' '~i !~M (~R~i | ~P~R~i)' | xargs -r aptitude markauto -y
+aptitude markauto '~i !~M (~R~i | ~P~R~i)'
 ```
 
 ### Remove recommended packages
 
 ```bash
-aptitude search -F '%p' '!~E ~M !(~R~i | ~P~R~i)' | xargs -r aptitude purge --purge-unused -y
+aptitude purge --purge-unused '!~E ~M !(~R~i | ~P~R~i)'
 ```
 
 ## [FFmpeg](https://www.ffmpeg.org)
