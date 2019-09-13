@@ -5728,6 +5728,22 @@ But setting *z*’s color to black will violate property 5, which seems harder t
 The only possible setting nodes’ color to *red* is line 7 and line 13, and in both cases, we are sure that *z* are
 *z*.*p*.*p*’s grandchild, so *z*.*p*.*p* can’t be *T*.*nil*. So *RB-Insert-Fixup* never sets *T*.*nil*.*color* to *red*.
 
+##### 13.3-5
+
+> Consider a red-black tree formed by inserting *n* nodes with *RB-Insert*. Argue that if *n* > 1, the tree has at least
+> one red node.
+
+Since *n* > 1, the tree will have a root, so the newly inserted node will have a parent.
+
+If the newly inserted node is a child of a black node, the tree will not need any fixups. Since the newly inserted node
+is a red node, the tree has at least one red node.
+
+If the newly inserted node is a child of a red node, we will have to do fixup operations on all three cases.
+
+For case 1 of the fixup, one red node will be left on a branch of the new *z* of next iteration.
+
+For case 2 and 3 of the fixup, after one iteration of this case, two red nodes will be left in the tree.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
