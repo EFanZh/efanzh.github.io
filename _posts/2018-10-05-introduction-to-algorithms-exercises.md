@@ -3331,7 +3331,7 @@ The median-of-3 quicksort is implemented
 > the extent that it exists.)
 >
 > ***b.*** Argue that your algorithm runs in expected time Θ(*n* lg *n*) in general, but runs in expected time Θ(*n*)
-> when all of the intervals overlap (i.e., when there exists a value *x* such that *x* ϵ [$a_i$, $b_i$] for all *i*).
+> when all of the intervals overlap (i.e., when there exists a value *x* such that *x* ∈ [$a_i$, $b_i$] for all *i*).
 > Your algorithm should not be checking for this case explicitly; rather, its performance should naturally improve as
 > the amount of overlap increases.
 
@@ -5705,12 +5705,35 @@ so property 4 will still be valid.
 
 But setting *z*’s color to black will violate property 5, which seems harder to fix than property 4.
 
+##### 13.3-2
+
+> Show the red-black trees that result after successively inserting the keys 41, 38, 31, 12, 19, 8 into an initially
+> empty red-black tree.
+
+*Skipped.*
+
+##### 13.3-3
+
+> Suppose that the black-height of each of the subtrees *α*, *β*, *γ*, *δ*, *ε* in Figures 13.5 and 13.6 is *k*. Label
+> each node in each figure with its black-height to verify that the indicated transformation preserves property 5.
+
+*Skipped.*
+
+##### 13.3-4
+
+> Professor Teach is concerned that *RB-Insert-Fixup* might set *T*.*nil*.*color* to *red*, in which case the test in
+> line 1 would not cause the loop to terminate when *z* is the root. Show that the professor’s concern is unfounded by
+> arguing that *RB-Insert-Fixup* never sets *T*.*nil*.*color* to *red*.
+
+The only possible setting nodes’ color to *red* is line 7 and line 13, and in both cases, we are sure that *z* are
+*z*.*p*.*p*’s grandchild, so *z*.*p*.*p* can’t be *T*.*nil*. So *RB-Insert-Fixup* never sets *T*.*nil*.*color* to *red*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαβγπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΩαβγδεπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
