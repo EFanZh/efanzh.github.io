@@ -5589,11 +5589,11 @@ The largest number of internal nodes is $2^{2 k}$ - 1, the smallest possible num
 
 ##### 13.2-1
 
-> Write pseudocode for *Right-Rotate*.
+> Write pseudocode for **Right-Rotate**.
 
 I’ll do you one better: Write
 [real code](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/section_13_2_rotations/exercises/exercise_13_2_1.rs)
-for *Right-Rotate*.
+for **Right-Rotate**.
 
 ##### 13.2-2
 
@@ -5679,6 +5679,31 @@ chain using left rotations in a reversed order, which takes *O*(*n* - 1) time.
 
 So to transform one tree *A* to another tree *B*, we can first transform it into a right going chain, then recover the
 struct of tree *B*. Both steps takes *O*(*n* - 1) time, so the total running time is *O*(*n*).
+
+##### 13.2-5 ★
+
+> We say that a binary search tree $T_1$ can be ***right-converted*** to binary search tree $T_2$ if it is possible to
+> obtain $T_2$ from $T_1$ via a series of calls to *Right-Rotate*. Give an example of two trees $T_1$ and $T_2$ such
+> that $T_1$ cannot be right-converted to $T_2$. Then, show that if a tree $T_1$ can be right-converted to $T_2$, it can
+> be right-converted using *O*($n^2$) calls to *Right-Rotate*.
+
+If *A* is a right going chain and *B* is a left going chain, *A* cannot be right-converted into *B* since *A* doesn’t
+have left child nodes.
+
+*Skipped.*
+
+#### 13.3 Insertion
+
+##### 13.3-1
+
+> In line 16 of *RB-Insert*, we set the color of the newly inserted node *z* to red. Observe that if we had chosen to
+> set *z*’s color to black, then property 4 of a red-black tree would not be violated. Why didn’t we choose to set *z*’s
+> color to black?
+
+For any valid red-black tree, property 4 is not violated, then after inserting a black node, red nodes are not affected,
+so property 4 will still be valid.
+
+But setting *z*’s color to black will violate property 5, which seems harder to fix than property 4.
 
 ------------------------------------------------------------------------------------------------------------------------
 
