@@ -5744,6 +5744,14 @@ For case 1 of the fixup, one red node will be left on a branch of the new *z* of
 
 For case 2 and 3 of the fixup, after one iteration of this case, two red nodes will be left in the tree.
 
+##### 13.3-6
+
+> Suggest how to implement *RB-Insert* efficiently if the representation for red-black trees includes no storage for
+> parent pointers.
+
+I can
+[do it recursively](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/extra.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
