@@ -5752,12 +5752,102 @@ For case 2 and 3 of the fixup, after one iteration of this case, two red nodes w
 I can
 [do it recursively](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/extra.rs).
 
+#### 13.4 Deletion
+
+##### 13.4-1
+
+> Argue that after executing *RB-Delete-Fixup*, the root of the tree must be black.
+
+*Skipped.*
+
+##### 13.4-2
+
+> Argue that if in *RB-Delete* both *x* and *x*.*p* are red, then property 4 is restored by the call to
+> *RB-Delete-Fixup*(*T*, *x*).
+
+*Skipped.*
+
+##### 13.4-3
+
+> In Exercise 13.3-2, you found the red-black tree that results from successively inserting the keys 41, 38, 31, 12, 19,
+> 8 into an initially empty tree. Now show the red-black trees that result from the successive deletion of the keys in
+> the order 8, 12, 19, 31, 38, 41.
+
+*Skipped.*
+
+##### 13.4-4
+
+> In which lines of the code for *RB-Delete-Fixup* might we examine or modify the sentinel *T*.*nil*?
+
+*Skipped.*
+
+##### 13.4-5
+
+> In each of the cases of Figure 13.7, give the count of black nodes from the root of the subtree shown to each of the
+> subtrees *α*, *β*, …, *ζ*, and verify that each count remains the same after the transformation. When a node has a
+> *color* attribute *c* or *c*′, use the notation count(*c*) or count(*c*′) symbolically in your count.
+
+*Skipped.*
+
+##### 13.4-6
+
+> Professors Skelton and Baron are concerned that at the start of case 1 of *RB-Delete-Fixup*, the node *x*.*p* might
+> not be black. If the professors are correct, then lines 5–6 are wrong. Show that *x*.*p* must be black at the start of
+> case 1, so that the professors have nothing to worry about.
+
+Because the right child of *x*.*p* is red, so the parent must be a black node.
+
+##### 13.4-7
+
+> Suppose that a node *x* is inserted into a red-black tree with RB-Insert and then is immediately deleted with
+> *RB-Delete*. Is the resulting red-black tree the same as the initial red-black tree? Justify your answer.
+
+No. For example:
+
+```text
+  ┌─────┐
+  │ [2] │
+  └──┬──┘
+  ┌──┴───┐
+┌─┴─┐  ┌─┴─┐
+│ 1 │  │ 3 │
+└───┘  └───┘
+```
+
+After inserting 4:
+
+```text
+    ┌─────┐
+    │ [2] │
+    └──┬──┘
+   ┌───┴────┐
+┌──┴──┐  ┌──┴──┐
+│ [1] │  │ [3] │
+└─────┘  └──┬──┘
+        ┌───┴───┐
+     ┌──┴──┐  ┌─┴─┐
+     │ nil │  │ 4 │
+     └─────┘  └───┘
+```
+
+After removing 4:
+
+```text
+    ┌─────┐
+    │ [2] │
+    └──┬──┘
+   ┌───┴────┐
+┌──┴──┐  ┌──┴──┐
+│ [1] │  │ [3] │
+└─────┘  └─────┘
+```
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαβγδεπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
