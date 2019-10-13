@@ -5880,6 +5880,61 @@ After removing 4:
 Solutions are implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/tree/master/src/chapter_13_red_black_trees/problems/problem_13_1_persistent_dynamic_sets).
 
+##### 13-2 Join operation on red-black trees
+
+> The ***join*** operation takes two dynamic sets $S_1$ and $S_2$ and an element *x* such that for any $x_1$ ∈ $S_1$ and
+> $x_2$ ∈ $S_2$, we have $x_1$.*key* ≤ $x$.*key* ≤ $x_2$.*key*. It returns a set *S* = $S_1$ ∪ { *x* } ∪ $S_2$. In this
+> problem, we investigate how to implement the join operation on red-black trees.
+>
+> - ***a.*** Given a red-black tree *T* , let us store its black-height as the new attribute *T*.*bh*. Argue that
+>   *RB-Insert* and *RB-Delete* can maintain the *bh* attribute without requiring extra storage in the nodes of the tree
+>   and without increasing the asymptotic running times. Show that while descending through *T* , we can determine the
+>   black-height of each node we visit in *O*(1) time per node visited.
+>
+> We wish to implement the operation *RB-Join*($T_1$, *x*, $T_2$), which destroys $T_1$ and $T_2$ and returns a
+> red-black tree *T* = $T_1$ ∪ { *x* } ∪ $T_2$. Let *n* be the total number of nodes in $T_1$ and $T_2$.
+>
+> - ***b.*** Assume that $T_1$.*bh* ≥ $T_2$.*bh*. Describe an *O*(lg *n*)-time algorithm that finds a black node *y* in
+>   $T_1$ with the largest key from among those nodes whose black-height is $T_2$.*bh*.
+> - ***c.*** Let $T_y$ be the subtree rooted at *y*. Describe how $T_y$ ∪ { *x* } ∪ $T_2$ can replace $T_y$ in O(1)
+>   time without destroying the binary-search-tree property.
+> - ***d.*** What color should we make *x* so that red-black properties 1, 3, and 5 are maintained? Describe how to
+>   enforce properties 2 and 4 in *O*(lg *n*) time.
+> - ***e.*** Argue that no generality is lost by making the assumption in part (b). Describe the symmetric situation
+>   that arises when $T_1$.*bh* ≤ $T_2$.*bh*.
+> - ***f.*** Argue that the running time of *RB-Join* is *O*(lg *n*).
+
+*Skipped.*
+
+##### 13-3 AVL trees
+
+> An ***AVL tree*** is a binary search tree that is ***height balanced***: for each node *x*, the heights of the left
+> and right subtrees of *x* differ by at most 1. To implement an AVL tree, we maintain an extra attribute in each node:
+> *x*.*h* is the height of node *x*. As for any other binary search tree *T*, we assume that *T*.*root* points to the
+> root node.
+>
+> ***a.*** Prove that an AVL tree with *n* nodes has height *O*(lg *n*). (*Hint:* Prove that an AVL tree of height *h*
+> has at least $F_h$ nodes, where $F_h$ is the *h*th Fibonacci number.)
+>
+> ***b.*** To insert into an AVL tree, we first place a node into the appropriate place in binary search tree order.
+> Afterward, the tree might no longer be height balanced. Specifically, the heights of the left and right children of
+> some node might differ by 2. Describe a procedure *Balance*(*x*), which takes a subtree rooted at *x* whose left and
+> right children are height balanced and have heights that differ by at most 2, i.e.,
+> |*x*.*right*.*h* - *x*.*left*.*h*| ≤ 2, and alters the subtree rooted at *x* to be height balanced. (*Hint:* Use
+> rotations.)
+>
+> ***c.*** Using part (b), describe a recursive procedure ***AVL-Insert***(*x*, *z*) that takes a node *x* within an AVL
+> tree and a newly created node *z* (whose key has already been filled in), and adds *z* to the subtree rooted at *x*,
+> maintaining the property that *x* is the root of an AVL tree. As in *Tree-Insert* from Section 12.3, assume that
+> *z*.*key* has already been filled in and that *z*.*left* = *nil* and *z*.*right* = *nil*; also assume that
+> *z*.*h* = 0. Thus, to insert the node *z* into the AVL tree *T*, we call ***AVL-Insert***(*T*.root, *z*).
+>
+> ***d.*** Show that ***AVL-Insert***, run on an *n*-node AVL tree, takes *O*(lg *n*) time and performs *O*(1)
+> rotations.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/problems/problem_13_3_avl_trees.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
