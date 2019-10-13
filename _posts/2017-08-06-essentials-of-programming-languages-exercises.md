@@ -218,7 +218,7 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
 > simplifying the resulting procedure. The result will be a version of `subst` that does not need `subst-in-s-exp`. This
 > technique is called *inlining*, and is used by optimizing compilers.
 
-```racket
+```scheme
 (define subst
   (lambda (new old slist)
     (if (null? slist)
@@ -423,7 +423,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > (a foo)
 > ```
 
-```racket
+```scheme
 (define filter-in
   (lambda (pred lst)
     (if (null? lst)
@@ -573,7 +573,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > (3 35 62 81 83 85 90 90 91)
 > ```
 
-```racket
+```scheme
 (define merge-helper
   (lambda (loi1 loi2)
     (if (null? loi1)
@@ -598,7 +598,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > (2 2 3 5 8)
 > ```
 
-```racket
+```scheme
 (define get-run
   (lambda (loi)
     (let ([head1 (car loi)]
@@ -665,7 +665,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > (8 5 3 2 2)
 > ```
 
-```racket
+```scheme
 (define get-run
   (lambda (pred loi)
     (let ([head1 (car loi)]
@@ -787,7 +787,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 >  (red 2 (quux 2 2)))
 > ```
 
-```racket
+```scheme
 (define mark-leaves-with-red-depth-helper
   (lambda (bin-tree red-num)
     (if (leaf? bin-tree)
@@ -815,7 +815,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > (right left left)
 > ```
 
-```racket
+```scheme
 (define path
   (lambda (n bst)
     (let ([head (car bst)])
@@ -852,7 +852,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 >   (quux 3 4)))
 > ```
 
-```racket
+```scheme
 (define number-leaves-helper
   (lambda (bin-tree n)
     (if (leaf? bin-tree)
@@ -891,7 +891,7 @@ $v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the clai
 > factorial of 10. How does the execution time vary as this argument changes? How does the execution time vary as the
 > base changes? Explain why.
 
-```racket
+```scheme
 (define *base* 10)
 (define *base-sub-1* (- *base* 1))
 
@@ -1048,7 +1048,7 @@ Observers: `top` and `empty-stack?`.
 >
 > This is called an *a-list* or *association-list* representation.
 
-```racket
+```scheme
 (define empty-env
   (lambda ()
     '()))
@@ -1071,7 +1071,7 @@ Observers: `top` and `empty-stack?`.
 
 > Exercise 2.7 [★] Rewrite `apply-env` in figure 2.1 to give a more informative error message.
 
-```racket
+```scheme
 (define empty-env
   (lambda ()
     '(empty-env)))
@@ -1131,7 +1131,7 @@ Observers: `top` and `empty-stack?`.
 
 `(has-binding?` ⌈*f*⌉`)` = `#t` if *f*(*var*) = *val* for some *var* and *val*, `#f` otherwise.
 
-```racket
+```scheme
 (define has-binding?
   (lambda (env search-var)
     (cond [(null? env) #f]
@@ -1196,7 +1196,7 @@ Observers: `top` and `empty-stack?`.
 >
 > Implement the environment interface, including `extend-env*`, in this representation.
 
-```racket
+```scheme
 (define empty-env
   (lambda ()
     '()))
@@ -1222,7 +1222,7 @@ Observers: `top` and `empty-stack?`.
 
 > Exercise 2.12 [★] Implement the stack data type of exercise 2.4 using a procedural representation.
 
-```racket
+```scheme
 (define empty-stack
   (lambda ()
     (lambda (command)
@@ -1418,7 +1418,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > The procedure `move-to-right` should fail if its argument is at the right end of the sequence, and the procedure
 > `move-to-left` should fail if its argument is at the left end of the sequence.
 
-```racket
+```scheme
 (define number->sequence
   (lambda (num)
     (list num '() '())))
@@ -1499,7 +1499,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 >  (14 () ()))
 > ```
 
-```racket
+```scheme
 (define number->bintree
   (lambda (num)
     `(,num () ())))
@@ -1534,7 +1534,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 >
 > In this representation, implement the procedures from exercise 2.19. Also implement `move-up` and `at-root?`.
 
-```racket
+```scheme
 (define number->bintree
   (lambda (num)
     (cons `(,num () ()) '())))
@@ -1610,7 +1610,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > Exercise 2.21 [★] Implement the data type of environments, as in section 2.2.2, using `define-datatype`. Then include
 > `has-binding?` of exercise 2.9.
 
-```racket
+```scheme
 (define-datatype env-type env?
   (empty-env)
   (extend-env [var symbol?]
@@ -1635,7 +1635,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 
 > Exercise 2.22 [★] Using `define-datatype`, implement the stack data type of exercise 2.4.
 
-```racket
+```scheme
 (define-datatype stack-type stack?
   (empty-stack)
   (push [saved-stack stack?]
@@ -1693,7 +1693,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 >  (leaf-node 4))
 > ```
 
-```racket
+```scheme
 (define bintree-to-list
   (lambda (tree)
     (cases bintree tree
@@ -1724,7 +1724,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > The last invocation of `max-interior` might also have returned `foo`, since both the `foo` and `baz` nodes have a leaf
 > sum of 5.
 
-```racket
+```scheme
 (define-datatype bintree-info bintree-info?
   [leaf-info [num integer?]]
   [interior-info [sum integer?]
@@ -1801,7 +1801,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 > takes a tree and builds a tree of the same shape, except that each leaf node is replaced by a leaf node that contains
 > the number of red nodes on the path between it and the root.
 
-```racket
+```scheme
 (define-datatype red-blue-tree red-blue-tree?
   [red-node [lson red-blue-tree?]
             [rson red-blue-tree?]]
@@ -1913,7 +1913,7 @@ bound-var     body
 > Exercise 2.28 [★] Write an unparser that converts the abstract syntax of an lc-exp into a string that matches the
 > second grammar in this section (page 52).
 
-```racket
+```scheme
 (define identifier? symbol?)
 
 (define-datatype lc-exp lc-exp?
@@ -1955,7 +1955,7 @@ bound-var     body
 > then the predicate for the `bound-vars` field could be `(list-of identifier?)`, and the predicate for the `rands`
 > field could be `(list-of lc-exp?)`. Write a `define-datatype` and a parser for this grammar that works in this way.
 
-```racket
+```scheme
 (define identifier?
   (lambda (x)
     (and (symbol? x)
@@ -1984,7 +1984,7 @@ bound-var     body
 > `(lambda)`. Modify it so that it is robust, accepting any s-exp and issuing an appropriate error message if the s-exp
 > does not represent a lambda-calculus expression.
 
-```racket
+```scheme
 (define identifier?
   (lambda (x)
     (and (symbol? x)
@@ -2084,7 +2084,7 @@ bound-var     body
 > As a hint, consider writing a procedure that takes a list and produces a `prefix-exp` and the list of leftover list
 > elements.
 
-```racket
+```scheme
 (define-datatype prefix-exp prefix-exp?
   [const-exp [num integer?]]
   [diff-exp [operand1 prefix-exp?]
@@ -2477,7 +2477,7 @@ Yep, the result is also 12. Although it is a little different than the original 
 
 Here is a function that filters free variables in the environment:
 
-```racket
+```scheme
 (define (filter-env env bound-vars exp)
   (let loop ([result (empty-env)]
              [bound-vars bound-vars]
@@ -2772,7 +2772,7 @@ In `setref!`, `setref-inner` loops through the store, which takes linear time, s
 > Exercise 4.9 [★] Implement the store in constant time by representing it as a Scheme vector. What is lost by using
 > this representation?
 
-```racket
+```scheme
 (define (empty-store)
   (vector))
 
@@ -3856,14 +3856,14 @@ Inductive case: if *n* ≥ 2,
             (p x zero?)
             (p y zero?))))
    ```
-6. ```racket
+6. ```scheme
    (let ([y 8])
      (p y
         (lambda (val)
           (let ([x val])
             x))))
    ```
-7. ```racket
+7. ```scheme
    (let ([cont (lambda (val)
                  (let ([x val])
                    x))])
@@ -4177,7 +4177,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.19.rkt).
 
-```racket
+```scheme
 (define all
   (lambda (pred items)
     (let loop ([items items])
@@ -4745,7 +4745,7 @@ program.
 
 In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts-guide/index.html) type checks.
 
-```racket
+```scheme
 #lang typed/racket/base
 
 (: fix (∀ (𝑡₁ 𝑡₂) ((𝑡₁ → 𝑡₂) → (𝑡₁ → 𝑡₂)) → (𝑡₁ → 𝑡₂)))
