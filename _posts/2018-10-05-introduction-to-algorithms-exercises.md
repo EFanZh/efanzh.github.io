@@ -6027,6 +6027,37 @@ Solution is implemented
 - ***c.*** Solution is implemented
   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_13_red_black_trees/problems/problem_13_4_treaps.rs).
 
+### 14 Augmenting Data Structures
+
+#### 14.1 Dynamic order statistics
+
+##### 14.1-1
+
+> Show how *OS-Select*(*T*.*root*, 10) operates on the red-black tree *T* of Figure 14.1.
+
+*Skipped.*
+
+##### 14.1-2
+
+> Show how *OS-Rank*(*T*, *x*) operates on the red-black tree *T* of Figure 14.1 and the node *x* with *x*.*key* = 35.
+
+*Skipped.*
+
+##### 14.1-3
+
+> Write a nonrecursive version of *OS-Select*.
+
+*OS-Select*(*x*, *i*)
+
+1. *r* = *x*.*left*.*size* + 1
+2. **while** *i* ≠ *r*
+3. &nbsp;&nbsp;&nbsp;&nbsp;**if** *i* < *r*
+4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*left*
+5. &nbsp;&nbsp;&nbsp;&nbsp;**else**
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*right*
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i* = *i* - *r*
+8. **return** *x*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
