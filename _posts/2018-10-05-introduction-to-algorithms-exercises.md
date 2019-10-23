@@ -6069,7 +6069,7 @@ Solution is implemented
 1. **if** *k* == *x*.*key*
 2. &nbsp;&nbsp;&nbsp;&nbsp;**return** *a* + *x*.*left*.*size* + 1
 3. **elseif** *k* < *T*.*key*
-4. &nbsp;&nbsp;&nbsp;&nbsp; **return** *OS-Key-Rank-Helper*(*x*.*left*, *k*, *a*)
+4. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-Key-Rank-Helper*(*x*.*left*, *k*, *a*)
 5. **else**
 6. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-Key-Rank-Helper*(*x*.*right*, *k*, *a* + *x*.*left*.*size* + 1)
 
