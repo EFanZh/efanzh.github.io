@@ -6056,7 +6056,26 @@ Solution is implemented
 5. &nbsp;&nbsp;&nbsp;&nbsp;**else**
 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*right*
 7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*i* = *i* - *r*
-8. **return** *x*
+8. &nbsp;&nbsp;&nbsp;&nbsp;*r* = *x*.*left*.*size* + 1
+9. **return** *x*
+
+##### 14.1-4
+
+> Write a recursive procedure *OS-Key-Rank*(*T*, *k*) that takes as input an order-statistic tree *T* and a key *k* and
+> returns the rank of *k* in the dynamic set represented by *T*. Assume that the keys of *T* are distinct.
+
+*OS-Key-Rank-Helper*(*x*, *k*, *a*)
+
+1. **if** *k* == *x*.*key*
+2. &nbsp;&nbsp;&nbsp;&nbsp;**return** *a* + *x*.*left*.*size* + 1
+3. **elseif** *k* < *T*.*key*
+4. &nbsp;&nbsp;&nbsp;&nbsp; **return** *OS-Key-Rank-Helper*(*x*.*left*, *k*, *a*)
+5. **else**
+6. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-Key-Rank-Helper*(*x*.*right*, *k*, *a* + *x*.*left*.*size* + 1)
+
+*OS-Key-Rank*(*T*, *k*)
+
+1. **return** *OS-Key-Rank-Helper*(*T*.*root*, *k*, 0)
 
 ------------------------------------------------------------------------------------------------------------------------
 
