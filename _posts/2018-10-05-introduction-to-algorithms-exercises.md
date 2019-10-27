@@ -6138,12 +6138,66 @@ To get the number of pairs of chords that intersect inside the circle:
    endpoint as key, so that we can find the number of chords with end endpoint within [*a*, *b*] range in *O*(lg *k*)
    time, where *k* is the number of nodes in the tree. The total running time of this step is *O*(*n* lg *n*).
 
+So the total running time is in *O*(*n* lg *n*) limit.
+
+#### 14.2 How to augment a data structure
+
+##### 14.2-1
+
+> Show, by adding pointers to the nodes, how to support each of the dynamic-set queries *Minimum*, *Maximum*,
+> *Successor*, and *Predecessor* in *O*(1) worst-case time on an augmented order-statistic tree. The asymptotic
+> performance of other operations on order-statistic trees should not be affected.
+
+*Skipped.*
+
+##### 14.2-2
+
+> Can we maintain the black-heights of nodes in a red-black tree as attributes in the nodes of the tree without
+> affecting the asymptotic performance of any of the red-black tree operations? Show how, or argue why not. How about
+> maintaining the depths of nodes?
+
+Black-heights of nodes can be maintained, but depth of nodes can not be maintained.
+
+##### 14.2-3 ★
+
+> Let ⊗ be an associative binary operator, and let a be an attribute maintained in each node of a red-black tree.
+> Suppose that we want to include in each node *x* an additional attribute *f* such that
+> *x*.*f* = $x_1$.*a* ⊗ $x_2$.*a* ⊗ ⋯ ⊗ $x_m$.*a*, where $x_1$, $x_2$, …, $x_m$ is the inorder listing of nodes in
+> the subtree rooted at *x*. Show how to update the *f* attributes in *O*(1) time after a rotation. Modify your argument
+> slightly to apply it to the size attributes in order-statistic trees.
+
+Assume we are doing right rotation:
+
+```text
+      ┌───┐            ┌───┐
+      │ d │            │ b │
+      └─┬─┘            └─┬─┘
+     ┌──┴───┐         ┌──┴───┐
+   ┌─┴─┐  ┌─┴─┐     ┌─┴─┐  ┌─┴─┐
+   │ b │  │ e │  →  │ a │  │ d │
+   └─┬─┘  └───┘     └───┘  └─┬─┘
+  ┌──┴───┐                ┌──┴───┐
+┌─┴─┐  ┌─┴─┐            ┌─┴─┐  ┌─┴─┐
+│ a │  │ c │            │ c │  │ e │
+└───┘  └───┘            └───┘  └───┘
+```
+
+Just follow this table:
+
+| Node | Old *f* attribute                               | New *f* attribute                               |
+| ---- | ----------------------------------------------- | ----------------------------------------------- |
+| *a*  | *a*.*f*                                         | *a*.*f*                                         |
+| *b*  | *a*.*f* ⊗ *b*.*a* ⊗ *c*.*f*                     | *a*.*f* ⊗ *b*.*a* ⊗ *c*.*f* ⊗ *d*.*a* ⊗ *e*.*f* |
+| *c*  | *c*.*f*                                         | *c*.*f*                                         |
+| *d*  | *a*.*f* ⊗ *b*.*a* ⊗ *c*.*f* ⊗ *d*.*a* ⊗ *e*.*f* | *c*.*f* ⊗ *d*.*a* ⊗ *e*.*f*                     |
+| *e*  | *e*.*f*                                         | *e*.*f*                                         |
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑    →⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
