@@ -6077,6 +6077,21 @@ Solution is implemented
 
 1. **return** *OS-Key-Rank-Helper*(*T*.*root*, *k*, 0)
 
+##### 14.1-5
+
+> Given an element *x* in an *n*-node order-statistic tree and a natural number *i*, how can we determine the *i*th
+> successor of *x* in the linear order of the tree in *O*(lg *n*) time?
+
+*OS-I-th-Successor*(*x*, *i*)
+
+1. **if** *i* == 0
+2. &nbsp;&nbsp;&nbsp;&nbsp;**return** *x*
+3. **elseif** *x*.*right*.*size* >= *i*
+4. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-I-th-Successor*(*x*.*right*, *i* - 1)
+5. **elseif** *x* == *x*.*p*.*left*
+6. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-I-th-Successor*(*x*.*p*, *i* - *x*.*right*.*size* - 1)
+7. **else** **return** *OS-I-th-Successor*(*x*.*p*, *i* + *x*.*left*.*size* + 1)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
