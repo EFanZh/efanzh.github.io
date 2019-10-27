@@ -6116,6 +6116,28 @@ Solution is implemented
 6. &nbsp;&nbsp;&nbsp;&nbsp;*r* = *r* + (*i* - *OS-Rank*(*T*, *x*))
 7. **return** *r*
 
+##### 14.1-8 ★
+
+> Consider *n* chords on a circle, each defined by its endpoints. Describe an *O*(*n* lg *n*)- time algorithm to
+> determine the number of pairs of chords that intersect inside the circle. (For example, if the *n* chords are all
+> diameters that meet at the center, then the correct answer is $\binom{n}{2}$ Assume that no two chords share an
+> endpoint.
+
+Define a chord as (*a*, *b*), where *a* is the endpoint of lesser degrees (the *start* endpoint), and *b* is the endpoint
+of greater degrees (the *end* endpoint), that is, *a* ∈ [0, 2 *π*), *a* ∈ [0, 2 *π*), and *a* ≤ *b*.
+
+To get the number of pairs of chords that intersect inside the circle:
+
+1. Sort these *n* chords by their start endpoint degree. This step can be done in *O*(*n* lg *n*) time.
+2. Insert these sorted *n* chords into an order-statistics red-black tree in order by their end endpoint degree.
+
+   Before a new chord (*a*, *b*) being inserted into the order-statistics red-black tree, we know that all chords
+   already in the order-statistics red-black tree has start endpoints with lesser degree than *a*, because we have
+   sorted the chords in the beginning. All chords that already in the tree that intersect with the new chord must have
+   end endpoints within [*a*, *b*] range. Good thing that they are in an order-statistics red-black tree with the end
+   endpoint as key, so that we can find the number of chords with end endpoint within [*a*, *b*] range in *O*(lg *k*)
+   time, where *k* is the number of nodes in the tree. The total running time of this step is *O*(*n* lg *n*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
