@@ -6192,12 +6192,31 @@ Just follow this table:
 | *d*  | *a*.*f* ⊗ *b*.*a* ⊗ *c*.*f* ⊗ *d*.*a* ⊗ *e*.*f* | *c*.*f* ⊗ *d*.*a* ⊗ *e*.*f*                     |
 | *e*  | *e*.*f*                                         | *e*.*f*                                         |
 
+##### 14.2-4 ★
+
+> We wish to augment red-black trees with an operation *RB-Enumerate*(*x*, *a*, *b*) that outputs all the keys *k* such
+> that *a* ≤ *k* ≤ *b* in a red-black tree rooted at *x*. Describe how to implement *RB-Enumerate* in Θ(*m* + lg *n*)
+> time, where *m* is the number of keys that are output and *n* is the number of internal nodes in the tree. (*Hint:*
+> You do not need to add new attributes to the red-black tree.)
+
+*RB-Enumerate*(*x*, *a*, *b*)
+
+1. **if** *x* ≠ *nil*
+2. &nbsp;&nbsp;&nbsp;&nbsp;**if** *b* < *x*.key
+3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*left*, *a*, *b*)
+4. &nbsp;&nbsp;&nbsp;&nbsp;**elseif** *a* > *x*.key
+5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*right*, *a*, *b*)
+6. &nbsp;&nbsp;&nbsp;&nbsp;**else**
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*left*, *a*, *b*)
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**output** *x*.*key*
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*right*, *a*, *b*)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑    →⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
