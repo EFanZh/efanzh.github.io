@@ -6092,6 +6092,30 @@ Solution is implemented
 6. &nbsp;&nbsp;&nbsp;&nbsp;**return** *OS-I-th-Successor*(*x*.*p*, *i* - *x*.*right*.*size* - 1)
 7. **else** **return** *OS-I-th-Successor*(*x*.*p*, *i* + *x*.*left*.*size* + 1)
 
+##### 14.1-6
+
+> Observe that whenever we reference the *size* attribute of a node in either *OS-SELECT* or *OS-Rank*, we use it only
+> to compute a rank. Accordingly, suppose we store in each node its rank in the subtree of which it is the root. Show
+> how to maintain this information during insertion and deletion. (Remember that these two operations can cause
+> rotations.)
+
+*Skipped*.
+
+##### 14.1-7
+
+> Show how to use an order-statistic tree to count the number of inversions (see Problem 2-4) in an array of size *n* in
+> time *O*(*n* lg *n*).
+
+*Inversions*(*A*)
+
+1. *T* = new empty order-statistic red-black tree
+2. *r* = 0
+3. **for** *i* = 1 **to** *A*.*length*
+4. &nbsp;&nbsp;&nbsp;&nbsp;*x* = new node with key *A*[*i*]
+5. &nbsp;&nbsp;&nbsp;&nbsp;*RB-Insert*(*T*, *x*)
+6. &nbsp;&nbsp;&nbsp;&nbsp;*r* = *r* + (*i* - *OS-Rank*(*T*, *x*))
+7. **return** *r*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
