@@ -6355,6 +6355,31 @@ overlap.
   *Interval-Insert*, *Interval-Delete* are just normal augmented red-black tree operations. *Find-POM* just return the
   *pom* property of the root node.
 
+##### 14-2 Josephus permutation
+
+> We define the ***Josephus problem*** as follows. Suppose that *n* people form a circle and that we are given a
+> positive integer *m* ≤ *n*. Beginning with a designated first person, we proceed around the circle, removing every
+> *m*th person. After each person is removed, counting continues around the circle that remains. This process continues
+> until we have removed all *n* people. The order in which the people are removed from the circle defines the
+> ***(n, m)-Josephus permutation*** of the integers 1, 2, …, *n*. For example, the (7, 3)-Josephus permutation is
+> ⟨3, 6, 2, 7, 5, 1, 4⟩.
+>
+> ***a.*** Suppose that *m* is a constant. Describe an *O*(*n*)-time algorithm that, given an integer *n*, outputs the
+> (*n*, *m*)-Josephus permutation.
+>
+> ***b.*** Suppose that *m* is not a constant. Describe an *O*(*n* lg *n*)-time algorithm that, given integers *n* and
+> *m*, outputs the (*n*, *m*)-Josephus permutation.
+
+*Josephus-Permutation*(*n*, *m*)
+
+1. *T* = new order statistic red-black tree with values 1, 2, …, *n*.
+2. *i* = 1
+3. **for** *k* = *n* **downto** 1
+4. &nbsp;&nbsp;&nbsp;&nbsp;*i* = (*i* + *m* - 2) mod *k* + 1
+5. &nbsp;&nbsp;&nbsp;&nbsp;*x* = *OS-Select*(*T*.*root*, *i*)
+6. &nbsp;&nbsp;&nbsp;&nbsp;**output** *x*.*key*
+7. &nbsp;&nbsp;&nbsp;&nbsp;*RB-Delete*(*T*, *x*)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
