@@ -6300,6 +6300,22 @@ For a node *x*:
 
 Then the operations are easy to implement.
 
+##### 14.3-7 ★
+
+> VLSI databases commonly represent an integrated circuit as a list of rectangles. Assume that each rectangle is
+> rectilinearly oriented (sides parallel to the *x*- and *y*-axes), so that we represent a rectangle by its minimum and
+> maximum *x*-and *y*-coordinates. Give an *O*(*n* lg *n*)-time algorithm to decide whether or not a set of *n*
+> rectangles so represented contains two rectangles that overlap. Your algorithm need not report all intersecting pairs,
+> but it must report that an overlap exists if one rectangle entirely covers another, even if the boundary lines do not
+> intersect. (*Hint:* Move a “sweep” line across the set of rectangles.)
+
+As in the hint, we sweep one vertical line from left to right, and maintain a interval tree in which the intervals are
+the intervals that the sweep line intersects with the rectangles.
+
+Before inserting each interval into the tree, check whether there is already interval in the tree that overlaps this new
+interval using *Interval-Search*. If there exists any overlaps during inserting, then there are two rectangles that
+overlap.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
