@@ -6252,6 +6252,54 @@ Just follow this table:
 12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**else** *x* = *x*.*right*
 13. **return** *r*
 
+##### 14.3-4
+
+> Given an interval tree *T* and an interval *i*, describe how to list all intervals in *T* that overlap *i* in
+> *O*(min(*n*, *k* lg *n*)) time, where *k* is the number of intervals in the output list. (*Hint:* One simple method
+> makes several queries, modifying the tree between queries. A slightly more complicated method does not modify the
+> tree.)
+
+*Skipped.*
+
+##### 14.3-5
+
+> Suggest modifications to the interval-tree procedures to support the new operation *Interval-Search-Exactly*(*T*, *i*)
+> where *T* is an interval tree and *i* is an interval. The operation should return a pointer to a node *x* in *T* such
+> that *x*.*int*.*low* = *i*.*low* and *x*.*int*.*high* = *i*.*high*, or *T*.*nil* if *T* contains no such node. All
+> operations, including *Interval-Search-Exactly*, should run in *O*(lg *n*) time on an *n*-node interval tree.
+
+*Skipped.*
+
+##### 14.3-6
+
+> Show how to maintain a dynamic set *Q* of numbers that supports the operation *Min-Gap*, which gives the magnitude of
+> the difference of the two closest numbers in *Q*. For example, if *Q* = {1, 5, 9, 15, 18, 22}, then *Min-Gap*(*Q*)
+> returns 18 - 15 = 3, since 15 and 18 are the two closest numbers in *Q*. Make the operations *Insert*, *Delete*,
+> *Search*, and *Min-Gap* as efficient as possible, and analyze their running times.
+
+We add three extra augmenting property to every node:
+
+1. Minimal value of subtree *min*.
+2. Maximal value of subtree *max*.
+3. Minimal gap of numbers in the tree *min-gap*.
+
+For a node *x*:
+
+- *x*.*min* =
+  - *x*.*left*.*min* if *x*.*left* ≠ *nil*
+  - *x*.*key* otherwise.
+- *x*.*max* =
+  - *x*.*right*.*max* if *x*.*right* ≠ *nil*
+  - *x*.*key* otherwise.
+- *x*.*min-gap* = the minimal value of the following values if they exist:
+  - *x*.*left*.*min-gap*
+  - *x*.*right*.*min-gap*
+  - *x*.*key* - *x*.*left*.*max*
+  - *x*.*right*.*min* - *x*.*key*
+  - +∞
+
+Then the operations are easy to implement.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
