@@ -6316,6 +6316,45 @@ Before inserting each interval into the tree, check whether there is already int
 interval using *Interval-Search*. If there exists any overlaps during inserting, then there are two rectangles that
 overlap.
 
+#### 14.X Problems
+
+##### 14-1 Point of maximum overlap
+
+> Suppose that we wish to keep track of a ***point of maximum overlap*** in a set of intervals—a point with the largest
+> number of intervals in the set that overlap it.
+>
+> ***a.*** Show that there will always be a point of maximum overlap that is an endpoint of one of the segments.
+>
+> ***b.*** Design a data structure that efficiently supports the operations *Interval-Insert*, *Interval-Delete*, and
+> *Find-POM*, which returns a point of maximum overlap. (*Hint:* Keep a red-black tree of all the endpoints. Associate a
+> value of +1 with each left endpoint, and associate a value of -1 with each right endpoint. Augment each node of the
+> tree with some extra information to maintain the point of maximum overlap.)
+
+- ***a.*** *Skipped.*
+- ***b.*** As in the hint, we got an red-black tree. We add an augmenting properties to each node:
+
+  1. The sum of the all value property (the one with +1 and -1 values) rooted at that node *sum*.
+  2. The point of maximum overlap *pom*.
+  3. The number of overlaps on the point of maximum overlap *max-overlaps*.
+
+  For a node *x*, we have:
+
+  - *x*.*sum* = *x*.*left*.*sum* + *x*.*value* + *x*.*right*.*sum*
+  - Depending on the maximal value of:
+
+    - *x*.*left*.*max-overlaps*
+      - *x*.*pom* = *x*.*left*.*pom*
+      - *x*.*max-overlaps* = *x*.*left*.*max-overlaps*
+    - *x*.*left*.*sum* + *x*.*value*
+      - *x*.*pom* = *x*.*key*
+      - *x*.*max-overlaps* = *x*.*left*.*max-overlaps* + *x*.*value*
+    - *x*.*left*.*sum* + *x*.*value* + *x*.*right*.*max-overlaps*
+      - *x*.*pom* = *x*.*right*.*pom*
+      - *x*.*max-overlaps* = *x*.*left*.*sum* + *x*.*value* + *x*.*right*.*max-overlaps*
+
+  *Interval-Insert*, *Interval-Delete* are just normal augmented red-black tree operations. *Find-POM* just return the
+  *pom* property of the root node.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
