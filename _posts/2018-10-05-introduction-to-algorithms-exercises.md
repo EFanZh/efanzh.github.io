@@ -6211,6 +6211,28 @@ Just follow this table:
 8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**output** *x*.*key*
 9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*right*, *a*, *b*)
 
+#### 14.3 Interval trees
+
+##### 14.3-1
+
+> Write pseudocode for *Left-Rotate* that operates on nodes in an interval tree and updates the max attributes in *O*(1)
+> time.
+
+*Skipped.*
+
+##### 14.3-2
+
+> Rewrite the code for *Interval-Search* so that it works properly when all intervals are open.
+
+*Interval-Search*(*T*， *i*)
+
+1. *x* = *T*.*root*
+2. **while** *x* ≠ *T*.*nil* and *i* does not overlap *x*.*int*
+3. &nbsp;&nbsp;&nbsp;&nbsp;**if** *x*.*left* ≠ *T*.*nil* and *x*.*left*.*max* > *i*.*low*
+4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*left*
+5. &nbsp;&nbsp;&nbsp;&nbsp;**else** *x* = *x*.*right*
+6. **return** *x*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
