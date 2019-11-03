@@ -6233,6 +6233,25 @@ Just follow this table:
 5. &nbsp;&nbsp;&nbsp;&nbsp;**else** *x* = *x*.*right*
 6. **return** *x*
 
+##### 14.3-3
+
+> Describe an efficient algorithm that, given an interval *i*, returns an interval overlapping *i* that has the minimum
+> low endpoint, or *T*.*nil* if no such interval exists.
+
+1. *x* = *T*.*root*
+2. *r* = *T*.*nil*
+3. **while** *x* ≠ *T*.*nil*
+4. &nbsp;&nbsp;&nbsp;&nbsp;**if** *i* overlap *x*.*int*
+5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*r* = *x*
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *x*.*left* ≠ *T*.*nil* and *x*.*left*.*max* ≥ *i*.*low*
+7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*left*
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**else** **break**
+9. &nbsp;&nbsp;&nbsp;&nbsp;**else**
+10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** *x*.*left* ≠ *T*.*nil* and *x*.*left*.*max* ≥ *i*.*low*
+11. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*x* = *x*.*left*
+12. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**else** *x* = *x*.*right*
+13. **return** *r*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
