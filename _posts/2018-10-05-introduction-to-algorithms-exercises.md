@@ -6380,6 +6380,33 @@ overlap.
 6. &nbsp;&nbsp;&nbsp;&nbsp;**output** *x*.*key*
 7. &nbsp;&nbsp;&nbsp;&nbsp;*RB-Delete*(*T*, *x*)
 
+## IV Advanced Design and Analysis Techniques
+
+### 15 Dynamic Programming
+
+#### 15.1 Rod cutting
+
+##### 15.1-1
+
+> Show that equation (15.4) follows from equation (15.3) and the initial condition *T*(0) = 1.
+
+By induction:
+
+Base case:
+
+*T*(0)\
+= 1 + $∑_{j = 0}^{-1} T(j)$\
+= 1\
+= $2^0$.
+
+Indictive case: If *n* > 0:
+
+*T*(*n*)\
+= 1 + $∑_{j = 0}^{n - 1} T(j)$\
+= 1 + $∑_{j = 0}^{n - 1} 2^j$ (By induction)\
+= 1 + ($2^n$ - 1)\
+= $2^n$.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
