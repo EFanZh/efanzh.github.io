@@ -6431,6 +6431,15 @@ Then the densities of length *i* is:
 The greedy strategy give us 10 / 3 + 1 = 13 / 3 revenue, but if we cut the rod into two pieces of length 2, we can get
 revenue of 3 + 3 = 6.
 
+##### 15.1-3
+
+> Consider a modification of the rod-cutting problem in which, in addition to a price $p_i$ for each rod, each cut
+> incurs a fixed cost of *c*. The revenue associated with a solution is now the sum of the prices of the pieces minus
+> the costs of making the cuts. Give a dynamic-programming algorithm to solve this modified problem.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_1_rod_cutting/exercises/exercise_15_1_3.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
