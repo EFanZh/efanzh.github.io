@@ -6407,6 +6407,30 @@ Indictive case: If *n* > 0:
 = 1 + ($2^n$ - 1)\
 = $2^n$.
 
+##### 15.1-2
+
+> Show, by means of a counterexample, that the following “greedy” strategy does not always determine an optimal way to
+> cut rods. Define the ***density*** of a rod of length *i* to be $p_i$ / *i*, that is, its value per inch. The greedy
+> strategy for a rod of length *n* cuts off a first piece of length *i*, where 1 ≤ *i* ≤ *n*, having maximum density. It
+> then continues by applying the greedy strategy to the remaining piece of length *n* - *i*.
+
+Assume we are cutting a rod of length 4, and we have:
+
+- $p_1$ = 1
+- $p_2$ = 6
+- $p_3$ = 10
+- $p_4$ = 12
+
+Then the densities of length *i* is:
+
+- $d_1$ = 1
+- $d_2$ = 3
+- $d_3$ = 10 / 3
+- $d_4$ = 3
+
+The greedy strategy give us 10 / 3 + 1 = 13 / 3 revenue, but if we cut the rod into two pieces of length 2, we can get
+revenue of 3 + 3 = 6.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
