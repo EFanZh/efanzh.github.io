@@ -6466,6 +6466,16 @@ There are max(0, 2 *n* - 2) edges.
 $((A_1 A_2) ((A_3 A_4) (A_5 A_6)))$ (See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_2_matrix_chain_multiplication/exercises/exercise_15_2_1.rs)).
 
+##### 15.2-2
+
+> Give a recursive algorithm *Matrix-Chain-Multiply*(*A*, *s*, *i*, *j*) that actually performs the optimal matrix-chain
+> multiplication, given the sequence of matrices ⟨$A_1$, $A_2$, …, $A_n$⟩, the *s* table computed by
+> *Matrix-Chain-Order*, and the indices *i* and *j*. (The initial call would be
+> *Matrix-Chain-Multiply*(*A*, *s*, 1, *n*).)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_2_matrix_chain_multiplication/exercises/exercise_15_2_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
