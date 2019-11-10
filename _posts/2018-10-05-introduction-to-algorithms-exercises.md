@@ -6440,6 +6440,13 @@ revenue of 3 + 3 = 6.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_1_rod_cutting/exercises/exercise_15_1_3.rs).
 
+##### 15.1-4
+
+> Modify *Memoized-Cut-Rod* to return not only the value but the actual solution, too.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_1_rod_cutting/exercises/exercise_15_1_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
