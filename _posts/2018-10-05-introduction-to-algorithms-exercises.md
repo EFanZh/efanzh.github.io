@@ -6457,6 +6457,15 @@ Solution is implemented
 
 There are max(0, 2 *n* - 2) edges.
 
+#### 15.2 Matrix-chain multiplication
+
+##### 15.2-1
+
+> Find an optimal parenthesization of a matrix-chain product whose sequence of dimensions is ⟨5, 10, 3, 12, 5, 50, 6⟩.
+
+$((A_1 A_2) ((A_3 A_4) (A_5 A_6)))$ (See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_2_matrix_chain_multiplication/exercises/exercise_15_2_1.rs)).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
