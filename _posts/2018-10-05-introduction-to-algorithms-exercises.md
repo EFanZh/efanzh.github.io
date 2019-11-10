@@ -6476,6 +6476,37 @@ $((A_1 A_2) ((A_3 A_4) (A_5 A_6)))$ (See
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_2_matrix_chain_multiplication/exercises/exercise_15_2_2.rs).
 
+##### 15.2-3
+
+> Use the substitution method to show that the solution to the recurrence (15.6) is Ω($2^n$).
+
+##### 15.2-4
+
+> Describe the subproblem graph for matrix-chain multiplication with an input chain of length *n*. How many vertices
+> does it have? How many edges does it have, and which edges are they?
+
+##### 15.2-5
+
+> Let *R*(*i*, *j*) be the number of times that table entry *m*[*i*, *j*] is referenced while computing other table
+> entries in a call of *Matrix-Chain-Order*. Show that the total number of references for the entire table is
+>
+> $\displaystyle ∑_{i = 1}^n ∑_{j = i}^n R(i, j) = \frac{n^3 - n}{3}$.
+>
+> (*Hint:* You may find equation (A.3) useful.)
+
+##### 15.2-6
+
+> Show that a full parenthesization of an *n*-element expression has exactly *n* - 1 pairs of parentheses.
+
+Proof by induction.
+
+Base case: A 1-element expression has 0 pair of parentheses.
+
+Inductive case: A *n*-element expression is composed of two sub-expressions. Suppose the left one has *k* elements, then
+the right one has *n* - *k* elements. By induction, we know these two sub-expressions have *k* - 1 and *n* - *k* - 1
+pairs of parentheses. Since *n*-element expression is enclosed inside a pair of parentheses, the total pairs of
+parentheses is (*k* - 1) + (*n* - *k* - 1) + 1 = *n* - 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
