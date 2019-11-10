@@ -6447,6 +6447,16 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_1_rod_cutting/exercises/exercise_15_1_4.rs).
 
+##### 15.1-5
+
+> The Fibonacci numbers are defined by recurrence (3.22). Give an *O*(*n*)-time dynamic-programming algorithm to compute
+> the *n*th Fibonacci number. Draw the subproblem graph. How many vertices and edges are in the graph?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_1_rod_cutting/exercises/exercise_15_1_5.rs).
+
+There are max(0, 2 *n* - 2) edges.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
