@@ -6480,10 +6480,23 @@ Solution is implemented
 
 > Use the substitution method to show that the solution to the recurrence (15.6) is Ω($2^n$).
 
+*Skipped.*
+
 ##### 15.2-4
 
 > Describe the subproblem graph for matrix-chain multiplication with an input chain of length *n*. How many vertices
 > does it have? How many edges does it have, and which edges are they?
+
+The total number of vertices is:
+
+$∑_{i = 1}^n (n - i + 1)$\
+= *n* (*n* + 1) / 2.
+
+For subproblem of length *k*, there are 2 (*k* - 1) subproblems, so the total number of edges is:
+
+$∑_{k = 1}^n ∑_{i = 1}^{n - k + 1} 2 (k - 1)$\
+= $∑_{k = 1}^n 2 (n - k + 1) (k - 1)$\
+= ($n^3$ - *n*) / 3.
 
 ##### 15.2-5
 
@@ -6494,6 +6507,9 @@ Solution is implemented
 >
 > (*Hint:* You may find equation (A.3) useful.)
 
+One edge in the subproblem graph means one reference, so the total number of references equals to the number of edges in
+the subproblem graph, which, according to exercise 15.2-4, is ($n^3$ - *n*) / 3.
+
 ##### 15.2-6
 
 > Show that a full parenthesization of an *n*-element expression has exactly *n* - 1 pairs of parentheses.
@@ -6502,10 +6518,10 @@ Proof by induction.
 
 Base case: A 1-element expression has 0 pair of parentheses.
 
-Inductive case: A *n*-element expression is composed of two sub-expressions. Suppose the left one has *k* elements, then
-the right one has *n* - *k* elements. By induction, we know these two sub-expressions have *k* - 1 and *n* - *k* - 1
-pairs of parentheses. Since *n*-element expression is enclosed inside a pair of parentheses, the total pairs of
-parentheses is (*k* - 1) + (*n* - *k* - 1) + 1 = *n* - 1.
+Inductive case: An *n*-element expression is composed of two sub-expressions. Suppose the left one has *k* elements,
+then the right one has *n* - *k* elements. By induction, we know these two sub-expressions have *k* - 1 and
+*n* - *k* - 1 pairs of parentheses. Since *n*-element expression is enclosed inside a pair of parentheses, the total
+pairs of parentheses is (*k* - 1) + (*n* - *k* - 1) + 1 = *n* - 1.
 
 ------------------------------------------------------------------------------------------------------------------------
 
