@@ -6635,6 +6635,31 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_6.rs).
 
+#### 15.5 Optimal binary search trees
+
+##### 15.5-1
+
+> Write pseudocode for the procedure *Construct-Optimal-BST*(*root*) which, given the table *root*, outputs the
+> structure of an optimal binary search tree. For the example in Figure 15.10, your procedure should print out the
+> structure
+>
+> - $k_2$ is the root\
+>   $k_1$ is the left child of $k_2$\
+>   $d_0$ is the left child of $k_1$\
+>   $d_1$ is the right child of $k_1$\
+>   $k_5$ is the right child of $k_2$\
+>   $k_4$ is the left child of $k_5$\
+>   $k_3$ is the left child of $k_4$\
+>   $d_2$ is the left child of $k_3$\
+>   $d_3$ is the right child of $k_3$\
+>   $d_4$ is the right child of $k_4$\
+>   $d_5$ is the right child of $k_5$
+>
+> corresponding to the optimal binary search tree shown in Figure 15.9(b).
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_1.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
