@@ -6660,6 +6660,61 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_1.rs).
 
+##### 15.5-2
+
+> Determine the cost and structure of an optimal binary search tree for a set of *n* = 7 keys with the following
+> probabilities:
+>
+> | *i*   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
+> | ----- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+> | $p_i$ |      | 0.04 | 0.06 | 0.08 | 0.02 | 0.10 | 0.12 | 0.14 |
+> | $q_i$ | 0.06 | 0.06 | 0.06 | 0.06 | 0.05 | 0.05 | 0.05 | 0.05 |
+
+The optimal cost is 3.12. The optimal structure is:
+
+```text
+                            ┌─────┐
+                            │ k_5 │
+                            └──┬──┘
+                ┌──────────────┴───────────────┐
+             ┌──┴──┐                        ┌──┴──┐
+             │ k_2 │                        │ k_7 │
+             └──┬──┘                        └──┬──┘
+       ┌────────┴────────┐                 ┌───┴────┐
+    ┌──┴──┐           ┌──┴──┐           ┌──┴──┐  ┌──┴──┐
+    │ k_1 │           │ k_3 │           │ k_6 │  │ d_7 │
+    └──┬──┘           └──┬──┘           └──┬──┘  └─────┘
+   ┌───┴────┐        ┌───┴────┐        ┌───┴────┐
+┌──┴──┐  ┌──┴──┐  ┌──┴──┐  ┌──┴──┐  ┌──┴──┐  ┌──┴──┐
+│ d_0 │  │ d_1 │  │ d_2 │  │ k_4 │  │ d_5 │  │ d_6 │
+└─────┘  └─────┘  └─────┘  └──┬──┘  └─────┘  └─────┘
+                          ┌───┴────┐
+                       ┌──┴──┐  ┌──┴──┐
+                       │ d_3 │  │ d_4 │
+                       └─────┘  └─────┘
+```
+
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_2.rs).
+
+##### 15.5-3
+
+> Suppose that instead of maintaining the table *w*[*i*, *j*], we computed the value of *w*(*i*, *j*) directly from
+> equation (15.12) in line 9 of *Optimal-BST* and used this computed value in line 11. How would this change affect the
+> asymptotic running time of *Optimal-BST*?
+
+This change doesn’t affect the asymptotic running time of *Optimal-BST*. because computing *w*(*i*, *j*) takes the same
+time as the innermost loop.
+
+##### 15.5-4 ★
+
+> Knuth [212] has shown that there are always roots of optimal subtrees such that
+> *root*[*i*, *j* - 1] ≤ *root*[*i*, *j*] ≤ *root*[*i* + 1, *j*] for all 1 ≤ *i* < *j* ≤ *n*. Use this fact to modify
+> the *Optimal-BST* procedure to run in Θ($n^2$) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
