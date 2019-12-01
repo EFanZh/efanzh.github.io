@@ -6715,6 +6715,17 @@ time as the innermost loop.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_4.rs).
 
+#### 15.X Problems
+
+##### 15-1 Longest simple path in a directed acyclic graph
+
+> Suppose that we are given a directed acyclic graph *G* = (*V*, *E*) with real-valued edge weights and two
+> distinguished vertices *s* and *t*. Describe a dynamic programming approach for finding a longest weighted simple path
+> from *s* to *t*. What does the subproblem graph look like? What is the efficiency of your algorithm?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_1_longest_simple_path_in_a_directed_acyclic_graph.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
