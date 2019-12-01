@@ -6737,7 +6737,7 @@ The running time is *O*(*V* + *E*).
 > given the input `character`, your algorithm should return `carac`. What is the running time of your algorithm?
 
 Solution is implemented
-[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_1_longest_simple_path_in_a_directed_acyclic_graph.rs).
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_2_longest_palindrome_subsequence.rs).
 
 The running time is *O*($n^2$), where *n* is the length of the input.
 
