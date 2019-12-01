@@ -6726,6 +6726,21 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_1_longest_simple_path_in_a_directed_acyclic_graph.rs).
 
+The running time is *O*(*V* + *E*).
+
+##### 15-2 Longest palindrome subsequence
+
+> A ***palindrome*** is a nonempty string over some alphabet that reads the same forward and backward. Examples of
+> palindromes are all strings of length 1, `civic`, `racecar`, and `aibohphobia` (fear of palindromes).
+>
+> Give an efficient algorithm to find the longest palindrome that is a subsequence of a given input string. For example,
+> given the input `character`, your algorithm should return `carac`. What is the running time of your algorithm?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_1_longest_simple_path_in_a_directed_acyclic_graph.rs).
+
+The running time is *O*($n^2$), where *n* is the length of the input.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
