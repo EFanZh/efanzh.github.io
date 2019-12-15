@@ -5886,9 +5886,9 @@ Solutions are implemented
 > $x_2$ ∈ $S_2$, we have $x_1$.*key* ≤ $x$.*key* ≤ $x_2$.*key*. It returns a set *S* = $S_1$ ∪ { *x* } ∪ $S_2$. In this
 > problem, we investigate how to implement the join operation on red-black trees.
 >
-> - ***a.*** Given a red-black tree *T* , let us store its black-height as the new attribute *T*.*bh*. Argue that
+> - ***a.*** Given a red-black tree *T*, let us store its black-height as the new attribute *T*.*bh*. Argue that
 >   *RB-Insert* and *RB-Delete* can maintain the *bh* attribute without requiring extra storage in the nodes of the tree
->   and without increasing the asymptotic running times. Show that while descending through *T* , we can determine the
+>   and without increasing the asymptotic running times. Show that while descending through *T*, we can determine the
 >   black-height of each node we visit in *O*(1) time per node visited.
 >
 > We wish to implement the operation *RB-Join*($T_1$, *x*, $T_2$), which destroys $T_1$ and $T_2$ and returns a
@@ -6759,6 +6759,21 @@ The running time is *O*($n^2$), where *n* is the length of the input.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_3_bitonic_euclidean_traveling_salesman_problem.rs).
+
+##### 15-4 Printing neatly
+
+> Consider the problem of neatly printing a paragraph with a monospaced font (all characters having the same width) on a
+> printer. The input text is a sequence of *n* words of lengths $l_1$, $l_2$, …, $l_n$, measured in characters. We want
+> to print this paragraph neatly on a number of lines that hold a maximum of *M* characters each. Our criterion of
+> “neatness” is as follows. If a given line contains words *i* through *j*, where *i* ≤ *j*, and we leave exactly one
+> space between words, the number of extra space characters at the end of the line is
+> *M* - *j* + *i* - $∑_{k = i}^j l_k$, which must be nonnegative so that the words fit on the line. We wish to minimize
+> the sum, over all lines except the last, of the cubes of the numbers of extra space characters at the ends of lines.
+> Give a dynamic-programming algorithm to print a paragraph of *n* words neatly on a printer. Analyze the running time
+> and space requirements of your algorithm.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_4_printing_neatly.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
