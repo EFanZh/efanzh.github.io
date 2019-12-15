@@ -6741,6 +6741,25 @@ Solution is implemented
 
 The running time is *O*($n^2$), where *n* is the length of the input.
 
+##### 15-3 Bitonic euclidean traveling-salesman problem
+
+> In the ***euclidean traveling-salesman problem***, we are given a set of *n* points in the plane, and we wish to find
+> the shortest closed tour that connects all *n* points. Figure 15.11(a) shows the solution to a 7-point problem. The
+> general problem is NP-hard, and its solution is therefore believed to require more than polynomial time (see Chapter
+> 34).
+>
+> J. L. Bentley has suggested that we simplify the problem by restricting our attention to bitonic tours, that is, tours
+> that start at the leftmost point, go strictly rightward to the rightmost point, and then go strictly leftward back to
+> the starting point. Figure 15.11(b) shows the shortest bitonic tour of the same 7 points. In this case, a
+> polynomial-time algorithm is possible.
+>
+> Describe an *O*($n^2$)-time algorithm for determining an optimal bitonic tour. You may assume that no two points have
+> the same x-coordinate and that all operations on real numbers take unit time. (*Hint:* Scan left to right, maintaining
+> optimal possibilities for the two parts of the tour.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_3_bitonic_euclidean_traveling_salesman_problem.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
