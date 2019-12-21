@@ -268,9 +268,9 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 
 > Consider the ***searching problem***:
 >
-> **Input**: A sequence of *n* numbers $A = ⟨a_1, a_2, …, a_n⟩$ and a value *v*.
+> **Input**: A sequence of *n* numbers *A* = ⟨$a_1$, $a_2$, …, $a_n$⟩ and a value *v*.
 >
-> **Output**: An index *i* such that $v = A[i]$ or the special value *nil* if *v* does not appear in *A*.
+> **Output**: An index *i* such that *v* = *A*[*i*] or the special value *nil* if *v* does not appear in *A*.
 >
 > Write pseudocode for ***linear search***, which scans through the sequence, looking for *v*. Using a loop invariant,
 > prove that your algorithm is correct. Make sure that your loop invariant fulfills the three necessary properties.
@@ -6774,6 +6774,108 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_4_printing_neatly.rs).
+
+Running time is *O*(*M* *n*), space requirement is *O*(*n*).
+
+##### 15-5 Edit distance
+
+> In order to transform one source string of text *x*[1‥*m*] to a target string *y*[1‥*n*], we can perform various
+> transformation operations. Our goal is, given *x* and *y*, to produce a series of transformations that change *x* to
+> *y*. We use an array *z*—assumed to be large enough to hold all the characters it will need—to hold the intermediate
+> results. Initially, *z* is empty, and at termination, we should have *z*[*j*] = *y*[*j*] for *j* = 1, 2, …, *n*. We
+> maintain current indices *i* into *x* and *j* into *z*, and the operations are allowed to alter *z* and these indices.
+> Initially, *i* = *j* = 1. We are required to examine every character in *x* during the transformation, which means
+> that at the end of the sequence of transformation operations, we must have *i* = *m* + 1.
+>
+> We may choose from among six transformation operations:
+>
+> - **Copy** a character from *x* to *z* by setting *z*[*j*] = *x*[*i*] and then incrementing both *i* and *j*. This
+>   operation examines *x*[*i*].
+> - **Replace** a character from *x* by another character *c*, by setting *z*[*j*] = *c*, and then incrementing both *i*
+>   and *j*. This operation examines *x*[*i*].
+> - **Delete** a character from *x* by incrementing *i* but leaving *j* alone. This operation examines *x*[*i*].
+> - **Insert** the character *c* into *z* by setting *z*[*j*] = *c* and then incrementing *j*, but leaving *i* alone.
+>   This operation examines no characters of *x*.
+> - **Twiddle** (i.e., exchange) the next two characters by copying them from *x* to *z* but in the opposite order; we
+>   do so by setting *z*[*j*] = *x*[*i* + 1] and *z*[*j* + 1] = *x*[*i*] and then setting *i* = *i* + 2 and
+>   *j* = *j* + 2. This operation examines *x*[*i*] and *x*[*i* + 1].
+> - **Kill** the remainder of *x* by setting *i* = *m* + 1. This operation examines all characters in *x* that have not
+>   yet been examined. This operation, if performed, must be the final operation.
+>
+> As an example, one way to transform the source string `algorithm` to the target string `altruistic` is to use the
+> following sequence of operations, where the underlined characters are *x*[*i*] and *z*[*j*] after the operation:
+>
+> | Operation         | *x*          | *z*           |
+> | ----------------- | ------------ | ------------- |
+> | *initial strings* | `a̲lgorithm`  | `_`           |
+> | copy              | `al̲gorithm`  | `a_`          |
+> | copy              | `alg̲orithm`  | `al_`         |
+> | replace by `t`    | `algo̲rithm`  | `alt_`        |
+> | delete            | `algor̲ithm`  | `alt_`        |
+> | copy              | `algori̲thm`  | `altr_`       |
+> | insert `u`        | `algori̲thm`  | `altru_`      |
+> | insert `i`        | `algori̲thm`  | `altrui_`     |
+> | insert `s`        | `algori̲thm`  | `altruis_`    |
+> | twiddle           | `algorith̲m`  | `altruisti_`  |
+> | insert `c`        | `algorith̲m`  | `altruistic_` |
+> | kill              | `algorithm_` | `altruistic_` |
+>
+> Note that there are several other sequences of transformation operations that transform `algorithm` to `altruistic`.
+>
+> Each of the transformation operations has an associated cost. The cost of an operation depends on the specific
+> application, but we assume that each operation’s cost is a constant that is known to us. We also assume that the
+> individual costs of the copy and replace operations are less than the combined costs of the delete and insert
+> operations; otherwise, the copy and replace operations would not be used. The cost of a given sequence of
+> transformation operations is the sum of the costs of the individual operations in the sequence. For the sequence
+> above, the cost of transforming `algorithm` to `altruistic` is
+>
+> (3 ⋅ cost(copy)) + cost(replace) + cost(delete) + (4 ⋅ cost.insert)) + cost(twiddle) + cost(kill).
+>
+> - ***a.*** Given two sequences *x*[1‥*m*] and *y*[1‥*n*] and set of transformation-operation costs, the
+>   ***edit distance*** from *x* to *y* is the cost of the least expensive operation sequence that transforms *x* to
+>   *y*. Describe a dynamic-programming algorithm that finds the edit distance from *x*[1‥*m*] to *y*[1‥*n*] and prints
+>   an optimal operation sequence. Analyze the running time and space requirements of your algorithm.
+>
+> The edit-distance problem generalizes the problem of aligning two DNA sequences (see, for example, Setubal and
+> Meidanis [310, Section 3.2]). There are several methods for measuring the similarity of two DNA sequences by aligning
+> them. One such method to align two sequences *x* and *y* consists of inserting spaces at arbitrary locations in the
+> two sequences (including at either end) so that the resulting sequences *x*′ and *y*′ have the same length but do not
+> have a space in the same position (i.e., for no position *j* are both *x*′[*j*] and *y*′[*j*] a space). Then we assign
+> a “score” to each position. Position *j* receives a score as follows:
+>
+> - +1 if *x*′[*j*] = *y*′[*j*] and neither is a space,
+> - -1 if *x*′[*j*] ≠ *y*′[*j*] and neither is a space,
+> - -2 if either *x*′[*j*] or *y*′[*j*] is a space.
+>
+> The score for the alignment is the sum of the scores of the individual positions. For example, given the sequences
+> *x* = `GATCGGCAT` and *y* = `CAATGTGAATC`, one alignment is
+>
+> ```text
+> G ATCG GCAT
+> CAAT GTGAATC
+> -*++*+*+-++*
+> ```
+>
+> A `+` under a position indicates a score of +1 for that position, a `-` indicates a score of -1, and a `*` indicates a
+> score of -2, so that this alignment has a total score of 6 ⋅ 1 - 2 ⋅ 1 - 4 ⋅ 2 = -4.
+>
+> - ***b.*** Explain how to cast the problem of finding an optimal alignment as an edit distance problem using a subset
+>   of the transformation operations copy, replace, delete, insert, twiddle, and kill.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_5_edit_distance.rs).
+
+- ***a.*** Running time is in Θ(*m* *n*), space requirement is Θ(*m* *n*).
+- ***b.*** Each alignment can be transformed into a sequence of transformation operations:
+
+  - The +1 case can be transformed into **copy** operation with cost of -1.
+  - The -1 case can be transformed into **replace** operation with cost of 1.
+  - The -2 case can be transformed into **insert** or **delete** operation with cost of 2.
+
+  And we set **twiddle** and **kill** operation as cost of ∞ since there is no corresponding alignment.
+
+  Note that the cost is the negative score, since our algorithm of edit-distance *minimizes* the cost but we want to
+  maximize the *score*.
 
 ------------------------------------------------------------------------------------------------------------------------
 
