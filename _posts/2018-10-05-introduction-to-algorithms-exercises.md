@@ -6224,7 +6224,7 @@ Just follow this table:
 
 > Rewrite the code for *Interval-Search* so that it works properly when all intervals are open.
 
-*Interval-Search*(*T*， *i*)
+*Interval-Search*(*T*, *i*)
 
 1. *x* = *T*.*root*
 2. **while** *x* ≠ *T*.*nil* and *i* does not overlap *x*.*int*
@@ -6894,12 +6894,38 @@ Solution is implemented
 
 Running time is Θ(*n*) where *n* is the total number of employees.
 
+##### 15-7 Viterbi algorithm
+
+> We can use dynamic programming on a directed graph *G* = (*V*, *E*) for speech recognition. Each edge (*u*, *v*) ∈ *E*
+> is labeled with a sound *σ*(*u*, *v*) from a finite set Σ of sounds. The labeled graph is a formal model of a person
+> speaking a restricted language. Each path in the graph starting from a distinguished vertex $v_0$ ∈ *V* corresponds to
+> a possible sequence of sounds produced by the model. We define the label of a directed path to be the concatenation of
+> the labels of the edges on that path.
+>
+> - ***a.*** Describe an efficient algorithm that, given an edge-labeled graph *G* with distinguished vertex $v_0$ and a
+>   sequence *s* = ⟨$σ_1$, $σ_2$, …, $σ_k$⟩ of sounds from Σ, returns a path in *G* that begins at $v_0$ and has s as its
+>   label, if any such path exists. Otherwise, the algorithm should return *no-such-path*. Analyze the running time of
+>   your algorithm. (*Hint:* You may find concepts from Chapter 22 useful.)
+>
+> Now, suppose that every edge (*u*, *v*) ∈ *E* has an associated nonnegative probability *p*(*u*, *v*) of traversing
+> the edge (*u*, *v*) from vertex *u* and thus producing the corresponding sound. The sum of the probabilities of the
+> edges leaving any vertex equals 1. The probability of a path is defined to be the product of the probabilities of its
+> edges. We can view the probability of a path beginning at $v_0$ as the probability that a “random walk” beginning at
+> $v_0$ will follow the specified path, where we randomly choose which edge to take leaving a vertex *u* according to
+> the probabilities of the available edges leaving *u*.
+>
+> - ***b.*** Extend your answer to part (a) so that if a path is returned, it is a *most probable path* starting at
+>   $v_0$ and having label *s*. Analyze the running time of your algorithm.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_7_viterbi_algorithm.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΩαβγδεζπωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
