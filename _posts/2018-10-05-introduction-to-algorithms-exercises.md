@@ -6877,6 +6877,23 @@ Solution is implemented
   Note that the cost is the negative score, since our algorithm of edit-distance *minimizes* the cost but we want to
   maximize the *score*.
 
+##### 15-6 Planning a company party
+
+> Professor Stewart is consulting for the president of a corporation that is planning a company party. The company has a
+> hierarchical structure; that is, the supervisor relation forms a tree rooted at the president. The personnel office
+> has ranked each employee with a conviviality rating, which is a real number. In order to make the party fun for all
+> attendees, the president does not want both an employee and his or her immediate supervisor to attend.
+>
+> Professor Stewart is given the tree that describes the structure of the corporation, using the left-child,
+> right-sibling representation described in Section 10.4. Each node of the tree holds, in addition to the pointers, the
+> name of an employee and that employee’s conviviality ranking. Describe an algorithm to make up a guest list that
+> maximizes the sum of the conviviality ratings of the guests. Analyze the running time of your algorithm.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_6_planning_a_company_party.rs).
+
+Running time is Θ(*n*) where *n* is the total number of employees.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
