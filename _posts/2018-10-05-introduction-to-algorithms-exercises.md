@@ -6920,6 +6920,30 @@ Running time is Θ(*n*) where *n* is the total number of employees.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_7_viterbi_algorithm.rs).
 
+##### 15-8 Image compression by seam carving
+
+> We are given a color picture consisting of an *m* × *n* array *A*[1‥*m*, 1‥*n*] of pixels, where each pixel specifies
+> a triple of red, green, and blue (RGB) intensities. Suppose that we wish to compress this picture slightly.
+> Specifically, we wish to remove one pixel from each of the *m* rows, so that the whole picture becomes one pixel
+> narrower. To avoid disturbing visual effects, however, we require that the pixels removed in two adjacent rows be in
+> the same or adjacent columns; the pixels removed form a “seam” from the top row to the bottom row where successive
+> pixels in the seam are adjacent vertically or diagonally.
+>
+> - ***a.*** Show that the number of such possible seams grows at least exponentially in *m*, assuming that *n* > 1.
+> - ***b.*** Suppose now that along with each pixel *A*[*i*, *j*], we have calculated a real-valued disruption measure
+>   d[*i*, *j*], indicating how disruptive it would be to remove pixel *A*[*i*, *j*]. Intuitively, the lower a pixel’s
+>   disruption measure, the more similar the pixel is to its neighbors. Suppose further that we define the disruption
+>   measure of a seam to be the sum of the disruption measures of its pixels.
+>
+>   Give an algorithm to find a seam with the lowest disruption measure. How efficient is your algorithm?
+
+- ***a.*** Assume we are selecting a seam from top to bottom. First, we can select one of *n* pixels in the first row,
+  then for each pixel we already selected, there are two or three pixels in the next row to select from. So the total
+  number of seams is at least *n* × $2^{m - 1}$ = *n* / 2 × $2^m$, which is at least exponentially in *m*.
+
+- ***b.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_8_image_compression_by_seam_carving.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
