@@ -6966,6 +6966,36 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_9_breaking_a_string.rs).
 
+##### 15-10 Planning an investment strategy
+
+> Your knowledge of algorithms helps you obtain an exciting job with the Acme Computer Company, along with a $10,000
+> signing bonus. You decide to invest this money with the goal of maximizing your return at the end of 10 years. You
+> decide to use the Amalgamated Investment Company to manage your investments. Amalgamated Investments requires you to
+> observe the following rules. It offers *n* different investments, numbered 1 through *n*. In each year *j*, investment
+> *i* provides a return rate of $r_{i j}$ . In other words, if you invest *d* dollars in investment *i* in year *j*, then
+> at the end of year *j*, you have $d r_{i j}$ dollars. The return rates are guaranteed, that is, you are given all the
+> return rates for the next 10 years for each investment. You make investment decisions only once per year. At the end
+> of each year, you can leave the money made in the previous year in the same investments, or you can shift money to
+> other investments, by either shifting money between existing investments or moving money to a new investment. If you
+> do not move your money between two consecutive years, you pay a fee of $f_1$ dollars, whereas if you switch your
+> money, you pay a fee of $f_2$ dollars, where $f_2$ > $f_1$.
+>
+> - ***a.*** The problem, as stated, allows you to invest your money in multiple investments in each year. Prove that
+>   there exists an optimal investment strategy that, in each year, puts all the money into a single investment. (Recall
+>   that an optimal investment strategy maximizes the amount of money after 10 years and is not concerned with any other
+>   objectives, such as minimizing risk.)
+> - ***b.*** Prove that the problem of planning your optimal investment strategy exhibits optimal substructure.
+> - ***c.*** Design an algorithm that plans your optimal investment strategy. What is the running time of your
+>   algorithm?
+> - ***d.*** Suppose that Amalgamated Investments imposed the additional restriction that, at any point, you can have no
+>   more than $15,000 in any one investment. Show that the problem of maximizing your income at the end of 10 years no
+>   longer exhibits optimal substructure.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_10_planning_an_investment_strategy.rs).
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
