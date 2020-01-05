@@ -7047,6 +7047,58 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_12_signing_free_agent_baseball_players.rs).
 
+### 16 Greedy Algorithms
+
+#### 16.1 An activity-selection problem
+
+##### 16.1-1
+
+> Give a dynamic-programming algorithm for the activity-selection problem, based on recurrence (16.2). Have your
+> algorithm compute the sizes *c*[*i*, *j*] as defined above and also produce the maximum-size subset of mutually
+> compatible activities. Assume that the inputs have been sorted as in equation (16.1). Compare the running time of your
+> solution to the running time of *Greedy-Activity-Selector*.
+
+*Skipped.*
+
+##### 16.1-2
+
+> Suppose that instead of always selecting the first activity to finish, we instead select the last activity to start
+> that is compatible with all previously selected activities. Describe how this approach is a greedy algorithm, and
+> prove that it yields an optimal solution.
+
+This is essentially the same as the original problem, but with time reversed.
+
+##### 16.1-3
+
+> Not just any greedy approach to the activity-selection problem produces a maximum-size set of mutually compatible
+> activities. Give an example to show that the approach of selecting the activity of least duration from among those
+> that are compatible with previously selected activities does not work. Do the same for the approaches of always
+> selecting the compatible activity that overlaps the fewest other remaining activities and always selecting the
+> compatible remaining activity with the earliest start time.
+
+- Least duration:
+
+  ```text
+  ▬▬▬▬ ▬▬▬▬
+     ▬▬▬
+  ```
+
+- Fewest overlaps:
+
+  ```text
+  ▬▬▬ ▬▬▬ ▬▬▬ ▬▬▬
+    ▬▬▬ ▬▬▬ ▬▬▬
+    ▬▬▬     ▬▬▬
+    ▬▬▬     ▬▬▬
+  ```
+
+- Earliest start time:
+
+  ```text
+  ▬▬▬▬▬▬▬▬▬
+   ▬▬▬ ▬▬▬
+  ```
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
