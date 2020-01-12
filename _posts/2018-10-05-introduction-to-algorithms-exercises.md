@@ -7123,6 +7123,16 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_1_an_activity_selection_problem/exercises/exercise_16_1_5.rs).
 
+#### 16.2 Elements of the greedy strategy
+
+##### 16.2-1
+
+> Prove that the fractional knapsack problem has the greedy-choice property.
+
+For each subproblem, as long as there are items that with more value per pound than some items already in the knapsack,
+we can replace some items already in the knapsack with items with more value per pound to get a better solution. So for
+each subproblem, we must put as much as possible items with the most value per pound.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
