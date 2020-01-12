@@ -7113,6 +7113,16 @@ This is essentially the same as the original problem, but with time reversed.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_1_an_activity_selection_problem/exercises/exercise_16_1_4.rs).
 
+##### 16.1-5
+
+> Consider a modification to the activity-selection problem in which each activity $a_i$ has, in addition to a start and
+> finish time, a value $v_i$. The objective is no longer to maximize the number of activities scheduled, but instead to
+> maximize the total value of the activities scheduled. That is, we wish to choose a set *A* of compatible activities
+> such that $Σ_{a_k ∈ A} v_k$ is maximized. Give a polynomial-time algorithm for this problem.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_1_an_activity_selection_problem/exercises/exercise_16_1_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
