@@ -7141,6 +7141,17 @@ each subproblem, we must put as much as possible items with the most value per p
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_2.rs).
 
+##### 16.2-3
+
+> Suppose that in a 0-1 knapsack problem, the order of the items when sorted by increasing weight is the same as their
+> order when sorted by decreasing value. Give an efficient algorithm to find an optimal solution to this variant of the
+> knapsack problem, and argue that your algorithm is correct.
+
+Algorithm: For each subproblem, select the item with most value within the remaining items.
+
+Proof: Like 16.2-1, if we have selected other item instead of the item with most value, we can replace that item with
+the item with most value to get more optimized solution.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
