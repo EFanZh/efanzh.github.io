@@ -7099,6 +7099,20 @@ This is essentially the same as the original problem, but with time reversed.
    ▬▬▬ ▬▬▬
   ```
 
+##### 16.1-4
+
+> Suppose that we have a set of activities to schedule among a large number of lecture halls, where any activity can
+> take place in any lecture hall. We wish to schedule all the activities using as few lecture halls as possible. Give an
+> efficient greedy algorithm to determine which activity should use which lecture hall.
+>
+> (This problem is also known as the ***interval-graph coloring problem***. We can create an interval graph whose
+> vertices are the given activities and whose edges connect incompatible activities. The smallest number of colors
+> required to color every vertex so that no two adjacent vertices have the same color corresponds to finding the fewest
+> lecture halls needed to schedule all of the given activities.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_1_an_activity_selection_problem/exercises/exercise_16_1_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
