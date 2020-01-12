@@ -7133,6 +7133,14 @@ For each subproblem, as long as there are items that with more value per pound t
 we can replace some items already in the knapsack with items with more value per pound to get a better solution. So for
 each subproblem, we must put as much as possible items with the most value per pound.
 
+##### 16.2-2
+
+> Give a dynamic-programming solution to the 0-1 knapsack problem that runs in *O*(*n* *W*) time, where *n* is the
+> number of items and *W* is the maximum weight of items that the thief can put in his knapsack.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
