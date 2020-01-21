@@ -7180,6 +7180,22 @@ So the only choice is to stop at *k*.
 
 The running time is *O*(*n*).
 
+##### 16.2-5
+
+> Describe an efficient algorithm that, given a set {$x_1$, $x_2$, …, $x_n$} of points on the real line, determines the
+> smallest set of unit-length closed intervals that contains all of the given points. Argue that your algorithm is
+> correct.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_5.rs).
+
+##### 16.2-6 ★
+
+> Show how to solve the fractional knapsack problem in *O*(*n*) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_6.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
