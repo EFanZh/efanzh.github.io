@@ -6583,9 +6583,9 @@ the only the value of *n*.
 
 *Skipped*.
 
-##### 15.4 Longest common subsequence
+#### 15.4 Longest common subsequence
 
-15.4-1
+##### 15.4-1
 
 > Determine an LCS of ⟨1, 0, 0, 1, 0, 1, 0, 1⟩ and ⟨0, 1, 0, 1, 1, 0, 1, 1, 0⟩.
 
@@ -6594,7 +6594,7 @@ The result is ⟨1, 0, 0, 1, 1, 0⟩.
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_1.rs).
 
-15.4-2
+##### 15.4-2
 
 > Give pseudocode to reconstruct an LCS from the completed *c* table and the original sequences
 > *X* = ⟨$x_1$, $x_2$, …, $x_m$⟩ and *Y* = ⟨$y_1$, $y_2$, …, $y_n$⟩ in *O*(*m* + *n*) time, without using the *b* table.
@@ -6602,14 +6602,14 @@ See
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_2.rs).
 
-15.4-3
+##### 15.4-3
 
 > Give a memoized version of *LCS-Length* that runs in *O*(*m* *n*) time.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_3.rs).
 
-15.4-4
+##### 15.4-4
 
 > Show how to compute the length of an LCS using only 2 ⋅ min(*m*, *n*) entries in the *c* table plus *O*(1) additional
 > space. Then show how to do the same thing, but using min(*m*, *n*) entries plus *O*(1) additional space.
@@ -6617,7 +6617,7 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_4.rs).
 
-15.4-5
+##### 15.4-5
 
 > Give an *O*($n^2$)-time algorithm to find the longest monotonically increasing subsequence of a sequence of *n*
 > numbers.
@@ -6625,7 +6625,7 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_5.rs).
 
-15.4-6 ★
+##### 15.4-6 ★
 
 > Give an *O*(*n* lg *n*)-time algorithm to find the longest monotonically increasing subsequence of a sequence of *n*
 > numbers. (*Hint:* Observe that the last element of a candidate subsequence of length *i* is at least as large as the
@@ -7195,6 +7195,34 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_6.rs).
+
+##### 16.2-7
+
+> Suppose you are given two sets *A* and *B*, each containing *n* positive integers. You can choose to reorder each set
+> however you like. After reordering, let $a_i$ be the *i*th element of set *A*, and let $b_i$ be the *i*th element of
+> set *B*. You then receive a payoff of $∏_{i = 1}^n a_i^{b_i}$. Give an algorithm that will maximize your payoff. Prove
+> that your algorithm maximizes the payoff, and state its running time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_2_elements_of_the_greedy_strategy/exercises/exercise_16_2_7.rs).
+
+Just sort two sets incrementally.
+
+Proof: Let $a_i$ and $a_j$ be two elements from set *A*, and $a_i$ ≤ $a_j$; Let $b_i$ and $b_j$ be two elements from set
+*B*, and $b_i$ ≤ $b_j$, we have:
+
+$\dfrac{a_i^{b_i} a_j^{b_j}}{a_i^{b_j} a_j^{b_i}}$\
+= $a_i^{b_i - b_j} a_j^{b_j - b_i}$\
+= $\dfrac{a_j^{b_j - b_i}}{a_i^{b_j - b_i}}$\
+= $\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}$.
+
+Since $a_i$, $a_j$, $b_i$ and $b_j$ are positive integers, we have $\frac{a_j}{a_i}$ ≥ 1, and $b_j - b_i$ ≥ 0, then:
+
+$\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}$ ≥ 1, which means $a_i^{b_i} a_j^{b_j}$ ≥ $a_i^{b_j} a_j^{b_i}$.
+
+So for each pair $a_i$ and $a_j$ in set *A*, if $a_i$ ≤ $a_j$, we must ensure that the corresponding $b_i$ ≤ $b_j$. To
+get the maximize payoff, we should make sure that the relative order in two sets are the same. The simplest way to do
+this is sorting two sets in increasing order.
 
 ------------------------------------------------------------------------------------------------------------------------
 
