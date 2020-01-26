@@ -7224,6 +7224,17 @@ So for each pair $a_i$ and $a_j$ in set *A*, if $a_i$ ≤ $a_j$, we must ensure 
 get the maximize payoff, we should make sure that the relative order in two sets are the same. The simplest way to do
 this is sorting two sets in increasing order.
 
+##### 16.3-1
+
+> Explain why, in the proof of Lemma 16.2, if *x*.*freq* = *b*.*freq*, then we must have
+> *a*.*freq* = *b*.*freq* = *x*.*freq* = *y*.*freq*.
+
+Since *b*.*freq* = *x*.*freq* ≤ *y*.*freq*, and *y*.*freq* ≤ *b*.*freq*, we have *x*.*freq* = *y*.*freq* = *b*.*freq*.
+
+Since *b*.*freq* = *x*.*freq* ≤ *a*.*freq*, and *a*.*freq* ≤ *b*.*freq*, we have *a*.*freq* = *b*.*freq* = *x*.*freq*.
+
+So *a*.*freq* = *b*.*freq* = *x*.*freq* = *y*.*freq*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
