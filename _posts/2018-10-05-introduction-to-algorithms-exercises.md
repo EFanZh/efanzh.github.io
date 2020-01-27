@@ -7244,6 +7244,30 @@ since we know exactly what the last bit will be, we don’t need to include it e
 original tree into a new tree with one leaf node’s depth shortened by 1. So the original tree cannot correspond to an
 optimal prefix code.
 
+##### 16.3-3
+
+> What is an optimal Huffman code for the following set of frequencies, based on the first 8 Fibonacci numbers?
+>
+> `a:1 b:1 c:2 d:3 e:5 f:8 g:13 h:21`
+>
+> Can you generalize your answer to find the optimal code when the frequencies are the first *n* Fibonacci numbers?
+
+| Character | Huffman code |
+| --------- | ------------ |
+| `a`       | `0000000`    |
+| `b`       | `0000001`    |
+| `c`       | `000001`     |
+| `d`       | `00001`      |
+| `e`       | `0001`       |
+| `f`       | `001`        |
+| `g`       | `01`         |
+| `h`       | `1`          |
+
+If there are *n* Fibonacci frequencies, then:
+
+- The Huffman code for the first frequency is (*n* - 1) `0`s.
+- The Huffman code for the *i*th (*i* > 1) frequency is (*n* - *i*) `0`s, followed by a `1`.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
