@@ -7290,13 +7290,44 @@ Proof by induction:
   The cost of the node is:
 
   $∑_{c ∈ T} c.\textit{freq} ⋅ d_T(c)$\
+  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_T(c)$\
   = $∑_{c ∈ L} c.\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c.\textit{freq} ⋅ (d_R(c) + 1)$\
-  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
   = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
   = *s* + *t* + *f* + *g* (by induction)
 
   Since the frequence of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequences of internal nodes of
   *T*. The claim holds.
+
+##### 16.3-5
+
+> Prove that if we order the characters in an alphabet so that their frequencies are monotonically decreasing, then
+> there exists an optimal code whose codeword lengths are monotonically increasing.
+
+Proof by contradiction:
+
+Suppose all optimal codes are non-monotonically increasing, then there must exist a pair of codes in which the longer
+coder has lesser frequency.
+
+- Let *s* be the length of the shorter code;
+- Let *t* be the length of the longer code;
+- Let *f* be the frequency of the shorter code;
+- Let *g* be the frequency of the longer code.
+
+We *s* < *t* and *f* > *g*.
+
+We can represent the cost as *c* + *s* *f* + *t* *g*, where *c* is some constant value.
+
+Now we devise a new code which swaps the representation code of the selected pair. Now we get a new code whose cost is
+*c* + *s* *g* + *t* *f*.
+
+(*c* + *s* *f* + *t* *g*) - (*c* + *s* *g* + *t* *f*)\
+= (*c* + *s* *f* + *t* *g*) - (*c* + *s* *g* + *t* *f*)\
+= *s* (*f* - *g*) + *t* (*f* - *g*)\
+= (*s* + *t*) (*f* - *g*)\
+\> 0.
+
+So we got a code which is lesser than the original code, so the original code is not optimal. So our supposition is
+wrong, which means there exists an optimal code whose codeword lengths are monotonically increasing.
 
 ------------------------------------------------------------------------------------------------------------------------
 
