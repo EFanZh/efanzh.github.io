@@ -7235,6 +7235,15 @@ Since *b*.*freq* = *x*.*freq* ≤ *a*.*freq*, and *a*.*freq* ≤ *b*.*freq*, we 
 
 So *a*.*freq* = *b*.*freq* = *x*.*freq* = *y*.*freq*.
 
+##### 16.3-2
+
+> Prove that a binary tree that is not full cannot correspond to an optimal prefix code.
+
+Suppose there is a node *x* with only one child *y*, then we can use the codeword for *x* to represent *y* directly,
+since we know exactly what the last bit will be, we don’t need to include it explicitly. So we can transform the
+original tree into a new tree with one leaf node’s depth shortened by 1. So the original tree cannot correspond to an
+optimal prefix code.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
