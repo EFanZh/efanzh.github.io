@@ -7268,6 +7268,36 @@ If there are *n* Fibonacci frequencies, then:
 - The Huffman code for the first frequency is (*n* - 1) `0`s.
 - The Huffman code for the *i*th (*i* > 1) frequency is (*n* - *i*) `0`s, followed by a `1`.
 
+##### 16.3-4
+
+> Prove that we can also express the total cost of a tree for a code as the sum, over all internal nodes, of the
+> combined frequencies of the two children of the node.
+
+Proof by induction:
+
+- Base case: For empty nodes (*nil*), there are no leaf nodes or internal nodes, so the cost and the sum of the
+  frequencies of internal nodes are both 0, the claim holds. We can assume the frequency of a *nil* node is 0.
+- Inductive case: For non-*nil* nodes:
+
+  - Let the node be *T*;
+  - Let the left child be *L*;
+  - Let the right child be *R*;
+  - Let the total frequency of leaf nodes of the left child be *f*;
+  - Let the total frequency of leaf nodes of the right child be *g*;
+  - Let the total sum of frequencies of internal nodes of left child be *s*;
+  - Let the total sum of frequencies of internal nodes of right child be *t*.
+
+  The cost of the node is:
+
+  $∑_{c ∈ T} c.\textit{freq} ⋅ d_T(c)$\
+  = $∑_{c ∈ L} c.\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c.\textit{freq} ⋅ (d_R(c) + 1)$\
+  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
+  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
+  = *s* + *t* + *f* + *g* (by induction)
+
+  Since the frequence of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequences of internal nodes of
+  *T*. The claim holds.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
