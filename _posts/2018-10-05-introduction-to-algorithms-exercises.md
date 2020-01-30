@@ -7313,7 +7313,7 @@ coder has lesser frequency.
 - Let *f* be the frequency of the shorter code;
 - Let *g* be the frequency of the longer code.
 
-We *s* < *t* and *f* > *g*.
+We have *s* < *t* and *f* > *g*.
 
 We can represent the cost as *c* + *s* *f* + *t* *g*, where *c* is some constant value.
 
@@ -7328,6 +7328,16 @@ Now we devise a new code which swaps the representation code of the selected pai
 
 So we got a code which is lesser than the original code, so the original code is not optimal. So our supposition is
 wrong, which means there exists an optimal code whose codeword lengths are monotonically increasing.
+
+##### 16.3-6
+
+> Suppose we have an optimal prefix code on a set *C* = {0, 1, …, *n* - 1} of characters and we wish to transmit this
+> code using as few bits as possible. Show how to represent any optimal prefix code on *C* using only
+> 2 *n* - 1 + *n* ⌈lg *n*⌉ bits. (*Hint:* Use 2 *n* - 1 bits to specify the structure of the tree, as discovered by a
+> walk of the tree.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_3_huffman_codes/exercises/exercise_16_3_6.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
