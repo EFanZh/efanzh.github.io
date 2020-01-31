@@ -7367,7 +7367,7 @@ which is less than $2^n$, which means that some *n*-bits files will be transform
 But we cannot restore two different *n*-bits files from one single (*n* - 1)-bits files, so the compression scheme does
 not exist.
 
-#### 16.4 Matroids and greedy methods
+#### 16.4 Matroids and greedy methods ★
 
 ##### 16.4-1
 
@@ -7378,6 +7378,31 @@ not exist.
 2. For any *B* ∈ $\mathcal{I}_k$ and *A* ⊆ *B*, |*A*| ≤ |*B*| ≤ *k*, so *A* ∈ $\mathcal{I}_k$.
 3. If *A* ∈ $\mathcal{I}_k$, *B* ∈ $\mathcal{I}_k$, and |*A*| < |*B*|, we know |*A*| < |*B*| ≤ *k*. For some
    *x* ∈ *B* - *A*, |*A* ∪ {*x*}| ≤ *k*, so *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
+
+##### 16.4-2 ★
+
+> Given an *m* × *n* matrix *T* over some field (such as the reals), show that (*S*, $\mathcal{I}$) is a matroid, where
+> *S* is the set of columns of *T* and *A* ∈ $\mathcal{I}$ if and only if the columns in *A* are linearly independent.
+
+1. *S* is a finite set.
+2. For any *B* ∈ $\mathcal{I}$ and *A* ⊆ *B*, we know columns in *B* are linearly independent, since columns of any
+   subsets of *B* are also linearly independent, so *A* ∈ $\mathcal{I}$.
+3. If *A* ∈ $\mathcal{I}$, *B* ∈ $\mathcal{I}$, and |*A*| < |*B*|, there are three cases:
+
+   1. If *A* = ∅, then for any *x* ∈ *B* - *A*, *A* ∪ {*x*} = {*x*}, which is linearly independent, that is:
+      *A* ∪ {*x*} ∈ $\mathcal{I}$.
+   2. If *A* ≠ ∅ and *A* ∩ *B* = ∅, we have *B* - *A* = *B* and |*B*| ≥ 2. Since columns in *B* are linearly
+      independent, there must be at least one column in *B* that is linearly independent with columns in *A*.
+
+      This can be proved by contradiction: If all columns in *B* are linearly dependent with columns in *A*, then
+      columns in *B* will be linearly dependent, which is impossible, so there must be at least one column in *B* that
+      is linearly independent with columns in *A*.
+
+      Choose an column *x* in *B* that is linearly independent with columns in *A*, we have
+      *A* ∪ {*x*} ∈ $\mathcal{I}$.
+   3. If *A* ≠ ∅ and *A* ∩ *B* ≠ ∅, we know columns in *B* - *A* are linearly independent with columns in *A* ∩ *B*,
+      which means columns in *B* - *A* are linearly independent with columns in *A*. For any *x* in *B* - *A*, we have
+      *A* ∪ {*x*} ∈ $\mathcal{I}$.
 
 ------------------------------------------------------------------------------------------------------------------------
 
