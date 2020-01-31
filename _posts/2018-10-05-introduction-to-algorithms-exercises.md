@@ -7404,6 +7404,36 @@ not exist.
       which means columns in *B* - *A* are linearly independent with columns in *A*. For any *x* in *B* - *A*, we have
       *A* ∪ {*x*} ∈ $\mathcal{I}$.
 
+##### 16.4-3 ★
+
+> Show that if (*S*, $\mathcal{I}$) is a matroid, then (*S*, $\mathcal{I}$′) is a matroid, where
+>
+> $\mathcal{I}$′ = {*A*′ : *S* - *A*′ contains some maximal *A* ∈ $\mathcal{I}$}.
+>
+> That is, the maximal independent sets of (*S*, $\mathcal{I}$′) are just the complements of the maximal independent
+> sets of (*S*, $\mathcal{I}$).
+
+1. *S* is a finite set.
+2. For any *B* ∈ $\mathcal{I}$′ and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ $\mathcal{I}$,
+   and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ $\mathcal{I}$′.
+3. **Skipped.**
+
+##### 16.4-4 ★
+
+> Let *S* be a finite set and let $S_1$, $S_2$, …, $S_k$ be a partition of *S* into nonempty disjoint subsets. Define
+> the structure (*S*, $\mathcal{I}$) by the condition that
+> $\mathcal{I}$ = {*A* : |*A* ∩ $S_i$| ≤ 1 for *i* = 1, 2, …, *k*}. Show that (*S*, $\mathcal{I}$) is a matroid. That
+> is, the set of all sets *A* that contain at most one member of each subset in the partition determines the independent
+> sets of a matroid.
+
+1. *S* is a finite set.
+2. For any *B* ∈ $\mathcal{I}$ and *A* ⊆ *B*, for any 1 ≤ *i* ≤ *k*,
+   *A* ∩ $S_i$ = (*A* ∩ *B*) ∩ $S_i$ = *A* ∩ (*B* ∩ $S_i$). Since |*B* ∩ $S_i$| ≤ 1, |*A* ∩ $S_i$| ≤ 1. So
+   *A* ∈ $\mathcal{I}$.
+3. If *A* ∈ $\mathcal{I}$, *B* ∈ $\mathcal{I}$, and |*A*| < |*B*|, then *B* must intersect with more partitions than
+   *A*. Let *x* be an element in a partition that *B* intersects with, but *A* does not, we have
+   *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
