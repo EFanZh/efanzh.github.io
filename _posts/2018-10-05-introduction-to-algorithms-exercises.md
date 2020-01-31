@@ -7339,12 +7339,52 @@ wrong, which means there exists an optimal code whose codeword lengths are monot
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_3_huffman_codes/exercises/exercise_16_3_6.rs).
 
+##### 16.3-7
+
+> Generalize Huffman’s algorithm to ternary codewords (i.e., codewords using the symbols 0, 1, and 2), and prove that it
+> yields optimal ternary codes.
+
+*Skipped.*
+
+##### 16.3-8
+
+> Suppose that a data file contains a sequence of 8-bit characters such that all 256 characters are about equally
+> common: the maximum character frequency is less than twice the minimum character frequency. Prove that Huffman coding
+> in this case is no more efficient than using an ordinary 8-bit fixed-length code.
+
+*Skipped.*
+
+##### 16.3-9
+
+> Show that no compression scheme can expect to compress a file of randomly chosen 8-bit characters by even a single
+> bit. (*Hint:* Compare the number of possible files with the number of possible encoded files.)
+
+Assume there exists such a compression scheme.
+
+The number of possible files with *n* bits is $2^n$, but the number of possible files with *n* - 1 bits is $2^{n - 1}$,
+which is less than $2^n$, which means that some *n*-bits files will be transformed into the same (*n* - 1)-bits file.
+
+But we cannot restore two different *n*-bits files from one single (*n* - 1)-bits files, so the compression scheme does
+not exist.
+
+#### 16.4 Matroids and greedy methods
+
+##### 16.4-1
+
+> Show that (*S*, $\mathcal{I}_k$) is a matroid, where *S* is any finite set and $\mathcal{I}_k$ is the set of all
+> subsets of *S* of size at most *k*, where *k* ≤ |*S*|.
+
+1. *S* is a finite set.
+2. For any *B* ∈ $\mathcal{I}_k$ and *A* ⊆ *B*, |*A*| ≤ |*B*| ≤ *k*, so *A* ∈ $\mathcal{I}_k$.
+3. If *A* ∈ $\mathcal{I}_k$, *B* ∈ $\mathcal{I}_k$, and |*A*| < |*B*|, we know |*A*| < |*B*| ≤ *k*. For some
+   *x* ∈ *B* - *A*, |*A* ∪ {*x*}| ≤ *k*, so *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞⊆∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
