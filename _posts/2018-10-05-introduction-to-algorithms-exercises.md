@@ -7434,6 +7434,41 @@ not exist.
    *A*. Let *x* be an element in a partition that *B* intersects with, but *A* does not, we have
    *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
 
+##### 16.4-5
+
+> Show how to transform the weight function of a weighted matroid problem, where the desired optimal solution is a
+> *minimum-weight* maximal independent subset, to make it a standard weighted-matroid problem. Argue carefully that your
+> transformation is correct.
+
+Let the weights in the minimum-weight problem be $w_1$, $w_2$, … $w_n$, and the maximum weight is *w_k*, we can solve
+transform this problem into a maximum-weight problem with weights $w_k$ + 1 - $w_1$, $w_k$ + 1 - $w_2$, …,
+$w_k$ + 1 - $w_n$.
+
+Proof:
+
+*Skipped.*
+
+#### 16.5 A task-scheduling problem as a matroid
+
+##### 16.5-1
+
+> Solve the instance of the scheduling problem given in Figure 16.7, but with each penalty $w_i$ replaced by 80 - $w_i$.
+
+The schedule is:
+
+$a_5$, $a_4$, $a_6$, $a_3$, $a_7$, $a_2$, $a_1$.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_5_a_task_scheduling_problem_as_a_matroid/exercises/exercise_16_5_1.rs).
+
+##### 16.5-2
+
+> Show how to use property 2 of Lemma 16.12 to determine in time *O*(|*A*|) whether or not a given set *A* of tasks is
+> independent.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_5_a_task_scheduling_problem_as_a_matroid/exercises/exercise_16_5_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
