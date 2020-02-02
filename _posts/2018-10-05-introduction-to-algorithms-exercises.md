@@ -7416,7 +7416,7 @@ not exist.
 1. *S* is a finite set.
 2. For any *B* ∈ $\mathcal{I}$′ and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ $\mathcal{I}$,
    and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ $\mathcal{I}$′.
-3. **Skipped.**
+3. *Skipped.*
 
 ##### 16.4-4 ★
 
@@ -7468,6 +7468,33 @@ Solution is implemented
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_5_a_task_scheduling_problem_as_a_matroid/exercises/exercise_16_5_2.rs).
+
+#### 16.X Problems
+
+##### 16-1 Coin changing
+
+> Consider the problem of making change for *n* cents using the fewest number of coins. Assume that each coin’s value is
+> an integer.
+>
+> - ***a.*** Describe a greedy algorithm to make change consisting of quarters, dimes, nickels, and pennies. Prove that
+>   your algorithm yields an optimal solution.
+> - ***b.*** Suppose that the available coins are in the denominations that are powers of *c*, i.e., the denominations
+>   are $c^0$, $c_1$, …, $c^k$ for some integers *c* > 1 and *k* ≥ 1. Show that the greedy algorithm always yields an
+>   optimal solution.
+> - ***c.*** Give a set of coin denominations for which the greedy algorithm does not yield an optimal solution. Your
+>   set should include a penny so that there is a solution for every value of *n*.
+> - ***d.*** Give an *O*(*n* *k*)-time algorithm that makes change for any set of *k* different coin denominations,
+>   assuming that one of the coins is a penny.
+
+- ***a.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_1_coin_changing/question_a.rs).
+
+  *Skipped.*
+- ***b.*** *Skipped.*
+- ***c.*** Let the set of coin denominations be {1, 3, 4}. Let the amount of money be 6, greedy algorithm yields a
+  solution of 4 + 1 + 1, while the optimal solution is 3 + 3.
+- ***d.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_1_coin_changing/question_d.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
