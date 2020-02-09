@@ -19,7 +19,7 @@ aptitude purge --purge-unused '!~E ~M !(~R~i | ~P~R~i)'
 
 ## [FFmpeg](https://www.ffmpeg.org)
 
-### Remove remove sequentially duplicate frames
+### Remove sequentially duplicate frames
 
 ```bash
 ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
