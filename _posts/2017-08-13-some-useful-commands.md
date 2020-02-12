@@ -57,6 +57,16 @@ openssl req \
      -addext 'subjectAltName = DNS:localhost'
 ```
 
+### Create [PKCS #12](https://en.wikipedia.org/wiki/PKCS_12) file
+
+```sh
+openssl pkcs12 \
+    -export \
+    -out cert.pfx \
+    -in cert.pem \
+    -inkey key.pem
+```
+
 ## Others
 
 ### Bring swap memories back online
