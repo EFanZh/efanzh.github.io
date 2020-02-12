@@ -7,13 +7,13 @@
 
 ### Normalize package dependencies
 
-```bash
+```sh
 aptitude markauto '~i !~M (~R~i | ~P~R~i)'
 ```
 
 ### Remove recommended packages
 
-```bash
+```sh
 aptitude purge --purge-unused '!~E ~M !(~R~i | ~P~R~i)'
 ```
 
@@ -21,7 +21,7 @@ aptitude purge --purge-unused '!~E ~M !(~R~i | ~P~R~i)'
 
 ### Remove sequentially duplicate frames
 
-```bash
+```sh
 ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
 ```
 
@@ -29,7 +29,7 @@ ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
 
 ### Normalize package dependencies
 
-```bash
+```sh
 # For Bash.
 
 comm -23 <(pacman -Qeq | sort) <(pacman -Qeqtt | sort) | xargs -r pacman -D --asdeps
@@ -41,18 +41,26 @@ comm -23 <(pacman -Qeq | sort) <(pacman -Qeqtt | sort) | xargs -r pacman -D --as
 comm -23 (pacman -Qeq | sort | psub) (pacman -Qeqtt | sort | psub) | xargs -r pacman -D --asdeps
 ```
 
+## [OpenSSL](https://www.openssl.org)
+
+### Generate self-signed certificate
+
+```sh
+openssl req \
+     -out cert.pem \
+     -newkey rsa:4096 \
+     -keyout key.pem \
+     -nodes \
+     -subj /CN=localhost \
+     -x509 \
+     -days 36500 \
+     -addext 'subjectAltName = DNS:localhost'
+```
+
 ## Others
 
 ### Bring swap memories back online
 
 ```sh
-# For sh.
-
 swapoff -a && swapon -a
-```
-
-```
-# For Fish.
-
-swapoff -a; and swapon -a
 ```
