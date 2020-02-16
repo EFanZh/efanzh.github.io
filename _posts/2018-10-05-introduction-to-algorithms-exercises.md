@@ -7295,7 +7295,7 @@ Proof by induction:
   = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
   = *s* + *t* + *f* + *g* (by induction)
 
-  Since the frequence of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequences of internal nodes of
+  Since the frequency of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequencies of internal nodes of
   *T*. The claim holds.
 
 ##### 16.3-5
@@ -7440,7 +7440,7 @@ not exist.
 > *minimum-weight* maximal independent subset, to make it a standard weighted-matroid problem. Argue carefully that your
 > transformation is correct.
 
-Let the weights in the minimum-weight problem be $w_1$, $w_2$, … $w_n$, and the maximum weight is *w_k*, we can solve
+Let the weights in the minimum-weight problem be $w_1$, $w_2$, … $w_n$, and the maximum weight be $w_k$, we can solve
 transform this problem into a maximum-weight problem with weights $w_k$ + 1 - $w_1$, $w_k$ + 1 - $w_2$, …,
 $w_k$ + 1 - $w_n$.
 
@@ -7495,6 +7495,59 @@ Solution is implemented
   solution of 4 + 1 + 1, while the optimal solution is 3 + 3.
 - ***d.*** Solution is implemented
   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_1_coin_changing/question_d.rs).
+
+##### 16-2 Scheduling to minimize average completion time
+
+> Suppose you are given a set *S* = {$a_1$, $a_2$, …, $a_n$} of tasks, where task $a_i$ requires $p_i$ units of
+> processing time to complete, once it has started. You have one computer on which to run these tasks, and the computer
+> can run only one task at a time. Let $c_i$ be the ***completion time*** of task $a_i$, that is, the time at which task
+> $a_i$ completes processing. Your goal is to minimize the average completion time, that is, to minimize
+> (1 / *n*) $∑_{i = 1}^n c_i$. For example, suppose there are two tasks, $a_1$ and $a_2$, with $p_1$ = 3 and $p_2$ = 5,
+> and consider the schedule in which $a_2$ runs first, followed by $a_1$. Then $c_2$ = 5, $c_1$ = 8, and the average
+> completion time is (5 + 8) / 2 = 6.5. If task $a_1$ runs first, however, then $c_1$ = 3, $c_2$ = 8, and the average
+> completion time is (3 + 8) / 2 = 5.5.
+>
+> - ***a.*** Give an algorithm that schedules the tasks so as to minimize the average completion time. Each task must
+>   run non-preemptively, that is, once task $a_i$ starts, it must run continuously for $p_i$ units of time. Prove that
+>   your algorithm minimizes the average completion time, and state the running time of your algorithm.
+> - ***b.*** Suppose now that the tasks are not all available at once. That is, each task cannot start until its
+>   ***release time*** $r_i$. Suppose also that we allow ***preemption***, so that a task can be suspended and restarted
+>   at a later time. For example, a task $a_i$ with processing time $p_i$ = 6 and release time $r_i$ = 1 might start
+>   running at time 1 and be preempted at time 4. It might then resume at time 10 but be preempted at time 11, and it
+>   might finally resume at time 13 and complete at time 15. Task $a_i$ has run for a total of 6 time units, but its
+>   running time has been divided into three pieces. In this scenario, $a_i$’s completion time is 15. Give an algorithm
+>   that schedules the tasks so as to minimize the average completion time in this new scenario. Prove that your
+>   algorithm minimizes the average completion time, and state the running time of your algorithm.
+
+- ***a.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_2_scheduling_to_minimize_average_completion_time/question_a.rs).
+
+  The idea is process the task with least processing time first. We can prove this strategy minimizes the average
+  completion time, we can show that if there is a pair of tasks in which the one with longer processing time gets
+  scheduled first, then we can get a better average completion time by swap the schedule order of these two tasks.
+
+  Assume we have a schedule $a_{s_1}$, $a_{s_2}$, …, $a_{s_n}$, in which there is a pair of tasks $a_{s_i}$ and
+  $a_{s_j}$, we have *i* < *j* but $p_{s_i}$ > $p_{s_j}$.
+
+  We split the schedule into five parts:
+
+  1. Tasks $a_{s_1}$, $a_{s_2}$, …, $a_{s_{i - 1}}$,
+  2. Task $a_{s_i}$,
+  3. Tasks $a_{s_{i + 1}}$, $a_{s_{i + 2}}$, …, $a_{s_{j - 1}}$,
+  4. Task $a_{s_j}$,
+  5. Tasks $a_{s_{j + 1}}$, $a_{s_{j + 2}}$, …, $a_n$.
+
+  If we swap task $a_{s_i}$ with task $a_{s_j}$ in the schedule, then the completion time in part 1, part 4 and part 5
+  will stay the same, but the completion time in part 2 and part 3 will be less. So the total completion will be the
+  less, which means the average completion time will be less.
+
+  So we can only get the best strategy if all tasks are sorted in increasing processing time order.
+- ***b.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_2_scheduling_to_minimize_average_completion_time/question_b.rs).
+
+  *I am not sure whether my algorithm is correct, proof is skipped.*
+
+  The running time is *O*(*n* lg *n*).
 
 ------------------------------------------------------------------------------------------------------------------------
 
