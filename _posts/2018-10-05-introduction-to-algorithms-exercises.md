@@ -7633,6 +7633,40 @@ Solution is implemented
   - 1 + $\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)$, if $r_{i + 1}$ ∈ *C*,
 - ***c.*** *Skipped*.
 
+### 17 Amortized Analysis
+
+#### 17.1 Aggregate analysis
+
+##### 17.1-1
+
+> If the set of stack operations included a *Multipush* operation, which pushes *k* items onto the stack, would the
+> *O*(1) bound on the amortized cost of stack operations continue to hold?
+
+No. If we do *Multipush* every time, the amortized cost of each operation will be Θ(*k*).
+
+##### 17.1-2
+
+> Show that if a *Decrement* operation were included in the *k*-bit counter example, *n* operations could cost as much
+> as Θ(*n* *k*) time.
+
+If all bits except for the last bit of the counter is 0, while the last bit is 1, then interleave *Decrement* and
+*Increment* operations, then each operation will flip *k* bits, so *n* operations will cost Θ(*n* *k*) time.
+
+##### 17.1-3
+
+> Suppose we perform a sequence of *n* operations on a data structure in which the *i*th operation costs *i* if *i* is
+> an exact power of 2, and 1 otherwise. Use aggregate analysis to determine the amortized cost per operation.
+
+The total cost is:
+
+$∑_{i = 0}^{⌊\lg n⌋} 2^i$ + (*n* - ⌊lg *n*⌋ - 1)\
+= $2^{⌊\lg n⌋ + 1}$ - 1 + (*n* - ⌊lg *n*⌋ - 1)\
+≤ $2^{\lg n + 1}$ - 1 + (*n* - ⌊lg *n*⌋ - 1)\
+= 2 *n* - 1 + (*n* - ⌊lg *n*⌋ - 1)\
+= 3 *n* - ⌊lg *n*⌋ - 2
+
+So the cost per operation is: O((3 *n* - ⌊lg *n*⌋ - 2) / *n*) = O(1).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
