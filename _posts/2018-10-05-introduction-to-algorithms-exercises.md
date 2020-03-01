@@ -7708,6 +7708,25 @@ We can save 2 credits for each non-exact-power-of-2 operation, and for each exac
 *k* / 2 - 1 consecutive non-exact-power-of-2 operations, which can build up to *k* - 2 credits, adding the extra 2
 credits from the *k*th operation, the total number of credits is *k*, which is enough to pay for the *k*th operation.
 
+##### 17.2-3
+
+> Suppose we wish not only to increment a counter but also to reset it to zero (i.e., make all bits in it 0). Counting
+> the time to examine or modify a bit as Θ(1), show how to implement a counter as an array of bits so that any sequence
+> of *n* *Increment* and *Reset* operations takes time *O*(*n*) on an initially zero counter.
+>
+> (*Hint:* Keep a pointer to the high-order 1.)
+
+Like the hint says, we keep track of the highest 1 bit, so *Rest* operation only need to check partial of the bits.
+
+Assign the following amortized costs:
+
+- *Increment* when highest 1 bit is changed: 3
+- *Increment* when highest 1 bit is not changed: 2
+- *Reset*: 0
+
+At each step, the remaining credit is the number of 1 bits in the counter plus the location of the highest 1 bit, so
+it is enough for either *Reset* or *Increment* operation.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
