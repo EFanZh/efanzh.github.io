@@ -7665,7 +7665,30 @@ $∑_{i = 0}^{⌊\lg n⌋} 2^i$ + (*n* - ⌊lg *n*⌋ - 1)\
 = 2 *n* - 1 + (*n* - ⌊lg *n*⌋ - 1)\
 = 3 *n* - ⌊lg *n*⌋ - 2
 
-So the cost per operation is: O((3 *n* - ⌊lg *n*⌋ - 2) / *n*) = O(1).
+So the cost per operation is: *O*((3 *n* - ⌊lg *n*⌋ - 2) / *n*) = *O*(1).
+
+#### 17.2 The accounting method
+
+##### 17.2-1
+
+> Suppose we perform a sequence of stack operations on a stack whose size never exceeds *k*. After every *k* operations,
+> we make a copy of the entire stack for backup purposes. Show that the cost of *n* stack operations, including copying
+> the stack, is *O*(*n*) by assigning suitable amortized costs to the various stack operations.
+
+Actual costs:
+
+- *Push*: 1
+- *Pop*: 1
+- *Copy*: *s*
+
+Amortized costs:
+
+- *Push*: 2
+- *Pop*: 2
+- *Copy*: 0
+
+In this way, every *Push* and *Pop* operations produces 1 credit, so after every *k* operations, we have *k* extra
+credits, which can be pay for the following *Copy* operation.
 
 ------------------------------------------------------------------------------------------------------------------------
 
