@@ -7549,12 +7549,96 @@ Solution is implemented
 
   The running time is *O*(*n* lg *n*).
 
+##### 16-3 Acyclic subgraphs
+
+> - ***a.*** The ***incidence matrix*** for an undirected graph *G* = (*V*, *E*) is a |*V*| × |*E*| matrix *M* such that
+>   $M_{v e}$ = 1 if edge *e* is incident on vertex *v*, and $M_{v e}$ = 0 otherwise. Argue that a set of columns of *M*
+>   is linearly independent over the field of integers modulo 2 if and only if the corresponding set of edges is
+>   acyclic.
+> - ***b.*** Suppose that we associate a nonnegative weight *w*(*e*) with each edge in an undirected graph
+>   *G* = (*V*, *E*). Give an efficient algorithm to find an acyclic subset of *E* of maximum total weight.
+> - ***c.*** Let *G*(*V*, *E*) be an arbitrary directed graph, and let (*E*, $\mathcal{I}$) be defined so that
+>   *A* ∈ $\mathcal{I}$ if and only if *A* does not contain any directed cycles. Give an example of a directed graph *G*
+>   such that the associated system (*E*, $\mathcal{I}$) is not a matroid. Specify which defining condition for a
+>   matroid fails to hold.
+> - ***d.*** The ***incidence matrix*** for a directed graph *G* = (*V*, *E*) with no self-loops is a |*V*| × |*E*|
+>   matrix *M* such that $M_{v e}$ = -1 if edge *e* leaves vertex *v*, $M_{v e}$ = 1 if edge *e* enters vertex *v*, and
+>   $M_{v e}$ = 0 otherwise. Argue that if a set of columns of *M* is linearly independent, then the corresponding set
+>   of edges does not contain a directed cycle.
+> - ***e.*** Exercise 16.4-2 tells us that the set of linearly independent sets of columns of any matrix *M* forms a
+>   matroid. Explain carefully why the results of parts (c) and (d) are not contradictory. How can there fail to be a
+>   perfect correspondence between the notion of a set of edges being acyclic and the notion of the associated set of
+>   columns of the incidence matrix being linearly independent?
+
+*Skipped.*
+
+##### 16-4 Scheduling variations
+
+> Consider the following algorithm for the problem from Section 16.5 of scheduling unit-time tasks with deadlines and
+> penalties. Let all *n* time slots be initially empty, where time slot *i* is the unit-length slot of time that
+> finishes at time *i*. We consider the tasks in order of monotonically decreasing penalty. When considering task $a_j$,
+> if there exists a time slot at or before $a_j$’s deadline $d_j$ that is still empty, assign $a_j$ to the latest such
+> slot, filling it. If there is no such slot, assign task $a_j$ to the latest of the as yet unfilled slots.
+>
+> - ***a.*** Argue that this algorithm always gives an optimal answer.
+> - ***b.*** Use the fast disjoint-set forest presented in Section 21.3 to implement the algorithm efficiently. Assume
+>   that the set of input tasks has already been sorted into monotonically decreasing order by penalty. Analyze the
+>   running time of your implementation.
+
+*Skipped.*
+
+##### 16-5 Off-line caching
+
+> Modern computers use a cache to store a small amount of data in a fast memory. Even though a program may access large
+> amounts of data, by storing a small subset of the main memory in the ***cache***—a small but faster memory—overall
+> access time can greatly decrease. When a computer program executes, it makes a sequence ⟨$r_1$, $r_2$, …, $r_n$⟩ of
+> *n* memory requests, where each request is for a particular data element. For example, a program that accesses 4
+> distinct elements {*a*, *b*, *c*, *d*} might make the sequence of requests
+> ⟨*d*, *b*, *d*, *b*, *d*, *a*, *c*, *d*, *b*, *a*, *c*, *b*⟩. Let *k* be the size of the cache. When the cache
+> contains *k* elements and the program requests the (*k* + 1)st element, the system must decide, for this and each
+> subsequent request, which *k* elements to keep in the cache. More precisely, for each request $r_i$, the
+> cache-management algorithm checks whether element $r_i$ is already in the cache. If it is, then we have a
+> ***cache hit***; otherwise, we have a ***cache miss***. Upon a cache miss, the system retrieves $r_i$ from the main
+> memory, and the cache-management algorithm must decide whether to keep $r_i$ in the cache. If it decides to keep $r_i$
+> and the cache already holds $k$ elements, then it must evict one element to make room for $r_i$. The cache-management
+> algorithm evicts data with the goal of minimizing the number of cache misses over the entire sequence of requests.
+>
+> Typically, caching is an on-line problem. That is, we have to make decisions about which data to keep in the cache
+> without knowing the future requests. Here, however, we consider the off-line version of this problem, in which we are
+> given in advance the entire sequence of *n* requests and the cache size *k*, and we wish to minimize the total number
+> of cache misses.
+>
+> We can solve this off-line problem by a greedy strategy called ***furthest-in-future***, which chooses to evict the
+> item in the cache whose next access in the request sequence comes furthest in the future.
+>
+> - ***a.*** Write pseudocode for a cache manager that uses the furthest-in-future strategy. The input should be a
+>   sequence ⟨$r_1$, $r_2$, …, $r_n$⟩ of requests and a cache size *k*, and the output should be a sequence of decisions
+>   about which data element (if any) to evict upon each request. What is the running time of your algorithm?
+> - ***b.*** Show that the off-line caching problem exhibits optimal substructure.
+> - ***c.*** Prove that furthest-in-future produces the minimum possible number of cache misses.
+
+- ***a.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/problems/problem_16_5_off_line_caching.rs).
+
+  For test purpose, I used tree based data structure, and the running time is *O*(*n* *k* lg *m*), where *m* is the
+  number of memory locations to access.
+
+  The running time could be optimized to *O*(*n* *k*) if I use hash table based data structure.
+- ***b.*** Let *P*(*C*, *i*) be the number of minimal cache misses, where *C* is the set of elements the cache contains,
+  *k* is the cache size, and *i* is the number of requests already been processed, we have:
+
+  *P*(*C*, *i*) =
+
+  - *P*(*C*, *i* + 1), if $r_{i + 1}$ ∈ *C*,
+  - 1 + $\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)$, if $r_{i + 1}$ ∈ *C*,
+- ***c.*** *Skipped*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∞⊆∧∨∩∪≠≤≥⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌★⟨⟩
+> ×̲ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
