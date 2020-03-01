@@ -7690,6 +7690,24 @@ Amortized costs:
 In this way, every *Push* and *Pop* operations produces 1 credit, so after every *k* operations, we have *k* extra
 credits, which can be pay for the following *Copy* operation.
 
+##### 17.2-2
+
+> Redo Exercise 17.1-3 using an accounting method of analysis.
+
+Actual costs:
+
+- *i*th operation if *i* is an exact power of 2: i
+- *i*th operation if *i* is not an exact power of 2: 1
+
+Amortized costs:
+
+- *i*th operation if *i* is an exact power of 2: 2
+- *i*th operation if *i* is not an exact power of 2: 3
+
+We can save 2 credits for each non-exact-power-of-2 operation, and for each exact-power-of-2 operation *k*, there are
+*k* / 2 - 1 consecutive non-exact-power-of-2 operations, which can build up to *k* - 2 credits, adding the extra 2
+credits from the *k*th operation, the total number of credits is *k*, which is enough to pay for the *k*th operation.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
