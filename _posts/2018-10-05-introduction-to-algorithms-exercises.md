@@ -7816,6 +7816,33 @@ $∑_{i = 1}^n c_i$\
 ≤ 2 *n* - $s_n$\
 = *O*(*n*).
 
+##### 17.3-7
+
+> Design a data structure to support the following two operations for a dynamic multiset *S* of integers, which allows
+> duplicate values:
+>
+> *Insert*(*S*, *x*) inserts *x* into *S*.
+>
+> *Delete-Larger-Half*(*S*) deletes the largest ⌈|*S*| / 2⌉ elements from *S*.
+>
+> Explain how to implement this data structure so that any sequence of *m* *Insert* and *Delete-Larger-Half* operations
+> runs in *O*(*m*) time. Your implementation should also include a way to output the elements of *S* in *O*(|*S*|) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/section_17_3_the_potential_method/exercises/exercise_17_3_7.rs).
+
+Let Φ($D_i$) be **twice** the number of elements in the set after *i* operations, we have:
+
+The amortized cost of each operation is:
+
+- *Insert*: 1 + 2 = 3
+- *Delete-Larger-Half*: *k* + 1 - 2 (⌈*k* / 2⌉) <= 1, where *k* is the number of elements in the set
+
+$∑_{i = 1}^m c_i$\
+= $∑_{i = 1}^m \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
+≤ 3 *m* - $s_m$\
+= *O*(*m*).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
