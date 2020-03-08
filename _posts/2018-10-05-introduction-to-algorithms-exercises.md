@@ -874,10 +874,10 @@ Inductive case:
 > where $a_d > 0$, be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
 > notations to prove the following properties.
 >
-> 1. If *k* ≥ *d*, then *p*(*n*) = O($n^k$).
+> 1. If *k* ≥ *d*, then *p*(*n*) = *O*($n^k$).
 > 2. If *k* ≤ *d*, then *p*(*n*) = Ω($n^k$).
 > 3. If *k* = *d*, then *p*(*n*) = Θ($n^k$).
-> 4. If *k* > *d*, then *p*(*n*) = o($n^k$).
+> 4. If *k* > *d*, then *p*(*n*) = *o*($n^k$).
 > 5. If *k* < *d*, then *p*(*n*) = ω($n^k$).
 
 *Skipped.*
@@ -1100,7 +1100,7 @@ for implementation.
 ##### 4.2-4
 
 > What is the largest *k* such that if you can multiply 3 × 3 matrices using *k* multiplications (not assuming
-> commutativity of multiplication), then you can multiply *n* × *n* matrices in time o($n^{\lg 7}$)? What would the
+> commutativity of multiplication), then you can multiply *n* × *n* matrices in time *o*($n^{\lg 7}$)? What would the
 > running time of this algorithm be?
 
 *Skipped.*
@@ -3255,7 +3255,7 @@ Solution is implemented
 > array.
 >
 > ***c.*** Modify the code for *Tail-Recursive-Quicksort* so that the worst-case stack depth is Θ(lg *n*). Maintain the
-> O(*n* lg *n*) expected running time of the algorithm.
+> *O*(*n* lg *n*) expected running time of the algorithm.
 
 ***a.***
 
@@ -3494,7 +3494,7 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 ##### 8.4-2
 
 > Explain why the worst-case running time for bucket sort is Θ($n^2$). What simple change to the algorithm preserves its
-> linear average-case running time and makes its worst-case running time O(*n* lg *n*)?
+> linear average-case running time and makes its worst-case running time *O*(*n* lg *n*)?
 
 1. If all elements are put into one single bucket, the running time become Θ($n^2$).
 2. Use merge sort instead of insertion sort to sort elements in buckets.
@@ -3676,8 +3676,8 @@ if it has *i* digits. Then radix sort each bucket. Finally concatenate elements 
 > ***b.*** Prove a lower bound of Ω(*n* lg *n*) for the number of comparisons that an algorithm solving this problem
 > must make.
 >
-> ***c.*** Give a randomized algorithm whose expected number of comparisons is O(*n* lg *n*), and prove that this bound
-> is correct. What is the worst-case number of comparisons for your algorithm?
+> ***c.*** Give a randomized algorithm whose expected number of comparisons is *O*(*n* lg *n*), and prove that this
+> bound is correct. What is the worst-case number of comparisons for your algorithm?
 
 ***a.*** For each red jug, we compare it with every blue jug, and find the one with the same volume.
 
@@ -4095,7 +4095,7 @@ Proof:
 If we sort the *y*-coordinates of the wells by into an array *A*[1‥*n*], let *k* be the *y* coordinates of the pipeline,
 then total length of the spurs is:
 
-$∑_{i = 1}^n \left|A\left[i\right] - k\right|$ \
+$∑_{i = 1}^n \left|A\left[i\right] - k\right|$\
 = $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[i\right] - k\right| + ∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[n + 1 - i\right] - k\right|$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
 = $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left(\left|A\left[i\right] - k\right| + \left|A\left[n + 1 - i\right] - k\right|\right)$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
 
@@ -5896,7 +5896,7 @@ Solutions are implemented
 >
 > - ***b.*** Assume that $T_1$.*bh* ≥ $T_2$.*bh*. Describe an *O*(lg *n*)-time algorithm that finds a black node *y* in
 >   $T_1$ with the largest key from among those nodes whose black-height is $T_2$.*bh*.
-> - ***c.*** Let $T_y$ be the subtree rooted at *y*. Describe how $T_y$ ∪ { *x* } ∪ $T_2$ can replace $T_y$ in O(1)
+> - ***c.*** Let $T_y$ be the subtree rooted at *y*. Describe how $T_y$ ∪ { *x* } ∪ $T_2$ can replace $T_y$ in *O*(1)
 >   time without destroying the binary-search-tree property.
 > - ***d.*** What color should we make *x* so that red-black properties 1, 3, and 5 are maintained? Describe how to
 >   enforce properties 2 and 4 in *O*(lg *n*) time.
@@ -7756,7 +7756,7 @@ Let Φ′($D_i$) = Φ($D_i$) - Φ($D_0$).
 > What is the total cost of executing *n* of the stack operations *Push*, *Pop*, and *Multipop*, assuming that the stack
 > begins with $s_0$ objects and finishes with $s_n$ objects?
 
-Let Φ($D_i$) the the number of elements after *n* operations, we have:
+Let Φ($D_i$) the the number of elements after *i* operations, we have:
 
 The amortized cost of different operations are:
 
@@ -7766,9 +7766,24 @@ The amortized cost of different operations are:
 
 Let *p* be the number of *Push* operations, we have:
 
-$∑_{i = 1}^n c_i$ \
-= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$)) \
+$∑_{i = 1}^n c_i$\
+= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
 = 2 *p* - $s_n$ + $s_0$.
+
+##### 17.3-5
+
+> Suppose that a counter begins at a number with *b* 1s in its binary representation, rather than at 0. Show that the
+> cost of performing *n* *Increment* operations is *O*(*n*) if *n* = Ω(*b*). (Do not assume that *b* is constant.)
+
+Let Φ($D_i$) the the number of 1s after *i* operations, we have:
+
+The amortized cost of *Increment* is 2.
+
+$∑_{i = 1}^n c_i$\
+= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
+= 2 *n* - $s_n$ + *b*\
+= *O*(2 *n* - $s_n$) (Since *n* = Ω(*b*))\
+= *O*(*n*).
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -7809,7 +7824,7 @@ Base case: Pr{$A_1$} ≤ Pr{$A_1$}.
 
 Inductive case:
 
-$\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace$ \
+$\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace$\
 ≤ $\Pr\left\lbrace\bigcup_{i = 1}^j A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$\
 ≤ $∑_{i = 1}^j \Pr\left\lbrace A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$ (By induction)\
 = $∑_{i = 1}^{j + 1} \Pr\left\lbrace A_i\right\rbrace$.
