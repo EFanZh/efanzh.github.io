@@ -4759,7 +4759,7 @@ The process is a sequence of Bernoulli trials with a probability *p* = *n* / (*m
 needed to find an element follows geometric distribution, so the expected number of iterations for finding the position
 of an element is 1 / *p* = *m* *L* / *n* = *L* / *α*. But it is not done, we still need to get the value of the selected
 element in a linked list, which takes *O*(*L*) time. So the total expected running time is
-Θ(*L* / *α*) + *O*(*L*) = *O* (*L* ⋅ (1 + 1 / *α*)).
+Θ(*L* / *α*) + *O*(*L*) = *O*(*L* ⋅ (1 + 1 / *α*)).
 
 #### 11.3 Hash functions
 
@@ -7783,6 +7783,37 @@ $∑_{i = 1}^n c_i$\
 = $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
 = 2 *n* - $s_n$ + *b*\
 = *O*(2 *n* - $s_n$) (Since *n* = Ω(*b*))\
+= *O*(*n*).
+
+##### 17.3-6
+
+> Show how to implement a queue with two ordinary stacks (Exercise 10.1-6) so that the amortized cost of each *Enqueue*
+> and each *Dequeue* operation is *O*(1).
+
+I have already implemented the queue in exercise 10.1-6,
+see [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_10_elementary_data_structures/section_10_1_stacks_and_queues/exercises/exercise_10_1_6.rs).
+
+Now I will analyze the running time.
+
+The queue is implemented with two stacks. One is for the queue front, one is for the queue back.
+
+- *Enqueue* is done by pushing into the *back* stack.
+- *Dequeue* is done by first checking whether the *front* stack is empty, if the front stack is empty, pop all items
+  from the back stack and push them into the front stack. Then, pop from the front stack.
+
+Let Φ($D_i$) be the number of elements of the *back* stack after *i* operations, we have:
+
+The amortized cost of each operation is:
+
+- *Enqueue*: 1 + 1 = 2
+- *Dequeue* when front stack has elements: 1 + 0 = 1
+- *Dequeue* when front stack is empty: (*k* + 1) + (-*k*) = 1
+
+Assume initially, the queue is empty, the total actual cost after *n* operations is:
+
+$∑_{i = 1}^n c_i$\
+= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
+≤ 2 *n* - $s_n$\
 = *O*(*n*).
 
 ------------------------------------------------------------------------------------------------------------------------
