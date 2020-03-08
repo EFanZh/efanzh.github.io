@@ -7727,12 +7727,55 @@ Assign the following amortized costs:
 At each step, the remaining credit is the number of 1 bits in the counter plus the location of the highest 1 bit, so
 it is enough for either *Reset* or *Increment* operation.
 
+#### 17.3 The potential method
+
+##### 17.3-1
+
+> Suppose we have a potential function Φ such that Φ($D_i$) ≥ Φ($D_0$) for all *i*, but Φ($D_0$) ≠ 0. Show that there
+> exists a potential function Φ′ such that Φ′($D_0$) = 0, Φ′($D_i$) ≥ 0 for all *i* ≥ 1, and the amortized costs using
+> Φ′ are the same as the amortized costs using Φ.
+
+Let Φ′($D_i$) = Φ($D_i$) - Φ($D_0$).
+
+##### 17.3-2
+
+> Redo Exercise 17.1-3 using a potential method of analysis.
+
+*Skipped.*
+
+##### 17.3-3
+
+> Consider an ordinary binary min-heap data structure with *n* elements supporting the instructions *Insert* and
+> *Extract-Min* in *O*(lg *n*) worst-case time. Give a potential function Φ such that the amortized cost of *Insert* is
+> *O*(lg *n*) and the amortized cost of *Extract-Min* is *O*(1), and show that it works.
+
+*Skipped.*
+
+##### 17.3-4
+
+> What is the total cost of executing *n* of the stack operations *Push*, *Pop*, and *Multipop*, assuming that the stack
+> begins with $s_0$ objects and finishes with $s_n$ objects?
+
+Let Φ($D_i$) the the number of elements after *n* operations, we have:
+
+The amortized cost of different operations are:
+
+- *Push*: 1 + 1 = 2
+- *Pop*: 1 + (-1) = 0
+- *Push*: *k* + (-*k*) = 0
+
+Let *p* be the number of *Push* operations, we have:
+
+$∑_{i = 1}^n c_i$ \
+= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$)) \
+= 2 *p* - $s_n$ + $s_0$.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×̲ΓΘΣΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
+> ×̲ΓΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
