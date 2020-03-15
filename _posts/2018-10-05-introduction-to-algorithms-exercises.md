@@ -7887,6 +7887,58 @@ operation.
   = 1 + 0 - ($n_{i - 1}$ - ($n_{i - 1}$ - 1))\
   = -1.
 
+##### 17.4-3
+
+> Suppose that instead of contracting a table by halving its size when its load factor drops below 1 / 4, we contract it
+> by multiplying its size by 2 / 3 when its load factor drops below 1 / 3. Using the potential function
+>
+> Φ(*T*) = |2 ⋅ *T*.*num* - *T*.*size*|,
+>
+> show that the amortized cost of a *Table-Delete* that uses this strategy is bounded above by a constant.
+
+*Skipped.*
+
+#### 17.X Problems
+
+##### 17-1 Bit-reversed binary counter
+
+> Chapter 30 examines an important algorithm called the fast Fourier transform, or FFT. The first step of the FFT
+> algorithm performs a ***bit-reversal permutation*** on an input array *A*[0‥*n* - 1] whose length is *n* = $2^k$ for
+> some nonnegative integer *k*. This permutation swaps elements whose indices have binary representations that are the
+> reverse of each other.
+>
+> We can express each index *a* as a *k*-bit sequence ⟨$a_{k - 1}$, $a_{k - 2}$, …, $a_0$⟩, where
+> *a* = $∑_{i = 0}^{k - 1} a_i 2^i$. We define
+>
+> $\text{rev}\_k$(⟨$a_{k - 1}$, $a_{k - 2}$, …, $a_0$⟩) = ⟨$a_0$, $a_1$, …, $a_{k - 1}$⟩;
+>
+> thus,
+>
+> $\text{rev}\_k$(*a*) = $\displaystyle ∑_{i = 0}^{k - 1} a_{k - i - 1} 2^i$.
+>
+> For example, if *n* = 16 (or, equivalently, *k* = 4), then $\text{rev}_k$(3) = 12, since the 4-bit representation of 3
+> is 0011, which when reversed gives 1100, the 4-bit representation of 12.
+>
+> - ***a.*** Given a function $\text{rev}_k$ that runs in Θ(*k*) time, write an algorithm to perform the bit-reversal
+>   permutation on an array of length *n* = $2^k$ in *O*(*n* *k*) time.
+>
+> We can use an algorithm based on an amortized analysis to improve the running time of the bit-reversal permutation. We
+> maintain a “bit-reversed counter” and a procedure *Bit-Reversed-Increment* that, when given a bit-reversed-counter
+> value *a*, produces $\text{rev}_k$($\text{rev}_k$(*a*) + 1). If *k* = 4, for example, and the bit-reversed counter
+> starts at 0, then successive calls to *Bit-Reversed-Increment* produce the sequence
+>
+> 0000, 1000, 0100, 1100, 0010, 1010, … = 0, 8, 4, 12, 2, 10, ….
+>
+> - ***b.*** Assume that the words in your computer store *k*-bit values and that in unit time, your computer can
+>   manipulate the binary values with operations such as shifting left or right by arbitrary amounts, bitwise-AND,
+>   bitwise-OR, etc. Describe an implementation of the *Bit-Reversed-Increment* procedure that allows the bit-reversal
+>   permutation on an *n*-element array to be performed in a total of *O*(n) time.
+> - ***c.*** Suppose that you can shift a word left or right by only one bit in unit time. Is it still possible to
+>   implement an *O*(*n*)-time bit-reversal permutation?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/problems/problem_17_1_bit_reversed_binary_counter.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
