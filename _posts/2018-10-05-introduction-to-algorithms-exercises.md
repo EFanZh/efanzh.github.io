@@ -7843,6 +7843,50 @@ $∑_{i = 1}^m c_i$\
 ≤ 3 *m* - $s_m$\
 = *O*(*m*).
 
+#### 17.4 Dynamic tables
+
+##### 17.4-1
+
+> Suppose that we wish to implement a dynamic, open-address hash table. Why might we consider the table to be full when
+> its load factor reaches some value *α* that is strictly less than 1? Describe briefly how to make insertion into a
+> dynamic, open-address hash table run in such a way that the expected value of the amortized cost per insertion is
+> *O*(1). Why is the expected value of the actual cost per insertion not necessarily *O*(1) for all insertions?
+
+*Skipped.*
+
+##### 17.4-2
+
+> Show that if $α_{i - 1}$ ≥ 1  / 2 and the *i*th operation on a dynamic table is *Table-Delete*, then the amortized
+> cost of the operation with respect to the potential function (17.6) is bounded above by a constant.
+
+Let $s_i$ be the size of the table after the *i*th operation, and $n_i$ be the number of elements after the *i*th
+operation.
+
+- If $α_{i - 1}$ = 1  / 2, we have $s_{i - 1}$ = 2 $n_{i - 1}$.
+  - If the *i*th operation triggers a contraction, we have:
+
+    $n_{i - 1}$ - 1 < $s_{i - 1}$ / 4\
+    ⇔ $n_{i - 1}$ - 1 < $n_{i - 1}$ / 2\
+    ⇔ $n_{i - 1}$ < 2\
+    ⇔ $n_{i - 1}$ = 1. ($n_{i - 1}$ ≠ 0 because we will do a deletion on $n_{i - 1}$ elements)
+
+    Doing a deletion on a constant size dynmaic table costs constant time.
+  - If the *i*th operation does not trigger a contraction, we have:
+
+    $\hat{c}\_i$\
+    = $c_i$ + Φ($D_{i}$) - Φ($D_{i - 1}$)\
+    = 1 + 0 - ($s_{i - 1}$ / 2 - ($n_{i - 1}$ - 1))\
+    = 1 + 0 - ($n_{i - 1}$ - ($n_{i - 1}$ - 1))\
+    = 1 + 0 - 1\
+    = 0.
+- If $α_{i - 1}$ > 1  / 2, we know that the *i*th operation does not trigger a contraction.
+
+  $\hat{c}\_i$\
+  = $c_i$ + Φ($D_{i}$) - Φ($D_{i - 1}$)\
+  = 1 + (2 ($n_{i - 1}$ - 1) - $s_{i - 1}$) - (2 $n_{i - 1}$ - $s_{i - 1}$)\
+  = 1 + 0 - ($n_{i - 1}$ - ($n_{i - 1}$ - 1))\
+  = -1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
