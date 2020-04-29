@@ -54,6 +54,7 @@ enable_mathjax: true
    See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_3.rs).
 4. > Which of these C++ functions are pure? Try to memoize them and observe what happens when you call them multiple
    > times: memoized and not.
+   >
    > 1. The factorial function from the example in the text.
    > 2. `std::getchar()`
    > 3. ```c++
@@ -227,7 +228,7 @@ enable_mathjax: true
 
    If `int` with the two injections `i` and `j` is better than `Either`, there should be a function `f` that maps `int`
    to `Either` where `f` ∘ `i` == `Left` and `f` ∘ `j` == `Right`. But after applying `i` or `j`, We can not know the
-   origin object is `int` or `bool`, so we can not determine wether to use `Left` or `Right` to construct `Either`.
+   origin object is `int` or `bool`, so we can not determine whether to use `Left` or `Right` to construct `Either`.
 7. > Still continuing: What about these injections?
    >
    > ```c++
@@ -524,7 +525,7 @@ enable_mathjax: true
        = `alpha (fmap f (Just a))`\
        = `alpha (Just (f a))`\
        = `Cons (f a) Nil`
-2. > Define at least two different natural transformations betwee `Reader ()` and the list functor. How many different
+2. > Define at least two different natural transformations between `Reader ()` and the list functor. How many different
    > lists of `()` are there?
 
    ```Haskell
