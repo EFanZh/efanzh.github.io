@@ -8181,6 +8181,58 @@ We have:
 
 2 ≤ *t* ≤ 2. So *t* could be 2 or 3.
 
+##### 18.1-3
+
+> Show all legal B-trees of minimum degree 2 that represent {1, 2, 3, 4, 5}.
+
+Every nodes can have 1, 2 or 3 keys.
+
+When root have 1 keys:
+
+```text
+    ┌───┐
+    │ 2 │
+    └─┬─┘
+  ┌───┴────┐
+┌─┴─┐  ┌───┴───┐
+│ 1 │  │ 3 4 5 │
+└───┘  └───────┘
+```
+
+```text
+     ┌───┐
+     │ 3 │
+     └─┬─┘
+   ┌───┴────┐
+┌──┴──┐  ┌──┴──┐
+│ 1 2 │  │ 4 5 │
+└─────┘  └─────┘
+```
+
+```text
+      ┌───┐
+      │ 4 │
+      └─┬─┘
+    ┌───┴────┐
+┌───┴───┐  ┌─┴─┐
+│ 1 2 3 │  │ 5 │
+└───────┘  └───┘
+```
+
+When root have 2 keys:
+
+```text
+      ┌─────┐
+      │ 2 4 │
+      └──┬──┘
+  ┌──────┼──────┐
+┌─┴─┐  ┌─┴─┐  ┌─┴─┐
+│ 1 │  │ 3 │  │ 5 │
+└───┘  └───┘  └───┘
+```text
+
+When root have 3 keys, it has 4 children, which requires at least 7 keys, so it is not possible.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
