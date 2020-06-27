@@ -8166,6 +8166,21 @@ The tree is implemented
 If *t* = 1, every node could have either zero or one key, so the tree is essentially a linked list, which does not
 perform well.
 
+##### 18.1-2
+
+> For what values of *t* is the tree of Figure 18.1 a legal B-tree?
+
+Solving
+
+$\begin{cases}
+t - 1 ≤ 2 ≤ 2 t - 1\\\\
+t - 1 ≤ 3 ≤ 2 t - 1
+\end{cases}$,
+
+We have:
+
+2 ≤ *t* ≤ 2. So *t* could be 2 or 3.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
