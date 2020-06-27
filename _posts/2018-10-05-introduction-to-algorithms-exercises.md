@@ -8229,7 +8229,7 @@ When root have 2 keys:
 ┌─┴─┐  ┌─┴─┐  ┌─┴─┐
 │ 1 │  │ 3 │  │ 5 │
 └───┘  └───┘  └───┘
-```text
+```
 
 When root have 3 keys, it has 4 children, which requires at least 7 keys, so it is not possible.
 
