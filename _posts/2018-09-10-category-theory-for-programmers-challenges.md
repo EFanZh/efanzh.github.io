@@ -543,7 +543,7 @@ enable_mathjax: true
    alpha1 f = Nothing
    ```
 
-   ```Haskell
+   ```haskell
    alpha2 f = Just (f False)
    ```
 
