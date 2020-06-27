@@ -8233,6 +8233,14 @@ When root have 2 keys:
 
 When root have 3 keys, it has 4 children, which requires at least 7 keys, so it is not possible.
 
+##### 18.1-4
+
+> As a function of the minimum degree *t*, what is the maximum number of keys that can be stored in a B-tree of height
+> *h*?
+
+(2 *t* - 1) $∑_{i = 0}^h (2 t)^i$\
+= $(2 t)^{h + 1}$ - 1.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
