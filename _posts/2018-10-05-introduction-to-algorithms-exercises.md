@@ -820,15 +820,15 @@ $\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 ×
 
 ##### 3.2-5 ★
 
-> Which is asymptotically larger: $\lg \left(\lg^* n\right)$ or $\lg^* \left(\lg n\right)$?
+> Which is asymptotically larger: $\lg \left(\lg^\* n\right)$ or $\lg^\* \left(\lg n\right)$?
 
 By the definition of $\lg^*$, we have
 
-$\lg^* n = \begin{cases}0&n ≤ 1\\\\
+$\lg^\* n = \begin{cases}0&n ≤ 1\\\\
 \lg^* \left(\lg n\right) + 1&n > 1\end{cases}$.
 
-So $\lg^* n = Θ\left(\lg^* \left(\lg n\right)\right)$. Because $\lg^* n$ is asymptotically larger than $\lg \left(\lg^* n\right)$,
-we know that $\lg^* \left(\lg n\right)$ is asymptotically larger than $\lg \left(\lg^* n\right)$.
+So $\lg^\* n = Θ\left(\lg^\* \left(\lg n\right)\right)$. Because $\lg^\* n$ is asymptotically larger than $\lg \left(\lg^\* n\right)$,
+we know that $\lg^\* \left(\lg n\right)$ is asymptotically larger than $\lg \left(\lg^\* n\right)$.
 
 ##### 3.2-6
 
@@ -915,11 +915,11 @@ Inductive case:
 >
 >    |                              |                              |                                 |                      |                       |                       |
 >    | ---------------------------- | ---------------------------- | ------------------------------- | -------------------- | --------------------- | --------------------- |
->    | $\lg\left(\lg^* n\right)$    | $2^{\lg^* n}$                | $\left(\sqrt{2}\right)^{\lg n}$ | $n^2$                | $n!$                  | $\left(\lg n\right)!$ |
+>    | $\lg\left(\lg^\* n\right)$   | $2^{\lg^\* n}$               | $\left(\sqrt{2}\right)^{\lg n}$ | $n^2$                | $n!$                  | $\left(\lg n\right)!$ |
 >    | $\left(\frac{3}{2}\right)^n$ | $n^3$                        | $\lg^2 n$                       | $\lg\left(n!\right)$ | $2^{2^n}$             | $n^{1 / \lg n}$       |
 >    | $\ln \ln n$                  | $\lg^* n$                    | $n ⋅ 2^n$                       | $n^{\lg \lg n}$      | $\ln n$               | $1$                   |
 >    | $2^{\lg n}$                  | $\left(\lg n\right)^{\lg n}$ | $e^n$                           | $4^{\lg n}$          | $\left(n + 1\right)!$ | $\sqrt{\lg n}$        |
->    | $\lg^*\left(\lg n\right)$    | $2^{\sqrt{2 \lg n}}$         | *n*                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
+>    | $\lg^\*\left(\lg n\right)$   | $2^{\sqrt{2 \lg n}}$         | *n*                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
 > 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions $g_i\left(n\right)$
 >    in part (a), *f*(*n*) is neither $O\left(g_i\left(n\right)\right)$ nor $Ω\left(g_i\left(n\right)\right)$.
 
@@ -7939,12 +7939,226 @@ operation.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/problems/problem_17_1_bit_reversed_binary_counter.rs).
 
+##### 17-2 Making binary search dynamic
+
+> Binary search of a sorted array takes logarithmic search time, but the time to insert a new element is linear in the
+> size of the array. We can improve the time for insertion by keeping several sorted arrays.
+>
+> Specifically, suppose that we wish to support *Search* and *Insert* on a set of *n* elements. Let *k* = ⌈lg(*n* + 1)⌉,
+> and let the binary representation of *n* be ⟨$n_{k - 1}$, $n_{k - 2}$, …, $n_0$⟩. We have *k* sorted arrays $A_0$,
+> $A_1$, …, $A_{k - 1}$, where for *i* = 0, 1, …, *k* - 1, the length of array $A_i$ is $2^i$. Each array is either full
+> or empty, depending on whether $n_i$ = 1 or $n_i$ = 0, respectively. The total number of elements held in all *k*
+> arrays is therefore $∑_{i = 0}^{k - 1} n_i 2^i$ = *n*. Although each individual array is sorted, elements in different
+> arrays bear no particular relationship to each other.
+>
+> - ***a.*** Describe how to perform the *Search* operation for this data structure. Analyze its worst-case running
+>   time.
+> - ***b.*** Describe how to perform the *Insert* operation. Analyze its worst-case and amortized running times.
+> - ***c.*** Discuss how to implement *Delete*.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/problems/problem_17_2_making_binary_search_dynamic.rs).
+
+- ***a.*** If the set has *n* = $2^k$ elements, and the element to search is in the last slot, then the worst case
+  search time is:
+
+  $∑_{i = 1}^k \lg (2^i)$\
+  = $∑_{i = 1}^k i$\
+  = *k* (*k* + 1) / 2.
+- ***b.***
+
+  Worst case running time occurs when a new element is being inserted into a set with *n* = $2^k$ - 1 elements. The
+  running time is Θ(*n*).
+
+  *Skipped amortized running time analysis.*
+
+##### 17-3 Amortized weight-balanced trees
+
+> Consider an ordinary binary search tree augmented by adding to each node *x* the attribute *x*.*size* giving the
+> number of keys stored in the subtree rooted at *x*. Let *α* be a constant in the range 1 / 2 ≤ *α* < 1. We say that a
+> given node *x* is ***α-balanced*** if *x*.*left*.*size* ≤ *α* ⋅ *x*.*size* and *x*.*right*.*size* ≤ *α* ⋅ *x*.*size*.
+> The tree as a whole is ***α-balanced*** if every node in the tree is *α*-balanced. The following amortized approach to
+> maintaining weight-balanced trees was suggested by G. Varghese.
+>
+> - ***a.*** A 1 / 2-balanced tree is, in a sense, as balanced as it can be. Given a node *x* in an arbitrary binary
+>   search tree, show how to rebuild the subtree rooted at *x* so that it becomes 1 / 2-balanced. Your algorithm should
+>   run in time Θ(*x*.*size*), and it can use *O*(*x*.*size*) auxiliary storage.
+> - ***b.*** Show that performing a search in an *n*-node *α*-balanced binary search tree takes *O*(lg *n*) worst-case
+>   time.
+>
+> For the remainder of this problem, assume that the constant *α* is strictly greater than 1 / 2. Suppose that we
+> implement *Insert* and *Delete* as usual for an *n*-node binary search tree, except that after every such operation,
+> if any node in the tree is no longer *α*-balanced, then we “rebuild” the subtree rooted at the highest such node in
+> the tree so that it becomes 1 / 2-balanced.
+>
+> We shall analyze this rebuilding scheme using the potential method. For a node *x* in a binary search tree *T*, we
+> define
+>
+> Δ(*x*) = |*x*.*left*.*size* - *x*.*right*.*size*|,
+>
+> and we define the potential of *T* as
+>
+> Φ(*T*) = *c* $\displaystyle ∑_{x ∈ T: Δ(x) ≥ 2} Δ(x)$,
+>
+> where *c* is a sufficiently large constant that depends on *α*.
+>
+> - ***c.*** Argue that any binary search tree has nonnegative potential and that a 1 / 2-balanced tree has potential 0.
+> - ***d.*** Suppose that *m* units of potential can pay for rebuilding an *m*-node subtree. How large must *c* be in
+>   terms of *α* in order for it to take *O*(1) amortized time to rebuild a subtree that is not *α*-balanced?
+> - ***e.*** Show that inserting a node into or deleting a node from an *n*-node *α*-balanced tree costs *O*(lg *n*)
+>   amortized time.
+
+The tree is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/problems/problem_17_3_amortized_weight_balanced_trees.rs).
+
+*Skipped running time analysis.*
+
+##### 17-4 The cost of restructuring red-black trees
+
+> There are four basic operations on red-black trees that perform ***structural modifications***: node insertions, node
+> deletions, rotations, and color changes. We have seen that *RB-Insert* and *RB-Delete* use only *O*(1) rotations, node
+> insertions, and node deletions to maintain the red-black properties, but they may make many more color changes.
+>
+> - ***a.*** Describe a legal red-black tree with *n* nodes such that calling *RB-Insert* to add the (*n* + 1)st node
+>   causes Ω(lg *n*) color changes. Then describe a legal red-black tree with *n* nodes for which calling *RB-Delete* on
+>   a particular node causes Ω(lg *n*) color changes.
+>
+> Although the worst-case number of color changes per operation can be logarithmic, we shall prove that any sequence of
+> *m* *RB-Insert* and *RB-Delete* operations on an initially empty red-black tree causes *O*(*m*) structural
+> modifications in the worst case. Note that we count each color change as a structural modification.
+>
+> - ***b.*** Some of the cases handled by the main loop of the code of both *RB-Insert-Fixup* and *RB-Delete-Fixup* are
+>   ***terminating***: once encountered, they cause the loop to terminate after a constant number of additional
+>   operations. For each of the cases of *RB-Insert-Fixup* and *RB-Delete-Fixup*, specify which are terminating and
+>   which are not. (*Hint:* Look at Figures 13.5, 13.6, and 13.7.)
+>
+>   We shall first analyze the structural modifications when only insertions are performed. Let *T* be a red-black tree,
+>   and define Φ(*T*) to be the number of red nodes in *T*. Assume that 1 unit of potential can pay for the structural
+>   modifications performed by any of the three cases of *RB-Insert-Fixup*.
+> - ***c.*** Let *T*′ be the result of applying Case 1 of *RB-Insert-Fixup* to *T*. Argue that Φ(*T*′) = Φ(*T*) - 1.
+> - ***d.*** When we insert a node into a red-black tree using *RB-Insert*, we can break the operation into three parts.
+>   List the structural modifications and potential changes resulting from lines 1–16 of *RB-Insert*, from
+>   nonterminating cases of *RB-Insert-Fixup*, and from terminating cases of *RB-Insert-Fixup*.
+> - ***e.*** Using part (d), argue that the amortized number of structural modifications performed by any call of
+>   *RB-Insert* is *O*(1).
+>
+> We now wish to prove that there are *O*(*m*) structural modifications when there are both insertions and deletions.
+> Let us define, for each node *x*,
+>
+> *w*(*x*) = $\begin{cases}
+> 0 &\text{if $x$ is red,}\\\\
+> 1 &\text{if $x$ is black and has no red children,}\\\\
+> 0 &\text{if $x$ is black and has one red child,}\\\\
+> 2 &\text{if $x$ is black and has two red children.}
+> \end{cases}$
+>
+> Now we redefine the potential of a red-black tree *T* as
+>
+> Φ(*T*) = $∑_{x ∈ T} w(x)$,
+>
+> and let *T*′ be the tree that results from applying any nonterminating case of *RB-Insert-Fixup* or *RB-Delete-Fixup*
+> to *T*.
+>
+> - ***f.*** Show that Φ(*T*′) ≤ Φ(*T*) - 1 for all nonterminating cases of *RB-Insert-Fixup*. Argue that the amortized
+>   number of structural modifications performed by any call of *RB-Insert-Fixup* is *O*(1).
+> - ***g.*** Show that Φ(*T*′) ≤ Φ(*T*) - 1 for all nonterminating cases of *RB-Delete-Fixup*. Argue that the amortized
+>   number of structural modifications performed by any call of *RB-Delete-Fixup* is *O*(1).
+> - ***h.*** Complete the proof that in the worst case, any sequence of *m* *RB-Insert* and *RB-Delete* operations
+>   performs *O*(*m*) structural modifications.
+
+*Skipped.*
+
+##### 17-5 Competitive analysis of self-organizing lists with move-to-front
+
+> A ***self-organizing*** list is a linked list of *n* elements, in which each element has a unique key. When we search
+> for an element in the list, we are given a key, and we want to find an element with that key.
+>
+> A self-organizing list has two important properties:
+>
+> 1. To find an element in the list, given its key, we must traverse the list from the beginning until we encounter the
+>    element with the given key. If that element is the *k*th element from the start of the list, then the cost to find
+>    the element is *k*.
+> 2. We may reorder the list elements after any operation, according to a given rule with a given cost. We may choose
+>    any heuristic we like to decide how to reorder the list.
+>
+> Assume that we start with a given list of *n* elements, and we are given an access sequence
+> *σ* = ⟨$σ_1$, $σ_2$, …, $σ_m$⟩ of keys to find, in order. The cost of the sequence is the sum of the costs of the
+> individual accesses in the sequence.
+>
+> Out of the various possible ways to reorder the list after an operation, this problem focuses on transposing adjacent
+> list elements—switching their positions in the list—with a unit cost for each transpose operation. You will show, by
+> means of a potential function, that a particular heuristic for reordering the list, move-to-front, entails a total
+> cost no worse than 4 times that of any other heuristic for maintaining the list order—even if the other heuristic
+> knows the access sequence in advance! We call this type of analysis a ***competitive analysis***.
+>
+> For a heuristic H and a given initial ordering of the list, denote the access cost of sequence *σ* by $C_H$(*σ*). Let
+> *m* be the number of accesses in *σ*.
+>
+> - ***a.*** Argue that if heuristic H does not know the access sequence in advance, then the worst-case cost for H on
+>   an access sequence *σ* is $C_H$(*σ*) = Ω(*m* *n*).
+>
+> With the ***move-to-front*** heuristic, immediately after searching for an element *x*, we move *x* to the first
+> position on the list (i.e., the front of the list).
+>
+> Let $\text{rank}_L$(*x*) denote the rank of element *x* in list *L*, that is, the position of *x* in list *L*. For
+> example, if *x* is the fourth element in *L*, then $\text{rank}_L$(*x*) = 4. Let $c_i$ denote the cost of access $σ_i$
+> using the move-to-front heuristic, which includes the cost of finding the element in the list and the cost of moving
+> it to the front of the list by a series of transpositions of adjacent list elements.
+>
+> - ***b.*** Show that if $σ_i$ accesses element *x* in list *L* using the move-to-front heuristic, then
+>   $c_i$ = 2 ⋅ $\text{rank}_L$(*x*) - 1.
+>
+> Now we compare move-to-front with any other heuristic H that processes an access sequence according to the two
+> properties above. Heuristic H may transpose elements in the list in any way it wants, and it might even know the
+> entire access sequence in advance.
+>
+> Let $L_i$ be the list after access $σ_i$ using move-to-front, and let $L_i^\*$ be the list after access $σ_i$ using
+> heuristic H. We denote the cost of access $σ_i$ by $c_i$ for move-to-front and by $c_i^\*$ for heuristic H. Suppose
+> that heuristic H performs $t_i^*$ transpositions during access $σ_i$.
+>
+> - ***c.*** In part (b), you showed that $c_i$ = 2 ⋅ $rank_{L_{i - 1}}$(*x*) - 1. Now show that
+>   $c_i^\*$ = $\text{rank}\_{L_{i - 1}^\*}(x) + t_i^*$.
+>
+> We define an ***inversion*** in list $L_i$ as a pair of elements *y* and *z* such that *y* precedes *z* in $L_i$ and
+> *z* precedes *y* in list $L_i^\*$. Suppose that list $L_i$ has $q_i$ inversions after processing the access sequence
+> ⟨$σ_1$, $σ_2$, …, $σ_i$⟩. Then, we define a potential function Φ that maps $L_i$ to a real number by
+> Φ($L_i$) = 2 $q_i$. For example, if $L_i$ has the elements ⟨*e*, *c*, *a*, *d*, *b*⟩ and $L_i^*$ has the elements
+> ⟨*c*, *a*, *b*, *d*, *e*⟩, then $L_i$ has 5 inversions ((*e*, *c*), (*e*, *a*), (*e*, *d*), (*e*, *b*), (*d*, *b*)),
+> and so Φ($L_i$) = 10. Observe that Φ($L_i$) ≥ 0 for all *i* and that, if move-to-front and heuristic H start with the
+> same list $L_0$, then Φ($L_0$) = 0.
+>
+> - ***d.*** Argue that a transposition either increases the potential by 2 or decreases the potential by 2.
+>
+> Suppose that access $σ_i$ finds the element *x*. To understand how the potential changes due to $σ_i$, let us
+> partition the elements other than *x* into four sets, depending on where they are in the lists just before the *i*th
+> access:
+>
+> - Set *A* consists of elements that precede *x* in both $L_{i - 1}$ and $L_{i - 1}^*$.
+> - Set *B* consists of elements that precede *x* in $L_{i - 1}$ and follow *x* in $L_{i - 1}^*$.
+> - Set *C* consists of elements that follow *x* in $L_{i - 1}$ and precede *x* in $L_{i - 1}^*$.
+> - Set *D* consists of elements that follow *x* in both $L_{i - 1}$ and $L_{i - 1}^*$.
+>
+> - ***e.*** Argue that $\text{rank}\_{L_{i - 1}}$(*x*) = |*A*| + |*B*| + 1 and
+>   $\text{rank}\_{L_{i - 1}^*}$(*x*) = |*A*| + |*C*| + 1.
+> - ***f.*** Show that access $σ_i$ causes a change in potential of
+>
+>   Φ($L_i$) - Φ($L_{i - 1}$) ≤ 2 (|*A*| - |*B*| + $t_i^*$),
+>
+>   where, as before, heuristic H performs $t_i^*$ transpositions during access $σ_i$.
+>
+>   Define the amortized cost $\hat{c}\_i$ of access $σ_i$ by $\hat{c}\_i$ = $c_i$ + Φ($L_i$) - Φ($L_{i - 1}$).
+> - ***g.*** Show that the amortized cost $\hat{c}_i$ of access $σ_i$ is bounded from above by 4 $c_i^*$.
+> - ***h.*** Conclude that the cost $C_\text{MTF}$(*σ*) of access sequence *σ* with move-to-front is at most 4 times the
+>   cost $C_H$(*σ*) of *σ* with any other heuristic H, assuming that both heuristics start with the same list.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×̲ΓΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
+> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
