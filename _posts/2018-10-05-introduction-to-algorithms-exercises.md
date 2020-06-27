@@ -8241,6 +8241,13 @@ When root have 3 keys, it has 4 children, which requires at least 7 keys, so it 
 (2 *t* - 1) $∑_{i = 0}^h (2 t)^i$\
 = $(2 t)^{h + 1}$ - 1.
 
+#### 18.1-5
+
+> Describe the data structure that would result if each black node in a red-black tree were to absorb its red children,
+> incorporating their children with its own.
+
+A B-tree with minimum degree 2.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
