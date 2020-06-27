@@ -8153,6 +8153,19 @@ The tree is implemented
 
 *Skipped.*
 
+## V Advanced Data Structures
+
+### 18 B-Trees
+
+#### 18.1 Definition of B-trees
+
+##### 18.1-1
+
+> Why don’t we allow a minimum degree of *t* = 1?
+
+If *t* = 1, every node could have either zero or one key, so the tree is essentially a linked list, which does not
+perform well.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
