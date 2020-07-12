@@ -8426,6 +8426,35 @@ For the predecessor:
 - Otherwise the key is in an internal node. let *i* be the index of the key, then the predecessor is the maximum key of
   the *i*-th child.
 
+##### 18.2-4 ★
+
+> Suppose that we insert the keys {1, 2, …, *n*} into an empty B-tree with minimum degree 2. How many nodes does the
+> final B-tree have?
+
+*Skipped.*
+
+##### 18.2-5
+
+> Since leaf nodes require no pointers to children, they could conceivably use a different (larger) *t* value than
+> internal nodes for the same disk page size. Show how to modify the procedures for creating and inserting into a B-tree
+> to handle this variation.
+
+*Skipped.*
+
+##### 18.2-6
+
+> Suppose that we were to implement *B-Tree-Search* to use binary search rather than linear search within each node.
+> Show that this change makes the CPU time required *O*(lg *n*), independently of how *t* might be chosen as a function
+> of *n*.
+
+After using binary search, every node requires *O*(lg *t*) time, so the total running time is:
+
+*O*(lg *t* $\log_t n$) \
+= *O*($\log_t n^{\log_2 t}$) \
+= *O*($\log_t t^{\log_2 n}$) \
+= *O*($\log_2 n$) \
+= *O*(lg *n*)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
