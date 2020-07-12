@@ -8402,6 +8402,30 @@ Final:
 └───┘  └───────┘  └───┘  └───┘  └─────┘  └─────┘  └───┘  └───────┘
 ```
 
+##### 18.2-2
+
+> Explain under what circumstances, if any, redundant *Disk-Read* or *Disk-Write* operations occur during the course of
+> executing a call to *B-Tree-Insert*. (A redundant *Disk-Read* is a *Disk-Read* for a page that is already in memory. A
+> redundant *Disk-Write* writes to disk a page of information that is identical to what is already stored there.)
+
+*Skipped.*
+
+##### 18.2-3
+
+> Explain how to find the minimum key stored in a B-tree and how to find the predecessor of a given key stored in a
+> B-tree.
+
+Minimum key is the first key of the the left-most leaf node.
+
+For the predecessor:
+
+- If the key is in a leaf node:
+  - If the key is the first key in the leaf node, find its closest ancestor whose *i*th child contains the key where
+    *i* > 1, then the predecessor is the maximum key of the (*i* - 1)-th child of that ancestor.
+  - Otherwise the predecessor of the key is the preceding key of the key in the same leaf node.
+- Otherwise the key is in an internal node. let *i* be the index of the key, then the predecessor is the maximum key of
+  the *i*-th child.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
