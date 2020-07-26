@@ -8512,10 +8512,65 @@ for verification.
 
 ##### 18.3-2
 
-> Write pseudocode for B-TREE-DELETE.
+> Write pseudocode for *B-Tree-Delete*.
 
 Real code is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_18_basic_operations_on_b_trees/section_18_3_deleting_a_key_from_a_b_tree/mod.rs).
+
+#### 18.X Problems
+
+##### 18-1 Stacks on secondary storage
+
+> Consider implementing a stack in a computer that has a relatively small amount of fast primary memory and a relatively
+> large amount of slower disk storage. The operations *Push* and *Pop* work on single-word values. The stack we wish to
+> support can grow to be much larger than can fit in memory, and thus most of it must be stored on disk.
+>
+> A simple, but inefficient, stack implementation keeps the entire stack on disk. We maintain in memory a stack pointer,
+> which is the disk address of the top element on the stack. If the pointer has value *p*, the top element is the
+> (*p* mod *m*)th word on page ⌊*p* / *m*⌋ of the disk, where *m* is the number of words per page. To implement the
+> *Push* operation, we increment the stack pointer, read the appropriate page into memory from disk, copy the element to
+> be pushed to the appropriate word on the page, and write the page back to disk. A *Pop* operation is similar. We
+> save the top of the stack, decrement the stack pointer, read in the appropriate page from disk, and return the saved
+> value. We need not write back the page, since it was not modified.
+>
+> Because disk operations are relatively expensive, we count two costs for any implementation: the total number of disk
+> accesses and the total CPU time. Any disk access to a page of *m* words incurs charges of one disk access and Θ(*m*)
+> CPU time.
+>
+> - ***a.*** Asymptotically, what is the worst-case number of disk accesses for *n* stack operations using this simple
+>   implementation? What is the CPU time for *n* stack operations? (Express your answer in terms of *m* and *n* for this
+>   and subsequent parts.)
+>
+> Now consider a stack implementation in which we keep one page of the stack in memory. (We also maintain a small amount
+> of memory to keep track of which page is currently in memory.) We can perform a stack operation only if the relevant
+> disk page resides in memory. If necessary, we can write the page currently in memory to the disk and read in the new
+> page from the disk to memory. If the relevant disk page is already in memory, then no disk accesses are required.
+>
+> - ***b.*** What is the worst-case number of disk accesses required for *n* *Push* operations? What is the CPU time?
+> - ***c.*** What is the worst-case number of disk accesses required for *n* stack operations? What is the CPU time?
+>
+> Suppose that we now implement the stack by keeping two pages in memory (in addition to a small number of words for
+> bookkeeping).
+>
+> - ***d.*** Describe how to manage the stack pages so that the amortized number of disk accesses for any stack
+>   operation is *O*(1 / *m*) and the amortized CPU time for any stack operation is *O*(1).
+
+- ***a.*** Number of disk accesses is Θ(*n*), since every operation needs one (*Pop*) or two (*Push*) disk accesses. CPU
+  time is Θ(*m* *n*).
+- ***b.*** Number of disk accesses is Θ(*n* / *m*). CPU time is Θ(*n*).
+- ***c.*** Number of disk accesses is Θ(*n*). CPU time is Θ(*m* *n*). Worst case happens when *Push* and *Pop* on page
+  boundaries. Assume the in memory page is full, the following operation sequences will trigger a worst case:
+
+  ⟨*Push*, *Pop*, *Pop*, *Push*, *Push*, *Pop*, *Pop*, *Push*, *Push* …⟩
+- ***d.*** Let the two pages in memory pages be bottom page and top page.
+
+  - *Push*:
+    - If the in memory pages are not full, the operation is purely in memory. No disk access is required.
+    - If the in memory pages are full, flush the bottom in memory page to disk, swap top page and bottom page. (That is,
+      making top page bottom page, and top page empty.)
+  - *Pop*:
+    - If the in memory pages are not empty, the operation is purely in memory. No disk access is required.
+    - If the in memory pages are empty, read one page from the disk as bottom page.
 
 ------------------------------------------------------------------------------------------------------------------------
 
