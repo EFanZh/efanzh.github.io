@@ -8455,6 +8455,57 @@ After using binary search, every node requires *O*(lg *t*) time, so the total ru
 = *O*($\log_2 n$) \
 = *O*(lg *n*)
 
+##### 18.2-7
+
+> Suppose that disk hardware allows us to choose the size of a disk page arbitrarily, but that the time it takes to read
+> the disk page is *a* + *b* *t*, where *a* and *b* are specified constants and *t* is the minimum degree for a B-tree
+> using pages of the selected size. Describe how to choose *t* so as to minimize (approximately) the B-tree search time.
+> Suggest an optimal value of *t* for the case in which *a* = 5 milliseconds and *b* = 10 microseconds.
+
+*Skipped.*
+
+#### 18.3 Deleting a key from a B-tree
+
+##### 18.3-1
+
+> Show the results of deleting *C*, *P*, and *V*, in order, from the tree of Figure 18.8(f).
+
+After deleting *C*:
+
+```text
+                    ┌─────────┐
+                    │ L P T X │
+                    └────┬────┘
+     ┌──────────┬────────┴┬─────────┬────────┐
+┌────┴────┐  ┌──┴──┐  ┌───┴───┐  ┌──┴──┐  ┌──┴──┐
+│ A E J K │  │ N O │  │ Q R S │  │ U V │  │ Y Z │
+└─────────┘  └─────┘  └───────┘  └─────┘  └─────┘
+```
+
+After deleting *P*:
+
+```text
+                   ┌─────────┐
+                   │ L Q T X │
+                   └────┬────┘
+     ┌──────────┬───────┴┬────────┬────────┐
+┌────┴────┐  ┌──┴──┐  ┌──┴──┐  ┌──┴──┐  ┌──┴──┐
+│ A E J K │  │ N O │  │ R S │  │ U V │  │ Y Z │
+└─────────┘  └─────┘  └─────┘  └─────┘  └─────┘
+```
+
+After deleting *V*:
+
+```text
+                ┌───────┐
+                │ L Q X │
+                └───┬───┘
+     ┌──────────┬───┴─────┬─────────┐
+┌────┴────┐  ┌──┴──┐  ┌───┴───┐  ┌──┴──┐
+│ A E J K │  │ N O │  │ R S U │  │ Y Z │
+└─────────┘  └─────┘  └───────┘  └─────┘
+```
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
