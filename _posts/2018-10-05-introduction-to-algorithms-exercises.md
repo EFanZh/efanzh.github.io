@@ -8497,14 +8497,18 @@ After deleting *P*:
 After deleting *V*:
 
 ```text
-                ┌───────┐
-                │ L Q X │
-                └───┬───┘
-     ┌──────────┬───┴─────┬─────────┐
-┌────┴────┐  ┌──┴──┐  ┌───┴───┐  ┌──┴──┐
-│ A E J K │  │ N O │  │ R S U │  │ Y Z │
-└─────────┘  └─────┘  └───────┘  └─────┘
+                 ┌───────┐
+                 │ L Q X │
+                 └───┬───┘
+     ┌──────────┬────┴─────┬──────────┐
+┌────┴────┐  ┌──┴──┐  ┌────┴────┐  ┌──┴──┐
+│ A E J K │  │ N O │  │ R S T U │  │ Y Z │
+└─────────┘  └─────┘  └─────────┘  └─────┘
 ```
+
+See
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_18_basic_operations_on_b_trees/section_18_3_deleting_a_key_from_a_b_tree/exercises/exercise_18_3_1.rs)
+for verification.
 
 ------------------------------------------------------------------------------------------------------------------------
 
