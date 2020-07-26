@@ -8510,6 +8510,13 @@ See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_18_basic_operations_on_b_trees/section_18_3_deleting_a_key_from_a_b_tree/exercises/exercise_18_3_1.rs)
 for verification.
 
+##### 18.3-2
+
+> Write pseudocode for B-TREE-DELETE.
+
+Real code is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_18_basic_operations_on_b_trees/section_18_3_deleting_a_key_from_a_b_tree/mod.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
