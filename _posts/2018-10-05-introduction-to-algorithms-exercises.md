@@ -7406,16 +7406,16 @@ not exist.
 
 ##### 16.4-3 ★
 
-> Show that if (*S*, $\mathcal{I}$) is a matroid, then (*S*, $\mathcal{I}$′) is a matroid, where
+> Show that if (*S*, $\mathcal{I}$) is a matroid, then (*S*, $\mathcal{I}'$) is a matroid, where
 >
-> $\mathcal{I}$′ = {*A*′ : *S* - *A*′ contains some maximal *A* ∈ $\mathcal{I}$}.
+> $\mathcal{I}'$ = {*A*′ : *S* - *A*′ contains some maximal *A* ∈ $\mathcal{I}$}.
 >
-> That is, the maximal independent sets of (*S*, $\mathcal{I}$′) are just the complements of the maximal independent
+> That is, the maximal independent sets of (*S*, $\mathcal{I}'$) are just the complements of the maximal independent
 > sets of (*S*, $\mathcal{I}$).
 
 1. *S* is a finite set.
-2. For any *B* ∈ $\mathcal{I}$′ and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ $\mathcal{I}$,
-   and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ $\mathcal{I}$′.
+2. For any *B* ∈ $\mathcal{I}'$ and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ $\mathcal{I}$,
+   and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ $\mathcal{I}'$.
 3. *Skipped.*
 
 ##### 16.4-4 ★
@@ -8571,6 +8571,60 @@ Real code is implemented
   - *Pop*:
     - If the in memory pages are not empty, the operation is purely in memory. No disk access is required.
     - If the in memory pages are empty, read one page from the disk as bottom page.
+
+##### 18-2 Joining and splitting 2-3-4 trees
+
+> The ***join*** operation takes two dynamic sets *S*′ and *S*′′ and an element *x* such that for any *x*′ ∈ *S*′ and
+> *x*′′ ∈ *S*′′, we have *x*′.*key* < *x*.*key* < *x*′′.*key*. It returns a set *S* = *S*′ ∪ {*x*} ∪ *S*′′. The
+> ***split*** operation is like an “inverse” join: given a dynamic set *S* and an element *x* ∈ *S*, it creates a set
+> *S*′ that consists of all elements in *S* - {*x*} whose keys are less than *x*.*key* and a set *S*′′ that consists of
+> all elements in *S* - {*x*} whose keys are greater than *x*.*key*. In this problem, we investigate how to implement
+> these operations on 2-3-4 trees. We assume for convenience that elements consist only of keys and that all key values
+> are distinct.
+>
+> - ***a.*** Show how to maintain, for every node *x* of a 2-3-4 tree, the height of the subtree rooted at *x* as an
+>   attribute *x*.*height*. Make sure that your implementation does not affect the asymptotic running times of
+>   searching, insertion, and deletion.
+> - ***b.*** Show how to implement the join operation. Given two 2-3-4 trees *T*′ and *T*′′ and a key *k*, the join
+>   operation should run in *O*(1 + |*h*′ - *h*′′|) time, where *h*′ and *h*′′ are the heights of *T*′ and *T*′′,
+>   respectively.
+> - ***c.*** Consider the simple path *p* from the root of a 2-3-4 tree *T* to a given key *k*, the set *S*′ of keys in
+>   *T* that are less than *k*, and the set *S*′′ of keys in *T* that are greater than *k*. Show that *p* breaks *S*′
+>   into a set of trees {$T_0'$, $T_1'$, …, $T_m'$} and a set of keys {$k_0'$, $k_1'$, …, $k_m'$}, where, for
+>   *i* = 1, 2, …, *m*, we have *y* < $k_i'$ < *z* for any keys *y* ∈ $T_{i - 1}'$ and *z* ∈ $T_i'$. What is the
+>   relationship between the heights of $T_{i - 1}'$ and $T_i'$? Describe how *p* breaks *S*′′ into sets of trees and
+>   keys.
+> - ***d.*** Show how to implement the split operation on *T*. Use the join operation to assemble the keys in *S*′ into
+>   a single 2-3-4 tree *T*′ and the keys in *S*′′ into a single 2-3-4 tree *T*′′. The running time of the split
+>   operation should be *O*(lg *n*), where *n* is the number of keys in *T*. (*Hint:* The costs for joining should
+>   telescope.)
+
+*Skipped.*
+
+### Data Structures for Disjoint Sets
+
+#### 21.1 Disjoint-set operations
+
+##### 21.1-1
+
+> Suppose that *Connected-Components* is run on the undirected graph *G* = (*V*, *E*), where
+> *V* = {*a*, *b*, *c*, *d*, *e*, *f*, *g*, *h*, *i*, *j*, *k*} and the edges of *E* are processed in the order
+> (*d*, *i*), (*f*, *k*), (*g*, *i*), (*b*, *g*), (*a*, *h*), (*i*, *j*), (*d*, *k*), (*b*, *j*), (*d*, *f*),
+> (*g*, *j*), (*a*, *e*). List the vertices in each connected component after each iteration of lines 3–5.
+
+| Edge processed | Collection of disjoint sets                                      |
+| -------------- | ---------------------------------------------------------------- |
+| (*d*, *i*)     | {*a*} {*b*} {*c*} {*d*, *i*} {*e*} {*f*} {*g*} {*h*} {*j*} {*k*} |
+| (*f*, *k*)     | {*a*} {*b*} {*c*} {*d*, *i*} {*e*} {*f*, *k*} {*g*} {*h*} {*j*}  |
+| (*g*, *i*)     | {*a*} {*b*} {*c*} {*d*, *g*, *i*} {*e*} {*f*, *k*} {*h*} {*j*}   |
+| (*b*, *g*)     | {*a*} {*b*, *d*, *g*, *i*} {*c*} {*e*} {*f*, *k*} {*h*} {*j*}    |
+| (*a*, *h*)     | {*a*, *h*} {*b*, *d*, *g*, *i*} {*c*} {*e*} {*f*, *k*} {*j*}     |
+| (*i*, *j*)     | {*a*, *h*} {*b*, *d*, *g*, *i*, *j*} {*c*} {*e*} {*f*, *k*}      |
+| (*d*, *k*)     | {*a*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*} {*e*}       |
+| (*b*, *j*)     | {*a*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*} {*e*}       |
+| (*d*, *f*)     | {*a*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*} {*e*}       |
+| (*g*, *j*)     | {*a*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*} {*e*}       |
+| (*a*, *e*)     | {*a*, *e*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*}        |
 
 ------------------------------------------------------------------------------------------------------------------------
 
