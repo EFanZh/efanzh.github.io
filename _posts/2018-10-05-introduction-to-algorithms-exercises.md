@@ -8626,6 +8626,22 @@ Real code is implemented
 | (*g*, *j*)     | {*a*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*} {*e*}       |
 | (*a*, *e*)     | {*a*, *e*, *h*} {*b*, *d*, *f*, *g*, *i*, *j*, *k*} {*c*}        |
 
+##### 21.1-2
+
+> Show that after all edges are processed by *Connected-Components*, two vertices are in the same connected component if
+> and only if they are in the same set.
+
+*Skipped.*
+
+##### 21.1-3
+
+> During the execution of *Connected-Components* on an undirected graph *G* = (*V*, *E*) with *k* connected components,
+> how many times is *Find-Set* called? How many times is *Union* called? Express your answers in terms of |*V*|, |*E*|,
+> and *k*.
+
+*Find-Set* is called 2 |*E*| time, *Union* is called |*V*| - *k* times, since initially, there are |*V*| components, and
+each *Union* call reduces one connected component.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
