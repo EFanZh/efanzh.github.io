@@ -8642,6 +8642,86 @@ Real code is implemented
 *Find-Set* is called 2 |*E*| time, *Union* is called |*V*| - *k* times, since initially, there are |*V*| components, and
 each *Union* call reduces one connected component.
 
+#### Linked-list representation of disjoint sets
+
+##### 21.2-1
+
+> Write pseudocode for *Make-Set*, *Find-Set*, and *Union* using the linked-list representation and the weighted-union
+> heuristic. Make sure to specify the attributes that you assume for set objects and list objects.
+
+*Skipped.*
+
+##### 21.2-2
+
+> Show the data structure that results and the answers returned by the *Find-Set* operations in the following program.
+> Use the linked-list representation with the weighted-union heuristic.
+>
+> 1. **for** *i* = 1 **to** 16
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;*Make-Set*($x_i$)
+> 3. **for** *i* = 1 **to** 15 **by** 2
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;*Union*($x_i$, $x_{i + 1}$)
+> 5. **for** *i* = 1 **to** 13 **by** 4
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;*Union*($x_i$, $x_{i + 2}$)
+> 7. *Union*($x_1$, $x_5$)
+> 8. *Union*($x_{11}$, $x_{13}$)
+> 9. *Union*($x_1$, $x_{10}$)
+> 10. *Find-Set*($x_2$)
+> 11. *Find-Set*($x_9$)
+>
+> Assume that if the sets containing $x_i$ and $x_j$ have the same size, then the operation *Union*($x_i$, $x_j$})
+> appends $x_j$’s list onto $x_i$’s list.
+
+*Skipped.*
+
+##### 21.2-3
+
+> Adapt the aggregate proof of Theorem 21.1 to obtain amortized time bounds of *O*(1) for *Make-Set* and *Find-Set* and
+> *O*(lg *n*) for *Union* using the linked-list representation and the weighted-union heuristic.
+
+*Skipped.*
+
+##### 21.2-4
+
+> Give a tight asymptotic bound on the running time of the sequence of operations in Figure 21.3 assuming the
+> linked-list representation and the weighted-union heuristic.
+
+*Skipped.*
+
+##### 21.2-5
+
+> Professor Gompers suspects that it might be possible to keep just one pointer in each set object, rather than two
+> (*head* and *tail*), while keeping the number of pointers in each list element at two. Show that the professor’s
+> suspicion is well founded by describing how to represent each set by a linked list such that each operation has the
+> same running time as the operations described in this section. Describe also how the operations work. Your scheme
+> should allow for the weighted-union heuristic, with the same effect as described in this section. (*Hint:* Use the
+> tail of a linked list as its set’s representative.)
+
+*Skipped.*
+
+##### 21.2-6
+
+> Suggest a simple change to the *Union* procedure for the linked-list representation that removes the need to keep the
+> tail pointer to the last object in each list. Whether or not the weighted-union heuristic is used, your change should
+> not change the asymptotic running time of the *Union* procedure. (*Hint:* Rather than appending one list to another,
+> splice them together.)
+
+*Skipped.*
+
+#### 21.3 Disjoint-set forests
+
+##### 21.3-1
+
+> Redo Exercise 21.2-2 using a disjoint-set forest with union by rank and path compression.
+
+*Skipped.*
+
+##### 21.3-2
+
+> Write a nonrecursive version of *Find-Set* with path compression.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_21_data_structures_for_disjoint_sets/section_21_3_disjoint_set_forests/exercises/exercise_21_3_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
