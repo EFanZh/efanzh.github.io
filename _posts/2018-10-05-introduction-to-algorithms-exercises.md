@@ -8722,6 +8722,25 @@ each *Union* call reduces one connected component.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_21_data_structures_for_disjoint_sets/section_21_3_disjoint_set_forests/exercises/exercise_21_3_2.rs).
 
+##### 21.3-3
+
+> Give a sequence of *m* *Make-Set*, *Union*, and *Find-Set* operations, *n* of which are *Make-Set* operations, that
+> takes Ω(*m* lg *n*) time when we use union by rank only.
+
+*Skipped.*
+
+##### 21.3-4
+
+> Suppose that we wish to add the operation *Print-Set*(*x*), which is given a node *x* and prints all the members of
+> *x*’s set, in any order. Show how we can add just a single attribute to each node in a disjoint-set forest so that
+> *Print-Set*(*x*) takes time linear in the number of members of *x*’s set and the asymptotic running times of the other
+> operations are unchanged. Assume that we can print each member of the set in *O*(1) time.
+
+Link the nodes in the same set into a circular linked list.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_21_data_structures_for_disjoint_sets/section_21_3_disjoint_set_forests/exercises/exercise_21_3_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
