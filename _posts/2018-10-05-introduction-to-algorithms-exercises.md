@@ -1673,7 +1673,7 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 >
 >    and
 >
->    $\hat{ϕ}$ = $\dfrac{1 - \sqrt{5}}{2}$ = - 1.61803… .
+>    $\hat{ϕ}$ = $\dfrac{1 - \sqrt{5}}{2}$ = - 1.61803….
 > 3. Show that
 >
 >    ℱ(*z*) = $\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$.
@@ -6972,7 +6972,7 @@ Solution is implemented
 > signing bonus. You decide to invest this money with the goal of maximizing your return at the end of 10 years. You
 > decide to use the Amalgamated Investment Company to manage your investments. Amalgamated Investments requires you to
 > observe the following rules. It offers *n* different investments, numbered 1 through *n*. In each year *j*, investment
-> *i* provides a return rate of $r_{i j}$ . In other words, if you invest *d* dollars in investment *i* in year *j*, then
+> *i* provides a return rate of $r_{i j}$. In other words, if you invest *d* dollars in investment *i* in year *j*, then
 > at the end of year *j*, you have $d r_{i j}$ dollars. The return rates are guaranteed, that is, you are given all the
 > return rates for the next 10 years for each investment. You make investment decisions only once per year. At the end
 > of each year, you can leave the money made in the previous year in the same investments, or you can shift money to
@@ -8740,6 +8740,174 @@ Link the nodes in the same set into a circular linked list.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_21_data_structures_for_disjoint_sets/section_21_3_disjoint_set_forests/exercises/exercise_21_3_4.rs).
+
+##### 21.3-5 ★
+
+> Show that any sequence of *m* *Make-Set*, *Find-Set*, and *Link* operations, where all the *Link* operations appear
+> before any of the *Find-Set* operations, takes only *O*(*m*) time if we use both path compression and union by rank.
+> What happens in the same situation if we use only the path-compression heuristic?
+
+*Skipped.*
+
+#### 21.X Problems
+
+##### 21-1 Off-line minimum
+
+> The ***off-line minimum problem*** asks us to maintain a dynamic set *T* of elements from the domain {1, 2, …, *n*}
+> under the operations *Insert* and *Extract-Min*. We are given a sequence *S* of *n* *Insert* and *m* *Extract-Min*
+> calls, where each key in {1, 2, …, *n*} is inserted exactly once. We wish to determine which key is returned by each
+> *Extract-Min* call. Specifically, we wish to fill in an array *extracted*[1‥*m*], where for *i* = 1, 2, …, *m*,
+> *extracted*[*i*] is the key returned by the *i*th *Extract-Min* call. The problem is “off-line” in the sense that we
+> are allowed to process the entire sequence *S* before determining any of the returned keys.
+>
+> - ***a.*** In the following instance of the off-line minimum problem, each operation *Insert*(*i*) is represented by
+>   the value of *i* and each *Extract-Min* is represented by the letter E:
+>
+>   4, 8, E, 3, E, 9, 2, 6, E, E, E, 1, 7, E, 5.
+>
+>   Fill in the correct values in the *extracted* array.
+>
+> To develop an algorithm for this problem, we break the sequence *S* into homogeneous subsequences. That is, we
+> represent *S* by
+>
+> $\mathrm{I}\_1$, E, $\mathrm{I}\_2$, E, $\mathrm{I}\_3$, …, $\mathrm{I}\_m$, E, $\mathrm{I}\_{m + 1}$;
+>
+> where each E represents a single *Extract-Min* call and each $\mathrm{I}_j$ represents a (possibly empty) sequence of
+> *Insert* calls. For each subsequence $\mathrm{I}_j$, we initially place the keys inserted by these operations into a
+> set $K_j$, which is empty if $\mathrm{I}_j$ is empty. We then do the following:
+>
+> *Off-Line-Minimum*(*m*, *n*)
+>
+> 1. **for** *i* = 1 **to** *n*
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;determine *j* such that *i* ∈ $K_j$
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;**if** *j* ≠ *m* + 1
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*extracted*[*j*] = *i*
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let *l* be the smallest value greater than *j* for which set $K_l$
+>    exists
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$K_l$ = $K_j$ ∪ $K_l$, destroying $K_j$
+> 7. **return** *extracted*
+>
+> - ***b.*** Argue that the array *extracted* returned by *Off-Line-Minimum* is correct.
+> - ***c.*** Describe how to implement *Off-Line-Minimum* efficiently with a disjoint-set data structure. Give a tight
+>   bound on the worst-case running time of your implementation.
+
+- ***a.*** *extracted* = {4, 3, 2, 6, 8, 1}.
+- ***b.*** *Skipped.*
+- ***c.*** *Skipped.*
+
+##### 21-2 Depth determination
+
+> In the ***depth-determination problem***, we maintain a forest $\mathcal{F}$ = {$T_i$} of rooted trees under three
+> operations:
+>
+> *Make-Tree*(*v*) creates a tree whose only node is *v*.
+>
+> *Find-Depth*(*v*) returns the depth of node *v* within its tree.
+>
+> *Graft*(*r*, *v*) makes node *r*, which is assumed to be the root of a tree, become the child of node *v*, which is
+> assumed to be in a different tree than *r* but may or may not itself be a root.
+>
+> - ***a.*** Suppose that we use a tree representation similar to a disjoint-set forest: *v*.*p* is the parent of node
+>   *v*, except that *v*.*p* = *v* if *v* is a root. Suppose further that we implement *Graft*(*r*, *v*) by setting
+>   *r*.*p* = *v* and *Find-Depth*(*v*) by following the find path up to the root, returning a count of all nodes other
+>   than *v* encountered. Show that the worst-case running time of a sequence of *m* *Make-Tree*, *Find-Depth*, and
+>   *Graft* operations is Θ($m^2$).
+>
+> By using the union-by-rank and path-compression heuristics, we can reduce the worst-case running time. We use the
+> disjoint-set forest $\mathcal{S}$ = {$S_i$}, where each set $S_i$ (which is itself a tree) corresponds to a tree $T_i$
+> in the forest $\mathcal{F}$. The tree structure within a set $S_i$, however, does not necessarily correspond to that
+> of $T_i$. In fact, the implementation of $S_i$ does not record the exact parent-child relationships but nevertheless
+> allows us to determine any node’s depth in $T_i$.
+>
+> The key idea is to maintain in each node *v* a “pseudodistance” *v*.*d*, which is defined so that the sum of the
+> pseudodistances along the simple path from *v* to the root of its set $S_i$ equals the depth of *v* in $T_i$. That is,
+> if the simple path from *v* to its root in $S_i$ is $v_0$, $v_1$, …, $v_k$, where $v_0$ = *v* and $v_k$ is $S_i$’s
+> root, then the depth of *v* in $T_i$ is $∑_{j = 0}^k v_j.d$.
+>
+> - ***b.*** Give an implementation of *Make-Tree*.
+> - ***c.*** Show how to modify *Find-Set* to implement *Find-Depth*. Your implementation should perform path
+>   compression, and its running time should be linear in the length of the find path. Make sure that your
+>   implementation updates pseudodistances correctly.
+> - ***d.*** Show how to implement *Graft*(*r*, *v*), which combines the sets containing *r* and *v*, by modifying the
+>   *Union* and *Link* procedures. Make sure that your implementation updates pseudodistances correctly. Note that the
+>   root of a set $S_i$ is not necessarily the root of the corresponding tree $T_i$.
+> - ***e.*** Give a tight bound on the worst-case running time of a sequence of *m* *Make-Tree*, *Find-Depth*, and
+>   *Graft* operations, *n* of which are *Make-Tree* operations.
+
+*Skipped.*
+
+##### 21-3 Tarjan’s off-line least-common-ancestors algorithm
+
+> The ***least common ancestor*** of two nodes *u* and *v* in a rooted tree *T* is the node *w* that is an ancestor of
+> both *u* and *v* and that has the greatest depth in *T*. In the ***off-line least-common-ancestors problem***, we are
+> given a rooted tree *T* and an arbitrary set *P* = { {*u*, *v*} } of unordered pairs of nodes in *T*, and we wish to
+> determine the least common ancestor of each pair in *P*.
+>
+> To solve the off-line least-common-ancestors problem, the following procedure performs a tree walk of *T* with the
+> initial call *LCA*(*T*.*root*). We assume that each node is colored *white* prior to the walk.
+>
+> *LCA*(*u*)
+>
+> 1. *Make-Set*(*u*)
+> 2. *Find-Set*(*u*).*ancestor* = *u*
+> 3. **for** each child *v* of *u* in *T*
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;*LCA*(*v*)
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;*Union*(*u*, *v*)
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;*Find-Set*(*u*).*ancestor* = *u*
+> 7. *u*.*color* = *black*
+> 8. **for** each node *v* such that {*u*, *v*} ∈ *P*
+> 9. &nbsp;&nbsp;&nbsp;&nbsp;**if** *v*.*color* == *black*
+> 10. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print “The least common ancestor of” *u* “and” *v* “is”
+>     *Find-Set*(*v*).*ancestor*
+>
+> - ***a.*** Argue that line 10 executes exactly once for each pair {*u*, *v*} ∈ *P*.
+> - ***b.*** Argue that at the time of the call *LCA*(*u*), the number of sets in the disjoint-set data structure equals
+>   the depth of *u* in *T*.
+> - ***c.*** Prove that *LCA* correctly prints the least common ancestor of *u* and *v* for each pair {*u*, *v*} ∈ *P*.
+> - ***d.*** Analyze the running time of *LCA*, assuming that we use the implementation of the disjoint-set data
+>   structure in Section 21.3.
+
+*Skipped.*
+
+### 22 Elementary Graph Algorithms
+
+#### 22.1 Representations of graphs
+
+##### 22.1-1
+
+> Given an adjacency-list representation of a directed graph, how long does it take to compute the out-degree of every
+> vertex? How long does it take to compute the in-degrees?
+
+Both take Θ(|*V*| + |*E*|) time.
+
+##### 22.1-2
+
+> Give an adjacency-list representation for a complete binary tree on 7 vertices. Give an equivalent adjacency-matrix
+> representation. Assume that vertices are numbered from 1 to 7 as in a binary heap.
+
+Adjacency-list:
+
+| Vertex | Adjacency list   |
+| ------ | ---------------- |
+| 1      | 2 3              |
+| 2      | 1 4 5            |
+| 3      | 1 6 7            |
+| 4      | 2                |
+| 5      | 2                |
+| 6      | 3                |
+| 7      | 3                |
+
+Adjacency-matrix:
+
+|   | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
+| - | - | - | - | - | - | - | - |
+| 1 | 0 | 1 | 1 | 0 | 0 | 0 | 0 |
+| 2 | 1 | 0 | 0 | 1 | 1 | 0 | 0 |
+| 3 | 1 | 0 | 0 | 0 | 0 | 1 | 1 |
+| 4 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 5 | 0 | 1 | 0 | 0 | 0 | 0 | 0 |
+| 6 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
+| 7 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 
 ------------------------------------------------------------------------------------------------------------------------
 
