@@ -8933,6 +8933,20 @@ Algorithm for adjacency-matrix takes *O*($\left|V\right|^2$) time.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_4.rs).
 
+##### 22.1-5
+
+> The ***square*** of a directed graph *G* = (*V*, *E*) is the graph $G^2$ = (*V*, $E^2$) such that (*u*, *v*) ∈ $E^2$
+> if and only if *G* contains a path with at most two edges between *u* and *v*. Describe efficient algorithms for
+> computing $G^2$ from *G* for both the adjacency-list and adjacency-matrix representations of *G*. Analyze the running
+> times of your algorithms.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_5.rs).
+
+Not sure what running time complexity is the algorithm for adjacency-list.
+
+The running time complexity of the algorithm for adjacency-matrix is *O*($n^3$).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
