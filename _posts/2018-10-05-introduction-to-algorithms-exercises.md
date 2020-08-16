@@ -8923,6 +8923,16 @@ Algorithm for adjacency-list takes *O*(|*V*| + |*E*|) time.
 
 Algorithm for adjacency-matrix takes *O*($\left|V\right|^2$) time.
 
+##### 22.1-4
+
+> Given an adjacency-list representation of a multigraph *G* = (*V*, *E*), describe an *O*(*V* + *E*)-time algorithm to
+> compute the adjacency-list representation of the “equivalent” undirected graph *G*′ = (*V*, *E*′), where *E*′ consists
+> of the edges in *E* with all multiple edges between two vertices replaced by a single edge and with all self-loops
+> removed.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
