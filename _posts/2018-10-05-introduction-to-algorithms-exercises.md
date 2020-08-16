@@ -8909,6 +8909,20 @@ Adjacency-matrix:
 | 6 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 | 7 | 0 | 0 | 1 | 0 | 0 | 0 | 0 |
 
+##### 22.1-3
+
+> The *transpose* of a directed graph *G* = (*V*, *E*) is the graph $G^T$ = (*V*, $E^T$), where
+> $E^T$ = {(*v*, *u*) ∈ *V* × *V* : (*u*, *v*) ∈ *E*}. Thus, $G^T$ is *G* with all its edges reversed. Describe
+> efficient algorithms for computing $G^T$ from *G*, for both the adjacency-list and adjacency-matrix representations of
+> *G*. Analyze the running times of your algorithms.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_3.rs).
+
+Algorithm for adjacency-list takes *O*(|*V*| + |*E*|) time.
+
+Algorithm for adjacency-matrix takes *O*($\left|V\right|^2$) time.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
