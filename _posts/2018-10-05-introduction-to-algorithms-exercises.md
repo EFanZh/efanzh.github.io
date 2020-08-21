@@ -8947,6 +8947,15 @@ Not sure what running time complexity is the algorithm for adjacency-list.
 
 The running time complexity of the algorithm for adjacency-matrix is *O*($n^3$).
 
+##### 22.1-6
+
+> Most graph algorithms that take an adjacency-matrix representation as input require time Ω($V^2$), but there are some
+> exceptions. Show how to determine whether a directed graph *G* contains a ***universal sink***—a vertex with in-degree
+> |*V*| - 1 and out-degree 0—in time *O*(*V*), given an adjacency matrix for *G*.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_6.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
