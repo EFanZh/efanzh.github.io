@@ -8972,6 +8972,17 @@ Solution is implemented
 $(B^T)\_{i i}$ represents the number of edges connected to vertex *i*, and $-(B^T)_{i j}$ (where *i* ≠ *j*) represents
 the number of edges connecting edge *i* and edge *j*.
 
+##### 22.1-8
+
+> Suppose that instead of a linked list, each array entry *Adj*[*u*] is a hash table containing the vertices *v* for
+> which (*u*, *v*) ∈ *E*. If all edge lookups are equally likely, what is the expected time to determine whether an edge
+> is in the graph? What disadvantages does this scheme have? Suggest an alternate data structure for each edge list that
+> solves these problems. Does your alternative have disadvantages compared to the hash table?
+
+The expected time to determine whether an edge is in the graph is *O*(1).
+
+*Advantages and disadvantages are skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
