@@ -8956,6 +8956,22 @@ The running time complexity of the algorithm for adjacency-matrix is *O*($n^3$).
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_1_representations_of_graphs/exercises/exercise_22_1_6.rs).
 
+##### 22.1-7
+
+> The ***incidence matrix*** of a directed graph *G* = (*V*, *E*) with no self-loops is a |*V*| × |*E*| matrix
+> *B* = ($b_{ij}$) such that
+>
+> $b_{ij} = \begin{cases}
+> -1&\text{if edge $j$ leaves vertex $i$,}\\\\
+> 1&\text{if edge $j$ enters vertex $i$,}\\\\
+> 0&\text{otherwise.}\\\\
+> \end{cases}$
+>
+> Describe what the entries of the matrix product $B B^T$ represent, where $B^T$ is the transpose of *B*.
+
+$(B^T)\_{i i}$ represents the number of edges connected to vertex *i*, and $-(B^T)_{i j}$ (where *i* ≠ *j*) represents
+the number of edges connecting edge *i* and edge *j*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
