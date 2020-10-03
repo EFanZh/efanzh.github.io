@@ -9009,12 +9009,66 @@ A single bit can represent two state: *white* and *gray*.
 The color is only checked for *white* at line 13, and after we remove line 18, the color of all nodes will stay *gray*
 instead of *black*, which does not affect the traversal process.
 
+##### 22.2-4
+
+> What is the running time of BFS if we represent its input graph by an adjacency matrix and modify the algorithm to
+> handle this form of input?
+
+Θ($V^2$).
+
+##### 22.2-5
+
+> Argue that in a breadth-first search, the value *u*.*d* assigned to a vertex *u* is independent of the order in which
+> the vertices appear in each adjacency list. Using Figure 22.3 as an example, show that the breadth-first tree computed
+> by BFS can depend on the ordering within adjacency lists.
+
+*Skipped.*
+
+##### 22.2-6
+
+> Give an example of a directed graph *G* = (*V*, *E*), a source vertex *s* ∈ *V*, and a set of tree edges $E_π$ ⊆ *E*
+> such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, $E_π$) from *s* to *v* is a shortest
+> path in *G*, yet the set of edges $E_π$ cannot be produced by running BFS on *G*, no matter how the vertices are
+> ordered in each adjacency list.
+
+Graph:
+
+```text
+  a───c
+ ╱ ╲ ╱
+s   ╳
+ ╲ ╱ ╲
+  b───d
+```
+
+Tree:
+
+```text
+  a───c
+ ╱
+s
+ ╲
+  b───d
+```
+
+##### 22.2-7
+
+> There are two types of professional wrestlers: “babyfaces” (“good guys”) and “heels” (“bad guys”). Between any pair of
+> professional wrestlers, there may or may not be a rivalry. Suppose we have *n* professional wrestlers and we have a
+> list of *r* pairs of wrestlers for which there are rivalries. Give an *O*(*n* + *r*)-time algorithm that determines
+> whether it is possible to designate some of the wrestlers as babyfaces and the remainder as heels such that each
+> rivalry is between a babyface and a heel. If it is possible to perform such a designation, your algorithm should
+> produce it.
+
+Solution is implemented
+here[https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_7.rs].
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼▌▬★⟨⟩
+> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼╱╲╳▌▬★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
