@@ -8983,6 +8983,32 @@ The expected time to determine whether an edge is in the graph is *O*(1).
 
 *Advantages and disadvantages are skipped.*
 
+#### 22.2 Breadth-first search
+
+##### 22.2-1
+
+> Show the *d* and *π* values that result from running breadth-first search on the directed graph of Figure 22.2(a),
+> using vertex 3 as the source.
+
+*Skipped.*
+
+##### 22.2-2
+
+> Show the *d* and *π* values that result from running breadth-first search on the undirected graph of Figure 22.3,
+> using vertex *u* as the source.
+
+*Skipped.*
+
+##### 22.2-3
+
+> Show that using a single bit to store each vertex color suffices by arguing that the BFS procedure would produce the
+> same result if line 18 were removed.
+
+A single bit can represent two state: *white* and *gray*.
+
+The color is only checked for *white* at line 13, and after we remove line 18, the color of all nodes will stay *gray*
+instead of *black*, which does not affect the traversal process.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
