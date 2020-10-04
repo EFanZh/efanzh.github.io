@@ -9081,6 +9081,31 @@ Solution is implemented
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_9.rs).
 2. *Skipped.*
 
+#### 22.3 Depth-first search
+
+##### 22.3-1
+
+> Make a 3-by-3 chart with row and column labels *white*, *gray*, and *black*. In each cell (*i*, *j*), indicate
+> whether, at any point during a depth-first search of a directed graph, there can be an edge from a vertex of color *i*
+> to a vertex of color *j*. For each possible edge, indicate what edge types it can be. Make a second such chart for
+> depth-first search of an undirected graph.
+
+Directed graph:
+
+|         | *white*                    | *gray*              | *black*                    |
+| ------- | -------------------------- | ------------------- | -------------------------- |
+| *white* | Tree, Back, Forward, Cross | Back, Cross         | Cross                      |
+| *gray*  | Tree, Forward              | Tree, Back, Forward | Tree, Forward, Cross       |
+| *black* | -                          | Back                | Tree, Back, Forward, Cross |
+
+Undirected graph:
+
+|         | *white*    | *gray*     | *black*    |
+| ------- | ---------- | ---------- | ---------- |
+| *white* | Tree, Back | Tree, Back | -          |
+| *gray*  | Tree, Back | Tree, Back | Tree, Back |
+| *black* | -          | Tree, Back | Tree, Back |
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
