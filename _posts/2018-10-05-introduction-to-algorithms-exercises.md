@@ -9106,6 +9106,36 @@ Undirected graph:
 | *gray*  | Tree, Back | Tree, Back | Tree, Back |
 | *black* | -          | Tree, Back | Tree, Back |
 
+##### 22.3-2
+
+> Show how depth-first search works on the graph of Figure 22.6. Assume that the **for** loop of lines 5–7 of the *DFS*
+> procedure considers the vertices in alphabetical order, and assume that each adjacency list is ordered alphabetically.
+> Show the discovery and finishing times for each vertex, and show the classification of each edge.
+>
+> ```text
+>         q←──────┐       r
+>        ╱│╲      │      ╱ ╲
+>       ╱ │ ╲     │     ╱   ╲
+>      ↙  │  ↘    │    ╱     ↘
+>     s   │   t   │   ╱       u
+>    ╱ ↖  │   │╲  │  ╱        │
+>   ╱   ╲ │   │ ╲ │ ╱         │
+>  ↙     ╲↓   ↓  ↘│↙          │
+> v──────→w   x   y←──────────┘
+>         ⇵
+>         z
+> ```
+>
+> **Figure 22.6** A directed graph for use in Exercises 22.3-2 and 22.5-2.
+
+*Skipped.*
+
+##### 22.3-3
+
+> Show the parenthesis structure of the depth-first search of Figure 22.4.
+
+(*u* (*v* (*y* (*x* *x*) *y*) *v*) *u*) (*w* (*z* *z*) *w*)
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
