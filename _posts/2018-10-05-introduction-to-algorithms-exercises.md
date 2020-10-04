@@ -9063,6 +9063,24 @@ s
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_7.rs).
 
+##### 22.2-8 ★
+
+> The diameter of a tree *T* = (*V*, *E*) is defined as $\max_{u, v ∈ V} δ(u, v)$, that is, the largest of all
+> shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the
+> running time of your algorithm.
+
+*Skipped.*
+
+##### 22.2-9
+
+> Let *G* = (*V*, *E*) be a connected, undirected graph. Give an *O*(*V* + *E*)-time algorithm to compute a path in *G*
+> that traverses each edge in *E* exactly once in each direction. Describe how you can find your way out of a maze if
+> you are given a large supply of pennies.
+
+1. Solution is implemented
+   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_9.rs).
+2. *Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
