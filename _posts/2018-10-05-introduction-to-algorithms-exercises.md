@@ -9001,7 +9001,7 @@ The expected time to determine whether an edge is in the graph is *O*(1).
 
 ##### 22.2-3
 
-> Show that using a single bit to store each vertex color suffices by arguing that the BFS procedure would produce the
+> Show that using a single bit to store each vertex color suffices by arguing that the *BFS* procedure would produce the
 > same result if line 18 were removed.
 
 A single bit can represent two state: *white* and *gray*.
@@ -9011,7 +9011,7 @@ instead of *black*, which does not affect the traversal process.
 
 ##### 22.2-4
 
-> What is the running time of BFS if we represent its input graph by an adjacency matrix and modify the algorithm to
+> What is the running time of *BFS* if we represent its input graph by an adjacency matrix and modify the algorithm to
 > handle this form of input?
 
 Θ($V^2$).
@@ -9020,7 +9020,7 @@ instead of *black*, which does not affect the traversal process.
 
 > Argue that in a breadth-first search, the value *u*.*d* assigned to a vertex *u* is independent of the order in which
 > the vertices appear in each adjacency list. Using Figure 22.3 as an example, show that the breadth-first tree computed
-> by BFS can depend on the ordering within adjacency lists.
+> by *BFS* can depend on the ordering within adjacency lists.
 
 *Skipped.*
 
@@ -9028,7 +9028,7 @@ instead of *black*, which does not affect the traversal process.
 
 > Give an example of a directed graph *G* = (*V*, *E*), a source vertex *s* ∈ *V*, and a set of tree edges $E_π$ ⊆ *E*
 > such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, $E_π$) from *s* to *v* is a shortest
-> path in *G*, yet the set of edges $E_π$ cannot be produced by running BFS on *G*, no matter how the vertices are
+> path in *G*, yet the set of edges $E_π$ cannot be produced by running *BFS* on *G*, no matter how the vertices are
 > ordered in each adjacency list.
 
 Graph:
@@ -9061,7 +9061,7 @@ s
 > produce it.
 
 Solution is implemented
-here[https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_7.rs].
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_2_breadth_first_search/exercises/exercise_22_2_7.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
