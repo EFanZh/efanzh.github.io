@@ -9198,6 +9198,17 @@ Visit from *w* node, then explore *u* before *v*.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_10.rs).
 
+##### 22.3-11
+
+> Explain how a vertex *u* of a directed graph can end up in a depth-first tree containing only *u*, even though *u* has
+> both incoming and outgoing edges in *G*.
+
+```text
+a → u → b
+```
+
+Discover the graph in the order *b* → *u* → *a*, then *u* is in a depth-first tree containing only *u*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
