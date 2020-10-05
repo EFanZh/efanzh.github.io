@@ -9179,6 +9179,25 @@ u ⇄ w → v
 
 Visit from *w* node, we can get both *u* and *v* being *w*’s chidren.
 
+##### 22.3-9
+
+> Give a counterexample to the conjecture that if a directed graph *G* contains a path from *u* to *v*, then any
+> depth-first search must result in *v*.*d* ≤ *u*.*f*.
+
+```text
+u ⇄ w → v
+```
+
+Visit from *w* node, then explore *u* before *v*.
+
+##### 22.3-10
+
+> Modify the pseudocode for depth-first search so that it prints out every edge in the directed graph *G*, together with
+> its type. Show what modifications, if any, you need to make if *G* is undirected.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_10.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
