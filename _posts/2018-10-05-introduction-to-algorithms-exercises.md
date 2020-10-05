@@ -9136,6 +9136,38 @@ Undirected graph:
 
 (*u* (*v* (*y* (*x* *x*) *y*) *v*) *u*) (*w* (*z* *z*) *w*)
 
+##### 22.3-4
+
+> Show that using a single bit to store each vertex color suffices by arguing that the *DFS* procedure would produce the
+> same result if line 8 of *DFS-Visit* was removed.
+
+This is similar to exercise 22.2-3.
+
+##### 22.3-5
+
+> Show that edge (*u*, *v*) is
+>
+> ***a.*** a tree edge or forward edge if and only if *u*.*d* < *v*.*d* < *v*.*f* < *u*.*f*,
+> ***b.*** a back edge if and only if *v*.*d* ≤ *u*.*d* < *u*.*f* ≤ *v*.*f*, and
+> ***c.*** a cross edge if and only if *v*.*d* < *v*.*f* < *u*.*d* < *u*.*f*.
+
+*Skipped.*
+
+##### 22.3-6
+
+> Show that in an undirected graph, classifying an edge (*u*, *v*) as a tree edge or a back edge according to whether
+> (*u*, *v*) or (*v*, *u*) is encountered first during the depth-first search is equivalent to classifying it according
+> to the ordering of the four types in the classification scheme.
+
+*Skipped.*
+
+##### 22.3-7
+
+> Rewrite the procedure *DFS*, using a stack to eliminate recursion.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_7.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
