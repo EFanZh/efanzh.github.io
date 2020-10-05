@@ -9168,6 +9168,17 @@ This is similar to exercise 22.2-3.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_7.rs).
 
+##### 22.3-8
+
+> Give a counterexample to the conjecture that if a directed graph *G* contains a path from *u* to *v*, and if
+> *u*.*d* < *v*.*d* in a depth-first search of *G*, then *v* is a descendant of *u* in the depth-first forest produced.
+
+```text
+u ⇄ w → v
+```
+
+Visit from *w* node, we can get both *u* and *v* being *w*’s chidren.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
