@@ -9209,6 +9209,17 @@ a → u → b
 
 Discover the graph in the order *b* → *u* → *a*, then *u* is in a depth-first tree containing only *u*.
 
+##### 22.3-12
+
+> Show that we can use a depth-first search of an undirected graph *G* to identify the connected components of *G*, and
+> that the depth-first forest contains as many trees as *G* has connected components. More precisely, show how to modify
+> depth-first search so that it assigns to each vertex *v* an integer label *v*.*cc* between 1 and *k*, where *k* is the
+> number of connected components of *G*, such that *u*.*cc* = *v*.*cc* if and only if *u* and *v* are in the same
+> connected component.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_12.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
