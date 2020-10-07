@@ -9226,7 +9226,7 @@ Solution is implemented
 > path from *u* to *v* for all vertices *u*, *v* ∈ *V*. Give an efficient algorithm to determine whether or not a
 > directed graph is singly connected.
 
-I suspect that “singly connected” means that：
+I suspect that “singly connected” means that:
 
 1. There are no forward edges,
 2. and there are no cross edges that belongs to the same depth-first tree.
@@ -9252,6 +9252,14 @@ But I can’t prove it.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_2.rs).
+
+##### 22.4-3
+
+> Give an algorithm that determines whether or not a given undirected graph *G* = (*V*, *E*) contains a simple cycle.
+> Your algorithm should run in *O*(*V*) time, independent of |*E*|.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_3.rs).
 
 ------------------------------------------------------------------------------------------------------------------------
 
