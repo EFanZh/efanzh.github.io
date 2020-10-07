@@ -9147,9 +9147,9 @@ This is similar to exercise 22.2-3.
 
 > Show that edge (*u*, *v*) is
 >
-> ***a.*** a tree edge or forward edge if and only if *u*.*d* < *v*.*d* < *v*.*f* < *u*.*f*,
-> ***b.*** a back edge if and only if *v*.*d* ≤ *u*.*d* < *u*.*f* ≤ *v*.*f*, and
-> ***c.*** a cross edge if and only if *v*.*d* < *v*.*f* < *u*.*d* < *u*.*f*.
+> - ***a.*** a tree edge or forward edge if and only if *u*.*d* < *v*.*d* < *v*.*f* < *u*.*f*,
+> - ***b.*** a back edge if and only if *v*.*d* ≤ *u*.*d* < *u*.*f* ≤ *v*.*f*, and
+> - ***c.*** a cross edge if and only if *v*.*d* < *v*.*f* < *u*.*d* < *u*.*f*.
 
 *Skipped.*
 
