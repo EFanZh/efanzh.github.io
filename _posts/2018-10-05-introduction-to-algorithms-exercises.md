@@ -9220,6 +9220,39 @@ Discover the graph in the order *b* → *u* → *a*, then *u* is in a depth-firs
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_3_depth_first_search/exercises/exercise_22_3_12.rs).
 
+##### 22.3-13 ★
+
+> A directed graph *G* = (*V*, *E*) is ***singly connected*** if *u* ↝ *v* implies that *G* contains at most one simple
+> path from *u* to *v* for all vertices *u*, *v* ∈ *V*. Give an efficient algorithm to determine whether or not a
+> directed graph is singly connected.
+
+I suspect that “singly connected” means that：
+
+1. There are no forward edges,
+2. and there are no cross edges that belongs to the same depth-first tree.
+
+But I can’t prove it.
+
+#### 22.4 Topological sort
+
+##### 22.4-1
+
+> Show the ordering of vertices produced by *Topological-Sort* when it is run on the dag of Figure 22.8, under the
+> assumption of Exercise 22.3-2.
+
+*Skipped.*
+
+##### 22.4-2
+
+> Give a linear-time algorithm that takes as input a directed acyclic graph *G* = (*V*, *E*) and two vertices *s* and
+> *t*, and returns the number of simple paths from *s* to *t* in *G*. For example, the directed acyclic graph of Figure
+> 22.8 contains exactly four simple paths from vertex *p* to vertex *v*: *p* *o* *v*, *p* *o* *r* *y* *v*,
+> *p* *o* *s* *r* *y* *v*, and *p* *s* *r* *y* *v*. (Your algorithm needs only to count the simple paths, not list
+> them.)
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
