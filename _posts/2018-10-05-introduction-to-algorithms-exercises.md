@@ -9261,6 +9261,22 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_3.rs).
 
+##### 22.4-4
+
+> Prove or disprove: If a directed graph *G* contains cycles, then *Topological-Sort*(*G*) produces a vertex ordering
+> that minimizes the number of “bad” edges that are inconsistent with the ordering produced.
+
+*Skipped.*
+
+##### 22.4-5
+
+> Another way to perform topological sorting on a directed acyclic graph *G* = (*V*, *E*) is to repeatedly find a vertex
+> of in-degree 0, output it, and remove it and all of its outgoing edges from the graph. Explain how to implement this
+> idea so that it runs in time *O*(*V* + *E*). What happens to this algorithm if *G* has cycles?
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
