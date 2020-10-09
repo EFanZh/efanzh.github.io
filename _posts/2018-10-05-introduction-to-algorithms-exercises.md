@@ -9277,6 +9277,40 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_4_topological_sort/exercises/exercise_22_4_5.rs).
 
+#### 22.5 Strongly connected components
+
+##### 22.5-1
+
+> How can the number of strongly connected components of a graph change if a new edge is added?
+
+*Skipped.*
+
+##### 22.5-2
+
+> Show how the procedure *Strongly-Connected-Components* works on the graph of Figure 22.6. Specifically, show the
+> finishing times computed in line 1 and the forest produced in line 3. Assume that the loop of lines 5–7 of *DFS*
+> considers vertices in alphabetical order and that the adjacency lists are in alphabetical order.
+
+*Skipped.*
+
+##### 22.5-3
+
+> Professor Bacon claims that the algorithm for strongly connected components would be simpler if it used the original
+> (instead of the transpose) graph in the second depth-first search and scanned the vertices in order of increasing
+> finishing times. Does this simpler algorithm always produce correct results?
+
+No.
+
+For this graph:
+
+```text
+u ⇄ w → v
+```
+
+If the first *DFS* starts from node *w*, and visit *u* first, then *u* is the first finished node. The second *DFS* then
+starts from *u*, which will visit *w* and *v*, so this algorithm will consider *u*, *v* and *w* as a single strongly
+connected component, which is wrong.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
