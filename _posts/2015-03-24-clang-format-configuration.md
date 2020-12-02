@@ -1,33 +1,143 @@
 ---
 ---
 
-# EFanZh’s ClangFormat configuration
+# EFanZh’s Clang-Format configuration
 
-This is my [ClangFormat](https://clang.llvm.org/docs/ClangFormat.html) configuration:
+This is my [Clang-Format](https://clang.llvm.org/docs/ClangFormat.html) configuration:
 
 ```yaml
----
-BasedOnStyle: Chromium
+# Language: Cpp
+# # BasedOnStyle: LLVM
 AccessModifierOffset: -4
-AlignTrailingComments: false
-AllowShortFunctionsOnASingleLine: None
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+AlignConsecutiveMacros: false
+AlignConsecutiveDeclarations: false
+# AlignEscapedNewlines: Right
+AlignOperands: true
+# AlignTrailingComments: true
+# AllowAllArgumentsOnNextLine: true
+# AllowAllConstructorInitializersOnNextLine: true
+# AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+# AlwaysBreakBeforeMultilineStrings: false
+AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
-BreakBeforeBraces: Allman
-BreakBeforeTernaryOperators: false
+BinPackParameters: false
+# BraceWrapping:
+#   AfterCaseLabel: false
+#   AfterClass: false
+#   AfterControlStatement: false
+#   AfterEnum: false
+#   AfterFunction: false
+#   AfterNamespace: false
+#   AfterObjCDeclaration: false
+#   AfterStruct: false
+#   AfterUnion: false
+#   AfterExternBlock: false
+#   BeforeCatch: false
+#   BeforeElse: false
+#   IndentBraces: false
+#   SplitEmptyFunction: true
+#   SplitEmptyRecord: true
+#   SplitEmptyNamespace: true
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Attach
+# BreakBeforeInheritanceComma: false
+BreakInheritanceList: BeforeColon
+BreakBeforeTernaryOperators: true
+# BreakConstructorInitializersBeforeComma: false
+BreakConstructorInitializers: BeforeColon
+# BreakAfterJavaFieldAnnotations: true
+BreakStringLiterals: true
 ColumnLimit: 120
+# CommentPragmas: '^ IWYU pragma:'
+CompactNamespaces: false
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: true
+DeriveLineEnding: true
+DerivePointerAlignment: false
+DisableFormat: false
+ExperimentalAutoDetectBinPacking: false
+FixNamespaceComments: true
+# ForEachMacros:
+#   - foreach
+#   - Q_FOREACH
+#   - BOOST_FOREACH
+IncludeBlocks: Merge
+# IncludeCategories:
+#   - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
+#     Priority: 2
+#     SortPriority: 0
+#   - Regex: '^(<|"(gtest|gmock|isl|json)/)'
+#     Priority: 3
+#     SortPriority: 0
+#   - Regex: '.*'
+#     Priority: 1
+#     SortPriority: 0
+# IncludeIsMainRegex: '(Test)?$'
+# IncludeIsMainSourceRegex: ''
+IndentCaseLabels: true
+IndentGotoLabels: false
+IndentPPDirectives: None
 IndentWidth: 4
 IndentWrappedFunctionNames: true
+JavaScriptQuotes: Double
+# JavaScriptWrapImports: true
+KeepEmptyLinesAtTheStartOfBlocks: false
+# MacroBlockBegin: ''
+# MacroBlockEnd: ''
+MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
-PenaltyBreakBeforeFirstCallParameter: 800
-PenaltyBreakComment: 100
-PenaltyBreakFirstLessLess: 600
-PenaltyBreakString: 500
-PenaltyExcessCharacter: 200
-PenaltyReturnTypeOnItsOwnLine: 1000
+# ObjCBinPackProtocolList: Auto
+# ObjCBlockIndentWidth: 4
+# ObjCSpaceAfterProperty: false
+# ObjCSpaceBeforeProtocolList: true
+# PenaltyBreakAssignment: 2
+# PenaltyBreakBeforeFirstCallParameter: 19
+# PenaltyBreakComment: 300
+# PenaltyBreakFirstLessLess: 120
+# PenaltyBreakString: 1000
+# PenaltyBreakTemplateDeclaration: 10
+# PenaltyExcessCharacter: 1000000
+# PenaltyReturnTypeOnItsOwnLine: 60
 PointerAlignment: Right
+ReflowComments: true
 SortIncludes: true
+SortUsingDeclarations: true
+SpaceAfterCStyleCast: false
+SpaceAfterLogicalNot: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeCpp11BracedList: false
+SpaceBeforeCtorInitializerColon: true
+SpaceBeforeInheritanceColon: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
-Standard: Cpp11
+SpacesInAngles: false
+SpacesInConditionalStatement: false
+SpacesInContainerLiterals: false
+SpacesInCStyleCastParentheses: false
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpaceBeforeSquareBrackets: false
+Standard: Latest
+# StatementMacros:
+#   - Q_UNUSED
+#   - QT_REQUIRE_VERSION
 TabWidth: 4
-...
+# UseCRLF: false
+UseTab: Never
 ```
