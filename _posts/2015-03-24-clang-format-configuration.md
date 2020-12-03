@@ -11,8 +11,8 @@ This is my [Clang-Format](https://clang.llvm.org/docs/ClangFormat.html) configur
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
-AlignConsecutiveMacros: false
 AlignConsecutiveDeclarations: false
+AlignConsecutiveMacros: false
 # AlignEscapedNewlines: Right
 AlignOperands: true
 # AlignTrailingComments: true
@@ -32,30 +32,30 @@ AlwaysBreakTemplateDeclarations: Yes
 BinPackArguments: false
 BinPackParameters: false
 # BraceWrapping:
-#   AfterCaseLabel: false
-#   AfterClass: false
-#   AfterControlStatement: false
-#   AfterEnum: false
-#   AfterFunction: false
-#   AfterNamespace: false
-#   AfterObjCDeclaration: false
-#   AfterStruct: false
-#   AfterUnion: false
-#   AfterExternBlock: false
-#   BeforeCatch: false
-#   BeforeElse: false
-#   IndentBraces: false
-#   SplitEmptyFunction: true
-#   SplitEmptyRecord: true
-#   SplitEmptyNamespace: true
+#     AfterCaseLabel: false
+#     AfterClass: false
+#     AfterControlStatement: false
+#     AfterEnum: false
+#     AfterExternBlock: false
+#     AfterFunction: false
+#     AfterNamespace: false
+#     AfterObjCDeclaration: false
+#     AfterStruct: false
+#     AfterUnion: false
+#     BeforeCatch: false
+#     BeforeElse: false
+#     IndentBraces: false
+#     SplitEmptyFunction: true
+#     SplitEmptyNamespace: true
+#     SplitEmptyRecord: true
+# BreakAfterJavaFieldAnnotations: true
 BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Attach
 # BreakBeforeInheritanceComma: false
-BreakInheritanceList: BeforeColon
 BreakBeforeTernaryOperators: true
-# BreakConstructorInitializersBeforeComma: false
 BreakConstructorInitializers: BeforeColon
-# BreakAfterJavaFieldAnnotations: true
+# BreakConstructorInitializersBeforeComma: false
+BreakInheritanceList: BeforeColon
 BreakStringLiterals: true
 ColumnLimit: 120
 # CommentPragmas: '^ IWYU pragma:'
@@ -123,16 +123,16 @@ SpaceBeforeCtorInitializerColon: true
 SpaceBeforeInheritanceColon: true
 SpaceBeforeParens: ControlStatements
 SpaceBeforeRangeBasedForLoopColon: true
+SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
 SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
+SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
 SpacesInContainerLiterals: false
-SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 SpacesInSquareBrackets: false
-SpaceBeforeSquareBrackets: false
 Standard: Latest
 # StatementMacros:
 #   - Q_UNUSED
