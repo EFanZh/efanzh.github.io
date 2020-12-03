@@ -7,21 +7,23 @@ This is my [Clang-Format](https://clang.llvm.org/docs/ClangFormat.html) configur
 
 ```yaml
 # Language: Cpp
-# # BasedOnStyle: LLVM
+# # BasedOnStyle: Microsoft
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: false
+AlignConsecutiveBitFields: false
 AlignConsecutiveDeclarations: false
 AlignConsecutiveMacros: false
 # AlignEscapedNewlines: Right
-AlignOperands: true
+# AlignOperands: Align
 # AlignTrailingComments: true
 # AllowAllArgumentsOnNextLine: true
 # AllowAllConstructorInitializersOnNextLine: true
 # AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortBlocksOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Never
 AllowShortCaseLabelsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: Empty
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortLambdasOnASingleLine: All
 AllowShortLoopsOnASingleLine: false
@@ -33,30 +35,30 @@ BinPackArguments: false
 BinPackParameters: false
 # BraceWrapping:
 #     AfterCaseLabel: false
-#     AfterClass: false
-#     AfterControlStatement: false
-#     AfterEnum: false
-#     AfterExternBlock: false
-#     AfterFunction: false
-#     AfterNamespace: false
-#     AfterObjCDeclaration: false
-#     AfterStruct: false
+#     AfterClass: true
+#     AfterControlStatement: Always
+#     AfterEnum: true
+#     AfterExternBlock: true
+#     AfterFunction: true
+#     AfterNamespace: true
+#     AfterObjCDeclaration: true
+#     AfterStruct: true
 #     AfterUnion: false
-#     BeforeCatch: false
-#     BeforeElse: false
+#     BeforeCatch: true
+#     BeforeElse: true
+#     BeforeLambdaBody: false
+#     BeforeWhile: false
 #     IndentBraces: false
 #     SplitEmptyFunction: true
 #     SplitEmptyNamespace: true
 #     SplitEmptyRecord: true
-# BreakAfterJavaFieldAnnotations: true
-BreakBeforeBinaryOperators: NonAssignment
+# BreakAfterJavaFieldAnnotations: false
+# BreakBeforeBinaryOperators: None
 BreakBeforeBraces: Attach
-# BreakBeforeInheritanceComma: false
-BreakBeforeTernaryOperators: true
+# BreakBeforeTernaryOperators: true
 BreakConstructorInitializers: BeforeColon
-# BreakConstructorInitializersBeforeComma: false
 BreakInheritanceList: BeforeColon
-BreakStringLiterals: true
+# BreakStringLiterals: true
 ColumnLimit: 120
 # CommentPragmas: '^ IWYU pragma:'
 CompactNamespaces: false
@@ -86,20 +88,26 @@ IncludeBlocks: Merge
 #     SortPriority: 0
 # IncludeIsMainRegex: '(Test)?$'
 # IncludeIsMainSourceRegex: ''
+IndentCaseBlocks: false
 IndentCaseLabels: true
+# IndentExternBlock: AfterExternBlock
 IndentGotoLabels: false
 IndentPPDirectives: None
 IndentWidth: 4
-IndentWrappedFunctionNames: true
-JavaScriptQuotes: Double
+# IndentWrappedFunctionNames: false
+InsertTrailingCommas: Wrapped
+# JavaImportGroups: []
+# JavaScriptQuotes: Leave
 # JavaScriptWrapImports: true
 KeepEmptyLinesAtTheStartOfBlocks: false
 # MacroBlockBegin: ''
 # MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
+# NamespaceMacros: []
 # ObjCBinPackProtocolList: Auto
-# ObjCBlockIndentWidth: 4
+# ObjCBlockIndentWidth: 2
+# ObjCBreakBeforeNestedBlockParam: true
 # ObjCSpaceAfterProperty: false
 # ObjCSpaceBeforeProtocolList: true
 # PenaltyBreakAssignment: 2
@@ -109,9 +117,10 @@ NamespaceIndentation: All
 # PenaltyBreakString: 1000
 # PenaltyBreakTemplateDeclaration: 10
 # PenaltyExcessCharacter: 1000000
-# PenaltyReturnTypeOnItsOwnLine: 60
+# PenaltyReturnTypeOnItsOwnLine: 1000
 PointerAlignment: Right
-ReflowComments: true
+# RawStringFormats: []
+# ReflowComments: true
 SortIncludes: true
 SortUsingDeclarations: true
 SpaceAfterCStyleCast: false
@@ -119,14 +128,14 @@ SpaceAfterLogicalNot: false
 SpaceAfterTemplateKeyword: true
 SpaceBeforeAssignmentOperators: true
 SpaceBeforeCpp11BracedList: false
-SpaceBeforeCtorInitializerColon: true
-SpaceBeforeInheritanceColon: true
-SpaceBeforeParens: ControlStatements
+# SpaceBeforeCtorInitializerColon: true
+# SpaceBeforeInheritanceColon: true
+# SpaceBeforeParens: ControlStatements
 SpaceBeforeRangeBasedForLoopColon: true
 SpaceBeforeSquareBrackets: false
 SpaceInEmptyBlock: false
 SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 1
+# SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
 SpacesInCStyleCastParentheses: false
 SpacesInConditionalStatement: false
@@ -138,6 +147,11 @@ Standard: Latest
 #   - Q_UNUSED
 #   - QT_REQUIRE_VERSION
 TabWidth: 4
+# TypenameMacros: []
 # UseCRLF: false
 UseTab: Never
+# WhitespaceSensitiveMacros:
+#   - STRINGIZE
+#   - PP_STRINGIZE
+#   - BOOST_PP_STRINGIZE
 ```
