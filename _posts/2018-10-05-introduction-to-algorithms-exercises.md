@@ -9326,6 +9326,108 @@ connected component, which is wrong.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs);
 
+##### 22.5-6
+
+> Given a directed graph *G* = (*V*, *E*), explain how to create another graph *G*′ = (*V*, *E*′) such that (a) *G*′ has
+> the same strongly connected components as *G*, (b) *G*′ has the same component graph as *G*, and (c) *E*′ is as small
+> as possible. Describe a fast algorithm to compute *G*′.
+
+*Skipped.*
+
+##### 22.5-7
+
+> A directed graph *G* = (*V*, *E*) is semiconnected if, for all pairs of vertices *u*, *v* ∈ *V*, we have *u* ↝ *v* or
+> *v* ↝ *u*. Give an efficient algorithm to determine whether or not *G* is semiconnected. Prove that your algorithm is
+> correct, and analyze its running time.
+
+*Skipped.*
+
+#### 22.X Problems
+
+##### 22-1 classifying edges by breadth-first search
+
+> A depth-first forest classifies the edges of a graph into tree, back, forward, and cross edges. A breadth-first tree
+> can also be used to classify the edges reachable from the source of the search into the same four categories.
+>
+> - ***a.*** Prove that in a breadth-first search of an undirected graph, the following properties hold:
+>
+>   1. There are no back edges and no forward edges.
+>   2. For each tree edge (*u*, *v*), we have *v*.*d* = *u*.*d* + 1.
+>   3. For each cross edge (*u*, *v*), we have *v*.*d* = *u*.*d* or *v*.*d* = *u*.*d* + 1.
+> - ***b.*** Prove that in a breadth-first search of a directed graph, the following properties hold:
+>
+>   1. There are no forward edges.
+>   2. For each tree edge (*u*, *v*), we have *v*.*d* = *u*.*d* + 1.
+>   3. For each cross edge (*u*, *v*), we have *v*.*d* ≤ *u*.*d* + 1.
+>   4. For each back edge (*u*, *v*), we have 0 ≤ *v*.*d* ≤ *u*.*d*.
+
+*Skipped.*
+
+##### 22-2 Articulation points, bridges, and biconnected components
+
+> Let *G* = (*V*, *E*) be a connected, undirected graph. An ***articulation point*** of *G* is a vertex whose removal
+> disconnects *G*. A ***bridge*** of *G* is an edge whose removal disconnects *G*. A ***biconnected component*** of *G*
+> is a maximal set of edges such that any two edges in the set lie on a common simple cycle. Figure 22.10 illustrates
+> these definitions. We can determine articulation points, bridges, and biconnected components using depth-first search.
+> Let $G_π$ = (*V*, $E_π$) be a depth-first tree of *G*.
+>
+> ```text
+>   1   5─6     11          19──────┐
+>  ╱│╲   ╲│    ╱  ╲         │╲      │
+> 0─┼─3───4───9    13────14─┼─16───20
+>  ╲│╱   ╱│    ╲  ╱        ╲│╱
+>   2   7─8     12    21    15
+>       │             │ ╲  ╱ ╲
+>       10            22─17   18
+> ```
+>
+> **Figure 22.10** The articulation points, bridges, and biconnected components of a connected, undirected graph for use
+> in Problem 22-2. The articulation points are the heavily shaded vertices, the bridges are the heavily shaded edges,
+> and the biconnected components are the edges in the shaded regions, with a *bcc* numbering shown.
+>
+> - ***a.*** Prove that the root of $G_π$ is an articulation point of *G* if and only if it has at least two children in
+>   $G_π$ .
+> - ***b.*** Let *v* be a nonroot vertex of $G_π$. Prove that *v* is an articulation point of *G* if and only if *v* has
+>   a child *s* such that there is no back edge from *s* or any descendant of *s* to a proper ancestor of *v*.
+> - ***c.*** Let
+>
+>   *v*.*low* = $\min \begin{cases}v.d\text{,}\\\\
+>   w.d : \text{$(u, w)$ is a back edge for some descendant $u$ of $v$}\end{cases}$
+>
+>   Show how to compute *v*.*low* for all vertices *v* ∈ *V* in *O*(*E*) time.
+> - ***d.*** Show how to compute all articulation points in *O*(*E*) time.
+> - ***e.*** Prove that an edge of *G* is a bridge if and only if it does not lie on any simple cycle of *G*.
+> - ***f.*** Show how to compute all the bridges of *G* in *O*(*E*) time.
+> - ***g.*** Prove that the biconnected components of *G* partition the nonbridge edges of *G*.
+> - ***h.*** Give an *O*(*E*)-time algorithm to label each edge *e* of *G* with a positive integer *e*.*bcc* such that
+>   *e*.*bcc* = *e*′.*bcc* if and only if *e* and *e*′ are in the same biconnected component.
+
+- ***a.***
+  - Sufficient condition: If the root has at least two children, then vertices that are descendant of one child can only
+    reach vertices that are descendant of other children through the root. If we remove the root, the reachability will
+    be broken, so the root is an articulation point.
+  - Necessary condition: Proof by contradiction: Suppose the root has less than two children:
+    - If the root has no child, then the graph only has one vertex, so the root is not an articulation point.
+    - If the root has one child, then all vertices except the root is descendant of the child, so if we remote the root,
+      the reachability will be kept, so the root is not an articulation point.
+- ***b.***
+  - Sufficient condition: If the vertex *v* has a child *s* such that there is no back edge from *s* or any descendant
+    of *s* to a proper ancestor of *v*, then for descendants of *s* can only reach *v*’s ancestors through *v*, after
+    removing *v*, the reachability will be broken.
+  - Necessary condition: Proof by contradiction: Suppose all children of the vertex *v* has back edges from their
+    descendants to some *v*’s ancestors, then all descendants of *v*’s children can reach the root without going through
+    *v*. After removing *v*, all the other vertices can still reach root, so the reachability is kept.
+- ***c.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+- ***d.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+- ***e.*** *Skipped.*
+- ***f.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+- ***g.*** *Skipped.*
+- ***h.*** Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
