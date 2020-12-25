@@ -9311,12 +9311,27 @@ If the first *DFS* starts from node *w*, and visit *u* first, then *u* is the fi
 starts from *u*, which will visit *w* and *v*, so this algorithm will consider *u*, *v* and *w* as a single strongly
 connected component, which is wrong.
 
+##### 22.5-4
+
+> Prove that for any directed graph *G*, we have $((G^T)^{SCC})^T = G^{SCC}$. That is, the transpose of the component
+> graph of $G^T$ is the same as the component graph of *G*.
+
+*Skipped.*
+
+##### 22.5-5
+
+> Give an *O*(*V* + *E*)-time algorithm to compute the component graph of a directed graph *G* = (*V*, *E*). Make sure
+> that there is at most one edge between two vertices in the component graph your algorithm produces.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs);
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼╱╲╳▌▬★⟨⟩
+> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊↝┌┐└┘├┤┬┴┼╱╲╳▌▬★⟨⟩
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
