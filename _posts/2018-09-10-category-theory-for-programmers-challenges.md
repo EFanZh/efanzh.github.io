@@ -551,12 +551,12 @@ enable_mathjax: true
 4. > Show that horizontal composition of natural transformation satisfies the naturality condition (hint: use
    > components). Itʼs a good exercise in diagram chasing.
 
-   We need to prove $\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a = \left(β \circ α\right)_b \circ \left(G \circ F\right) f$.
+   We need to prove \\(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a = \left(β \circ α\right)_b \circ \left(G \circ F\right) f\\).
 
-   Let $f : a → b$, then\
-   $\left(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a\right) \left(\left(G \circ F\right) a\right) = \left(\left(G' \circ F'\right) f\right) \left(\left(G' \circ F'\right) a\right) = \left(G' \circ F'\right) b$,
+   Let \\(f : a → b\\), then\
+   \\(\left(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a\right) \left(\left(G \circ F\right) a\right) = \left(\left(G' \circ F'\right) f\right) \left(\left(G' \circ F'\right) a\right) = \left(G' \circ F'\right) b\\),
    Also, \
-   $\left(\left(β \circ α\right)_b \circ \left(G \circ F\right) f\right) \left(\left(G \circ F\right) a\right) = \left(β \circ α\right)_b \left(\left(G \circ F\right) b\right) = \left(G' \circ F'\right) b$.
+   \\(\left(\left(β \circ α\right)_b \circ \left(G \circ F\right) f\right) \left(\left(G \circ F\right) a\right) = \left(β \circ α\right)_b \left(\left(G \circ F\right) b\right) = \left(G' \circ F'\right) b\\).
 
 5. > Write a short essay about how you may enjoy writing down the evident diagrams needed to prove the interchange law.
 
