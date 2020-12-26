@@ -1,23 +1,8 @@
-title: EFanZh’s Blog
-description: ~
-domain: efanzh.org
-my-pages:
-  - title: Demos & Tools
-    url: /demos-and-tools.html
-links:
-  - title: GitHub
-    url: https://github.com/EFanZh
-defaults:
-  - scope:
-        path: ""
-        type: posts
-    values:
-        layout: page
 markdown: gfm
-commonmark:
-    options:
-      - FOOTNOTES
-    extensions:
-      - table
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+remote_theme: EFanZh/GitHub-Pages-Theme
+title: EFanZh’s Blog
 titles_from_headings:
     collections: true

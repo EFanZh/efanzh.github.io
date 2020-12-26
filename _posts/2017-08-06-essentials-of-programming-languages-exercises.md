@@ -41,8 +41,8 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - 2 ∈ *S*, and
      - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - $\dfrac{}{2 ∈ S}$
-     - $\dfrac{n ∈ S}{n + 3 ∈ S}$
+     - \\(\dfrac{}{2 ∈ S}\\)
+     - \\(\dfrac{n ∈ S}{n + 3 ∈ S}\\)
 2. {2*n* + 3*m* + 1 | *n*, *m* ∈ *N*}
    - Top-down:
 
@@ -59,9 +59,9 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - If *n* ∈ *S*, then *n* + 2 ∈ *S*, and
      - If *n* ∈ *S*, then *n* + 3 ∈ *S*
    - Rules of inference:
-     - $\dfrac{}{1 ∈ S}$
-     - $\dfrac{n ∈ S}{n + 2 ∈ S}$
-     - $\dfrac{n ∈ S}{n + 3 ∈ S}$
+     - \\(\dfrac{}{1 ∈ S}\\)
+     - \\(\dfrac{n ∈ S}{n + 2 ∈ S}\\)
+     - \\(\dfrac{n ∈ S}{n + 3 ∈ S}\\)
 3. {(*n*, 2*n* + 1) | *n* ∈ *N*}
    - Top-down:
 
@@ -76,8 +76,8 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
      - (0, 1) ∈ *S*, and
      - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2) ∈ *S*
    - Rules of inference:
-     - $\dfrac{}{(0, 1) ∈ S}$
-     - $\dfrac{(m, n) ∈ S}{(m + 1, n + 2) ∈ S}$
+     - \\(\dfrac{}{(0, 1) ∈ S}\\)
+     - \\(\dfrac{(m, n) ∈ S}{(m + 1, n + 2) ∈ S}\\)
 4. {(*n*, *n*<sup>2</sup>) | *n* ∈ *N*}
 
     - Top-down:
@@ -93,26 +93,26 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
       - (0, 0) ∈ *S*, and
       - If (*m*, *n*) ∈ *S*, then (*m* + 1, *n* + 2*m* + 1) ∈ *S*
     - Rules of inference:
-      - $\dfrac{}{(0, 0) ∈ S}$
-      - $\dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S}$
+      - \\(\dfrac{}{(0, 0) ∈ S}\\)
+      - \\(\dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S}\\)
 
 > Exercise 1.2 [★★] What sets are defined by the following pairs of rules? Explain why.
 >
-> 1. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}$
-> 2. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}$
-> 3. $(0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}$
-> 4. [★★★] $(0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}$
+> 1. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}\\)
+> 2. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}\\)
+> 3. \\((0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}\\)
+> 4. [★★★] \\((0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}\\)
 
-1. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}$
+1. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}\\)
 
    {(*n*, 7*n* + 1) | *n* ∈ *N*}
-2. $(0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}$
+2. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}\\)
 
    {(*n*, 2<sup>*n*</sup>) | *n* ∈ *N*}
-3. $(0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}$
+3. \\((0, 0, 1) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, j, i + j) ∈ S}\\)
 
    {(*n*, *f*(*n*), *f*(*n* + 1)) | *n* ∈ *N*, *f*(0) = 0, *f*(1) = 1, *f*(*n* + 2) = *f*(*n*) + *f*(*n* + 1)}
-4. $(0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}$
+4. \\((0, 1, 0) ∈ S \quad \dfrac{(n, i, j) ∈ S}{(n + 1, i + 2, i + j) ∈ S}\\)
 
    {(*n*, 2*n* + 1, *n*<sup>2</sup>) | *n* ∈ *N*}
 
@@ -252,11 +252,11 @@ Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at least 1, so th
 prove `partial-vector-sum` is correct by induction over *n*.
 
 Base case: if *n* equals to 0, `(partial-vector-sum` *v* *n*`)` equals to `(vector-ref` *v* `0)`, which equals to
-$\sum_{i = 0}^0 v_i$, the claim holds.
+\\(\sum_{i = 0}^0 v_i\\), the claim holds.
 
 Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
 `(add (vector-ref` *v* *n*`) (partial-vector-sum` *v* `(-` *n* `1)))`, which equals to
-$v_n + \sum_{i = 0}^{n - 1} v_i$, which equals to $\sum_{i = 0}^n v_i$, the claim holds.
+\\(v_n + \sum_{i = 0}^{n - 1} v_i\\), which equals to \\(\sum_{i = 0}^n v_i\\), the claim holds.
 
 > Exercise 1.15 [★] `(duple n x)` returns a list containing `n` copies of `x`.
 >
@@ -2124,19 +2124,19 @@ Not sure, but maybe when *val* is constructed using a *Bool*?
 
 > Exercise 3.3 [★] Why is subtraction a better choice than addition for our single arithmetic operation?
 
-One reason I can think of, is that subtraction is not commutative, that is $a - b$ may not equal to $b - a$. If
+One reason I can think of, is that subtraction is not commutative, that is \\(a - b\\) may not equal to \\(b - a\\). If
 our implementation of subtraction is incorrect, we can discover the error quickly.
 
 > Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
 
-$$ \dfrac{\dfrac{\dfrac{\dfrac{\texttt{(value-of «x» $ρ$)} = 33}
-                              {\texttt{(value-of «-(x, 11)» $ρ$)} = 22}}
-                       {\texttt{(value-of «zero?(-(x, 11))» $ρ$)} = \texttt{(bool-val #f)}}}
-                {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} =
-                     \texttt{(value-of «-(y, 4)» $ρ$)}} \quad
-          \dfrac{\texttt{(value-of «y» $ρ$)} = 22}
-                {\texttt{(value-of «-(y, 4)» $ρ$)} = 18}}
-         {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} = 18} $$
+\\[ \dfrac{\dfrac{\dfrac{\dfrac{\texttt{(value-of «x» $ρ$)} = 33}
+                               {\texttt{(value-of «-(x, 11)» $ρ$)} = 22}}
+                        {\texttt{(value-of «zero?(-(x, 11))» $ρ$)} = \texttt{(bool-val #f)}}}
+                 {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} =
+                      \texttt{(value-of «-(y, 4)» $ρ$)}} \quad
+           \dfrac{\texttt{(value-of «y» $ρ$)} = 22}
+                 {\texttt{(value-of «-(y, 4)» $ρ$)} = 18}}
+          {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} = 18} \\]
 
 > Exercise 3.5 [★] Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
 
@@ -2716,17 +2716,17 @@ final value that referenced by `counter` will be the same.
 
 > Exercise 4.2 [★] Write down the specification for a `zero?-exp`.
 
-$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
-         {\texttt{(value-of (zero?-exp $exp_1$) $ρ$ $σ_0$)} =
-              \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\\\
-                     (\texttt{(bool-val #f)}, σ_1) &if $\texttt{(expval->num $val_1$)} ≠ 0$}} $$
+\\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+          {\texttt{(value-of (zero?-exp $exp_1$) $ρ$ $σ_0$)} =
+               \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\\\
+                      (\texttt{(bool-val #f)}, σ_1) &if $\texttt{(expval->num $val_1$)} ≠ 0$}} \\]
 
 > Exercise 4.3 [★] Write down the specification for a `call-exp`.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
-         {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
-              \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+          {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
+               \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} \\]
 
 > Exercise 4.4 [★★] Write down the specification for a `begin` expression.
 >
@@ -2735,30 +2735,30 @@ $$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
 > A `begin` expression may contain one or more subexpressions separated by semicolons. These are evaluated in order and
 > the value of the last is returned.
 
-$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
-         {\eqalign{\texttt{(value-of (begin-exp $exp_1$ '()) $ρ$ $σ_0$)}                   &= (val_1, σ_1) \\\\
-                   \texttt{(value-of (begin-exp $exp_1$ (cons $exp_2$ $exps$)) $ρ$ $σ_0$)} &=
-                       \texttt{(value-of (begin-exp $exp_2$ $exps$) $ρ$ $σ_1$)}}} $$
+\\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+          {\eqalign{\texttt{(value-of (begin-exp $exp_1$ '()) $ρ$ $σ_0$)}                   &= (val_1, σ_1) \\\\
+                    \texttt{(value-of (begin-exp $exp_1$ (cons $exp_2$ $exps$)) $ρ$ $σ_0$)} &=
+                        \texttt{(value-of (begin-exp $exp_2$ $exps$) $ρ$ $σ_1$)}}} \\]
 
 > Exercise 4.5 [★★] Write down the specification for `list` (exercise 3.10).
 
-$$ \texttt{(value-of (list-exp '()))} = \texttt{(empty-list)} $$
+\\[ \texttt{(value-of (list-exp '()))} = \texttt{(empty-list)} \\]
 
-$$ \dfrac{\eqalign{          \texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
-                   \texttt{(value-of (list-exp $exps$) $ρ$ $σ_1$)} &= (val_2, σ_2)}}
-         {\texttt{(value-of (list-exp (cons $exp_1$ $exps$)))} = (\texttt{(pair-val $val_1$ $val_2$)}, σ_2)} $$
+\\[ \dfrac{\eqalign{          \texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
+                    \texttt{(value-of (list-exp $exps$) $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+          {\texttt{(value-of (list-exp (cons $exp_1$ $exps$)))} = (\texttt{(pair-val $val_1$ $val_2$)}, σ_2)} \\]
 
 > Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
-         {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (val, [l=val]σ_2)} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
+          {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (val, [l=val]σ_2)} \\]
 
 > Exercise 4.7 [★] Modify the rule given above so that a `setref-exp` returns the old contents of the location.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
-         {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (σ_0(l), [l=val]σ_2)} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
+          {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (σ_0(l), [l=val]σ_2)} \\]
 
 > Exercise 4.8 [★] Show exactly where in our implementation of the store these operations take linear time rather than
 > constant time.
@@ -2860,9 +2860,9 @@ Solution is implemented
 
 > Exercise 4.14 [★] Write the rule for `let`.
 
-$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
-         {\texttt{(value-of (let-exp $var$ $exp_1$ $body$) $ρ$ $σ_0$)} =
-              \texttt{(value-of $body$ $[var = l]ρ$ $[l = val_1]σ_1$)}} $$
+\\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
+          {\texttt{(value-of (let-exp $var$ $exp_1$ $body$) $ρ$ $σ_0$)} =
+               \texttt{(value-of $body$ $[var = l]ρ$ $[l = val_1]σ_1$)}} \\]
 
 > Exercise 4.15 [★] In figure 4.8, why are variables in the environment bound to plain integers rather than expressed
 > values, as in figure 4.5?
@@ -2900,24 +2900,24 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
 
 > Exercise 4.17 [★★] Write the rules for and implement multiargument procedures and `let` expressions.
 
-$$ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\\\
-            = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ$)}} $$
+\\[ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\\\
+             = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ$)}} \\]
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2) \\\\
-                                                         &… \\\\
-             \texttt{(value-of $exp_n$ $ρ$ $σ_{n - 1}$)} &= (val_n, σ_n)}}
-         {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\\\
-                   = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n$)}}} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2) \\\\
+                                                          &… \\\\
+              \texttt{(value-of $exp_n$ $ρ$ $σ_{n - 1}$)} &= (val_n, σ_n)}}
+          {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\\\
+                    = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n$)}}} \\]
 
 > Exercise 4.18 [★★] Write the rule for and implement multiprocedure `letrec` expressions.
 
-$$ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\\\
-            = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\\\
-              &\quad \texttt{(value-of $letrecbody$ letrec-env $[l_n = \texttt{(procedure $bvars_n$ $pbody_n$ letrec-env)}]
-                                                                …
-                                                                [l_2 = \texttt{(procedure $bvars_2$ $pbody_2$ letrec-env)}]
-                                                                [l_1 = \texttt{(procedure $bvars_1$ $pbody_1$ letrec-env)}]σ$))}} $$
+\\[ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\\\
+             = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\\\
+               &\quad \texttt{(value-of $letrecbody$ letrec-env $[l_n = \texttt{(procedure $bvars_n$ $pbody_n$ letrec-env)}]
+                                                                 …
+                                                                 [l_2 = \texttt{(procedure $bvars_2$ $pbody_2$ letrec-env)}]
+                                                                 [l_1 = \texttt{(procedure $bvars_1$ $pbody_1$ letrec-env)}]σ$))}} \\]
 
 > Exercise 4.19 [★★] Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
 > only one location is allocated for it. This is like exercise 3.35.
@@ -2996,7 +2996,7 @@ Solution is implemented
 >
 > Write the specification for statements using assertions like
 >
-> $$ \texttt{(result-of $stmt$ $ρ$ $σ_0$)} = σ_1 $$
+> \\[ \texttt{(result-of $stmt$ $ρ$ $σ_0$)} = σ_1 \\]
 >
 > **Examples** Here are some examples.
 >
@@ -3034,31 +3034,31 @@ Solution is implemented
 
 Specification for statements:
 
-$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
-         {\texttt{(result-of (assign-statement $var$ $exp$) $ρ$ $σ_0$)} = [ρ(var) = val]σ_1} $$
+\\[ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+          {\texttt{(result-of (assign-statement $var$ $exp$) $ρ$ $σ_0$)} = [ρ(var) = val]σ_1} \\]
 
-$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
-         {\texttt{(result-of (print-statement $exp$) $ρ$ $σ_0$)} = σ_1} $$
+\\[ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+          {\texttt{(result-of (print-statement $exp$) $ρ$ $σ_0$)} = σ_1} \\]
 
-$$ \dfrac{\eqalign{      \texttt{(result-of $stmt_1$ $ρ$ $σ_0$)} &= σ_1 \\\\
-                         \texttt{(result-of $stmt_2$ $ρ$ $σ_1$)} &= σ_2 \\\\
-                                                                 &… \\\\
-                   \texttt{(result-of $stmt_n$ $ρ$ $σ_{n - 1}$)} &= σ_n}}
-         {\texttt{(result-of (brace-statement (list $stmt_1$ $stmt_1$ $…$ $stmt_n$)) $ρ$ $σ_0$)} = σ_n} $$
+\\[ \dfrac{\eqalign{      \texttt{(result-of $stmt_1$ $ρ$ $σ_0$)} &= σ_1 \\\\
+                          \texttt{(result-of $stmt_2$ $ρ$ $σ_1$)} &= σ_2 \\\\
+                                                                  &… \\\\
+                    \texttt{(result-of $stmt_n$ $ρ$ $σ_{n - 1}$)} &= σ_n}}
+          {\texttt{(result-of (brace-statement (list $stmt_1$ $stmt_1$ $…$ $stmt_n$)) $ρ$ $σ_0$)} = σ_n} \\]
 
-$$ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
-         {\texttt{(result-of (if-statement $exp$ $stmt_1$ $stmt_2$) $ρ$ $σ_0$)} =
-              \cases{\texttt{(result-of $stmt_1$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
-                     \texttt{(result-of $stmt_2$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}} $$
+\\[ \dfrac{\texttt{(value-of $exp$ $ρ$ $σ_0$)} = (val, σ_1)}
+          {\texttt{(result-of (if-statement $exp$ $stmt_1$ $stmt_2$) $ρ$ $σ_0$)} =
+               \cases{\texttt{(result-of $stmt_1$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
+                      \texttt{(result-of $stmt_2$  $ρ$ $σ_1$)} &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}} \\]
 
-$$ \dfrac{\eqalign{  \texttt{(value-of $exp$ $ρ$ $σ_0$)} &= (val, σ_1) \\\\
-                   \texttt{(result-of $stmt$ $ρ$ $σ_1$)} &= σ_2}}
-         {\eqalign{  &\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} \\\\
-                   = &\cases{\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
-                             σ_1                                                           &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}}} $$
+\\[ \dfrac{\eqalign{  \texttt{(value-of $exp$ $ρ$ $σ_0$)} &= (val, σ_1) \\\\
+                    \texttt{(result-of $stmt$ $ρ$ $σ_1$)} &= σ_2}}
+          {\eqalign{  &\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} \\\\
+                    = &\cases{\texttt{(result-of (while-statement $exp$ $stmt$) $ρ$ $σ_2$)} &if $\texttt{(expval->bool $val$)} = \texttt{#t}$ \\\\
+                              σ_1                                                           &if $\texttt{(expval->bool $val$)} = \texttt{#f}$}}} \\]
 
-$$ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\\\
-            = &\texttt{(result-of $stmt$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = undefined]…[l_2 = undefined][l_1 = undefined]σ_0$)}} $$
+\\[ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\\\
+             = &\texttt{(result-of $stmt$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = undefined]…[l_2 = undefined][l_1 = undefined]σ_0$)}} \\]
 
 > Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read` *var*. This statement
 > reads a nonnegative integer from the input and stores it in the given variable.
@@ -3100,24 +3100,24 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 
 > Exercise 4.28 [★★] Write down the specification rules for the five mutable-pair operations.
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
-         {\texttt{(value-of (newpair-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
-              (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, [l_2 = val_2][l_1 = val_1]σ_2)} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+          {\texttt{(value-of (newpair-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
+               (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, [l_2 = val_2][l_1 = val_1]σ_2)} \\]
 
-$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
-         {\texttt{(value-of (left-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_1), σ_1)} $$
+\\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
+          {\texttt{(value-of (left-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_1), σ_1)} \\]
 
-$$ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
-         {\texttt{(value-of (right-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_2), σ_1)} $$
+\\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1)}
+          {\texttt{(value-of (right-exp $exp_1$) $ρ$ $σ_0$)} = (σ_1(l_2), σ_1)} \\]
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
-         {\texttt{(value-of (setleft-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 82)}, [l_1 = val_2]σ_2)} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+          {\texttt{(value-of (setleft-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 82)}, [l_1 = val_2]σ_2)} \\]
 
-$$ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
-                   \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
-         {\texttt{(value-of (setright-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 83)}, [l_2 = val_2]σ_2)} $$
+\\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (\texttt{(mutpair-val (a-pair $l_1$ $l_2$))}, σ_1) \\\\
+                    \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
+          {\texttt{(value-of (setright-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 83)}, [l_2 = val_2]σ_2)} \\]
 
 > Exercise 4.29 [★★] Add arrays to this language. Introduce new operators `newarray`, `arrayref`, and `arrayset` that
 > create, dereference, and update arrays. This leads to
@@ -4590,17 +4590,17 @@ No, I don’t think so.
 > `proc (x) x` and `proc (x) proc (y) (x y)`. Use the rules to assign at least two types for each of these terms. Do the
 > values of these expressions have the same types?
 
-$$ \dfrac{\texttt{(type-of «x» $[\texttt{x}=t]tenv$)} = t}
-         {\texttt{(type-of «proc (x) x» $tenv$)} = \texttt{($t$ -> $t$)}} $$
+\\[ \dfrac{\texttt{(type-of «x» $[\texttt{x}=t]tenv$)} = t}
+          {\texttt{(type-of «proc (x) x» $tenv$)} = \texttt{($t$ -> $t$)}} \\]
 
-$$ \dfrac{\dfrac{\dfrac{\eqalign{\texttt{(type-of «x» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
-                                     \texttt{($t_1$ -> $t_2$)} \\\\
-                                 \texttt{(type-of «y» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
-                                     t_1}}
-                       {\texttt{(type-of «(x y)» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} = t_2}}
-                {\texttt{(type-of «proc (y) (x y)» $[\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} =
-                             \texttt{($t_1$ -> $t_2$)}}}
-         {\texttt{(type-of «proc (x) proc (y) (x y)» $tenv$)} = \texttt{($t_1$ -> $t_2$) -> ($t_1$ -> $t_2$)}} $$
+\\[ \dfrac{\dfrac{\dfrac{\eqalign{\texttt{(type-of «x» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
+                                      \texttt{($t_1$ -> $t_2$)} \\\\
+                                  \texttt{(type-of «y» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} &=
+                                      t_1}}
+                        {\texttt{(type-of «(x y)» $[\texttt{y}=t_1][\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} = t_2}}
+                 {\texttt{(type-of «proc (y) (x y)» $[\texttt{x}=\texttt{($t_1$ -> $t_2$)}]tenv$)} =
+                              \texttt{($t_1$ -> $t_2$)}}}
+          {\texttt{(type-of «proc (x) proc (y) (x y)» $tenv$)} = \texttt{($t_1$ -> $t_2$) -> ($t_1$ -> $t_2$)}} \\]
 
 The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
 type may be different.
@@ -4644,13 +4644,13 @@ if 1 then -(zero?(1), 4) else 2
 > A `pair` expression creates a pair; an `unpair` expression (like exercise 3.18) binds its two variables to the two
 > parts of the expression; the scope of these variables is `body`. The typing rules for `pair` and `unpair` are:
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\\\
->                    \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
->           {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} $$
+> \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\\\
+>                     \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
+>            {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} \\]
 >
-> $$ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\\\
->                    \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
->          {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} $$
+> \\[ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\\\
+>                     \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
+>           {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} \\]
 >
 > Extend CHECKED to implement these rules. In `type-to-external-form`, produce the list
 > `(pairof` *t*<sub>1</sub> *t*<sub>2</sub>`)` for a pair type.
@@ -4678,20 +4678,20 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 >
 > with types given by the following four rules:
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
->                    \texttt{(type-of $e_2$ $tenv$)} &= t \\\\
->                                                    &⋮ \\\\
->                    \texttt{(type-of $e_n$ $tenv$)} &= t}}
->          {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} $$
+> \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
+>                     \texttt{(type-of $e_2$ $tenv$)} &= t \\\\
+>                                                     &⋮ \\\\
+>                     \texttt{(type-of $e_n$ $tenv$)} &= t}}
+>           {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} \\]
 >
-> $$ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
->                    \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
->          {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} $$
+> \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
+>                     \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
+>           {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} \\]
 >
-> $$ \dfrac{\texttt{(type-of $e_1$ $tenv$)} = \texttt{listof $t$}}
->          {\texttt{(type-of «null?($e_1$)» $tenv$)} = \texttt{bool}} $$
+> \\[ \dfrac{\texttt{(type-of $e_1$ $tenv$)} = \texttt{listof $t$}}
+>           {\texttt{(type-of «null?($e_1$)» $tenv$)} = \texttt{bool}} \\]
 >
-> $$ \texttt{(type-of «emptylist[$t$]» $tenv$)} = \texttt{listof $t$} $$
+> \\[ \texttt{(type-of «emptylist[$t$]» $tenv$)} = \texttt{listof $t$} \\]
 >
 > Although `cons` is similar to `pair`, it has a very different typing rule.
 >
@@ -4768,10 +4768,10 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
 > 3. `let p = zero?(1) in if p then 88 else 99`
 > 4. `let p = proc (z) z in if p then 88 else 99`
 
-$$ \begin{alignat}{2}
-       \texttt{(let-exp $var$ $e_1$ $body$)} &: & t_{var}  &= t_{e_1} \\\\
-                                             &  & t_{body} &= t_\texttt{(let-exp $var$ $e_1$ $body$)}
-   \end{alignat} $$
+\\[ \begin{alignat}{2}
+        \texttt{(let-exp $var$ $e_1$ $body$)} &: & t_{var}  &= t_{e_1} \\\\
+                                              &  & t_{body} &= t_\texttt{(let-exp $var$ $e_1$ $body$)}
+    \end{alignat} \\]
 
 1. `let x = 4 in (x 3)`
 
@@ -4829,13 +4829,13 @@ The parameter `x` of `odd` should be of type `int`.
 >       in (odd 13)
 >    ```
 
-$$ \begin{alignat}{2}
-       \texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)} &: & t_{pname_1}    &= \texttt{($t_{bvar_1}$ -> $t_{pbody_1}$)} \\\\
-                                                                     &  & t_{pname_2}    &= \texttt{($t_{bvar_2}$ -> $t_{pbody_2}$)} \\\\
-                                                                     &  &                &⋮ \\\\
-                                                                     &  & t_{pname_n}    &= \texttt{($t_{bvar_n}$ -> $t_{pbody_n}$)} \\\\
-                                                                     &  & t_{letrecbody} &= t_\texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)}
-   \end{alignat} $$
+\\[ \begin{alignat}{2}
+        \texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)} &: & t_{pname_1}    &= \texttt{($t_{bvar_1}$ -> $t_{pbody_1}$)} \\\\
+                                                                      &  & t_{pname_2}    &= \texttt{($t_{bvar_2}$ -> $t_{pbody_2}$)} \\\\
+                                                                      &  &                &⋮ \\\\
+                                                                      &  & t_{pname_n}    &= \texttt{($t_{bvar_n}$ -> $t_{pbody_n}$)} \\\\
+                                                                      &  & t_{letrecbody} &= t_\texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)}
+    \end{alignat} \\]
 
 1. ```
    letrec ? f (x : ?)

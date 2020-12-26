@@ -58,19 +58,19 @@ mime under a button base on the numbers that you recovered. That is an algorithm
 ##### 1.2-2
 
 > Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size *n*,
-> insertion sort runs in $8 n^2$ steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
+> insertion sort runs in \\(8 n^2\\) steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
 > insertion sort beat merge sort?
 
-We can solve $8 n^2 < 64 n \lg n$ for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *n*. With the help of
+We can solve \\(8 n^2 < 64 n \lg n\\) for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *n*. With the help of
 [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5Bn+%3C+8+Log%5B2,+n%5D,+n%5D), we know that
 1.1 < *n* < 43.5593. So for *n* ∈ [2, 43], insertion sort beats merge sort.
 
 ##### 1.2-3
 
-> What is the smallest value of *n* such that an algorithm whose running time is $100 n^2$ runs faster than an algorithm
-> whose running time is $2^n$ on the same machine?
+> What is the smallest value of *n* such that an algorithm whose running time is \\(100 n^2\\) runs faster than an algorithm
+> whose running time is \\(2^n\\) on the same machine?
 
-Solve $100 n^2 < 2^n$ for *n*
+Solve \\(100 n^2 < 2^n\\) for *n*
 (using [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5B100+n+%5E+2+%3C+2+%5E+n,+n%5D)), we get
 -0.096704 < *n* < 0.103658 or *n* > 14.3247, so the smallest value of *n* is 0.
 
@@ -83,35 +83,35 @@ Question: Should I only consider positive integer values for *n*?
 > For each function *f*(*n*) and time *t* in the following table, determine the largest size *n* of a problem
 > that can be solved in time *t*, assuming that the algorithm to solve the problem takes *f*(*n*) microseconds.
 >
-> |            | 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
-> | ---------- | -------- | -------- | ------ | ----- | ------- | ------ | --------- |
-> | $\lg n$    |          |          |        |       |         |        |           |
-> | $\sqrt{n}$ |          |          |        |       |         |        |           |
-> | *n*        |          |          |        |       |         |        |           |
-> | $n \lg n$  |          |          |        |       |         |        |           |
-> | $n^2$      |          |          |        |       |         |        |           |
-> | $n^3$      |          |          |        |       |         |        |           |
-> | $2^n$      |          |          |        |       |         |        |           |
-> | $n!$       |          |          |        |       |         |        |           |
+> |                | 1 second | 1 minute | 1 hour | 1 day | 1 month | 1 year | 1 century |
+> | -------------- | -------- | -------- | ------ | ----- | ------- | ------ | --------- |
+> | lg *n*         |          |          |        |       |         |        |           |
+> | \\(\sqrt{n}\\) |          |          |        |       |         |        |           |
+> | *n*            |          |          |        |       |         |        |           |
+> | *n* lg *n*     |          |          |        |       |         |        |           |
+> | \\(n^2\\)      |          |          |        |       |         |        |           |
+> | \\(n^3\\)      |          |          |        |       |         |        |           |
+> | \\(2^n\\)      |          |          |        |       |         |        |           |
+> | *n*!           |          |          |        |       |         |        |           |
 
-- 1 second = $10^6$ microseconds
-- 1 minute = 6 × $10^7$ microseconds
-- 1 hour = 3.6 × $10^9$ microseconds
-- 1 day = 8.64 × $10^{10}$ microseconds
-- 1 month = 2.628 × $10^{12}$ microseconds
-- 1 year = 3.154 × $10^{13}$ microseconds
-- 1 century = 3.156 × $10^{15}$ microseconds
+- 1 second = \\(10^6\\) microseconds
+- 1 minute = 6 × \\(10^7\\) microseconds
+- 1 hour = 3.6 × \\(10^9\\) microseconds
+- 1 day = 8.64 × \\(10^{10}\\) microseconds
+- 1 month = 2.628 × \\(10^{12}\\) microseconds
+- 1 year = 3.154 × \\(10^{13}\\) microseconds
+- 1 century = 3.156 × \\(10^{15}\\) microseconds
 
-|            | 1 second           | 1 minute             | 1 hour                 | 1 day                  | 1 month                  | 1 year                   | 1 century                |
-| ---------- | ------------------ | -------------------- | ---------------------- | ---------------------- | ------------------------ | ------------------------ | ------------------------ |
-| $\lg n$    | $10^{301029.9957}$ | $10^{18061799.7398}$ | $10^{1083707984.3903}$ | $10^{26008991625.368}$ | $10^{791106828604.9426}$ | $10^{9494486063241.967}$ | $10^{950050666315524.8}$ |
-| $\sqrt{n}$ | $10^{12}$          | $10^{15.5563}$       | $10^{19.1126}$         | $10^{21.873}$          | $10^{24.8393}$           | $10^{26.9977}$           | $10^{30.9983}$           |
-| $n$        | $10^{6}$           | $10^{7.7782}$        | $10^{9.5563}$          | $10^{10.9365}$         | $10^{12.4196}$           | $10^{13.4989}$           | $10^{15.4991}$           |
-| $n \lg n$  | $10^{4.7976}$      | $10^{6.4474}$        | $10^{8.1251}$          | $10^{9.4401}$          | $10^{10.8623}$           | $10^{11.9019}$           | $10^{13.8367}$           |
-| $n^2$      | $10^{3}$           | $10^{3.8891}$        | $10^{4.7782}$          | $10^{5.4683}$          | $10^{6.2098}$            | $10^{6.7494}$            | $10^{7.7496}$            |
-| $n^3$      | $10^{2}$           | $10^{2.5927}$        | $10^{3.1854}$          | $10^{3.6455}$          | $10^{4.1399}$            | $10^{4.4996}$            | $10^{5.1664}$            |
-| $2^n$      | $10^{1.2995}$      | $10^{1.4123}$        | $10^{1.5017}$          | $10^{1.5603}$          | $10^{1.6155}$            | $10^{1.6517}$            | $10^{1.7117}$            |
-| $n!$       | $10^{0.9636}$      | $10^{1.0432}$        | $10^{1.0984}$          | $10^{1.1458}$          | $10^{1.178}$             | $10^{1.205}$             | $10^{1.2421}$            |
+|                | 1 second               | 1 minute                 | 1 hour                     | 1 day                      | 1 month                      | 1 year                       | 1 century                    |
+| -------------- | ---------------------- | ------------------------ | -------------------------- | -------------------------- | ---------------------------- | ---------------------------- | ---------------------------- |
+| lg *n*         | \\(10^{301029.9957}\\) | \\(10^{18061799.7398}\\) | \\(10^{1083707984.3903}\\) | \\(10^{26008991625.368}\\) | \\(10^{791106828604.9426}\\) | \\(10^{9494486063241.967}\\) | \\(10^{950050666315524.8}\\) |
+| \\(\sqrt{n}\\) | \\(10^{12}\\)          | \\(10^{15.5563}\\)       | \\(10^{19.1126}\\)         | \\(10^{21.873}\\)          | \\(10^{24.8393}\\)           | \\(10^{26.9977}\\)           | \\(10^{30.9983}\\)           |
+| *n*            | \\(10^{6}\\)           | \\(10^{7.7782}\\)        | \\(10^{9.5563}\\)          | \\(10^{10.9365}\\)         | \\(10^{12.4196}\\)           | \\(10^{13.4989}\\)           | \\(10^{15.4991}\\)           |
+| *n* lg *n*     | \\(10^{4.7976}\\)      | \\(10^{6.4474}\\)        | \\(10^{8.1251}\\)          | \\(10^{9.4401}\\)          | \\(10^{10.8623}\\)           | \\(10^{11.9019}\\)           | \\(10^{13.8367}\\)           |
+| \\(n^2\\)      | \\(10^{3}\\)           | \\(10^{3.8891}\\)        | \\(10^{4.7782}\\)          | \\(10^{5.4683}\\)          | \\(10^{6.2098}\\)            | \\(10^{6.7494}\\)            | \\(10^{7.7496}\\)            |
+| \\(n^3\\)      | \\(10^{2}\\)           | \\(10^{2.5927}\\)        | \\(10^{3.1854}\\)          | \\(10^{3.6455}\\)          | \\(10^{4.1399}\\)            | \\(10^{4.4996}\\)            | \\(10^{5.1664}\\)            |
+| \\(2^n\\)      | \\(10^{1.2995}\\)      | \\(10^{1.4123}\\)        | \\(10^{1.5017}\\)          | \\(10^{1.5603}\\)          | \\(10^{1.6155}\\)            | \\(10^{1.6517}\\)            | \\(10^{1.7117}\\)            |
+| *n*!           | \\(10^{0.9636}\\)      | \\(10^{1.0432}\\)        | \\(10^{1.0984}\\)          | \\(10^{1.1458}\\)          | \\(10^{1.178}\\)             | \\(10^{1.205}\\)             | \\(10^{1.2421}\\)            |
 
 The table is generated using following JavaScript code:
 
@@ -149,35 +149,35 @@ function generateTable() {
 
     const algorithms = [
         {
-            label: "$\\lg n$",
+            label: "lg *n*",
             func: (t) => Math.log10(2) * t
         },
         {
-            label: "$\\sqrt{n}$",
+            label: "\\\\(\\\\sqrt{n}\\\\)",
             func: (t) => Math.log10(t) * 2
         },
         {
-            label: "$n$",
+            label: "*n*",
             func: (t) => Math.log10(t)
         },
         {
-            label: "$n \\lg n$",
+            label: "*n* lg *n*",
             func: (t) => binarySearch(n => n * Math.pow(10, n) * Math.log2(10), t)
         },
         {
-            label: "$n^2$",
+            label: "\\\\(n^2\\\\)",
             func: (t) => Math.log10(t) / 2
         },
         {
-            label: "$n^3$",
+            label: "\\\\(n^3\\\\)",
             func: (t) => Math.log10(t) / 3
         },
         {
-            label: "$2^n$",
+            label: "\\\\(2^n\\\\)",
             func: (t) => Math.log10(Math.log2(t))
         },
         {
-            label: "$n!$",
+            label: "*n*!",
             func: function (t) {
                 // TODO: use the Γ function (use Stirling's approximation?).
                 function fact(n) {
@@ -238,7 +238,7 @@ function generateTable() {
         result += `| ${algorithm.label} |`;
 
         for (const time of times) {
-            result += ` $10^{${normalize(algorithm.func(time.microseconds))}}$ |`;
+            result += ` \\\\(10^{${normalize(algorithm.func(time.microseconds))}}\\\\) |`;
         }
 
         result += "\n";
@@ -268,7 +268,7 @@ Just change *A*[*i*] > *key* to *A*[*i*] < *key* in the original code.
 
 > Consider the ***searching problem***:
 >
-> **Input**: A sequence of *n* numbers *A* = ⟨$a_1$, $a_2$, …, $a_n$⟩ and a value *v*.
+> **Input**: A sequence of *n* numbers *A* = ⟨\\(a_1\\), \\(a_2\\), …, \\(a_n\\)⟩ and a value *v*.
 >
 > **Output**: An index *i* such that *v* = *A*[*i*] or the special value *nil* if *v* does not appear in *A*.
 >
@@ -299,7 +299,7 @@ element in *A*, we will find it.
 
 Problem: Array *A* and *B* only contain elements of 0 and 1, and *A*.*length* == *B*.*length* == *n*. Array *C* that
 have length *n* + 1. Rewrite the elements in *C* so that *C* only contains 0s and 1s, and
-$∑_{i=1}^n A[i] × 2^{n - i} + ∑_{i=1}^n B[i] × 2^{n - i} = ∑_{i=1}^{n + 1} C[i] × 2^{n + 1 - i}$.
+\\(∑_{i=1}^n A[i] × 2^{n - i} + ∑_{i=1}^n B[i] × 2^{n - i} = ∑_{i=1}^{n + 1} C[i] × 2^{n + 1 - i}\\).
 
 Pseudocode:
 
@@ -316,9 +316,9 @@ Pseudocode:
 
 ##### 2.2-1
 
-> Express the function $n^3/1000 - 100 n^2 - 100 n + 3$ in terms of Θ-notation.
+> Express the function \\(n^3/1000 - 100 n^2 - 100 n + 3\\) in terms of Θ-notation.
 
-$Θ\left(n^3\right)$.
+\\(Θ\left(n^3\right)\\).
 
 ##### 2.2-2
 
@@ -338,7 +338,7 @@ The loop invariant: at the start of each iteration of loop, The first *i* elemen
 It only need to run for first *n* - 1 elements because after the loop, we have rearrange the smallest *n* - 1 elements,
 to the front of *A*, so the last element must be the biggest one, so the whole array is ordered.
 
-Best-case and worst-case running times are both $Θ\left(n^2\right)$.
+Best-case and worst-case running times are both \\(Θ\left(n^2\right)\\).
 
 ##### 2.2-3
 
@@ -381,18 +381,17 @@ for implementation.
 
 > Use mathematical induction to show that when *n* is an exact power of 2, the solution of the recurrence
 >
-> $T\left(n\right) = \begin{cases}
+> \\(T\left(n\right) = \begin{cases}
 > 2                         &\text{if } n = 2 \\\\
 > 2 T\left(n / 2\right) + n &\text{if } n = 2^k, \text{ for } k > 1
-> \end{cases}$
+> \end{cases}\\)
 >
-> is $T\left(n\right) = n \lg n$.
+> is *T*(*n*) = *n* lg *n*.
 
-- Base case: If $n = 2$, $T\left(n\right) = 2$. Since $n \lg n = 2 \lg 2 = 2$, $T\left(n\right) = n \lg n$, so the claim
-  holds.
-- Inductive case: If $n > 2$, $T\left(n\right) = 2 T\left(n / 2\right) + n$, by induction, we know that
-  $T\left(n / 2\right) = \left(n / 2\right) \lg \left(n / 2\right)$, so
-  $T\left(n\right) = 2 \left(n / 2\right) \lg \left(n / 2\right) + n = n \lg \left(n / 2\right) + n = n \left(\lg n - 1\right) + n = n \lg n$,
+- Base case: If *n* = 2, *T*(*n*) = 2. Since *n* lg *n* = 2 lg 2 = 2, *T*(*n*) = *n* lg *n*, so the claim holds.
+- Inductive case: If *n* > 2, *T*(*n*) = 2 *T*(*n* / 2) + *n*, by induction, we know that
+  *T*(*n* / 2) = (*n* / 2) lg (*n* / 2), so
+  *T*(*n*) = 2 (*n* / 2) lg (*n* / 2) + *n* = *n* lg (*n* / 2) + *n* = *n* (lg *n* - 1) + *n* = *n* lg *n*,
   The claim holds.
 
 ##### 2.3-4
@@ -405,10 +404,10 @@ See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
 for implementation.
 
-$$T\left(n\right) = \begin{cases}
+\\[T\left(n\right) = \begin{cases}
     1 &\text{if $n < 2$} \\\\
-    T(n - 1) + Θ\left(n\right) &\text{if $n >= 2$}
-\end{cases}$$
+    T(n - 1) + Θ\left(n\right) &\text{if $n >= 2$)}
+\end{cases}\\]
 
 ##### 2.3-5
 
@@ -439,13 +438,13 @@ for implementation.
 
 After each iteration, the length of the searching range reduces by half, until the range is empty. So we have:
 
-*T*(*n*) = $c_1$, if *n* = 0;\
-*T*(*n*) = *T*(*n* / 2) + $c_2$, if *n* > 0.
+*T*(*n*) = \\(c_1\\), if *n* = 0;\
+*T*(*n*) = *T*(*n* / 2) + \\(c_2\\), if *n* > 0.
 
 We prove *T*(*n*) = Θ(lg *n*) by induction:
 
 - If *n* = 0, Θ(lg *n*) = Θ(lg 0) = Θ(-∞), … Not sure how to go from here.
-- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + $c_2$ = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
+- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + \\(c_2\\) = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
   so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*) - 1) = Θ(lg *n*).
 
 ##### 2.3-6
@@ -470,29 +469,29 @@ for implementations.
 
 ##### 2-1 Insertion sort on small arrays in merge sort
 
-> Although merge sort runs in $Θ\left(n \lg n\right)$ worst-case time and insertion sort runs in $Θ\left(n^2\right)$
+> Although merge sort runs in Θ(*n* lg *n*) worst-case time and insertion sort runs in \\(Θ\left(n^2\right)\\)
 > worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many
 > machines. Thus, it makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort
-> when subproblems become sufficiently small. Consider a modification to merge sort in which $n / k$ sublists of length
+> when subproblems become sufficiently small. Consider a modification to merge sort in which *n* / *k* sublists of length
 > *k* are sorted using insertion sort and then merged using the standard merging mechanism, where *k* is a value to be
 > determined.
 >
-> 1. Show that insertion sort can sort the $n / k$ sublists, each of length *k*, in $Θ\left(n k\right)$ worst-case
+> 1. Show that insertion sort can sort the *n* / *k* sublists, each of length *k*, in Θ(*n* *k*) worst-case
 >    time.
-> 2. Show how to merge the sublists in $Θ\left(n \lg \left(n / k\right)\right)$ worst-case time.
-> 3. Given that the modified algorithm runs in $Θ\left(n k + n \lg \left(n / k\right)\right)$ worst-case time, what is
+> 2. Show how to merge the sublists in Θ(*n* lg (*n* / *k*)) worst-case time.
+> 3. Given that the modified algorithm runs in Θ(*n* *k* + *n* lg (*n* / *k*)) worst-case time, what is
 >    the largest value of *k* as a function of *n* for which the modified algorithm has the same running time as
->    standard merge sort, in terms of $Θ$-notation?
+>    standard merge sort, in terms of Θ-notation?
 > 4. How should we choose *k* in practice?
 
-1. Sort a sublist of length *k* takes $k^2$ time, so sorting $n / k$ sublists takes
-   $\left(n / k\right) Θ\left(k^2\right) = Θ\left(\left(n / k\right) k^2\right) = Θ\left(n k\right)$ time.
-2. Assume merging *n* sublists takes $T(n)$ time, we have $T\left(n\right) = 2 T\left(n\right) + c_1 n$, if $n > 1$.
-   Also, $T\left(n\right) = c_2$, if $n = 1$. Notice this is the same as equation 2.1 and 2.2. So we have
-   $T\left(n\right) = Θ\left(n \lg n\right)$. So merging $n / k$ sublists takes
-   $T\left(n / k\right) = Θ\left(\left(n / k\right) \lg \left(n / k\right)\right) = Θ\left(n \lg \left(n / k\right)\right)$.
-3. We need to solve the equation $n k + n \lg \left(n / k\right) < c n \lg \left(n\right)$. We can get
-   $k - \lg k < \left(c-1\right) \lg n$ from it. I think $k < Θ\left(\lg n\right)$, but I can’t prove it.
+1. Sort a sublist of length *k* takes \\(k^2\\) time, so sorting *n* / *k* sublists takes
+   (*n* / *k*) Θ(\\(k^2\\)) = Θ((*n* / *k*) \\(k^2\\)) = Θ(*n* *k*) time.
+2. Assume merging *n* sublists takes *T*(*n*) time, we have *T*(*n*) = 2 *T*(*n*) + \\(c_1\\) *n*, if *n* > 1.
+   Also, *T*(*n*) = \\(c_2\\), if *n* = 1. Notice this is the same as equation 2.1 and 2.2. So we have
+   *T*(*n*) = Θ(*n* lg *n*). So merging *n* / *k* sublists takes
+   *T*(*n* / *k*) = Θ((*n* / *k*) lg (*n* / *k*)) = Θ(*n* lg (*n* / *k*)).
+3. We need to solve the equation *n* *k* + *n* lg (*n* / *k*) < *c* *n* lg (*n*). We can get
+   *k* - lg *k* < (*c* - 1) lg *n* from it. I think *k* < Θ(lg *n*), but I can’t prove it.
 4. With benchmarks and profiling.
 
 ##### 2-2 Correctness of bubblesort
@@ -555,24 +554,24 @@ for implementations.
    - **Termination:** After termination, *i* = *A*.*length*, and *A*[1‥*A*.*length* - 1] contains the smallest
      *A*.*length* - 1 elements in sorted order, so we know *A*[*A*.*length* - 1] ≤ *A*[*A*.*length*], so the whole
      array is sorted.
-4. Worst-case running time is $Θ\left(n^2\right)$, it is the same as insertion sort. But insertion sort have a
-   best-case running time which is $Θ\left(n\right)$, while the best-case running time of bubble sort is still
-   $Θ\left(n^2\right)$.
+4. Worst-case running time is \\(Θ\left(n^2\right)\\), it is the same as insertion sort. But insertion sort have a
+   best-case running time which is Θ(*n*), while the best-case running time of bubble sort is still
+   \\(Θ\left(n^2\right)\\).
 
 ##### 2-3 Correctness of Horner’s rule
 
 > The following code fragment implements Horner’s rule for evaluating a polynomial
 >
-> $\begin{aligned}
+> \\(\begin{aligned}
 > P\left(x\right) &= ∑_{k=0}^n a_k x^k \\\\
 > &=a_0 + x\left(a_1 + x\left(a_2 + … + x\left(a_{n - 1} + x a_n\right) …\right)\right),
-> \end{aligned}$
+> \end{aligned}\\)
 >
-> given the coefficients $a_0$, $a_1$, …, $a_n$ and a value for *x*:
+> given the coefficients \\(a_0\\), \\(a_1\\), …, \\(a_n\\) and a value for *x*:
 >
 > 1. *y* = 0
 > 2. **for** *i* = *n* **downto** 0
-> 3. &nbsp;&nbsp;&nbsp;&nbsp;*y* = $a_i$ + *x* ⋅ *y*
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;*y* = \\(a_i\\) + *x* ⋅ *y*
 >
 > 1) In terms of Θ-notation, what is the running time of this code fragment for Horner’s rule?
 > 2) Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial
@@ -581,12 +580,12 @@ for implementations.
 >
 >    At the start of each iteration of the **for** loop of lines 2–3,
 >
->    $y = \displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k$.
+>    \\(y = \displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\\).
 >
 >    Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in
->    this chapter, use this loop invariant to show that, at termination, $y = ∑_{k = 0}^n a_k x^k$.
+>    this chapter, use this loop invariant to show that, at termination, \\(y = ∑_{k = 0}^n a_k x^k\\).
 > 4) Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients
->    $a_0$, $a_1$, …, $a_n$.
+>    \\(a_0\\), \\(a_1\\), …, \\(a_n\\).
 
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_3_correctness_of_horners_rule.rs)
@@ -597,26 +596,26 @@ for implementation.
 
    1. *y* = 0
    2. **for** *i* = 0 **to** *n*
-   3. &nbsp;&nbsp;&nbsp;&nbsp;*p* = $a_i$
+   3. &nbsp;&nbsp;&nbsp;&nbsp;*p* = \\(a_i\\)
    4. &nbsp;&nbsp;&nbsp;&nbsp;**for** *j* = 0 **to** *i*
    5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*p* = *p* ⋅ *x*
    6. &nbsp;&nbsp;&nbsp;&nbsp;*y* = *y* + *p*
 
-   The running time of this algorithm is $Θ\left(n^2\right)$. It takes more time than Horner’s rule.
+   The running time of this algorithm is \\(Θ\left(n^2\right)\\). It takes more time than Horner’s rule.
 3. Proof:
 
    - **Initialization:** Before the first iteration, *i* = *n*,
-     $y = ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
+     \\(y = ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
      = ∑_{k = 0}^{-1} a_{k + n + 1} x^k
-     = 0$, so the claim holds.
-   - **Maintenance:** After line 3, $y' = a_i + x ⋅ y
+     = 0\\), so the claim holds.
+   - **Maintenance:** After line 3, \\(y' = a_i + x ⋅ y
      = a_i + x \left(∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\right)
      = a_i ⋅ x^0 + ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^{k + 1}
      = a_i ⋅ x^0 + ∑_{k = 1}^{n - i} a_{k + i} x^k
-     = ∑_{k = 0}^{n - i} a_{k + i} x^k$. After decreasing *i*, the claim holds.
+     = ∑_{k = 0}^{n - i} a_{k + i} x^k\\). After decreasing *i*, the claim holds.
    - **Termination:** At termination, *i* = -1, so
-     $y = ∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
-     = ∑_{k = 0}^n a_k x^k$.
+     \\(y = ∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
+     = ∑_{k = 0}^n a_k x^k\\).
 4. I thought I have proved it at step 3.
 
 ##### 2-4 Inversions
@@ -635,8 +634,8 @@ for implementation.
 2. The array ⟨*n*, …, 2, 1⟩ has the most inversions. It has *n* × (*n* - 1) / 2 inversions.
 3. Let *k* be the inversion of an array, the the running time of insertion sort on it is Θ(*k*).
 
-   Let $k_i$ be the numbers of inversions whose second element is *i*. The total sorting time is
-   $∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)$.
+   Let \\(k_i\\) be the numbers of inversions whose second element is *i*. The total sorting time is
+   \\(∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)\\).
 4. See
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_4_inversions.rs)
    for implementation.
@@ -647,11 +646,11 @@ for implementation.
 
 | Notation                 | Definition                                                                                       |
 | ------------------------ | ------------------------------------------------------------------------------------------------ |
-| *f*(*n*) = *O*(*g*(*n*)) | ∃ *c* > 0, $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *f*(*n*) ≤ *c* *g*(*n*)                                 |
-| *f*(*n*) = Ω(*g*(*n*))   | ∃ *c* > 0, $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *c* *g*(*n*) ≤ *f*(*n*)                                 |
-| *f*(*n*) = Θ(*g*(*n*))   | ∃ $c_1$ > 0, $c_2$ > 0, $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ $c_1$ *g*(*n*) ≤ *f*(*n*) ≤ $c_2$ *g*(*n*) |
-| *f*(*n*) = *o*(*g*(*n*)) | ∀ *c* > 0: ∃ $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *f*(*n*) < *c* *g*(*n*)                               |
-| *f*(*n*) = *ω*(*g*(*n*)) | ∀ *c* > 0: ∃ $n_0$ > 0: ∀ *n* ≥ $n_0$: 0 ≤ *c* *g*(*n*) < *f*(*n*)                               |
+| *f*(*n*) = *O*(*g*(*n*)) | ∃ *c* > 0, \\(n_0\\) > 0: ∀ *n* ≥ \\(n_0\\): 0 ≤ *f*(*n*) ≤ *c* *g*(*n*)                                 |
+| *f*(*n*) = Ω(*g*(*n*))   | ∃ *c* > 0, \\(n_0\\) > 0: ∀ *n* ≥ \\(n_0\\): 0 ≤ *c* *g*(*n*) ≤ *f*(*n*)                                 |
+| *f*(*n*) = Θ(*g*(*n*))   | ∃ \\(c_1\\) > 0, \\(c_2\\) > 0, \\(n_0\\) > 0: ∀ *n* ≥ \\(n_0\\): 0 ≤ \\(c_1\\) *g*(*n*) ≤ *f*(*n*) ≤ \\(c_2\\) *g*(*n*) |
+| *f*(*n*) = *o*(*g*(*n*)) | ∀ *c* > 0: ∃ \\(n_0\\) > 0: ∀ *n* ≥ \\(n_0\\): 0 ≤ *f*(*n*) < *c* *g*(*n*)                               |
+| *f*(*n*) = *ω*(*g*(*n*)) | ∀ *c* > 0: ∃ \\(n_0\\) > 0: ∀ *n* ≥ \\(n_0\\): 0 ≤ *c* *g*(*n*) < *f*(*n*)                               |
 
 ##### 3.1-1
 
@@ -673,37 +672,37 @@ So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + 
 
 > Show that for any real constants *a* and *b*, where *b* > 0,
 >
-> $\left(n + a\right)^b = Θ\left(n^b\right)$. (3.2)
+> \\(\left(n + a\right)^b = Θ\left(n^b\right)\\). (3.2)
 
-We want to find constant $c_1$, $c_2$ and $n_0$ so that if $n > n_0$, $c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$.
+We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if \\(n > n_0\\), \\(c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b\\).
 
-$c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b$\
-⇔ $\left({c_1}^{1 / b}\right)^b n^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b}\right)^b n^b$\
-⇔ $\left({c_1}^{1 / b} n\right)^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b} n\right)^b$\
-⇔ ${c_1}^{1 / b} n ≤ n + a ≤ {c_2}^{1 / b} n$\
-⇔ ${c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n$\
-⇔ $\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n$
+\\(c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b\\)\
+⇔ \\(\left({c_1}^{1 / b}\right)^b n^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b}\right)^b n^b\\)\
+⇔ \\(\left({c_1}^{1 / b} n\right)^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b} n\right)^b\\)\
+⇔ \\({c_1}^{1 / b} n ≤ n + a ≤ {c_2}^{1 / b} n\\)\
+⇔ \\({c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n\\)\
+⇔ \\(\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n\\)
 
-We need *n* to be greater than some $n_0$, so we should have ${c_1}^{1 / b} - 1 < 0$, and ${c_2}^{1 / b} - 1 > 0$, then
-we have $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, and $n ≥ \frac{a}{ {c_1}^{1 / b} - 1}$, i.e.
-$n ≥ \max\left(\frac{a}{ {c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)$.
-Let $c_1 = \left(\frac{1}{2}\right)^b$, $c_2 = 2^b$, we have $n ≥ \max\left(-2 a, a\right)$. So $n_0$ can be
-$\max\left(-2 a, a\right)$.
+We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b} - 1 < 0\\), and \\({c_2}^{1 / b} - 1 > 0\\), then
+we have \\(n ≥ \frac{a}{ {c_1}^{1 / b} - 1}\\), and \\(n ≥ \frac{a}{ {c_1}^{1 / b} - 1}\\), i.e.
+\\(n ≥ \max\left(\frac{a}{ {c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\).
+Let \\(c_1 = \left(\frac{1}{2}\right)^b\\), \\(c_2 = 2^b\\), we have *n* ≥ max(-2 *a*, *a*). So \\(n_0\\) can be
+max(-2 *a*, *a*).
 
-Formally, for any $n > \max\left(-2 a, a\right)$,
-$\left(\frac{1}{2}\right)^b n^b ≤ \left(n + a\right)^b ≤ 2^b n^b$, $\left(n + a\right)^b = Θ(n^b)$.
+Formally, for any *n* > max(-2 *a*, *a*),
+\\(\left(\frac{1}{2}\right)^b n^b ≤ \left(n + a\right)^b ≤ 2^b n^b\\), \\(\left(n + a\right)^b = Θ(n^b)\\).
 
 ##### 3.1-3
 
-> Explain why the statement, “The running time of algorithm *A* is at least $O\left(n^2\right)$,” is meaningless.
+> Explain why the statement, “The running time of algorithm *A* is at least \\(O\left(n^2\right)\\),” is meaningless.
 
 It is like saying *x* is at least less than or equal to 10.
 
 ##### 3.1-4
 
-> Is $2^{n + 1} = O\left(2 ^ n\right)$? Is $2^{2 n} = O\left(2^n\right)$?
+> Is \\(2^{n + 1} = O\left(2 ^ n\right)\\)? Is \\(2^{2 n} = O\left(2^n\right)\\)?
 
-$2^{n + 1} = 2 × 2^n = O\left(2 ^ n\right)$, $2^{2 n} = \left(2^n\right)^2 ≠ O\left(2^n\right)$.
+\\(2^{n + 1} = 2 × 2^n = O\left(2 ^ n\right)\\), \\(2^{2 n} = \left(2^n\right)^2 ≠ O\left(2^n\right)\\).
 
 ##### 3.1-5
 
@@ -750,16 +749,16 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
 > We can extend our notation to the case of two parameters *n* and *m* that can go to infinity independently at
 > different rates. For a given function *g*(*n*, *m*), we denote by *O*(*g*(*n*, *m*)) the set of functions
 >
-> *O*(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, $n_0$, and $m_0$ such that
-> 0 ≤ *f*(*n*, *m*) ≤ *c* *g*(*n*, *m*) for all *n* ≥ $n_0$ or *m* ≥ $m_0$ }.
+> *O*(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
+> 0 ≤ *f*(*n*, *m*) ≤ *c* *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
 >
 > Give corresponding definitions for Ω(*g*(*n*, *m*)) and Θ(*g*(*n*, *m*)).
 
-Ω(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, $n_0$, and $m_0$ such that
-0 ≤ *c* *g*(*n*, *m*) ≤ *f*(*n*, *m*) for all *n* ≥ $n_0$ or *m* ≥ $m_0$ }.
+Ω(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
+0 ≤ *c* *g*(*n*, *m*) ≤ *f*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
 
-Θ(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants $c_1$, $c_2$, $n_0$, and $m_0$ such that
-0 ≤ $c_1$ *g*(*n*, *m*) ≤ *f*(*n*, *m*) ≤ $c_2$ *g*(*n*, *m*) for all *n* ≥ $n_0$ or *m* ≥ $m_0$ }.
+Θ(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants \\(c_1\\), \\(c_2\\), \\(n_0\\), and \\(m_0\\) such that
+0 ≤ \\(c_1\\) *g*(*n*, *m*) ≤ *f*(*n*, *m*) ≤ \\(c_2\\) *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
 
 #### 3.2 Standard notations and common functions
 
@@ -780,37 +779,37 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
 
 > Prove equation (3.16).
 
-$a^{\log_b c} = \left(c^{\log_c a}\right)^{\log_b c} = c^{\left(\log_c a\right)\left(\log_b c\right)} = c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}} = c^{\frac{\ln a}{\ln b}} = c^{\log_b a}$.
+\\(a^{\log_b c} = \left(c^{\log_c a}\right)^{\log_b c} = c^{\left(\log_c a\right)\left(\log_b c\right)} = c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}} = c^{\frac{\ln a}{\ln b}} = c^{\log_b a}\\).
 
 ##### 3.2-3
 
-> Prove equation (3.19). Also prove that *n*! = *ω*($2^n$) and *n*! = *o*($n^n$).
+> Prove equation (3.19). Also prove that *n*! = *ω*(\\(2^n\\)) and *n*! = *o*(\\(n^n\\)).
 
 Proving equation (3.19):
 
 According to equation (3.18), we know that
 
-$\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)$
+\\(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\\)
 
 So
 
-$\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)$\
-⇒ $\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
-⇒ $n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
-⇒ $n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
-⇒ $n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)$\
-⇒ $n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln \left(n!\right) ≤ n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_2}{n}\right)}$.
+\\(\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln \left(n!\right) ≤ n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
 
-So we have $\ln \left(n!\right) = Ω\left(n \ln n\right)$, and $\ln \left(n!\right) = O\left(n \ln n\right)$, so
-$\ln \left(n!\right) = Θ\left(n \ln n\right)$.
+So we have \\(\ln \left(n!\right) = Ω\left(n \ln n\right)\\), and \\(\ln \left(n!\right) = O\left(n \ln n\right)\\), so
+\\(\ln \left(n!\right) = Θ\left(n \ln n\right)\\).
 
-Proving *n*! = *ω*($2^n$):
+Proving *n*! = *ω*(\\(2^n\\)):
 
-$\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) = 2 \lim_{n → ∞}\left(\frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) ≤ 2 \lim_{n → ∞}\left(\frac{2}{n}\right) = 0$.
+\\(\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) = 2 \lim_{n → ∞}\left(\frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) ≤ 2 \lim_{n → ∞}\left(\frac{2}{n}\right) = 0\\).
 
-Proving *n*! = *o*($n^n$):
+Proving *n*! = *o*(\\(n^n\\)):
 
-$\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n} = \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right) ≤ \lim_{n → ∞}\left(\frac{1}{n}\right) = 0$.
+\\(\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n} = \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right) ≤ \lim_{n → ∞}\left(\frac{1}{n}\right) = 0\\).
 
 ##### 3.2-4 ★
 
@@ -820,42 +819,42 @@ $\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 ×
 
 ##### 3.2-5 ★
 
-> Which is asymptotically larger: $\lg \left(\lg^\* n\right)$ or $\lg^\* \left(\lg n\right)$?
+> Which is asymptotically larger: \\(\lg \left(\lg^\* n\right)\\) or \\(\lg^\* \left(\lg n\right)\\)?
 
-By the definition of $\lg^*$, we have
+By the definition of \\(\lg^*\\), we have
 
-$\lg^\* n = \begin{cases}0&n ≤ 1\\\\
-\lg^* \left(\lg n\right) + 1&n > 1\end{cases}$.
+\\(\lg^\* n = \begin{cases}0&n ≤ 1\\\\
+\lg^* \left(\lg n\right) + 1&n > 1\end{cases}\\).
 
-So $\lg^\* n = Θ\left(\lg^\* \left(\lg n\right)\right)$. Because $\lg^\* n$ is asymptotically larger than $\lg \left(\lg^\* n\right)$,
-we know that $\lg^\* \left(\lg n\right)$ is asymptotically larger than $\lg \left(\lg^\* n\right)$.
+So \\(\lg^\* n = Θ\left(\lg^\* \left(\lg n\right)\right)\\). Because \\(\lg^\* n\\) is asymptotically larger than \\(\lg \left(\lg^\* n\right)\\),
+we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\lg \left(\lg^\* n\right)\\).
 
 ##### 3.2-6
 
-> Show that the golden ratio $ϕ$ and its conjugate $\hat{ϕ}$ both satisfy the equation $x^2 = x + 1$.
+> Show that the golden ratio \\(ϕ\\) and its conjugate \\(\hat{ϕ}\\) both satisfy the equation \\(x^2 = x + 1\\).
 
-$ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1$.
+\\(ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1\\).
 
-$\hat{ϕ}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{ϕ} + 1$.
+\\(\hat{ϕ}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{ϕ} + 1\\).
 
 ##### 3.2-7
 
 > Prove by induction that the *i*th Fibonacci number satisfies the equality
 >
-> $F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$,
+> \\(F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\),
 >
-> where $ϕ$ is the golden ratio and $\hat{ϕ}$ is its conjugate.
+> where \\(ϕ\\) is the golden ratio and \\(\hat{ϕ}\\) is its conjugate.
 
 Base cases:
 
-- If *i* = 0, $\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0$, the claim holds.
-- If *i* = 1, $\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{ϕ - \hat{ϕ}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1$, the claim holds.
+- If *i* = 0, \\(\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0\\), the claim holds.
+- If *i* = 1, \\(\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{ϕ - \hat{ϕ}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1\\), the claim holds.
 
 Inductive case:
 
-- By induction, we have $F_{i - 2} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}}$ and $F_{i - 1} = \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}}$.
-  So $F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} \left(1 + ϕ\right) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}$. Base on the conclusion of exercise 3.2-6, we have
-  $1 + ϕ = ϕ^2$ and $1 + \hat{ϕ} = \hat{ϕ}^2$, so $F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}$, the claim holds.
+- By induction, we have \\(F_{i - 2} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} = \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}}\\).
+  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} \left(1 + ϕ\right) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
+  \\(1 + ϕ = ϕ^2\\) and \\(1 + \hat{ϕ} = \hat{ϕ}^2\\), so \\(F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\), the claim holds.
 
 ##### 3.2-8
 
@@ -869,16 +868,16 @@ Inductive case:
 
 > Let
 >
-> $p(n) = \displaystyle ∑_{i=0}^d a_i n^i$,
+> \\(p(n) = \displaystyle ∑_{i=0}^d a_i n^i\\),
 >
-> where $a_d > 0$, be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
+> where \\(a_d > 0\\), be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
 > notations to prove the following properties.
 >
-> 1. If *k* ≥ *d*, then *p*(*n*) = *O*($n^k$).
-> 2. If *k* ≤ *d*, then *p*(*n*) = Ω($n^k$).
-> 3. If *k* = *d*, then *p*(*n*) = Θ($n^k$).
-> 4. If *k* > *d*, then *p*(*n*) = *o*($n^k$).
-> 5. If *k* < *d*, then *p*(*n*) = ω($n^k$).
+> 1. If *k* ≥ *d*, then *p*(*n*) = *O*(\\(n^k\\)).
+> 2. If *k* ≤ *d*, then *p*(*n*) = Ω(\\(n^k\\)).
+> 3. If *k* = *d*, then *p*(*n*) = Θ(\\(n^k\\)).
+> 4. If *k* > *d*, then *p*(*n*) = *o*(\\(n^k\\)).
+> 5. If *k* < *d*, then *p*(*n*) = ω(\\(n^k\\)).
 
 *Skipped.*
 
@@ -890,38 +889,38 @@ Inductive case:
 >
 > |          | *A*                  | *B*                   | *O* | *o* | Ω | *ω* | Θ |
 > | -------- | -------------------- | --------------------- | --- | --- | - | --- | - |
-> | ***a***. | $\lg^k n$            | $n^ϵ$                 |     |     |   |     |   |
-> | ***b***. | $n^k$                | $c^n$                 |     |     |   |     |   |
-> | ***c***. | $\sqrt{n}$           | $n^{\sin n}$          |     |     |   |     |   |
-> | ***d***. | $2^n$                | $2^{n / 2}$           |     |     |   |     |   |
-> | ***e***. | $n^{\lg c}$          | $c^{\lg n}$           |     |     |   |     |   |
-> | ***f***. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ |     |     |   |     |   |
+> | ***a***. | \\(\lg^k n\\)            | \\(n^ϵ\\)                 |     |     |   |     |   |
+> | ***b***. | \\(n^k\\)                | \\(c^n\\)                 |     |     |   |     |   |
+> | ***c***. | \\(\sqrt{n}\\)           | \\(n^{\sin n}\\)          |     |     |   |     |   |
+> | ***d***. | \\(2^n\\)                | \\(2^{n / 2}\\)           |     |     |   |     |   |
+> | ***e***. | \\(n^{\lg c}\\)          | \\(c^{\lg n}\\)           |     |     |   |     |   |
+> | ***f***. | \\(\lg\left(n!\right)\\) | \\(\lg\left(n^n\right)\\) |     |     |   |     |   |
 
 |          | *A*                  | *B*                   | *O* | *o* | Ω   | *ω* | Θ   |
 | -------- | -------------------- | --------------------- | --- | --- | --- | --- | --- |
-| ***a***. | $\lg^k n$            | $n^ϵ$                 | yes | yes | no  | no  | no  |
-| ***b***. | $n^k$                | $c^n$                 | yes | yes | no  | no  | no  |
-| ***c***. | $\sqrt{n}$           | $n^{\sin n}$          | no  | no  | no  | no  | no  |
-| ***d***. | $2^n$                | $2^{n / 2}$           | no  | no  | yes | yes | no  |
-| ***e***. | $n^{\lg c}$          | $c^{\lg n}$           | yes | no  | yes | no  | yes |
-| ***f***. | $\lg\left(n!\right)$ | $\lg\left(n^n\right)$ | yes | no  | yes | no  | yes |
+| ***a***. | \\(\lg^k n\\)            | \\(n^ϵ\\)                 | yes | yes | no  | no  | no  |
+| ***b***. | \\(n^k\\)                | \\(c^n\\)                 | yes | yes | no  | no  | no  |
+| ***c***. | \\(\sqrt{n}\\)           | \\(n^{\sin n}\\)          | no  | no  | no  | no  | no  |
+| ***d***. | \\(2^n\\)                | \\(2^{n / 2}\\)           | no  | no  | yes | yes | no  |
+| ***e***. | \\(n^{\lg c}\\)          | \\(c^{\lg n}\\)           | yes | no  | yes | no  | yes |
+| ***f***. | \\(\lg\left(n!\right)\\) | \\(\lg\left(n^n\right)\\) | yes | no  | yes | no  | yes |
 
 ##### 3-3 Ordering by asymptotic growth rates
 
-> 1. Rank the following functions by order of growth; that is, find an arrangement $g_1$, $g_2$, …, $g_{30}$ of the
->    functions satisfying $g_1 = Ω\left(g_2\right)$, $g_2 = Ω\left(g_3\right)$, …, $g_{29} = Ω\left(g_{30}\right)$.
+> 1. Rank the following functions by order of growth; that is, find an arrangement \\(g_1\\), \\(g_2\\), …, \\(g_{30}\\) of the
+>    functions satisfying \\(g_1 = Ω\left(g_2\right)\\), \\(g_2 = Ω\left(g_3\right)\\), …, \\(g_{29} = Ω\left(g_{30}\right)\\).
 >    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
->    same class if and only if $f\left(n\right) = Θ\left(g\left(n\right)\right)$.
+>    same class if and only if \\(f\left(n\right) = Θ\left(g\left(n\right)\right)\\).
 >
 >    |                              |                              |                                 |                      |                       |                       |
 >    | ---------------------------- | ---------------------------- | ------------------------------- | -------------------- | --------------------- | --------------------- |
->    | $\lg\left(\lg^\* n\right)$   | $2^{\lg^\* n}$               | $\left(\sqrt{2}\right)^{\lg n}$ | $n^2$                | $n!$                  | $\left(\lg n\right)!$ |
->    | $\left(\frac{3}{2}\right)^n$ | $n^3$                        | $\lg^2 n$                       | $\lg\left(n!\right)$ | $2^{2^n}$             | $n^{1 / \lg n}$       |
->    | $\ln \ln n$                  | $\lg^* n$                    | $n ⋅ 2^n$                       | $n^{\lg \lg n}$      | $\ln n$               | $1$                   |
->    | $2^{\lg n}$                  | $\left(\lg n\right)^{\lg n}$ | $e^n$                           | $4^{\lg n}$          | $\left(n + 1\right)!$ | $\sqrt{\lg n}$        |
->    | $\lg^\*\left(\lg n\right)$   | $2^{\sqrt{2 \lg n}}$         | *n*                             | $2^n$                | $n \lg n$             | $2^{2^{n + 1}}$       |
-> 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions $g_i\left(n\right)$
->    in part (a), *f*(*n*) is neither $O\left(g_i\left(n\right)\right)$ nor $Ω\left(g_i\left(n\right)\right)$.
+>    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)                | \\(n!\\)                  | \\(\left(\lg n\right)!\\) |
+>    | \\(\left(\frac{3}{2}\right)^n\\) | \\(n^3\\)                        | \\(\lg^2 n\\)                       | \\(\lg\left(n!\right)\\) | \\(2^{2^n}\\)             | \\(n^{1 / \lg n}\\)       |
+>    | \\(\ln \ln n\\)                  | \\(\lg^* n\\)                    | \\(n ⋅ 2^n\\)                       | \\(n^{\lg \lg n}\\)      | \\(\ln n\\)               | \\(1\\)                   |
+>    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)          | \\(\left(n + 1\right)!\\) | \\(\sqrt{\lg n}\\)        |
+>    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                             | \\(2^n\\)                | \\(n \lg n\\)             | \\(2^{2^{n + 1}}\\)       |
+> 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i\left(n\right)\\)
+>    in part (a), *f*(*n*) is neither \\(O\left(g_i\left(n\right)\right)\\) nor \\(Ω\left(g_i\left(n\right)\right)\\).
 
 *Skipped.*
 
@@ -934,8 +933,8 @@ Inductive case:
 > 2. *f*(*n*) + *g*(*n*) = Θ(min(*f*(*n*), *g*(*n*))).
 > 3. *f*(*n*) = *O*(*g*(*n*)) implies lg(*f*(*n*)) = *O*(lg(*g*(*n*))), where lg(*g*(*n*)) ≥ 1 and *f*(*n*) ≥ 1 for all
 >    sufficiently large *n*.
-> 4. *f*(*n*) = *O*(*g*(*n*)) implies $2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)$.
-> 5. *f*(*n*) = *O*($\left(f\left(n\right)\right)^2$).
+> 4. *f*(*n*) = *O*(*g*(*n*)) implies \\(2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)\\).
+> 5. *f*(*n*) = *O*(\\(\left(f\left(n\right)\right)^2\\)).
 > 6. *f*(*n*) = *O*(*g*(*n*)) implies *g*(*n*) = Ω(*f*(*n*)).
 > 7. *f*(*n*) = Θ(*f*(*n* / 2)).
 > 8. *f*(*n*) + *o*(*f*(*n*)) = Θ(*f*(*n*)).
@@ -953,55 +952,55 @@ Inductive case:
 
 ##### 3-5 Variations on O and Ω
 
-> Some authors define Ω in a slightly different way than we do; let’s use $\overset{∞}{Ω}$ (read “omega infinity”) for
-> this alternative definition. We say that $f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)$ if there
-> exists a positive constant *c* such that $f\left(n\right) ≥ c g\left(n\right) ≥ 0$ for infinitely many integers *n*.
+> Some authors define Ω in a slightly different way than we do; let’s use \\(\overset{∞}{Ω}\\) (read “omega infinity”) for
+> this alternative definition. We say that \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) if there
+> exists a positive constant *c* such that \\(f\left(n\right) ≥ c g\left(n\right) ≥ 0\\) for infinitely many integers *n*.
 >
 > 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
->    $f \left(n\right) = O\left(g\left(n\right)\right)$ or
->    $f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)$ or both, whereas this is not true if we use $Ω$ in
->    place of $\overset{∞}{Ω}$.
-> 2. Describe the potential advantages and disadvantages of using $\overset{∞}{Ω}$ instead of $Ω$ to characterize the
+>    \\(f \left(n\right) = O\left(g\left(n\right)\right)\\) or
+>    \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) or both, whereas this is not true if we use \\(Ω\\) in
+>    place of \\(\overset{∞}{Ω}\\).
+> 2. Describe the potential advantages and disadvantages of using \\(\overset{∞}{Ω}\\) instead of \\(Ω\\) to characterize the
 >    running times of programs.
 >
-> Some authors also define *O* in a slightly different manner; let’s use $O'$ for the alternative definition. We say
-> that $f\left(n\right) = O'\left(g\left(n\right)\right)$ if and only if
-> $\left|f\left(n\right)\right| = O\left(g\left(n\right)\right)$.
+> Some authors also define *O* in a slightly different manner; let’s use \\(O'\\) for the alternative definition. We say
+> that \\(f\left(n\right) = O'\left(g\left(n\right)\right)\\) if and only if
+> \\(\left|f\left(n\right)\right| = O\left(g\left(n\right)\right)\\).
 >
-> 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute $O'$ for *O* but still use
->    $Ω$?
+> 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute \\(O'\\) for *O* but still use
+>    \\(Ω\\)?
 >
-> Some authors define $\widetilde{O}$ (read “soft-oh”) to mean *O* with logarithmic factors ignored:
+> Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
 >
-> $\widetilde{O}\left(g\left(n\right)\right)$ = { *f*(*n*) : there exist positive constants *c*, *k*, and $n_0$
-> such that $0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)$ for all $n ≥ n_0$ }.
+> \\(\widetilde{O}\left(g\left(n\right)\right)\\) = { *f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
+> such that \\(0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)\\) for all \\(n ≥ n_0\\) }.
 >
-> 1. Define $\widetilde{Ω}$ and $\widetilde{Θ}$ in a similar manner. Prove the corresponding analog to Theorem 3.1.
+> 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem 3.1.
 
 *Skipped.*
 
 ##### 3-6 Iterated functions
 
-> We can apply the iteration operator $^\ast$ used in the $\lg^\ast$ function to any monotonically increasing function
-> *f*(*n*) over the reals. For a given constant $c ∈ ℝ$, we define the iterated function $f_c^*$ by
+> We can apply the iteration operator \\(^\ast\\) used in the \\(\lg^\ast\\) function to any monotonically increasing function
+> *f*(*n*) over the reals. For a given constant \\(c ∈ ℝ\\), we define the iterated function \\(f_c^*\\) by
 >
-> $f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace$,
+> \\(f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace\\),
 >
-> which need not be well defined in all cases. In other words, the quantity $f_c^*\left(n\right)$ is the number of
+> which need not be well defined in all cases. In other words, the quantity \\(f_c^*\left(n\right)\\) is the number of
 > iterated applications of the function *f* required to reduce its argument down to *c* or less.
 >
 > For each of the following functions *f*(*n*) and constants *c*, give as tight a bound as possible on
-> $f_c^*\left(n\right)$.
+> \\(f_c^*\left(n\right)\\).
 
-|          | *f*(*n*)     | *c* | $f_c^*\left(n\right)$ |
+|          | *f*(*n*)     | *c* | \\(f_c^*\left(n\right)\\) |
 | -------- | ------------ | --- | --------------------- |
 | ***a***. | *n* - 1      | 0   | ⌈*n*⌉                 |
 | ***b***. | lg *n*       | 1   | *Don’t know*          |
 | ***c***. | *n* / 2      | 1   | ⌈lg *n*⌉              |
 | ***d***. | *n* / 2      | 2   | ⌈lg *n* - 1⌉          |
-| ***e***. | $\sqrt{n}$   | 2   | ⌈lg lg *n*⌉           |
-| ***f***. | $\sqrt{n}$   | 1   | ∞                     |
-| ***g***. | $n^{1 / 3}$  | 2   | ⌈$\log_3 \lg n$⌉      |
+| ***e***. | \\(\sqrt{n}\\)   | 2   | ⌈lg lg *n*⌉           |
+| ***f***. | \\(\sqrt{n}\\)   | 1   | ∞                     |
+| ***g***. | \\(n^{1 / 3}\\)  | 2   | ⌈\\(\log_3 \lg n\\)⌉      |
 | ***h***. | *n* / lg *n* | 2   | *Don’t know*          |
 
 ### 4 Divide-and-Conquer
@@ -1017,7 +1016,7 @@ An array containing the single maximum element of the original array.
 ##### 4.1-2
 
 > Write pseudocode for the brute-force method of solving the maximum-subarray problem. Your procedure should run in
-> Θ($n^2$) time.
+> Θ(\\(n^2\\)) time.
 
 *Find-Maximum-Subarray-Brute-Force*(*A*)
 
@@ -1037,9 +1036,9 @@ An array containing the single maximum element of the original array.
 ##### 4.1-3
 
 > Implement both the brute-force and recursive algorithms for the maximum-subarray problem on your own computer. What
-> problem size $n_0$ gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then,
+> problem size \\(n_0\\) gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then,
 > change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less
-> than $n_0$. Does that change the crossover point?
+> than \\(n_0\\). Does that change the crossover point?
 
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/mod.rs)
@@ -1078,7 +1077,7 @@ for implementation.
 
 > Use Strassen’s algorithm to compute the matrix product
 >
-> $\begin{pmatrix}1 & 3\\\\7 & 5\end{pmatrix}\begin{pmatrix}6 & 8\\\\4 & 2\end{pmatrix}$.
+> \\(\begin{pmatrix}1 & 3\\\\7 & 5\end{pmatrix}\begin{pmatrix}6 & 8\\\\4 & 2\end{pmatrix}\\).
 >
 > Show your work.
 
@@ -1093,14 +1092,14 @@ for implementation.
 ##### 4.2-3
 
 > How would you modify Strassen’s algorithm to multiply *n* × *n* matrices in which *n* is not an exact power of 2? Show
-> that the resulting algorithm runs in time Θ($n^{\lg 7}$).
+> that the resulting algorithm runs in time Θ(\\(n^{\lg 7}\\)).
 
 *Skipped.*
 
 ##### 4.2-4
 
 > What is the largest *k* such that if you can multiply 3 × 3 matrices using *k* multiplications (not assuming
-> commutativity of multiplication), then you can multiply *n* × *n* matrices in time *o*($n^{\lg 7}$)? What would the
+> commutativity of multiplication), then you can multiply *n* × *n* matrices in time *o*(\\(n^{\lg 7}\\))? What would the
 > running time of this algorithm be?
 
 *Skipped.*
@@ -1136,19 +1135,19 @@ then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
 
 ##### 4.3-1
 
-> Show that the solution of *T*(*n*) = *T*(*n* - 1) + *n* is *O*($n^2$).
+> Show that the solution of *T*(*n*) = *T*(*n* - 1) + *n* is *O*(\\(n^2\\)).
 
 *T*(*n*)\
 = *T*(*n* - 1) + *n*\
-≤ *c* $\left(n - 1\right)^2$ + *n*\
-= *c* $n^2$ - 2 *c* *n* + *c* + *n*\
-= *c* $n^2$ - (2 *c* - 1) *n* + *c*
+≤ *c* \\(\left(n - 1\right)^2\\) + *n*\
+= *c* \\(n^2\\) - 2 *c* *n* + *c* + *n*\
+= *c* \\(n^2\\) - (2 *c* - 1) *n* + *c*
 
 Here we choose *c* = 1, we have
 
-*c* $n^2$ - (2 *c* - 1) *n* + *c* = $n^2$ - *n* + 1.
+*c* \\(n^2\\) - (2 *c* - 1) *n* + *c* = \\(n^2\\) - *n* + 1.
 
-If *n* ≥ 1, we have $n^2$ - *n* + 1 ≤ $n^2$, that is, *T*(*n*) ≤ *c* $n^2$, since *c* = 1.
+If *n* ≥ 1, we have \\(n^2\\) - *n* + 1 ≤ \\(n^2\\), that is, *T*(*n*) ≤ *c* \\(n^2\\), since *c* = 1.
 
 ##### 4.3-2
 
@@ -1157,17 +1156,17 @@ If *n* ≥ 1, we have $n^2$ - *n* + 1 ≤ $n^2$, that is, *T*(*n*) ≤ *c* $n^2$
 *T*(*n*)\
 = *T*(⌈*n* / 2⌉) + 1\
 ≤ *c* lg ⌈*n* / 2⌉ + 1\
-= *c* lg (⌈*n* / 2⌉ $2^{1 / c}$)\
-< *c* lg ((*n* / 2 + 1) $2^{1 / c}$)\
-= *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$)
+= *c* lg (⌈*n* / 2⌉ \\(2^{1 / c}\\))\
+< *c* lg ((*n* / 2 + 1) \\(2^{1 / c}\\))\
+= *c* lg (\\(2^{1 / c - 1}\\) *n* + \\(2^{1 / c}\\))
 
 If we choose *c* = 2, we have
 
-*c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) = 2 lg ($2^{-1 / 2}$ *n* + $2^{1 / 2}$).
+*c* lg (\\(2^{1 / c - 1}\\) *n* + \\(2^{1 / c}\\)) = 2 lg (\\(2^{-1 / 2}\\) *n* + \\(2^{1 / 2}\\)).
 
-If *n* ≥ 2 $\sqrt{2}$ + 2, we have $2^{-1 / 2}$ *n* + $2^{1 / 2}$ ≤ *n*.
+If *n* ≥ 2 \\(\sqrt{2}\\) + 2, we have \\(2^{-1 / 2}\\) *n* + \\(2^{1 / 2}\\) ≤ *n*.
 
-So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / c - 1}$ *n* + $2^{1 / c}$) ≤ *c* lg *n*.
+So for *c* = 2 and *n* ≥ 2 \\(\sqrt{2}\\) + 2, we have *T*(*n*) < *c* lg (\\(2^{1 / c - 1}\\) *n* + \\(2^{1 / c}\\)) ≤ *c* lg *n*.
 
 ##### 4.3-3
 
@@ -1208,69 +1207,69 @@ So for *c* = 2 and *n* ≥ 2 $\sqrt{2}$ + 2, we have *T*(*n*) < *c* lg ($2^{1 / 
 ##### 4.3-7
 
 > Using the master method in Section 4.5, you can show that the solution to the recurrence
-> *T*(*n*) = 4 *T*(*n* / 3) + *n* is *T*(*n*) = Θ($n^{\log_3 4}$). Show that a substitution proof with the assumption
-> *T*(*n*) ≤ *c* $n^{\log_3 4}$ fails. Then show how to subtract off a lower-order term to make a substitution proof
+> *T*(*n*) = 4 *T*(*n* / 3) + *n* is *T*(*n*) = Θ(\\(n^{\log_3 4}\\)). Show that a substitution proof with the assumption
+> *T*(*n*) ≤ *c* \\(n^{\log_3 4}\\) fails. Then show how to subtract off a lower-order term to make a substitution proof
 > work.
 
-Suppose *T*(*n*) = *c* $n^{\log_3 4}$ - 3 *n*, we have:
+Suppose *T*(*n*) = *c* \\(n^{\log_3 4}\\) - 3 *n*, we have:
 
 *T*(*n*)\
 = 4 *T*(*n* / 3) + *n*\
-= 4 (*c* $\left(n / 3\right)^{\log_3 4}$ - 3 (*n* / 3)) + *n*\
-= 4 (*c* $n^{\log_3 4}$ / 4 - *n*) + *n*\
-= *c* $n^{\log_3 4}$ - 3 *n*.
+= 4 (*c* \\(\left(n / 3\right)^{\log_3 4}\\) - 3 (*n* / 3)) + *n*\
+= 4 (*c* \\(n^{\log_3 4}\\) / 4 - *n*) + *n*\
+= *c* \\(n^{\log_3 4}\\) - 3 *n*.
 
 That is exactly what we want.
 
 ##### 4.3-8
 
 > Using the master method in Section 4.5, you can show that the solution to the recurrence
-> *T*(*n*) = 4 *T*(*n* / 2) + *n* is *T*(*n*) = Θ($n^2$). Show that a substitution proof with the assumption
-> *T*(*n*) ≤ *c* $n^2$ fails. Then show how to subtract off a lower-order term to make a substitution proof work.
+> *T*(*n*) = 4 *T*(*n* / 2) + *n* is *T*(*n*) = Θ(\\(n^2\\)). Show that a substitution proof with the assumption
+> *T*(*n*) ≤ *c* \\(n^2\\) fails. Then show how to subtract off a lower-order term to make a substitution proof work.
 
-Suppose *T*(*n*) = *c* $n^2$ - *n*, we have
+Suppose *T*(*n*) = *c* \\(n^2\\) - *n*, we have
 
 *T*(*n*)\
-= 4 (*c* $\left(n / 2\right)^2$ - *n* / 2) + *n*\
-= 4 (*c* $n^2$ / 4 - *n* / 2) + *n*\
-= *c* $n^2$ - 2 *n* + *n*\
-= *c* $n^2$ - *n*.
+= 4 (*c* \\(\left(n / 2\right)^2\\) - *n* / 2) + *n*\
+= 4 (*c* \\(n^2\\) / 4 - *n* / 2) + *n*\
+= *c* \\(n^2\\) - 2 *n* + *n*\
+= *c* \\(n^2\\) - *n*.
 
 That is exactly what we want.
 
 ##### 4.3-9
 
-> Solve the recurrence *T*(*n*) = 3 *T*($\sqrt{n}$) + log *n* by making a change of variables. Your solution should be
+> Solve the recurrence *T*(*n*) = 3 *T*(\\(\sqrt{n}\\)) + log *n* by making a change of variables. Your solution should be
 > asymptotically tight. Do not worry about whether values are integral.
 
-Let *m* = log *n*, we have *n* = $10^m$, so
+Let *m* = log *n*, we have *n* = \\(10^m\\), so
 
-*T*($10^m$)\
-= 3 *T*($\sqrt{10^m}$) + log $10^m$\
-= 3 *T*($10^{m / 2}$) + *m*.
+*T*(\\(10^m\\))\
+= 3 *T*(\\(\sqrt{10^m}\\)) + log \\(10^m\\)\
+= 3 *T*(\\(10^{m / 2}\\)) + *m*.
 
-Let *S*(*m*) = *T*($10^m$), we have:
+Let *S*(*m*) = *T*(\\(10^m\\)), we have:
 
 *S*(*m*) = 3 *S*(*m* / 2) + *m*.
 
-I guess *S*(*m*) = *c* $m^{\lg 3}$ - 2 *m*,
+I guess *S*(*m*) = *c* \\(m^{\lg 3}\\) - 2 *m*,
 
 *S*(*m*)\
-= 3 (*c* $(m / 2)^{\lg 3}$ - 2 (*m* / 2)) + *m*\
-= 3 (*c* $m^{\lg 3}$ / 3 - *m*) + *m*\
-= *c* $m^{\lg 3}$ - 3 *m* + *m*\
-= *c* $m^{\lg 3}$ - 2 *m*.
+= 3 (*c* \\((m / 2)^{\lg 3}\\) - 2 (*m* / 2)) + *m*\
+= 3 (*c* \\(m^{\lg 3}\\) / 3 - *m*) + *m*\
+= *c* \\(m^{\lg 3}\\) - 3 *m* + *m*\
+= *c* \\(m^{\lg 3}\\) - 2 *m*.
 
 So my guess is right.
 
 *T*(*n*)
 = *S*(log *n*)\
-= *c* $(\log n)^{\lg 3}$ - 2 log *n*.
+= *c* \\((\log n)^{\lg 3}\\) - 2 log *n*.
 
 Notes:
 
-Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* $n^p$: if *p* = $\log_b a$, *T*(*n*) = *k* $n^p \log_b n$ + *c* $n^p$,
-otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
+Solving *T*(*n*) = *a* *T*(*n* / *b*) + *k* \\(n^p\\): if *p* = \\(\log_b a\\), *T*(*n*) = *k* \\(n^p \log_b n\\) + *c* \\(n^p\\),
+otherwise *T*(*n*) = *c* \\(n^{\log_b a}\\) + (*k* / (1 - *a* / \\(b^p\\))) \\(n^p\\).
 
 #### 4.4 The recursion-tree method for solving recurrences
 
@@ -1279,70 +1278,70 @@ otherwise *T*(*n*) = *c* $n^{\log_b a}$ + (*k* / (1 - *a* / $b^p$)) $n^p$.
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 3 *T*(⌊*n* / 2⌋) + *n*.
 > Use the substitution method to verify your answer.
 
-*T*(*n*) ≤ *c* $n^{\lg 3}$ - 2 *n*.
+*T*(*n*) ≤ *c* \\(n^{\lg 3}\\) - 2 *n*.
 
 Verification:
 
 *T*(*n*)\
 = 3 *T*(⌊*n* / 2⌋) + *n*\
-≤ 3 (*c* $\left\lfloor{}n / 2\right\rfloor^{\lg 3}$ - 2 ⌊*n* / 2⌋) + *n*\
-≤ 3 (*c* $\left(n / 2\right)^{\lg 3}$ - 2 (*n* / 2)) + *n*\
-= 3 (*c* $n^{\lg 3}$ / 3 - *n*) + *n*\
-= 3 *c* $n^{\lg 3}$ / 3 - 3 *n* + *n*\
-= *c* $n^{\lg 3}$ - 2 *n*.
+≤ 3 (*c* \\(\left\lfloor{}n / 2\right\rfloor^{\lg 3}\\) - 2 ⌊*n* / 2⌋) + *n*\
+≤ 3 (*c* \\(\left(n / 2\right)^{\lg 3}\\) - 2 (*n* / 2)) + *n*\
+= 3 (*c* \\(n^{\lg 3}\\) / 3 - *n*) + *n*\
+= 3 *c* \\(n^{\lg 3}\\) / 3 - 3 *n* + *n*\
+= *c* \\(n^{\lg 3}\\) - 2 *n*.
 
 ##### 4.4-2
 
-> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = *T*(*n* / 2) + $n^2$. Use
+> Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = *T*(*n* / 2) + \\(n^2\\). Use
 > the substitution method to verify your answer.
 
-*T*(*n*) = *c* + (4 / 3) $n^2$.
+*T*(*n*) = *c* + (4 / 3) \\(n^2\\).
 
 Verification:
 
 *T*(*n*)\
-= *c* + (4 / 3) $\left(n / 2\right)^2$ + $n^2$\
-= *c* + (1 / 3) $n^2$ + $n^2$\
-= *c* + (4 / 3) $n^2$.
+= *c* + (4 / 3) \\(\left(n / 2\right)^2\\) + \\(n^2\\)\
+= *c* + (1 / 3) \\(n^2\\) + \\(n^2\\)\
+= *c* + (4 / 3) \\(n^2\\).
 
 ##### 4.4-3
 
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 4 *T*(*n* / 2 + 2) + *n*.
 > Use the substitution method to verify your answer.
 
-*T*(*n*) = *c* $n^2$ - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
+*T*(*n*) = *c* \\(n^2\\) - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
 
 Verification:
 
 *T*(*n*)\
 = 4 *T*(*n* / 2 + 2) + *n*\
-= 4 (*c* $\left(n / 2 + 2\right)^2$ - (8 *c* + 1) (*n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
-= 4 (*c* ($n^2$ / 4 + 2 *n* + 4) - (4 *c* *n* + 16 *c* + *n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
-= 4 (*c* $n^2$ / 4 - (2 *c* + 1 / 2) *n* + 4 *c* + 2 / 3) + *n*\
-= *c* $n^2$ - (8 *c* + 2) *n* + 16 *c* + 8 / 3 + *n*\
-= *c* $n^2$ - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
+= 4 (*c* \\(\left(n / 2 + 2\right)^2\\) - (8 *c* + 1) (*n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
+= 4 (*c* (\\(n^2\\) / 4 + 2 *n* + 4) - (4 *c* *n* + 16 *c* + *n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
+= 4 (*c* \\(n^2\\) / 4 - (2 *c* + 1 / 2) *n* + 4 *c* + 2 / 3) + *n*\
+= *c* \\(n^2\\) - (8 *c* + 2) *n* + 16 *c* + 8 / 3 + *n*\
+= *c* \\(n^2\\) - (8 *c* + 1) *n* + 16 *c* + 8 / 3.
 
 ##### 4.4-4
 
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence *T*(*n*) = 2 *T*(*n* - 1) + 1. Use
 > the substitution method to verify your answer.
 
-*T*(*n*) = *c* $2^n$ - 1
+*T*(*n*) = *c* \\(2^n\\) - 1
 
 Verification:
 
 *T*(*n*)\
 = 2 *T*(*n* - 1) + 1\
-= 2 (*c* $2^{n - 1}$ - 1) + 1\
-= *c* $2^n$ - 2 + 1\
-= *c* $2^n$ - 1.
+= 2 (*c* \\(2^{n - 1}\\) - 1) + 1\
+= *c* \\(2^n\\) - 2 + 1\
+= *c* \\(2^n\\) - 1.
 
 ##### 4.4-5
 
 > Use a recursion tree to determine a good asymptotic upper bound on the recurrence
 > *T*(*n*) = *T*(*n* - 1) + *T*(*n* / 2) + *n*. Use the substitution method to verify your answer.
 
-*T*(*n*) = *O*($2^n$), and *T*(*n*) = Ω(*n* lg *n*).
+*T*(*n*) = *O*(\\(2^n\\)), and *T*(*n*) = Ω(*n* lg *n*).
 
 *Skipped.*
 
@@ -1359,43 +1358,43 @@ least *c* *n* lg *n* / lg 3, that is *T*(*n*) = Ω(*n* lg *n*).
 > Draw the recursion tree for *T*(*n*) = 4 *T*(⌊*n* / 2⌋) + *c* *n*, where *c* is a constant, and provide a tight
 > asymptotic bound on its solution. Verify your bound by the substitution method.
 
-*T*(*n*) ≥ *k* $n^2$ - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
+*T*(*n*) ≥ *k* \\(n^2\\) - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
 
 Verification:
 
 *T*(*n*)\
 = 4 *T*(⌊*n* / 2⌋) + *c* *n*\
 ≥ 4 *T*(*n* / 2 - 1) + *c* *n*\
-≥ 4 (*k* $(n / 2 - 1)^2$ - (*c* - 4 *k*) (*n* / 2 - 1) + 4 *k* - 4 *c* / 3) + *c* *n*\
-= *k* $n^2$ - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
+≥ 4 (*k* \\((n / 2 - 1)^2\\) - (*c* - 4 *k*) (*n* / 2 - 1) + 4 *k* - 4 *c* / 3) + *c* *n*\
+= *k* \\(n^2\\) - (*c* - 4 *k*) *n* + 4 *k* - 4 *c* / 3.
 
-*T*(*n*) ≤ *k* $n^2$ - *c* *n*.
+*T*(*n*) ≤ *k* \\(n^2\\) - *c* *n*.
 
 Verification:
 
 *T*(*n*)\
 = 4 *T*(⌊*n* / 2⌋) + *c* *n*\
 ≤ 4 *T*(*n* / 2) + *c* *n*\
-≤ 4 (*k* $(n / 2)^2$ - *c* (*n* / 2)) + *c* *n*\
-= *k* $n^2$ - *c* *n*.
+≤ 4 (*k* \\((n / 2)^2\\) - *c* (*n* / 2)) + *c* *n*\
+= *k* \\(n^2\\) - *c* *n*.
 
-So *T*(*n*) = Θ($n^2$).
+So *T*(*n*) = Θ(\\(n^2\\)).
 
 ##### 4.4-8
 
 > Use a recursion tree to give an asymptotically tight solution to the recurrence
 > *T*(*n*) = *T*(*n* - *a*) + *T*(*a*) + *c* *n*, where *a* ≥ 1 and *c* > 0 are constants.
 
-*T*(*n*) = (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*.
+*T*(*n*) = (*c* / (2 *a*)) \\(n^2\\) + *k* *n* - *a* *c*.
 
 Verification:
 
 *T*(*n*)\
 = *T*(*n* - *a*) + *T*(*a*) + *c* *n*\
-= (*c* / (2 *a*)) $\left(n - a\right)^2$ + *k* (*n* - *a*) - *a* *c* + (*c* / (2 *a*)) $a^2$ + *k* *a* - *a* *c* + *c* *n*\
-= (*c* / (2 *a*)) ($n^2$ - 2 *a* *n* + $a^2$) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
-= (*c* / (2 *a*)) $n^2$ - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
-= (*c* / (2 *a*)) $n^2$ + *k* *n* - *a* *c*
+= (*c* / (2 *a*)) \\(\left(n - a\right)^2\\) + *k* (*n* - *a*) - *a* *c* + (*c* / (2 *a*)) \\(a^2\\) + *k* *a* - *a* *c* + *c* *n*\
+= (*c* / (2 *a*)) (\\(n^2\\) - 2 *a* *n* + \\(a^2\\)) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
+= (*c* / (2 *a*)) \\(n^2\\) - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
+= (*c* / (2 *a*)) \\(n^2\\) + *k* *n* - *a* *c*
 
 ##### 4.4-9
 
@@ -1412,52 +1411,52 @@ Like exercise 4.4-6, we can prove *T*(*n*) = Ω(*n* lg *n*), and *T*(*n*) = *O*(
 > Use the master method to give tight asymptotic bounds for the following recurrences.
 >
 > 1. *T*(*n*) = 2 *T*(*n* / 4) + 1.
-> 2. *T*(*n*) = 2 *T*(*n* / 4) + $\sqrt{n}$.
+> 2. *T*(*n*) = 2 *T*(*n* / 4) + \\(\sqrt{n}\\).
 > 3. *T*(*n*) = 2 *T*(*n* / 4) + *n*.
-> 4. *T*(*n*) = 2 *T*(*n* / 4) + $n^2$.
+> 4. *T*(*n*) = 2 *T*(*n* / 4) + \\(n^2\\).
 
-1. *T*(*n*) = Θ($\sqrt{n}$).
-2. *T*(*n*) = Θ($\sqrt{n}$ lg *n*).
+1. *T*(*n*) = Θ(\\(\sqrt{n}\\)).
+2. *T*(*n*) = Θ(\\(\sqrt{n}\\) lg *n*).
 3. *T*(*n*) = Θ(*n*).
-4. *T*(*n*) = Θ($n^2$).
+4. *T*(*n*) = Θ(\\(n^2\\)).
 
 ##### 4.5-2
 
 > Professor Caesar wishes to develop a matrix-multiplication algorithm that is asymptotically faster than Strassen’s
 > algorithm. His algorithm will use the divide-and-conquer method, dividing each matrix into pieces of size
-> *n* / 4 × *n* / 4, and the divide and combine steps together will take Θ($n^2$) time. He needs to determine how many
+> *n* / 4 × *n* / 4, and the divide and combine steps together will take Θ(\\(n^2\\)) time. He needs to determine how many
 > subproblems his algorithm has to create in order to beat Strassen’s algorithm. If his algorithm creates a subproblems,
-> then the recurrence for the running time *T*(*n*) becomes *T*(*n*) = *a* *T*(*n* / 4) + Θ($n^2$). What is the largest
+> then the recurrence for the running time *T*(*n*) becomes *T*(*n*) = *a* *T*(*n* / 4) + Θ(\\(n^2\\)). What is the largest
 > integer value of a for which Professor Caesar’s algorithm would be asymptotically faster than Strassen’s algorithm?
 
-The answer is 48. Since $log_4 49$ = lg 7.
+The answer is 48. Since \\(log_4 49\\) = lg 7.
 
 ##### 4.5-3
 
 > Use the master method to show that the solution to the binary-search recurrence *T*(*n*) = *T*(*n* / 2) + Θ(1) is
 > *T*(*n*) = Θ(lg *n*). (See Exercise 2.3-5 for a description of binary search.)
 
-Since Θ(1) = Θ($n^{\log_2 1}$), *T*(*n*) = Θ($n^{\log_2 1}$ lg *n*) = Θ(lg *n*).
+Since Θ(1) = Θ(\\(n^{\log_2 1}\\)), *T*(*n*) = Θ(\\(n^{\log_2 1}\\) lg *n*) = Θ(lg *n*).
 
 ##### 4.5-4
 
-> Can the master method be applied to the recurrence *T*(*n*) = 4 *T*(*n* / 2) + $n^2$ lg *n*? Why or why not? Give an
+> Can the master method be applied to the recurrence *T*(*n*) = 4 *T*(*n* / 2) + \\(n^2\\) lg *n*? Why or why not? Give an
 > asymptotic upper bound for this recurrence.
 
-The master method can not be applied to that recurrence, because $n^2$ lg *n* is asymptotically large than
-$n^{\log_2 4} = n^2$, but it is not polynomially asymptotically large than $n^{\log_2 4}$.
+The master method can not be applied to that recurrence, because \\(n^2\\) lg *n* is asymptotically large than
+\\(n^{\log_2 4} = n^2\\), but it is not polynomially asymptotically large than \\(n^{\log_2 4}\\).
 
-*T*(*n*) = $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
+*T*(*n*) = \\(n^2 \left(\lg^2 n + \lg n + c\right)\\) / 2.
 
 Verification:
 
 *T*(*n*)\
-= 4 *T*(*n* / 2) + $n^2$ lg *n*\
-= 4 $(n / 2)^2 \left(\lg^2 (n / 2) + \lg (n / 2) + c\right)$ / 2 + $n^2$ lg *n*\
-= 4 $(n / 2)^2 \left((\lg n - 1)^2 + \lg n - 1 + c\right)$ / 2 + $n^2$ lg *n*\
-= 4 $(n / 2)^2 \left(\lg^2 n - 2 \lg n + 1 + \lg n - 1 + c\right)$ / 2 + $n^2$ lg *n*\
-= $n^2 \left(\lg^2 n - \lg n + c\right)$ / 2 + $n^2$ lg *n*\
-= $n^2 \left(\lg^2 n + \lg n + c\right)$ / 2.
+= 4 *T*(*n* / 2) + \\(n^2\\) lg *n*\
+= 4 \\((n / 2)^2 \left(\lg^2 (n / 2) + \lg (n / 2) + c\right)\\) / 2 + \\(n^2\\) lg *n*\
+= 4 \\((n / 2)^2 \left((\lg n - 1)^2 + \lg n - 1 + c\right)\\) / 2 + \\(n^2\\) lg *n*\
+= 4 \\((n / 2)^2 \left(\lg^2 n - 2 \lg n + 1 + \lg n - 1 + c\right)\\) / 2 + \\(n^2\\) lg *n*\
+= \\(n^2 \left(\lg^2 n - \lg n + c\right)\\) / 2 + \\(n^2\\) lg *n*\
+= \\(n^2 \left(\lg^2 n + \lg n + c\right)\\) / 2.
 
 ##### 4.5-5 ★
 
@@ -1471,23 +1470,23 @@ Verification:
 
 ##### 4.6-1 ★
 
-> Give a simple and exact expression for $n_j$ in equation (4.27) for the case in which *b* is a positive integer
+> Give a simple and exact expression for \\(n_j\\) in equation (4.27) for the case in which *b* is a positive integer
 > instead of an arbitrary real number.
 
 Theorem 3.4 and 3.5:
 
 For any real number *x* ≥ 0 and integers *a*, *b* > 0:
 
-- $\left\lceil\frac{\left\lceil x / a\right\rceil}{b}\right\rceil = \left\lceil\frac{x}{a b}\right\rceil$,
-- $\left\lfloor\frac{\left\lfloor x / a\right\rfloor}{b}\right\rfloor = \left\lfloor\frac{x}{a b}\right\rfloor$.
+- \\(\left\lceil\frac{\left\lceil x / a\right\rceil}{b}\right\rceil = \left\lceil\frac{x}{a b}\right\rceil\\),
+- \\(\left\lfloor\frac{\left\lfloor x / a\right\rfloor}{b}\right\rfloor = \left\lfloor\frac{x}{a b}\right\rfloor\\).
 
-$n_j$ = ⌈*n* / $b^j$⌉.
+\\(n_j\\) = ⌈*n* / \\(b^j\\)⌉.
 
 Proof by induction:
 
-- If *j* = 0, $n_j$ = ⌈*n* / $b^j$⌉ = ⌈*n* / $b^0$⌉ = ⌈*n*⌉ = *n*, the claim holds.
-- If *j* > 0, $n_j$ = ⌈$n_{j - 1}$ / *b*⌉ = ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉, since both *b* and $b^{j - 1}$ are integers,
-  ⌈⌈*n* / $b^{j - 1}$⌉ / *b*⌉ = ⌈*n* / $b^{j - 1}$ / *b*⌉ = ⌈*n* / $b^j$⌉. So $n_j$ = ⌈*n* / $b^j$⌉, the claim holds.
+- If *j* = 0, \\(n_j\\) = ⌈*n* / \\(b^j\\)⌉ = ⌈*n* / \\(b^0\\)⌉ = ⌈*n*⌉ = *n*, the claim holds.
+- If *j* > 0, \\(n_j\\) = ⌈\\(n_{j - 1}\\) / *b*⌉ = ⌈⌈*n* / \\(b^{j - 1}\\)⌉ / *b*⌉, since both *b* and \\(b^{j - 1}\\) are integers,
+  ⌈⌈*n* / \\(b^{j - 1}\\)⌉ / *b*⌉ = ⌈*n* / \\(b^{j - 1}\\) / *b*⌉ = ⌈*n* / \\(b^j\\)⌉. So \\(n_j\\) = ⌈*n* / \\(b^j\\)⌉, the claim holds.
 
 Notes:
 
@@ -1507,18 +1506,18 @@ Proof:
 
 *f*(⌊*x*⌋) - 1 < ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋)\
 ⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋) < ⌊*f*(⌊*x*⌋)⌋ + 1\
-⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ $f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)$ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
-⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ ⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$.
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ \\(f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)\\) < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\).
 
-Since $\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1$ is an integer, and we also have
+Since \\(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\\) is an integer, and we also have
 *f*(*x*) = integer ⇒ *x* = integer, we know that
-$f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$ is an integer. Because
-⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$, we have
-*x* < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$. So:
+\\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\) is an integer. Because
+⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\), we have
+*x* < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\). So:
 
-$f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ ⌊*x*⌋ < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
-⇒ $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)$ ≤ *x* < $f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)$\
-⇒ $f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\right)$ ≤ *f*(*x*) < $f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\right)$\
+\\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ *x* < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\right)\\) ≤ *f*(*x*) < \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\right)\\)\
 ⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(*x*) < ⌊*f*(⌊*x*⌋)⌋ + 1\
 ⇒ *f*(*x*) = ⌊*f*(⌊*x*⌋)⌋.
 
@@ -1526,34 +1525,34 @@ The same method can be applied to proving ⌈*f*(*x*)⌉ = ⌈*f*(⌈*x*⌉)⌉.
 
 ##### 4.6-2 ★
 
-> Show that if *f*(*n*) = Θ($n^{\log_b a} \lg^k n$), where *k* ≥ 0, then the master recurrence has solution
-> *T*(*n*) = Θ($n^{\log_b a} \lg^{k + 1} n$). For simplicity, confine your analysis to exact powers of *b*.
+> Show that if *f*(*n*) = Θ(\\(n^{\log_b a} \lg^k n\\)), where *k* ≥ 0, then the master recurrence has solution
+> *T*(*n*) = Θ(\\(n^{\log_b a} \lg^{k + 1} n\\)). For simplicity, confine your analysis to exact powers of *b*.
 
 *T*(*n*)\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} a^j f(n / b^j)$\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} a^j Θ\left(\left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(a^j \left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)$\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - \lg \left(b^j\right)\right)^k\right)$\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - j \lg b\right)^k\right)$\
-= Θ($n^{\log_b a}$) + $∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \lg^k n\right)$\
-= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\left(\log_b n - 1\right)\lg^k n\right)$\
-= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\log_b n \lg^k n - \lg^k n\right)$\
-= Θ($n^{\log_b a}$) + $n^{\log_b a} Θ\left(\lg^{k + 1} n\right)$\
-= Θ($n^{\log_b a} \lg^{k + 1} n$).
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} a^j f(n / b^j)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} a^j Θ\left(\left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} Θ\left(a^j \left(n / b^j\right)^{\log_b a} \lg^k \left(n / b^j\right)\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - \lg \left(b^j\right)\right)^k\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \left(\lg n - j \lg b\right)^k\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(∑_{j = 0}^{\log_b n - 1} Θ\left(n^{\log_b a} \lg^k n\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(n^{\log_b a} Θ\left(\left(\log_b n - 1\right)\lg^k n\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(n^{\log_b a} Θ\left(\log_b n \lg^k n - \lg^k n\right)\\)\
+= Θ(\\(n^{\log_b a}\\)) + \\(n^{\log_b a} Θ\left(\lg^{k + 1} n\right)\\)\
+= Θ(\\(n^{\log_b a} \lg^{k + 1} n\\)).
 
 ##### 4.6-3 ★
 
 > Show that case 3 of the master theorem is overstated, in the sense that the regularity condition
 > *a* *f*(*n* / *b*) ≤ *c* *f*(*n*) for some constant *c* < 1 implies that there exists a constant *ϵ* > 0 such that
-> *f*(*n*) = Ω($n^{\log_b a + ϵ}$).
+> *f*(*n*) = Ω(\\(n^{\log_b a + ϵ}\\)).
 
-Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
+Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\)).
 
 *f*(*n*)\
 ≥ (*a* / *c*) *f*(*n* / *b*)\
-= (*a* / *c*) Ω($\left(n / b\right)^{\log_b a - \log_b c}$)\
-= (*a* / *c*) Ω($n^{\log_b a - \log_b c} / \left(a / c\right)$)\
-= Ω($n^{\log_b a - \log_b c}$).
+= (*a* / *c*) Ω(\\(\left(n / b\right)^{\log_b a - \log_b c}\\))\
+= (*a* / *c*) Ω(\\(n^{\log_b a - \log_b c} / \left(a / c\right)\\))\
+= Ω(\\(n^{\log_b a - \log_b c}\\)).
 
 #### 4.X Problems
 
@@ -1562,21 +1561,21 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > Give asymptotic upper and lower bounds for *T*(*n*) in each of the following recurrences. Assume that *T*(*n*) is
 > constant for *n* ≤ 2. Make your bounds as tight as possible, and justify your answers.
 >
-> 1. *T*(*n*) = 2 *T*(*n* / 2) + $n^4$.
+> 1. *T*(*n*) = 2 *T*(*n* / 2) + \\(n^4\\).
 > 2. *T*(*n*) = *T*(7 *n* / 10) + *n*.
-> 3. *T*(*n*) = 16 *T*(*n* / 4) + $n^2$.
-> 4. *T*(*n*) = 7 *T*(*n* / 3) + $n^2$.
-> 5. *T*(*n*) = 7 *T*(*n* / 2) + $n^2$.
-> 6. *T*(*n*) = 2 *T*(*n* / 4) + $\sqrt{n}$
-> 7. *T*(*n*) = *T*(*n* - 2) + $n^2$.
+> 3. *T*(*n*) = 16 *T*(*n* / 4) + \\(n^2\\).
+> 4. *T*(*n*) = 7 *T*(*n* / 3) + \\(n^2\\).
+> 5. *T*(*n*) = 7 *T*(*n* / 2) + \\(n^2\\).
+> 6. *T*(*n*) = 2 *T*(*n* / 4) + \\(\sqrt{n}\\)
+> 7. *T*(*n*) = *T*(*n* - 2) + \\(n^2\\).
 
-1. *T*(*n*) = *c* *n* + (8 / 7) $n^4$.
+1. *T*(*n*) = *c* *n* + (8 / 7) \\(n^4\\).
 2. *T*(*n*) = (10 / 3) *n* + *c*.
-3. *T*(*n*) = $n^2 \log_4 n$ + *c* $n^2$.
-4. *T*(*n*) = (9 / 2) $n^2$ + *c* $n^{\log_3 7}$.
-5. *T*(*n*) = *c* $n^{\lg 7}$ - (4 / 3) $n^2$.
-6. *T*(*n*) = $\sqrt{n} \log_4 n$ + *c* $\sqrt{n}$.
-7. *T*(*n*) = $n^3$ / 6 + $n^2$ / 2 + *n* / 3 + *c*.
+3. *T*(*n*) = \\(n^2 \log_4 n\\) + *c* \\(n^2\\).
+4. *T*(*n*) = (9 / 2) \\(n^2\\) + *c* \\(n^{\log_3 7}\\).
+5. *T*(*n*) = *c* \\(n^{\lg 7}\\) - (4 / 3) \\(n^2\\).
+6. *T*(*n*) = \\(\sqrt{n} \log_4 n\\) + *c* \\(\sqrt{n}\\).
+7. *T*(*n*) = \\(n^3\\) / 6 + \\(n^2\\) / 2 + *n* / 3 + *c*.
 
 ##### 4-2 Parameter-passing costs
 
@@ -1612,10 +1611,10 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    2. By copying: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*) + Θ(N*).
 
       *T*(*n*)\
-      = Θ(*n*) + $∑_{j = 0}^{\lg n - 1} Θ\left(2^j (n / 2^j)\right)$ + $∑_{j = 0}^{\lg n - 1} Θ\left(2^j N\right)$\
+      = Θ(*n*) + \\(∑_{j = 0}^{\lg n - 1} Θ\left(2^j (n / 2^j)\right)\\) + \\(∑_{j = 0}^{\lg n - 1} Θ\left(2^j N\right)\\)\
       = Θ(*n*) + Θ(*n* lg *n*) + Θ(*N* *n*)
 
-      *T*(*N*) = Θ($N^2$).
+      *T*(*N*) = Θ(\\(N^2\\)).
    3. By copying subrange: *T*(*n*) = 2 *T*(*n* / 2) + Θ(*n*), *T*(*N*) = Θ(*N* lg *N*).
 
 ##### 4-3 More recurrence examples
@@ -1625,23 +1624,23 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 >
 > 1. *T*(*n*) = 4 *T*(*n* / 3) + *n* lg *n*.
 > 2. *T*(*n*) = 3 *T*(*n* / 3) + *n* / lg *n*.
-> 3. *T*(*n*) = 4 *T*(*n* / 2) + $n^2 \sqrt{n}$.
+> 3. *T*(*n*) = 4 *T*(*n* / 2) + \\(n^2 \sqrt{n}\\).
 > 4. *T*(*n*) = 3 *T*(*n* / 3 - 2) + *n* / 2.
 > 5. *T*(*n*) = 2 *T*(*n* / 2) + *n* / lg n.
 > 6. *T*(*n*) = *T*(*n* / 2) + *T*(*n* / 4) + *T*(*n* / 8) + *n*.
 > 7. *T*(*n*) = *T*(*n* - 1) + 1 / *n*.
 > 8. *T*(*n*) = *T*(*n* - 1) + lg *n*.
 > 9. *T*(*n*) = *T*(*n* - 2) + 1 / lg *n*.
-> 10. *T*(*n*) = $\sqrt{n}$ *T*($\sqrt{n}$) + *n*
+> 10. *T*(*n*) = \\(\sqrt{n}\\) *T*(\\(\sqrt{n}\\)) + *n*
 
-1. *T*(*n*) = *c* $n^{\log_3 4}$ - 3 *n* lg *n* - 12 *n* lg 3.
+1. *T*(*n*) = *c* \\(n^{\log_3 4}\\) - 3 *n* lg *n* - 12 *n* lg 3.
 2. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
-3. *T*(*n*) = (2 + $\sqrt{2}$) $n^{5 / 2}$ + *c* $n^2$.
-4. *T*(*n*) = (1 / 2) *n* $\log_3 \left(n + 3\right)$ + *c* *n* + (3 / 2) $\log_3 \left(n + 3\right)$ + 3 *c* + 3 / 4.
+3. *T*(*n*) = (2 + \\(\sqrt{2}\\)) \\(n^{5 / 2}\\) + *c* \\(n^2\\).
+4. *T*(*n*) = (1 / 2) *n* \\(\log_3 \left(n + 3\right)\\) + *c* *n* + (3 / 2) \\(\log_3 \left(n + 3\right)\\) + 3 *c* + 3 / 4.
 5. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
 6. *T*(*n*) = 8 *n*.
-7. *T*(*n*) = *c* + $∑_{j = 2}^n \left(1 / j\right)$ = Θ(lg *n*).
-8. *T*(*n*) = *c* + $∑_{j = 2}^n \lg n$ = *c* + $\lg ∏_{j = 2}^n n$ = *c* + lg *n*! = Θ(*n* lg *n*).
+7. *T*(*n*) = *c* + \\(∑_{j = 2}^n \left(1 / j\right)\\) = Θ(lg *n*).
+8. *T*(*n*) = *c* + \\(∑_{j = 2}^n \lg n\\) = *c* + \\(\lg ∏_{j = 2}^n n\\) = *c* + lg *n*! = Θ(*n* lg *n*).
 9. *Skipped*.
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
 
@@ -1651,38 +1650,38 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
 > technique of generating functions to solve the Fibonacci recurrence. Define the ***generating function*** (or
 > ***formal power series***) ℱ as
 >
-> $\begin{aligned}
+> \\(\begin{aligned}
 > ℱ\left(z\right) &= \displaystyle ∑_{i = 0}^∞ F_i z^i\\\\
 > &= 0 + z + z^2 + 2 z^3 + 3 z^4 + 5 z^5 + 8 z^6 + 13 z^7 + 21 z^8 + ⋯,
-> \end{aligned}$
+> \end{aligned}\\)
 >
-> where $F_i$ is the *i*th Fibonacci number.
+> where \\(F_i\\) is the *i*th Fibonacci number.
 >
-> 1. Show that ℱ(*z*) = *z* + *z* ℱ(*z*) + $z^2$ ℱ(*z*).
+> 1. Show that ℱ(*z*) = *z* + *z* ℱ(*z*) + \\(z^2\\) ℱ(*z*).
 > 2. Show that
 >
->    $\begin{aligned}
+>    \\(\begin{aligned}
 >    ℱ\left(z\right) &= \frac{z}{1 - z - z^2}\\\\
 >    &= \frac{z}{\left(1 - ϕ z\right)\left(1 - \hat{ϕ} z\right)}\\\\
 >    &= \frac{1}{\sqrt{5}}\left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right),
->    \end{aligned}$
+>    \end{aligned}\\)
 >
 >    where
 >
->    $ϕ$ = $\dfrac{1 + \sqrt{5}}{2}$ = 1.61803…
+>    \\(ϕ\\) = \\(\dfrac{1 + \sqrt{5}}{2}\\) = 1.61803…
 >
 >    and
 >
->    $\hat{ϕ}$ = $\dfrac{1 - \sqrt{5}}{2}$ = - 1.61803….
+>    \\(\hat{ϕ}\\) = \\(\dfrac{1 - \sqrt{5}}{2}\\) = - 1.61803….
 > 3. Show that
 >
->    ℱ(*z*) = $\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$.
-> 4. Use part (c) to prove that $F_i = ϕ^i / \sqrt{5}$ for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
->    that |$\hat{ϕ}$| < 1.)
+>    ℱ(*z*) = \\(\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i\\).
+> 4. Use part (c) to prove that \\(F_i = ϕ^i / \sqrt{5}\\) for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
+>    that |\\(\hat{ϕ}\\)| < 1.)
 
 1. By definition:
 
-   $\begin{aligned}
+   \\(\begin{aligned}
    z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z ∑_{i = 0}^∞ F_i z^i + z^2 ∑_{i = 0}^∞ F_i z^i\\\\
    &= z + ∑_{i = 0}^∞ F_i z^{i + 1} + ∑_{i = 0}^∞ F_i z^{i + 2}\\\\
    &= z + ∑_{i = 1}^∞ F_{i - 1} z^i + ∑_{i = 2}^∞ F_{i - 2} z^i\\\\
@@ -1692,37 +1691,37 @@ Let *ϵ* = -$\log_b c$, I guess *f*(*n*) = Ω($n^{\log_b a - \log_b c}$).
    &= F_0 z^0 + F_1 z^1 + ∑_{i = 2}^∞ F_i z^i\\\\
    &= ∑_{i = 0}^∞ F_i z^i\\\\
    &= ℱ\left(z\right).
-   \end{aligned}$
-2. ℱ(*z*) = *z* + *z* ℱ(*z*) + $z^2$ ℱ(*z*)\
-   ⇒ ℱ(*z*) - *z* ℱ(*z*) - $z^2$ ℱ(*z*) = *z*\
-   ⇒ ℱ(*z*) (1 - *z* - $z^2$) = *z*\
-   ⇒ ℱ(*z*) = *z* / (1 - *z* - $z^2$).
+   \end{aligned}\\)
+2. ℱ(*z*) = *z* + *z* ℱ(*z*) + \\(z^2\\) ℱ(*z*)\
+   ⇒ ℱ(*z*) - *z* ℱ(*z*) - \\(z^2\\) ℱ(*z*) = *z*\
+   ⇒ ℱ(*z*) (1 - *z* - \\(z^2\\)) = *z*\
+   ⇒ ℱ(*z*) = *z* / (1 - *z* - \\(z^2\\)).
 
-   *z* / ((1 - *ϕ* *z*) (1 - $\hat{ϕ}$ *z*))\
-   = *z* / (1 - (*ϕ* + $\hat{ϕ}$) *z* + *ϕ* $\hat{ϕ} z^2$)\
-   = *z* / (1 - *z* - $z^2$)\
+   *z* / ((1 - *ϕ* *z*) (1 - \\(\hat{ϕ}\\) *z*))\
+   = *z* / (1 - (*ϕ* + \\(\hat{ϕ}\\)) *z* + *ϕ* \\(\hat{ϕ} z^2\\))\
+   = *z* / (1 - *z* - \\(z^2\\))\
    = ℱ(*z*).
 
-   $\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)$\
-   = $\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - \left(1 - ϕ z\right)}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
-   = $\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
-   = $\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
-   = $\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}$\
+   \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - \left(1 - ϕ z\right)}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
    = ℱ(*z*).
 
-   An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - $1^2$) = -1. Also, according to the
-   definition of ℱ, we have: $ℱ\left(1\right) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i$.
+   An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - \\(1^2\\)) = -1. Also, according to the
+   definition of ℱ, we have: \\(ℱ\left(1\right) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i\\).
 
-   So we have $∑_{i = 0}^∞ F_i$ = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
-3. $∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i$\
-   = $\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i$\
-   = $\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ \left(ϕ z\right)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)$\
-   = $\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)$\
+   So we have \\(∑_{i = 0}^∞ F_i\\) = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
+3. \\(∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
+   = \\(\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
+   = \\(\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ \left(ϕ z\right)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)\\)\
+   = \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
    = ℱ(*z*).
-4. $F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}$\
-   ⇒ $F_i - ϕ^i / \sqrt{5} = - \hat{ϕ}^i / \sqrt{5}$.
+4. \\(F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}\\)\
+   ⇒ \\(F_i - ϕ^i / \sqrt{5} = - \hat{ϕ}^i / \sqrt{5}\\).
 
-   Since $\left|- \hat{ϕ}^i / \sqrt{5}\right|$ < 0.5, and $F_i$ is an integer, $F_i = ϕ^i / \sqrt{5}$, rounded to the
+   Since \\(\left|- \hat{ϕ}^i / \sqrt{5}\right|\\) < 0.5, and \\(F_i\\) is an integer, \\(F_i = ϕ^i / \sqrt{5}\\), rounded to the
    nearest integer.
 
 ##### 4-5 Chip testing
@@ -1884,14 +1883,14 @@ The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Alg
 
    - If the number of rows is even, the time for computing the leftmost minimal element of all odd rows is
 
-     Θ(*f*(2) + $∑_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$)\
+     Θ(*f*(2) + \\(∑_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)\\))\
      = Θ(*f*(2) + (*f*(*m*) - *f*(2) + *m* / 2 - 1))\
      = Θ(*f*(*m*) + *m* / 2 - 1)\
      = *O*(*n* + *m* / 2 - 1)\
      = *O*(*n* + *m*)
    - If the number of rows is odd, the time for computing the leftmost minimal element of all odd rows is:
 
-     Θ(*f*(2) + $∑_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)$ + (*n* - *f*(*m* - 1) + 1))\
+     Θ(*f*(2) + \\(∑_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)\\) + (*n* - *f*(*m* - 1) + 1))\
      = Θ(*f*(2) + (*f*(*m* - 1) - *f*(2) + (*m* - 3) / 2) + (*n* - *f*(*m* - 1) + 1))\
      = Θ((*m* - 3) / 2 + *n* + 1)\
      = Θ(*m* / 2 + *n* - 1 / 2)\
@@ -1901,10 +1900,10 @@ The solution is implemented [here](https://github.com/EFanZh/Introduction-to-Alg
 5. *T*(*m*, *n*) = *T*(*m* / 2, *n*) + *O*(*m* + *n*).
 
    *T*(*m*, *n*)\
-   = Θ(1) + *O*($∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)$)\
-   = Θ(1) + *O*($∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + ∑_{i=0}^{\lg m - 1} n$)\
-   = Θ(1) + *O*(*m* $∑_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + ∑_{i=0}^{\lg m - 1} n$)\
-   = Θ(1) + *O*(*m* (1 - $\left(1 / 2\right)^{\lg m}$) / (1 - 1 / 2) + *n* lg *m*)\
+   = Θ(1) + *O*(\\(∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)\\))\
+   = Θ(1) + *O*(\\(∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + ∑_{i=0}^{\lg m - 1} n\\))\
+   = Θ(1) + *O*(*m* \\(∑_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + ∑_{i=0}^{\lg m - 1} n\\))\
+   = Θ(1) + *O*(*m* (1 - \\(\left(1 / 2\right)^{\lg m}\\)) / (1 - 1 / 2) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
    = *O*(*m* + *n* lg *m*)
@@ -1943,8 +1942,8 @@ The procedure is implemented
 
 let *n* = ⌈lg (*b* - *a* + 1)⌉ be the number of bits need to generate.
 
-After generating *n* bits of number we are in a space of $2^n$ numbers. But the space we need to generate is of size
-*b* - *a* + 1. We have the possibility of *p* = (*b* - *a* + 1) / $2^n$ to get a usable random number, and
+After generating *n* bits of number we are in a space of \\(2^n\\) numbers. But the space we need to generate is of size
+*b* - *a* + 1. We have the possibility of *p* = (*b* - *a* + 1) / \\(2^n\\) to get a usable random number, and
 possibility of 1 - *p* to generate the number again.
 
 Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
@@ -1954,10 +1953,10 @@ Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
 ⇒ *T*(*a*, *b*) = *k* + (1 - *p*) *T*(*a*, *b*).\
 ⇒ *T*(*a*, *b*) = *k* / (1 - (1 - *p*)).\
 ⇒ *T*(*a*, *b*) = *k* / *p*.\
-⇒ *T*(*a*, *b*) = Θ(*n*) / ((*b* - *a* + 1) / $2^n$).\
-⇒ *T*(*a*, *b*) = Θ(*n*) $2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}$ / (*b* - *a* + 1).\
-⇒ *T*(*a*, *b*) = Θ(*n* $2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}$ / (*b* - *a* + 1)).\
-⇒ *T*(*a*, *b*) = Θ(*n* $2^{\lg \left(b - a + 1\right)}$ / (*b* - *a* + 1)), because $Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)$.\
+⇒ *T*(*a*, *b*) = Θ(*n*) / ((*b* - *a* + 1) / \\(2^n\\)).\
+⇒ *T*(*a*, *b*) = Θ(*n*) \\(2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}\\) / (*b* - *a* + 1).\
+⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}\\) / (*b* - *a* + 1)).\
+⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\lg \left(b - a + 1\right)}\\) / (*b* - *a* + 1)), because \\(Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)\\).\
 ⇒ *T*(*a*, *b*) = Θ(*n* (*b* - *a* + 1) / (*b* - *a* + 1)).\
 ⇒ *T*(*a*, *b*) = Θ(*n*).\
 ⇒ *T*(*a*, *b*) = Θ(⌈lg (*b* - *a* + 1)⌉).
@@ -2004,23 +2003,23 @@ and the best candidate, there are *P*(*n* - *i* - 1, *j*) (*n* - *j* - 2)! diffe
 
 So the probability is
 
-$\frac{∑_{i = 1}^{n - 1} ∑_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)!}{n!} = H_{n - 1} / n$,
+\\(\frac{∑_{i = 1}^{n - 1} ∑_{j = 0}^{n - i - 1} P(n - i - 1, j) (n - j - 2)!}{n!} = H_{n - 1} / n\\),
 
-where $H_n$ is the *n*th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number).
+where \\(H_n\\) is the *n*th [harmonic number](https://en.wikipedia.org/wiki/Harmonic_number).
 
 ##### 5.2-3
 
 > Use indicator random variables to compute the expected value of the sum of *n* dice.
 
-Let $X_i$ be the indicator variable associated with the event in which the value of one dice is *i*.
+Let \\(X_i\\) be the indicator variable associated with the event in which the value of one dice is *i*.
 
 So the expected value of one dice is:
 
-E[*X*] = $∑_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace$ = $∑_{i = 1}^6 i / 6$ = 7 / 2.
+E[*X*] = \\(∑_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace\\) = \\(∑_{i = 1}^6 i / 6\\) = 7 / 2.
 
 So the expected value of *n* dices is:
 
-$\operatorname{E}\left[∑_{j = 1}^{n} X\right]$ = $∑_{j = 1}^{n}\operatorname{E}\left[X\right]$ = 7 *n* / 2.
+\\(\operatorname{E}\left[∑_{j = 1}^{n} X\right]\\) = \\(∑_{j = 1}^{n}\operatorname{E}\left[X\right]\\) = 7 *n* / 2.
 
 ##### 5.2-4
 
@@ -2028,13 +2027,13 @@ $\operatorname{E}\left[∑_{j = 1}^{n} X\right]$ = $∑_{j = 1}^{n}\operatorname
 > *n* customers gives a hat to a hat-check person at a restaurant. The hat-check person gives the hats back to the
 > customers in a random order. What is the expected number of customers who get back their own hat?
 
-Let $X_i$ be the indicator variable associated with the event in which the *i*th customer get back its own hat.
+Let \\(X_i\\) be the indicator variable associated with the event in which the *i*th customer get back its own hat.
 
 E[*X*]\
-= $\operatorname{E}\left[∑_{i = 1}^n X_i\right]$\
-= $∑_{i = 1}^n \operatorname{E}\left[X_i\right]$\
-= $∑_{i = 1}^n 1 / n$\
-= $∑_{i = 1}^n 1 / n$\
+= \\(\operatorname{E}\left[∑_{i = 1}^n X_i\right]\\)\
+= \\(∑_{i = 1}^n \operatorname{E}\left[X_i\right]\\)\
+= \\(∑_{i = 1}^n 1 / n\\)\
+= \\(∑_{i = 1}^n 1 / n\\)\
 = 1.
 
 ##### 5.2-5
@@ -2044,14 +2043,14 @@ E[*X*]\
 > uniform random permutation of ⟨1, 2, …, *n*⟩. Use indicator random variables to compute the expected number of
 > inversions.
 
-Let $X_{i j}$ be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
+Let \\(X_{i j}\\) be the indicator variable associated with the event in which the *A*[*i*] > *A*[*j*], where *i* < *j*.
 
 E[*X*]\
-= $E\left[∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} X_{i j}\right]$\
-= $∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{i j}\right]$\
-= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{i j}\right]$\
-= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} 1 / 2$\
-= $∑_{i = 1}^{n - 1} \left(n - i\right) / 2$\
+= \\(E\left[∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} X_{i j}\right]\\)\
+= \\(∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{i j}\right]\\)\
+= \\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{i j}\right]\\)\
+= \\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} 1 / 2\\)\
+= \\(∑_{i = 1}^{n - 1} \left(n - i\right) / 2\\)\
 = *n* (*n* - 1) / 4.
 
 ##### 5.3-1
@@ -2096,9 +2095,9 @@ not the identity permutation, because the first element always is always swapped
 > Does this code produce a uniform random permutation? Why or why not?
 
 In each iteration, there are *n* different possible outcomes of the *Random* function with the same possibility, so
-there are total of $n^n$ (possibly same) outcomes of the algorithm with the same possibility. But the uniform random
-permutation requires there are *n*! different possible outcomes. It is possible that $n^n / n!$ is not an integer, in
-which case, it is impossible to divide $n^n$ probabilities into $n!$ same probabilities. So, the code does not produce a
+there are total of \\(n^n\\) (possibly same) outcomes of the algorithm with the same possibility. But the uniform random
+permutation requires there are *n*! different possible outcomes. It is possible that \\(n^n / n!\\) is not an integer, in
+which case, it is impossible to divide \\(n^n\\) probabilities into \\(n!\\) same probabilities. So, the code does not produce a
 uniform random permutation.
 
 ##### 5.3-4
@@ -2133,14 +2132,14 @@ different results. So the result permutation can not be uniformly random.
 
 The probability is:
 
-$P\left(n^3, n\right) / \left(n^3\right)^n$\
-= $\left(n^3! / \left(n^3 - n\right)!\right) / \left(n^3\right)^n$\
-= $\left(∏_{i = 0}^{n - 1} \left(n^3 - i\right)\right) / \left(∏_{i = 0}^{n - 1} n^3\right)$\
-= $∏_{i = 0}^{n - 1} \left(\left(n^3 - i\right) / n^3\right)$\
-= $∏_{i = 0}^{n - 1} \left(1 - i / n^3\right)$\
-≥ $∏_{i = 0}^{n - 1} \left(1 - n / n^3\right)$\
-= $∏_{i = 0}^{n - 1} \left(1 - 1 / n^2\right)$\
-= $\left(1 - 1 / n^2\right)^n$
+\\(P\left(n^3, n\right) / \left(n^3\right)^n\\)\
+= \\(\left(n^3! / \left(n^3 - n\right)!\right) / \left(n^3\right)^n\\)\
+= \\(\left(∏_{i = 0}^{n - 1} \left(n^3 - i\right)\right) / \left(∏_{i = 0}^{n - 1} n^3\right)\\)\
+= \\(∏_{i = 0}^{n - 1} \left(\left(n^3 - i\right) / n^3\right)\\)\
+= \\(∏_{i = 0}^{n - 1} \left(1 - i / n^3\right)\\)\
+≥ \\(∏_{i = 0}^{n - 1} \left(1 - n / n^3\right)\\)\
+= \\(∏_{i = 0}^{n - 1} \left(1 - 1 / n^2\right)\\)\
+= \\(\left(1 - 1 / n^2\right)^n\\)
 
 *Not sure how to go from here.*
 
@@ -2200,7 +2199,7 @@ Proof by induction on *m*:
     any element in the *m*-subset.
 
     So the probability of generating a certain *m*-subset does not contain *n* is
-    $∑_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)$ =
+    \\(∑_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)\\) =
     (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
 
   So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
@@ -2213,13 +2212,13 @@ Proof by induction on *m*:
 > least 1 / 2? How many people must there be before the probability that at least two people have a birthday on July 4
 > is greater than 1 / 2?
 
-1. The probability that no people in a room has the same birthday as me is $364^{k - 1} / 365^{k - 1}$, so the
-   probability that someone has the same birthday as me is $1 - 364^{k - 1} / 365^{k - 1}$.
+1. The probability that no people in a room has the same birthday as me is \\(364^{k - 1} / 365^{k - 1}\\), so the
+   probability that someone has the same birthday as me is \\(1 - 364^{k - 1} / 365^{k - 1}\\).
 
-   Solving 1 - $364^{k - 1} / 365^{k - 1}$ ≥ 1 / 2, we get *k* ≥ 254.
-2. The probability that *x* people in a room has the a birthday on July 4 is *C*(*k*, *x*) $364^{k - x} / 365^k$,
+   Solving 1 - \\(364^{k - 1} / 365^{k - 1}\\) ≥ 1 / 2, we get *k* ≥ 254.
+2. The probability that *x* people in a room has the a birthday on July 4 is *C*(*k*, *x*) \\(364^{k - x} / 365^k\\),
 
-   Solving 1 - *C*(*k*, 0) $364^k / 365^k$ - *C*(*k*, 1) $364^{k - 1} / 365^k$ > 1 / 2, we get k ≥ 613.
+   Solving 1 - *C*(*k*, 0) \\(364^k / 365^k\\) - *C*(*k*, 1) \\(364^{k - 1} / 365^k\\) > 1 / 2, we get k ≥ 613.
 
 ##### 5.4-2
 
@@ -2227,11 +2226,11 @@ Proof by induction on *m*:
 > equally likely to end up in any bin. What is the expected number of ball tosses?
 
 The probability that toss *k* balls into *b* bins to get the first bin containing two balls is:
-(*P*(*b*, *k* - 1) / $b^{k - 1}$) ((*k* - 1) / *b*).
+(*P*(*b*, *k* - 1) / \\(b^{k - 1}\\)) ((*k* - 1) / *b*).
 
 So the expected number of ball tosses is:
 
-$∑_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k$
+\\(∑_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k\\)
 
 ##### 5.4-3 ★
 
@@ -2252,7 +2251,7 @@ $∑_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left
 > What is the probability that a *k*-string over a set of size *n* forms a *k*-permutation? How does this question
 > relate to the birthday paradox?
 
-The probability is *P*(*n*, *k*) / $n^k$.
+The probability is *P*(*n*, *k*) / \\(n^k\\).
 
 It’s the same as saying *k* people whose birthdays are in *n* days all have different birthday.
 
@@ -2261,26 +2260,26 @@ It’s the same as saying *k* people whose birthdays are in *n* days all have di
 > Suppose that *n* balls are tossed into *n* bins, where each toss is independent and the ball is equally likely to end
 > up in any bin. What is the expected number of empty bins? What is the expected number of bins with exactly one ball?
 
-Let $X_{i}$ being the indicator variable in which bin *i* have *k* balls, then
+Let \\(X_{i}\\) being the indicator variable in which bin *i* have *k* balls, then
 
-E[$X_{i k}$] = *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
+E[\\(X_{i k}\\)] = *C*(*n*, *k*) \\(\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\).
 
 So the expected number of bins with exactly *k* balls is
 
-E[$∑_{i = 1}^{n} X_{i k}$]\
-= $∑_{i = 1}^{n} \operatorname{E}\left[X_{i k}\right]$\
-= $∑_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$\
-= *n* *C*(*n*, *k*) $\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}$.
+E[\\(∑_{i = 1}^{n} X_{i k}\\)]\
+= \\(∑_{i = 1}^{n} \operatorname{E}\left[X_{i k}\right]\\)\
+= \\(∑_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\)\
+= *n* *C*(*n*, *k*) \\(\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\).
 
 So the expected number of bins with exactly 0 ball is:
 
-*n* *C*(*n*, 0) $\left(1 / n\right)^0 \left(1 - 1 / n\right)^{n - 0}$\
-= *n* $\left(1 - 1 / n\right)^n$.
+*n* *C*(*n*, 0) \\(\left(1 / n\right)^0 \left(1 - 1 / n\right)^{n - 0}\\)\
+= *n* \\(\left(1 - 1 / n\right)^n\\).
 
 So the expected number of bins with exactly 1 ball is:
 
-*n* *C*(*n*, 1) $\left(1 / n\right)^1 \left(1 - 1 / n\right)^{n - 1}$\
-= *n* $\left(1 - 1 / n\right)^{n - 1}$.
+*n* *C*(*n*, 1) \\(\left(1 / n\right)^1 \left(1 - 1 / n\right)^{n - 1}\\)\
+= *n* \\(\left(1 - 1 / n\right)^{n - 1}\\).
 
 ##### 5.4-7 ★
 
@@ -2293,37 +2292,37 @@ So the expected number of bins with exactly 1 ball is:
 
 ##### 5-1 Probabilistic counting
 
-> With a *b*-bit counter, we can ordinarily only count up to $2^b$ - 1. With R. Morris’s ***probabilistic counting***,
+> With a *b*-bit counter, we can ordinarily only count up to \\(2^b\\) - 1. With R. Morris’s ***probabilistic counting***,
 > we can count up to a much larger value at the expense of some loss of precision.
 >
-> We let a counter value of *i* represent a count of $n_i$ for *i* = 0, 1, …, $2^b$ - 1, where the $n_i$ form an
+> We let a counter value of *i* represent a count of \\(n_i\\) for *i* = 0, 1, …, \\(2^b\\) - 1, where the \\(n_i\\) form an
 > increasing sequence of nonnegative values. We assume that the initial value of the counter is 0, representing a count
-> of $n_0$ = 0. The *Increment* operation works on a counter containing the value *i* in a probabilistic manner. If
-> *i* = $2^b$ - 1, then the operation reports an overflow error. Otherwise, the *Increment* operation increases the
-> counter by 1 with probability 1 / ($n_{i + 1} - n_i$), and it leaves the counter unchanged with probability
-> 1 - 1 / ($n_{i + 1} - n_i$).
+> of \\(n_0\\) = 0. The *Increment* operation works on a counter containing the value *i* in a probabilistic manner. If
+> *i* = \\(2^b\\) - 1, then the operation reports an overflow error. Otherwise, the *Increment* operation increases the
+> counter by 1 with probability 1 / (\\(n_{i + 1} - n_i\\)), and it leaves the counter unchanged with probability
+> 1 - 1 / (\\(n_{i + 1} - n_i\\)).
 >
-> If we select $n_i$ = *i* for all *i* ≥ 0, then the counter is an ordinary one. More interesting situations arise if we
-> select, say, $n_i = 2^{i - 1}$ for *i* > 0 or $n_i = F_i$ (the *i*th Fibonacci number—see Section 3.2).
+> If we select \\(n_i\\) = *i* for all *i* ≥ 0, then the counter is an ordinary one. More interesting situations arise if we
+> select, say, \\(n_i = 2^{i - 1}\\) for *i* > 0 or \\(n_i = F_i\\) (the *i*th Fibonacci number—see Section 3.2).
 >
-> For this problem, assume that $n_{2^b - 1}$ is large enough that the probability of an overflow error is negligible.
+> For this problem, assume that \\(n_{2^b - 1}\\) is large enough that the probability of an overflow error is negligible.
 >
 > 1. Show that the expected value represented by the counter after *n* *Increment* operations have been performed is
 >    exactly *n*.
-> 2. The analysis of the variance of the count represented by the counter depends on the sequence of the $n_i$. Let us
->    consider a simple case: $n_i$ = 100 *i* for all *i* ≥ 0. Estimate the variance in the value represented by the
+> 2. The analysis of the variance of the count represented by the counter depends on the sequence of the \\(n_i\\). Let us
+>    consider a simple case: \\(n_i\\) = 100 *i* for all *i* ≥ 0. Estimate the variance in the value represented by the
 >    register after *n* *Increment* operations have been performed.
 
-1. For any counter value $n_i$, the expected value increased by one increment operation is:
+1. For any counter value \\(n_i\\), the expected value increased by one increment operation is:
 
-   $\left(n_{i + 1} - n_i\right) \left(1 / \left(n_{i + 1} - n_i\right)\right) + 0 \left(1 / \left(n_{i + 1} - n_i\right)\right)$ = 1.
+   \\(\left(n_{i + 1} - n_i\right) \left(1 / \left(n_{i + 1} - n_i\right)\right) + 0 \left(1 / \left(n_{i + 1} - n_i\right)\right)\\) = 1.
 
-   Let $X_i$ be the random variable in which the counter values increased by the *i*-th increment operation. So the
+   Let \\(X_i\\) be the random variable in which the counter values increased by the *i*-th increment operation. So the
    expected value of the counter after *n* *Increment* operations is:
 
-   E[$∑_{i = 1}^{n} X_i$]\
-   = $∑_{i = 1}^{n} \operatorname{E}\left[X_i\right]$\
-   = $∑_{i = 1}^{n} 1$.\
+   E[\\(∑_{i = 1}^{n} X_i\\)]\
+   = \\(∑_{i = 1}^{n} \operatorname{E}\left[X_i\right]\\)\
+   = \\(∑_{i = 1}^{n} 1\\).\
    = *n*.
 2. *Skipped*.
 
@@ -2401,7 +2400,7 @@ So the expected number of bins with exactly 1 ball is:
 
 ***f.*** The expected number of indices to pick is:
 
-$∑_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)$ = (n + 1) / (k + 1).
+\\(∑_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)\\) = (n + 1) / (k + 1).
 (By [WolframAlpha](https://www.wolframalpha.com/input/?i=sum(i+P(n+-+k,+i+-+1)+k+P(n+-+i,+n+-+i)+%2F+P(n,+n),+(i,+1,+n+-+k+%2B+1))))
 
 Worst-case running time is Θ(*n* - *k* + 1).
@@ -2422,14 +2421,14 @@ Worst-case running time is Θ(*n* - *k* + 1).
 
 > What are the minimum and maximum numbers of elements in a heap of height *h*?
 
-The minimum number of elements is $2^h$, the maximum number of elements is $2^{h + 1} - 1$.
+The minimum number of elements is \\(2^h\\), the maximum number of elements is \\(2^{h + 1} - 1\\).
 
 ##### 6.1-2
 
 > Show that an *n*-element heap has height ⌊lg *n*⌋.
 
 According to exercise 6.1-1, we know that if the height of a heap is *h*, the number of elements is in range
-[$2^h$, $2^{h + 1} - 1$]. Also, if $2^h$ ≤ *n* ≤ $2^{h + 1} - 1$, we must have ⌊lg *n*⌋ = *h*, so an *n*-element heap
+[\\(2^h\\), \\(2^{h + 1} - 1\\)]. Also, if \\(2^h\\) ≤ *n* ≤ \\(2^{h + 1} - 1\\), we must have ⌊lg *n*⌋ = *h*, so an *n*-element heap
 must have height ⌊lg *n*⌋.
 
 ##### 6.1-3
@@ -2546,17 +2545,17 @@ Because *Max-Heapify* requires that its child subtree being a heap, so we have t
 
 ##### 6.3-3
 
-> Show that there are at most ⌈*n* / $2^{h + 1}$⌉ nodes of height *h* in any *n*-element heap.
+> Show that there are at most ⌈*n* / \\(2^{h + 1}\\)⌉ nodes of height *h* in any *n*-element heap.
 
 Proof by induction:
 
 Base case: the nodes of height 0 are leaf nodes. according to exercise 6.1-7, we know that the number of leaf nodes is
-*n* - (⌊*n* / 2⌋ + 1) + 1 = *n* - ⌊*n* / 2⌋ = ⌈*n* / 2⌉ = ⌈*n* / $2^{0 + 1}$⌉, since “For any integer *n*,
+*n* - (⌊*n* / 2⌋ + 1) + 1 = *n* - ⌊*n* / 2⌋ = ⌈*n* / 2⌉ = ⌈*n* / \\(2^{0 + 1}\\)⌉, since “For any integer *n*,
 ⌈*n* / 2⌉ + ⌊*n* / 2⌋ = *n*”.
 
-Inductive case: by induction, we know that in height *h* + 1, there are at most ⌈*n* / $2^{h + 2}$⌉ nodes. So there are
-at most ⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ nodes in height *h*. According to equation (3.4), we have
-⌈⌈*n* / $2^{h + 2}$⌉ / 2⌉ = ⌈*n* / $2^{h + 2}$ / 2⌉ = ⌈*n* / $2^{h + 1}$⌉.
+Inductive case: by induction, we know that in height *h* + 1, there are at most ⌈*n* / \\(2^{h + 2}\\)⌉ nodes. So there are
+at most ⌈⌈*n* / \\(2^{h + 2}\\)⌉ / 2⌉ nodes in height *h*. According to equation (3.4), we have
+⌈⌈*n* / \\(2^{h + 2}\\)⌉ / 2⌉ = ⌈*n* / \\(2^{h + 2}\\) / 2⌉ = ⌈*n* / \\(2^{h + 1}\\)⌉.
 
 #### 6.4 The heapsort algorithm
 
@@ -2717,24 +2716,24 @@ run time of Θ(*n* lg *n*).
 ***a.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 
-***b.*** The maximum number of elements of height *h* is $∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}$, so we have
-$\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}$. Solving it, we have
-$\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\right) n + 1\right) + 1$. Since *h* is an
-integer, we have *h* = $\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil$ = Θ($\log_d n$).
+***b.*** The maximum number of elements of height *h* is \\(∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}\\), so we have
+\\(\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}\\). Solving it, we have
+\\(\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\right) n + 1\right) + 1\\). Since *h* is an
+integer, we have *h* = \\(\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil\\) = Θ(\\(\log_d n\\)).
 
 ***c.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 The worst-case running time is linear to the height of the heap, and on every level we have to find the maximum element
-in Θ(*d*) time. So the worst case running time is Θ(*d* $\log_d n$).
+in Θ(*d*) time. So the worst case running time is Θ(*d* \\(\log_d n\\)).
 
 ***d.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
 The worst-case running time is linear to the height of the heap. So the worst case running time is
-*O*($\log_d n$).
+*O*(\\(\log_d n\\)).
 
 ***e.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
-The worst case running time is Θ($\log_d n$).
+The worst case running time is Θ(\\(\log_d n\\)).
 
 ##### 6-3 Young tableaus
 
@@ -2756,8 +2755,8 @@ The worst case running time is Θ($\log_d n$).
 >
 > ***d.*** Show how to insert a new element into a nonfull *m* × *n* Young tableau in *O*(*m* + *n*) time.
 >
-> ***e.*** Using no other sorting method as a subroutine, show how to use an *n* × *n* Young tableau to sort $n^2$
-> numbers in *O*($n^3$) time.
+> ***e.*** Using no other sorting method as a subroutine, show how to use an *n* × *n* Young tableau to sort \\(n^2\\)
+> numbers in *O*(\\(n^3\\)) time.
 >
 > ***f.*** Give an *O*(*m* + *n*)-time algorithm to determine whether a given number is stored in a given *m* × *n*
 > Young tableau.
@@ -2845,31 +2844,31 @@ Fine, the solution is implemented
 ##### 7.2-1
 
 > Use the substitution method to prove that the recurrence *T*(*n*) = *T*(*n* - 1) + Θ(*n*) has the solution
-> *T*(*n*) = Θ($n^2$), as claimed at the beginning of Section 7.2.
+> *T*(*n*) = Θ(\\(n^2\\)), as claimed at the beginning of Section 7.2.
 
-Let *T*(*n*) = *T*(*n* - 1) + *f*(*n*), where for some $c_1$, $c_2$ and $n_0$, for any *n* > $n_0$,
-$c_1 n ≤ f\left(n\right) ≤ c_2 n$.
+Let *T*(*n*) = *T*(*n* - 1) + *f*(*n*), where for some \\(c_1\\), \\(c_2\\) and \\(n_0\\), for any *n* > \\(n_0\\),
+\\(c_1 n ≤ f\left(n\right) ≤ c_2 n\\).
 
-Suppose *T*(*n*) ≥ $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$ for large enough *n*, we have
+Suppose *T*(*n*) ≥ \\(\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3\\) for large enough *n*, we have
 
 *T*(*n*)\
 = *T*(*n* - 1) + *f*(*n*)\
-≥ *T*(*n* - 1) + $c_1$ n\
-≥ $\left(c_1 / 2\right) \left(n - 1\right)^2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n$\
-= $\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n$\
-= $\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3$.
+≥ *T*(*n* - 1) + \\(c_1\\) n\
+≥ \\(\left(c_1 / 2\right) \left(n - 1\right)^2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n\\)\
+= \\(\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n\\)\
+= \\(\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3\\).
 
-So *T*(*n*) = Ω($n^2$). Similarly, we can prove *T*(*n*) = *O*($n^2$), so *T*(*n*) = Θ(*n*).
+So *T*(*n*) = Ω(\\(n^2\\)). Similarly, we can prove *T*(*n*) = *O*(\\(n^2\\)), so *T*(*n*) = Θ(*n*).
 
 ##### 7.2-2
 
 > What is the running time of *Quicksort* when all elements of array *A* have the same value?
 
-Θ($n^2$).
+Θ(\\(n^2\\)).
 
 ##### 7.2-3
 
-> Show that the running time of *Quicksort* is Θ($n^2$) when the array *A* contains distinct elements and is sorted in
+> Show that the running time of *Quicksort* is Θ(\\(n^2\\)) when the array *A* contains distinct elements and is sorted in
 > decreasing order.
 
 Let’s say we have an array ⟨*n*, *n* - 1, …, 2, 1⟩ to sort.
@@ -2882,7 +2881,7 @@ At the second partition, we will choose *n* as the pivot element. so after parti
 
 Notice that after the second partition, the subarray ⟨*n* - 1, *n* - 2, …, 2⟩ is in decreasing order, so we get
 ourselves a subproblem of the original problem. Since the first two partitions of the partition is the worst cast
-scenario, we know that the subproblem will also be the worst case scenario. So the running time is Θ($n^2$).
+scenario, we know that the subproblem will also be the worst case scenario. So the running time is Θ(\\(n^2\\)).
 
 ##### 7.2-4
 
@@ -2904,12 +2903,12 @@ procedure *Quicksort* on this problem.
 > maximum depth is approximately -lg *n* / lg(1 - *α*). (Don’t worry about integer round-off.)
 
 At each level of recursion the problem of size *n* is divided into problems of size *α* *n* and size (1 - *α*) *n*.
-Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → $α^2$ *n* → ⋯ → 1, the maximum depth is on the path
-*n* → (1 - *α*) *n* → $\left(1 - α\right)^2$ *n* → ⋯ → 1.
+Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → \\(α^2\\) *n* → ⋯ → 1, the maximum depth is on the path
+*n* → (1 - *α*) *n* → \\(\left(1 - α\right)^2\\) *n* → ⋯ → 1.
 
-Solving $α^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
+Solving \\(α^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
 
-Solving $\left(1 - α\right)^i$ *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
+Solving \\(\left(1 - α\right)^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
 
 ##### 7.2-6 ★
 
@@ -2945,19 +2944,19 @@ case by chance.
 
 > Show that in the recurrence
 >
-> *T*(*n*) = $\underset{0 ≤ q ≤ n - 1}{\max} \left(T\left(q\right) + T\left(n - q - 1\right)\right) + Θ\left(n\right)$,
+> *T*(*n*) = \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T\left(q\right) + T\left(n - q - 1\right)\right) + Θ\left(n\right)\\),
 >
-> *T*(*n*) = Ω($n^2$).
+> *T*(*n*) = Ω(\\(n^2\\)).
 
-Suppose *T*(*n*) ≥ *c* $n^2$ for some *c*, we have:
+Suppose *T*(*n*) ≥ *c* \\(n^2\\) for some *c*, we have:
 
 *T*(*n*)\
-= $\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ\left(n\right)$\
-≥ $\underset{0 ≤ q ≤ n - 1}{\max} \left(c q^2 + c \left(n - q - 1\right)^2\right)$ + Θ(*n*)\
-= *c* ⋅ $\underset{0 ≤ q ≤ n - 1}{\max} \left(q^2 + \left(n - q - 1\right)^2\right)$ + Θ(*n*)\
-= *c* ⋅ $\left(n - 1\right)^2$ + Θ(*n*)\
-= *c* $n^2$ - *c* (2 *n* - 1) + Θ(*n*)\
-≥ *c* $n^2$.
+= \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ\left(n\right)\\)\
+≥ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(c q^2 + c \left(n - q - 1\right)^2\right)\\) + Θ(*n*)\
+= *c* ⋅ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(q^2 + \left(n - q - 1\right)^2\right)\\) + Θ(*n*)\
+= *c* ⋅ \\(\left(n - 1\right)^2\\) + Θ(*n*)\
+= *c* \\(n^2\\) - *c* (2 *n* - 1) + Θ(*n*)\
+≥ *c* \\(n^2\\).
 
 ##### 7.4-2
 
@@ -2979,15 +2978,15 @@ Suppose *T*(*n*) ≥ *c* (*n* + 1) lg (*n* + 1) for some *c*, we have:
 
 ##### 7.4-3
 
-> Show that the expression $q^2 + \left(n - q - 1\right)^2$ achieves a maximum over *q* = 0, 1, …, *n* - 1 when
+> Show that the expression \\(q^2 + \left(n - q - 1\right)^2\\) achieves a maximum over *q* = 0, 1, …, *n* - 1 when
 > *q* = 0 or *q* = *n* - 1.
 
-$\frac{\partial\left(q^2 + \left(n - q - 1\right)^2\right)}{\partial q}$\
+\\(\frac{\partial\left(q^2 + \left(n - q - 1\right)^2\right)}{\partial q}\\)\
 = 2 *q* - 2 (*n* - q - 1)\
 = 4 *q* - 2 *n* + 2
 
 When q < (*n* - 1) / 2, 4 *q* - 2 *n* + 2 > 0; when q > (*n* - 1) / 2, 4 *q* - 2 *n* + 2 < 0, so we have the value of
-$q^2 + \left(n - q - 1\right)^2$ decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
+\\(q^2 + \left(n - q - 1\right)^2\\) decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
 0 ≤ *q* ≤ *n* - 1, we have maximum when *q* = 0 or *q* = *n* - 1.
 
 ##### 7.4-4
@@ -3180,7 +3179,7 @@ Solution is implemented
 
 ***a.***
 
-Θ($n^2$).
+Θ(\\(n^2\\)).
 
 ***b.***
 
@@ -3202,20 +3201,20 @@ Solution is implemented
 > individual recursive call to *Randomized-Quicksort*, rather than on the number of comparisons performed.
 >
 > ***a.*** Argue that, given an array of size *n*, the probability that any particular element is chosen as the pivot is
-> 1 / *n*. Use this to define indicator random variables $X_i$ = I{*i*th smallest element is chosen as the pivot}. What
-> is E[$X_i$]?
+> 1 / *n*. Use this to define indicator random variables \\(X_i\\) = I{*i*th smallest element is chosen as the pivot}. What
+> is E[\\(X_i\\)]?
 >
 > ***b.*** Let *T*(*n*) be a random variable denoting the running time of quicksort on an array of size *n*. Argue that
 >
-> - E[*T*(*n*)] = E$\displaystyle\left[∑_{q = 1}^n X_q \left(T\left(q - 1\right) + T\left(n - q\right) + Θ\left(n\right)\right)\right]$. (7.5)
+> - E[*T*(*n*)] = E\\(\displaystyle\left[∑_{q = 1}^n X_q \left(T\left(q - 1\right) + T\left(n - q\right) + Θ\left(n\right)\right)\right]\\). (7.5)
 >
 > ***c.*** Show that we can rewrite equation (7.5) as
 >
-> - E[*T*(*n*)] = $\displaystyle\frac{2}{n} ∑_{q = 2}^{n - 1} \operatorname{E}\left[T\left(q\right)\right] + Θ\left(n\right)$. (7.6)
+> - E[*T*(*n*)] = \\(\displaystyle\frac{2}{n} ∑_{q = 2}^{n - 1} \operatorname{E}\left[T\left(q\right)\right] + Θ\left(n\right)\\). (7.6)
 >
 > ***d.*** Show that
 >
-> - $\displaystyle ∑_{k = 2}^{n - 1} k \lg k ≤ \frac{1}{2} n^2 \lg n - \frac{1}{8} n^2$. (7.7)
+> - \\(\displaystyle ∑_{k = 2}^{n - 1} k \lg k ≤ \frac{1}{2} n^2 \lg n - \frac{1}{8} n^2\\). (7.7)
 >
 > (*Hint:* Split the summation into two parts, one for *k* = 2, 3, …, ⌈*n* / 2⌉ - 1 and one for *k* = ⌈*n* / 2⌉, …,
 > *n* - 1.)
@@ -3295,10 +3294,10 @@ Solution is implemented
 > pivot as the median (middle element) of a set of 3 elements randomly selected from the subarray. (See Exercise 7.4-6.)
 > For this problem, let us assume that the elements in the input array *A*[1‥*n*] are distinct and that *n* ≥ 3. We
 > denote the sorted output array by *A*′[1‥*n*]. Using the median-of-3 method to choose the pivot element *x*, define
-> $p_i$ = Pr{*x* = *A*′[*i*]}.
+> \\(p_i\\) = Pr{*x* = *A*′[*i*]}.
 >
-> ***a.*** Give an exact formula for $p_i$ as a function of *n* and *i* for *i* = 2, 3, …, *n* - 1. (Note that
-> $p_1 = p_n = 0$.)
+> ***a.*** Give an exact formula for \\(p_i\\) as a function of *n* and *i* for *i* = 2, 3, …, *n* - 1. (Note that
+> \\(p_1 = p_n = 0\\).)
 >
 > ***b.*** By what amount have we increased the likelihood of choosing the pivot as *x* = *A*′[⌊(*n* + 1) / 2⌋], the
 > median of *A*[1‥*n*], compared with the ordinary implementation? Assume that *n* → ∞, and give the limiting ratio of
@@ -3319,19 +3318,19 @@ The median-of-3 quicksort is implemented
 ##### 7-6 Fuzzy sorting of intervals
 
 > Consider a sorting problem in which we do not know the numbers exactly. Instead, for each number, we know an interval
-> on the real line to which it belongs. That is, we are given *n* closed intervals of the form [$a_i$, $b_i$], where
-> $a_i$ ≤ $b_i$. We wish to ***fuzzy-sort*** these intervals, i.e., to produce a permutation ⟨$i_1$, $i_2$, …, $i_n$⟩ of
-> the intervals such that for *j* = 1, 2, …, *n*, there exist $c_j$ ∈ [$a_{i_j}$, $a_{i_j}$] satisfying
-> $c_1$ ≤ $c_2$ ≤ ⋯ ≤ $c_n$.
+> on the real line to which it belongs. That is, we are given *n* closed intervals of the form [\\(a_i\\), \\(b_i\\)], where
+> \\(a_i\\) ≤ \\(b_i\\). We wish to ***fuzzy-sort*** these intervals, i.e., to produce a permutation ⟨\\(i_1\\), \\(i_2\\), …, \\(i_n\\)⟩ of
+> the intervals such that for *j* = 1, 2, …, *n*, there exist \\(c_j\\) ∈ [\\(a_{i_j}\\), \\(a_{i_j}\\)] satisfying
+> \\(c_1\\) ≤ \\(c_2\\) ≤ ⋯ ≤ \\(c_n\\).
 >
 > ***a.*** Design a randomized algorithm for fuzzy-sorting *n* intervals. Your algorithm should have the general
-> structure of an algorithm that quicksorts the left endpoints (the $a_i$ values), but it should take advantage of
+> structure of an algorithm that quicksorts the left endpoints (the \\(a_i\\) values), but it should take advantage of
 > overlapping intervals to improve the running time. (As the intervals overlap more and more, the problem of
 > fuzzy-sorting the intervals becomes progressively easier. Your algorithm should take advantage of such overlapping, to
 > the extent that it exists.)
 >
 > ***b.*** Argue that your algorithm runs in expected time Θ(*n* lg *n*) in general, but runs in expected time Θ(*n*)
-> when all of the intervals overlap (i.e., when there exists a value *x* such that *x* ∈ [$a_i$, $b_i$] for all *i*).
+> when all of the intervals overlap (i.e., when there exists a value *x* such that *x* ∈ [\\(a_i\\), \\(b_i\\)] for all *i*).
 > Your algorithm should not be checking for this case explicitly; rather, its performance should naturally improve as
 > the amount of overlap increases.
 
@@ -3357,14 +3356,14 @@ comparisons.
 ##### 8.1-2
 
 > Obtain asymptotically tight bounds on lg(*n*!) without using Stirling’s approximation. Instead, evaluate the summation
-> $∑_{k = 1}^{n} \lg k$ using techniques from Section A.2.
+> \\(∑_{k = 1}^{n} \lg k\\) using techniques from Section A.2.
 
 *Skipped.*
 
 ##### 8.1-3
 
 > Show that there is no comparison sort whose running time is linear for at least half of the *n*! inputs of length *n*.
-> What about a fraction of 1 / *n* of the inputs of length *n*? What about a fraction 1 / $2^n$?
+> What about a fraction of 1 / *n* of the inputs of length *n*? What about a fraction 1 / \\(2^n\\)?
 
 *Skipped.*
 
@@ -3426,7 +3425,7 @@ Solution is implemented
 ##### 8.3-1
 
 > Using Figure 8.3 as a model, illustrate the operation of *Radix-Sort* on the following list of English words: COW,
-> DOG, SEA, RUG, ROW, MOB, BOX, $T_A$B, BAR, EAR, $T_A$R, DIG, BIG, TEA, NOW, FOX.
+> DOG, SEA, RUG, ROW, MOB, BOX, \\(T_A\\)B, BAR, EAR, \\(T_A\\)R, DIG, BIG, TEA, NOW, FOX.
 
 *Skipped.*
 
@@ -3465,12 +3464,12 @@ Proof by induction:
 
 ##### 8.3-4
 
-> Show how to sort *n* integers in the range 0 to $n^3$ - 1 in *O*(*n*) time.
+> Show how to sort *n* integers in the range 0 to \\(n^3\\) - 1 in *O*(*n*) time.
 
 Represent the integers with lg *n* bit digits, then the running time will be:
 
-Θ(*d* / *r* (*n* + $2^r$))\
-=Θ(lg $n^3$ / lg *n* (*n* + $2^{\lg n}$))\
+Θ(*d* / *r* (*n* + \\(2^r\\)))\
+=Θ(lg \\(n^3\\) / lg *n* (*n* + \\(2^{\lg n}\\)))\
 = Θ(6 *n*)\
 = *O*(*n*).
 
@@ -3479,7 +3478,7 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 > In the first card-sorting algorithm in this section, exactly how many sorting passes are needed to sort *d*-digit
 > decimal numbers in the worst case? How many piles of cards would an operator need to keep track of in the worst case?
 
-1. $∑_{i = 0}^{d - 1} 10^i$ = ($10^d - 1$) / 9.
+1. \\(∑_{i = 0}^{d - 1} 10^i\\) = (\\(10^d - 1\\)) / 9.
 2. 9 *d*.
 
 #### 8.4 Bucket sort
@@ -3493,40 +3492,40 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 
 ##### 8.4-2
 
-> Explain why the worst-case running time for bucket sort is Θ($n^2$). What simple change to the algorithm preserves its
+> Explain why the worst-case running time for bucket sort is Θ(\\(n^2\\)). What simple change to the algorithm preserves its
 > linear average-case running time and makes its worst-case running time *O*(*n* lg *n*)?
 
-1. If all elements are put into one single bucket, the running time become Θ($n^2$).
+1. If all elements are put into one single bucket, the running time become Θ(\\(n^2\\)).
 2. Use merge sort instead of insertion sort to sort elements in buckets.
 
 ##### 8.4-3
 
-> Let *X* be a random variable that is equal to the number of heads in two flips of a fair coin. What is E[$X^2$]? What
-> is $\operatorname{E}^2\left[X\right]$?
+> Let *X* be a random variable that is equal to the number of heads in two flips of a fair coin. What is E[\\(X^2\\)]? What
+> is \\(\operatorname{E}^2\left[X\right]\\)?
 
-E[$X^2$]\
-= $0^2$ × 1 / 4 + $1^2$ × 1 / 2 + $2^2$ × 1 / 4\
+E[\\(X^2\\)]\
+= \\(0^2\\) × 1 / 4 + \\(1^2\\) × 1 / 2 + \\(2^2\\) × 1 / 4\
 = 3 / 2.
 
-$\operatorname{E}^2\left[X\right]$\
-= $\left(0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4\right)^2$\
+\\(\operatorname{E}^2\left[X\right]\\)\
+= \\(\left(0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4\right)^2\\)\
 = 1.
 
 ##### 8.4-4 ★
 
-> We are given *n* points in the unit circle, $p_i$ = ($x_i$, $y_i$), such that 0 < $x_i^2 + y_i^2$ ≤ 1 for
+> We are given *n* points in the unit circle, \\(p_i\\) = (\\(x_i\\), \\(y_i\\)), such that 0 < \\(x_i^2 + y_i^2\\) ≤ 1 for
 > *i* = 1, 2, …, *n*. Suppose that the points are uniformly distributed; that is, the probability of finding a point in
 > any region of the circle is proportional to the area of that region. Design an algorithm with an average-case running
-> time of Θ(*n*) to sort the *n* points by their distances $d_i = \sqrt{x_i^2 + y_i^2}$ from the origin. (*Hint:* Design
+> time of Θ(*n*) to sort the *n* points by their distances \\(d_i = \sqrt{x_i^2 + y_i^2}\\) from the origin. (*Hint:* Design
 > the bucket sizes in *Bucket-Sort* to reflect the uniform distribution of the points in the unit circle.)
 
-Question: why can’t $x_i^2 + y_i^2$ be zero?
+Question: why can’t \\(x_i^2 + y_i^2\\) be zero?
 
 Since the probability is proportional to the area, and the whole area is *π*, the we construct circles with area
 *π* / *n*, 2 *π* / *n*, …, (*n* - 1) *π* / *n*, *π*, and use their boundaries as the bucket boundaries, that is we
-construct buckets with boundaries of $\sqrt{1 / n}$, $\sqrt{2 / n}$, …, $\sqrt{\left(n - 1\right) / n}$, 1.
+construct buckets with boundaries of \\(\sqrt{1 / n}\\), \\(\sqrt{2 / n}\\), …, \\(\sqrt{\left(n - 1\right) / n}\\), 1.
 
-To implement the algorithm, we need to put point (*x*, *y*), in bucket ⌈*n* ($x^2 + y^2$)⌉ - 1.
+To implement the algorithm, we need to put point (*x*, *y*), in bucket ⌈*n* (\\(x^2 + y^2\\))⌉ - 1.
 
 The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/section_8_4_bucket_sort/exercises/exercise_8_4_4.rs).
@@ -3534,7 +3533,7 @@ The solution is implemented
 ##### 8.4-5 ★
 
 > A ***probability distribution function*** *P*(*x*) for a random variable *X* is defined by *P*(*x*) = Pr{*X* ≤ *x*}.
-> Suppose that we draw a list of *n* random variables $X_1$, $X_2$, …, $X_n$ from a continuous probability distribution
+> Suppose that we draw a list of *n* random variables \\(X_1\\), \\(X_2\\), …, \\(X_n\\) from a continuous probability distribution
 > function *P* that is computable in *O*(1) time. Give an algorithm that sorts these numbers in linear average-case
 > time.
 
@@ -3551,8 +3550,8 @@ Pr{⌈*n* *P*(*X*)⌉ - 1 = *i*}\
 Since
 
 Pr{*P*(*X*) ≤ *t*}\
-= Pr{*X* ≤ $P^{-1}\left(t\right)$}\
-= $P\left(P^{-1}\left(t\right)\right)$\
+= Pr{*X* ≤ \\(P^{-1}\left(t\right)\\)}\
+= \\(P\left(P^{-1}\left(t\right)\right)\\)\
 = *t*,
 
 Pr{*P*(*X*) ≤ (*i* + 1) / *n*} - Pr{*P*(*X*) ≤ *i* / *n*}\
@@ -3570,9 +3569,9 @@ The solution is implemented
 
 > In this problem, we prove a probabilistic Ω(*n* lg *n*) lower bound on the running time of any deterministic or
 > randomized comparison sort on *n* distinct input elements. We begin by examining a deterministic comparison sort *A*
-> with decision tree $T_A$. We assume that every permutation of *A*’s inputs is equally likely.
+> with decision tree \\(T_A\\). We assume that every permutation of *A*’s inputs is equally likely.
 >
-> ***a.*** Suppose that each leaf of $T_A$ is labeled with the probability that it is reached given a random input.
+> ***a.*** Suppose that each leaf of \\(T_A\\) is labeled with the probability that it is reached given a random input.
 > Prove that exactly *n*! leaves are labeled 1 / *n*! and that the rest are labeled 0.
 >
 > ***b.*** Let *D*(*T*) denote the external path length of a decision tree *T*; that is, *D*(*T*) is the sum of the
@@ -3580,14 +3579,14 @@ The solution is implemented
 > right subtrees of *T*. Show that *D*(*T*) = *D*(*LT*) + *D*(*RT*) + *k*.
 >
 > ***c.*** Let *d*(*k*) be the minimum value of *D*(*T*) over all decision trees *T* with *k* > 1 leaves. Show that
-> *d*(*k*) = $\min_{1 ≤ i ≤ k - 1} \left\lbrace d(i) + d(k - i) + k\right\rbrace$. (*Hint:* Consider a decision tree *T*
-> with *k* leaves that achieves the minimum. Let $i_0$ be the number of leaves in *LT* and *k* - $i_0$ the number of
+> *d*(*k*) = \\(\min_{1 ≤ i ≤ k - 1} \left\lbrace d(i) + d(k - i) + k\right\rbrace\\). (*Hint:* Consider a decision tree *T*
+> with *k* leaves that achieves the minimum. Let \\(i_0\\) be the number of leaves in *LT* and *k* - \\(i_0\\) the number of
 > leaves in *RT*.)
 >
 > ***d.*** Prove that for a given value of *k* > 1 and *i* in the range 1 ≤ *i* ≤ *k* - 1, the function
 > *i* lg *i* + (*k* - *i*) lg(*k* - *i*) is minimized at *i* = *k* / 2. Conclude that *d*(*k*) = Ω(*k* lg *k*).
 >
-> ***e.*** Prove that *D*($T_A$) = Ω(*n*! lg(*n*!)), and conclude that the average-case time to sort *n* elements is
+> ***e.*** Prove that *D*(\\(T_A\\)) = Ω(*n*! lg(*n*!)), and conclude that the average-case time to sort *n* elements is
 > Ω(*n* lg *n*).
 >
 > Now, consider a *randomized* comparison sort *B*. We can extend the decision-tree model to handle randomization by
@@ -3632,7 +3631,7 @@ The solution is implemented
 
 ***d.***
 
-- (a) Counting sort: No. Because it requires Ω($2^b$) running time.
+- (a) Counting sort: No. Because it requires Ω(\\(2^b\\)) running time.
 - (b) Partition: No. It does not sort keys with more than one bit.
 - (c) Insertion sort: Yes.
 
@@ -3671,7 +3670,7 @@ if it has *i* digits. Then radix sort each bucket. Finally concatenate elements 
 > is to find an algorithm that makes a minimum number of comparisons to determine the grouping. Remember that you may
 > not directly compare two red jugs or two blue jugs.
 >
-> ***a.*** Describe a deterministic algorithm that uses Θ($n^2$) comparisons to group the jugs into pairs.
+> ***a.*** Describe a deterministic algorithm that uses Θ(\\(n^2\\)) comparisons to group the jugs into pairs.
 >
 > ***b.*** Prove a lower bound of Ω(*n* lg *n*) for the number of comparisons that an algorithm solving this problem
 > must make.
@@ -3686,14 +3685,14 @@ possible result. So the decision tree must at least have the height lg *n*! = Ω
 
 ***c.*** Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_8_sorting_in_linear_time/problems/problem_8_4_water_jugs.rs).
-The worst-cast running time is Θ($n^2$).
+The worst-cast running time is Θ(\\(n^2\\)).
 
 ##### 8-5 Average sorting
 
 > Suppose that, instead of sorting an array, we just require that the elements increase on average. More precisely, we
 > call an *n*-element array *A* ***k-sorted*** if, for all *i* = 1, 2, …, *n* - *k*, the following holds:
 >
-> $\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}$.
+> \\(\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}\\).
 >
 > ***a.*** What does it mean for an array to be 1-sorted?
 >
@@ -3722,10 +3721,10 @@ It means the array is sorted.
 
 ***c.***
 
-$\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}$\
-⇔ $∑_{j = i}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k} A\left[j\right]$\
-⇔ $A\left[i\right] + ∑_{j = i + 1}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k - 1} A\left[j\right] + A\left[i + k\right]$\
-⇔ $A\left[i\right] ≤ A\left[i + k\right]$.
+\\(\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}\\)\
+⇔ \\(∑_{j = i}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k} A\left[j\right]\\)\
+⇔ \\(A\left[i\right] + ∑_{j = i + 1}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k - 1} A\left[j\right] + A\left[i + k\right]\\)\
+⇔ \\(A\left[i\right] ≤ A\left[i + k\right]\\).
 
 ***d.***
 
@@ -3767,18 +3766,18 @@ will only need *o*(*n* lg *n*) + *O*(*n* lg *k*) = *o*(*n* lg *n*) time, which i
 
 ***a.***
 
-*C*(2 *n*, *n*) = $\frac{(2 n)!}{\left(n!\right)^2}$.
+*C*(2 *n*, *n*) = \\(\frac{(2 n)!}{\left(n!\right)^2}\\).
 
 ***b.***
 
-The decision tree has at least $\frac{(2 n)!}{\left(n!\right)^2}$ nodes, so the height of the tree is at least
+The decision tree has at least \\(\frac{(2 n)!}{\left(n!\right)^2}\\) nodes, so the height of the tree is at least
 
-$\lg \frac{(2 n)!}{\left(n!\right)^2}$\
+\\(\lg \frac{(2 n)!}{\left(n!\right)^2}\\)\
 = lg ((2 *n*)!) - 2 lg(*n*!)\
-= $∑_{i = 1}^{2 n} \lg i - 2 ∑_{i = 1}^{n} \lg i$\
-= $∑_{i = n + 1}^{2 n} \lg i - ∑_{i = 1}^{n} \lg i$\
-= $∑_{i = 1}^{n} \lg \left(n + i\right) - ∑_{i = 1}^{n} \lg i$\
-= $∑_{i = 1}^{n} \lg (1 + n / i)$.
+= \\(∑_{i = 1}^{2 n} \lg i - 2 ∑_{i = 1}^{n} \lg i\\)\
+= \\(∑_{i = n + 1}^{2 n} \lg i - ∑_{i = 1}^{n} \lg i\\)\
+= \\(∑_{i = 1}^{n} \lg \left(n + i\right) - ∑_{i = 1}^{n} \lg i\\)\
+= \\(∑_{i = 1}^{n} \lg (1 + n / i)\\).
 
 *Skipped.*
 
@@ -3823,10 +3822,10 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 > that algorithm X puts into the wrong location, and let *A*[*q*] be the value that algorithm X moves to the location
 > into which *A*[*p*] should have gone. Define an array *B*[1‥*n*] of 0s and 1s as follows:
 >
-> *B*[*i*] = $\begin{cases}
+> *B*[*i*] = \\(\begin{cases}
 > 0 &&\text{if } A\left[i\right] ≤ A\left[p\right],\\\\
 > 1 &&\text{if } A\left[i\right] > A\left[p\right].
-> \end{cases}$
+> \end{cases}\\)
 >
 > ***a.*** Argue that *A*[*q*] > *A*[*p*], so that *B*[*p*] = 0 and *B*[*q*] = 1.
 >
@@ -3838,7 +3837,7 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 >
 > - *r* must be even,
 > - *s* must be a divisor of *r*, and
-> - *r* ≥ 2 $s^2$.
+> - *r* ≥ 2 \\(s^2\\).
 >
 > When columnsort completes, the array is sorted in ***column-major order***: reading down the columns, from left to
 > right, the elements monotonically increase.
@@ -3860,7 +3859,7 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 > 8. Perform the inverse of the permutation performed in step 6.
 >
 > Figure 8.5 shows an example of the steps of columnsort with *r* = 6 and *s* = 3. (Even though this example violates
-> the requirement that *r* ≥ 2 $s^2$, it happens to work.)
+> the requirement that *r* ≥ 2 \\(s^2\\), it happens to work.)
 >
 > ```text
 > 10 14  5     4  1  2     4  8 10     1  3  6     1  4 11
@@ -3900,7 +3899,7 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 > the bottom, and at most *s* dirty rows between them.
 >
 > ***e.*** Prove that after step 4, the array, read in column-major order, starts with a clean area of 0s, ends with a
-> clean area of 1s, and has a dirty area of at most $s^2$ elements in the middle.
+> clean area of 1s, and has a dirty area of at most \\(s^2\\) elements in the middle.
 >
 > ***f.*** Prove that steps 5–8 produce a fully sorted 0-1 output. Conclude that columnsort correctly sorts all inputs
 > containing arbitrary values.
@@ -3909,7 +3908,7 @@ $\lg \frac{(2 n)!}{\left(n!\right)^2}$\
 > of 0s at the top, some clean rows of 1s at the bottom, and at most 2 *s* - 1 dirty rows between them. How large must
 > *r* be, compared with *s*, for columnsort to correctly sort when *s* does not divide *r*?
 >
-> ***h.*** Suggest a simple change to step 1 that allows us to maintain the requirement that *r* ≥ 2 $s^2$ even when *s*
+> ***h.*** Suggest a simple change to step 1 that allows us to maintain the requirement that *r* ≥ 2 \\(s^2\\) even when *s*
 > does not divide *r*, and prove that with your change, columnsort correctly sorts.
 
 *Skipped.*
@@ -3961,7 +3960,7 @@ Solution is implemented
 
 ##### 9.2-2
 
-> Argue that the indicator random variable $X_k$ and the value *T*(max(*k* - 1, *n* - *k*)) are independent.
+> Argue that the indicator random variable \\(X_k\\) and the value *T*(max(*k* - 1, *n* - *k*)) are independent.
 
 *Skipped.*
 
@@ -4095,9 +4094,9 @@ Proof:
 If we sort the *y*-coordinates of the wells by into an array *A*[1‥*n*], let *k* be the *y* coordinates of the pipeline,
 then total length of the spurs is:
 
-$∑_{i = 1}^n \left|A\left[i\right] - k\right|$\
-= $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[i\right] - k\right| + ∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[n + 1 - i\right] - k\right|$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
-= $∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left(\left|A\left[i\right] - k\right| + \left|A\left[n + 1 - i\right] - k\right|\right)$ + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
+\\(∑_{i = 1}^n \left|A\left[i\right] - k\right|\\)\
+= \\(∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[i\right] - k\right| + ∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[n + 1 - i\right] - k\right|\\) + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
+= \\(∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left(\left|A\left[i\right] - k\right| + \left|A\left[n + 1 - i\right] - k\right|\right)\\) + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
 
 If *A*[*i*] ≤ *k* ≤ *A*[*n* + 1 - *i*], |*A*[*i*] - *k*| + |*A*[*n* + 1 - *i*] - *k*| will have the minimal value of
 *A*[*n* + 1 - *i*] - *A*[*i*], which means *k* should between *A*[*i*] and *A*[*n* + 1 - *i*]. If
@@ -4132,37 +4131,37 @@ time.
 
 ##### 9-2 Weighted median
 
-> For *n* distinct elements $x_1$, $x_2$, …, $x_n$ with positive weights $w_1$, $w_2$, …, $w_n$ such that
-> $∑_{i = 1}^n w_i$ = 1, the ***weighted (lower) median*** is the element $x_k$ satisfying
+> For *n* distinct elements \\(x_1\\), \\(x_2\\), …, \\(x_n\\) with positive weights \\(w_1\\), \\(w_2\\), …, \\(w_n\\) such that
+> \\(∑_{i = 1}^n w_i\\) = 1, the ***weighted (lower) median*** is the element \\(x_k\\) satisfying
 >
-> $\displaystyle ∑_{x_i < x_k} w_i < \frac{1}{2}$
+> \\(\displaystyle ∑_{x_i < x_k} w_i < \frac{1}{2}\\)
 >
 > and
 >
-> $\displaystyle ∑_{x_i > x_k} w_i ≤ \frac{1}{2}$.
+> \\(\displaystyle ∑_{x_i > x_k} w_i ≤ \frac{1}{2}\\).
 >
 > For example, if the elements are 0.1, 0.35, 0.05, 0.1, 0.15, 0.05, 0.2 and each element equals its weight (that is,
-> $w_i = x_i$ for *i* = 1, 2, …, 7), then the median is 0.1, but the weighted median is 0.2.
+> \\(w_i = x_i\\) for *i* = 1, 2, …, 7), then the median is 0.1, but the weighted median is 0.2.
 >
-> ***a.*** Argue that the median of $x_1$, $x_2$, …, $x_n$ is the weighted median of the $x_i$ with weights
-> $w_i$ = 1 / *n* for *i* = 1, 2, …, *n*.
+> ***a.*** Argue that the median of \\(x_1\\), \\(x_2\\), …, \\(x_n\\) is the weighted median of the \\(x_i\\) with weights
+> \\(w_i\\) = 1 / *n* for *i* = 1, 2, …, *n*.
 >
 > ***b.*** Show how to compute the weighted median of *n* elements in *O*(*n* lg *n*) worst-case time using sorting.
 >
 > ***c.*** Show how to compute the weighted median in Θ(*n*) worst-case time using a linear-time median algorithm such
 > as *Select* from Section 9.3.
 >
-> The ***post-office location problem*** is defined as follows. We are given *n* points $p_1$, $p_2$, …, $p_n$ with
-> associated weights $w_1$, $w_2$, …, $w_n$. We wish to find a point *p* (not necessarily one of the input points) that
-> minimizes the sum $∑_{i = 1}^n w_i d\left(p, p_i\right)$, where *d*(*a*, *b*) is the distance between points *a* and
+> The ***post-office location problem*** is defined as follows. We are given *n* points \\(p_1\\), \\(p_2\\), …, \\(p_n\\) with
+> associated weights \\(w_1\\), \\(w_2\\), …, \\(w_n\\). We wish to find a point *p* (not necessarily one of the input points) that
+> minimizes the sum \\(∑_{i = 1}^n w_i d\left(p, p_i\right)\\), where *d*(*a*, *b*) is the distance between points *a* and
 > *b*.
 >
 > ***d.*** Argue that the weighted median is a best solution for the 1-dimensional post-office location problem, in
 > which points are simply real numbers and the distance between points *a* and *b* is *d*(*a*, *b*) = |*a* - *b*|.
 >
 > ***e.*** Find the best solution for the 2-dimensional post-office location problem, in which the points are (*x*, *y*)
-> coordinate pairs and the distance between points *a* = ($x_1$, $y_1$) and *b* = ($x_2$, $y_2$) is the ***Manhattan
-> distance*** given by *d*(*a*, *b*) = |$x_1 - x_2$| + |$y_1 - y_2$|.
+> coordinate pairs and the distance between points *a* = (\\(x_1\\), \\(y_1\\)) and *b* = (\\(x_2\\), \\(y_2\\)) is the ***Manhattan
+> distance*** given by *d*(*a*, *b*) = |\\(x_1 - x_2\\)| + |\\(y_1 - y_2\\)|.
 
 ***a.***
 
@@ -4174,8 +4173,8 @@ time.
 There are ⌊(*n* - 1) / 2⌋ elements that are less than the median, and ⌊*n* / 2⌋ elements that are greater than the
 median. So we have
 
-- $∑_{x_i < x_k} w_i$ = ⌊(*n* - 1) / 2⌋ / *n* < 1 / 2,
-- $∑_{x_i > x_k} w_i$ = ⌊*n* / 2⌋ / *n* ≤ 1 / 2.
+- \\(∑_{x_i < x_k} w_i\\) = ⌊(*n* - 1) / 2⌋ / *n* < 1 / 2,
+- \\(∑_{x_i > x_k} w_i\\) = ⌊*n* / 2⌋ / *n* ≤ 1 / 2.
 
 That satisfies the weighted median condition.
 
@@ -4196,9 +4195,9 @@ The solution is implemented
 
 ***e.***
 
-$∑_{i = 1}^n w_i d\left(p, p_i\right)$\
-= $∑_{i = 1}^n w_i \left(\left|x_1 - x_2\right| + \left|y_1 - y_2\right|\right)$\
-= $∑_{i = 1}^n w_i \left|x_1 - x_2\right| + ∑_{i = 1}^n w_i \left|y_1 - y_2\right|$
+\\(∑_{i = 1}^n w_i d\left(p, p_i\right)\\)\
+= \\(∑_{i = 1}^n w_i \left(\left|x_1 - x_2\right| + \left|y_1 - y_2\right|\right)\\)\
+= \\(∑_{i = 1}^n w_i \left|x_1 - x_2\right| + ∑_{i = 1}^n w_i \left|y_1 - y_2\right|\\)
 
 So we can find the weight medians of *x*-coordinates and *y*-coordinates individually, then combine the result into a
 new coordinates, which should be the location of the post-office.
@@ -4210,19 +4209,19 @@ new coordinates, which should be the location of the post-office.
 > relative to *n*, we can implement a different procedure that uses *Select* as a subroutine but makes fewer comparisons
 > in the worst case.
 >
-> - ***a.*** Describe an algorithm that uses $U_i\left(n\right)$ comparisons to find the *i*th smallest of *n* elements,
+> - ***a.*** Describe an algorithm that uses \\(U_i\left(n\right)\\) comparisons to find the *i*th smallest of *n* elements,
 >   where
 >
->   $U_i\left(n\right)\begin{cases}
+>   \\(U_i\left(n\right)\begin{cases}
 >   T\left(n\right)&\text{if }i ≥ n / 2,\\\\
 >   \left\lfloor n / 2\right\rfloor + U_i\left(\left\lceil n / 2\right\rceil\right) + T\left(2 i\right)&\text{otherwise}.
->   \end{cases}$
+>   \end{cases}\\)
 >
 >   (*Hint:* Begin with ⌊*n* / 2⌋ disjoint pairwise comparisons, and recurse on the set containing the smaller element
 >   from each pair.)
-> - ***b.*** Show that, if *i* < *n* / 2, then $U_i\left(n\right)$ = *n* + *O*(*T*(2 *i* / lg(*n* / *i*)).
-> - ***c.*** Show that if *i* is a constant less than *n* / 2, then $U_i\left(n\right)$ = *n* + *O*(lg *n*).
-> - ***d.*** Show that if *i* = *n* / *k* for *k* ≥ 2, then $U_i\left(n\right)$ = *n* + *O*(*T*(2 *n* / *k*) lg *k*).
+> - ***b.*** Show that, if *i* < *n* / 2, then \\(U_i\left(n\right)\\) = *n* + *O*(*T*(2 *i* / lg(*n* / *i*)).
+> - ***c.*** Show that if *i* is a constant less than *n* / 2, then \\(U_i\left(n\right)\\) = *n* + *O*(lg *n*).
+> - ***d.*** Show that if *i* = *n* / *k* for *k* ≥ 2, then \\(U_i\left(n\right)\\) = *n* + *O*(*T*(2 *n* / *k*) lg *k*).
 
 *Skipped.*
 
@@ -4232,20 +4231,20 @@ new coordinates, which should be the location of the post-office.
 > our analysis of *Randomized-Quicksort* in Section 7.4.2.
 >
 > As in the quicksort analysis, we assume that all elements are distinct, and we rename the elements of the input array
-> *A* as $z_1$, $z_2$, …, $z_n$, where $z_i$ is the *i*th smallest element. Thus, the call
-> *Randomized-Select*(*A*, 1, *n*, *k*) returns $z_k$.
+> *A* as \\(z_1\\), \\(z_2\\), …, \\(z_n\\), where \\(z_i\\) is the *i*th smallest element. Thus, the call
+> *Randomized-Select*(*A*, 1, *n*, *k*) returns \\(z_k\\).
 >
 > For 1 ≤ *i* < *j* ≤ *n*, let
 >
-> $X_{i j k}$ = I{$z_i$ is compared with $z_j$ sometime during the execution of the algorithm to find $z_k$}.
+> \\(X_{i j k}\\) = I{\\(z_i\\) is compared with \\(z_j\\) sometime during the execution of the algorithm to find \\(z_k\\)}.
 >
-> - ***a.*** Give an exact expression for E[$X_{i j k}$]. (*Hint:* Your expression may have different values, depending
+> - ***a.*** Give an exact expression for E[\\(X_{i j k}\\)]. (*Hint:* Your expression may have different values, depending
 >   on the values of *i*, *j*, and *k*.)
-> - ***b.*** Let $X_k$ denote the total number of comparisons between elements of array *A* when finding $z_k$. Show
+> - ***b.*** Let \\(X_k\\) denote the total number of comparisons between elements of array *A* when finding \\(z_k\\). Show
 >   that
 >
->   $\displaystyle \operatorname{E}\left[X_k\right] ≤ 2 \left(∑_{i = 1}^k ∑_{j = k}^n \frac{1}{j - i + 1} + ∑_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} + ∑_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\right)$.
-> - ***c.*** Show that E[$X_k$] ≤ 4 *n*.
+>   \\(\displaystyle \operatorname{E}\left[X_k\right] ≤ 2 \left(∑_{i = 1}^k ∑_{j = k}^n \frac{1}{j - i + 1} + ∑_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} + ∑_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\right)\\).
+> - ***c.*** Show that E[\\(X_k\\)] ≤ 4 *n*.
 > - ***d.*** Conclude that, assuming all elements of array *A* are distinct, *Randomized-Select* runs in expected time
 >   *O*(*n*).
 
@@ -4359,8 +4358,8 @@ is exactly what we wanted.
 
 ##### 10.2-6
 
-> The dynamic-set operation *Union* takes two disjoint sets $S_1$ and $S_2$ as input, and it returns a set
-> *S* = $S_1 ∪ S_2$ consisting of all the elements of $S_1$ and $S_2$. The sets $S_1$ and $S_2$ are usually destroyed by
+> The dynamic-set operation *Union* takes two disjoint sets \\(S_1\\) and \\(S_2\\) as input, and it returns a set
+> *S* = \\(S_1 ∪ S_2\\) consisting of all the elements of \\(S_1\\) and \\(S_2\\). The sets \\(S_1\\) and \\(S_2\\) are usually destroyed by
 > the operation. Show how to support *Union* in *O*(1) time using a suitable list data structure.
 
 Both singly and doubly linked list are fine, just stitch the tail of the first list onto the head of the second list and
@@ -4552,7 +4551,7 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 > shall assume that all keys are distinct and that the compact list is also sorted, that is,
 > *key*[*i*] < *key*[*next*[*i*]] for all *i* = 1, 2, …, *n* such that *next*[*i*] ≠ *nil*. We will also assume that we
 > have a variable *L* that contains the index of the first element on the list. Under these assumptions, you will show
-> that we can use the following randomized algorithm to search the list in *O*($\sqrt{n}$) expected time.
+> that we can use the following randomized algorithm to search the list in *O*(\\(\sqrt{n}\\)) expected time.
 >
 > *Compact-List-Search*(*L*, *n*, *k*)
 >
@@ -4606,16 +4605,16 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 >   Argue that *Compact-List-Search′*(*L*, *n*, *k*, *t*) returns the same answer and that the total number of
 >   iterations of both the **for** and **while** loops within *Compact-List-Search′* is at least *t*.
 >
-> In the call *Compact-List-Search′*(*L*, *n*, *k*, *t*), let $X_t$ be the random variable that describes the distance
+> In the call *Compact-List-Search′*(*L*, *n*, *k*, *t*), let \\(X_t\\) be the random variable that describes the distance
 > in the linked list (that is, through the chain of *next* pointers) from position *i* to the desired key *k* after *t*
 > iterations of the **for** loop of lines 2–7 have occurred.
 >
-> - ***b.*** Argue that the expected running time of *Compact-List-Search′*(*L*, *n*, *k*, *t*) is *O*(*t* + E[$X_t$]).
-> - ***c.*** Show that E[$X_t$] ≤ $∑_{r = 1}^n \left(1 - r / n\right)^t$. (*Hint:* Use equation (C.25).)
-> - ***d.*** Show that $∑_{r = 0}^{n - 1} r^t ≤ n^{t + 1} / \left(t + 1\right)$.
-> - ***e.*** Prove that E[$X_t$] ≤ *n* / (*t* + 1).
+> - ***b.*** Argue that the expected running time of *Compact-List-Search′*(*L*, *n*, *k*, *t*) is *O*(*t* + E[\\(X_t\\)]).
+> - ***c.*** Show that E[\\(X_t\\)] ≤ \\(∑_{r = 1}^n \left(1 - r / n\right)^t\\). (*Hint:* Use equation (C.25).)
+> - ***d.*** Show that \\(∑_{r = 0}^{n - 1} r^t ≤ n^{t + 1} / \left(t + 1\right)\\).
+> - ***e.*** Prove that E[\\(X_t\\)] ≤ *n* / (*t* + 1).
 > - ***f.*** Show that *Compact-List-Search′*(*L*, *n*, *k*, *t*) runs in *O*(*t* + *n* / *t*) expected time.
-> - ***g.*** Conclude that *Compact-List-Search* runs in *O*($\sqrt{n}$) expected time.
+> - ***g.*** Conclude that *Compact-List-Search* runs in *O*(\\(\sqrt{n}\\)) expected time.
 > - ***h.*** Why do we assume that all keys are distinct in *Compact-List-Search*? Argue that random skips do not
 >   necessarily help asymptotically when the list contains repeated key values.
 
@@ -4669,27 +4668,27 @@ Solution is implemented
 > hashing, what is the expected number of collisions? More precisely, what is the expected cardinality of
 > {\{*k*, *l*} : *k* ≠ *l* and *h*(*k*) = *h*(*l*)}?
 
-Let $X_i$ be the random variable that represents the number of elements in the *i*th position, then the expected number
+Let \\(X_i\\) be the random variable that represents the number of elements in the *i*th position, then the expected number
 of collisions is:
 
-E[$∑_{i = 1}^m X_i \left(X_i - 1\right) / 2$]\
-= $∑_{i = 1}^m \operatorname{E} \left[X_i \left(X_i - 1\right) / 2\right]$\
-= *m* E[$X_1 \left(X_1 - 1\right) / 2$]\
-= *m* (E[$X_1^2$] - E[$X_1$]) / 2\
-= *m* (E[$X_1^2$] - *n* / *m*) / 2\
-= *m* ($\operatorname{E}^2 \left[X_i\right]$ + Var[$X_i$] - *n* / *m*) / 2\
-= *m* ($\left(n / m\right)^2$ + *n* (1 / *m*) (*m* - 1) / *m* - *n* / *m*) / 2\
+E[\\(∑_{i = 1}^m X_i \left(X_i - 1\right) / 2\\)]\
+= \\(∑_{i = 1}^m \operatorname{E} \left[X_i \left(X_i - 1\right) / 2\right]\\)\
+= *m* E[\\(X_1 \left(X_1 - 1\right) / 2\\)]\
+= *m* (E[\\(X_1^2\\)] - E[\\(X_1\\)]) / 2\
+= *m* (E[\\(X_1^2\\)] - *n* / *m*) / 2\
+= *m* (\\(\operatorname{E}^2 \left[X_i\right]\\) + Var[\\(X_i\\)] - *n* / *m*) / 2\
+= *m* (\\(\left(n / m\right)^2\\) + *n* (1 / *m*) (*m* - 1) / *m* - *n* / *m*) / 2\
 = *n* (*n* - 1) / (2 *m*).
 
 That is way too complicated.
 
 Another way:
 
-Let $X_i$ be the *i*th key, then the expected number of collisions is:
+Let \\(X_i\\) be the *i*th key, then the expected number of collisions is:
 
-E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\left(X_j\right) \right\rbrace$]\
-= E[$∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m$]\
-= $∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m$\
+E[\\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n \Pr\left\lbrace h\left(X_i\right) = h\left(X_j\right) \right\rbrace\\)]\
+= E[\\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m\\)]\
+= \\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^n 1 / m\\)\
 = *n* (*n* - 1) / (2 *m*).
 
 ##### 11.2-2
@@ -4784,27 +4783,27 @@ Solution is implemented
 
 ##### 11.3-3
 
-> Consider a version of the division method in which *h*(*k*) = *k* mod *m*, where *m* = $2^p$ - 1 and *k* is a
-> character string interpreted in radix $2^p$. Show that if we can derive string *x* from string *y* by permuting its
+> Consider a version of the division method in which *h*(*k*) = *k* mod *m*, where *m* = \\(2^p\\) - 1 and *k* is a
+> character string interpreted in radix \\(2^p\\). Show that if we can derive string *x* from string *y* by permuting its
 > characters, then *x* and *y* hash to the same value. Give an example of an application in which this property would be
 > undesirable in a hash function.
 
 According to the solution to exercise 11.3-2, we can calculate the hash value using a loop whose body is:
 
-*result* = (*result* × $2^p$ + *S*[*i*]) mod *m*.
+*result* = (*result* × \\(2^p\\) + *S*[*i*]) mod *m*.
 
-If *m* = $2^p$ - 1, the body become:
+If *m* = \\(2^p\\) - 1, the body become:
 
 *result*\
-= (*result* × $2^p$ + *S*[*i*]) mod ($2^p$ - 1)\
-= ((*result* mod ($2^p$ - 1)) × ($2^p$ mod ($2^p$ - 1)) + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
-= ((*result* mod ($2^p$ - 1)) × 1 + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
-= ((*result* mod ($2^p$ - 1)) + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1)\
-= (*result* + *S*[*i*] mod ($2^p$ - 1)) mod ($2^p$ - 1).
+= (*result* × \\(2^p\\) + *S*[*i*]) mod (\\(2^p\\) - 1)\
+= ((*result* mod (\\(2^p\\) - 1)) × (\\(2^p\\) mod (\\(2^p\\) - 1)) + *S*[*i*] mod (\\(2^p\\) - 1)) mod (\\(2^p\\) - 1)\
+= ((*result* mod (\\(2^p\\) - 1)) × 1 + *S*[*i*] mod (\\(2^p\\) - 1)) mod (\\(2^p\\) - 1)\
+= ((*result* mod (\\(2^p\\) - 1)) + *S*[*i*] mod (\\(2^p\\) - 1)) mod (\\(2^p\\) - 1)\
+= (*result* + *S*[*i*] mod (\\(2^p\\) - 1)) mod (\\(2^p\\) - 1).
 
 Where *S*[*i*] is the *i*th element of the string.
 
-So the final result is just $\left(∑_{i = 1}^n S[i] \bmod m\right) \bmod m$. Notice that the order of *S*[*i*] does not
+So the final result is just \\(\left(∑_{i = 1}^n S[i] \bmod m\right) \bmod m\\). Notice that the order of *S*[*i*] does not
 matter in calculating the hash value.
 
 As for the example, consider storing the anagrams of a word in a hash table.
@@ -4812,7 +4811,7 @@ As for the example, consider storing the anagrams of a word in a hash table.
 ##### 11.3-4
 
 > Consider a hash table of size *m* = 1000 and a corresponding hash function *h*(*k*) = ⌊*m* (*k* *A* mod 1)⌋ for
-> *A* = ($\sqrt{5}$ - 1) / 2. Compute the locations to which the keys 61, 62, 63, 64, and 65 are mapped.
+> *A* = (\\(\sqrt{5}\\) - 1) / 2. Compute the locations to which the keys 61, 62, 63, 64, and 65 are mapped.
 
 *Skipped.*
 
@@ -4826,18 +4825,18 @@ As for the example, consider storing the anagrams of a word in a hash table.
 > where the probability is over the choice of the hash function *h* drawn at random from the family ℋ. Show that an
 > *ϵ*-universal family of hash functions must have
 >
-> *ϵ* ≥ $\displaystyle \frac{1}{\left|B\right|} - \frac{1}{\left|U\right|}$.
+> *ϵ* ≥ \\(\displaystyle \frac{1}{\left|B\right|} - \frac{1}{\left|U\right|}\\).
 
 *Skipped.*
 
 ##### 11.3-6 ★
 
-> Let *U* be the set of *n*-tuples of values drawn from $ℤ_p$, and let *B* = $ℤ_p$, where *p* is prime. Define the hash
-> function $h_b$: *U* → *B* for *b* ∈ $ℤ_p$ on an input *n*-tuple ⟨$a_0$, $a_1$, …, $a_{n - 1}$⟩ from *U* as
+> Let *U* be the set of *n*-tuples of values drawn from \\(ℤ_p\\), and let *B* = \\(ℤ_p\\), where *p* is prime. Define the hash
+> function \\(h_b\\): *U* → *B* for *b* ∈ \\(ℤ_p\\) on an input *n*-tuple ⟨\\(a_0\\), \\(a_1\\), …, \\(a_{n - 1}\\)⟩ from *U* as
 >
-> $h_b\left(⟨a_0, a_1, …, a_{n - 1}⟩\right) = \left(\displaystyle ∑_{j = 0}^{n = 1} a_j b^j\right) \bmod p$.
+> \\(h_b\left(⟨a_0, a_1, …, a_{n - 1}⟩\right) = \left(\displaystyle ∑_{j = 0}^{n = 1} a_j b^j\right) \bmod p\\).
 >
-> and let ℋ = {$h_b$ : *b* ∈ $ℤ_p$}. Argue that ℋ is ((*n* - 1) / *p*)-universal according to the definition of
+> and let ℋ = {\\(h_b\\) : *b* ∈ \\(ℤ_p\\)}. Argue that ℋ is ((*n* - 1) / *p*)-universal according to the definition of
 > *ϵ*-universal in Exercise 11.3-5. (*Hint:* See Exercise 31.4-4.)
 
 *Skipped.*
@@ -4848,8 +4847,8 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 > Consider inserting the keys 10, 22, 31, 4, 15, 28, 17, 88, 59 into a hash table of length *m* = 11 using open
 > addressing with the auxiliary hash function *h*′(*k*) = *k*. Illustrate the result of inserting these keys using
-> linear probing, using quadratic probing with $c_1$ = 1 and $c_2$ = 3, and using double hashing with $h_1$(*k*) = *k*
-> and $h_2$(*k*) = 1 + (*k* mod (*m* - 1)).
+> linear probing, using quadratic probing with \\(c_1\\) = 1 and \\(c_2\\) = 3, and using double hashing with \\(h_1\\)(*k*) = *k*
+> and \\(h_2\\)(*k*) = 1 + (*k* mod (*m* - 1)).
 
 *Skipped.*
 
@@ -4871,9 +4870,9 @@ As for the example, consider storing the anagrams of a word in a hash table.
 ##### 11.4-4 ★
 
 > Suppose that we use double hashing to resolve collisions—that is, we use the hash function
-> *h*(*k*, *i*) = ($h_1$(*k*) + *i* $h_2$(*k*)) mod *m*. Show that if *m* and $h_2$(*k*) have greatest common divisor
+> *h*(*k*, *i*) = (\\(h_1\\)(*k*) + *i* \\(h_2\\)(*k*)) mod *m*. Show that if *m* and \\(h_2\\)(*k*) have greatest common divisor
 > *d* ≥ 1 for some key *k*, then an unsuccessful search for key *k* examines (1 / *d*)th of the hash table before
-> returning to slot h_1(*k*). Thus, when *d* = 1, so that *m* and $h_2$(*k*) are relatively prime, the search may
+> returning to slot h_1(*k*). Thus, when *d* = 1, so that *m* and \\(h_2\\)(*k*) are relatively prime, the search may
 > examine the entire hash table. (*Hint:* See Chapter 31.)
 
 *Skipped.*
@@ -4892,11 +4891,11 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 > Suppose that we insert *n* keys into a hash table of size *m* using open addressing and uniform hashing. Let
 > *p*(*n*, *m*) be the probability that no collisions occur. Show that
-> *p*(*n*, *m*) ≤ $e^{-n \left(n - 1\right) / 2 m}$. (*Hint:* See equation (3.12).) Argue that when *n* exceeds
-> $\sqrt{m}$, the probability of avoiding collisions goes rapidly to zero.
+> *p*(*n*, *m*) ≤ \\(e^{-n \left(n - 1\right) / 2 m}\\). (*Hint:* See equation (3.12).) Argue that when *n* exceeds
+> \\(\sqrt{m}\\), the probability of avoiding collisions goes rapidly to zero.
 
 *p*(*n*, *m*)\
-= $\frac{P\left(m, n\right)}{m^n}$
+= \\(\frac{P\left(m, n\right)}{m^n}\\)
 
 *Skipped.*
 
@@ -4906,14 +4905,14 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 > Suppose that we use an open-addressed hash table of size *m* to store *n* ≤ *m* / 2 items.
 >
-> ***a.*** Assuming uniform hashing, show that for *i* = 1, 2, …, *n*, the probability is at most $2^{-k}$ that the
+> ***a.*** Assuming uniform hashing, show that for *i* = 1, 2, …, *n*, the probability is at most \\(2^{-k}\\) that the
 > *i*th insertion requires strictly more than *k* probes.
 >
-> ***b.*** Show that for *i* = 1, 2, …, *n*, the probability is *O*(1 / $n^2$) that the *i*th insertion requires more
+> ***b.*** Show that for *i* = 1, 2, …, *n*, the probability is *O*(1 / \\(n^2\\)) that the *i*th insertion requires more
 > than 2 lg *n* probes.
 >
-> Let the random variable $X_i$ denote the number of probes required by the *i*th insertion. You have shown in part (b)
-> that Pr{$X_i$ > 2 lg *n*} = *O*(1 / $n^2$). Let the random variable *X* = $\max_{1 ≤ i ≤ n} X_i$ denote the maximum
+> Let the random variable \\(X_i\\) denote the number of probes required by the *i*th insertion. You have shown in part (b)
+> that Pr{\\(X_i\\) > 2 lg *n*} = *O*(1 / \\(n^2\\)). Let the random variable *X* = \\(\max_{1 ≤ i ≤ n} X_i\\) denote the maximum
 > number of probes required by any of the *n* insertions.
 >
 > ***c.*** Show that Pr{*X* > 2 lg *n*} = *O*(1 / *n*).
@@ -4929,16 +4928,16 @@ As for the example, consider storing the anagrams of a word in a hash table.
 > in any slot after all the keys have been inserted. Your mission is to prove an *O*(lg *n* / lg lg *n*) upper bound on
 > E[*M*], the expected value of *M*.
 >
-> - ***a.*** Argue that the probability $Q_k$ that exactly *k* keys hash to a particular slot is given by
->   $\displaystyle Q_k = \left(\frac{1}{n}\right)^k \left(1 - \frac{1}{n}\right)^{n - k} \binom{n}{k}$.
-> - ***b.*** Let $P_k$ be the probability that *M* = *k*, that is, the probability that the slot containing the most
->   keys contains *k* keys. Show that $P_k$ ≤ *n* $Q_k$.
-> - ***c.*** Use Stirling’s approximation, equation (3.18), to show that $Q_k < e^k / k^k$.
-> - ***d.*** Show that there exists a constant *c* > 1 such that $Q_{k_0}$ < 1 / $n^3$ for
->   $k_0$ = *c* lg *n* / lg lg *n*. Conclude that $P_k$ < 1 / $n^2$ for *k* ≥ $k_0$ = *c* lg *n* / lg lg *n*.
+> - ***a.*** Argue that the probability \\(Q_k\\) that exactly *k* keys hash to a particular slot is given by
+>   \\(\displaystyle Q_k = \left(\frac{1}{n}\right)^k \left(1 - \frac{1}{n}\right)^{n - k} \binom{n}{k}\\).
+> - ***b.*** Let \\(P_k\\) be the probability that *M* = *k*, that is, the probability that the slot containing the most
+>   keys contains *k* keys. Show that \\(P_k\\) ≤ *n* \\(Q_k\\).
+> - ***c.*** Use Stirling’s approximation, equation (3.18), to show that \\(Q_k < e^k / k^k\\).
+> - ***d.*** Show that there exists a constant *c* > 1 such that \\(Q_{k_0}\\) < 1 / \\(n^3\\) for
+>   \\(k_0\\) = *c* lg *n* / lg lg *n*. Conclude that \\(P_k\\) < 1 / \\(n^2\\) for *k* ≥ \\(k_0\\) = *c* lg *n* / lg lg *n*.
 > - ***e.*** Argue that
 >
->   $\displaystyle \operatorname{E}\left[M\right] ≤ \Pr\left\lbrace M > \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ n + \Pr\left\lbrace M ≤ \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ \frac{c \lg n}{\lg \lg n}$.
+>   \\(\displaystyle \operatorname{E}\left[M\right] ≤ \Pr\left\lbrace M > \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ n + \Pr\left\lbrace M ≤ \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ \frac{c \lg n}{\lg \lg n}\\).
 >
 >   Conclude that E[*M*] = *O*(lg *n* / lg lg *n*).
 
@@ -4957,7 +4956,7 @@ As for the example, consider storing the anagrams of a word in a hash table.
 > Assume that *m* is a power of 2.
 >
 > ***a.*** Show that this scheme is an instance of the general “quadratic probing” scheme by exhibiting the appropriate
-> constants $c_1$ and $c_2$ for equation (11.5).
+> constants \\(c_1\\) and \\(c_2\\) for equation (11.5).
 >
 > ***b.*** Prove that this algorithm examines every table position in the worst case.
 
@@ -4967,28 +4966,28 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 > Let ℋ be a class of hash functions in which each hash function *h* ∈ ℋ maps the universe *U* of keys to
 > {0, 1, …, m - 1}. We say that ℋ is ***k-universal*** if, for every fixed sequence of *k* distinct keys
-> $⟨x^{(1)}, x^{(2)}, …, x^{(k)}⟩$ and for any *h* chosen at random from ℋ, the sequence
-> $⟨h(x^{(1)}), h(x^{(2)}), …, h(x^{(k)})⟩$ is equally likely to be any of the $m^k$ sequences of length *k* with
+> \\(⟨x^{(1)}, x^{(2)}, …, x^{(k)}⟩\\) and for any *h* chosen at random from ℋ, the sequence
+> \\(⟨h(x^{(1)}), h(x^{(2)}), …, h(x^{(k)})⟩\\) is equally likely to be any of the \\(m^k\\) sequences of length *k* with
 > elements drawn from {0, 1, …, *m* - 1}.
 >
 > - ***a.*** Show that if the family ℋ of hash functions is 2-universal, then it is universal.
 > - ***b.*** Suppose that the universe *U* is the set of *n*-tuples of values drawn from
->   $ℤ_p$ = {0, 1, …, *p* - 1}, where *p* is prime. Consider an element *x* = $⟨x_0, x_1, …, x_{n - 1}⟩$ ∈ *U*. For any
->   *n*-tuple *a* = $⟨a_0, a_1, …, a_{n - 1}⟩$ ∈ *U*, define the hash function $h_a$ by
+>   \\(ℤ_p\\) = {0, 1, …, *p* - 1}, where *p* is prime. Consider an element *x* = \\(⟨x_0, x_1, …, x_{n - 1}⟩\\) ∈ *U*. For any
+>   *n*-tuple *a* = \\(⟨a_0, a_1, …, a_{n - 1}⟩\\) ∈ *U*, define the hash function \\(h_a\\) by
 >
->   $\displaystyle h_a(x) = \left(∑_{j = 0}^{n - 1} a_j x_j\right) \bmod p$.
+>   \\(\displaystyle h_a(x) = \left(∑_{j = 0}^{n - 1} a_j x_j\right) \bmod p\\).
 >
->   Let ℋ = {$h_a$}. Show that ℋ is universal, but not 2-universal. (*Hint:* Find a key for which all hash functions
+>   Let ℋ = {\\(h_a\\)}. Show that ℋ is universal, but not 2-universal. (*Hint:* Find a key for which all hash functions
 >   in ℋ produce the same value.)
-> - ***c.*** Suppose that we modify ℋ slightly from part (b): for any *a* ∈ *U* and for any *b* ∈ $ℤ_p$, define
+> - ***c.*** Suppose that we modify ℋ slightly from part (b): for any *a* ∈ *U* and for any *b* ∈ \\(ℤ_p\\), define
 >
->   $\displaystyle h'\_{a b}(x) = \left(∑_{j = 0}^{n - 1} a_j x_j + b\right) \bmod p$
+>   \\(\displaystyle h'\_{a b}(x) = \left(∑_{j = 0}^{n - 1} a_j x_j + b\right) \bmod p\\)
 >
->   and ℋ′ = {$h'\_{a b}$}. Argue that ℋ′ is 2-universal. (*Hint:* Consider fixed *n*-tuples *x* ∈ *U* and *y* ∈ *U*,
->   with $x_i$ ≠ $y_i$ for some *i*. What happens to $h'\_{a b}(x)$ and $h'_{a b}(y)$ as $a_i$ and *b* range over
->   $ℤ_p$?)
+>   and ℋ′ = {\\(h'\_{a b}\\)}. Argue that ℋ′ is 2-universal. (*Hint:* Consider fixed *n*-tuples *x* ∈ *U* and *y* ∈ *U*,
+>   with \\(x_i\\) ≠ \\(y_i\\) for some *i*. What happens to \\(h'\_{a b}(x)\\) and \\(h'_{a b}(y)\\) as \\(a_i\\) and *b* range over
+>   \\(ℤ_p\\)?)
 > - ***d.*** Suppose that Alice and Bob secretly agree on a hash function *h* from a 2-universal family ℋ of hash
->   functions. Each *h* ∈ ℋ maps from a universe of keys *U* to $ℤ_p$, where *p* is prime. Later, Alice sends a message
+>   functions. Each *h* ∈ ℋ maps from a universe of keys *U* to \\(ℤ_p\\), where *p* is prime. Later, Alice sends a message
 >   *m* to Bob over the Internet, where *m* ∈ *U*. She authenticates this message to Bob by also sending an
 >   authentication tag *t* = *h*(*m*), and Bob checks that the pair (*m*, *t*) he receives indeed satisfies
 >   *t* = *h*(*m*). Suppose that an adversary intercepts (*m*, *t*) en route and tries to fool Bob by replacing the pair
@@ -5173,7 +5172,7 @@ node itself, and searching examines all the node’s ancestors. So the claim is 
 > *Tree-Insert* repeatedly to insert the numbers one by one) and then printing the numbers by an inorder tree walk. What
 > are the worst-case and best-case running times for this sorting algorithm?
 
-Worst-case running time is Θ($n^2$) when the numbers are already sorted.
+Worst-case running time is Θ(\\(n^2\\)) when the numbers are already sorted.
 
 Best-case running time is Θ(*n* log *n*) when the tree is a complete binary tree.
 
@@ -5252,21 +5251,21 @@ Proof by induction:
 
 - Base case: If *n* = 1,
 
-  $∑_{i = 0}^{n - 1} \binom{i + 3}{3}$ = $∑_{i = 0}^{0} \binom{i + 3}{3}$ = $\binom{3}{3}$ = 1.
+  \\(∑_{i = 0}^{n - 1} \binom{i + 3}{3}\\) = \\(∑_{i = 0}^{0} \binom{i + 3}{3}\\) = \\(\binom{3}{3}\\) = 1.
 
-  $\binom{n + 3}{4}$ = $\binom{4}{4}$ = 1.
+  \\(\binom{n + 3}{4}\\) = \\(\binom{4}{4}\\) = 1.
 
   So the claim holds.
 - Inductive cases: If *n* > 1,
 
-  $∑_{i = 0}^{n - 1} \binom{i + 3}{3}$\
-  = $∑_{i = 0}^{n - 2} \binom{i + 3}{3} + \binom{n + 2}{3}$\
-  = $\binom{n + 2}{4} + \binom{n + 2}{3}$\
-  = $\frac{\left(n + 2\right)!}{4! \left(n - 2\right)!} + \frac{\left(n + 2\right)!}{3! \left(n - 1\right)!}$\
-  = $\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \left(\frac{n - 1}{4!} + \frac{1}{3!}\right)$\
-  = $\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \frac{n + 3}{4!}$\
-  = $\frac{\left(n + 3\right)!}{\left(n - 1\right)! 4!}$\
-  = $\binom{n + 3}{4}$.
+  \\(∑_{i = 0}^{n - 1} \binom{i + 3}{3}\\)\
+  = \\(∑_{i = 0}^{n - 2} \binom{i + 3}{3} + \binom{n + 2}{3}\\)\
+  = \\(\binom{n + 2}{4} + \binom{n + 2}{3}\\)\
+  = \\(\frac{\left(n + 2\right)!}{4! \left(n - 2\right)!} + \frac{\left(n + 2\right)!}{3! \left(n - 1\right)!}\\)\
+  = \\(\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \left(\frac{n - 1}{4!} + \frac{1}{3!}\right)\\)\
+  = \\(\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \frac{n + 3}{4!}\\)\
+  = \\(\frac{\left(n + 3\right)!}{\left(n - 1\right)! 4!}\\)\
+  = \\(\binom{n + 3}{4}\\).
 
 ##### 12.4-2
 
@@ -5286,14 +5285,14 @@ Proof by induction:
 
 ##### 12.4-4
 
-> Show that the function *f*(*x*) = $2^x$ is convex.
+> Show that the function *f*(*x*) = \\(2^x\\) is convex.
 
 *Skipped.*
 
 ##### 12.4-5 ★
 
 > Consider *Randomized-Quicksort* operating on a sequence of *n* distinct input numbers. Prove that for any constant
-> *k* > 0, all but *O*(1 / $n^k$) of the *n*! input permutations yield an *O*(*n* lg *n*) running time.
+> *k* > 0, all but *O*(1 / \\(n^k\\)) of the *n*! input permutations yield an *O*(*n* lg *n*) running time.
 
 *Skipped.*
 
@@ -5320,26 +5319,26 @@ Proof by induction:
 > - ***d.*** Randomly set *x* to either *x*.*left* or *x*.*right*. (Give the worst-case performance and informally
 >   derive the expected running time.)
 
-- ***a.*** Θ($n^2$).
+- ***a.*** Θ(\\(n^2\\)).
 - ***b.*** Θ(*n* lg *n*).
 - ***c.*** Θ(*n* lg *n*).
 - ***d.*** Θ(*n*).
-- ***d.*** Worst-case running time is Θ($n^2$), expected running time is Θ(*n* lg *n*).
+- ***d.*** Worst-case running time is Θ(\\(n^2\\)), expected running time is Θ(*n* lg *n*).
 
 ##### 12-2 Radix trees
 
-> Given two strings *a* = $a_0 a_1 … a_p$ and *b* = $b_0 b_1 … b_q$, where each $a_i$ and each $b_j$ is in some ordered
-> set of characters, we say that string $a$ is lexicographically less than string $b$ if either
+> Given two strings *a* = \\(a_0 a_1 … a_p\\) and *b* = \\(b_0 b_1 … b_q\\), where each \\(a_i\\) and each \\(b_j\\) is in some ordered
+> set of characters, we say that string \\(a\\) is lexicographically less than string \\(b\\) if either
 >
-> 1. there exists an integer *j*, where 0 ≤ *j* ≤ min(*p*, *q*), such that $a_i$ = $b_i$ for all *i* = 0, 1, …, *j* - 1
->    and $a_j$ < $b_j$, or
-> 2. *p* < *q* and $a_i$ = $b_i$ for all *i* = 0, 1, …, *p*.
+> 1. there exists an integer *j*, where 0 ≤ *j* ≤ min(*p*, *q*), such that \\(a_i\\) = \\(b_i\\) for all *i* = 0, 1, …, *j* - 1
+>    and \\(a_j\\) < \\(b_j\\), or
+> 2. *p* < *q* and \\(a_i\\) = \\(b_i\\) for all *i* = 0, 1, …, *p*.
 >
 > For example, if *a* and *b* are bit strings, then 10100 < 10110 by rule 1 (letting *j* = 3) and 10100 < 101000 by
 > rule 2. This ordering is similar to that used in English-language dictionaries.
 >
 > The ***radix tree*** data structure shown in Figure 12.5 stores the bit strings 1011, 10, 011, 100, and 0. When
-> searching for a key *a* = $a_0 a_1 … a_p$, we go left at a node of depth *i* if $a_i$ = 0 and right if $a_i$ = 1. Let
+> searching for a key *a* = \\(a_0 a_1 … a_p\\), we go left at a node of depth *i* if \\(a_i\\) = 0 and right if \\(a_i\\) = 1. Let
 > *S* be a set of distinct bit strings whose lengths sum to *n*. Show how to use a radix tree to sort *S*
 > lexicographically in Θ(*n*) time. For the example in Figure 12.5, the output of the sort should be the sequence 0,
 > 011, 10, 100, 1011.
@@ -5389,23 +5388,23 @@ Solution is implemented
 >
 > - ***a.*** Argue that the average depth of a node in *T* is
 >
->   $\displaystyle \frac{1}{n} ∑_{x ∈ T} d(x, T) = \frac{1}{n} P(T)$.
+>   \\(\displaystyle \frac{1}{n} ∑_{x ∈ T} d(x, T) = \frac{1}{n} P(T)\\).
 >
 > Thus, we wish to show that the expected value of *P*(*T*) is *O*(*n* lg *n*).
 >
-> - ***b.*** Let $T_L$ and $T_R$ denote the left and right subtrees of tree *T*, respectively. Argue that if *T* has *n*
+> - ***b.*** Let \\(T_L\\) and \\(T_R\\) denote the left and right subtrees of tree *T*, respectively. Argue that if *T* has *n*
 >   nodes, then
 >
->   *P*(*T*) = *P*($T_L$) + *P*($T_R$) + *n* - 1.
+>   *P*(*T*) = *P*(\\(T_L\\)) + *P*(\\(T_R\\)) + *n* - 1.
 >
 > - ***c.*** Let *P*(*n*) denote the average total path length of a randomly built binary search tree with *n* nodes.
 >   Show that
 >
->   $\displaystyle P(n) = \frac{1}{n} ∑_{i = 0}^{n - 1}(P(i) + P(n - i - 1) + n - 1)$.
+>   \\(\displaystyle P(n) = \frac{1}{n} ∑_{i = 0}^{n - 1}(P(i) + P(n - i - 1) + n - 1)\\).
 >
 > - ***d.*** Show how to rewrite *P*(*n*) as
 >
->   $\displaystyle P(n) = \frac{2}{n} ∑_{k = 1}^{n - 1} P(k) + Θ(n)$.
+>   \\(\displaystyle P(n) = \frac{2}{n} ∑_{k = 1}^{n - 1} P(k) + Θ(n)\\).
 >
 > - ***e.*** Recalling the alternative analysis of the randomized version of quicksort given in Problem 7-3, conclude
 >   that *P*(*n*) = *O*(*n* lg *n*).
@@ -5422,47 +5421,47 @@ Solution is implemented
 
 ##### 12-4 Number of different binary trees
 
-> Let $b_n$ denote the number of different binary trees with *n* nodes. In this problem, you will find a formula for
-> $b_n$, as well as an asymptotic estimate.
+> Let \\(b_n\\) denote the number of different binary trees with *n* nodes. In this problem, you will find a formula for
+> \\(b_n\\), as well as an asymptotic estimate.
 >
-> - ***a.*** Show that $b_0$ = 1 and that, for *n* ≥ 1,
+> - ***a.*** Show that \\(b_0\\) = 1 and that, for *n* ≥ 1,
 >
->   $\displaystyle b_n = ∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}$.
+>   \\(\displaystyle b_n = ∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}\\).
 >
 > - ***b.*** Referring to Problem 4-4 for the definition of a generating function, let *B*(*x*) be the generating
 >   function
 >
->   *B*(*x*) = $\displaystyle ∑_{n = 0}^∞ b_n x^n$.
+>   *B*(*x*) = \\(\displaystyle ∑_{n = 0}^∞ b_n x^n\\).
 >
->   Show that *B*(*x*) = *x* $B(x)^2$ + 1, and hence one way to express *B*(*x*) in closed form is
+>   Show that *B*(*x*) = *x* \\(B(x)^2\\) + 1, and hence one way to express *B*(*x*) in closed form is
 >
->   *B*(*x*) = $\dfrac{1}{2 x} \left(1 - \sqrt{1 - 4 x}\right)$.
+>   *B*(*x*) = \\(\dfrac{1}{2 x} \left(1 - \sqrt{1 - 4 x}\right)\\).
 >
 > The ***Taylor expansion*** of *f*(*x*) around the point *x* = *a* is given by
 >
-> *f*(*x*) = $\displaystyle ∑_{k = 0}^∞ \frac{f^{(k)}(a)}{k!}(x - a)^k$.
+> *f*(*x*) = \\(\displaystyle ∑_{k = 0}^∞ \frac{f^{(k)}(a)}{k!}(x - a)^k\\).
 >
-> where $f^{(k)}(x)$ is the *k*th derivative of *f* evaluated at *x*.
+> where \\(f^{(k)}(x)\\) is the *k*th derivative of *f* evaluated at *x*.
 >
 > - ***c.*** Show that
 >
->   $\displaystyle b_n = \frac{1}{n + 1} \binom{2 n}{n}$
+>   \\(\displaystyle b_n = \frac{1}{n + 1} \binom{2 n}{n}\\)
 >
->   (the *n*th ***Catalan number***) by using the Taylor expansion of $\sqrt{1 - 4 x}$ around *x* = 0. (If you wish,
+>   (the *n*th ***Catalan number***) by using the Taylor expansion of \\(\sqrt{1 - 4 x}\\) around *x* = 0. (If you wish,
 >   instead of using the Taylor expansion, you may use the generalization of the binomial expansion (C.4) to nonintegral
->   exponents *n*, where for any real number *n* and for any integer *k*, we interpret $\binom{n}{k}$ to be
+>   exponents *n*, where for any real number *n* and for any integer *k*, we interpret \\(\binom{n}{k}\\) to be
 >   *n* (*n* - 1) ⋯ (*n* - *k* + 1) / *k*! if *k* ≥ 0, and 0 otherwise.)
 >
 > - ***d.*** Show that
 >
->   $b_n = \dfrac{4^n}{\sqrt{π} n^{3 / 2}}$ (1 + *O*(1 / *n*)).
+>   \\(b_n = \dfrac{4^n}{\sqrt{π} n^{3 / 2}}\\) (1 + *O*(1 / *n*)).
 
 - ***a***
 
-  1. There is only one type of binary tree of zero nodes, that is, no tree, so $b_0$ = 1.
+  1. There is only one type of binary tree of zero nodes, that is, no tree, so \\(b_0\\) = 1.
   2. For *n* > 0, if the left child of the root has *k* nodes, then the right child has *n* - 1 - *k* nodes, for this
-     situation, there can be $b_k b_{n - 1 - k}$ different kinds of trees. Since *k* must be in range [0, *n* - 1], the
-     total number of kinds of binary trees is $∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}$.
+     situation, there can be \\(b_k b_{n - 1 - k}\\) different kinds of trees. Since *k* must be in range [0, *n* - 1], the
+     total number of kinds of binary trees is \\(∑_{k = 0}^{n - 1} b_k b_{n - 1 - k}\\).
 - ***b***
 
   *Skipped.*
@@ -5576,7 +5575,7 @@ longest path has length at most twice that of the shortest path.
 > What is the largest possible number of internal nodes in a red-black tree with black-height *k*? What is the smallest
 > possible number?
 
-The largest number of internal nodes is $2^{2 k}$ - 1, the smallest possible number is $2^k$ - 1.
+The largest number of internal nodes is \\(2^{2 k}\\) - 1, the smallest possible number is \\(2^k\\) - 1.
 
 ##### 13.1-7
 
@@ -5682,10 +5681,10 @@ struct of tree *B*. Both steps takes *O*(*n* - 1) time, so the total running tim
 
 ##### 13.2-5 ★
 
-> We say that a binary search tree $T_1$ can be ***right-converted*** to binary search tree $T_2$ if it is possible to
-> obtain $T_2$ from $T_1$ via a series of calls to *Right-Rotate*. Give an example of two trees $T_1$ and $T_2$ such
-> that $T_1$ cannot be right-converted to $T_2$. Then, show that if a tree $T_1$ can be right-converted to $T_2$, it can
-> be right-converted using *O*($n^2$) calls to *Right-Rotate*.
+> We say that a binary search tree \\(T_1\\) can be ***right-converted*** to binary search tree \\(T_2\\) if it is possible to
+> obtain \\(T_2\\) from \\(T_1\\) via a series of calls to *Right-Rotate*. Give an example of two trees \\(T_1\\) and \\(T_2\\) such
+> that \\(T_1\\) cannot be right-converted to \\(T_2\\). Then, show that if a tree \\(T_1\\) can be right-converted to \\(T_2\\), it can
+> be right-converted using *O*(\\(n^2\\)) calls to *Right-Rotate*.
 
 If *A* is a right going chain and *B* is a left going chain, *A* cannot be right-converted into *B* since *A* doesn’t
 have left child nodes.
@@ -5882,8 +5881,8 @@ Solutions are implemented
 
 ##### 13-2 Join operation on red-black trees
 
-> The ***join*** operation takes two dynamic sets $S_1$ and $S_2$ and an element *x* such that for any $x_1$ ∈ $S_1$ and
-> $x_2$ ∈ $S_2$, we have $x_1$.*key* ≤ $x$.*key* ≤ $x_2$.*key*. It returns a set *S* = $S_1$ ∪ { *x* } ∪ $S_2$. In this
+> The ***join*** operation takes two dynamic sets \\(S_1\\) and \\(S_2\\) and an element *x* such that for any \\(x_1\\) ∈ \\(S_1\\) and
+> \\(x_2\\) ∈ \\(S_2\\), we have \\(x_1\\).*key* ≤ \\(x\\).*key* ≤ \\(x_2\\).*key*. It returns a set *S* = \\(S_1\\) ∪ { *x* } ∪ \\(S_2\\). In this
 > problem, we investigate how to implement the join operation on red-black trees.
 >
 > - ***a.*** Given a red-black tree *T*, let us store its black-height as the new attribute *T*.*bh*. Argue that
@@ -5891,17 +5890,17 @@ Solutions are implemented
 >   and without increasing the asymptotic running times. Show that while descending through *T*, we can determine the
 >   black-height of each node we visit in *O*(1) time per node visited.
 >
-> We wish to implement the operation *RB-Join*($T_1$, *x*, $T_2$), which destroys $T_1$ and $T_2$ and returns a
-> red-black tree *T* = $T_1$ ∪ { *x* } ∪ $T_2$. Let *n* be the total number of nodes in $T_1$ and $T_2$.
+> We wish to implement the operation *RB-Join*(\\(T_1\\), *x*, \\(T_2\\)), which destroys \\(T_1\\) and \\(T_2\\) and returns a
+> red-black tree *T* = \\(T_1\\) ∪ { *x* } ∪ \\(T_2\\). Let *n* be the total number of nodes in \\(T_1\\) and \\(T_2\\).
 >
-> - ***b.*** Assume that $T_1$.*bh* ≥ $T_2$.*bh*. Describe an *O*(lg *n*)-time algorithm that finds a black node *y* in
->   $T_1$ with the largest key from among those nodes whose black-height is $T_2$.*bh*.
-> - ***c.*** Let $T_y$ be the subtree rooted at *y*. Describe how $T_y$ ∪ { *x* } ∪ $T_2$ can replace $T_y$ in *O*(1)
+> - ***b.*** Assume that \\(T_1\\).*bh* ≥ \\(T_2\\).*bh*. Describe an *O*(lg *n*)-time algorithm that finds a black node *y* in
+>   \\(T_1\\) with the largest key from among those nodes whose black-height is \\(T_2\\).*bh*.
+> - ***c.*** Let \\(T_y\\) be the subtree rooted at *y*. Describe how \\(T_y\\) ∪ { *x* } ∪ \\(T_2\\) can replace \\(T_y\\) in *O*(1)
 >   time without destroying the binary-search-tree property.
 > - ***d.*** What color should we make *x* so that red-black properties 1, 3, and 5 are maintained? Describe how to
 >   enforce properties 2 and 4 in *O*(lg *n*) time.
 > - ***e.*** Argue that no generality is lost by making the assumption in part (b). Describe the symmetric situation
->   that arises when $T_1$.*bh* ≤ $T_2$.*bh*.
+>   that arises when \\(T_1\\).*bh* ≤ \\(T_2\\).*bh*.
 > - ***f.*** Argue that the running time of *RB-Join* is *O*(lg *n*).
 
 *Skipped.*
@@ -5914,7 +5913,7 @@ Solutions are implemented
 > root node.
 >
 > ***a.*** Prove that an AVL tree with *n* nodes has height *O*(lg *n*). (*Hint:* Prove that an AVL tree of height *h*
-> has at least $F_h$ nodes, where $F_h$ is the *h*th Fibonacci number.)
+> has at least \\(F_h\\) nodes, where \\(F_h\\) is the *h*th Fibonacci number.)
 >
 > ***b.*** To insert into an AVL tree, we first place a node into the appropriate place in binary search tree order.
 > Afterward, the tree might no longer be height balanced. Specifically, the heights of the left and right children of
@@ -5958,12 +5957,12 @@ Solution is implemented
 > (This combination of properties is why the tree is called a “treap”: it has features of both a binary search tree and
 > a heap.)
 >
-> It helps to think of treaps in the following way. Suppose that we insert nodes $x_1$, $x_2$, …, $x_n$, with associated
+> It helps to think of treaps in the following way. Suppose that we insert nodes \\(x_1\\), \\(x_2\\), …, \\(x_n\\), with associated
 > keys, into a treap. Then the resulting treap is the tree that would have been formed if the nodes had been inserted
 > into a normal binary search tree in the order given by their (randomly chosen) priorities, i.e.,
-> $x_i$.*priority* < $x_j$.*priority* means that we had inserted $x_i$ before $x_j$.
+> \\(x_i\\).*priority* < \\(x_j\\).*priority* means that we had inserted \\(x_i\\) before \\(x_j\\).
 >
-> - ***a.*** Show that given a set of nodes $x_1$, $x_2$, …, $x_n$, with associated keys and priorities, all distinct,
+> - ***a.*** Show that given a set of nodes \\(x_1\\), \\(x_2\\), …, \\(x_n\\), with associated keys and priorities, all distinct,
 >   the treap associated with these nodes is unique.
 > - ***b.*** Show that the expected height of a treap is Θ(lg *n*), and hence the expected time to search for a value in
 >   the treap is Θ(lg *n*).
@@ -5997,25 +5996,25 @@ Solution is implemented
 > For nodes *x* and *y* in treap *T*, where *y* ≠ *x*, let *k* = *x*.*key* and *i* = *y*.*key*. We define indicator
 > random variables
 >
-> $X_{i k}$ = I{*y* is in the right spine of the left subtree of *x*}.
+> \\(X_{i k}\\) = I{*y* is in the right spine of the left subtree of *x*}.
 >
-> - ***f.*** Show that $X_{i k}$ = 1 if and only if *y*.*priority* > *x*.*priority*, *y*.*key* < *x*.*key*, and, for
+> - ***f.*** Show that \\(X_{i k}\\) = 1 if and only if *y*.*priority* > *x*.*priority*, *y*.*key* < *x*.*key*, and, for
 >   every *z* such that *y*.*key* < *z*.*key* < *x*.*key*, we have *y*.*priority* < *z*.*priority*.
 > - ***g.*** Show that
 >
->   $\begin{aligned}
+>   \\(\begin{aligned}
 >   \Pr\left\lbrace X_{i k} = 1\right\rbrace &= \frac{(k - i - i)!}{(k - i + 1)!} \\\\
 >   &= \frac{1}{(k - i + 1)(k - i)}.
->   \end{aligned}$
+>   \end{aligned}\\)
 > - ***h.*** Show that
 >
->   $\begin{aligned}
+>   \\(\begin{aligned}
 >   \operatorname{E}[C] &= ∑_{j = 1}^{k - 1} \frac{1}{j (j + 1)} \\\\
 >   &= 1 - \frac{1}{k}.
->   \end{aligned}$
+>   \end{aligned}\\)
 > - ***i.*** Use a symmetry argument to show that
 >
->   E[*D*] = 1 - $\dfrac{1}{n - k + 1}$.
+>   E[*D*] = 1 - \\(\dfrac{1}{n - k + 1}\\).
 > - ***j.*** Conclude that the expected number of rotations performed when inserting a node into a treap is less than 2.
 
 - ***a.*** Proof by induction.
@@ -6120,7 +6119,7 @@ Solution is implemented
 
 > Consider *n* chords on a circle, each defined by its endpoints. Describe an *O*(*n* lg *n*)- time algorithm to
 > determine the number of pairs of chords that intersect inside the circle. (For example, if the *n* chords are all
-> diameters that meet at the center, then the correct answer is $\binom{n}{2}$ Assume that no two chords share an
+> diameters that meet at the center, then the correct answer is \\(\binom{n}{2}\\) Assume that no two chords share an
 > endpoint.
 
 Define a chord as (*a*, *b*), where *a* is the endpoint of lesser degrees (the *start* endpoint), and *b* is the endpoint
@@ -6162,7 +6161,7 @@ Black-heights of nodes can be maintained, but depth of nodes can not be maintain
 
 > Let ⊗ be an associative binary operator, and let a be an attribute maintained in each node of a red-black tree.
 > Suppose that we want to include in each node *x* an additional attribute *f* such that
-> *x*.*f* = $x_1$.*a* ⊗ $x_2$.*a* ⊗ ⋯ ⊗ $x_m$.*a*, where $x_1$, $x_2$, …, $x_m$ is the inorder listing of nodes in
+> *x*.*f* = \\(x_1\\).*a* ⊗ \\(x_2\\).*a* ⊗ ⋯ ⊗ \\(x_m\\).*a*, where \\(x_1\\), \\(x_2\\), …, \\(x_m\\) is the inorder listing of nodes in
 > the subtree rooted at *x*. Show how to update the *f* attributes in *O*(1) time after a rotation. Modify your argument
 > slightly to apply it to the size attributes in order-statistic trees.
 
@@ -6395,45 +6394,45 @@ By induction:
 Base case:
 
 *T*(0)\
-= 1 + $∑_{j = 0}^{-1} T(j)$\
+= 1 + \\(∑_{j = 0}^{-1} T(j)\\)\
 = 1\
-= $2^0$.
+= \\(2^0\\).
 
 Indictive case: If *n* > 0:
 
 *T*(*n*)\
-= 1 + $∑_{j = 0}^{n - 1} T(j)$\
-= 1 + $∑_{j = 0}^{n - 1} 2^j$ (By induction)\
-= 1 + ($2^n$ - 1)\
-= $2^n$.
+= 1 + \\(∑_{j = 0}^{n - 1} T(j)\\)\
+= 1 + \\(∑_{j = 0}^{n - 1} 2^j\\) (By induction)\
+= 1 + (\\(2^n\\) - 1)\
+= \\(2^n\\).
 
 ##### 15.1-2
 
 > Show, by means of a counterexample, that the following “greedy” strategy does not always determine an optimal way to
-> cut rods. Define the ***density*** of a rod of length *i* to be $p_i$ / *i*, that is, its value per inch. The greedy
+> cut rods. Define the ***density*** of a rod of length *i* to be \\(p_i\\) / *i*, that is, its value per inch. The greedy
 > strategy for a rod of length *n* cuts off a first piece of length *i*, where 1 ≤ *i* ≤ *n*, having maximum density. It
 > then continues by applying the greedy strategy to the remaining piece of length *n* - *i*.
 
 Assume we are cutting a rod of length 4, and we have:
 
-- $p_1$ = 1
-- $p_2$ = 6
-- $p_3$ = 10
-- $p_4$ = 12
+- \\(p_1\\) = 1
+- \\(p_2\\) = 6
+- \\(p_3\\) = 10
+- \\(p_4\\) = 12
 
 Then the densities of length *i* is:
 
-- $d_1$ = 1
-- $d_2$ = 3
-- $d_3$ = 10 / 3
-- $d_4$ = 3
+- \\(d_1\\) = 1
+- \\(d_2\\) = 3
+- \\(d_3\\) = 10 / 3
+- \\(d_4\\) = 3
 
 The greedy strategy give us 10 / 3 + 1 = 13 / 3 revenue, but if we cut the rod into two pieces of length 2, we can get
 revenue of 3 + 3 = 6.
 
 ##### 15.1-3
 
-> Consider a modification of the rod-cutting problem in which, in addition to a price $p_i$ for each rod, each cut
+> Consider a modification of the rod-cutting problem in which, in addition to a price \\(p_i\\) for each rod, each cut
 > incurs a fixed cost of *c*. The revenue associated with a solution is now the sum of the prices of the pieces minus
 > the costs of making the cuts. Give a dynamic-programming algorithm to solve this modified problem.
 
@@ -6463,13 +6462,13 @@ There are max(0, 2 *n* - 2) edges.
 
 > Find an optimal parenthesization of a matrix-chain product whose sequence of dimensions is ⟨5, 10, 3, 12, 5, 50, 6⟩.
 
-$((A_1 A_2) ((A_3 A_4) (A_5 A_6)))$ (See
+\\(((A_1 A_2) ((A_3 A_4) (A_5 A_6)))\\) (See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_2_matrix_chain_multiplication/exercises/exercise_15_2_1.rs)).
 
 ##### 15.2-2
 
 > Give a recursive algorithm *Matrix-Chain-Multiply*(*A*, *s*, *i*, *j*) that actually performs the optimal matrix-chain
-> multiplication, given the sequence of matrices ⟨$A_1$, $A_2$, …, $A_n$⟩, the *s* table computed by
+> multiplication, given the sequence of matrices ⟨\\(A_1\\), \\(A_2\\), …, \\(A_n\\)⟩, the *s* table computed by
 > *Matrix-Chain-Order*, and the indices *i* and *j*. (The initial call would be
 > *Matrix-Chain-Multiply*(*A*, *s*, 1, *n*).)
 
@@ -6478,7 +6477,7 @@ Solution is implemented
 
 ##### 15.2-3
 
-> Use the substitution method to show that the solution to the recurrence (15.6) is Ω($2^n$).
+> Use the substitution method to show that the solution to the recurrence (15.6) is Ω(\\(2^n\\)).
 
 *Skipped.*
 
@@ -6489,26 +6488,26 @@ Solution is implemented
 
 The total number of vertices is:
 
-$∑_{i = 1}^n (n - i + 1)$\
+\\(∑_{i = 1}^n (n - i + 1)\\)\
 = *n* (*n* + 1) / 2.
 
 For subproblem of length *k*, there are 2 (*k* - 1) subproblems, so the total number of edges is:
 
-$∑_{k = 1}^n ∑_{i = 1}^{n - k + 1} 2 (k - 1)$\
-= $∑_{k = 1}^n 2 (n - k + 1) (k - 1)$\
-= ($n^3$ - *n*) / 3.
+\\(∑_{k = 1}^n ∑_{i = 1}^{n - k + 1} 2 (k - 1)\\)\
+= \\(∑_{k = 1}^n 2 (n - k + 1) (k - 1)\\)\
+= (\\(n^3\\) - *n*) / 3.
 
 ##### 15.2-5
 
 > Let *R*(*i*, *j*) be the number of times that table entry *m*[*i*, *j*] is referenced while computing other table
 > entries in a call of *Matrix-Chain-Order*. Show that the total number of references for the entire table is
 >
-> $\displaystyle ∑_{i = 1}^n ∑_{j = i}^n R(i, j) = \frac{n^3 - n}{3}$.
+> \\(\displaystyle ∑_{i = 1}^n ∑_{j = i}^n R(i, j) = \frac{n^3 - n}{3}\\).
 >
 > (*Hint:* You may find equation (A.3) useful.)
 
 One edge in the subproblem graph means one reference, so the total number of references equals to the number of edges in
-the subproblem graph, which, according to exercise 15.2-4, is ($n^3$ - *n*) / 3.
+the subproblem graph, which, according to exercise 15.2-4, is (\\(n^3\\) - *n*) / 3.
 
 ##### 15.2-6
 
@@ -6553,15 +6552,15 @@ Yes.
 > As stated, in dynamic programming we first solve the subproblems and then choose which of them to use in an optimal
 > solution to the problem. Professor Capulet claims that we do not always need to solve all the subproblems in order to
 > find an optimal solution. She suggests that we can find an optimal solution to the matrix-chain multiplication problem
-> by always choosing the matrix $A_k$ at which to split the subproduct $A_i A_{i + 1} ⋯ A_j$ (by selecting *k* to
-> minimize the quantity $p_{i - 1} p_k p_j$) before solving the subproblems. Find an instance of the matrix-chain
+> by always choosing the matrix \\(A_k\\) at which to split the subproduct \\(A_i A_{i + 1} ⋯ A_j\\) (by selecting *k* to
+> minimize the quantity \\(p_{i - 1} p_k p_j\\)) before solving the subproblems. Find an instance of the matrix-chain
 > multiplication problem for which this greedy approach yields a suboptimal solution.
 
 *Skipped.*
 
 ##### 15.3-5
 
-> Suppose that in the rod-cutting problem of Section 15.1, we also had limit $l_i$ on the number of pieces of length *i*
+> Suppose that in the rod-cutting problem of Section 15.1, we also had limit \\(l_i\\) on the number of pieces of length *i*
 > that we are allowed to produce, for *i* = 1, 2, …, *n*. Show that the optimal-substructure property described in
 > Section 15.1 no longer holds.
 
@@ -6574,11 +6573,11 @@ the only the value of *n*.
 > currency for another, you might be better off making a series of trades through other currencies, winding up with the
 > currency you want. Suppose that you can trade *n* different currencies, numbered 1, 2, …, *n*, where you start with
 > currency 1 and wish to wind up with currency *n*. You are given, for each pair of currencies *i* and *j*, an exchange
-> rate $r_{i j}$, meaning that if you start with *d* units of currency *i*, you can trade for $d r_{i j}$ units of
-> currency *j*. A sequence of trades may entail a commission, which depends on the number of trades you make. Let $c_k$
-> be the commission that you are charged when you make *k* trades. Show that, if $c_k$ = 0 for all *k* = 1, 2, …, *n*,
+> rate \\(r_{i j}\\), meaning that if you start with *d* units of currency *i*, you can trade for \\(d r_{i j}\\) units of
+> currency *j*. A sequence of trades may entail a commission, which depends on the number of trades you make. Let \\(c_k\\)
+> be the commission that you are charged when you make *k* trades. Show that, if \\(c_k\\) = 0 for all *k* = 1, 2, …, *n*,
 > then the problem of finding the best sequence of exchanges from currency 1 to currency *n* exhibits optimal
-> substructure. Then show that if commissions $c_k$ are arbitrary values, then the problem of finding the best sequence
+> substructure. Then show that if commissions \\(c_k\\) are arbitrary values, then the problem of finding the best sequence
 > of exchanges from currency 1 to currency *n* does not necessarily exhibit optimal substructure.
 
 *Skipped*.
@@ -6597,7 +6596,7 @@ See
 ##### 15.4-2
 
 > Give pseudocode to reconstruct an LCS from the completed *c* table and the original sequences
-> *X* = ⟨$x_1$, $x_2$, …, $x_m$⟩ and *Y* = ⟨$y_1$, $y_2$, …, $y_n$⟩ in *O*(*m* + *n*) time, without using the *b* table.
+> *X* = ⟨\\(x_1\\), \\(x_2\\), …, \\(x_m\\)⟩ and *Y* = ⟨\\(y_1\\), \\(y_2\\), …, \\(y_n\\)⟩ in *O*(*m* + *n*) time, without using the *b* table.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_4_longest_common_subsequence/exercises/exercise_15_4_2.rs).
@@ -6619,7 +6618,7 @@ Solution is implemented
 
 ##### 15.4-5
 
-> Give an *O*($n^2$)-time algorithm to find the longest monotonically increasing subsequence of a sequence of *n*
+> Give an *O*(\\(n^2\\))-time algorithm to find the longest monotonically increasing subsequence of a sequence of *n*
 > numbers.
 
 Solution is implemented
@@ -6643,17 +6642,17 @@ Solution is implemented
 > structure of an optimal binary search tree. For the example in Figure 15.10, your procedure should print out the
 > structure
 >
-> - $k_2$ is the root\
->   $k_1$ is the left child of $k_2$\
->   $d_0$ is the left child of $k_1$\
->   $d_1$ is the right child of $k_1$\
->   $k_5$ is the right child of $k_2$\
->   $k_4$ is the left child of $k_5$\
->   $k_3$ is the left child of $k_4$\
->   $d_2$ is the left child of $k_3$\
->   $d_3$ is the right child of $k_3$\
->   $d_4$ is the right child of $k_4$\
->   $d_5$ is the right child of $k_5$
+> - \\(k_2\\) is the root\
+>   \\(k_1\\) is the left child of \\(k_2\\)\
+>   \\(d_0\\) is the left child of \\(k_1\\)\
+>   \\(d_1\\) is the right child of \\(k_1\\)\
+>   \\(k_5\\) is the right child of \\(k_2\\)\
+>   \\(k_4\\) is the left child of \\(k_5\\)\
+>   \\(k_3\\) is the left child of \\(k_4\\)\
+>   \\(d_2\\) is the left child of \\(k_3\\)\
+>   \\(d_3\\) is the right child of \\(k_3\\)\
+>   \\(d_4\\) is the right child of \\(k_4\\)\
+>   \\(d_5\\) is the right child of \\(k_5\\)
 >
 > corresponding to the optimal binary search tree shown in Figure 15.9(b).
 
@@ -6667,8 +6666,8 @@ Solution is implemented
 >
 > | *i*   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
 > | ----- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-> | $p_i$ |      | 0.04 | 0.06 | 0.08 | 0.02 | 0.10 | 0.12 | 0.14 |
-> | $q_i$ | 0.06 | 0.06 | 0.06 | 0.06 | 0.05 | 0.05 | 0.05 | 0.05 |
+> | \\(p_i\\) |      | 0.04 | 0.06 | 0.08 | 0.02 | 0.10 | 0.12 | 0.14 |
+> | \\(q_i\\) | 0.06 | 0.06 | 0.06 | 0.06 | 0.05 | 0.05 | 0.05 | 0.05 |
 
 The optimal cost is 3.12. The optimal structure is:
 
@@ -6710,7 +6709,7 @@ time as the innermost loop.
 
 > Knuth [212] has shown that there are always roots of optimal subtrees such that
 > *root*[*i*, *j* - 1] ≤ *root*[*i*, *j*] ≤ *root*[*i* + 1, *j*] for all 1 ≤ *i* < *j* ≤ *n*. Use this fact to modify
-> the *Optimal-BST* procedure to run in Θ($n^2$) time.
+> the *Optimal-BST* procedure to run in Θ(\\(n^2\\)) time.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/section_15_5_optimal_binary_search_trees/exercises/exercise_15_5_4.rs).
@@ -6739,7 +6738,7 @@ The running time is *O*(*V* + *E*).
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_2_longest_palindrome_subsequence.rs).
 
-The running time is *O*($n^2$), where *n* is the length of the input.
+The running time is *O*(\\(n^2\\)), where *n* is the length of the input.
 
 ##### 15-3 Bitonic euclidean traveling-salesman problem
 
@@ -6753,7 +6752,7 @@ The running time is *O*($n^2$), where *n* is the length of the input.
 > the starting point. Figure 15.11(b) shows the shortest bitonic tour of the same 7 points. In this case, a
 > polynomial-time algorithm is possible.
 >
-> Describe an *O*($n^2$)-time algorithm for determining an optimal bitonic tour. You may assume that no two points have
+> Describe an *O*(\\(n^2\\))-time algorithm for determining an optimal bitonic tour. You may assume that no two points have
 > the same x-coordinate and that all operations on real numbers take unit time. (*Hint:* Scan left to right, maintaining
 > optimal possibilities for the two parts of the tour.)
 
@@ -6763,11 +6762,11 @@ Solution is implemented
 ##### 15-4 Printing neatly
 
 > Consider the problem of neatly printing a paragraph with a monospaced font (all characters having the same width) on a
-> printer. The input text is a sequence of *n* words of lengths $l_1$, $l_2$, …, $l_n$, measured in characters. We want
+> printer. The input text is a sequence of *n* words of lengths \\(l_1\\), \\(l_2\\), …, \\(l_n\\), measured in characters. We want
 > to print this paragraph neatly on a number of lines that hold a maximum of *M* characters each. Our criterion of
 > “neatness” is as follows. If a given line contains words *i* through *j*, where *i* ≤ *j*, and we leave exactly one
 > space between words, the number of extra space characters at the end of the line is
-> *M* - *j* + *i* - $∑_{k = i}^j l_k$, which must be nonnegative so that the words fit on the line. We wish to minimize
+> *M* - *j* + *i* - \\(∑_{k = i}^j l_k\\), which must be nonnegative so that the words fit on the line. We wish to minimize
 > the sum, over all lines except the last, of the cubes of the numbers of extra space characters at the ends of lines.
 > Give a dynamic-programming algorithm to print a paragraph of *n* words neatly on a printer. Analyze the running time
 > and space requirements of your algorithm.
@@ -6898,24 +6897,24 @@ Running time is Θ(*n*) where *n* is the total number of employees.
 
 > We can use dynamic programming on a directed graph *G* = (*V*, *E*) for speech recognition. Each edge (*u*, *v*) ∈ *E*
 > is labeled with a sound *σ*(*u*, *v*) from a finite set Σ of sounds. The labeled graph is a formal model of a person
-> speaking a restricted language. Each path in the graph starting from a distinguished vertex $v_0$ ∈ *V* corresponds to
+> speaking a restricted language. Each path in the graph starting from a distinguished vertex \\(v_0\\) ∈ *V* corresponds to
 > a possible sequence of sounds produced by the model. We define the label of a directed path to be the concatenation of
 > the labels of the edges on that path.
 >
-> - ***a.*** Describe an efficient algorithm that, given an edge-labeled graph *G* with distinguished vertex $v_0$ and a
->   sequence *s* = ⟨$σ_1$, $σ_2$, …, $σ_k$⟩ of sounds from Σ, returns a path in *G* that begins at $v_0$ and has s as its
+> - ***a.*** Describe an efficient algorithm that, given an edge-labeled graph *G* with distinguished vertex \\(v_0\\) and a
+>   sequence *s* = ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_k\\)⟩ of sounds from Σ, returns a path in *G* that begins at \\(v_0\\) and has s as its
 >   label, if any such path exists. Otherwise, the algorithm should return *no-such-path*. Analyze the running time of
 >   your algorithm. (*Hint:* You may find concepts from Chapter 22 useful.)
 >
 > Now, suppose that every edge (*u*, *v*) ∈ *E* has an associated nonnegative probability *p*(*u*, *v*) of traversing
 > the edge (*u*, *v*) from vertex *u* and thus producing the corresponding sound. The sum of the probabilities of the
 > edges leaving any vertex equals 1. The probability of a path is defined to be the product of the probabilities of its
-> edges. We can view the probability of a path beginning at $v_0$ as the probability that a “random walk” beginning at
-> $v_0$ will follow the specified path, where we randomly choose which edge to take leaving a vertex *u* according to
+> edges. We can view the probability of a path beginning at \\(v_0\\) as the probability that a “random walk” beginning at
+> \\(v_0\\) will follow the specified path, where we randomly choose which edge to take leaving a vertex *u* according to
 > the probabilities of the available edges leaving *u*.
 >
 > - ***b.*** Extend your answer to part (a) so that if a path is returned, it is a *most probable path* starting at
->   $v_0$ and having label *s*. Analyze the running time of your algorithm.
+>   \\(v_0\\) and having label *s*. Analyze the running time of your algorithm.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_7_viterbi_algorithm.rs).
@@ -6939,7 +6938,7 @@ Solution is implemented
 
 - ***a.*** Assume we are selecting a seam from top to bottom. First, we can select one of *n* pixels in the first row,
   then for each pixel we already selected, there are two or three pixels in the next row to select from. So the total
-  number of seams is at least *n* × $2^{m - 1}$ = *n* / 2 × $2^m$, which is at least exponentially in *m*.
+  number of seams is at least *n* × \\(2^{m - 1}\\) = *n* / 2 × \\(2^m\\), which is at least exponentially in *m*.
 
 - ***b.*** Solution is implemented
   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_15_dynamic_programming/problems/problem_15_8_image_compression_by_seam_carving.rs).
@@ -6972,13 +6971,13 @@ Solution is implemented
 > signing bonus. You decide to invest this money with the goal of maximizing your return at the end of 10 years. You
 > decide to use the Amalgamated Investment Company to manage your investments. Amalgamated Investments requires you to
 > observe the following rules. It offers *n* different investments, numbered 1 through *n*. In each year *j*, investment
-> *i* provides a return rate of $r_{i j}$. In other words, if you invest *d* dollars in investment *i* in year *j*, then
-> at the end of year *j*, you have $d r_{i j}$ dollars. The return rates are guaranteed, that is, you are given all the
+> *i* provides a return rate of \\(r_{i j}\\). In other words, if you invest *d* dollars in investment *i* in year *j*, then
+> at the end of year *j*, you have \\(d r_{i j}\\) dollars. The return rates are guaranteed, that is, you are given all the
 > return rates for the next 10 years for each investment. You make investment decisions only once per year. At the end
 > of each year, you can leave the money made in the previous year in the same investments, or you can shift money to
 > other investments, by either shifting money between existing investments or moving money to a new investment. If you
-> do not move your money between two consecutive years, you pay a fee of $f_1$ dollars, whereas if you switch your
-> money, you pay a fee of $f_2$ dollars, where $f_2$ > $f_1$.
+> do not move your money between two consecutive years, you pay a fee of \\(f_1\\) dollars, whereas if you switch your
+> money, you pay a fee of \\(f_2\\) dollars, where \\(f_2\\) > \\(f_1\\).
 >
 > - ***a.*** The problem, as stated, allows you to invest your money in multiple investments in each year. Prove that
 >   there exists an optimal investment strategy that, in each year, puts all the money into a single investment. (Recall
@@ -7003,7 +7002,7 @@ Solution is implemented
 > The Rinky Dink Company makes machines that resurface ice rinks. The demand for such products varies from month to
 > month, and so the company needs to develop a strategy to plan its manufacturing given the fluctuating, but
 > predictable, demand. The company wishes to design a plan for the next *n* months. For each month *i*, the company
-> knows the demand $d_i$, that is, the number of machines that it will sell. Let *D* = $∑_{i = 1}^n d_i$ be the total
+> knows the demand \\(d_i\\), that is, the number of machines that it will sell. Let *D* = \\(∑_{i = 1}^n d_i\\) be the total
 > demand over the next *n* months. The company keeps a full-time staff who provide labor to manufacture up to *m*
 > machines per month. If the company needs to make more than *m* machines in a given month, it can hire additional,
 > part-time labor, at a cost that works out to *c* dollars per machine. Furthermore, if, at the end of a month, the
@@ -7115,10 +7114,10 @@ Solution is implemented
 
 ##### 16.1-5
 
-> Consider a modification to the activity-selection problem in which each activity $a_i$ has, in addition to a start and
-> finish time, a value $v_i$. The objective is no longer to maximize the number of activities scheduled, but instead to
+> Consider a modification to the activity-selection problem in which each activity \\(a_i\\) has, in addition to a start and
+> finish time, a value \\(v_i\\). The objective is no longer to maximize the number of activities scheduled, but instead to
 > maximize the total value of the activities scheduled. That is, we wish to choose a set *A* of compatible activities
-> such that $Σ_{a_k ∈ A} v_k$ is maximized. Give a polynomial-time algorithm for this problem.
+> such that \\(Σ_{a_k ∈ A} v_k\\) is maximized. Give a polynomial-time algorithm for this problem.
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_1_an_activity_selection_problem/exercises/exercise_16_1_5.rs).
@@ -7182,7 +7181,7 @@ The running time is *O*(*n*).
 
 ##### 16.2-5
 
-> Describe an efficient algorithm that, given a set {$x_1$, $x_2$, …, $x_n$} of points on the real line, determines the
+> Describe an efficient algorithm that, given a set {\\(x_1\\), \\(x_2\\), …, \\(x_n\\)} of points on the real line, determines the
 > smallest set of unit-length closed intervals that contains all of the given points. Argue that your algorithm is
 > correct.
 
@@ -7199,8 +7198,8 @@ Solution is implemented
 ##### 16.2-7
 
 > Suppose you are given two sets *A* and *B*, each containing *n* positive integers. You can choose to reorder each set
-> however you like. After reordering, let $a_i$ be the *i*th element of set *A*, and let $b_i$ be the *i*th element of
-> set *B*. You then receive a payoff of $∏_{i = 1}^n a_i^{b_i}$. Give an algorithm that will maximize your payoff. Prove
+> however you like. After reordering, let \\(a_i\\) be the *i*th element of set *A*, and let \\(b_i\\) be the *i*th element of
+> set *B*. You then receive a payoff of \\(∏_{i = 1}^n a_i^{b_i}\\). Give an algorithm that will maximize your payoff. Prove
 > that your algorithm maximizes the payoff, and state its running time.
 
 Solution is implemented
@@ -7208,19 +7207,19 @@ Solution is implemented
 
 Just sort two sets incrementally.
 
-Proof: Let $a_i$ and $a_j$ be two elements from set *A*, and $a_i$ ≤ $a_j$; Let $b_i$ and $b_j$ be two elements from set
-*B*, and $b_i$ ≤ $b_j$, we have:
+Proof: Let \\(a_i\\) and \\(a_j\\) be two elements from set *A*, and \\(a_i\\) ≤ \\(a_j\\); Let \\(b_i\\) and \\(b_j\\) be two elements from set
+*B*, and \\(b_i\\) ≤ \\(b_j\\), we have:
 
-$\dfrac{a_i^{b_i} a_j^{b_j}}{a_i^{b_j} a_j^{b_i}}$\
-= $a_i^{b_i - b_j} a_j^{b_j - b_i}$\
-= $\dfrac{a_j^{b_j - b_i}}{a_i^{b_j - b_i}}$\
-= $\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}$.
+\\(\dfrac{a_i^{b_i} a_j^{b_j}}{a_i^{b_j} a_j^{b_i}}\\)\
+= \\(a_i^{b_i - b_j} a_j^{b_j - b_i}\\)\
+= \\(\dfrac{a_j^{b_j - b_i}}{a_i^{b_j - b_i}}\\)\
+= \\(\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}\\).
 
-Since $a_i$, $a_j$, $b_i$ and $b_j$ are positive integers, we have $\frac{a_j}{a_i}$ ≥ 1, and $b_j - b_i$ ≥ 0, then:
+Since \\(a_i\\), \\(a_j\\), \\(b_i\\) and \\(b_j\\) are positive integers, we have \\(\frac{a_j}{a_i}\\) ≥ 1, and \\(b_j - b_i\\) ≥ 0, then:
 
-$\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}$ ≥ 1, which means $a_i^{b_i} a_j^{b_j}$ ≥ $a_i^{b_j} a_j^{b_i}$.
+\\(\left(\dfrac{a_j}{a_i}\right)^{b_j - b_i}\\) ≥ 1, which means \\(a_i^{b_i} a_j^{b_j}\\) ≥ \\(a_i^{b_j} a_j^{b_i}\\).
 
-So for each pair $a_i$ and $a_j$ in set *A*, if $a_i$ ≤ $a_j$, we must ensure that the corresponding $b_i$ ≤ $b_j$. To
+So for each pair \\(a_i\\) and \\(a_j\\) in set *A*, if \\(a_i\\) ≤ \\(a_j\\), we must ensure that the corresponding \\(b_i\\) ≤ \\(b_j\\). To
 get the maximize payoff, we should make sure that the relative order in two sets are the same. The simplest way to do
 this is sorting two sets in increasing order.
 
@@ -7289,10 +7288,10 @@ Proof by induction:
 
   The cost of the node is:
 
-  $∑_{c ∈ T} c.\textit{freq} ⋅ d_T(c)$\
-  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_T(c)$\
-  = $∑_{c ∈ L} c.\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c.\textit{freq} ⋅ (d_R(c) + 1)$\
-  = $∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}$\
+  \\(∑_{c ∈ T} c.\textit{freq} ⋅ d_T(c)\\)\
+  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_T(c)\\)\
+  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c.\textit{freq} ⋅ (d_R(c) + 1)\\)\
+  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}\\)\
   = *s* + *t* + *f* + *g* (by induction)
 
   Since the frequency of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequencies of internal nodes of
@@ -7361,8 +7360,8 @@ Solution is implemented
 
 Assume there exists such a compression scheme.
 
-The number of possible files with *n* bits is $2^n$, but the number of possible files with *n* - 1 bits is $2^{n - 1}$,
-which is less than $2^n$, which means that some *n*-bits files will be transformed into the same (*n* - 1)-bits file.
+The number of possible files with *n* bits is \\(2^n\\), but the number of possible files with *n* - 1 bits is \\(2^{n - 1}\\),
+which is less than \\(2^n\\), which means that some *n*-bits files will be transformed into the same (*n* - 1)-bits file.
 
 But we cannot restore two different *n*-bits files from one single (*n* - 1)-bits files, so the compression scheme does
 not exist.
@@ -7371,26 +7370,26 @@ not exist.
 
 ##### 16.4-1
 
-> Show that (*S*, $\mathcal{I}_k$) is a matroid, where *S* is any finite set and $\mathcal{I}_k$ is the set of all
+> Show that (*S*, \\(\mathcal{I}_k\\)) is a matroid, where *S* is any finite set and \\(\mathcal{I}_k\\) is the set of all
 > subsets of *S* of size at most *k*, where *k* ≤ |*S*|.
 
 1. *S* is a finite set.
-2. For any *B* ∈ $\mathcal{I}_k$ and *A* ⊆ *B*, |*A*| ≤ |*B*| ≤ *k*, so *A* ∈ $\mathcal{I}_k$.
-3. If *A* ∈ $\mathcal{I}_k$, *B* ∈ $\mathcal{I}_k$, and |*A*| < |*B*|, we know |*A*| < |*B*| ≤ *k*. For some
-   *x* ∈ *B* - *A*, |*A* ∪ {*x*}| ≤ *k*, so *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
+2. For any *B* ∈ \\(\mathcal{I}_k\\) and *A* ⊆ *B*, |*A*| ≤ |*B*| ≤ *k*, so *A* ∈ \\(\mathcal{I}_k\\).
+3. If *A* ∈ \\(\mathcal{I}_k\\), *B* ∈ \\(\mathcal{I}_k\\), and |*A*| < |*B*|, we know |*A*| < |*B*| ≤ *k*. For some
+   *x* ∈ *B* - *A*, |*A* ∪ {*x*}| ≤ *k*, so *A* ∪ {*x*} ∈ \\(\mathcal{I}_k\\).
 
 ##### 16.4-2 ★
 
-> Given an *m* × *n* matrix *T* over some field (such as the reals), show that (*S*, $\mathcal{I}$) is a matroid, where
-> *S* is the set of columns of *T* and *A* ∈ $\mathcal{I}$ if and only if the columns in *A* are linearly independent.
+> Given an *m* × *n* matrix *T* over some field (such as the reals), show that (*S*, \\(\mathcal{I}\\)) is a matroid, where
+> *S* is the set of columns of *T* and *A* ∈ \\(\mathcal{I}\\) if and only if the columns in *A* are linearly independent.
 
 1. *S* is a finite set.
-2. For any *B* ∈ $\mathcal{I}$ and *A* ⊆ *B*, we know columns in *B* are linearly independent, since columns of any
-   subsets of *B* are also linearly independent, so *A* ∈ $\mathcal{I}$.
-3. If *A* ∈ $\mathcal{I}$, *B* ∈ $\mathcal{I}$, and |*A*| < |*B*|, there are three cases:
+2. For any *B* ∈ \\(\mathcal{I}\\) and *A* ⊆ *B*, we know columns in *B* are linearly independent, since columns of any
+   subsets of *B* are also linearly independent, so *A* ∈ \\(\mathcal{I}\\).
+3. If *A* ∈ \\(\mathcal{I}\\), *B* ∈ \\(\mathcal{I}\\), and |*A*| < |*B*|, there are three cases:
 
    1. If *A* = ∅, then for any *x* ∈ *B* - *A*, *A* ∪ {*x*} = {*x*}, which is linearly independent, that is:
-      *A* ∪ {*x*} ∈ $\mathcal{I}$.
+      *A* ∪ {*x*} ∈ \\(\mathcal{I}\\).
    2. If *A* ≠ ∅ and *A* ∩ *B* = ∅, we have *B* - *A* = *B* and |*B*| ≥ 2. Since columns in *B* are linearly
       independent, there must be at least one column in *B* that is linearly independent with columns in *A*.
 
@@ -7399,40 +7398,40 @@ not exist.
       is linearly independent with columns in *A*.
 
       Choose an column *x* in *B* that is linearly independent with columns in *A*, we have
-      *A* ∪ {*x*} ∈ $\mathcal{I}$.
+      *A* ∪ {*x*} ∈ \\(\mathcal{I}\\).
    3. If *A* ≠ ∅ and *A* ∩ *B* ≠ ∅, we know columns in *B* - *A* are linearly independent with columns in *A* ∩ *B*,
       which means columns in *B* - *A* are linearly independent with columns in *A*. For any *x* in *B* - *A*, we have
-      *A* ∪ {*x*} ∈ $\mathcal{I}$.
+      *A* ∪ {*x*} ∈ \\(\mathcal{I}\\).
 
 ##### 16.4-3 ★
 
-> Show that if (*S*, $\mathcal{I}$) is a matroid, then (*S*, $\mathcal{I}'$) is a matroid, where
+> Show that if (*S*, \\(\mathcal{I}\\)) is a matroid, then (*S*, \\(\mathcal{I}'\\)) is a matroid, where
 >
-> $\mathcal{I}'$ = {*A*′ : *S* - *A*′ contains some maximal *A* ∈ $\mathcal{I}$}.
+> \\(\mathcal{I}'\\) = {*A*′ : *S* - *A*′ contains some maximal *A* ∈ \\(\mathcal{I}\\)}.
 >
-> That is, the maximal independent sets of (*S*, $\mathcal{I}'$) are just the complements of the maximal independent
-> sets of (*S*, $\mathcal{I}$).
+> That is, the maximal independent sets of (*S*, \\(\mathcal{I}'\\)) are just the complements of the maximal independent
+> sets of (*S*, \\(\mathcal{I}\\)).
 
 1. *S* is a finite set.
-2. For any *B* ∈ $\mathcal{I}'$ and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ $\mathcal{I}$,
-   and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ $\mathcal{I}'$.
+2. For any *B* ∈ \\(\mathcal{I}'\\) and *A* ⊆ *B*, we know that *S* - *B* contains some maximal *C* ∈ \\(\mathcal{I}\\),
+   and *S* - *B* ⊆ *S* - *A*, so *S* - *A* also contains *C*, which means *A* ∈ \\(\mathcal{I}'\\).
 3. *Skipped.*
 
 ##### 16.4-4 ★
 
-> Let *S* be a finite set and let $S_1$, $S_2$, …, $S_k$ be a partition of *S* into nonempty disjoint subsets. Define
-> the structure (*S*, $\mathcal{I}$) by the condition that
-> $\mathcal{I}$ = {*A* : |*A* ∩ $S_i$| ≤ 1 for *i* = 1, 2, …, *k*}. Show that (*S*, $\mathcal{I}$) is a matroid. That
+> Let *S* be a finite set and let \\(S_1\\), \\(S_2\\), …, \\(S_k\\) be a partition of *S* into nonempty disjoint subsets. Define
+> the structure (*S*, \\(\mathcal{I}\\)) by the condition that
+> \\(\mathcal{I}\\) = {*A* : |*A* ∩ \\(S_i\\)| ≤ 1 for *i* = 1, 2, …, *k*}. Show that (*S*, \\(\mathcal{I}\\)) is a matroid. That
 > is, the set of all sets *A* that contain at most one member of each subset in the partition determines the independent
 > sets of a matroid.
 
 1. *S* is a finite set.
-2. For any *B* ∈ $\mathcal{I}$ and *A* ⊆ *B*, for any 1 ≤ *i* ≤ *k*,
-   *A* ∩ $S_i$ = (*A* ∩ *B*) ∩ $S_i$ = *A* ∩ (*B* ∩ $S_i$). Since |*B* ∩ $S_i$| ≤ 1, |*A* ∩ $S_i$| ≤ 1. So
-   *A* ∈ $\mathcal{I}$.
-3. If *A* ∈ $\mathcal{I}$, *B* ∈ $\mathcal{I}$, and |*A*| < |*B*|, then *B* must intersect with more partitions than
+2. For any *B* ∈ \\(\mathcal{I}\\) and *A* ⊆ *B*, for any 1 ≤ *i* ≤ *k*,
+   *A* ∩ \\(S_i\\) = (*A* ∩ *B*) ∩ \\(S_i\\) = *A* ∩ (*B* ∩ \\(S_i\\)). Since |*B* ∩ \\(S_i\\)| ≤ 1, |*A* ∩ \\(S_i\\)| ≤ 1. So
+   *A* ∈ \\(\mathcal{I}\\).
+3. If *A* ∈ \\(\mathcal{I}\\), *B* ∈ \\(\mathcal{I}\\), and |*A*| < |*B*|, then *B* must intersect with more partitions than
    *A*. Let *x* be an element in a partition that *B* intersects with, but *A* does not, we have
-   *A* ∪ {*x*} ∈ $\mathcal{I}_k$.
+   *A* ∪ {*x*} ∈ \\(\mathcal{I}_k\\).
 
 ##### 16.4-5
 
@@ -7440,9 +7439,9 @@ not exist.
 > *minimum-weight* maximal independent subset, to make it a standard weighted-matroid problem. Argue carefully that your
 > transformation is correct.
 
-Let the weights in the minimum-weight problem be $w_1$, $w_2$, … $w_n$, and the maximum weight be $w_k$, we can solve
-transform this problem into a maximum-weight problem with weights $w_k$ + 1 - $w_1$, $w_k$ + 1 - $w_2$, …,
-$w_k$ + 1 - $w_n$.
+Let the weights in the minimum-weight problem be \\(w_1\\), \\(w_2\\), … \\(w_n\\), and the maximum weight be \\(w_k\\), we can solve
+transform this problem into a maximum-weight problem with weights \\(w_k\\) + 1 - \\(w_1\\), \\(w_k\\) + 1 - \\(w_2\\), …,
+\\(w_k\\) + 1 - \\(w_n\\).
 
 Proof:
 
@@ -7452,11 +7451,11 @@ Proof:
 
 ##### 16.5-1
 
-> Solve the instance of the scheduling problem given in Figure 16.7, but with each penalty $w_i$ replaced by 80 - $w_i$.
+> Solve the instance of the scheduling problem given in Figure 16.7, but with each penalty \\(w_i\\) replaced by 80 - \\(w_i\\).
 
 The schedule is:
 
-$a_5$, $a_4$, $a_6$, $a_3$, $a_7$, $a_2$, $a_1$.
+\\(a_5\\), \\(a_4\\), \\(a_6\\), \\(a_3\\), \\(a_7\\), \\(a_2\\), \\(a_1\\).
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_16_greedy_algorithms/section_16_5_a_task_scheduling_problem_as_a_matroid/exercises/exercise_16_5_1.rs).
@@ -7479,7 +7478,7 @@ Solution is implemented
 > - ***a.*** Describe a greedy algorithm to make change consisting of quarters, dimes, nickels, and pennies. Prove that
 >   your algorithm yields an optimal solution.
 > - ***b.*** Suppose that the available coins are in the denominations that are powers of *c*, i.e., the denominations
->   are $c^0$, $c_1$, …, $c^k$ for some integers *c* > 1 and *k* ≥ 1. Show that the greedy algorithm always yields an
+>   are \\(c^0\\), \\(c_1\\), …, \\(c^k\\) for some integers *c* > 1 and *k* ≥ 1. Show that the greedy algorithm always yields an
 >   optimal solution.
 > - ***c.*** Give a set of coin denominations for which the greedy algorithm does not yield an optimal solution. Your
 >   set should include a penny so that there is a solution for every value of *n*.
@@ -7498,24 +7497,24 @@ Solution is implemented
 
 ##### 16-2 Scheduling to minimize average completion time
 
-> Suppose you are given a set *S* = {$a_1$, $a_2$, …, $a_n$} of tasks, where task $a_i$ requires $p_i$ units of
+> Suppose you are given a set *S* = {\\(a_1\\), \\(a_2\\), …, \\(a_n\\)} of tasks, where task \\(a_i\\) requires \\(p_i\\) units of
 > processing time to complete, once it has started. You have one computer on which to run these tasks, and the computer
-> can run only one task at a time. Let $c_i$ be the ***completion time*** of task $a_i$, that is, the time at which task
-> $a_i$ completes processing. Your goal is to minimize the average completion time, that is, to minimize
-> (1 / *n*) $∑_{i = 1}^n c_i$. For example, suppose there are two tasks, $a_1$ and $a_2$, with $p_1$ = 3 and $p_2$ = 5,
-> and consider the schedule in which $a_2$ runs first, followed by $a_1$. Then $c_2$ = 5, $c_1$ = 8, and the average
-> completion time is (5 + 8) / 2 = 6.5. If task $a_1$ runs first, however, then $c_1$ = 3, $c_2$ = 8, and the average
+> can run only one task at a time. Let \\(c_i\\) be the ***completion time*** of task \\(a_i\\), that is, the time at which task
+> \\(a_i\\) completes processing. Your goal is to minimize the average completion time, that is, to minimize
+> (1 / *n*) \\(∑_{i = 1}^n c_i\\). For example, suppose there are two tasks, \\(a_1\\) and \\(a_2\\), with \\(p_1\\) = 3 and \\(p_2\\) = 5,
+> and consider the schedule in which \\(a_2\\) runs first, followed by \\(a_1\\). Then \\(c_2\\) = 5, \\(c_1\\) = 8, and the average
+> completion time is (5 + 8) / 2 = 6.5. If task \\(a_1\\) runs first, however, then \\(c_1\\) = 3, \\(c_2\\) = 8, and the average
 > completion time is (3 + 8) / 2 = 5.5.
 >
 > - ***a.*** Give an algorithm that schedules the tasks so as to minimize the average completion time. Each task must
->   run non-preemptively, that is, once task $a_i$ starts, it must run continuously for $p_i$ units of time. Prove that
+>   run non-preemptively, that is, once task \\(a_i\\) starts, it must run continuously for \\(p_i\\) units of time. Prove that
 >   your algorithm minimizes the average completion time, and state the running time of your algorithm.
 > - ***b.*** Suppose now that the tasks are not all available at once. That is, each task cannot start until its
->   ***release time*** $r_i$. Suppose also that we allow ***preemption***, so that a task can be suspended and restarted
->   at a later time. For example, a task $a_i$ with processing time $p_i$ = 6 and release time $r_i$ = 1 might start
+>   ***release time*** \\(r_i\\). Suppose also that we allow ***preemption***, so that a task can be suspended and restarted
+>   at a later time. For example, a task \\(a_i\\) with processing time \\(p_i\\) = 6 and release time \\(r_i\\) = 1 might start
 >   running at time 1 and be preempted at time 4. It might then resume at time 10 but be preempted at time 11, and it
->   might finally resume at time 13 and complete at time 15. Task $a_i$ has run for a total of 6 time units, but its
->   running time has been divided into three pieces. In this scenario, $a_i$’s completion time is 15. Give an algorithm
+>   might finally resume at time 13 and complete at time 15. Task \\(a_i\\) has run for a total of 6 time units, but its
+>   running time has been divided into three pieces. In this scenario, \\(a_i\\)’s completion time is 15. Give an algorithm
 >   that schedules the tasks so as to minimize the average completion time in this new scenario. Prove that your
 >   algorithm minimizes the average completion time, and state the running time of your algorithm.
 
@@ -7526,18 +7525,18 @@ Solution is implemented
   completion time, we can show that if there is a pair of tasks in which the one with longer processing time gets
   scheduled first, then we can get a better average completion time by swap the schedule order of these two tasks.
 
-  Assume we have a schedule $a_{s_1}$, $a_{s_2}$, …, $a_{s_n}$, in which there is a pair of tasks $a_{s_i}$ and
-  $a_{s_j}$, we have *i* < *j* but $p_{s_i}$ > $p_{s_j}$.
+  Assume we have a schedule \\(a_{s_1}\\), \\(a_{s_2}\\), …, \\(a_{s_n}\\), in which there is a pair of tasks \\(a_{s_i}\\) and
+  \\(a_{s_j}\\), we have *i* < *j* but \\(p_{s_i}\\) > \\(p_{s_j}\\).
 
   We split the schedule into five parts:
 
-  1. Tasks $a_{s_1}$, $a_{s_2}$, …, $a_{s_{i - 1}}$,
-  2. Task $a_{s_i}$,
-  3. Tasks $a_{s_{i + 1}}$, $a_{s_{i + 2}}$, …, $a_{s_{j - 1}}$,
-  4. Task $a_{s_j}$,
-  5. Tasks $a_{s_{j + 1}}$, $a_{s_{j + 2}}$, …, $a_n$.
+  1. Tasks \\(a_{s_1}\\), \\(a_{s_2}\\), …, \\(a_{s_{i - 1}}\\),
+  2. Task \\(a_{s_i}\\),
+  3. Tasks \\(a_{s_{i + 1}}\\), \\(a_{s_{i + 2}}\\), …, \\(a_{s_{j - 1}}\\),
+  4. Task \\(a_{s_j}\\),
+  5. Tasks \\(a_{s_{j + 1}}\\), \\(a_{s_{j + 2}}\\), …, \\(a_n\\).
 
-  If we swap task $a_{s_i}$ with task $a_{s_j}$ in the schedule, then the completion time in part 1, part 4 and part 5
+  If we swap task \\(a_{s_i}\\) with task \\(a_{s_j}\\) in the schedule, then the completion time in part 1, part 4 and part 5
   will stay the same, but the completion time in part 2 and part 3 will be less. So the total completion will be the
   less, which means the average completion time will be less.
 
@@ -7552,18 +7551,18 @@ Solution is implemented
 ##### 16-3 Acyclic subgraphs
 
 > - ***a.*** The ***incidence matrix*** for an undirected graph *G* = (*V*, *E*) is a |*V*| × |*E*| matrix *M* such that
->   $M_{v e}$ = 1 if edge *e* is incident on vertex *v*, and $M_{v e}$ = 0 otherwise. Argue that a set of columns of *M*
+>   \\(M_{v e}\\) = 1 if edge *e* is incident on vertex *v*, and \\(M_{v e}\\) = 0 otherwise. Argue that a set of columns of *M*
 >   is linearly independent over the field of integers modulo 2 if and only if the corresponding set of edges is
 >   acyclic.
 > - ***b.*** Suppose that we associate a nonnegative weight *w*(*e*) with each edge in an undirected graph
 >   *G* = (*V*, *E*). Give an efficient algorithm to find an acyclic subset of *E* of maximum total weight.
-> - ***c.*** Let *G*(*V*, *E*) be an arbitrary directed graph, and let (*E*, $\mathcal{I}$) be defined so that
->   *A* ∈ $\mathcal{I}$ if and only if *A* does not contain any directed cycles. Give an example of a directed graph *G*
->   such that the associated system (*E*, $\mathcal{I}$) is not a matroid. Specify which defining condition for a
+> - ***c.*** Let *G*(*V*, *E*) be an arbitrary directed graph, and let (*E*, \\(\mathcal{I}\\)) be defined so that
+>   *A* ∈ \\(\mathcal{I}\\) if and only if *A* does not contain any directed cycles. Give an example of a directed graph *G*
+>   such that the associated system (*E*, \\(\mathcal{I}\\)) is not a matroid. Specify which defining condition for a
 >   matroid fails to hold.
 > - ***d.*** The ***incidence matrix*** for a directed graph *G* = (*V*, *E*) with no self-loops is a |*V*| × |*E*|
->   matrix *M* such that $M_{v e}$ = -1 if edge *e* leaves vertex *v*, $M_{v e}$ = 1 if edge *e* enters vertex *v*, and
->   $M_{v e}$ = 0 otherwise. Argue that if a set of columns of *M* is linearly independent, then the corresponding set
+>   matrix *M* such that \\(M_{v e}\\) = -1 if edge *e* leaves vertex *v*, \\(M_{v e}\\) = 1 if edge *e* enters vertex *v*, and
+>   \\(M_{v e}\\) = 0 otherwise. Argue that if a set of columns of *M* is linearly independent, then the corresponding set
 >   of edges does not contain a directed cycle.
 > - ***e.*** Exercise 16.4-2 tells us that the set of linearly independent sets of columns of any matrix *M* forms a
 >   matroid. Explain carefully why the results of parts (c) and (d) are not contradictory. How can there fail to be a
@@ -7576,9 +7575,9 @@ Solution is implemented
 
 > Consider the following algorithm for the problem from Section 16.5 of scheduling unit-time tasks with deadlines and
 > penalties. Let all *n* time slots be initially empty, where time slot *i* is the unit-length slot of time that
-> finishes at time *i*. We consider the tasks in order of monotonically decreasing penalty. When considering task $a_j$,
-> if there exists a time slot at or before $a_j$’s deadline $d_j$ that is still empty, assign $a_j$ to the latest such
-> slot, filling it. If there is no such slot, assign task $a_j$ to the latest of the as yet unfilled slots.
+> finishes at time *i*. We consider the tasks in order of monotonically decreasing penalty. When considering task \\(a_j\\),
+> if there exists a time slot at or before \\(a_j\\)’s deadline \\(d_j\\) that is still empty, assign \\(a_j\\) to the latest such
+> slot, filling it. If there is no such slot, assign task \\(a_j\\) to the latest of the as yet unfilled slots.
 >
 > - ***a.*** Argue that this algorithm always gives an optimal answer.
 > - ***b.*** Use the fast disjoint-set forest presented in Section 21.3 to implement the algorithm efficiently. Assume
@@ -7591,16 +7590,16 @@ Solution is implemented
 
 > Modern computers use a cache to store a small amount of data in a fast memory. Even though a program may access large
 > amounts of data, by storing a small subset of the main memory in the ***cache***—a small but faster memory—overall
-> access time can greatly decrease. When a computer program executes, it makes a sequence ⟨$r_1$, $r_2$, …, $r_n$⟩ of
+> access time can greatly decrease. When a computer program executes, it makes a sequence ⟨\\(r_1\\), \\(r_2\\), …, \\(r_n\\)⟩ of
 > *n* memory requests, where each request is for a particular data element. For example, a program that accesses 4
 > distinct elements {*a*, *b*, *c*, *d*} might make the sequence of requests
 > ⟨*d*, *b*, *d*, *b*, *d*, *a*, *c*, *d*, *b*, *a*, *c*, *b*⟩. Let *k* be the size of the cache. When the cache
 > contains *k* elements and the program requests the (*k* + 1)st element, the system must decide, for this and each
-> subsequent request, which *k* elements to keep in the cache. More precisely, for each request $r_i$, the
-> cache-management algorithm checks whether element $r_i$ is already in the cache. If it is, then we have a
-> ***cache hit***; otherwise, we have a ***cache miss***. Upon a cache miss, the system retrieves $r_i$ from the main
-> memory, and the cache-management algorithm must decide whether to keep $r_i$ in the cache. If it decides to keep $r_i$
-> and the cache already holds $k$ elements, then it must evict one element to make room for $r_i$. The cache-management
+> subsequent request, which *k* elements to keep in the cache. More precisely, for each request \\(r_i\\), the
+> cache-management algorithm checks whether element \\(r_i\\) is already in the cache. If it is, then we have a
+> ***cache hit***; otherwise, we have a ***cache miss***. Upon a cache miss, the system retrieves \\(r_i\\) from the main
+> memory, and the cache-management algorithm must decide whether to keep \\(r_i\\) in the cache. If it decides to keep \\(r_i\\)
+> and the cache already holds \\(k\\) elements, then it must evict one element to make room for \\(r_i\\). The cache-management
 > algorithm evicts data with the goal of minimizing the number of cache misses over the entire sequence of requests.
 >
 > Typically, caching is an on-line problem. That is, we have to make decisions about which data to keep in the cache
@@ -7612,7 +7611,7 @@ Solution is implemented
 > item in the cache whose next access in the request sequence comes furthest in the future.
 >
 > - ***a.*** Write pseudocode for a cache manager that uses the furthest-in-future strategy. The input should be a
->   sequence ⟨$r_1$, $r_2$, …, $r_n$⟩ of requests and a cache size *k*, and the output should be a sequence of decisions
+>   sequence ⟨\\(r_1\\), \\(r_2\\), …, \\(r_n\\)⟩ of requests and a cache size *k*, and the output should be a sequence of decisions
 >   about which data element (if any) to evict upon each request. What is the running time of your algorithm?
 > - ***b.*** Show that the off-line caching problem exhibits optimal substructure.
 > - ***c.*** Prove that furthest-in-future produces the minimum possible number of cache misses.
@@ -7629,8 +7628,8 @@ Solution is implemented
 
   *P*(*C*, *i*) =
 
-  - *P*(*C*, *i* + 1), if $r_{i + 1}$ ∈ *C*,
-  - 1 + $\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)$, if $r_{i + 1}$ ∈ *C*,
+  - *P*(*C*, *i* + 1), if \\(r_{i + 1}\\) ∈ *C*,
+  - 1 + \\(\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)\\), if \\(r_{i + 1}\\) ∈ *C*,
 - ***c.*** *Skipped*.
 
 ### 17 Amortized Analysis
@@ -7659,9 +7658,9 @@ If all bits except for the last bit of the counter is 0, while the last bit is 1
 
 The total cost is:
 
-$∑_{i = 0}^{⌊\lg n⌋} 2^i$ + (*n* - ⌊lg *n*⌋ - 1)\
-= $2^{⌊\lg n⌋ + 1}$ - 1 + (*n* - ⌊lg *n*⌋ - 1)\
-≤ $2^{\lg n + 1}$ - 1 + (*n* - ⌊lg *n*⌋ - 1)\
+\\(∑_{i = 0}^{⌊\lg n⌋} 2^i\\) + (*n* - ⌊lg *n*⌋ - 1)\
+= \\(2^{⌊\lg n⌋ + 1}\\) - 1 + (*n* - ⌊lg *n*⌋ - 1)\
+≤ \\(2^{\lg n + 1}\\) - 1 + (*n* - ⌊lg *n*⌋ - 1)\
 = 2 *n* - 1 + (*n* - ⌊lg *n*⌋ - 1)\
 = 3 *n* - ⌊lg *n*⌋ - 2
 
@@ -7731,11 +7730,11 @@ it is enough for either *Reset* or *Increment* operation.
 
 ##### 17.3-1
 
-> Suppose we have a potential function Φ such that Φ($D_i$) ≥ Φ($D_0$) for all *i*, but Φ($D_0$) ≠ 0. Show that there
-> exists a potential function Φ′ such that Φ′($D_0$) = 0, Φ′($D_i$) ≥ 0 for all *i* ≥ 1, and the amortized costs using
+> Suppose we have a potential function Φ such that Φ(\\(D_i\\)) ≥ Φ(\\(D_0\\)) for all *i*, but Φ(\\(D_0\\)) ≠ 0. Show that there
+> exists a potential function Φ′ such that Φ′(\\(D_0\\)) = 0, Φ′(\\(D_i\\)) ≥ 0 for all *i* ≥ 1, and the amortized costs using
 > Φ′ are the same as the amortized costs using Φ.
 
-Let Φ′($D_i$) = Φ($D_i$) - Φ($D_0$).
+Let Φ′(\\(D_i\\)) = Φ(\\(D_i\\)) - Φ(\\(D_0\\)).
 
 ##### 17.3-2
 
@@ -7754,9 +7753,9 @@ Let Φ′($D_i$) = Φ($D_i$) - Φ($D_0$).
 ##### 17.3-4
 
 > What is the total cost of executing *n* of the stack operations *Push*, *Pop*, and *Multipop*, assuming that the stack
-> begins with $s_0$ objects and finishes with $s_n$ objects?
+> begins with \\(s_0\\) objects and finishes with \\(s_n\\) objects?
 
-Let Φ($D_i$) the the number of elements after *i* operations, we have:
+Let Φ(\\(D_i\\)) the the number of elements after *i* operations, we have:
 
 The amortized cost of different operations are:
 
@@ -7766,23 +7765,23 @@ The amortized cost of different operations are:
 
 Let *p* be the number of *Push* operations, we have:
 
-$∑_{i = 1}^n c_i$\
-= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
-= 2 *p* - $s_n$ + $s_0$.
+\\(∑_{i = 1}^n c_i\\)\
+= \\(∑_{i = 1}^n \hat{c}_i\\) - (Φ(\\(D_i\\)) - Φ(\\(D_0\\)))\
+= 2 *p* - \\(s_n\\) + \\(s_0\\).
 
 ##### 17.3-5
 
 > Suppose that a counter begins at a number with *b* 1s in its binary representation, rather than at 0. Show that the
 > cost of performing *n* *Increment* operations is *O*(*n*) if *n* = Ω(*b*). (Do not assume that *b* is constant.)
 
-Let Φ($D_i$) the the number of 1s after *i* operations, we have:
+Let Φ(\\(D_i\\)) the the number of 1s after *i* operations, we have:
 
 The amortized cost of *Increment* is 2.
 
-$∑_{i = 1}^n c_i$\
-= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
-= 2 *n* - $s_n$ + *b*\
-= *O*(2 *n* - $s_n$) (Since *n* = Ω(*b*))\
+\\(∑_{i = 1}^n c_i\\)\
+= \\(∑_{i = 1}^n \hat{c}_i\\) - (Φ(\\(D_i\\)) - Φ(\\(D_0\\)))\
+= 2 *n* - \\(s_n\\) + *b*\
+= *O*(2 *n* - \\(s_n\\)) (Since *n* = Ω(*b*))\
 = *O*(*n*).
 
 ##### 17.3-6
@@ -7801,7 +7800,7 @@ The queue is implemented with two stacks. One is for the queue front, one is for
 - *Dequeue* is done by first checking whether the *front* stack is empty, if the front stack is empty, pop all items
   from the back stack and push them into the front stack. Then, pop from the front stack.
 
-Let Φ($D_i$) be the number of elements of the *back* stack after *i* operations, we have:
+Let Φ(\\(D_i\\)) be the number of elements of the *back* stack after *i* operations, we have:
 
 The amortized cost of each operation is:
 
@@ -7811,9 +7810,9 @@ The amortized cost of each operation is:
 
 Assume initially, the queue is empty, the total actual cost after *n* operations is:
 
-$∑_{i = 1}^n c_i$\
-= $∑_{i = 1}^n \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
-≤ 2 *n* - $s_n$\
+\\(∑_{i = 1}^n c_i\\)\
+= \\(∑_{i = 1}^n \hat{c}_i\\) - (Φ(\\(D_i\\)) - Φ(\\(D_0\\)))\
+≤ 2 *n* - \\(s_n\\)\
 = *O*(*n*).
 
 ##### 17.3-7
@@ -7831,16 +7830,16 @@ $∑_{i = 1}^n c_i$\
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/section_17_3_the_potential_method/exercises/exercise_17_3_7.rs).
 
-Let Φ($D_i$) be **twice** the number of elements in the set after *i* operations, we have:
+Let Φ(\\(D_i\\)) be **twice** the number of elements in the set after *i* operations, we have:
 
 The amortized cost of each operation is:
 
 - *Insert*: 1 + 2 = 3
 - *Delete-Larger-Half*: *k* + 1 - 2 (⌈*k* / 2⌉) <= 1, where *k* is the number of elements in the set
 
-$∑_{i = 1}^m c_i$\
-= $∑_{i = 1}^m \hat{c}_i$ - (Φ($D_i$) - Φ($D_0$))\
-≤ 3 *m* - $s_m$\
+\\(∑_{i = 1}^m c_i\\)\
+= \\(∑_{i = 1}^m \hat{c}_i\\) - (Φ(\\(D_i\\)) - Φ(\\(D_0\\)))\
+≤ 3 *m* - \\(s_m\\)\
 = *O*(*m*).
 
 #### 17.4 Dynamic tables
@@ -7856,35 +7855,35 @@ $∑_{i = 1}^m c_i$\
 
 ##### 17.4-2
 
-> Show that if $α_{i - 1}$ ≥ 1  / 2 and the *i*th operation on a dynamic table is *Table-Delete*, then the amortized
+> Show that if \\(α_{i - 1}\\) ≥ 1  / 2 and the *i*th operation on a dynamic table is *Table-Delete*, then the amortized
 > cost of the operation with respect to the potential function (17.6) is bounded above by a constant.
 
-Let $s_i$ be the size of the table after the *i*th operation, and $n_i$ be the number of elements after the *i*th
+Let \\(s_i\\) be the size of the table after the *i*th operation, and \\(n_i\\) be the number of elements after the *i*th
 operation.
 
-- If $α_{i - 1}$ = 1  / 2, we have $s_{i - 1}$ = 2 $n_{i - 1}$.
+- If \\(α_{i - 1}\\) = 1  / 2, we have \\(s_{i - 1}\\) = 2 \\(n_{i - 1}\\).
   - If the *i*th operation triggers a contraction, we have:
 
-    $n_{i - 1}$ - 1 < $s_{i - 1}$ / 4\
-    ⇔ $n_{i - 1}$ - 1 < $n_{i - 1}$ / 2\
-    ⇔ $n_{i - 1}$ < 2\
-    ⇔ $n_{i - 1}$ = 1. ($n_{i - 1}$ ≠ 0 because we will do a deletion on $n_{i - 1}$ elements)
+    \\(n_{i - 1}\\) - 1 < \\(s_{i - 1}\\) / 4\
+    ⇔ \\(n_{i - 1}\\) - 1 < \\(n_{i - 1}\\) / 2\
+    ⇔ \\(n_{i - 1}\\) < 2\
+    ⇔ \\(n_{i - 1}\\) = 1. (\\(n_{i - 1}\\) ≠ 0 because we will do a deletion on \\(n_{i - 1}\\) elements)
 
     Doing a deletion on a constant size dynmaic table costs constant time.
   - If the *i*th operation does not trigger a contraction, we have:
 
-    $\hat{c}\_i$\
-    = $c_i$ + Φ($D_{i}$) - Φ($D_{i - 1}$)\
-    = 1 + 0 - ($s_{i - 1}$ / 2 - ($n_{i - 1}$ - 1))\
-    = 1 + 0 - ($n_{i - 1}$ - ($n_{i - 1}$ - 1))\
+    \\(\hat{c}\_i\\)\
+    = \\(c_i\\) + Φ(\\(D_{i}\\)) - Φ(\\(D_{i - 1}\\))\
+    = 1 + 0 - (\\(s_{i - 1}\\) / 2 - (\\(n_{i - 1}\\) - 1))\
+    = 1 + 0 - (\\(n_{i - 1}\\) - (\\(n_{i - 1}\\) - 1))\
     = 1 + 0 - 1\
     = 0.
-- If $α_{i - 1}$ > 1  / 2, we know that the *i*th operation does not trigger a contraction.
+- If \\(α_{i - 1}\\) > 1  / 2, we know that the *i*th operation does not trigger a contraction.
 
-  $\hat{c}\_i$\
-  = $c_i$ + Φ($D_{i}$) - Φ($D_{i - 1}$)\
-  = 1 + (2 ($n_{i - 1}$ - 1) - $s_{i - 1}$) - (2 $n_{i - 1}$ - $s_{i - 1}$)\
-  = 1 + 0 - ($n_{i - 1}$ - ($n_{i - 1}$ - 1))\
+  \\(\hat{c}\_i\\)\
+  = \\(c_i\\) + Φ(\\(D_{i}\\)) - Φ(\\(D_{i - 1}\\))\
+  = 1 + (2 (\\(n_{i - 1}\\) - 1) - \\(s_{i - 1}\\)) - (2 \\(n_{i - 1}\\) - \\(s_{i - 1}\\))\
+  = 1 + 0 - (\\(n_{i - 1}\\) - (\\(n_{i - 1}\\) - 1))\
   = -1.
 
 ##### 17.4-3
@@ -7903,28 +7902,28 @@ operation.
 ##### 17-1 Bit-reversed binary counter
 
 > Chapter 30 examines an important algorithm called the fast Fourier transform, or FFT. The first step of the FFT
-> algorithm performs a ***bit-reversal permutation*** on an input array *A*[0‥*n* - 1] whose length is *n* = $2^k$ for
+> algorithm performs a ***bit-reversal permutation*** on an input array *A*[0‥*n* - 1] whose length is *n* = \\(2^k\\) for
 > some nonnegative integer *k*. This permutation swaps elements whose indices have binary representations that are the
 > reverse of each other.
 >
-> We can express each index *a* as a *k*-bit sequence ⟨$a_{k - 1}$, $a_{k - 2}$, …, $a_0$⟩, where
-> *a* = $∑_{i = 0}^{k - 1} a_i 2^i$. We define
+> We can express each index *a* as a *k*-bit sequence ⟨\\(a_{k - 1}\\), \\(a_{k - 2}\\), …, \\(a_0\\)⟩, where
+> *a* = \\(∑_{i = 0}^{k - 1} a_i 2^i\\). We define
 >
-> $\text{rev}\_k$(⟨$a_{k - 1}$, $a_{k - 2}$, …, $a_0$⟩) = ⟨$a_0$, $a_1$, …, $a_{k - 1}$⟩;
+> \\(\text{rev}\_k\\)(⟨\\(a_{k - 1}\\), \\(a_{k - 2}\\), …, \\(a_0\\)⟩) = ⟨\\(a_0\\), \\(a_1\\), …, \\(a_{k - 1}\\)⟩;
 >
 > thus,
 >
-> $\text{rev}\_k$(*a*) = $\displaystyle ∑_{i = 0}^{k - 1} a_{k - i - 1} 2^i$.
+> \\(\text{rev}\_k\\)(*a*) = \\(\displaystyle ∑_{i = 0}^{k - 1} a_{k - i - 1} 2^i\\).
 >
-> For example, if *n* = 16 (or, equivalently, *k* = 4), then $\text{rev}_k$(3) = 12, since the 4-bit representation of 3
+> For example, if *n* = 16 (or, equivalently, *k* = 4), then \\(\text{rev}_k\\)(3) = 12, since the 4-bit representation of 3
 > is 0011, which when reversed gives 1100, the 4-bit representation of 12.
 >
-> - ***a.*** Given a function $\text{rev}_k$ that runs in Θ(*k*) time, write an algorithm to perform the bit-reversal
->   permutation on an array of length *n* = $2^k$ in *O*(*n* *k*) time.
+> - ***a.*** Given a function \\(\text{rev}_k\\) that runs in Θ(*k*) time, write an algorithm to perform the bit-reversal
+>   permutation on an array of length *n* = \\(2^k\\) in *O*(*n* *k*) time.
 >
 > We can use an algorithm based on an amortized analysis to improve the running time of the bit-reversal permutation. We
 > maintain a “bit-reversed counter” and a procedure *Bit-Reversed-Increment* that, when given a bit-reversed-counter
-> value *a*, produces $\text{rev}_k$($\text{rev}_k$(*a*) + 1). If *k* = 4, for example, and the bit-reversed counter
+> value *a*, produces \\(\text{rev}_k\\)(\\(\text{rev}_k\\)(*a*) + 1). If *k* = 4, for example, and the bit-reversed counter
 > starts at 0, then successive calls to *Bit-Reversed-Increment* produce the sequence
 >
 > 0000, 1000, 0100, 1100, 0010, 1010, … = 0, 8, 4, 12, 2, 10, ….
@@ -7945,10 +7944,10 @@ Solution is implemented
 > size of the array. We can improve the time for insertion by keeping several sorted arrays.
 >
 > Specifically, suppose that we wish to support *Search* and *Insert* on a set of *n* elements. Let *k* = ⌈lg(*n* + 1)⌉,
-> and let the binary representation of *n* be ⟨$n_{k - 1}$, $n_{k - 2}$, …, $n_0$⟩. We have *k* sorted arrays $A_0$,
-> $A_1$, …, $A_{k - 1}$, where for *i* = 0, 1, …, *k* - 1, the length of array $A_i$ is $2^i$. Each array is either full
-> or empty, depending on whether $n_i$ = 1 or $n_i$ = 0, respectively. The total number of elements held in all *k*
-> arrays is therefore $∑_{i = 0}^{k - 1} n_i 2^i$ = *n*. Although each individual array is sorted, elements in different
+> and let the binary representation of *n* be ⟨\\(n_{k - 1}\\), \\(n_{k - 2}\\), …, \\(n_0\\)⟩. We have *k* sorted arrays \\(A_0\\),
+> \\(A_1\\), …, \\(A_{k - 1}\\), where for *i* = 0, 1, …, *k* - 1, the length of array \\(A_i\\) is \\(2^i\\). Each array is either full
+> or empty, depending on whether \\(n_i\\) = 1 or \\(n_i\\) = 0, respectively. The total number of elements held in all *k*
+> arrays is therefore \\(∑_{i = 0}^{k - 1} n_i 2^i\\) = *n*. Although each individual array is sorted, elements in different
 > arrays bear no particular relationship to each other.
 >
 > - ***a.*** Describe how to perform the *Search* operation for this data structure. Analyze its worst-case running
@@ -7959,15 +7958,15 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_17_amortized_analysis/problems/problem_17_2_making_binary_search_dynamic.rs).
 
-- ***a.*** If the set has *n* = $2^k$ elements, and the element to search is in the last slot, then the worst case
+- ***a.*** If the set has *n* = \\(2^k\\) elements, and the element to search is in the last slot, then the worst case
   search time is:
 
-  $∑_{i = 1}^k \lg (2^i)$\
-  = $∑_{i = 1}^k i$\
+  \\(∑_{i = 1}^k \lg (2^i)\\)\
+  = \\(∑_{i = 1}^k i\\)\
   = *k* (*k* + 1) / 2.
 - ***b.***
 
-  Worst case running time occurs when a new element is being inserted into a set with *n* = $2^k$ - 1 elements. The
+  Worst case running time occurs when a new element is being inserted into a set with *n* = \\(2^k\\) - 1 elements. The
   running time is Θ(*n*).
 
   *Skipped amortized running time analysis.*
@@ -7998,7 +7997,7 @@ Solution is implemented
 >
 > and we define the potential of *T* as
 >
-> Φ(*T*) = *c* $\displaystyle ∑_{x ∈ T: Δ(x) ≥ 2} Δ(x)$,
+> Φ(*T*) = *c* \\(\displaystyle ∑_{x ∈ T: Δ(x) ≥ 2} Δ(x)\\),
 >
 > where *c* is a sufficiently large constant that depends on *α*.
 >
@@ -8045,16 +8044,16 @@ The tree is implemented
 > We now wish to prove that there are *O*(*m*) structural modifications when there are both insertions and deletions.
 > Let us define, for each node *x*,
 >
-> *w*(*x*) = $\begin{cases}
+> *w*(*x*) = \\(\begin{cases}
 > 0 &\text{if $x$ is red,}\\\\
 > 1 &\text{if $x$ is black and has no red children,}\\\\
 > 0 &\text{if $x$ is black and has one red child,}\\\\
 > 2 &\text{if $x$ is black and has two red children.}
-> \end{cases}$
+> \end{cases}\\)
 >
 > Now we redefine the potential of a red-black tree *T* as
 >
-> Φ(*T*) = $∑_{x ∈ T} w(x)$,
+> Φ(*T*) = \\(∑_{x ∈ T} w(x)\\),
 >
 > and let *T*′ be the tree that results from applying any nonterminating case of *RB-Insert-Fixup* or *RB-Delete-Fixup*
 > to *T*.
@@ -8082,7 +8081,7 @@ The tree is implemented
 >    any heuristic we like to decide how to reorder the list.
 >
 > Assume that we start with a given list of *n* elements, and we are given an access sequence
-> *σ* = ⟨$σ_1$, $σ_2$, …, $σ_m$⟩ of keys to find, in order. The cost of the sequence is the sum of the costs of the
+> *σ* = ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_m\\)⟩ of keys to find, in order. The cost of the sequence is the sum of the costs of the
 > individual accesses in the sequence.
 >
 > Out of the various possible ways to reorder the list after an operation, this problem focuses on transposing adjacent
@@ -8091,65 +8090,65 @@ The tree is implemented
 > cost no worse than 4 times that of any other heuristic for maintaining the list order—even if the other heuristic
 > knows the access sequence in advance! We call this type of analysis a ***competitive analysis***.
 >
-> For a heuristic H and a given initial ordering of the list, denote the access cost of sequence *σ* by $C_H$(*σ*). Let
+> For a heuristic H and a given initial ordering of the list, denote the access cost of sequence *σ* by \\(C_H\\)(*σ*). Let
 > *m* be the number of accesses in *σ*.
 >
 > - ***a.*** Argue that if heuristic H does not know the access sequence in advance, then the worst-case cost for H on
->   an access sequence *σ* is $C_H$(*σ*) = Ω(*m* *n*).
+>   an access sequence *σ* is \\(C_H\\)(*σ*) = Ω(*m* *n*).
 >
 > With the ***move-to-front*** heuristic, immediately after searching for an element *x*, we move *x* to the first
 > position on the list (i.e., the front of the list).
 >
-> Let $\text{rank}_L$(*x*) denote the rank of element *x* in list *L*, that is, the position of *x* in list *L*. For
-> example, if *x* is the fourth element in *L*, then $\text{rank}_L$(*x*) = 4. Let $c_i$ denote the cost of access $σ_i$
+> Let \\(\text{rank}_L\\)(*x*) denote the rank of element *x* in list *L*, that is, the position of *x* in list *L*. For
+> example, if *x* is the fourth element in *L*, then \\(\text{rank}_L\\)(*x*) = 4. Let \\(c_i\\) denote the cost of access \\(σ_i\\)
 > using the move-to-front heuristic, which includes the cost of finding the element in the list and the cost of moving
 > it to the front of the list by a series of transpositions of adjacent list elements.
 >
-> - ***b.*** Show that if $σ_i$ accesses element *x* in list *L* using the move-to-front heuristic, then
->   $c_i$ = 2 ⋅ $\text{rank}_L$(*x*) - 1.
+> - ***b.*** Show that if \\(σ_i\\) accesses element *x* in list *L* using the move-to-front heuristic, then
+>   \\(c_i\\) = 2 ⋅ \\(\text{rank}_L\\)(*x*) - 1.
 >
 > Now we compare move-to-front with any other heuristic H that processes an access sequence according to the two
 > properties above. Heuristic H may transpose elements in the list in any way it wants, and it might even know the
 > entire access sequence in advance.
 >
-> Let $L_i$ be the list after access $σ_i$ using move-to-front, and let $L_i^\*$ be the list after access $σ_i$ using
-> heuristic H. We denote the cost of access $σ_i$ by $c_i$ for move-to-front and by $c_i^\*$ for heuristic H. Suppose
-> that heuristic H performs $t_i^*$ transpositions during access $σ_i$.
+> Let \\(L_i\\) be the list after access \\(σ_i\\) using move-to-front, and let \\(L_i^\*\\) be the list after access \\(σ_i\\) using
+> heuristic H. We denote the cost of access \\(σ_i\\) by \\(c_i\\) for move-to-front and by \\(c_i^\*\\) for heuristic H. Suppose
+> that heuristic H performs \\(t_i^*\\) transpositions during access \\(σ_i\\).
 >
-> - ***c.*** In part (b), you showed that $c_i$ = 2 ⋅ $rank_{L_{i - 1}}$(*x*) - 1. Now show that
->   $c_i^\*$ = $\text{rank}\_{L_{i - 1}^\*}(x) + t_i^*$.
+> - ***c.*** In part (b), you showed that \\(c_i\\) = 2 ⋅ \\(rank_{L_{i - 1}}\\)(*x*) - 1. Now show that
+>   \\(c_i^\*\\) = \\(\text{rank}\_{L_{i - 1}^\*}(x) + t_i^*\\).
 >
-> We define an ***inversion*** in list $L_i$ as a pair of elements *y* and *z* such that *y* precedes *z* in $L_i$ and
-> *z* precedes *y* in list $L_i^\*$. Suppose that list $L_i$ has $q_i$ inversions after processing the access sequence
-> ⟨$σ_1$, $σ_2$, …, $σ_i$⟩. Then, we define a potential function Φ that maps $L_i$ to a real number by
-> Φ($L_i$) = 2 $q_i$. For example, if $L_i$ has the elements ⟨*e*, *c*, *a*, *d*, *b*⟩ and $L_i^*$ has the elements
-> ⟨*c*, *a*, *b*, *d*, *e*⟩, then $L_i$ has 5 inversions ((*e*, *c*), (*e*, *a*), (*e*, *d*), (*e*, *b*), (*d*, *b*)),
-> and so Φ($L_i$) = 10. Observe that Φ($L_i$) ≥ 0 for all *i* and that, if move-to-front and heuristic H start with the
-> same list $L_0$, then Φ($L_0$) = 0.
+> We define an ***inversion*** in list \\(L_i\\) as a pair of elements *y* and *z* such that *y* precedes *z* in \\(L_i\\) and
+> *z* precedes *y* in list \\(L_i^\*\\). Suppose that list \\(L_i\\) has \\(q_i\\) inversions after processing the access sequence
+> ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_i\\)⟩. Then, we define a potential function Φ that maps \\(L_i\\) to a real number by
+> Φ(\\(L_i\\)) = 2 \\(q_i\\). For example, if \\(L_i\\) has the elements ⟨*e*, *c*, *a*, *d*, *b*⟩ and \\(L_i^*\\) has the elements
+> ⟨*c*, *a*, *b*, *d*, *e*⟩, then \\(L_i\\) has 5 inversions ((*e*, *c*), (*e*, *a*), (*e*, *d*), (*e*, *b*), (*d*, *b*)),
+> and so Φ(\\(L_i\\)) = 10. Observe that Φ(\\(L_i\\)) ≥ 0 for all *i* and that, if move-to-front and heuristic H start with the
+> same list \\(L_0\\), then Φ(\\(L_0\\)) = 0.
 >
 > - ***d.*** Argue that a transposition either increases the potential by 2 or decreases the potential by 2.
 >
-> Suppose that access $σ_i$ finds the element *x*. To understand how the potential changes due to $σ_i$, let us
+> Suppose that access \\(σ_i\\) finds the element *x*. To understand how the potential changes due to \\(σ_i\\), let us
 > partition the elements other than *x* into four sets, depending on where they are in the lists just before the *i*th
 > access:
 >
-> - Set *A* consists of elements that precede *x* in both $L_{i - 1}$ and $L_{i - 1}^*$.
-> - Set *B* consists of elements that precede *x* in $L_{i - 1}$ and follow *x* in $L_{i - 1}^*$.
-> - Set *C* consists of elements that follow *x* in $L_{i - 1}$ and precede *x* in $L_{i - 1}^*$.
-> - Set *D* consists of elements that follow *x* in both $L_{i - 1}$ and $L_{i - 1}^*$.
+> - Set *A* consists of elements that precede *x* in both \\(L_{i - 1}\\) and \\(L_{i - 1}^*\\).
+> - Set *B* consists of elements that precede *x* in \\(L_{i - 1}\\) and follow *x* in \\(L_{i - 1}^*\\).
+> - Set *C* consists of elements that follow *x* in \\(L_{i - 1}\\) and precede *x* in \\(L_{i - 1}^*\\).
+> - Set *D* consists of elements that follow *x* in both \\(L_{i - 1}\\) and \\(L_{i - 1}^*\\).
 >
-> - ***e.*** Argue that $\text{rank}\_{L_{i - 1}}$(*x*) = |*A*| + |*B*| + 1 and
->   $\text{rank}\_{L_{i - 1}^*}$(*x*) = |*A*| + |*C*| + 1.
-> - ***f.*** Show that access $σ_i$ causes a change in potential of
+> - ***e.*** Argue that \\(\text{rank}\_{L_{i - 1}}\\)(*x*) = |*A*| + |*B*| + 1 and
+>   \\(\text{rank}\_{L_{i - 1}^*}\\)(*x*) = |*A*| + |*C*| + 1.
+> - ***f.*** Show that access \\(σ_i\\) causes a change in potential of
 >
->   Φ($L_i$) - Φ($L_{i - 1}$) ≤ 2 (|*A*| - |*B*| + $t_i^*$),
+>   Φ(\\(L_i\\)) - Φ(\\(L_{i - 1}\\)) ≤ 2 (|*A*| - |*B*| + \\(t_i^*\\)),
 >
->   where, as before, heuristic H performs $t_i^*$ transpositions during access $σ_i$.
+>   where, as before, heuristic H performs \\(t_i^*\\) transpositions during access \\(σ_i\\).
 >
->   Define the amortized cost $\hat{c}\_i$ of access $σ_i$ by $\hat{c}\_i$ = $c_i$ + Φ($L_i$) - Φ($L_{i - 1}$).
-> - ***g.*** Show that the amortized cost $\hat{c}_i$ of access $σ_i$ is bounded from above by 4 $c_i^*$.
-> - ***h.*** Conclude that the cost $C_\text{MTF}$(*σ*) of access sequence *σ* with move-to-front is at most 4 times the
->   cost $C_H$(*σ*) of *σ* with any other heuristic H, assuming that both heuristics start with the same list.
+>   Define the amortized cost \\(\hat{c}\_i\\) of access \\(σ_i\\) by \\(\hat{c}\_i\\) = \\(c_i\\) + Φ(\\(L_i\\)) - Φ(\\(L_{i - 1}\\)).
+> - ***g.*** Show that the amortized cost \\(\hat{c}_i\\) of access \\(σ_i\\) is bounded from above by 4 \\(c_i^*\\).
+> - ***h.*** Conclude that the cost \\(C_\text{MTF}\\)(*σ*) of access sequence *σ* with move-to-front is at most 4 times the
+>   cost \\(C_H\\)(*σ*) of *σ* with any other heuristic H, assuming that both heuristics start with the same list.
 
 *Skipped.*
 
@@ -8172,10 +8171,10 @@ perform well.
 
 Solving
 
-$\begin{cases}
+\\(\begin{cases}
 t - 1 ≤ 2 ≤ 2 t - 1\\\\
 t - 1 ≤ 3 ≤ 2 t - 1
-\end{cases}$,
+\end{cases}\\),
 
 We have:
 
@@ -8238,8 +8237,8 @@ When root have 3 keys, it has 4 children, which requires at least 7 keys, so it 
 > As a function of the minimum degree *t*, what is the maximum number of keys that can be stored in a B-tree of height
 > *h*?
 
-(2 *t* - 1) $∑_{i = 0}^h (2 t)^i$\
-= $(2 t)^{h + 1}$ - 1.
+(2 *t* - 1) \\(∑_{i = 0}^h (2 t)^i\\)\
+= \\((2 t)^{h + 1}\\) - 1.
 
 ##### 18.1-5
 
@@ -8449,10 +8448,10 @@ For the predecessor:
 
 After using binary search, every node requires *O*(lg *t*) time, so the total running time is:
 
-*O*(lg *t* $\log_t n$) \
-= *O*($\log_t n^{\log_2 t}$) \
-= *O*($\log_t t^{\log_2 n}$) \
-= *O*($\log_2 n$) \
+*O*(lg *t* \\(\log_t n\\)) \
+= *O*(\\(\log_t n^{\log_2 t}\\)) \
+= *O*(\\(\log_t t^{\log_2 n}\\)) \
+= *O*(\\(\log_2 n\\)) \
 = *O*(lg *n*)
 
 ##### 18.2-7
@@ -8590,9 +8589,9 @@ Real code is implemented
 >   respectively.
 > - ***c.*** Consider the simple path *p* from the root of a 2-3-4 tree *T* to a given key *k*, the set *S*′ of keys in
 >   *T* that are less than *k*, and the set *S*′′ of keys in *T* that are greater than *k*. Show that *p* breaks *S*′
->   into a set of trees {$T_0'$, $T_1'$, …, $T_m'$} and a set of keys {$k_0'$, $k_1'$, …, $k_m'$}, where, for
->   *i* = 1, 2, …, *m*, we have *y* < $k_i'$ < *z* for any keys *y* ∈ $T_{i - 1}'$ and *z* ∈ $T_i'$. What is the
->   relationship between the heights of $T_{i - 1}'$ and $T_i'$? Describe how *p* breaks *S*′′ into sets of trees and
+>   into a set of trees {\\(T_0'\\), \\(T_1'\\), …, \\(T_m'\\)} and a set of keys {\\(k_0'\\), \\(k_1'\\), …, \\(k_m'\\)}, where, for
+>   *i* = 1, 2, …, *m*, we have *y* < \\(k_i'\\) < *z* for any keys *y* ∈ \\(T_{i - 1}'\\) and *z* ∈ \\(T_i'\\). What is the
+>   relationship between the heights of \\(T_{i - 1}'\\) and \\(T_i'\\)? Describe how *p* breaks *S*′′ into sets of trees and
 >   keys.
 > - ***d.*** Show how to implement the split operation on *T*. Use the join operation to assemble the keys in *S*′ into
 >   a single 2-3-4 tree *T*′ and the keys in *S*′′ into a single 2-3-4 tree *T*′′. The running time of the split
@@ -8657,19 +8656,19 @@ each *Union* call reduces one connected component.
 > Use the linked-list representation with the weighted-union heuristic.
 >
 > 1. **for** *i* = 1 **to** 16
-> 2. &nbsp;&nbsp;&nbsp;&nbsp;*Make-Set*($x_i$)
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;*Make-Set*(\\(x_i\\))
 > 3. **for** *i* = 1 **to** 15 **by** 2
-> 4. &nbsp;&nbsp;&nbsp;&nbsp;*Union*($x_i$, $x_{i + 1}$)
+> 4. &nbsp;&nbsp;&nbsp;&nbsp;*Union*(\\(x_i\\), \\(x_{i + 1}\\))
 > 5. **for** *i* = 1 **to** 13 **by** 4
-> 6. &nbsp;&nbsp;&nbsp;&nbsp;*Union*($x_i$, $x_{i + 2}$)
-> 7. *Union*($x_1$, $x_5$)
-> 8. *Union*($x_{11}$, $x_{13}$)
-> 9. *Union*($x_1$, $x_{10}$)
-> 10. *Find-Set*($x_2$)
-> 11. *Find-Set*($x_9$)
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;*Union*(\\(x_i\\), \\(x_{i + 2}\\))
+> 7. *Union*(\\(x_1\\), \\(x_5\\))
+> 8. *Union*(\\(x_{11}\\), \\(x_{13}\\))
+> 9. *Union*(\\(x_1\\), \\(x_{10}\\))
+> 10. *Find-Set*(\\(x_2\\))
+> 11. *Find-Set*(\\(x_9\\))
 >
-> Assume that if the sets containing $x_i$ and $x_j$ have the same size, then the operation *Union*($x_i$, $x_j$})
-> appends $x_j$’s list onto $x_i$’s list.
+> Assume that if the sets containing \\(x_i\\) and \\(x_j\\) have the same size, then the operation *Union*(\\(x_i\\), \\(x_j\\)})
+> appends \\(x_j\\)’s list onto \\(x_i\\)’s list.
 
 *Skipped.*
 
@@ -8770,21 +8769,21 @@ Solution is implemented
 > To develop an algorithm for this problem, we break the sequence *S* into homogeneous subsequences. That is, we
 > represent *S* by
 >
-> $\mathrm{I}\_1$, E, $\mathrm{I}\_2$, E, $\mathrm{I}\_3$, …, $\mathrm{I}\_m$, E, $\mathrm{I}\_{m + 1}$;
+> \\(\mathrm{I}\_1\\), E, \\(\mathrm{I}\_2\\), E, \\(\mathrm{I}\_3\\), …, \\(\mathrm{I}\_m\\), E, \\(\mathrm{I}\_{m + 1}\\);
 >
-> where each E represents a single *Extract-Min* call and each $\mathrm{I}_j$ represents a (possibly empty) sequence of
-> *Insert* calls. For each subsequence $\mathrm{I}_j$, we initially place the keys inserted by these operations into a
-> set $K_j$, which is empty if $\mathrm{I}_j$ is empty. We then do the following:
+> where each E represents a single *Extract-Min* call and each \\(\mathrm{I}_j\\) represents a (possibly empty) sequence of
+> *Insert* calls. For each subsequence \\(\mathrm{I}_j\\), we initially place the keys inserted by these operations into a
+> set \\(K_j\\), which is empty if \\(\mathrm{I}_j\\) is empty. We then do the following:
 >
 > *Off-Line-Minimum*(*m*, *n*)
 >
 > 1. **for** *i* = 1 **to** *n*
-> 2. &nbsp;&nbsp;&nbsp;&nbsp;determine *j* such that *i* ∈ $K_j$
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;determine *j* such that *i* ∈ \\(K_j\\)
 > 3. &nbsp;&nbsp;&nbsp;&nbsp;**if** *j* ≠ *m* + 1
 > 4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*extracted*[*j*] = *i*
-> 5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let *l* be the smallest value greater than *j* for which set $K_l$
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let *l* be the smallest value greater than *j* for which set \\(K_l\\)
 >    exists
-> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$K_l$ = $K_j$ ∪ $K_l$, destroying $K_j$
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\(K_l\\) = \\(K_j\\) ∪ \\(K_l\\), destroying \\(K_j\\)
 > 7. **return** *extracted*
 >
 > - ***b.*** Argue that the array *extracted* returned by *Off-Line-Minimum* is correct.
@@ -8797,7 +8796,7 @@ Solution is implemented
 
 ##### 21-2 Depth determination
 
-> In the ***depth-determination problem***, we maintain a forest $\mathcal{F}$ = {$T_i$} of rooted trees under three
+> In the ***depth-determination problem***, we maintain a forest \\(\mathcal{F}\\) = {\\(T_i\\)} of rooted trees under three
 > operations:
 >
 > *Make-Tree*(*v*) creates a tree whose only node is *v*.
@@ -8811,18 +8810,18 @@ Solution is implemented
 >   *v*, except that *v*.*p* = *v* if *v* is a root. Suppose further that we implement *Graft*(*r*, *v*) by setting
 >   *r*.*p* = *v* and *Find-Depth*(*v*) by following the find path up to the root, returning a count of all nodes other
 >   than *v* encountered. Show that the worst-case running time of a sequence of *m* *Make-Tree*, *Find-Depth*, and
->   *Graft* operations is Θ($m^2$).
+>   *Graft* operations is Θ(\\(m^2\\)).
 >
 > By using the union-by-rank and path-compression heuristics, we can reduce the worst-case running time. We use the
-> disjoint-set forest $\mathcal{S}$ = {$S_i$}, where each set $S_i$ (which is itself a tree) corresponds to a tree $T_i$
-> in the forest $\mathcal{F}$. The tree structure within a set $S_i$, however, does not necessarily correspond to that
-> of $T_i$. In fact, the implementation of $S_i$ does not record the exact parent-child relationships but nevertheless
-> allows us to determine any node’s depth in $T_i$.
+> disjoint-set forest \\(\mathcal{S}\\) = {\\(S_i\\)}, where each set \\(S_i\\) (which is itself a tree) corresponds to a tree \\(T_i\\)
+> in the forest \\(\mathcal{F}\\). The tree structure within a set \\(S_i\\), however, does not necessarily correspond to that
+> of \\(T_i\\). In fact, the implementation of \\(S_i\\) does not record the exact parent-child relationships but nevertheless
+> allows us to determine any node’s depth in \\(T_i\\).
 >
 > The key idea is to maintain in each node *v* a “pseudodistance” *v*.*d*, which is defined so that the sum of the
-> pseudodistances along the simple path from *v* to the root of its set $S_i$ equals the depth of *v* in $T_i$. That is,
-> if the simple path from *v* to its root in $S_i$ is $v_0$, $v_1$, …, $v_k$, where $v_0$ = *v* and $v_k$ is $S_i$’s
-> root, then the depth of *v* in $T_i$ is $∑_{j = 0}^k v_j.d$.
+> pseudodistances along the simple path from *v* to the root of its set \\(S_i\\) equals the depth of *v* in \\(T_i\\). That is,
+> if the simple path from *v* to its root in \\(S_i\\) is \\(v_0\\), \\(v_1\\), …, \\(v_k\\), where \\(v_0\\) = *v* and \\(v_k\\) is \\(S_i\\)’s
+> root, then the depth of *v* in \\(T_i\\) is \\(∑_{j = 0}^k v_j.d\\).
 >
 > - ***b.*** Give an implementation of *Make-Tree*.
 > - ***c.*** Show how to modify *Find-Set* to implement *Find-Depth*. Your implementation should perform path
@@ -8830,7 +8829,7 @@ Solution is implemented
 >   implementation updates pseudodistances correctly.
 > - ***d.*** Show how to implement *Graft*(*r*, *v*), which combines the sets containing *r* and *v*, by modifying the
 >   *Union* and *Link* procedures. Make sure that your implementation updates pseudodistances correctly. Note that the
->   root of a set $S_i$ is not necessarily the root of the corresponding tree $T_i$.
+>   root of a set \\(S_i\\) is not necessarily the root of the corresponding tree \\(T_i\\).
 > - ***e.*** Give a tight bound on the worst-case running time of a sequence of *m* *Make-Tree*, *Find-Depth*, and
 >   *Graft* operations, *n* of which are *Make-Tree* operations.
 
@@ -8911,9 +8910,9 @@ Adjacency-matrix:
 
 ##### 22.1-3
 
-> The *transpose* of a directed graph *G* = (*V*, *E*) is the graph $G^T$ = (*V*, $E^T$), where
-> $E^T$ = {(*v*, *u*) ∈ *V* × *V* : (*u*, *v*) ∈ *E*}. Thus, $G^T$ is *G* with all its edges reversed. Describe
-> efficient algorithms for computing $G^T$ from *G*, for both the adjacency-list and adjacency-matrix representations of
+> The *transpose* of a directed graph *G* = (*V*, *E*) is the graph \\(G^T\\) = (*V*, \\(E^T\\)), where
+> \\(E^T\\) = {(*v*, *u*) ∈ *V* × *V* : (*u*, *v*) ∈ *E*}. Thus, \\(G^T\\) is *G* with all its edges reversed. Describe
+> efficient algorithms for computing \\(G^T\\) from *G*, for both the adjacency-list and adjacency-matrix representations of
 > *G*. Analyze the running times of your algorithms.
 
 Solution is implemented
@@ -8921,7 +8920,7 @@ Solution is implemented
 
 Algorithm for adjacency-list takes *O*(|*V*| + |*E*|) time.
 
-Algorithm for adjacency-matrix takes *O*($\left|V\right|^2$) time.
+Algorithm for adjacency-matrix takes *O*(\\(\left|V\right|^2\\)) time.
 
 ##### 22.1-4
 
@@ -8935,9 +8934,9 @@ Solution is implemented
 
 ##### 22.1-5
 
-> The ***square*** of a directed graph *G* = (*V*, *E*) is the graph $G^2$ = (*V*, $E^2$) such that (*u*, *v*) ∈ $E^2$
+> The ***square*** of a directed graph *G* = (*V*, *E*) is the graph \\(G^2\\) = (*V*, \\(E^2\\)) such that (*u*, *v*) ∈ \\(E^2\\)
 > if and only if *G* contains a path with at most two edges between *u* and *v*. Describe efficient algorithms for
-> computing $G^2$ from *G* for both the adjacency-list and adjacency-matrix representations of *G*. Analyze the running
+> computing \\(G^2\\) from *G* for both the adjacency-list and adjacency-matrix representations of *G*. Analyze the running
 > times of your algorithms.
 
 Solution is implemented
@@ -8945,11 +8944,11 @@ Solution is implemented
 
 Not sure what running time complexity is the algorithm for adjacency-list.
 
-The running time complexity of the algorithm for adjacency-matrix is *O*($n^3$).
+The running time complexity of the algorithm for adjacency-matrix is *O*(\\(n^3\\)).
 
 ##### 22.1-6
 
-> Most graph algorithms that take an adjacency-matrix representation as input require time Ω($V^2$), but there are some
+> Most graph algorithms that take an adjacency-matrix representation as input require time Ω(\\(V^2\\)), but there are some
 > exceptions. Show how to determine whether a directed graph *G* contains a ***universal sink***—a vertex with in-degree
 > |*V*| - 1 and out-degree 0—in time *O*(*V*), given an adjacency matrix for *G*.
 
@@ -8959,17 +8958,17 @@ Solution is implemented
 ##### 22.1-7
 
 > The ***incidence matrix*** of a directed graph *G* = (*V*, *E*) with no self-loops is a |*V*| × |*E*| matrix
-> *B* = ($b_{ij}$) such that
+> *B* = (\\(b_{ij}\\)) such that
 >
-> $b_{ij} = \begin{cases}
+> \\(b_{ij} = \begin{cases}
 > -1&\text{if edge $j$ leaves vertex $i$,}\\\\
 > 1&\text{if edge $j$ enters vertex $i$,}\\\\
 > 0&\text{otherwise.}\\\\
-> \end{cases}$
+> \end{cases}\\)
 >
-> Describe what the entries of the matrix product $B B^T$ represent, where $B^T$ is the transpose of *B*.
+> Describe what the entries of the matrix product \\(B B^T\\) represent, where \\(B^T\\) is the transpose of *B*.
 
-$(B^T)\_{i i}$ represents the number of edges connected to vertex *i*, and $-(B^T)_{i j}$ (where *i* ≠ *j*) represents
+\\((B^T)\_{i i}\\) represents the number of edges connected to vertex *i*, and \\(-(B^T)_{i j}\\) (where *i* ≠ *j*) represents
 the number of edges connecting edge *i* and edge *j*.
 
 ##### 22.1-8
@@ -9014,7 +9013,7 @@ instead of *black*, which does not affect the traversal process.
 > What is the running time of *BFS* if we represent its input graph by an adjacency matrix and modify the algorithm to
 > handle this form of input?
 
-Θ($V^2$).
+Θ(\\(V^2\\)).
 
 ##### 22.2-5
 
@@ -9026,9 +9025,9 @@ instead of *black*, which does not affect the traversal process.
 
 ##### 22.2-6
 
-> Give an example of a directed graph *G* = (*V*, *E*), a source vertex *s* ∈ *V*, and a set of tree edges $E_π$ ⊆ *E*
-> such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, $E_π$) from *s* to *v* is a shortest
-> path in *G*, yet the set of edges $E_π$ cannot be produced by running *BFS* on *G*, no matter how the vertices are
+> Give an example of a directed graph *G* = (*V*, *E*), a source vertex *s* ∈ *V*, and a set of tree edges \\(E_π\\) ⊆ *E*
+> such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, \\(E_π\\)) from *s* to *v* is a shortest
+> path in *G*, yet the set of edges \\(E_π\\) cannot be produced by running *BFS* on *G*, no matter how the vertices are
 > ordered in each adjacency list.
 
 Graph:
@@ -9065,7 +9064,7 @@ Solution is implemented
 
 ##### 22.2-8 ★
 
-> The diameter of a tree *T* = (*V*, *E*) is defined as $\max_{u, v ∈ V} δ(u, v)$, that is, the largest of all
+> The diameter of a tree *T* = (*V*, *E*) is defined as \\(\max_{u, v ∈ V} δ(u, v)\\), that is, the largest of all
 > shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the
 > running time of your algorithm.
 
@@ -9313,8 +9312,8 @@ connected component, which is wrong.
 
 ##### 22.5-4
 
-> Prove that for any directed graph *G*, we have $((G^T)^{SCC})^T = G^{SCC}$. That is, the transpose of the component
-> graph of $G^T$ is the same as the component graph of *G*.
+> Prove that for any directed graph *G*, we have \\(((G^T)^{SCC})^T = G^{SCC}\\). That is, the transpose of the component
+> graph of \\(G^T\\) is the same as the component graph of *G*.
 
 *Skipped.*
 
@@ -9369,7 +9368,7 @@ Solution is implemented
 > disconnects *G*. A ***bridge*** of *G* is an edge whose removal disconnects *G*. A ***biconnected component*** of *G*
 > is a maximal set of edges such that any two edges in the set lie on a common simple cycle. Figure 22.10 illustrates
 > these definitions. We can determine articulation points, bridges, and biconnected components using depth-first search.
-> Let $G_π$ = (*V*, $E_π$) be a depth-first tree of *G*.
+> Let \\(G_π\\) = (*V*, \\(E_π\\)) be a depth-first tree of *G*.
 >
 > ```text
 >   1   5─6     11          19──────┐
@@ -9385,14 +9384,14 @@ Solution is implemented
 > in Problem 22-2. The articulation points are the heavily shaded vertices, the bridges are the heavily shaded edges,
 > and the biconnected components are the edges in the shaded regions, with a *bcc* numbering shown.
 >
-> - ***a.*** Prove that the root of $G_π$ is an articulation point of *G* if and only if it has at least two children in
->   $G_π$ .
-> - ***b.*** Let *v* be a nonroot vertex of $G_π$. Prove that *v* is an articulation point of *G* if and only if *v* has
+> - ***a.*** Prove that the root of \\(G_π\\) is an articulation point of *G* if and only if it has at least two children in
+>   \\(G_π\\) .
+> - ***b.*** Let *v* be a nonroot vertex of \\(G_π\\). Prove that *v* is an articulation point of *G* if and only if *v* has
 >   a child *s* such that there is no back edge from *s* or any descendant of *s* to a proper ancestor of *v*.
 > - ***c.*** Let
 >
->   *v*.*low* = $\min \begin{cases}v.d\text{,}\\\\
->   w.d : \text{$(u, w)$ is a back edge for some descendant $u$ of $v$}\end{cases}$
+>   *v*.*low* = \\(\min \begin{cases}v.d\text{,}\\\\
+>   w.d : \text{\\((u, w)\\) is a back edge for some descendant \\(u\\) of \\(v\\)}\end{cases}\\)
 >
 >   Show how to compute *v*.*low* for all vertices *v* ∈ *V* in *O*(*E*) time.
 > - ***d.*** Show how to compute all articulation points in *O*(*E*) time.
@@ -9428,6 +9427,23 @@ Solution is implemented
 - ***h.*** Solution is implemented
   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
 
+##### 22-3 Euler tour
+
+> An ***Euler tour*** of a strongly connected, directed graph *G* = (*V*, *E*) is a cycle that traverses each edge of
+> *G* exactly once, although it may visit a vertex more than once.
+>
+> - ***a.*** Show that *G* has an Euler tour if and only if in-degree(*v*) = out-degree(*v*) for each vertex *v* ∈ *V*.
+> - ***b.*** Describe an *O*(*E*)-time algorithm to find an Euler tour of *G* if one exists. (*Hint:* Merge
+>   edge-disjoint cycles.)
+
+##### 22-4 Reachability
+
+> Let *G* = (*V*, *E*) be a directed graph in which each vertex *u* ∈ *V* is labeled with a unique integer *L*(*u*)
+> from the set {1, 2, …, |*V*|}. For each vertex *u* ∈ *V*, let *R*(*u*) = {*v* ∈ *V* : *u* ↝ *v*} be the set of
+> vertices that are reachable from *u*. Define min(*u*) to be the vertex in *R*(*u*) whose label is minimum, i.e.,
+> min(*u*) is the vertex *v* such that *L*(*v*) = min{*L*(*w*) : *w* ∈ *R*(*u*)}. Give an *O*(*V* + *E*)-time algorithm
+> that computes min(*u*) for all vertices *u* ∈ *V*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
@@ -9457,20 +9473,20 @@ Pr{*A*} = 1 / 8.
 
 ##### C.2-2
 
-> Prove ***Boole’s inequality***: For any finite or countably infinite sequence of events $A_1$, $A_2$, …,
+> Prove ***Boole’s inequality***: For any finite or countably infinite sequence of events \\(A_1\\), \\(A_2\\), …,
 >
-> Pr {$A_1$ ∪ $A_2$ ∪ ⋯} ≤ Pr{$A_1$} + Pr{$A_2$} + ⋯. (C.19)
+> Pr {\\(A_1\\) ∪ \\(A_2\\) ∪ ⋯} ≤ Pr{\\(A_1\\)} + Pr{\\(A_2\\)} + ⋯. (C.19)
 
 Proof by induction:
 
-Base case: Pr{$A_1$} ≤ Pr{$A_1$}.
+Base case: Pr{\\(A_1\\)} ≤ Pr{\\(A_1\\)}.
 
 Inductive case:
 
-$\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace$\
-≤ $\Pr\left\lbrace\bigcup_{i = 1}^j A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$\
-≤ $∑_{i = 1}^j \Pr\left\lbrace A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace$ (By induction)\
-= $∑_{i = 1}^{j + 1} \Pr\left\lbrace A_i\right\rbrace$.
+\\(\Pr\left\lbrace\left(\bigcup_{i = 1}^j A_i\right) ∪ A_{i + 1}\right\rbrace\\)\
+≤ \\(\Pr\left\lbrace\bigcup_{i = 1}^j A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace\\)\
+≤ \\(∑_{i = 1}^j \Pr\left\lbrace A_i\right\rbrace + \Pr\left\lbrace A_{i + 1}\right\rbrace\\) (By induction)\
+= \\(∑_{i = 1}^{j + 1} \Pr\left\lbrace A_i\right\rbrace\\).
 
 ##### C.2-3
 
@@ -9482,39 +9498,39 @@ The order of the selected cards is independent of the number of cards, so the pr
 
 ##### C.2-4
 
-> Prove that Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*} = 1.
+> Prove that Pr{*A* | *B*} + Pr{\\(\bar{A}\\) | *B*} = 1.
 
-Pr{*A* | *B*} + Pr{$\bar{A}$ | *B*}\
-= Pr{*A* ∩ *B*} / Pr{*B*} + Pr{$\bar{A}$ ∩ *B*} / Pr{*B*}\
-= (Pr{*A* ∩ *B*} + Pr{$\bar{A}$ ∩ *B*}) / Pr{*B*}\
-= Pr{(*A* ∩ *B*) ∪ ($\bar{A}$ ∩ *B*)} / Pr{*B*} (Since *A* and $\bar{A}$ are mutually exclusive)\
+Pr{*A* | *B*} + Pr{\\(\bar{A}\\) | *B*}\
+= Pr{*A* ∩ *B*} / Pr{*B*} + Pr{\\(\bar{A}\\) ∩ *B*} / Pr{*B*}\
+= (Pr{*A* ∩ *B*} + Pr{\\(\bar{A}\\) ∩ *B*}) / Pr{*B*}\
+= Pr{(*A* ∩ *B*) ∪ (\\(\bar{A}\\) ∩ *B*)} / Pr{*B*} (Since *A* and \\(\bar{A}\\) are mutually exclusive)\
 = Pr{*B*} / Pr{*B*}
 = 1.
 
 ##### C.2-5
 
-> Prove that for any collection of events $A_1$, $A_2$, …, $A_n$,
+> Prove that for any collection of events \\(A_1\\), \\(A_2\\), …, \\(A_n\\),
 >
-> $\begin{aligned}
+> \\(\begin{aligned}
 > \Pr\left\lbrace A_1 \cap A_2 \cap ⋯ \cap A_n\right\rbrace = &\Pr\left\lbrace A_1\right\rbrace ⋅ \Pr\left\lbrace A_2 \middle| A_1\right\rbrace ⋅ \Pr\left\lbrace A_3 \middle| A_1 \cap A_2\right\rbrace ⋯\\
 > &\Pr\left\lbrace A_n \middle| A_1 \cap A_2 \cap ⋯ \cap A_{n - 1}\right\rbrace\text{.}
-> \end{aligned}$
+> \end{aligned}\\)
 
 Proof by induction:
 
-Base case: $\Pr\left\lbrace A_1\right\rbrace = \Pr\left\lbrace A_1\right\rbrace$.
+Base case: \\(\Pr\left\lbrace A_1\right\rbrace = \Pr\left\lbrace A_1\right\rbrace\\).
 
 Inductive case: By induction, we have:
 
-$\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace = ∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace$.
+\\(\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace = ∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\\).
 
 So
 
-$\Pr\left\lbrace ⋂_{i = 1}^{n + 1} A_i\right\rbrace$\
-= $\Pr\left\lbrace\left(⋂_{i = 1}^n A_i\right) \cap A_{n + 1}\right\rbrace$\
-= $\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace$\
-= $\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace$\
-= $∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace$.
+\\(\Pr\left\lbrace ⋂_{i = 1}^{n + 1} A_i\right\rbrace\\)\
+= \\(\Pr\left\lbrace\left(⋂_{i = 1}^n A_i\right) \cap A_{n + 1}\right\rbrace\\)\
+= \\(\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace\\)\
+= \\(\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace\\)\
+= \\(∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\\).
 
 ##### C.2-6 ★
 
@@ -9580,11 +9596,11 @@ E[*X* + *Y*] = E[*X*] + E[*Y*] = 7 / 2 + 7 / 2 = 7.
 According to equation C.25:
 
 E[max(*X*, *Y*)]\
-= $∑_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
-= $∑_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace$\
-= $∑_{i = 1}^6 \Pr\left\lbrace X ≥ i ∨ Y ≥ i\right\rbrace$\
-= $∑_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ∧ Y ≥ i\right\rbrace$\
-= $∑_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36$\
+= \\(∑_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^6 \Pr\left\lbrace X ≥ i ∨ Y ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ∧ Y ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36\\)\
 = 161 / 36.
 
 ##### C.3-2
@@ -9605,8 +9621,8 @@ E[arg min(*A*)] = (1 + *n*) / 2.
 > wins *k* more dollars. What is his expected gain from playing the carnival game once?
 
 E\
-= - Pr{*k* = 0} + $∑_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace$\
-= - 125 / 216 + $∑_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}$\
+= - Pr{*k* = 0} + \\(∑_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace\\)\
+= - 125 / 216 + \\(∑_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}\\)\
 = - 125 / 216 + 1 × 3 × 1 / 6 × 25 / 36 + 2 × 3 × 1 / 36 × 5 / 6 + 3 × 1 × 1 / 216 × 1\
 = - 17 / 216.
 
@@ -9650,8 +9666,8 @@ Since *X* and *Y* are nonnegative, E[max(*X*, *Y*)] ≤ E[*X* + *Y*] = E[*X*] + 
 
 > Which is larger: the expectation of the square of a random variable, or the square of its expectation?
 
-E[$X^2$] - $\operatorname{E}^2\left[Y\right]$\
-= E[$X^2$] - $\operatorname{E}^2\left[X\right]$\
+E[\\(X^2\\)] - \\(\operatorname{E}^2\left[Y\right]\\)\
+= E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\)\
 = Var[*X*]\
 ≥ 0
 
@@ -9659,20 +9675,20 @@ E[$X^2$] - $\operatorname{E}^2\left[Y\right]$\
 
 > Show that for any random variable *X* that takes on only the values 0 and 1, we have Var[*X*] = E[*X*] E[1 - *X*].
 
-Since *X* takes on only the values 0 and 1, we have $X^2$ = *X*.
+Since *X* takes on only the values 0 and 1, we have \\(X^2\\) = *X*.
 
 Var[*X*]\
-= E[$X^2$] - $\operatorname{E}^2\left[X\right]$\
-= E[*X*] - $\operatorname{E}^2\left[X\right]$\
+= E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\)\
+= E[*X*] - \\(\operatorname{E}^2\left[X\right]\\)\
 = E[*X*](1 - E[*X*])\
 = E[*X*]E[1 - *X*]
 
 ##### C.3-10
 
-> Prove that Var[*a* *X*] = $a^2$ Var[*X*] from the definition (C.27) of variance.
+> Prove that Var[*a* *X*] = \\(a^2\\) Var[*X*] from the definition (C.27) of variance.
 
 Var[*a* *X*]\
-= E[$a^2 X^2$] - $\operatorname{E}^2\left[a X\right]$\
-= $a^2$ E[$X^2$] - $a^2 \operatorname{E}^2\left[X\right]$\
-= $a^2$(E[$X^2$] - $\operatorname{E}^2\left[X\right]$)\
-= $a^2$ Var[*X*].
+= E[\\(a^2 X^2\\)] - \\(\operatorname{E}^2\left[a X\right]\\)\
+= \\(a^2\\) E[\\(X^2\\)] - \\(a^2 \operatorname{E}^2\left[X\right]\\)\
+= \\(a^2\\)(E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\))\
+= \\(a^2\\) Var[*X*].
