@@ -1,6 +1,3 @@
----
----
-
 # Some useful commands
 
 ## [aptitude](https://wiki.debian.org/Aptitude)

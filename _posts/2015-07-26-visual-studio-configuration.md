@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Visual Studio configuration
 
 ## Options
@@ -24,24 +21,24 @@
 ##### General
 
 - Settings
-    - ☑ **Line numbers**
-    - ☐ **Enable single-click URL navigation**
-    - ☑ **Navigation bar**
-    - ☑ **Automatic brace completion**
+  - ☑ **Line numbers**
+  - ☐ **Enable single-click URL navigation**
+  - ☑ **Navigation bar**
+  - ☑ **Automatic brace completion**
 
 ##### Tabs
 
 - Tab
-    - 🔘 **Insert spaces**
+  - 🔘 **Insert spaces**
 
 #### C/C++
 
 ##### Advanced
 
 - Fallback Location
-    - **Always Use Fallback Location**: True
-    - **Do Not Warn If Fallback Location Used**: True
-    - **Fallback Location**: \<Custom Location\>
+  - **Always Use Fallback Location**: True
+  - **Do Not Warn If Fallback Location Used**: True
+  - **Fallback Location**: \<Custom Location\>
 
 ##### Formatting
 

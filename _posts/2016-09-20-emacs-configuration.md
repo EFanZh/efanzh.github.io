@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Emacs configuration
 
 ```elisp

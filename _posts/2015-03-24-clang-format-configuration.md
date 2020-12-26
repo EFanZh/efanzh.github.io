@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Clang-Format configuration
 
 This is my [Clang-Format](https://clang.llvm.org/docs/ClangFormat.html) configuration:
