@@ -1,7 +1,3 @@
----
-title: Programming Languages and Lambda Calculi exercises
----
-
 # Programming Languages and Lambda Calculi exercises
 
 The manuscript can be found [here](https://www.cs.utah.edu/~mflatt/past-courses/cs7520/public_html/s06/notes.pdf).
