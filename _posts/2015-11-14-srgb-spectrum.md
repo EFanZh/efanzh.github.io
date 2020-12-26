@@ -1,6 +1,3 @@
----
----
-
 # sRGB Spectrum
 
 This is the color spectrum that compressed into sRGB color space:

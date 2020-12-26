@@ -1,6 +1,3 @@
----
----
-
 # Use CommonMark on GitHub pages
 
 Turns out that besides [kramdown](https://kramdown.gettalong.org), GitHub Pages also supports `gfm` as a markdown

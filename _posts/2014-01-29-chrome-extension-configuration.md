@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Google Chrome extension configuration
 
 ## SwitchyOmega
@@ -14,8 +11,8 @@ The current auto switch rule list for GFW is:
 The globle font style:
 
 ```css
-body
-{
-    font-family: "Myriad Pro", "Segoe UI", "Segoe UI Symbol", "Source Han Sans", "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
+body {
+  font-family: "Myriad Pro", "Segoe UI", "Segoe UI Symbol", "Source Han Sans",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif !important;
 }
 ```

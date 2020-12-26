@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Visual Studio Code configuration
 
 This is my [Visual Studio Code](https://code.visualstudio.com) configuration:

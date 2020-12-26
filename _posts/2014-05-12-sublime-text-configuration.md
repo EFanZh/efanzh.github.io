@@ -1,6 +1,3 @@
----
----
-
 # EFanZh’s Sublime Text configuration
 
 ```json
