@@ -6,7 +6,7 @@ layout: page
 
 ## Active
 
-- [Graphviz Preview](https://marketplace.visualstudio.com/items?itemName=EFanZh.graphviz-preview)
+- [Graphviz Preview](https://github.com/EFanZh/Graphviz-Preview)
 - [HTML sandbox](projects/html-sandbox/html-sandbox.html)
 - [LeetCode](https://efanzh.org/LeetCode/)
 - [Matrix digital rain](projects/matrix-digital-rain/)
