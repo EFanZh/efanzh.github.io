@@ -909,7 +909,7 @@ Inductive case:
 > 1. Rank the following functions by order of growth; that is, find an arrangement \\(g_1\\), \\(g_2\\), …, \\(g_{30}\\) of the
 >    functions satisfying \\(g_1 = Ω\left(g_2\right)\\), \\(g_2 = Ω\left(g_3\right)\\), …, \\(g_{29} = Ω\left(g_{30}\right)\\).
 >    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
->    same class if and only if \\(f\left(n\right) = Θ\left(g\left(n\right)\right)\\).
+>    same class if and only if *f*(*n*) = Θ(*g*(*n*)).
 >
 >    |                              |                              |                                 |                      |                       |                       |
 >    | ---------------------------- | ---------------------------- | ------------------------------- | -------------------- | --------------------- | --------------------- |
