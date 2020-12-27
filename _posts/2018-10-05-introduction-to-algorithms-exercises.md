@@ -800,8 +800,7 @@ So
 ⇒ \\(n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
 ⇒ \\(n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln \left(n!\right) ≤ n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
 
-So we have \\(\ln \left(n!\right) = Ω\left(n \ln n\right)\\), and \\(\ln \left(n!\right) = O\left(n \ln n\right)\\), so
-\\(\ln \left(n!\right) = Θ\left(n \ln n\right)\\).
+So we have ln(*n*!) = Ω(*n* ln *n*), and ln(*n*!) = *O*(*n* ln *n*), so ln(*n*!) = Θ(*n* ln *n*).
 
 Proving *n*! = *ω*(\\(2^n\\)):
 
