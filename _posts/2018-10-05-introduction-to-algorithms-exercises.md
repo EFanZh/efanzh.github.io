@@ -952,7 +952,7 @@ Inductive case:
 ##### 3-5 Variations on O and Ω
 
 > Some authors define Ω in a slightly different way than we do; let’s use \\(\overset{∞}{Ω}\\) (read “omega infinity”) for
-> this alternative definition. We say that \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) if there
+> this alternative definition. We say that *f*(*n*) = \\(\overset{∞}{Ω}\\)(*g*(*n*)) if there
 > exists a positive constant *c* such that \\(f\left(n\right) ≥ c g\left(n\right) ≥ 0\\) for infinitely many integers *n*.
 >
 > 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
