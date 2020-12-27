@@ -830,7 +830,7 @@ we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\l
 
 ##### 3.2-6
 
-> Show that the golden ratio \\(ϕ\\) and its conjugate \\(\hat{ϕ}\\) both satisfy the equation \\(x^2 = x + 1\\).
+> Show that the golden ratio *ϕ* and its conjugate \\(\hat{ϕ}\\) both satisfy the equation \\(x^2 = x + 1\\).
 
 \\(ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1\\).
 
@@ -842,7 +842,7 @@ we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\l
 >
 > \\(F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\),
 >
-> where \\(ϕ\\) is the golden ratio and \\(\hat{ϕ}\\) is its conjugate.
+> where *ϕ* is the golden ratio and \\(\hat{ϕ}\\) is its conjugate.
 
 Base cases:
 
@@ -886,23 +886,23 @@ Inductive case:
 > Assume that *k* ≥ 1, *ϵ* > 0, and *c* > 1 are constants. Your answer should be in the form of the table with “yes” or
 > “no” written in each box.
 >
-> |          | *A*                  | *B*                   | *O* | *o* | Ω | *ω* | Θ |
-> | -------- | -------------------- | --------------------- | --- | --- | - | --- | - |
-> | ***a***. | \\(\lg^k n\\)            | \\(n^ϵ\\)                 |     |     |   |     |   |
-> | ***b***. | \\(n^k\\)                | \\(c^n\\)                 |     |     |   |     |   |
-> | ***c***. | \\(\sqrt{n}\\)           | \\(n^{\sin n}\\)          |     |     |   |     |   |
-> | ***d***. | \\(2^n\\)                | \\(2^{n / 2}\\)           |     |     |   |     |   |
-> | ***e***. | \\(n^{\lg c}\\)          | \\(c^{\lg n}\\)           |     |     |   |     |   |
-> | ***f***. | \\(\lg\left(n!\right)\\) | \\(\lg\left(n^n\right)\\) |     |     |   |     |   |
+> |          | *A*             | *B*                       | *O* | *o* | Ω | *ω* | Θ |
+> | -------- | --------------- | ------------------------- | --- | --- | - | --- | - |
+> | ***a***. | \\(\lg^k n\\)   | \\(n^ϵ\\)                 |     |     |   |     |   |
+> | ***b***. | \\(n^k\\)       | \\(c^n\\)                 |     |     |   |     |   |
+> | ***c***. | \\(\sqrt{n}\\)  | \\(n^{\sin n}\\)          |     |     |   |     |   |
+> | ***d***. | \\(2^n\\)       | \\(2^{n / 2}\\)           |     |     |   |     |   |
+> | ***e***. | \\(n^{\lg c}\\) | \\(c^{\lg n}\\)           |     |     |   |     |   |
+> | ***f***. | lg(*n*!)        | \\(\lg\left(n^n\right)\\) |     |     |   |     |   |
 
-|          | *A*                  | *B*                   | *O* | *o* | Ω   | *ω* | Θ   |
-| -------- | -------------------- | --------------------- | --- | --- | --- | --- | --- |
-| ***a***. | \\(\lg^k n\\)            | \\(n^ϵ\\)                 | yes | yes | no  | no  | no  |
-| ***b***. | \\(n^k\\)                | \\(c^n\\)                 | yes | yes | no  | no  | no  |
-| ***c***. | \\(\sqrt{n}\\)           | \\(n^{\sin n}\\)          | no  | no  | no  | no  | no  |
-| ***d***. | \\(2^n\\)                | \\(2^{n / 2}\\)           | no  | no  | yes | yes | no  |
-| ***e***. | \\(n^{\lg c}\\)          | \\(c^{\lg n}\\)           | yes | no  | yes | no  | yes |
-| ***f***. | \\(\lg\left(n!\right)\\) | \\(\lg\left(n^n\right)\\) | yes | no  | yes | no  | yes |
+|          | *A*             | *B*                       | *O* | *o* | Ω   | *ω* | Θ   |
+| -------- | --------------- | ------------------------- | --- | --- | --- | --- | --- |
+| ***a***. | \\(\lg^k n\\)   | \\(n^ϵ\\)                 | yes | yes | no  | no  | no  |
+| ***b***. | \\(n^k\\)       | \\(c^n\\)                 | yes | yes | no  | no  | no  |
+| ***c***. | \\(\sqrt{n}\\)  | \\(n^{\sin n}\\)          | no  | no  | no  | no  | no  |
+| ***d***. | \\(2^n\\)       | \\(2^{n / 2}\\)           | no  | no  | yes | yes | no  |
+| ***e***. | \\(n^{\lg c}\\) | \\(c^{\lg n}\\)           | yes | no  | yes | no  | yes |
+| ***f***. | lg(*n*!)        | \\(\lg\left(n^n\right)\\) | yes | no  | yes | no  | yes |
 
 ##### 3-3 Ordering by asymptotic growth rates
 
@@ -957,9 +957,9 @@ Inductive case:
 >
 > 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
 >    \\(f \left(n\right) = O\left(g\left(n\right)\right)\\) or
->    \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) or both, whereas this is not true if we use \\(Ω\\) in
+>    \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) or both, whereas this is not true if we use Ω in
 >    place of \\(\overset{∞}{Ω}\\).
-> 2. Describe the potential advantages and disadvantages of using \\(\overset{∞}{Ω}\\) instead of \\(Ω\\) to characterize the
+> 2. Describe the potential advantages and disadvantages of using \\(\overset{∞}{Ω}\\) instead of Ω to characterize the
 >    running times of programs.
 >
 > Some authors also define *O* in a slightly different manner; let’s use \\(O'\\) for the alternative definition. We say
@@ -967,7 +967,7 @@ Inductive case:
 > \\(\left|f\left(n\right)\right| = O\left(g\left(n\right)\right)\\).
 >
 > 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute \\(O'\\) for *O* but still use
->    \\(Ω\\)?
+>    Ω?
 >
 > Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
 >
