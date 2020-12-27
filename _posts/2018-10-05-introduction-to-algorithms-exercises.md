@@ -8178,7 +8178,7 @@ t - 1 ≤ 3 ≤ 2 t - 1
 
 We have:
 
-2 ≤ *t* ≤ 2. So *t* could be 2 or 3.
+2 ≤ *t* ≤ 3. So *t* could be 2 or 3.
 
 ##### 18.1-3
 
