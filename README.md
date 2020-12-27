@@ -1,3 +1,3 @@
-# EFanZh’s blog
+# EFanZh’s Blog
 
 URL: <https://efanzh.org>.
