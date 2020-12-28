@@ -58,10 +58,10 @@ mime under a button base on the numbers that you recovered. That is an algorithm
 ##### 1.2-2
 
 > Suppose we are comparing implementations of insertion sort and merge sort on the same machine. For inputs of size *n*,
-> insertion sort runs in \\(8 n^2\\) steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
+> insertion sort runs in 8 \\(n^2\\) steps, while merge sort runs in 64 *n* lg *n* steps. For which values of *n* does
 > insertion sort beat merge sort?
 
-We can solve \\(8 n^2 < 64 n \lg n\\) for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *n*. With the help of
+We can solve 8 \\(n^2\\) < 64 *n* lg *n* for *n*. Assume *n* ≥ 0, we get *n* < 8 lg *n*. With the help of
 [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5Bn+%3C+8+Log%5B2,+n%5D,+n%5D), we know that
 1.1 < *n* < 43.5593. So for *n* ∈ [2, 43], insertion sort beats merge sort.
 
@@ -70,7 +70,7 @@ We can solve \\(8 n^2 < 64 n \lg n\\) for *n*. Assume *n* ≥ 0, we get *n* < 8 
 > What is the smallest value of *n* such that an algorithm whose running time is 100 \\(n^2\\) runs faster than an
 > algorithm whose running time is \\(2^n\\) on the same machine?
 
-Solve \\(100 n^2 < 2^n\\) for *n*
+Solve 100 \\(n^2\\) < \\(2^n\\) for *n*
 (using [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5B100+n+%5E+2+%3C+2+%5E+n,+n%5D)), we get
 -0.096704 < *n* < 0.103658 or *n* > 14.3247, so the smallest value of *n* is 0.
 
@@ -318,7 +318,7 @@ Pseudocode:
 
 > Express the function \\(n^3/1000 - 100 n^2 - 100 n + 3\\) in terms of Θ-notation.
 
-\\(Θ\left(n^3\right)\\).
+Θ(\\(n^3\\)).
 
 ##### 2.2-2
 
@@ -338,7 +338,7 @@ The loop invariant: at the start of each iteration of loop, The first *i* elemen
 It only need to run for first *n* - 1 elements because after the loop, we have rearrange the smallest *n* - 1 elements,
 to the front of *A*, so the last element must be the biggest one, so the whole array is ordered.
 
-Best-case and worst-case running times are both \\(Θ\left(n^2\right)\\).
+Best-case and worst-case running times are both Θ(\\(n^2\\)).
 
 ##### 2.2-3
 
@@ -553,9 +553,9 @@ for implementations.
    - **Termination:** After termination, *i* = *A*.*length*, and *A*[1‥*A*.*length* - 1] contains the smallest
      *A*.*length* - 1 elements in sorted order, so we know *A*[*A*.*length* - 1] ≤ *A*[*A*.*length*], so the whole
      array is sorted.
-4. Worst-case running time is \\(Θ\left(n^2\right)\\), it is the same as insertion sort. But insertion sort have a
+4. Worst-case running time is Θ(\\(n^2\\)), it is the same as insertion sort. But insertion sort have a
    best-case running time which is Θ(*n*), while the best-case running time of bubble sort is still
-   \\(Θ\left(n^2\right)\\).
+   Θ(\\(n^2\\)).
 
 ##### 2-3 Correctness of Horner’s rule
 
@@ -600,7 +600,7 @@ for implementation.
    5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*p* = *p* ⋅ *x*
    6. &nbsp;&nbsp;&nbsp;&nbsp;*y* = *y* + *p*
 
-   The running time of this algorithm is \\(Θ\left(n^2\right)\\). It takes more time than Horner’s rule.
+   The running time of this algorithm is Θ(\\(n^2\\)). It takes more time than Horner’s rule.
 3. Proof:
 
    - **Initialization:** Before the first iteration, *i* = *n*,
@@ -695,7 +695,7 @@ Formally, for any *n* > max(-2 *a*, *a*),
 
 ##### 3.1-3
 
-> Explain why the statement, “The running time of algorithm *A* is at least \\(O\left(n^2\right)\\),” is meaningless.
+> Explain why the statement, “The running time of algorithm *A* is at least *O*(\\(n^2\\)),” is meaningless.
 
 It is like saying *x* is at least less than or equal to 10.
 
