@@ -67,8 +67,8 @@ We can solve \\(8 n^2 < 64 n \lg n\\) for *n*. Assume *n* ≥ 0, we get *n* < 8 
 
 ##### 1.2-3
 
-> What is the smallest value of *n* such that an algorithm whose running time is \\(100 n^2\\) runs faster than an algorithm
-> whose running time is \\(2^n\\) on the same machine?
+> What is the smallest value of *n* such that an algorithm whose running time is 100 \\(n^2\\) runs faster than an
+> algorithm whose running time is \\(2^n\\) on the same machine?
 
 Solve \\(100 n^2 < 2^n\\) for *n*
 (using [Wolfram Alpha](https://www.wolframalpha.com/input/?i=Reduce%5B100+n+%5E+2+%3C+2+%5E+n,+n%5D)), we get
@@ -444,8 +444,8 @@ After each iteration, the length of the searching range reduces by half, until t
 We prove *T*(*n*) = Θ(lg *n*) by induction:
 
 - If *n* = 0, Θ(lg *n*) = Θ(lg 0) = Θ(-∞), … Not sure how to go from here.
-- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + \\(c_2\\) = Θ(*T*(*n* / 2)). By induction, we know *T*(*n* / 2) = Θ(lg (*n* / 2)),
-  so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*) - 1) = Θ(lg *n*).
+- If *n* > 0, Θ(lg *n*) = *T*(*n* / 2) + \\(c_2\\) = Θ(*T*(*n* / 2)). By induction, we know
+  *T*(*n* / 2) = Θ(lg (*n* / 2)), so Θ(lg *n*) = Θ(lg (*n* / 2)) = Θ((lg *n*) - 1) = Θ(lg *n*).
 
 ##### 2.3-6
 
@@ -469,12 +469,11 @@ for implementations.
 
 ##### 2-1 Insertion sort on small arrays in merge sort
 
-> Although merge sort runs in Θ(*n* lg *n*) worst-case time and insertion sort runs in \\(Θ\left(n^2\right)\\)
-> worst-case time, the constant factors in insertion sort can make it faster in practice for small problem sizes on many
-> machines. Thus, it makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort
-> when subproblems become sufficiently small. Consider a modification to merge sort in which *n* / *k* sublists of length
-> *k* are sorted using insertion sort and then merged using the standard merging mechanism, where *k* is a value to be
-> determined.
+> Although merge sort runs in Θ(*n* lg *n*) worst-case time and insertion sort runs in Θ(\\(n^2\\)) worst-case time, the
+> constant factors in insertion sort can make it faster in practice for small problem sizes on many machines. Thus, it
+> makes sense to ***coarsen*** the leaves of the recursion by using insertion sort within merge sort when subproblems
+> become sufficiently small. Consider a modification to merge sort in which *n* / *k* sublists of length *k* are sorted
+> using insertion sort and then merged using the standard merging mechanism, where *k* is a value to be determined.
 >
 > 1. Show that insertion sort can sort the *n* / *k* sublists, each of length *k*, in Θ(*n* *k*) worst-case
 >    time.
@@ -674,7 +673,8 @@ So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + 
 >
 > \\(\left(n + a\right)^b = Θ\left(n^b\right)\\). (3.2)
 
-We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if \\(n > n_0\\), \\(c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b\\).
+We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if *n* > \\(n_0\\),
+\\(c_1 n^b ≤ (n + a)^b ≤ c_2 n^b\\).
 
 \\(c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b\\)\
 ⇔ \\(\left({c_1}^{1 / b}\right)^b n^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b}\right)^b n^b\\)\
@@ -683,10 +683,11 @@ We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if \\(n > n_
 ⇔ \\({c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n\\)\
 ⇔ \\(\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n\\)
 
-We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b} - 1 < 0\\), and \\({c_2}^{1 / b} - 1 > 0\\), then
-we have \\(n ≥ \frac{a}{ {c_1}^{1 / b} - 1}\\), and \\(n ≥ \frac{a}{ {c_1}^{1 / b} - 1}\\), i.e.
-\\(n ≥ \max\left(\frac{a}{ {c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\).
-Let \\(c_1 = \left(\frac{1}{2}\right)^b\\), \\(c_2 = 2^b\\), we have *n* ≥ max(-2 *a*, *a*). So \\(n_0\\) can be
+We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b}\\) - 1 < 0, and
+\\({c_2}^{1 / b}\\) - 1 > 0, then we have *n* ≥ \\(\frac{a}{{c_1}^{1 / b} - 1}\\), and
+*n* ≥ \\(\frac{a}{{c_1}^{1 / b} - 1}\\), i.e.
+*n* ≥ max\\(\left(\frac{a}{{c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\). Let
+\\(c_1 = \left(\frac{1}{2}\right)^b\\), \\(c_2 = 2^b\\), we have *n* ≥ max(-2 *a*, *a*). So \\(n_0\\) can be
 max(-2 *a*, *a*).
 
 Formally, for any *n* > max(-2 *a*, *a*),
@@ -722,9 +723,9 @@ If *f*(*n*) = *O*(*g*(*n*)) then *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ *n*
 > and its best-case running time is Ω(*g*(*n*)).
 
 Running time of an algorithm is Θ(*g*(*n*)) means the running time is bounded by a function *f*(*n*) that
-*c*1 *g*(*n*) ≤ *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ *n*0, for some *c*1, *c*2 and *n*0 > 0. So the worst-case running
-time is bounded by *c*2 *g*(*n*), and the best-case running time is bounded by *c*1 *g*(*n*). So the worst-case running
-time is *O*(*g*(*n*)), and the best-case running time is Ω(*g*(*n*)).
+*c*1 *g*(*n*) ≤ *f*(*n*) ≤ *c*2 *g*(*n*), for all *n* ≥ *n*0, for some *c*1, *c*2 and *n*0 > 0. So the worst-case
+running time is bounded by *c*2 *g*(*n*), and the best-case running time is bounded by *c*1 *g*(*n*). So the worst-case
+running time is *O*(*g*(*n*)), and the best-case running time is Ω(*g*(*n*)).
 
 If the worst-case running time is *O*(*g*(*n*)), it means the running time is bounded by a function *f*1(*n*) from above
 that *f*1(*n*) ≤ *c*2 *g*(*n*) for sufficiently large *n* for some *c*2. If the best-case running time is Ω(*g*(*n*)),
@@ -867,16 +868,16 @@ Inductive case:
 
 > Let
 >
-> \\(p(n) = \displaystyle ∑_{i=0}^d a_i n^i\\),
+> *p*(*n*) = \\(\displaystyle ∑_{i=0}^d a_i n^i\\),
 >
-> where \\(a_d > 0\\), be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the asymptotic
-> notations to prove the following properties.
+> where \\(a_d\\) > 0, be a degree-*d* polynomial in *n*, and let *k* be a constant. Use the definitions of the
+> asymptotic notations to prove the following properties.
 >
 > 1. If *k* ≥ *d*, then *p*(*n*) = *O*(\\(n^k\\)).
 > 2. If *k* ≤ *d*, then *p*(*n*) = Ω(\\(n^k\\)).
 > 3. If *k* = *d*, then *p*(*n*) = Θ(\\(n^k\\)).
 > 4. If *k* > *d*, then *p*(*n*) = *o*(\\(n^k\\)).
-> 5. If *k* < *d*, then *p*(*n*) = ω(\\(n^k\\)).
+> 5. If *k* < *d*, then *p*(*n*) = *ω*(\\(n^k\\)).
 
 *Skipped.*
 
@@ -906,8 +907,8 @@ Inductive case:
 
 ##### 3-3 Ordering by asymptotic growth rates
 
-> 1. Rank the following functions by order of growth; that is, find an arrangement \\(g_1\\), \\(g_2\\), …, \\(g_{30}\\) of the
->    functions satisfying \\(g_1 = Ω\left(g_2\right)\\), \\(g_2 = Ω\left(g_3\right)\\), …, \\(g_{29} = Ω\left(g_{30}\right)\\).
+> 1. Rank the following functions by order of growth; that is, find an arrangement \\(g_1\\), \\(g_2\\), …, \\(g_{30}\\)
+>    of the functions satisfying \\(g_1\\) = Ω(\\(g_2\\)), \\(g_2\\) = Ω(\\(g_3\\)), …, \\(g_{29}\\) = Ω(\\(g_{30}\\)).
 >    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
 >    same class if and only if *f*(*n*) = Θ(*g*(*n*)).
 >
@@ -951,8 +952,8 @@ Inductive case:
 
 ##### 3-5 Variations on O and Ω
 
-> Some authors define Ω in a slightly different way than we do; let’s use \\(\overset{∞}{Ω}\\) (read “omega infinity”) for
-> this alternative definition. We say that *f*(*n*) = \\(\overset{∞}{Ω}\\)(*g*(*n*)) if there
+> Some authors define Ω in a slightly different way than we do; let’s use \\(\overset{∞}{Ω}\\) (read “omega infinity”)
+> for this alternative definition. We say that *f*(*n*) = \\(\overset{∞}{Ω}\\)(*g*(*n*)) if there
 > exists a positive constant *c* such that *f*(*n*) ≥ *c* *g*(*n*) ≥ 0 for infinitely many integers *n*.
 >
 > 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
@@ -974,14 +975,15 @@ Inductive case:
 > \\(\widetilde{O}\left(g\left(n\right)\right)\\) = { *f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
 > such that \\(0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)\\) for all \\(n ≥ n_0\\) }.
 >
-> 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem 3.1.
+> 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem
+>    3.1.
 
 *Skipped.*
 
 ##### 3-6 Iterated functions
 
-> We can apply the iteration operator \\(^\ast\\) used in the \\(\lg^\ast\\) function to any monotonically increasing function
-> *f*(*n*) over the reals. For a given constant *c* ∈ ℝ, we define the iterated function \\(f_c^*\\) by
+> We can apply the iteration operator \\(^\ast\\) used in the \\(\lg^\ast\\) function to any monotonically increasing
+> function *f*(*n*) over the reals. For a given constant *c* ∈ ℝ, we define the iterated function \\(f_c^*\\) by
 >
 > \\(f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace\\),
 >
@@ -1035,9 +1037,9 @@ An array containing the single maximum element of the original array.
 ##### 4.1-3
 
 > Implement both the brute-force and recursive algorithms for the maximum-subarray problem on your own computer. What
-> problem size \\(n_0\\) gives the crossover point at which the recursive algorithm beats the brute-force algorithm? Then,
-> change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is less
-> than \\(n_0\\). Does that change the crossover point?
+> problem size \\(n_0\\) gives the crossover point at which the recursive algorithm beats the brute-force algorithm?
+> Then, change the base case of the recursive algorithm to use the brute-force algorithm whenever the problem size is
+> less than \\(n_0\\). Does that change the crossover point?
 
 See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_4_divide_and_conquer/section_4_1_the_maximum_subarray_problem/mod.rs)
