@@ -4283,7 +4283,7 @@ Solution is implemented
 > Rewrite *Enqueue* and *Dequeue* to detect underflow and overflow of a queue.
 
 - Underflow condition: *Q*.*tail* == *Q*.*head*.
-- Overflow condition: (*Q*.*tail* + 1) mod *Q*.length + 1 == *Q*.*head*.
+- Overflow condition: (*Q*.*tail* + 1) mod *Q*.*length* + 1 == *Q*.*head*.
 
 ##### 10.1-5
 
@@ -6200,9 +6200,9 @@ Just follow this table:
 *RB-Enumerate*(*x*, *a*, *b*)
 
 1. **if** *x* ≠ *nil*
-2. &nbsp;&nbsp;&nbsp;&nbsp;**if** *b* < *x*.key
+2. &nbsp;&nbsp;&nbsp;&nbsp;**if** *b* < *x*.*key*
 3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*left*, *a*, *b*)
-4. &nbsp;&nbsp;&nbsp;&nbsp;**elseif** *a* > *x*.key
+4. &nbsp;&nbsp;&nbsp;&nbsp;**elseif** *a* > *x*.*key*
 5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*right*, *a*, *b*)
 6. &nbsp;&nbsp;&nbsp;&nbsp;**else**
 7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*RB-Enumerate*(*x*.*left*, *a*, *b*)
@@ -6827,7 +6827,7 @@ Running time is *O*(*M* *n*), space requirement is *O*(*n*).
 > transformation operations is the sum of the costs of the individual operations in the sequence. For the sequence
 > above, the cost of transforming `algorithm` to `altruistic` is
 >
-> (3 ⋅ cost(copy)) + cost(replace) + cost(delete) + (4 ⋅ cost.insert)) + cost(twiddle) + cost(kill).
+> (3 ⋅ cost(copy)) + cost(replace) + cost(delete) + (4 ⋅ cost(insert)) + cost(twiddle) + cost(kill).
 >
 > - ***a.*** Given two sequences *x*[1‥*m*] and *y*[1‥*n*] and set of transformation-operation costs, the
 >   ***edit distance*** from *x* to *y* is the cost of the least expensive operation sequence that transforms *x* to
@@ -7287,10 +7287,10 @@ Proof by induction:
 
   The cost of the node is:
 
-  \\(∑_{c ∈ T} c.\textit{freq} ⋅ d_T(c)\\)\
-  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_T(c)\\)\
-  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c.\textit{freq} ⋅ (d_R(c) + 1)\\)\
-  = \\(∑_{c ∈ L} c.\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c.\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c.\textit{freq} + ∑_{c ∈ R} c.\textit{freq}\\)\
+  \\(∑_{c ∈ T} c{.}\textit{freq} ⋅ d_T(c)\\)\
+  = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ d_T(c)\\)\
+  = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ (d_R(c) + 1)\\)\
+  = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c{.}\textit{freq} + ∑_{c ∈ R} c{.}\textit{freq}\\)\
   = *s* + *t* + *f* + *g* (by induction)
 
   Since the frequency of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequencies of internal nodes of
@@ -8820,7 +8820,7 @@ Solution is implemented
 > The key idea is to maintain in each node *v* a “pseudodistance” *v*.*d*, which is defined so that the sum of the
 > pseudodistances along the simple path from *v* to the root of its set \\(S_i\\) equals the depth of *v* in \\(T_i\\). That is,
 > if the simple path from *v* to its root in \\(S_i\\) is \\(v_0\\), \\(v_1\\), …, \\(v_k\\), where \\(v_0\\) = *v* and \\(v_k\\) is \\(S_i\\)’s
-> root, then the depth of *v* in \\(T_i\\) is \\(∑_{j = 0}^k v_j.d\\).
+> root, then the depth of *v* in \\(T_i\\) is \\(∑_{j = 0}^k v_j{.}d\\).
 >
 > - ***b.*** Give an implementation of *Make-Tree*.
 > - ***c.*** Show how to modify *Find-Set* to implement *Find-Depth*. Your implementation should perform path
@@ -9384,13 +9384,13 @@ Solution is implemented
 > and the biconnected components are the edges in the shaded regions, with a *bcc* numbering shown.
 >
 > - ***a.*** Prove that the root of \\(G_π\\) is an articulation point of *G* if and only if it has at least two children in
->   \\(G_π\\) .
+>   \\(G_π\\).
 > - ***b.*** Let *v* be a nonroot vertex of \\(G_π\\). Prove that *v* is an articulation point of *G* if and only if *v* has
 >   a child *s* such that there is no back edge from *s* or any descendant of *s* to a proper ancestor of *v*.
 > - ***c.*** Let
 >
->   *v*.*low* = \\(\min \begin{cases}v.d\text{,}\\\\
->   w.d : \text{$(u, w)$ is a back edge for some descendant $u$ of $v$}\end{cases}\\)
+>   *v*.*low* = \\(\min \begin{cases}v{.}d\text{,}\\\\
+>   w{.}d : \text{$(u, w)$ is a back edge for some descendant $u$ of $v$}\end{cases}\\)
 >
 >   Show how to compute *v*.*low* for all vertices *v* ∈ *V* in *O*(*E*) time.
 > - ***d.*** Show how to compute all articulation points in *O*(*E*) time.
