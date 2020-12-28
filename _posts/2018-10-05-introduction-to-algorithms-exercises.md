@@ -381,9 +381,9 @@ for implementation.
 
 > Use mathematical induction to show that when *n* is an exact power of 2, the solution of the recurrence
 >
-> \\(T\left(n\right) = \begin{cases}
-> 2                         &\text{if } n = 2 \\\\
-> 2 T\left(n / 2\right) + n &\text{if } n = 2^k, \text{ for } k > 1
+> *T*(*n*) = \\(\begin{cases}
+> 2              &\text{if $n = 2$,} \\\\
+> 2 T(n / 2) + n &\text{if $n = 2^k$, for $k > 1$}
 > \end{cases}\\)
 >
 > is *T*(*n*) = *n* lg *n*.
@@ -579,10 +579,10 @@ for implementations.
 >
 >    At the start of each iteration of the **for** loop of lines 2–3,
 >
->    \\(y = \displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\\).
+>    *y* = \\(\displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\\).
 >
 >    Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in
->    this chapter, use this loop invariant to show that, at termination, \\(y = ∑_{k = 0}^n a_k x^k\\).
+>    this chapter, use this loop invariant to show that, at termination, *y* = \\(∑_{k = 0}^n a_k x^k\\).
 > 4) Conclude by arguing that the given code fragment correctly evaluates a polynomial characterized by the coefficients
 >    \\(a_0\\), \\(a_1\\), …, \\(a_n\\).
 
@@ -604,7 +604,7 @@ for implementation.
 3. Proof:
 
    - **Initialization:** Before the first iteration, *i* = *n*,
-     \\(y = ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
+     *y* = \\(∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
      = ∑_{k = 0}^{-1} a_{k + n + 1} x^k
      = 0\\), so the claim holds.
    - **Maintenance:** After line 3, \\(y' = a_i + x ⋅ y
@@ -613,7 +613,7 @@ for implementation.
      = a_i ⋅ x^0 + ∑_{k = 1}^{n - i} a_{k + i} x^k
      = ∑_{k = 0}^{n - i} a_{k + i} x^k\\). After decreasing *i*, the claim holds.
    - **Termination:** At termination, *i* = -1, so
-     \\(y = ∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
+     y = \\(∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
      = ∑_{k = 0}^n a_k x^k\\).
 4. I thought I have proved it at step 3.
 
@@ -686,7 +686,7 @@ We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if *n* > \\(
 We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b}\\) - 1 < 0, and
 \\({c_2}^{1 / b}\\) - 1 > 0, then we have *n* ≥ \\(\frac{a}{\{c_1}^{1 / b} - 1}\\), and
 *n* ≥ \\(\frac{a}{\{c_1}^{1 / b} - 1}\\), i.e.
-*n* ≥ max\\(\left(\frac{a}{\{c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\). Let
+*n* ≥ max\\(\left(\frac{a}{\{c_1}^{1 / b} - 1}, \frac{a}{\{c_2}^{1 / b} - 1}\right)\\). Let
 \\(c_1 = \left(\frac{1}{2}\right)^b\\), \\(c_2 = 2^b\\), we have *n* ≥ max(-2 *a*, *a*). So \\(n_0\\) can be
 max(-2 *a*, *a*).
 
@@ -750,16 +750,16 @@ impossible, so *f*(*n*) does not exist. So *o*(*g*(*n*)) ∩ *ω*(*g*(*n*)) is t
 > We can extend our notation to the case of two parameters *n* and *m* that can go to infinity independently at
 > different rates. For a given function *g*(*n*, *m*), we denote by *O*(*g*(*n*, *m*)) the set of functions
 >
-> *O*(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
-> 0 ≤ *f*(*n*, *m*) ≤ *c* *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
+> *O*(*g*(*n*, *m*)) = {*f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
+> 0 ≤ *f*(*n*, *m*) ≤ *c* *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\)}.
 >
 > Give corresponding definitions for Ω(*g*(*n*, *m*)) and Θ(*g*(*n*, *m*)).
 
-Ω(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
-0 ≤ *c* *g*(*n*, *m*) ≤ *f*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
+Ω(*g*(*n*, *m*)) = {*f*(*n*, *m*) : there exist positive constants *c*, \\(n_0\\), and \\(m_0\\) such that
+0 ≤ *c* *g*(*n*, *m*) ≤ *f*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\)}.
 
-Θ(*g*(*n*, *m*)) = { *f*(*n*, *m*) : there exist positive constants \\(c_1\\), \\(c_2\\), \\(n_0\\), and \\(m_0\\) such that
-0 ≤ \\(c_1\\) *g*(*n*, *m*) ≤ *f*(*n*, *m*) ≤ \\(c_2\\) *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\) }.
+Θ(*g*(*n*, *m*)) = {*f*(*n*, *m*) : there exist positive constants \\(c_1\\), \\(c_2\\), \\(n_0\\), and \\(m_0\\) such that
+0 ≤ \\(c_1\\) *g*(*n*, *m*) ≤ *f*(*n*, *m*) ≤ \\(c_2\\) *g*(*n*, *m*) for all *n* ≥ \\(n_0\\) or *m* ≥ \\(m_0\\)}.
 
 #### 3.2 Standard notations and common functions
 
@@ -916,7 +916,7 @@ Inductive case:
 >    | -------------------------------- | -------------------------------- | ----------------------------------- | ------------------- | ------------- | ------------------- |
 >    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)           | *n*!          | lg *n*!             |
 >    | \\(\left(\frac{3}{2}\right)^n\\) | \\(n^3\\)                        | \\(\lg^2 n\\)                       | lg(*n*!)            | \\(2^{2^n}\\) | \\(n^{1 / \lg n}\\) |
->    | ln ln *n*                        | \\(\lg^\* n\\)                   | \\(n ⋅ 2^n\\)                       | \\(n^{\lg \lg n}\\) | ln *n*        | 1                   |
+>    | ln ln *n*                        | \\(\lg^\* n\\)                   | *n* ⋅ \\(2^n\\)                     | \\(n^{\lg \lg n}\\) | ln *n*        | 1                   |
 >    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)     | (*n* + 1)!    | \\(\sqrt{\lg n}\\)  |
 >    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                                 | \\(2^n\\)           | *n* lg *n*    | \\(2^{2^{n + 1}}\\) |
 > 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i\left(n\right)\\)
@@ -972,8 +972,8 @@ Inductive case:
 >
 > Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
 >
-> \\(\widetilde{O}\left(g\left(n\right)\right)\\) = { *f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
-> such that \\(0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)\\) for all \\(n ≥ n_0\\) }.
+> \\(\widetilde{O}\left(g\left(n\right)\right)\\) = {*f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
+> such that \\(0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)\\) for all \\(n ≥ n_0\\)}.
 >
 > 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem
 >    3.1.
@@ -1977,7 +1977,7 @@ Let *k* be the time used to generate and compare two random value, *T*(*p*) be t
 algorithm, we have:
 
 *T*(*p*) = 2 *p* (1 - *p*) *k* + (1 - 2 *p* (1 - *p*)) (*k* + *T*(*p*))\
-⇒ *T*(*p*) = *k* / (2 *p* ( 1 - *p*)) = Θ(1 / (*p* (1 - *p*))).
+⇒ *T*(*p*) = *k* / (2 *p* (1 - *p*)) = Θ(1 / (*p* (1 - *p*))).
 
 #### 5.2 Indicator random variables
 
@@ -3824,8 +3824,8 @@ The decision tree has at least \\(\frac{(2 n)!}{\left(n!\right)^2}\\) nodes, so 
 > into which *A*[*p*] should have gone. Define an array *B*[1‥*n*] of 0s and 1s as follows:
 >
 > *B*[*i*] = \\(\begin{cases}
-> 0 &&\text{if } A\left[i\right] ≤ A\left[p\right],\\\\
-> 1 &&\text{if } A\left[i\right] > A\left[p\right].
+> 0 &&\text{if $A[i] ≤ A[p]$,}\\\\
+> 1 &&\text{if $A[i] > A[p]$.}
 > \end{cases}\\)
 >
 > ***a.*** Argue that *A*[*q*] > *A*[*p*], so that *B*[*p*] = 0 and *B*[*q*] = 1.
@@ -4214,7 +4214,7 @@ new coordinates, which should be the location of the post-office.
 >   where
 >
 >   \\(U_i\left(n\right)\begin{cases}
->   T\left(n\right)&\text{if }i ≥ n / 2,\\\\
+>   T(n)&\text{if $i ≥ n / 2$,}\\\\
 >   \left\lfloor n / 2\right\rfloor + U_i\left(\left\lceil n / 2\right\rceil\right) + T\left(2 i\right)&\text{otherwise}.
 >   \end{cases}\\)
 >
@@ -5883,7 +5883,7 @@ Solutions are implemented
 ##### 13-2 Join operation on red-black trees
 
 > The ***join*** operation takes two dynamic sets \\(S_1\\) and \\(S_2\\) and an element *x* such that for any \\(x_1\\) ∈ \\(S_1\\) and
-> \\(x_2\\) ∈ \\(S_2\\), we have \\(x_1\\).*key* ≤ *x*.*key* ≤ \\(x_2\\).*key*. It returns a set *S* = \\(S_1\\) ∪ { *x* } ∪ \\(S_2\\). In this
+> \\(x_2\\) ∈ \\(S_2\\), we have \\(x_1\\).*key* ≤ *x*.*key* ≤ \\(x_2\\).*key*. It returns a set *S* = \\(S_1\\) ∪ {*x*} ∪ \\(S_2\\). In this
 > problem, we investigate how to implement the join operation on red-black trees.
 >
 > - ***a.*** Given a red-black tree *T*, let us store its black-height as the new attribute *T*.*bh*. Argue that
@@ -5892,11 +5892,11 @@ Solutions are implemented
 >   black-height of each node we visit in *O*(1) time per node visited.
 >
 > We wish to implement the operation *RB-Join*(\\(T_1\\), *x*, \\(T_2\\)), which destroys \\(T_1\\) and \\(T_2\\) and returns a
-> red-black tree *T* = \\(T_1\\) ∪ { *x* } ∪ \\(T_2\\). Let *n* be the total number of nodes in \\(T_1\\) and \\(T_2\\).
+> red-black tree *T* = \\(T_1\\) ∪ {*x*} ∪ \\(T_2\\). Let *n* be the total number of nodes in \\(T_1\\) and \\(T_2\\).
 >
 > - ***b.*** Assume that \\(T_1\\).*bh* ≥ \\(T_2\\).*bh*. Describe an *O*(lg *n*)-time algorithm that finds a black node *y* in
 >   \\(T_1\\) with the largest key from among those nodes whose black-height is \\(T_2\\).*bh*.
-> - ***c.*** Let \\(T_y\\) be the subtree rooted at *y*. Describe how \\(T_y\\) ∪ { *x* } ∪ \\(T_2\\) can replace \\(T_y\\) in *O*(1)
+> - ***c.*** Let \\(T_y\\) be the subtree rooted at *y*. Describe how \\(T_y\\) ∪ {*x*} ∪ \\(T_2\\) can replace \\(T_y\\) in *O*(1)
 >   time without destroying the binary-search-tree property.
 > - ***d.*** What color should we make *x* so that red-black properties 1, 3, and 5 are maintained? Describe how to
 >   enforce properties 2 and 4 in *O*(lg *n*) time.
@@ -6665,8 +6665,8 @@ Solution is implemented
 > Determine the cost and structure of an optimal binary search tree for a set of *n* = 7 keys with the following
 > probabilities:
 >
-> | *i*   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
-> | ----- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+> | *i*       | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
+> | --------- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 > | \\(p_i\\) |      | 0.04 | 0.06 | 0.08 | 0.02 | 0.10 | 0.12 | 0.14 |
 > | \\(q_i\\) | 0.06 | 0.06 | 0.06 | 0.06 | 0.05 | 0.05 | 0.05 | 0.05 |
 
@@ -8840,7 +8840,7 @@ Solution is implemented
 
 > The ***least common ancestor*** of two nodes *u* and *v* in a rooted tree *T* is the node *w* that is an ancestor of
 > both *u* and *v* and that has the greatest depth in *T*. In the ***off-line least-common-ancestors problem***, we are
-> given a rooted tree *T* and an arbitrary set *P* = { {*u*, *v*} } of unordered pairs of nodes in *T*, and we wish to
+> given a rooted tree *T* and an arbitrary set *P* = {\{*u*, *v*}} of unordered pairs of nodes in *T*, and we wish to
 > determine the least common ancestor of each pair in *P*.
 >
 > To solve the off-line least-common-ancestors problem, the following procedure performs a tree walk of *T* with the
@@ -9466,9 +9466,9 @@ Solution is implemented
 > Professor Rosencrantz flips a fair coin once. Professor Guildenstern flips a fair coin twice. What is the probability
 > that Professor Rosencrantz obtains more heads than Professor Guildenstern?
 
-*S* = { (H, HH), (H, HT), (H, TH), (H, TT), (T, HH), (T, HT), (T, TH), (T, TT) }.
+*S* = {(H, HH), (H, HT), (H, TH), (H, TT), (T, HH), (T, HT), (T, TH), (T, TT)}.
 
-*A* = { (H, TT) }.
+*A* = {(H, TT)}.
 
 Pr{*A*} = 1 / 8.
 
