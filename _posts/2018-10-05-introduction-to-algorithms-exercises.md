@@ -953,20 +953,20 @@ Inductive case:
 
 > Some authors define Ω in a slightly different way than we do; let’s use \\(\overset{∞}{Ω}\\) (read “omega infinity”) for
 > this alternative definition. We say that *f*(*n*) = \\(\overset{∞}{Ω}\\)(*g*(*n*)) if there
-> exists a positive constant *c* such that \\(f\left(n\right) ≥ c g\left(n\right) ≥ 0\\) for infinitely many integers *n*.
+> exists a positive constant *c* such that *f*(*n*) ≥ *c* *g*(*n*) ≥ 0 for infinitely many integers *n*.
 >
 > 1. Show that for any two functions *f*(*n*) and *g*(*n*) that are asymptotically nonnegative, either
->    \\(f \left(n\right) = O\left(g\left(n\right)\right)\\) or
->    \\(f\left(n\right) = \overset{∞}{Ω}\left(g\left(n\right)\right)\\) or both, whereas this is not true if we use Ω in
+>    *f*(*n*) = *O*(*g*(*n*)) or
+>    *f*(*n*) = \\(\overset{∞}{Ω}\\)(*g*(*n*)) or both, whereas this is not true if we use Ω in
 >    place of \\(\overset{∞}{Ω}\\).
 > 2. Describe the potential advantages and disadvantages of using \\(\overset{∞}{Ω}\\) instead of Ω to characterize the
 >    running times of programs.
 >
-> Some authors also define *O* in a slightly different manner; let’s use \\(O'\\) for the alternative definition. We say
-> that \\(f\left(n\right) = O'\left(g\left(n\right)\right)\\) if and only if
-> \\(\left|f\left(n\right)\right| = O\left(g\left(n\right)\right)\\).
+> Some authors also define *O* in a slightly different manner; let’s use *O*′ for the alternative definition. We say
+> that *f*(*n*) = *O*′(*g*(*n*)) if and only if
+> |*f*(*n*)| = *O*(*g*(*n*)).
 >
-> 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute \\(O'\\) for *O* but still use
+> 1. What happens to each direction of the “if and only if” in Theorem 3.1 if we substitute *O*′ for *O* but still use
 >    Ω?
 >
 > Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
@@ -981,7 +981,7 @@ Inductive case:
 ##### 3-6 Iterated functions
 
 > We can apply the iteration operator \\(^\ast\\) used in the \\(\lg^\ast\\) function to any monotonically increasing function
-> *f*(*n*) over the reals. For a given constant \\(c ∈ ℝ\\), we define the iterated function \\(f_c^*\\) by
+> *f*(*n*) over the reals. For a given constant *c* ∈ ℝ, we define the iterated function \\(f_c^*\\) by
 >
 > \\(f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace\\),
 >
@@ -1508,7 +1508,7 @@ Proof:
 ⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ \\(f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)\\) < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
 ⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\).
 
-Since \\(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\\) is an integer, and we also have
+Since ⌊*f*(⌊*x*⌋)⌋ + 1 is an integer, and we also have
 *f*(*x*) = integer ⇒ *x* = integer, we know that
 \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\) is an integer. Because
 ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\), we have
@@ -2096,7 +2096,7 @@ not the identity permutation, because the first element always is always swapped
 In each iteration, there are *n* different possible outcomes of the *Random* function with the same possibility, so
 there are total of \\(n^n\\) (possibly same) outcomes of the algorithm with the same possibility. But the uniform random
 permutation requires there are *n*! different possible outcomes. It is possible that \\(n^n / n!\\) is not an integer, in
-which case, it is impossible to divide \\(n^n\\) probabilities into \\(n!\\) same probabilities. So, the code does not produce a
+which case, it is impossible to divide \\(n^n\\) probabilities into *n*! same probabilities. So, the code does not produce a
 uniform random permutation.
 
 ##### 5.3-4
@@ -3723,7 +3723,7 @@ It means the array is sorted.
 \\(\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}\\)\
 ⇔ \\(∑_{j = i}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k} A\left[j\right]\\)\
 ⇔ \\(A\left[i\right] + ∑_{j = i + 1}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k - 1} A\left[j\right] + A\left[i + k\right]\\)\
-⇔ \\(A\left[i\right] ≤ A\left[i + k\right]\\).
+⇔ *A*[i] ≤ *A*[*i* + *k*].
 
 ***d.***
 
