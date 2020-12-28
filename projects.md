@@ -19,7 +19,7 @@ layout: page
 
 ## Archived
 
-These projects maybe out-dated. Some maybe even not work at all.
+These projects might be out-dated, some of which might not work at all. Maybe I’ll fix them later.
 
 - [Add search providers](projects/add-search-providers/)
 - [CSS color keywords](projects/css-color-keywords/css-color-keywords.html)
