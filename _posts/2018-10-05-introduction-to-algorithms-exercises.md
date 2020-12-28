@@ -911,13 +911,13 @@ Inductive case:
 >    Partition your list into equivalence classes such that functions *f*(*n*) and *g*(*n*) are in the
 >    same class if and only if *f*(*n*) = Θ(*g*(*n*)).
 >
->    |                              |                              |                                 |                      |                       |                       |
->    | ---------------------------- | ---------------------------- | ------------------------------- | -------------------- | --------------------- | --------------------- |
->    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)                | \\(n!\\)                  | \\(\left(\lg n\right)!\\) |
->    | \\(\left(\frac{3}{2}\right)^n\\) | \\(n^3\\)                        | \\(\lg^2 n\\)                       | \\(\lg\left(n!\right)\\) | \\(2^{2^n}\\)             | \\(n^{1 / \lg n}\\)       |
->    | \\(\ln \ln n\\)                  | \\(\lg^* n\\)                    | \\(n ⋅ 2^n\\)                       | \\(n^{\lg \lg n}\\)      | \\(\ln n\\)               | \\(1\\)                   |
->    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)          | \\(\left(n + 1\right)!\\) | \\(\sqrt{\lg n}\\)        |
->    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                             | \\(2^n\\)                | \\(n \lg n\\)             | \\(2^{2^{n + 1}}\\)       |
+>    |                                  |                                  |                                     |                     |               |                     |
+>    | -------------------------------- | -------------------------------- | ----------------------------------- | ------------------- | ------------- | ------------------- |
+>    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)           | *n*!          | lg *n*!\\)          |
+>    | \\(\left(\frac{3}{2}\right)^n\\) | \\(n^3\\)                        | \\(\lg^2 n\\)                       | lg(*n*!)            | \\(2^{2^n}\\) | \\(n^{1 / \lg n}\\) |
+>    | ln ln *n*                        | \\(\lg^\* n\\)                   | \\(n ⋅ 2^n\\)                       | \\(n^{\lg \lg n}\\) | ln *n*        | 1                   |
+>    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)     | (*n* + 1)!\\) | \\(\sqrt{\lg n}\\)  |
+>    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                                 | \\(2^n\\)           | *n* lg *n*    | \\(2^{2^{n + 1}}\\) |
 > 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i\left(n\right)\\)
 >    in part (a), *f*(*n*) is neither \\(O\left(g_i\left(n\right)\right)\\) nor \\(Ω\left(g_i\left(n\right)\right)\\).
 
@@ -1667,7 +1667,7 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 >
 >    where
 >
->    \\(ϕ\\) = \\(\dfrac{1 + \sqrt{5}}{2}\\) = 1.61803…
+>    *ϕ* = \\(\dfrac{1 + \sqrt{5}}{2}\\) = 1.61803…
 >
 >    and
 >
@@ -5327,7 +5327,7 @@ Proof by induction:
 ##### 12-2 Radix trees
 
 > Given two strings *a* = \\(a_0 a_1 … a_p\\) and *b* = \\(b_0 b_1 … b_q\\), where each \\(a_i\\) and each \\(b_j\\) is in some ordered
-> set of characters, we say that string \\(a\\) is lexicographically less than string \\(b\\) if either
+> set of characters, we say that string *a* is lexicographically less than string *b* if either
 >
 > 1. there exists an integer *j*, where 0 ≤ *j* ≤ min(*p*, *q*), such that \\(a_i\\) = \\(b_i\\) for all *i* = 0, 1, …, *j* - 1
 >    and \\(a_j\\) < \\(b_j\\), or
@@ -5881,7 +5881,7 @@ Solutions are implemented
 ##### 13-2 Join operation on red-black trees
 
 > The ***join*** operation takes two dynamic sets \\(S_1\\) and \\(S_2\\) and an element *x* such that for any \\(x_1\\) ∈ \\(S_1\\) and
-> \\(x_2\\) ∈ \\(S_2\\), we have \\(x_1\\).*key* ≤ \\(x\\).*key* ≤ \\(x_2\\).*key*. It returns a set *S* = \\(S_1\\) ∪ { *x* } ∪ \\(S_2\\). In this
+> \\(x_2\\) ∈ \\(S_2\\), we have \\(x_1\\).*key* ≤ *x*.*key* ≤ \\(x_2\\).*key*. It returns a set *S* = \\(S_1\\) ∪ { *x* } ∪ \\(S_2\\). In this
 > problem, we investigate how to implement the join operation on red-black trees.
 >
 > - ***a.*** Given a red-black tree *T*, let us store its black-height as the new attribute *T*.*bh*. Argue that
@@ -7598,7 +7598,7 @@ Solution is implemented
 > cache-management algorithm checks whether element \\(r_i\\) is already in the cache. If it is, then we have a
 > ***cache hit***; otherwise, we have a ***cache miss***. Upon a cache miss, the system retrieves \\(r_i\\) from the main
 > memory, and the cache-management algorithm must decide whether to keep \\(r_i\\) in the cache. If it decides to keep \\(r_i\\)
-> and the cache already holds \\(k\\) elements, then it must evict one element to make room for \\(r_i\\). The cache-management
+> and the cache already holds *k* elements, then it must evict one element to make room for \\(r_i\\). The cache-management
 > algorithm evicts data with the goal of minimizing the number of cache misses over the entire sequence of requests.
 >
 > Typically, caching is an on-line problem. That is, we have to make decisions about which data to keep in the cache
@@ -9390,7 +9390,7 @@ Solution is implemented
 > - ***c.*** Let
 >
 >   *v*.*low* = \\(\min \begin{cases}v.d\text{,}\\\\
->   w.d : \text{\\((u, w)\\) is a back edge for some descendant \\(u\\) of \\(v\\)}\end{cases}\\)
+>   w.d : \text{$(u, w)$ is a back edge for some descendant $u$ of $v$}\end{cases}\\)
 >
 >   Show how to compute *v*.*low* for all vertices *v* ∈ *V* in *O*(*E*) time.
 > - ***d.*** Show how to compute all articulation points in *O*(*E*) time.
