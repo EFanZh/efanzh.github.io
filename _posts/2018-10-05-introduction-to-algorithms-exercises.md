@@ -913,10 +913,10 @@ Inductive case:
 >
 >    |                                  |                                  |                                     |                     |               |                     |
 >    | -------------------------------- | -------------------------------- | ----------------------------------- | ------------------- | ------------- | ------------------- |
->    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)           | *n*!          | lg *n*!\\)          |
+>    | \\(\lg\left(\lg^\* n\right)\\)   | \\(2^{\lg^\* n}\\)               | \\(\left(\sqrt{2}\right)^{\lg n}\\) | \\(n^2\\)           | *n*!          | lg *n*!             |
 >    | \\(\left(\frac{3}{2}\right)^n\\) | \\(n^3\\)                        | \\(\lg^2 n\\)                       | lg(*n*!)            | \\(2^{2^n}\\) | \\(n^{1 / \lg n}\\) |
 >    | ln ln *n*                        | \\(\lg^\* n\\)                   | \\(n ⋅ 2^n\\)                       | \\(n^{\lg \lg n}\\) | ln *n*        | 1                   |
->    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)     | (*n* + 1)!\\) | \\(\sqrt{\lg n}\\)  |
+>    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)     | (*n* + 1)!    | \\(\sqrt{\lg n}\\)  |
 >    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                                 | \\(2^n\\)           | *n* lg *n*    | \\(2^{2^{n + 1}}\\) |
 > 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i\left(n\right)\\)
 >    in part (a), *f*(*n*) is neither \\(O\left(g_i\left(n\right)\right)\\) nor \\(Ω\left(g_i\left(n\right)\right)\\).
