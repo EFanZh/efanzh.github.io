@@ -671,7 +671,7 @@ So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + 
 
 > Show that for any real constants *a* and *b*, where *b* > 0,
 >
-> \\(\left(n + a\right)^b = Θ\left(n^b\right)\\). (3.2)
+> \\(\left(n + a\right)^b\\) = Θ(\\(n^b\\)). (3.2)
 
 We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if *n* > \\(n_0\\),
 \\(c_1 n^b ≤ (n + a)^b ≤ c_2 n^b\\).
@@ -684,9 +684,9 @@ We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if *n* > \\(
 ⇔ \\(\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n\\)
 
 We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b}\\) - 1 < 0, and
-\\({c_2}^{1 / b}\\) - 1 > 0, then we have *n* ≥ \\(\frac{a}{{c_1}^{1 / b} - 1}\\), and
-*n* ≥ \\(\frac{a}{{c_1}^{1 / b} - 1}\\), i.e.
-*n* ≥ max\\(\left(\frac{a}{{c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\). Let
+\\({c_2}^{1 / b}\\) - 1 > 0, then we have *n* ≥ \\(\frac{a}{\{c_1}^{1 / b} - 1}\\), and
+*n* ≥ \\(\frac{a}{\{c_1}^{1 / b} - 1}\\), i.e.
+*n* ≥ max\\(\left(\frac{a}{\{c_1}^{1 / b} - 1}, \frac{a}{ {c_2}^{1 / b} - 1}\right)\\). Let
 \\(c_1 = \left(\frac{1}{2}\right)^b\\), \\(c_2 = 2^b\\), we have *n* ≥ max(-2 *a*, *a*). So \\(n_0\\) can be
 max(-2 *a*, *a*).
 
@@ -819,7 +819,7 @@ Proving *n*! = *o*(\\(n^n\\)):
 
 ##### 3.2-5 ★
 
-> Which is asymptotically larger: \\(\lg \left(\lg^\* n\right)\\) or \\(\lg^\* \left(\lg n\right)\\)?
+> Which is asymptotically larger: lg(\\(\lg^\* n\\)) or \\(\lg^\* \left(\lg n\right)\\)?
 
 By the definition of \\(\lg^*\\), we have
 
