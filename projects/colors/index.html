@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Colors</title>
+        <script type="module" src="main.mjs" defer></script>
+        <style>
+            :root {
+                font: 12px "Myriad Pro", "Source Sans 3 VF", "Source Sans 3", "Source Sans Pro", "Segoe UI", sans-serif
+            }
+
+            input {
+                font: inherit;
+            }
+
+            td,
+            th {
+                vertical-align: baseline;
+            }
+
+            th {
+                text-align: start;
+            }
+
+            #color-wheel {
+                height: 512px;
+                vertical-align: top;
+                width: 512px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Colors</h1>
+        <h2>Shades</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Color space:</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Point</th>
+                                    <th>x</th>
+                                    <th>y</th>
+                                    <th>Y</th>
+                                    <th>X</th>
+                                    <th>Z</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Red:</td>
+                                    <td><input type="number" step="0.0001" id="color-space-red-x" value="0.6400" /></td>
+                                    <td><input type="number" step="0.0001" id="color-space-red-y" value="0.3300" /></td>
+                                    <td><input type="number" step="0.0001" id="color-space-red-Y" value="0.2126" /></td>
+                                    <td id="color-space-red-X"></td>
+                                    <td id="color-space-red-Z"></td>
+                                </tr>
+                                <tr>
+                                    <td>Green:</td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-green-x" value="0.3000" />
+                                    </td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-green-y" value="0.6000" />
+                                    </td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-green-Y" value="0.7152" />
+                                    </td>
+                                    <td id="color-space-green-X"></td>
+                                    <td id="color-space-green-Z"></td>
+                                </tr>
+                                <tr>
+                                    <td>Blue:</td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-blue-x" value="0.1500" />
+                                    </td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-blue-y" value="0.0600" />
+                                    </td>
+                                    <td>
+                                        <input type="number" step="0.0001" id="color-space-blue-Y" value="0.0722" />
+                                    </td>
+                                    <td id="color-space-blue-X"></td>
+                                    <td id="color-space-blue-Z"></td>
+                                </tr>
+                                <tr>
+                                    <td>White:</td>
+                                    <td id="color-space-white-x"></td>
+                                    <td id="color-space-white-y"></td>
+                                    <td id="color-space-white-Y"></td>
+                                    <td id="color-space-white-X"></td>
+                                    <td id="color-space-white-Z"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Base color:</td>
+                    <td><input type="color" id="base-color" value="#b8b4ff" /></td>
+                </tr>
+                <tr>
+                    <td>Other color spaces:</td>
+                    <td>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>sRGB</th>
+                                    <th>Linear sRGB</th>
+                                    <th>CIE XYZ</th>
+                                    <th>CIE xyz</th>
+                                    <th>Normalized</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Red or X:</td>
+                                    <td id="srgb-red"></td>
+                                    <td id="linear-srgb-red"></td>
+                                    <td id="cie-XYZ-X"></td>
+                                    <td id="cie-xyz-x"></td>
+                                    <td id="normalized-x"></td>
+                                </tr>
+                                <tr>
+                                    <td>Green or Y:</td>
+                                    <td id="srgb-green"></td>
+                                    <td id="linear-srgb-green"></td>
+                                    <td id="cie-XYZ-Y"></td>
+                                    <td id="cie-xyz-y"></td>
+                                    <td id="normalized-y"></td>
+                                </tr>
+                                <tr>
+                                    <td>Blue or Z:</td>
+                                    <td id="srgb-blue"></td>
+                                    <td id="linear-srgb-blue"></td>
+                                    <td id="cie-XYZ-Z"></td>
+                                    <td id="cie-xyz-z"></td>
+                                    <td id="normalized-z"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Color wheel zoom:</td>
+                    <td><input type="number" id="color-wheel-zoom" min="1" value="12" /></td>
+                </tr>
+                <tr>
+                    <td>Color wheel:</td>
+                    <td><canvas id="color-wheel"></canvas></td>
+                </tr>
+                <tr>
+                    <td>Hue count:</td>
+                    <td><input type="number" id="hue-shades-count" min="2" value="12" /></td>
+                </tr>
+                <tr>
+                    <td>Hue shades:</td>
+                    <td id="hue-shades"></td>
+                </tr>
+                <tr>
+                    <td>Saturation count:</td>
+                    <td><input type="number" id="saturation-shades-count" min="2" value="12" /></td>
+                </tr>
+                <tr>
+                    <td>Saturation shades:</td>
+                    <td id="saturation-shades"></td>
+                </tr>
+                <tr>
+                    <td>Lightness count:</td>
+                    <td><input type="number" id="lightness-shades-count" min="2" value="12" /></td>
+                </tr>
+                <tr>
+                    <td>Lightness shades:</td>
+                    <td id="lightness-shades"></td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Linear Gradient</h2>
+        <table>
+            <tbody>
+                <tr>
+                    <td>Start:</td>
+                    <td><input type="color" id="gradient-start" value="#000000" /></td>
+                </tr>
+                <tr>
+                    <td>End:</td>
+                    <td><input type="color" id="gradient-end" value="#b8b4ff" /></td>
+                </tr>
+                <tr>
+                    <td>Count:</td>
+                    <td><input type="number" id="gradient-count" min="2" value="12" /></td>
+                </tr>
+                <tr>
+                    <td>Shades:</td>
+                    <td id="gradient-shades"></td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

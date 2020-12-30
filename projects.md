@@ -6,6 +6,7 @@ layout: page
 
 ## Active
 
+- [Colors](projects/colors/)
 - [GitHub Pages Theme](https://github.com/EFanZh/GitHub-Pages-Theme)
 - [Graphviz Preview](https://github.com/EFanZh/Graphviz-Preview)
 - [HTML sandbox](projects/html-sandbox/html-sandbox.html)
