@@ -20,21 +20,21 @@ const colorSpaceWhitey = $("#color-space-white-y");
 const colorSpaceWhiteY = $("#color-space-white-Y");
 const colorSpaceWhiteX = $("#color-space-white-X");
 const colorSpaceWhiteZ = $("#color-space-white-Z");
-const sRgbRed = $("#srgb-red")
-const linearsRgbRed = $("#linear-srgb-red")
-const cieXYZX = $("#cie-XYZ-X")
-const ciexyzx = $("#cie-xyz-x")
-const normalizedX = $("#normalized-x")
-const sRgbGreen = $("#srgb-green")
-const linearsRgbGreen = $("#linear-srgb-green")
-const cieXYZY = $("#cie-XYZ-Y")
-const ciexyzy = $("#cie-xyz-y")
-const normalizedY = $("#normalized-y")
-const sRgbBlue = $("#srgb-blue")
-const linearsRgbBlue = $("#linear-srgb-blue")
-const cieXYZZ = $("#cie-XYZ-Z")
-const ciexyzz = $("#cie-xyz-z")
-const normalizedZ = $("#normalized-z")
+const sRgbRed = $("#srgb-red");
+const linearsRgbRed = $("#linear-srgb-red");
+const cieXYZX = $("#cie-XYZ-X");
+const ciexyzx = $("#cie-xyz-x");
+const normalizedX = $("#normalized-x");
+const sRgbGreen = $("#srgb-green");
+const linearsRgbGreen = $("#linear-srgb-green");
+const cieXYZY = $("#cie-XYZ-Y");
+const ciexyzy = $("#cie-xyz-y");
+const normalizedY = $("#normalized-y");
+const sRgbBlue = $("#srgb-blue");
+const linearsRgbBlue = $("#linear-srgb-blue");
+const cieXYZZ = $("#cie-XYZ-Z");
+const ciexyzz = $("#cie-xyz-z");
+const normalizedZ = $("#normalized-z");
 
 const hueShadesCount = $("#hue-shades-count");
 const saturationShadesCount = $("#saturation-shades-count");
@@ -67,7 +67,7 @@ function XYZToLinearsRgb(X, Y, Z) {
     return [
         3.24096994 * X - 1.53738318 * Y - 0.49861076 * Z,
         -0.96924364 * X + 1.8759675 * Y + 0.04155506 * Z,
-        0.05563008 * X - 0.20397696 * Y + 1.05697151 * Z
+        0.05563008 * X - 0.20397696 * Y + 1.05697151 * Z,
     ]
 }
 
@@ -124,7 +124,7 @@ function getNormalizeFunctions(rX, rY, rZ, gX, gY, gZ, bX, bY, bZ) {
             return [
                 b00 * unscaledX + b01 * y + b02 * unscaledZ,
                 y,
-                b20 * unscaledX + b21 * y + b22 * unscaledZ
+                b20 * unscaledX + b21 * y + b22 * unscaledZ,
             ];
         },
     ];
@@ -253,7 +253,7 @@ function updateShades() {
     const ciexy = XYZToxy(...xyzColor);
 
     const [normalizeColor, restoreColor] = getNormalizeFunctions(
-        redX, redY, redZ, greenX, greenY, greenZ, blueX, blueY, blueZ
+        redX, redY, redZ, greenX, greenY, greenZ, blueX, blueY, blueZ,
     );
 
     const normalizedColor = normalizeColor(...xyzColor);
@@ -339,7 +339,7 @@ function updateShades() {
 
         shadesContainer.appendChild(createShadeFromXYZ(
             ...restoreColor(x, xyzColor[1], z),
-            i == Math.floor(baseColorSaturation / saturationShadeStep)
+            i == Math.floor(baseColorSaturation / saturationShadeStep),
         ));
     }
 
@@ -355,7 +355,7 @@ function updateShades() {
 
         shadesContainer.appendChild(createShadeFromXYZ(
             ...restoreColor(normalizedColor[0], lightness, normalizedColor[2]),
-            i == Math.floor(xyzColor[1] / lightnessShadeStep)
+            i == Math.floor(xyzColor[1] / lightnessShadeStep),
         ));
     }
 
@@ -391,7 +391,7 @@ function updateGradient() {
             gradientStartColor[0] + stepR * i,
             gradientStartColor[1] + stepG * i,
             gradientStartColor[2] + stepB * i,
-        ))
+        ));
     }
 
     gradientShades.replaceChildren(shadesContainer);
@@ -416,7 +416,7 @@ for (const colorShadesParameter of [
     colorWheelZoom,
     hueShadesCount,
     saturationShadesCount,
-    lightnessShadesCount
+    lightnessShadesCount,
 ]) {
     colorShadesParameter.addEventListener("input", updateShades);
 }
@@ -425,5 +425,5 @@ for (const gradientParameter of [gradientStart, gradientEnd, gradientCount]) {
     gradientParameter.addEventListener("input", updateGradient);
 }
 
-updateShades()
-updateGradient()
+updateShades();
+updateGradient();
