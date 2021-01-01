@@ -9474,6 +9474,9 @@ Solution is implemented
 > min(*u*) is the vertex *v* such that *L*(*v*) = min{*L*(*w*) : *w* ∈ *R*(*u*)}. Give an *O*(*V* + *E*)-time algorithm
 > that computes min(*u*) for all vertices *u* ∈ *V*.
 
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_4_reachability.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
