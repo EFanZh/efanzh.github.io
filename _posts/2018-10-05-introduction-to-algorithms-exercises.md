@@ -9437,6 +9437,11 @@ Solution is implemented
 > - ***b.*** Describe an *O*(*E*)-time algorithm to find an Euler tour of *G* if one exists. (*Hint:* Merge
 >   edge-disjoint cycles.)
 
+- ***a.*** *Skipped.*
+- Solution is implemented
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_3_euler_tour.rs),
+  but I am not 100% sure that it is correct.
+
 ##### 22-4 Reachability
 
 > Let *G* = (*V*, *E*) be a directed graph in which each vertex *u* ∈ *V* is labeled with a unique integer *L*(*u*)
