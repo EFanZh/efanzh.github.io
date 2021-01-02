@@ -404,9 +404,9 @@ See
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/section_2_3_designing_algorithms/exercises/exercise_2_3_4.rs)
 for implementation.
 
-\\[T\left(n\right) = \begin{cases}
+\\[T(n) = \begin{cases}
     1 &\text{if $n < 2$} \\\\
-    T(n - 1) + Θ\left(n\right) &\text{if $n >= 2$)}
+    T(n - 1) + Θ(n) &\text{if $n >= 2$)}
 \end{cases}\\]
 
 ##### 2.3-5
@@ -562,7 +562,7 @@ for implementations.
 > The following code fragment implements Horner’s rule for evaluating a polynomial
 >
 > \\(\begin{aligned}
-> P\left(x\right) &= ∑_{k=0}^n a_k x^k \\\\
+> P(x) &= ∑_{k=0}^n a_k x^k \\\\
 > &=a_0 + x\left(a_1 + x\left(a_2 + … + x\left(a_{n - 1} + x a_n\right) …\right)\right),
 > \end{aligned}\\)
 >
@@ -579,7 +579,7 @@ for implementations.
 >
 >    At the start of each iteration of the **for** loop of lines 2–3,
 >
->    *y* = \\(\displaystyle ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\\).
+>    *y* = \\(\displaystyle ∑_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^k\\).
 >
 >    Interpret a summation with no terms as equaling 0. Following the structure of the loop invariant proof presented in
 >    this chapter, use this loop invariant to show that, at termination, *y* = \\(∑_{k = 0}^n a_k x^k\\).
@@ -634,7 +634,7 @@ for implementation.
 3. Let *k* be the inversion of an array, the the running time of insertion sort on it is Θ(*k*).
 
    Let \\(k_i\\) be the numbers of inversions whose second element is *i*. The total sorting time is
-   \\(∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ\left(k\right)\\).
+   \\(∑_{i = 1}^n\left(c_1 k_i + c_2\right) = c_1 k + c_2 n = Θ(k)\\).
 4. See
    [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_2_getting_started/problems/problem_2_4_inversions.rs)
    for implementation.
@@ -919,8 +919,8 @@ Inductive case:
 >    | ln ln *n*                        | \\(\lg^\* n\\)                   | *n* ⋅ \\(2^n\\)                     | \\(n^{\lg \lg n}\\) | ln *n*        | 1                   |
 >    | \\(2^{\lg n}\\)                  | \\(\left(\lg n\right)^{\lg n}\\) | \\(e^n\\)                           | \\(4^{\lg n}\\)     | (*n* + 1)!    | \\(\sqrt{\lg n}\\)  |
 >    | \\(\lg^\*\left(\lg n\right)\\)   | \\(2^{\sqrt{2 \lg n}}\\)         | *n*                                 | \\(2^n\\)           | *n* lg *n*    | \\(2^{2^{n + 1}}\\) |
-> 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i\left(n\right)\\)
->    in part (a), *f*(*n*) is neither \\(O\left(g_i\left(n\right)\right)\\) nor \\(Ω\left(g_i\left(n\right)\right)\\).
+> 2. Give an example of a single nonnegative function *f*(*n*) such that for all functions \\(g_i(n)\\)
+>    in part (a), *f*(*n*) is neither \\(O\left(g_i(n)\right)\\) nor \\(Ω\left(g_i(n)\right)\\).
 
 *Skipped.*
 
@@ -933,8 +933,8 @@ Inductive case:
 > 2. *f*(*n*) + *g*(*n*) = Θ(min(*f*(*n*), *g*(*n*))).
 > 3. *f*(*n*) = *O*(*g*(*n*)) implies lg(*f*(*n*)) = *O*(lg(*g*(*n*))), where lg(*g*(*n*)) ≥ 1 and *f*(*n*) ≥ 1 for all
 >    sufficiently large *n*.
-> 4. *f*(*n*) = *O*(*g*(*n*)) implies \\(2^{f\left(n\right)} = O\left(2^{g\left(n\right)}\right)\\).
-> 5. *f*(*n*) = *O*(\\(\left(f\left(n\right)\right)^2\\)).
+> 4. *f*(*n*) = *O*(*g*(*n*)) implies \\(2^{f(n)} = O\left(2^{g(n)}\right)\\).
+> 5. *f*(*n*) = *O*(\\((f(n))^2\\)).
 > 6. *f*(*n*) = *O*(*g*(*n*)) implies *g*(*n*) = Ω(*f*(*n*)).
 > 7. *f*(*n*) = Θ(*f*(*n* / 2)).
 > 8. *f*(*n*) + *o*(*f*(*n*)) = Θ(*f*(*n*)).
@@ -1138,7 +1138,7 @@ then the result can be calculated as (*w* + *x* - *y*) + (*x* + *y*) *i*.
 
 *T*(*n*)\
 = *T*(*n* - 1) + *n*\
-≤ *c* \\(\left(n - 1\right)^2\\) + *n*\
+≤ *c* \\((n - 1)^2\\) + *n*\
 = *c* \\(n^2\\) - 2 *c* *n* + *c* + *n*\
 = *c* \\(n^2\\) - (2 *c* - 1) *n* + *c*
 
@@ -2054,7 +2054,7 @@ E[*X*]\
 = \\(∑_{i = 1}^{n - 1} E\left[∑_{j = i + 1}^{n} X_{i j}\right]\\)\
 = \\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} E\left[X_{i j}\right]\\)\
 = \\(∑_{i = 1}^{n - 1} ∑_{j = i + 1}^{n} 1 / 2\\)\
-= \\(∑_{i = 1}^{n - 1} \left(n - i\right) / 2\\)\
+= \\(∑_{i = 1}^{n - 1} (n - i) / 2\\)\
 = *n* (*n* - 1) / 4.
 
 ##### 5.3-1
@@ -2852,15 +2852,15 @@ Fine, the solution is implemented
 > *T*(*n*) = Θ(\\(n^2\\)), as claimed at the beginning of Section 7.2.
 
 Let *T*(*n*) = *T*(*n* - 1) + *f*(*n*), where for some \\(c_1\\), \\(c_2\\) and \\(n_0\\), for any *n* > \\(n_0\\),
-\\(c_1 n ≤ f\left(n\right) ≤ c_2 n\\).
+\\(c_1 n ≤ f(n) ≤ c_2 n\\).
 
 Suppose *T*(*n*) ≥ \\(\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3\\) for large enough *n*, we have
 
 *T*(*n*)\
 = *T*(*n* - 1) + *f*(*n*)\
 ≥ *T*(*n* - 1) + \\(c_1\\) n\
-≥ \\(\left(c_1 / 2\right) \left(n - 1\right)^2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n\\)\
-= \\(\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) \left(n - 1\right) + c_3 + c_1 n\\)\
+≥ \\(\left(c_1 / 2\right) (n - 1)^2 + \left(c_1 / 2\right) (n - 1) + c_3 + c_1 n\\)\
+= \\(\left(c_1 / 2\right) n^2 - c_1 n + c_1 / 2 + \left(c_1 / 2\right) (n - 1) + c_3 + c_1 n\\)\
 = \\(\left(c_1 / 2\right) n^2 + \left(c_1 / 2\right) n + c_3\\).
 
 So *T*(*n*) = Ω(\\(n^2\\)). Similarly, we can prove *T*(*n*) = *O*(\\(n^2\\)), so *T*(*n*) = Θ(*n*).
@@ -2909,11 +2909,11 @@ procedure *Quicksort* on this problem.
 
 At each level of recursion the problem of size *n* is divided into problems of size *α* *n* and size (1 - *α*) *n*.
 Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → \\(α^2\\) *n* → ⋯ → 1, the maximum depth is on the
-path *n* → (1 - *α*) *n* → \\(\left(1 - α\right)^2\\) *n* → ⋯ → 1.
+path *n* → (1 - *α*) *n* → \\((1 - α)^2\\) *n* → ⋯ → 1.
 
 Solving \\(α^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
 
-Solving \\(\left(1 - α\right)^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
+Solving \\((1 - α)^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
 
 ##### 7.2-6 ★
 
@@ -2983,15 +2983,15 @@ Suppose *T*(*n*) ≥ *c* (*n* + 1) lg (*n* + 1) for some *c*, we have:
 
 ##### 7.4-3
 
-> Show that the expression \\(q^2 + \left(n - q - 1\right)^2\\) achieves a maximum over *q* = 0, 1, …, *n* - 1 when
+> Show that the expression \\(q^2 + (n - q - 1)^2\\) achieves a maximum over *q* = 0, 1, …, *n* - 1 when
 > *q* = 0 or *q* = *n* - 1.
 
-\\(\frac{\partial\left(q^2 + \left(n - q - 1\right)^2\right)}{\partial q}\\)\
+\\(\frac{\partial\left(q^2 + (n - q - 1)^2\right)}{\partial q}\\)\
 = 2 *q* - 2 (*n* - q - 1)\
 = 4 *q* - 2 *n* + 2
 
 When q < (*n* - 1) / 2, 4 *q* - 2 *n* + 2 > 0; when q > (*n* - 1) / 2, 4 *q* - 2 *n* + 2 < 0, so we have the value of
-\\(q^2 + \left(n - q - 1\right)^2\\) decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
+\\(q^2 + (n - q - 1)^2\\) decreasing when q < (*n* - 1) / 2, and increasing when q > (*n* - 1) / 2. Since
 0 ≤ *q* ≤ *n* - 1, we have maximum when *q* = 0 or *q* = *n* - 1.
 
 ##### 7.4-4
@@ -5271,10 +5271,10 @@ Proof by induction:
   \\(∑_{i = 0}^{n - 1} \binom{i + 3}{3}\\)\
   = \\(∑_{i = 0}^{n - 2} \binom{i + 3}{3} + \binom{n + 2}{3}\\)\
   = \\(\binom{n + 2}{4} + \binom{n + 2}{3}\\)\
-  = \\(\frac{\left(n + 2\right)!}{4! \left(n - 2\right)!} + \frac{\left(n + 2\right)!}{3! \left(n - 1\right)!}\\)\
-  = \\(\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \left(\frac{n - 1}{4!} + \frac{1}{3!}\right)\\)\
-  = \\(\frac{\left(n + 2\right)!}{\left(n - 1\right)!} \frac{n + 3}{4!}\\)\
-  = \\(\frac{\left(n + 3\right)!}{\left(n - 1\right)! 4!}\\)\
+  = \\(\frac{(n + 2)!}{4! (n - 2)!} + \frac{(n + 2)!}{3! (n - 1)!}\\)\
+  = \\(\frac{(n + 2)!}{(n - 1)!} \left(\frac{n - 1}{4!} + \frac{1}{3!}\right)\\)\
+  = \\(\frac{(n + 2)!}{(n - 1)!} \frac{n + 3}{4!}\\)\
+  = \\(\frac{(n + 3)!}{(n - 1)! 4!}\\)\
   = \\(\binom{n + 3}{4}\\).
 
 ##### 12.4-2
@@ -9462,7 +9462,7 @@ Solution is implemented
 >   edge-disjoint cycles.)
 
 - ***a.*** *Skipped.*
-- Solution is implemented
+- ***b.*** Solution is implemented
   [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_3_euler_tour.rs),
   but I am not 100% sure that it is correct.
 
@@ -9630,8 +9630,8 @@ E[*X* + *Y*] = E[*X*] + E[*Y*] = 7 / 2 + 7 / 2 = 7.
 According to equation C.25:
 
 E[max(*X*, *Y*)]\
-= \\(∑_{i = 1}^∞ \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace\\)\
-= \\(∑_{i = 1}^6 \Pr\left\lbrace \max\left(X, Y\right) ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^∞ \Pr\left\lbrace \max(X, Y) ≥ i\right\rbrace\\)\
+= \\(∑_{i = 1}^6 \Pr\left\lbrace \max(X, Y) ≥ i\right\rbrace\\)\
 = \\(∑_{i = 1}^6 \Pr\left\lbrace X ≥ i ∨ Y ≥ i\right\rbrace\\)\
 = \\(∑_{i = 1}^6 \Pr\left\lbrace X ≥ i\right\rbrace + \Pr\left\lbrace Y ≥ i\right\rbrace - \Pr\left\lbrace X ≥ i ∧ Y ≥ i\right\rbrace\\)\
 = \\(∑_{i = 1}^6 (7 - i) / 6 + (7 - i) / 6 - (7 - i)^2 / 36\\)\
@@ -9656,7 +9656,7 @@ E[arg min(*A*)] = (1 + *n*) / 2.
 
 E\
 = - Pr{*k* = 0} + \\(∑_{i = 1}^3 i \Pr\left\lbrace k = i\right\rbrace\\)\
-= - 125 / 216 + \\(∑_{i = 1}^3 i \binom{3}{i} \left(1 / 6\right) ^ i \left(5 / 6\right) ^ {3 - i}\\)\
+= - 125 / 216 + \\(∑_{i = 1}^3 i \binom{3}{i} (1 / 6) ^ i (5 / 6) ^ {3 - i}\\)\
 = - 125 / 216 + 1 × 3 × 1 / 6 × 25 / 36 + 2 × 3 × 1 / 36 × 5 / 6 + 3 × 1 × 1 / 216 × 1\
 = - 17 / 216.
 
