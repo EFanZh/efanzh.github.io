@@ -604,16 +604,16 @@ for implementation.
 3. Proof:
 
    - **Initialization:** Before the first iteration, *i* = *n*,
-     *y* = \\(∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k
+     *y* = \\(∑_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^k
      = ∑_{k = 0}^{-1} a_{k + n + 1} x^k
      = 0\\), so the claim holds.
    - **Maintenance:** After line 3, \\(y' = a_i + x ⋅ y
-     = a_i + x \left(∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^k\right)
-     = a_i ⋅ x^0 + ∑_{k = 0}^{n - \left(i + 1\right)} a_{k + i + 1} x^{k + 1}
+     = a_i + x \left(∑_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^k\right)
+     = a_i ⋅ x^0 + ∑_{k = 0}^{n - (i + 1)} a_{k + i + 1} x^{k + 1}
      = a_i ⋅ x^0 + ∑_{k = 1}^{n - i} a_{k + i} x^k
      = ∑_{k = 0}^{n - i} a_{k + i} x^k\\). After decreasing *i*, the claim holds.
    - **Termination:** At termination, *i* = -1, so
-     y = \\(∑_{k = 0}^{n - \left(\left(-1\right) + 1\right)} a_{k + \left(-1\right) + 1} x^k
+     y = \\(∑_{k = 0}^{n - ((-1) + 1)} a_{k + (-1) + 1} x^k
      = ∑_{k = 0}^n a_k x^k\\).
 4. I thought I have proved it at step 3.
 
@@ -676,9 +676,9 @@ So we have 0.5 (*f*(*n*) + *g*(*n*)) ≤ max(*f*(*n*), *g*(*n*)) ≤ *f*(*n*) + 
 We want to find constant \\(c_1\\), \\(c_2\\) and \\(n_0\\) so that if *n* > \\(n_0\\),
 \\(c_1 n^b ≤ (n + a)^b ≤ c_2 n^b\\).
 
-\\(c_1 n^b ≤ \left(n + a\right)^b ≤ c_2 n^b\\)\
-⇔ \\(\left({c_1}^{1 / b}\right)^b n^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b}\right)^b n^b\\)\
-⇔ \\(\left({c_1}^{1 / b} n\right)^b ≤ \left(n + a\right)^b ≤ \left({c_2}^{1 / b} n\right)^b\\)\
+\\(c_1 n^b ≤ (n + a)^b ≤ c_2 n^b\\)\
+⇔ \\(\left({c_1}^{1 / b}\right)^b n^b ≤ (n + a)^b ≤ \left({c_2}^{1 / b}\right)^b n^b\\)\
+⇔ \\(\left({c_1}^{1 / b} n\right)^b ≤ (n + a)^b ≤ \left({c_2}^{1 / b} n\right)^b\\)\
 ⇔ \\({c_1}^{1 / b} n ≤ n + a ≤ {c_2}^{1 / b} n\\)\
 ⇔ \\({c_1}^{1 / b} n - n ≤ a ≤ {c_2}^{1 / b} n - n\\)\
 ⇔ \\(\left({c_1}^{1 / b} - 1\right) n ≤ a ≤ \left({c_2}^{1 / b} - 1\right) n\\)
@@ -691,7 +691,7 @@ We need *n* to be greater than some \\(n_0\\), so we should have \\({c_1}^{1 / b
 max(-2 *a*, *a*).
 
 Formally, for any *n* > max(-2 *a*, *a*),
-\\(\left(\frac{1}{2}\right)^b n^b ≤ \left(n + a\right)^b ≤ 2^b n^b\\), \\(n + a)^b = Θ(n^b)\\).
+\\(\left(\frac{1}{2}\right)^b n^b ≤ (n + a)^b ≤ 2^b n^b\\), \\(n + a)^b = Θ(n^b)\\).
 
 ##### 3.1-3
 
@@ -794,12 +794,12 @@ According to equation (3.18), we know that
 
 So
 
-\\(\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln \left(n!\right) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln \left(n!\right) ≤ n \ln n - n + \frac{1}{2} \ln {\left(2 π n\right)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
+\\(\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \frac{1}{2} \ln {(2 π n)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln (n!) ≤ n \ln n - n + \frac{1}{2} \ln {(2 π n)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
 
 So we have ln(*n*!) = Ω(*n* ln *n*), and ln(*n*!) = *O*(*n* ln *n*), so ln(*n*!) = Θ(*n* ln *n*).
 
@@ -853,7 +853,7 @@ Base cases:
 Inductive case:
 
 - By induction, we have \\(F_{i - 2} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} = \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}}\\).
-  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} \left(1 + ϕ\right) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
+  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} (1 + ϕ) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
   \\(1 + ϕ = ϕ^2\\) and \\(1 + \hat{ϕ} = \hat{ϕ}^2\\), so \\(F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\), the claim holds.
 
 ##### 3.2-8
@@ -970,8 +970,8 @@ Inductive case:
 >
 > Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
 >
-> \\(\widetilde{O}\left(g\left(n\right)\right)\\) = {*f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
-> such that \\(0 ≤ f \left(n\right) ≤ c g\left(n\right) \lg^k\left(n\right)\\) for all \\(n ≥ n_0\\)}.
+> \\(\widetilde{O}\left(g(n)\right)\\) = {*f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
+> such that \\(0 ≤ f (n) ≤ c g(n) \lg^k(n)\\) for all \\(n ≥ n_0\\)}.
 >
 > 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem
 >    3.1.
@@ -983,13 +983,13 @@ Inductive case:
 > We can apply the iteration operator \\(^\ast\\) used in the \\(\lg^\ast\\) function to any monotonically increasing
 > function *f*(*n*) over the reals. For a given constant *c* ∈ ℝ, we define the iterated function \\(f_c^*\\) by
 >
-> \\(f_c^*\left(n\right) = \min \lbrace i ≥ 0 : f^{\left(i\right)}\left(n\right) ≤ c \rbrace\\),
+> \\(f_c^*(n) = \min \lbrace i ≥ 0 : f^{(i)}(n) ≤ c \rbrace\\),
 >
-> which need not be well defined in all cases. In other words, the quantity \\(f_c^*\left(n\right)\\) is the number of
+> which need not be well defined in all cases. In other words, the quantity \\(f_c^*(n)\\) is the number of
 > iterated applications of the function *f* required to reduce its argument down to *c* or less.
 >
 > For each of the following functions *f*(*n*) and constants *c*, give as tight a bound as possible on
-> \\(f_c^*\left(n\right)\\).
+> \\(f_c^*(n)\\).
 
 |          | *f*(*n*)        | *c* | \\(f_c^*(n)\\)       |
 | -------- | --------------- | --- | -------------------- |
@@ -1215,7 +1215,7 @@ Suppose *T*(*n*) = *c* \\(n^{\log_3 4}\\) - 3 *n*, we have:
 
 *T*(*n*)\
 = 4 *T*(*n* / 3) + *n*\
-= 4 (*c* \\(\left(n / 3\right)^{\log_3 4}\\) - 3 (*n* / 3)) + *n*\
+= 4 (*c* \\((n / 3)^{\log_3 4}\\) - 3 (*n* / 3)) + *n*\
 = 4 (*c* \\(n^{\log_3 4}\\) / 4 - *n*) + *n*\
 = *c* \\(n^{\log_3 4}\\) - 3 *n*.
 
@@ -1230,7 +1230,7 @@ That is exactly what we want.
 Suppose *T*(*n*) = *c* \\(n^2\\) - *n*, we have
 
 *T*(*n*)\
-= 4 (*c* \\(\left(n / 2\right)^2\\) - *n* / 2) + *n*\
+= 4 (*c* \\((n / 2)^2\\) - *n* / 2) + *n*\
 = 4 (*c* \\(n^2\\) / 4 - *n* / 2) + *n*\
 = *c* \\(n^2\\) - 2 *n* + *n*\
 = *c* \\(n^2\\) - *n*.
@@ -1286,7 +1286,7 @@ Verification:
 *T*(*n*)\
 = 3 *T*(⌊*n* / 2⌋) + *n*\
 ≤ 3 (*c* \\(\left\lfloor{}n / 2\right\rfloor^{\lg 3}\\) - 2 ⌊*n* / 2⌋) + *n*\
-≤ 3 (*c* \\(\left(n / 2\right)^{\lg 3}\\) - 2 (*n* / 2)) + *n*\
+≤ 3 (*c* \\((n / 2)^{\lg 3}\\) - 2 (*n* / 2)) + *n*\
 = 3 (*c* \\(n^{\lg 3}\\) / 3 - *n*) + *n*\
 = 3 *c* \\(n^{\lg 3}\\) / 3 - 3 *n* + *n*\
 = *c* \\(n^{\lg 3}\\) - 2 *n*.
@@ -1301,7 +1301,7 @@ Verification:
 Verification:
 
 *T*(*n*)\
-= *c* + (4 / 3) \\(\left(n / 2\right)^2\\) + \\(n^2\\)\
+= *c* + (4 / 3) \\((n / 2)^2\\) + \\(n^2\\)\
 = *c* + (1 / 3) \\(n^2\\) + \\(n^2\\)\
 = *c* + (4 / 3) \\(n^2\\).
 
@@ -1316,7 +1316,7 @@ Verification:
 
 *T*(*n*)\
 = 4 *T*(*n* / 2 + 2) + *n*\
-= 4 (*c* \\(\left(n / 2 + 2\right)^2\\) - (8 *c* + 1) (*n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
+= 4 (*c* \\((n / 2 + 2)^2\\) - (8 *c* + 1) (*n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
 = 4 (*c* (\\(n^2\\) / 4 + 2 *n* + 4) - (4 *c* *n* + 16 *c* + *n* / 2 + 2) + 16 *c* + 8 / 3) + *n*\
 = 4 (*c* \\(n^2\\) / 4 - (2 *c* + 1 / 2) *n* + 4 *c* + 2 / 3) + *n*\
 = *c* \\(n^2\\) - (8 *c* + 2) *n* + 16 *c* + 8 / 3 + *n*\
@@ -1392,7 +1392,7 @@ Verification:
 
 *T*(*n*)\
 = *T*(*n* - *a*) + *T*(*a*) + *c* *n*\
-= (*c* / (2 *a*)) \\(\left(n - a\right)^2\\) + *k* (*n* - *a*) - *a* *c* + (*c* / (2 *a*)) \\(a^2\\) + *k* *a* - *a* *c* + *c* *n*\
+= (*c* / (2 *a*)) \\((n - a)^2\\) + *k* (*n* - *a*) - *a* *c* + (*c* / (2 *a*)) \\(a^2\\) + *k* *a* - *a* *c* + *c* *n*\
 = (*c* / (2 *a*)) (\\(n^2\\) - 2 *a* *n* + \\(a^2\\)) + *k* *n* - *a* *k* - 2 *a* *c* + *a* *c* / 2 + *k* *a* + *c* *n*\
 = (*c* / (2 *a*)) \\(n^2\\) - *c* *n* + *a* *c* / 2 + *k* *n* - 2 *a* *c* + *a* *c* / 2 + *c* *n*\
 = (*c* / (2 *a*)) \\(n^2\\) + *k* *n* - *a* *c*
@@ -1553,8 +1553,8 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 
 *f*(*n*)\
 ≥ (*a* / *c*) *f*(*n* / *b*)\
-= (*a* / *c*) Ω(\\(\left(n / b\right)^{\log_b a - \log_b c}\\))\
-= (*a* / *c*) Ω(\\(n^{\log_b a - \log_b c} / \left(a / c\right)\\))\
+= (*a* / *c*) Ω(\\((n / b)^{\log_b a - \log_b c}\\))\
+= (*a* / *c*) Ω(\\(n^{\log_b a - \log_b c} / (a / c)\\))\
 = Ω(\\(n^{\log_b a - \log_b c}\\)).
 
 #### 4.X Problems
@@ -1639,10 +1639,10 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 1. *T*(*n*) = *c* \\(n^{\log_3 4}\\) - 3 *n* lg *n* - 12 *n* lg 3.
 2. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
 3. *T*(*n*) = (2 + \\(\sqrt{2}\\)) \\(n^{5 / 2}\\) + *c* \\(n^2\\).
-4. *T*(*n*) = (1 / 2) *n* \\(\log_3 \left(n + 3\right)\\) + *c* *n* + (3 / 2) \\(\log_3 \left(n + 3\right)\\) + 3 *c* + 3 / 4.
+4. *T*(*n*) = (1 / 2) *n* \\(\log_3 (n + 3)\\) + *c* *n* + (3 / 2) \\(\log_3 (n + 3)\\) + 3 *c* + 3 / 4.
 5. *T*(*n*) = Θ(*n*), according to exercise 4.6-2.
 6. *T*(*n*) = 8 *n*.
-7. *T*(*n*) = *c* + \\(∑_{j = 2}^n \left(1 / j\right)\\) = Θ(lg *n*).
+7. *T*(*n*) = *c* + \\(∑_{j = 2}^n (1 / j)\\) = Θ(lg *n*).
 8. *T*(*n*) = *c* + \\(∑_{j = 2}^n \lg n\\) = *c* + \\(\lg ∏_{j = 2}^n n\\) = *c* + lg *n*! = Θ(*n* lg *n*).
 9. *Skipped*.
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
@@ -1654,7 +1654,7 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 > ***formal power series***) ℱ as
 >
 > \\(\begin{aligned}
-> ℱ\left(z\right) &= \displaystyle ∑_{i = 0}^∞ F_i z^i\\\\
+> ℱ(z) &= \displaystyle ∑_{i = 0}^∞ F_i z^i\\\\
 > &= 0 + z + z^2 + 2 z^3 + 3 z^4 + 5 z^5 + 8 z^6 + 13 z^7 + 21 z^8 + ⋯,
 > \end{aligned}\\)
 >
@@ -1664,8 +1664,8 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 > 2. Show that
 >
 >    \\(\begin{aligned}
->    ℱ\left(z\right) &= \frac{z}{1 - z - z^2}\\\\
->    &= \frac{z}{\left(1 - ϕ z\right)\left(1 - \hat{ϕ} z\right)}\\\\
+>    ℱ(z) &= \frac{z}{1 - z - z^2}\\\\
+>    &= \frac{z}{(1 - ϕ z)\left(1 - \hat{ϕ} z\right)}\\\\
 >    &= \frac{1}{\sqrt{5}}\left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right),
 >    \end{aligned}\\)
 >
@@ -1685,7 +1685,7 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 1. By definition:
 
    \\(\begin{aligned}
-   z + z ℱ\left(z\right) + z^2 ℱ\left(z\right) &= z + z ∑_{i = 0}^∞ F_i z^i + z^2 ∑_{i = 0}^∞ F_i z^i\\\\
+   z + z ℱ(z) + z^2 ℱ(z) &= z + z ∑_{i = 0}^∞ F_i z^i + z^2 ∑_{i = 0}^∞ F_i z^i\\\\
    &= z + ∑_{i = 0}^∞ F_i z^{i + 1} + ∑_{i = 0}^∞ F_i z^{i + 2}\\\\
    &= z + ∑_{i = 1}^∞ F_{i - 1} z^i + ∑_{i = 2}^∞ F_{i - 2} z^i\\\\
    &= z + \left(F_0 z^1 + ∑_{i = 2}^∞ F_{i - 1} z^i\right) + ∑_{i = 2}^∞ F_{i - 2} z^i\\\\
@@ -1693,7 +1693,7 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
    &= F_1 z^1 + F_0 z^0 + ∑_{i = 2}^∞ F_i z^i\\\\
    &= F_0 z^0 + F_1 z^1 + ∑_{i = 2}^∞ F_i z^i\\\\
    &= ∑_{i = 0}^∞ F_i z^i\\\\
-   &= ℱ\left(z\right).
+   &= ℱ(z).
    \end{aligned}\\)
 2. ℱ(*z*) = *z* + *z* ℱ(*z*) + \\(z^2\\) ℱ(*z*)\
    ⇒ ℱ(*z*) - *z* ℱ(*z*) - \\(z^2\\) ℱ(*z*) = *z*\
@@ -1706,19 +1706,19 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
    = ℱ(*z*).
 
    \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - \left(1 - ϕ z\right)}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{z}{\left(1 - ϕ z\right) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - (1 - ϕ z)}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
+   = \\(\frac{z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
    = ℱ(*z*).
 
    An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - \\(1^2\\)) = -1. Also, according to the
-   definition of ℱ, we have: \\(ℱ\left(1\right) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i\\).
+   definition of ℱ, we have: \\(ℱ(1) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i\\).
 
    So we have \\(∑_{i = 0}^∞ F_i\\) = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
 3. \\(∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
    = \\(\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
-   = \\(\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ \left(ϕ z\right)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)\\)\
+   = \\(\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ (ϕ z)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)\\)\
    = \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
    = ℱ(*z*).
 4. \\(F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}\\)\
@@ -1887,14 +1887,14 @@ The solution is implemented
 
    - If the number of rows is even, the time for computing the leftmost minimal element of all odd rows is
 
-     Θ(*f*(2) + \\(∑_{i = 1}^{m / 2 - 1} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)\\))\
+     Θ(*f*(2) + \\(∑_{i = 1}^{m / 2 - 1} \left(f(2 i + 2) - f(2 i) + 1\right)\\))\
      = Θ(*f*(2) + (*f*(*m*) - *f*(2) + *m* / 2 - 1))\
      = Θ(*f*(*m*) + *m* / 2 - 1)\
      = *O*(*n* + *m* / 2 - 1)\
      = *O*(*n* + *m*)
    - If the number of rows is odd, the time for computing the leftmost minimal element of all odd rows is:
 
-     Θ(*f*(2) + \\(∑_{i = 1}^{\left(m - 3\right) / 2} \left(f\left(2 i + 2\right) - f\left(2 i\right) + 1\right)\\) + (*n* - *f*(*m* - 1) + 1))\
+     Θ(*f*(2) + \\(∑_{i = 1}^{(m - 3) / 2} \left(f(2 i + 2) - f(2 i) + 1\right)\\) + (*n* - *f*(*m* - 1) + 1))\
      = Θ(*f*(2) + (*f*(*m* - 1) - *f*(2) + (*m* - 3) / 2) + (*n* - *f*(*m* - 1) + 1))\
      = Θ((*m* - 3) / 2 + *n* + 1)\
      = Θ(*m* / 2 + *n* - 1 / 2)\
@@ -1906,8 +1906,8 @@ The solution is implemented
    *T*(*m*, *n*)\
    = Θ(1) + *O*(\\(∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right) + n\right)\\))\
    = Θ(1) + *O*(\\(∑_{i=0}^{\lg m - 1} \left(m / \left(2^i\right)\right) + ∑_{i=0}^{\lg m - 1} n\\))\
-   = Θ(1) + *O*(*m* \\(∑_{i=0}^{\lg m - 1} \left(1 / 2\right)^i + ∑_{i=0}^{\lg m - 1} n\\))\
-   = Θ(1) + *O*(*m* (1 - \\(\left(1 / 2\right)^{\lg m}\\)) / (1 - 1 / 2) + *n* lg *m*)\
+   = Θ(1) + *O*(*m* \\(∑_{i=0}^{\lg m - 1} (1 / 2)^i + ∑_{i=0}^{\lg m - 1} n\\))\
+   = Θ(1) + *O*(*m* (1 - \\((1 / 2)^{\lg m}\\)) / (1 - 1 / 2) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* (1 - (1 / m)) + *n* lg *m*)\
    = Θ(1) + *O*(2 *m* - 2 + *n* lg *m*)\
    = *O*(*m* + *n* lg *m*)
@@ -1958,9 +1958,9 @@ Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
 ⇒ *T*(*a*, *b*) = *k* / (1 - (1 - *p*)).\
 ⇒ *T*(*a*, *b*) = *k* / *p*.\
 ⇒ *T*(*a*, *b*) = Θ(*n*) / ((*b* - *a* + 1) / \\(2^n\\)).\
-⇒ *T*(*a*, *b*) = Θ(*n*) \\(2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}\\) / (*b* - *a* + 1).\
-⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\left\lceil\lg \left(b - a + 1\right)\right\rceil}\\) / (*b* - *a* + 1)).\
-⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\lg \left(b - a + 1\right)}\\) / (*b* - *a* + 1)), because \\(Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)\\).\
+⇒ *T*(*a*, *b*) = Θ(*n*) \\(2^{\left\lceil\lg (b - a + 1)\right\rceil}\\) / (*b* - *a* + 1).\
+⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\left\lceil\lg (b - a + 1)\right\rceil}\\) / (*b* - *a* + 1)).\
+⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\lg (b - a + 1)}\\) / (*b* - *a* + 1)), because \\(Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)\\).\
 ⇒ *T*(*a*, *b*) = Θ(*n* (*b* - *a* + 1) / (*b* - *a* + 1)).\
 ⇒ *T*(*a*, *b*) = Θ(*n*).\
 ⇒ *T*(*a*, *b*) = Θ(⌈lg (*b* - *a* + 1)⌉).
@@ -2203,7 +2203,7 @@ Proof by induction on *m*:
     any element in the *m*-subset.
 
     So the probability of generating a certain *m*-subset does not contain *n* is
-    \\(∑_{j = 1}^{m} \left(1 / C\left(n - 1, m - 1\right)\right) \left(1 / n\right)\\) =
+    \\(∑_{j = 1}^{m} \left(1 / C(n - 1, m - 1)\right) (1 / n)\\) =
     (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
 
   So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
@@ -2234,7 +2234,7 @@ The probability that toss *k* balls into *b* bins to get the first bin containin
 
 So the expected number of ball tosses is:
 
-\\(∑_{k = 2}^{b + 1} \left(P\left(b, k - 1\right) / b^{k - 1}\right) \left(\left(k - 1\right) / b\right) k\\)
+\\(∑_{k = 2}^{b + 1} \left(P(b, k - 1) / b^{k - 1}\right) \left((k - 1) / b\right) k\\)
 
 ##### 5.4-3 ★
 
@@ -2266,24 +2266,24 @@ It’s the same as saying *k* people whose birthdays are in *n* days all have di
 
 Let \\(X_{i}\\) being the indicator variable in which bin *i* have *k* balls, then
 
-E[\\(X_{i k}\\)] = *C*(*n*, *k*) \\(\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\).
+E[\\(X_{i k}\\)] = *C*(*n*, *k*) \\((1 / n)^k (1 - 1 / n)^{n - k}\\).
 
 So the expected number of bins with exactly *k* balls is
 
 E[\\(∑_{i = 1}^{n} X_{i k}\\)]\
 = \\(∑_{i = 1}^{n} \operatorname{E}\left[X_{i k}\right]\\)\
-= \\(∑_{i = 1}^{n} C\left(n, k\right) \left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\)\
-= *n* *C*(*n*, *k*) \\(\left(1 / n\right)^k \left(1 - 1 / n\right)^{n - k}\\).
+= \\(∑_{i = 1}^{n} C(n, k) (1 / n)^k (1 - 1 / n)^{n - k}\\)\
+= *n* *C*(*n*, *k*) \\((1 / n)^k (1 - 1 / n)^{n - k}\\).
 
 So the expected number of bins with exactly 0 ball is:
 
-*n* *C*(*n*, 0) \\(\left(1 / n\right)^0 \left(1 - 1 / n\right)^{n - 0}\\)\
-= *n* \\(\left(1 - 1 / n\right)^n\\).
+*n* *C*(*n*, 0) \\((1 / n)^0 (1 - 1 / n)^{n - 0}\\)\
+= *n* \\((1 - 1 / n)^n\\).
 
 So the expected number of bins with exactly 1 ball is:
 
-*n* *C*(*n*, 1) \\(\left(1 / n\right)^1 \left(1 - 1 / n\right)^{n - 1}\\)\
-= *n* \\(\left(1 - 1 / n\right)^{n - 1}\\).
+*n* *C*(*n*, 1) \\((1 / n)^1 (1 - 1 / n)^{n - 1}\\)\
+= *n* \\((1 - 1 / n)^{n - 1}\\).
 
 ##### 5.4-7 ★
 
@@ -2405,7 +2405,7 @@ So the expected number of bins with exactly 1 ball is:
 
 ***f.*** The expected number of indices to pick is:
 
-\\(∑_{i = 1}^{n - k + 1} i P\left(n - k, i - 1\right) k P(n - i, n - i) / P(n, n)\\) = (n + 1) / (k + 1).
+\\(∑_{i = 1}^{n - k + 1} i P(n - k, i - 1) k P(n - i, n - i) / P(n, n)\\) = (n + 1) / (k + 1).
 (By [WolframAlpha](https://www.wolframalpha.com/input/?i=sum(i+P(n+-+k,+i+-+1)+k+P(n+-+i,+n+-+i)+%2F+P(n,+n),+(i,+1,+n+-+k+%2B+1))))
 
 Worst-case running time is Θ(*n* - *k* + 1).
@@ -2723,8 +2723,8 @@ run time of Θ(*n* lg *n*).
 
 ***b.*** The maximum number of elements of height *h* is \\(∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}\\), so we have
 \\(\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}\\). Solving it, we have
-\\(\log_d\left(\left(d - 1\right) n + 1\right) ≤ h < \log_d\left(\left(d - 1\right) n + 1\right) + 1\\). Since *h* is an
-integer, we have *h* = \\(\left\lceil\log_d\left(\left(d - 1\right) n + 1\right)\right\rceil\\) = Θ(\\(\log_d n\\)).
+\\(\log_d\left((d - 1) n + 1\right) ≤ h < \log_d\left((d - 1) n + 1\right) + 1\\). Since *h* is an
+integer, we have *h* = \\(\left\lceil\log_d\left((d - 1) n + 1\right)\right\rceil\\) = Θ(\\(\log_d n\\)).
 
 ***c.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
@@ -2949,17 +2949,17 @@ case by chance.
 
 > Show that in the recurrence
 >
-> *T*(*n*) = \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T\left(q\right) + T\left(n - q - 1\right)\right) + Θ\left(n\right)\\),
+> *T*(*n*) = \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ(n)\\),
 >
 > *T*(*n*) = Ω(\\(n^2\\)).
 
 Suppose *T*(*n*) ≥ *c* \\(n^2\\) for some *c*, we have:
 
 *T*(*n*)\
-= \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ\left(n\right)\\)\
-≥ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(c q^2 + c \left(n - q - 1\right)^2\right)\\) + Θ(*n*)\
-= *c* ⋅ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(q^2 + \left(n - q - 1\right)^2\right)\\) + Θ(*n*)\
-= *c* ⋅ \\(\left(n - 1\right)^2\\) + Θ(*n*)\
+= \\(\underset{0 ≤ q ≤ n - 1}{\max} (T(q) + T(n - q - 1)) + Θ(n)\\)\
+≥ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(c q^2 + c (n - q - 1)^2\right)\\) + Θ(*n*)\
+= *c* ⋅ \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(q^2 + (n - q - 1)^2\right)\\) + Θ(*n*)\
+= *c* ⋅ \\((n - 1)^2\\) + Θ(*n*)\
 = *c* \\(n^2\\) - *c* (2 *n* - 1) + Θ(*n*)\
 ≥ *c* \\(n^2\\).
 
@@ -3211,11 +3211,11 @@ Solution is implemented
 >
 > ***b.*** Let *T*(*n*) be a random variable denoting the running time of quicksort on an array of size *n*. Argue that
 >
-> - E[*T*(*n*)] = E\\(\displaystyle\left[∑_{q = 1}^n X_q \left(T\left(q - 1\right) + T\left(n - q\right) + Θ\left(n\right)\right)\right]\\). (7.5)
+> - E[*T*(*n*)] = E\\(\displaystyle\left[∑_{q = 1}^n X_q \left(T(q - 1) + T(n - q) + Θ(n)\right)\right]\\). (7.5)
 >
 > ***c.*** Show that we can rewrite equation (7.5) as
 >
-> - E[*T*(*n*)] = \\(\displaystyle\frac{2}{n} ∑_{q = 2}^{n - 1} \operatorname{E}\left[T\left(q\right)\right] + Θ\left(n\right)\\). (7.6)
+> - E[*T*(*n*)] = \\(\displaystyle\frac{2}{n} ∑_{q = 2}^{n - 1} \operatorname{E}\left[T(q)\right] + Θ(n)\\). (7.6)
 >
 > ***d.*** Show that
 >
@@ -3513,7 +3513,7 @@ E[\\(X^2\\)]\
 = 3 / 2.
 
 \\(\operatorname{E}^2\left[X\right]\\)\
-= \\(\left(0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4\right)^2\\)\
+= \\((0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4)^2\\)\
 = 1.
 
 ##### 8.4-4 ★
@@ -3529,7 +3529,7 @@ Question: why can’t \\(x_i^2 + y_i^2\\) be zero?
 
 Since the probability is proportional to the area, and the whole area is *π*, the we construct circles with area
 *π* / *n*, 2 *π* / *n*, …, (*n* - 1) *π* / *n*, *π*, and use their boundaries as the bucket boundaries, that is we
-construct buckets with boundaries of \\(\sqrt{1 / n}\\), \\(\sqrt{2 / n}\\), …, \\(\sqrt{\left(n - 1\right) / n}\\), 1.
+construct buckets with boundaries of \\(\sqrt{1 / n}\\), \\(\sqrt{2 / n}\\), …, \\(\sqrt{(n - 1) / n}\\), 1.
 
 To implement the algorithm, we need to put point (*x*, *y*), in bucket ⌈*n* (\\(x^2 + y^2\\))⌉ - 1.
 
@@ -3556,8 +3556,8 @@ Pr{⌈*n* *P*(*X*)⌉ - 1 = *i*}\
 Since
 
 Pr{*P*(*X*) ≤ *t*}\
-= Pr{*X* ≤ \\(P^{-1}\left(t\right)\\)}\
-= \\(P\left(P^{-1}\left(t\right)\right)\\)\
+= Pr{*X* ≤ \\(P^{-1}(t)\\)}\
+= \\(P\left(P^{-1}(t)\right)\\)\
 = *t*,
 
 Pr{*P*(*X*) ≤ (*i* + 1) / *n*} - Pr{*P*(*X*) ≤ *i* / *n*}\
@@ -3772,17 +3772,17 @@ will only need *o*(*n* lg *n*) + *O*(*n* lg *k*) = *o*(*n* lg *n*) time, which i
 
 ***a.***
 
-*C*(2 *n*, *n*) = \\(\frac{(2 n)!}{\left(n!\right)^2}\\).
+*C*(2 *n*, *n*) = \\(\frac{(2 n)!}{(n!)^2}\\).
 
 ***b.***
 
-The decision tree has at least \\(\frac{(2 n)!}{\left(n!\right)^2}\\) nodes, so the height of the tree is at least
+The decision tree has at least \\(\frac{(2 n)!}{(n!)^2}\\) nodes, so the height of the tree is at least
 
-\\(\lg \frac{(2 n)!}{\left(n!\right)^2}\\)\
+\\(\lg \frac{(2 n)!}{(n!)^2}\\)\
 = lg ((2 *n*)!) - 2 lg(*n*!)\
 = \\(∑_{i = 1}^{2 n} \lg i - 2 ∑_{i = 1}^{n} \lg i\\)\
 = \\(∑_{i = n + 1}^{2 n} \lg i - ∑_{i = 1}^{n} \lg i\\)\
-= \\(∑_{i = 1}^{n} \lg \left(n + i\right) - ∑_{i = 1}^{n} \lg i\\)\
+= \\(∑_{i = 1}^{n} \lg (n + i) - ∑_{i = 1}^{n} \lg i\\)\
 = \\(∑_{i = 1}^{n} \lg (1 + n / i)\\).
 
 *Skipped.*
@@ -4215,18 +4215,18 @@ new coordinates, which should be the location of the post-office.
 > relative to *n*, we can implement a different procedure that uses *Select* as a subroutine but makes fewer comparisons
 > in the worst case.
 >
-> - ***a.*** Describe an algorithm that uses \\(U_i\left(n\right)\\) comparisons to find the *i*th smallest of *n*
+> - ***a.*** Describe an algorithm that uses \\(U_i(n)\\) comparisons to find the *i*th smallest of *n*
 >   elements, where
 >
->   \\(U_i\left(n\right)\begin{cases}
+>   \\(U_i(n)\begin{cases}
 >   T(n)&\text{if $i ≥ n / 2$,}\\\\
->   \left\lfloor n / 2\right\rfloor + U_i\left(\left\lceil n / 2\right\rceil\right) + T\left(2 i\right)&\text{otherwise}.
+>   \left\lfloor n / 2\right\rfloor + U_i\left(\left\lceil n / 2\right\rceil\right) + T(2 i)&\text{otherwise}.
 >   \end{cases}\\)
 >
 >   (*Hint:* Begin with ⌊*n* / 2⌋ disjoint pairwise comparisons, and recurse on the set containing the smaller element
 >   from each pair.)
-> - ***b.*** Show that, if *i* < *n* / 2, then \\(U_i\left(n\right)\\) = *n* + *O*(*T*(2 *i* / lg(*n* / *i*)).
-> - ***c.*** Show that if *i* is a constant less than *n* / 2, then \\(U_i\left(n\right)\\) = *n* + *O*(lg *n*).
+> - ***b.*** Show that, if *i* < *n* / 2, then \\(U_i(n)\\) = *n* + *O*(*T*(2 *i* / lg(*n* / *i*)).
+> - ***c.*** Show that if *i* is a constant less than *n* / 2, then \\(U_i(n)\\) = *n* + *O*(lg *n*).
 > - ***d.*** Show that if *i* = *n* / *k* for *k* ≥ 2, then \\(U_i\\)(*n*) = *n* + *O*(*T*(2 *n* / *k*) lg *k*).
 
 *Skipped.*
@@ -4618,8 +4618,8 @@ Let the three members be *left-child*, *right-sibling-or-parent* and *is-last-ch
 >
 > - ***b.*** Argue that the expected running time of *Compact-List-Search′*(*L*, *n*, *k*, *t*) is
 >   *O*(*t* + E[\\(X_t\\)]).
-> - ***c.*** Show that E[\\(X_t\\)] ≤ \\(∑_{r = 1}^n \left(1 - r / n\right)^t\\). (*Hint:* Use equation (C.25).)
-> - ***d.*** Show that \\(∑_{r = 0}^{n - 1} r^t ≤ n^{t + 1} / \left(t + 1\right)\\).
+> - ***c.*** Show that E[\\(X_t\\)] ≤ \\(∑_{r = 1}^n (1 - r / n)^t\\). (*Hint:* Use equation (C.25).)
+> - ***d.*** Show that \\(∑_{r = 0}^{n - 1} r^t ≤ n^{t + 1} / (t + 1)\\).
 > - ***e.*** Prove that E[\\(X_t\\)] ≤ *n* / (*t* + 1).
 > - ***f.*** Show that *Compact-List-Search′*(*L*, *n*, *k*, *t*) runs in *O*(*t* + *n* / *t*) expected time.
 > - ***g.*** Conclude that *Compact-List-Search* runs in *O*(\\(\sqrt{n}\\)) expected time.
@@ -4685,7 +4685,7 @@ E[\\(∑_{i = 1}^m X_i \left(X_i - 1\right) / 2\\)]\
 = *m* (E[\\(X_1^2\\)] - E[\\(X_1\\)]) / 2\
 = *m* (E[\\(X_1^2\\)] - *n* / *m*) / 2\
 = *m* (\\(\operatorname{E}^2 \left[X_i\right]\\) + Var[\\(X_i\\)] - *n* / *m*) / 2\
-= *m* (\\(\left(n / m\right)^2\\) + *n* (1 / *m*) (*m* - 1) / *m* - *n* / *m*) / 2\
+= *m* (\\((n / m)^2\\) + *n* (1 / *m*) (*m* - 1) / *m* - *n* / *m*) / 2\
 = *n* (*n* - 1) / (2 *m*).
 
 That is way too complicated.
@@ -4900,11 +4900,11 @@ As for the example, consider storing the anagrams of a word in a hash table.
 
 > Suppose that we insert *n* keys into a hash table of size *m* using open addressing and uniform hashing. Let
 > *p*(*n*, *m*) be the probability that no collisions occur. Show that
-> *p*(*n*, *m*) ≤ \\(e^{-n \left(n - 1\right) / 2 m}\\). (*Hint:* See equation (3.12).) Argue that when *n* exceeds
+> *p*(*n*, *m*) ≤ \\(e^{-n (n - 1) / 2 m}\\). (*Hint:* See equation (3.12).) Argue that when *n* exceeds
 > \\(\sqrt{m}\\), the probability of avoiding collisions goes rapidly to zero.
 
 *p*(*n*, *m*)\
-= \\(\frac{P\left(m, n\right)}{m^n}\\)
+= \\(\frac{P(m, n)}{m^n}\\)
 
 *Skipped.*
 
