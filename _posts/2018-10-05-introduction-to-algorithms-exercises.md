@@ -970,7 +970,7 @@ Inductive case:
 >
 > Some authors define \\(\widetilde{O}\\) (read “soft-oh”) to mean *O* with logarithmic factors ignored:
 >
-> \\(\widetilde{O}\left(g(n)\right)\\) = {*f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
+> \\(\widetilde{O}(g(n))\\) = {*f*(*n*) : there exist positive constants *c*, *k*, and \\(n_0\\)
 > such that \\(0 ≤ f (n) ≤ c g(n) \lg^k(n)\\) for all \\(n ≥ n_0\\)}.
 >
 > 1. Define \\(\widetilde{Ω}\\) and \\(\widetilde{Θ}\\) in a similar manner. Prove the corresponding analog to Theorem
@@ -1887,14 +1887,14 @@ The solution is implemented
 
    - If the number of rows is even, the time for computing the leftmost minimal element of all odd rows is
 
-     Θ(*f*(2) + \\(∑_{i = 1}^{m / 2 - 1} \left(f(2 i + 2) - f(2 i) + 1\right)\\))\
+     Θ(*f*(2) + \\(∑_{i = 1}^{m / 2 - 1} (f(2 i + 2) - f(2 i) + 1)\\))\
      = Θ(*f*(2) + (*f*(*m*) - *f*(2) + *m* / 2 - 1))\
      = Θ(*f*(*m*) + *m* / 2 - 1)\
      = *O*(*n* + *m* / 2 - 1)\
      = *O*(*n* + *m*)
    - If the number of rows is odd, the time for computing the leftmost minimal element of all odd rows is:
 
-     Θ(*f*(2) + \\(∑_{i = 1}^{(m - 3) / 2} \left(f(2 i + 2) - f(2 i) + 1\right)\\) + (*n* - *f*(*m* - 1) + 1))\
+     Θ(*f*(2) + \\(∑_{i = 1}^{(m - 3) / 2} (f(2 i + 2) - f(2 i) + 1)\\) + (*n* - *f*(*m* - 1) + 1))\
      = Θ(*f*(2) + (*f*(*m* - 1) - *f*(2) + (*m* - 3) / 2) + (*n* - *f*(*m* - 1) + 1))\
      = Θ((*m* - 3) / 2 + *n* + 1)\
      = Θ(*m* / 2 + *n* - 1 / 2)\
@@ -2203,7 +2203,7 @@ Proof by induction on *m*:
     any element in the *m*-subset.
 
     So the probability of generating a certain *m*-subset does not contain *n* is
-    \\(∑_{j = 1}^{m} \left(1 / C(n - 1, m - 1)\right) (1 / n)\\) =
+    \\(∑_{j = 1}^{m} (1 / C(n - 1, m - 1)) (1 / n)\\) =
     (1 / *C*(*n* - 1, *m* - 1)) (*m* / *n*) = 1 / *C*(*n*, *m*).
 
   So all *m*-subsets have the probability of 1 / *C*(*n*, *m*) of being generated, the claim holds.
@@ -2234,7 +2234,7 @@ The probability that toss *k* balls into *b* bins to get the first bin containin
 
 So the expected number of ball tosses is:
 
-\\(∑_{k = 2}^{b + 1} \left(P(b, k - 1) / b^{k - 1}\right) \left((k - 1) / b\right) k\\)
+\\(∑_{k = 2}^{b + 1} \left(P(b, k - 1) / b^{k - 1}\right) ((k - 1) / b) k\\)
 
 ##### 5.4-3 ★
 
@@ -2723,8 +2723,8 @@ run time of Θ(*n* lg *n*).
 
 ***b.*** The maximum number of elements of height *h* is \\(∑_{i = 0}^{h} d^h = \frac{1 - d^h}{1 - d}\\), so we have
 \\(\frac{1 - d^{h - 1}}{1 - d} < n ≤ \frac{1 - d^h}{1 - d}\\). Solving it, we have
-\\(\log_d\left((d - 1) n + 1\right) ≤ h < \log_d\left((d - 1) n + 1\right) + 1\\). Since *h* is an
-integer, we have *h* = \\(\left\lceil\log_d\left((d - 1) n + 1\right)\right\rceil\\) = Θ(\\(\log_d n\\)).
+\\(\log_d((d - 1) n + 1) ≤ h < \log_d((d - 1) n + 1) + 1\\). Since *h* is an
+integer, we have *h* = \\(\left\lceil\log_d((d - 1) n + 1)\right\rceil\\) = Θ(\\(\log_d n\\)).
 
 ***c.*** The solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/problems/problem_6_2_analysis_of_d_ary_heaps.rs).
@@ -2949,7 +2949,7 @@ case by chance.
 
 > Show that in the recurrence
 >
-> *T*(*n*) = \\(\underset{0 ≤ q ≤ n - 1}{\max} \left(T(q) + T(n - q - 1)\right) + Θ(n)\\),
+> *T*(*n*) = \\(\underset{0 ≤ q ≤ n - 1}{\max} (T(q) + T(n - q - 1)) + Θ(n)\\),
 >
 > *T*(*n*) = Ω(\\(n^2\\)).
 
@@ -3211,7 +3211,7 @@ Solution is implemented
 >
 > ***b.*** Let *T*(*n*) be a random variable denoting the running time of quicksort on an array of size *n*. Argue that
 >
-> - E[*T*(*n*)] = E\\(\displaystyle\left[∑_{q = 1}^n X_q \left(T(q - 1) + T(n - q) + Θ(n)\right)\right]\\). (7.5)
+> - E[*T*(*n*)] = E\\(\displaystyle\left[∑_{q = 1}^n X_q (T(q - 1) + T(n - q) + Θ(n))\right]\\). (7.5)
 >
 > ***c.*** Show that we can rewrite equation (7.5) as
 >
