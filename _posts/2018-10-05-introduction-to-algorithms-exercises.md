@@ -790,16 +790,16 @@ Proving equation (3.19):
 
 According to equation (3.18), we know that
 
-\\(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\\)
+\\(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\\)
 
 So
 
-\\(\ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\sqrt{2 π n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln n - n + \ln \left(\sqrt{2 π n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \frac{1}{2} \ln {(2 π n)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln (n!) ≤ n \ln n - n + \frac{1}{2} \ln {(2 π n)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
+\\(\ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln (n!) ≤ n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
 
 So we have ln(*n*!) = Ω(*n* ln *n*), and ln(*n*!) = *O*(*n* ln *n*), so ln(*n*!) = Θ(*n* ln *n*).
 
@@ -831,30 +831,30 @@ we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\l
 
 ##### 3.2-6
 
-> Show that the golden ratio *ϕ* and its conjugate \\(\hat{ϕ}\\) both satisfy the equation \\(x^2 = x + 1\\).
+> Show that the golden ratio *ϕ* and its conjugate \\(\hat{\phi}\\) both satisfy the equation \\(x^2 = x + 1\\).
 
-\\(ϕ^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = ϕ + 1\\).
+\\(\phi^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = \phi + 1\\).
 
-\\(\hat{ϕ}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{ϕ} + 1\\).
+\\(\hat{\phi}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{\phi} + 1\\).
 
 ##### 3.2-7
 
 > Prove by induction that the *i*th Fibonacci number satisfies the equality
 >
-> \\(F_i = \dfrac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\),
+> \\(F_i = \dfrac{\phi^i - \hat{\phi}^i}{\sqrt{5}}\\),
 >
-> where *ϕ* is the golden ratio and \\(\hat{ϕ}\\) is its conjugate.
+> where *ϕ* is the golden ratio and \\(\hat{\phi}\\) is its conjugate.
 
 Base cases:
 
-- If *i* = 0, \\(\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0\\), the claim holds.
-- If *i* = 1, \\(\frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}} = \frac{ϕ - \hat{ϕ}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1\\), the claim holds.
+- If *i* = 0, \\(\frac{\phi^i - \hat{\phi}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0\\), the claim holds.
+- If *i* = 1, \\(\frac{\phi^i - \hat{\phi}^i}{\sqrt{5}} = \frac{\phi - \hat{\phi}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1\\), the claim holds.
 
 Inductive case:
 
-- By induction, we have \\(F_{i - 2} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} = \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}}\\).
-  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{ϕ^{i - 2} - \hat{ϕ}^{i - 2}}{\sqrt{5}} + \frac{ϕ^{i - 1} - \hat{ϕ}^{i - 1}}{\sqrt{5}} = \frac{ϕ^{i - 2} (1 + ϕ) - \hat{ϕ}^{i - 2} \left(1 + \hat{ϕ}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
-  \\(1 + ϕ = ϕ^2\\) and \\(1 + \hat{ϕ} = \hat{ϕ}^2\\), so \\(F_i = \frac{ϕ^{i - 2} ϕ^2 - \hat{ϕ}^{i - 2} \hat{ϕ}^2}{\sqrt{5}} = \frac{ϕ^i - \hat{ϕ}^i}{\sqrt{5}}\\), the claim holds.
+- By induction, we have \\(F_{i - 2} = \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} = \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}}\\).
+  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}} + \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}} = \frac{\phi^{i - 2} (1 + \phi) - \hat{\phi}^{i - 2} \left(1 + \hat{\phi}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
+  \\(1 + \phi = \phi^2\\) and \\(1 + \hat{\phi} = \hat{\phi}^2\\), so \\(F_i = \frac{\phi^{i - 2} \phi^2 - \hat{\phi}^{i - 2} \hat{\phi}^2}{\sqrt{5}} = \frac{\phi^i - \hat{\phi}^i}{\sqrt{5}}\\), the claim holds.
 
 ##### 3.2-8
 
@@ -1665,8 +1665,8 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 >
 >    \\(\begin{aligned}
 >    ℱ(z) &= \frac{z}{1 - z - z^2}\\\\
->    &= \frac{z}{(1 - ϕ z)\left(1 - \hat{ϕ} z\right)}\\\\
->    &= \frac{1}{\sqrt{5}}\left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right),
+>    &= \frac{z}{(1 - \phi z)\left(1 - \hat{\phi} z\right)}\\\\
+>    &= \frac{1}{\sqrt{5}}\left(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z}\right),
 >    \end{aligned}\\)
 >
 >    where
@@ -1675,12 +1675,12 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 >
 >    and
 >
->    \\(\hat{ϕ}\\) = \\(\dfrac{1 - \sqrt{5}}{2}\\) = - 1.61803….
+>    \\(\hat{\phi}\\) = \\(\dfrac{1 - \sqrt{5}}{2}\\) = -1.61803….
 > 3. Show that
 >
->    ℱ(*z*) = \\(\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i\\).
-> 4. Use part (c) to prove that \\(F_i = ϕ^i / \sqrt{5}\\) for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
->    that |\\(\hat{ϕ}\\)| < 1.)
+>    ℱ(*z*) = \\(\displaystyle ∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(\phi^i - \hat{\phi}^i\right) z^i\\).
+> 4. Use part (c) to prove that \\(F_i = \phi^i / \sqrt{5}\\) for *i* > 0, rounded to the nearest integer. (*Hint:* Observe
+>    that |\\(\hat{\phi}\\)| < 1.)
 
 1. By definition:
 
@@ -1700,31 +1700,31 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
    ⇒ ℱ(*z*) (1 - *z* - \\(z^2\\)) = *z*\
    ⇒ ℱ(*z*) = *z* / (1 - *z* - \\(z^2\\)).
 
-   *z* / ((1 - *ϕ* *z*) (1 - \\(\hat{ϕ}\\) *z*))\
-   = *z* / (1 - (*ϕ* + \\(\hat{ϕ}\\)) *z* + *ϕ* \\(\hat{ϕ} z^2\\))\
+   *z* / ((1 - *ϕ* *z*) (1 - \\(\hat{\phi}\\) *z*))\
+   = *z* / (1 - (*ϕ* + \\(\hat{\phi}\\)) *z* + *ϕ* \\(\hat{\phi} z^2\\))\
    = *z* / (1 - *z* - \\(z^2\\))\
    = ℱ(*z*).
 
-   \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{ϕ} z\right) - (1 - ϕ z)}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\left(ϕ - \hat{ϕ}\right) z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
-   = \\(\frac{z}{(1 - ϕ z) \left(1 - \hat{ϕ} z\right)}\\)\
+   \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z}\right)\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(1 - \hat{\phi} z\right) - (1 - \phi z)}{(1 - \phi z) \left(1 - \hat{\phi} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\left(\phi  - \hat{\phi}\right) z}{(1 - \phi z) \left(1 - \hat{\phi} z\right)}\\)\
+   = \\(\frac{1}{\sqrt{5}} \frac{\sqrt{5} z}{(1 - \phi z) \left(1 - \hat{\phi} z\right)}\\)\
+   = \\(\frac{z}{(1 - \phi z) \left(1 - \hat{\phi} z\right)}\\)\
    = ℱ(*z*).
 
    An interesting discovery: if we let *z* = 1, we have ℱ(1) = 1 / (1 - 1 - \\(1^2\\)) = -1. Also, according to the
    definition of ℱ, we have: \\(ℱ(1) = ∑_{i = 0}^∞ F_i 1^i = ∑_{i = 0}^∞ F_i\\).
 
    So we have \\(∑_{i = 0}^∞ F_i\\) = 0 + 1 + 1 + 2 + 3 + 5 + 8 + 13 + 21 + … = -1, WTF?
-3. \\(∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
-   = \\(\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(ϕ^i - \hat{ϕ}^i\right) z^i\\)\
-   = \\(\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ (ϕ z)^i - ∑_{i = 0}^∞ \left(\hat{ϕ} z\right)^i\right)\\)\
-   = \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - ϕ z} - \frac{1}{1 - \hat{ϕ} z}\right)\\)\
+3. \\(∑_{i = 0}^∞ \frac{1}{\sqrt{5}}\left(\phi^i - \hat{\phi}^i\right) z^i\\)\
+   = \\(\frac{1}{\sqrt{5}} ∑_{i = 0}^∞ \left(\phi^i - \hat{\phi}^i\right) z^i\\)\
+   = \\(\frac{1}{\sqrt{5}} \left(∑_{i = 0}^∞ (\phi z)^i - ∑_{i = 0}^∞ \left(\hat{\phi} z\right)^i\right)\\)\
+   = \\(\frac{1}{\sqrt{5}} \left(\frac{1}{1 - \phi z} - \frac{1}{1 - \hat{\phi} z}\right)\\)\
    = ℱ(*z*).
-4. \\(F_i = \frac{1}{\sqrt{5}}\left(ϕ^i - \hat{ϕ}^i\right) = ϕ^i / \sqrt{5} - \hat{ϕ}^i / \sqrt{5}\\)\
-   ⇒ \\(F_i - ϕ^i / \sqrt{5} = - \hat{ϕ}^i / \sqrt{5}\\).
+4. \\(F_i = \frac{1}{\sqrt{5}}\left(\phi^i - \hat{\phi}^i\right) = \phi^i / \sqrt{5} - \hat{\phi}^i / \sqrt{5}\\)\
+   ⇒ \\(F_i - \phi^i / \sqrt{5} = - \hat{\phi}^i / \sqrt{5}\\).
 
-   Since \\(\left|- \hat{ϕ}^i / \sqrt{5}\right|\\) < 0.5, and \\(F_i\\) is an integer, \\(F_i = ϕ^i / \sqrt{5}\\),
+   Since \\(\left|- \hat{\phi}^i / \sqrt{5}\right|\\) < 0.5, and \\(F_i\\) is an integer, \\(F_i = \phi^i / \sqrt{5}\\),
    rounded to the nearest integer.
 
 ##### 4-5 Chip testing
@@ -2908,12 +2908,12 @@ procedure *Quicksort* on this problem.
 > maximum depth is approximately -lg *n* / lg(1 - *α*). (Don’t worry about integer round-off.)
 
 At each level of recursion the problem of size *n* is divided into problems of size *α* *n* and size (1 - *α*) *n*.
-Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → \\(α^2\\) *n* → ⋯ → 1, the maximum depth is on the
-path *n* → (1 - *α*) *n* → \\((1 - α)^2\\) *n* → ⋯ → 1.
+Since *α* ≤ 1 / 2, the minimum depth is on the path *n* → *α* *n* → \\(\alpha^2\\) *n* → ⋯ → 1, the maximum depth is on the
+path *n* → (1 - *α*) *n* → \\((1 - \alpha)^2\\) *n* → ⋯ → 1.
 
-Solving \\(α^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
+Solving \\(\alpha^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg *α*.
 
-Solving \\((1 - α)^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
+Solving \\((1 - \alpha)^i\\) *n* = 1 for *i*, we get *i* = -lg *n* / lg (1 - *α*).
 
 ##### 7.2-6 ★
 
@@ -5464,7 +5464,7 @@ Solution is implemented
 >
 > - ***d.*** Show that
 >
->   \\(b_n = \dfrac{4^n}{\sqrt{π} n^{3 / 2}}\\) (1 + *O*(1 / *n*)).
+>   \\(b_n = \dfrac{4^n}{\sqrt{\pi} n^{3 / 2}}\\) (1 + *O*(1 / *n*)).
 
 - ***a***
 
@@ -6916,9 +6916,9 @@ Running time is Θ(*n*) where *n* is the total number of employees.
 > concatenation of the labels of the edges on that path.
 >
 > - ***a.*** Describe an efficient algorithm that, given an edge-labeled graph *G* with distinguished vertex \\(v_0\\)
->   and a sequence *s* = ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_k\\)⟩ of sounds from Σ, returns a path in *G* that begins at
->   \\(v_0\\) and has s as its label, if any such path exists. Otherwise, the algorithm should return *no-such-path*.
->   Analyze the running time of your algorithm. (*Hint:* You may find concepts from Chapter 22 useful.)
+>   and a sequence *s* = ⟨\\(\sigma_1\\), \\(\sigma_2\\), …, \\(\sigma_k\\)⟩ of sounds from Σ, returns a path in *G*
+>   that begins at \\(v_0\\) and has s as its label, if any such path exists. Otherwise, the algorithm should return
+>   *no-such-path*. Analyze the running time of your algorithm. (*Hint:* You may find concepts from Chapter 22 useful.)
 >
 > Now, suppose that every edge (*u*, *v*) ∈ *E* has an associated nonnegative probability *p*(*u*, *v*) of traversing
 > the edge (*u*, *v*) from vertex *u* and thus producing the corresponding sound. The sum of the probabilities of the
@@ -7878,13 +7878,13 @@ The amortized cost of each operation is:
 
 ##### 17.4-2
 
-> Show that if \\(α_{i - 1}\\) ≥ 1  / 2 and the *i*th operation on a dynamic table is *Table-Delete*, then the amortized
+> Show that if \\(\alpha_{i - 1}\\) ≥ 1  / 2 and the *i*th operation on a dynamic table is *Table-Delete*, then the amortized
 > cost of the operation with respect to the potential function (17.6) is bounded above by a constant.
 
 Let \\(s_i\\) be the size of the table after the *i*th operation, and \\(n_i\\) be the number of elements after the
 *i*th operation.
 
-- If \\(α_{i - 1}\\) = 1  / 2, we have \\(s_{i - 1}\\) = 2 \\(n_{i - 1}\\).
+- If \\(\alpha_{i - 1}\\) = 1  / 2, we have \\(s_{i - 1}\\) = 2 \\(n_{i - 1}\\).
   - If the *i*th operation triggers a contraction, we have:
 
     \\(n_{i - 1}\\) - 1 < \\(s_{i - 1}\\) / 4\
@@ -7901,7 +7901,7 @@ Let \\(s_i\\) be the size of the table after the *i*th operation, and \\(n_i\\) 
     = 1 + 0 - (\\(n_{i - 1}\\) - (\\(n_{i - 1}\\) - 1))\
     = 1 + 0 - 1\
     = 0.
-- If \\(α_{i - 1}\\) > 1  / 2, we know that the *i*th operation does not trigger a contraction.
+- If \\(\alpha_{i - 1}\\) > 1  / 2, we know that the *i*th operation does not trigger a contraction.
 
   \\(\hat{c}\_i\\)\
   = \\(c_i\\) + Φ(\\(D_{i}\\)) - Φ(\\(D_{i - 1}\\))\
@@ -8104,8 +8104,8 @@ The tree is implemented
 >    any heuristic we like to decide how to reorder the list.
 >
 > Assume that we start with a given list of *n* elements, and we are given an access sequence
-> *σ* = ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_m\\)⟩ of keys to find, in order. The cost of the sequence is the sum of the costs
-> of the individual accesses in the sequence.
+> *σ* = ⟨\\(\sigma_1\\), \\(\sigma_2\\), …, \\(\sigma_m\\)⟩ of keys to find, in order. The cost of the sequence is the
+> sum of the costs of the individual accesses in the sequence.
 >
 > Out of the various possible ways to reorder the list after an operation, this problem focuses on transposing adjacent
 > list elements—switching their positions in the list—with a unit cost for each transpose operation. You will show, by
@@ -8124,36 +8124,38 @@ The tree is implemented
 >
 > Let \\(\text{rank}_L\\)(*x*) denote the rank of element *x* in list *L*, that is, the position of *x* in list *L*. For
 > example, if *x* is the fourth element in *L*, then \\(\text{rank}_L\\)(*x*) = 4. Let \\(c_i\\) denote the cost of
-> access \\(σ_i\\) using the move-to-front heuristic, which includes the cost of finding the element in the list and the
-> cost of moving it to the front of the list by a series of transpositions of adjacent list elements.
+> access \\(\sigma_i\\) using the move-to-front heuristic, which includes the cost of finding the element in the list
+> and the cost of moving it to the front of the list by a series of transpositions of adjacent list elements.
 >
-> - ***b.*** Show that if \\(σ_i\\) accesses element *x* in list *L* using the move-to-front heuristic, then
+> - ***b.*** Show that if \\(\sigma_i\\) accesses element *x* in list *L* using the move-to-front heuristic, then
 >   \\(c_i\\) = 2 ⋅ \\(\text{rank}_L\\)(*x*) - 1.
 >
 > Now we compare move-to-front with any other heuristic H that processes an access sequence according to the two
 > properties above. Heuristic H may transpose elements in the list in any way it wants, and it might even know the
 > entire access sequence in advance.
 >
-> Let \\(L_i\\) be the list after access \\(σ_i\\) using move-to-front, and let \\(L_i^\*\\) be the list after access
-> \\(σ_i\\) using heuristic H. We denote the cost of access \\(σ_i\\) by \\(c_i\\) for move-to-front and by \\(c_i^\*\\)
-> for heuristic H. Suppose that heuristic H performs \\(t_i^*\\) transpositions during access \\(σ_i\\).
+> Let \\(L_i\\) be the list after access \\(\sigma_i\\) using move-to-front, and let \\(L_i^\*\\) be the list after
+> access \\(\sigma_i\\) using heuristic H. We denote the cost of access \\(\sigma_i\\) by \\(c_i\\) for move-to-front
+> and by \\(c_i^\*\\) for heuristic H. Suppose that heuristic H performs \\(t_i^*\\) transpositions during access
+> \\(\sigma_i\\).
 >
 > - ***c.*** In part (b), you showed that \\(c_i\\) = 2 ⋅ \\(rank_{L_{i - 1}}\\)(*x*) - 1. Now show that
 >   \\(c_i^\*\\) = \\(\text{rank}\_{L_{i - 1}^\*}(x) + t_i^*\\).
 >
 > We define an ***inversion*** in list \\(L_i\\) as a pair of elements *y* and *z* such that *y* precedes *z* in
 > \\(L_i\\) and *z* precedes *y* in list \\(L_i^\*\\). Suppose that list \\(L_i\\) has \\(q_i\\) inversions after
-> processing the access sequence ⟨\\(σ_1\\), \\(σ_2\\), …, \\(σ_i\\)⟩. Then, we define a potential function Φ that maps
-> \\(L_i\\) to a real number by Φ(\\(L_i\\)) = 2 \\(q_i\\). For example, if \\(L_i\\) has the elements ⟨*e*, *c*, *a*,
-> *d*, *b*⟩ and \\(L_i^\*\\) has the elements ⟨*c*, *a*, *b*, *d*, *e*⟩, then \\(L_i\\) has 5 inversions ((*e*, *c*),
-> (*e*, *a*), (*e*, *d*), (*e*, *b*), (*d*, *b*)), and so Φ(\\(L_i\\)) = 10. Observe that Φ(\\(L_i\\)) ≥ 0 for all *i*
-> and that, if move-to-front and heuristic H start with the same list \\(L_0\\), then Φ(\\(L_0\\)) = 0.
+> processing the access sequence ⟨\\(\sigma_1\\), \\(\sigma_2\\), …, \\(\sigma_i\\)⟩. Then, we define a potential
+> function Φ that maps \\(L_i\\) to a real number by Φ(\\(L_i\\)) = 2 \\(q_i\\). For example, if \\(L_i\\) has the
+> elements ⟨*e*, *c*, *a*, *d*, *b*⟩ and \\(L_i^\*\\) has the elements ⟨*c*, *a*, *b*, *d*, *e*⟩, then \\(L_i\\) has 5
+> inversions ((*e*, *c*), (*e*, *a*), (*e*, *d*), (*e*, *b*), (*d*, *b*)), and so Φ(\\(L_i\\)) = 10. Observe that
+> Φ(\\(L_i\\)) ≥ 0 for all *i* and that, if move-to-front and heuristic H start with the same list \\(L_0\\), then
+> Φ(\\(L_0\\)) = 0.
 >
 > - ***d.*** Argue that a transposition either increases the potential by 2 or decreases the potential by 2.
 >
-> Suppose that access \\(σ_i\\) finds the element *x*. To understand how the potential changes due to \\(σ_i\\), let us
-> partition the elements other than *x* into four sets, depending on where they are in the lists just before the *i*th
-> access:
+> Suppose that access \\(\sigma_i\\) finds the element *x*. To understand how the potential changes due to
+> \\(\sigma_i\\), let us partition the elements other than *x* into four sets, depending on where they are in the lists
+> just before the *i*th access:
 >
 > - Set *A* consists of elements that precede *x* in both \\(L_{i - 1}\\) and \\(L_{i - 1}^*\\).
 > - Set *B* consists of elements that precede *x* in \\(L_{i - 1}\\) and follow *x* in \\(L_{i - 1}^*\\).
@@ -8162,15 +8164,15 @@ The tree is implemented
 >
 > - ***e.*** Argue that \\(\text{rank}\_{L_{i - 1}}\\)(*x*) = |*A*| + |*B*| + 1 and
 >   \\(\text{rank}\_{L_{i - 1}^*}\\)(*x*) = |*A*| + |*C*| + 1.
-> - ***f.*** Show that access \\(σ_i\\) causes a change in potential of
+> - ***f.*** Show that access \\(\sigma_i\\) causes a change in potential of
 >
 >   Φ(\\(L_i\\)) - Φ(\\(L_{i - 1}\\)) ≤ 2 (|*A*| - |*B*| + \\(t_i^*\\)),
 >
->   where, as before, heuristic H performs \\(t_i^*\\) transpositions during access \\(σ_i\\).
+>   where, as before, heuristic H performs \\(t_i^*\\) transpositions during access \\(\sigma_i\\).
 >
->   Define the amortized cost \\(\hat{c}\_i\\) of access \\(σ_i\\) by
+>   Define the amortized cost \\(\hat{c}\_i\\) of access \\(\sigma_i\\) by
 >   \\(\hat{c}\_i\\) = \\(c_i\\) + Φ(\\(L_i\\)) - Φ(\\(L_{i - 1}\\)).
-> - ***g.*** Show that the amortized cost \\(\hat{c}_i\\) of access \\(σ_i\\) is bounded from above by 4 \\(c_i^*\\).
+> - ***g.*** Show that the amortized cost \\(\hat{c}_i\\) of access \\(\sigma_i\\) is bounded from above by 4 \\(c_i^*\\).
 > - ***h.*** Conclude that the cost \\(C_\text{MTF}\\)(*σ*) of access sequence *σ* with move-to-front is at most 4 times
 >   the cost \\(C_H\\)(*σ*) of *σ* with any other heuristic H, assuming that both heuristics start with the same list.
 
@@ -9051,9 +9053,9 @@ instead of *black*, which does not affect the traversal process.
 ##### 22.2-6
 
 > Give an example of a directed graph *G* = (*V*, *E*), a source vertex *s* ∈ *V*, and a set of tree edges
-> \\(E_π\\) ⊆ *E* such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, \\(E_π\\)) from *s* to
-> *v* is a shortest path in *G*, yet the set of edges \\(E_π\\) cannot be produced by running *BFS* on *G*, no matter
-> how the vertices are ordered in each adjacency list.
+> \\(E_\pi\\) ⊆ *E* such that for each vertex *v* ∈ *V*, the unique simple path in the graph (*V*, \\(E_\pi\\)) from
+> *s* to *v* is a shortest path in *G*, yet the set of edges \\(E_\pi\\) cannot be produced by running *BFS* on *G*, no
+> matter how the vertices are ordered in each adjacency list.
 
 Graph:
 
@@ -9089,7 +9091,7 @@ Solution is implemented
 
 ##### 22.2-8 ★
 
-> The diameter of a tree *T* = (*V*, *E*) is defined as \\(\max_{u, v ∈ V} δ(u, v)\\), that is, the largest of all
+> The diameter of a tree *T* = (*V*, *E*) is defined as \\(\max_{u, v ∈ V} \delta(u, v)\\), that is, the largest of all
 > shortest-path distances in the tree. Give an efficient algorithm to compute the diameter of a tree, and analyze the
 > running time of your algorithm.
 
@@ -9393,7 +9395,7 @@ Solution is implemented
 > disconnects *G*. A ***bridge*** of *G* is an edge whose removal disconnects *G*. A ***biconnected component*** of *G*
 > is a maximal set of edges such that any two edges in the set lie on a common simple cycle. Figure 22.10 illustrates
 > these definitions. We can determine articulation points, bridges, and biconnected components using depth-first search.
-> Let \\(G_π\\) = (*V*, \\(E_π\\)) be a depth-first tree of *G*.
+> Let \\(G_\pi\\) = (*V*, \\(E_\pi\\)) be a depth-first tree of *G*.
 >
 > ```text
 >   1   5─6     11          19──────┐
@@ -9409,10 +9411,10 @@ Solution is implemented
 > in Problem 22-2. The articulation points are the heavily shaded vertices, the bridges are the heavily shaded edges,
 > and the biconnected components are the edges in the shaded regions, with a *bcc* numbering shown.
 >
-> - ***a.*** Prove that the root of \\(G_π\\) is an articulation point of *G* if and only if it has at least two
->   children in \\(G_π\\).
-> - ***b.*** Let *v* be a nonroot vertex of \\(G_π\\). Prove that *v* is an articulation point of *G* if and only if *v*
->   has a child *s* such that there is no back edge from *s* or any descendant of *s* to a proper ancestor of *v*.
+> - ***a.*** Prove that the root of \\(G_\pi\\) is an articulation point of *G* if and only if it has at least two
+>   children in \\(G_\pi\\).
+> - ***b.*** Let *v* be a nonroot vertex of \\(G_\pi\\). Prove that *v* is an articulation point of *G* if and only if
+>   *v* has a child *s* such that there is no back edge from *s* or any descendant of *s* to a proper ancestor of *v*.
 > - ***c.*** Let
 >
 >   *v*.*low* = \\(\min \begin{cases}v{.}d\text{,}\\\\
