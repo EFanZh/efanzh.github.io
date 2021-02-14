@@ -9479,6 +9479,23 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_4_reachability.rs).
 
+### 23 Minimum Spanning Trees
+
+#### 23.1 Growing a minimum spanning tree
+
+##### 23.1-1
+
+> Let (*u*, *v*) be a minimum-weight edge in a connected graph *G*. Show that (*u*, *v*) belongs to some minimum
+> spanning tree of *G*.
+
+Proof by contradiction:
+
+Suppose (*u*, *v*) does not belongs to any minimum spanning tree of *G*, for any minimum spanning tree of *G*, there
+must be a path in a tree from *u* to *v*. Let *p* be the vertex after *u* in the path. If we replace (*u*, *p*) with
+(*u*, *v*) in the tree, we can get a new tree with weight less than or equal to the original tree. So the new tree is a
+minimum spanning tree, which contradicts our supposition, so (*u*, *v*) must belong to some minimum spanning tree of
+*G*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
