@@ -9496,7 +9496,7 @@ must be a path in a tree from *u* to *v*. Let *p* be the vertex after *u* in the
 minimum spanning tree, which contradicts our supposition, so (*u*, *v*) must belong to some minimum spanning tree of
 *G*.
 
-#### 23.1-2
+##### 23.1-2
 
 > Professor Sabatier conjectures the following converse of Theorem 23.1. Let *G* = (*V*, *E*) be a connected, undirected
 > graph with a real-valued weight function *w* defined on *E*. Let *A* be a subset of *E* that is included in some
@@ -9515,6 +9515,18 @@ c ──1── d
 ```
 
 Let *A* = {(*a*, *c*)}, *S* = {*a*, *c*}, then (*a*, *b*) is a safe edge, but it is not a light edge.
+
+##### 23.1-3
+
+> Show that if an edge (*u*, *v*) is contained in some minimum spanning tree, then it is a light edge crossing some cut
+> of the graph.
+
+Proof by contradiction:
+
+Suppose there is a minimum spanning tree that contains an edge (*u*, *v*) that is not a light edge crossing any cuts,
+then (*u*, *v*) will separate the minimum spanning tree into two subtrees. Since (*u*, *v*) is not a light edge, there
+will be a light edge cutting the two subtrees. Replace (*u*, *v*) with the light edge in the minimum spanning tree, we
+can get a new tree with less weight. This contradicts our supposition of the minimum spanning tree. So the claim holds.
 
 ------------------------------------------------------------------------------------------------------------------------
 
