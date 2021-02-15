@@ -9528,6 +9528,34 @@ then (*u*, *v*) will separate the minimum spanning tree into two subtrees. Since
 will be a light edge cutting the two subtrees. Replace (*u*, *v*) with the light edge in the minimum spanning tree, we
 can get a new tree with less weight. This contradicts our supposition of the minimum spanning tree. So the claim holds.
 
+##### 23.1-4
+
+> Give a simple example of a connected graph such that the set of edges {(*u*, *v*) : there exists a cut
+> (*S*, *V* - *S*) such that (*u*, *v*) is a light edge crossing (*S*, *V* - *S*)} does not form a minimum spanning
+> tree.
+
+```text
+a──1──b
+|    ╱
+|   ╱
+1  1
+| ╱
+|╱
+c
+```
+
+##### 23.1-5
+
+> Let *e* be a maximum-weight edge on some cycle of connected graph *G* = (*V*, *E*). Prove that there is a minimum
+> spanning tree of *G*′ = (*V*, *E* - {*e*}) that is also a minimum spanning tree of *G*. That is, there is a minimum
+> spanning tree of *G* that does not include *e*.
+
+Proof by contradiction: Suppose that all minimum spanning trees of *G* include *e*, then for any minimum spanning tree,
+removing *e* will break the spanning tree into two subtrees. Then, there must be an edge *x* on the cycle other than *e*
+connecting the two subtrees. Adding *x* to the two subtrees, we get a new tree with weight less than or equal to the
+original minimal spanning tree, which means we get a new minimal spanning tree that does not contain *e*. This
+contradicts our supposition, so the claim holds.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
