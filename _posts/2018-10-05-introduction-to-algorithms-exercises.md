@@ -9507,11 +9507,12 @@ minimum spanning tree, which contradicts our supposition, so (*u*, *v*) must bel
 Example graph:
 
 ```text
-a ──2── b
-│
-│1
-│
-c ──1── d
+  2
+ a─────b
+ │
+1│
+ │  1
+ c─────d
 ```
 
 Let *A* = {(*a*, *c*)}, *S* = {*a*, *c*}, then (*a*, *b*) is a safe edge, but it is not a light edge.
@@ -9535,13 +9536,14 @@ can get a new tree with less weight. This contradicts our supposition of the min
 > tree.
 
 ```text
-a──1──b
-|    ╱
-|   ╱
-1  1
-| ╱
-|╱
-c
+    1
+ a─────b
+ |    ╱
+ |   ╱
+1|  ╱1
+ | ╱
+ |╱
+ c
 ```
 
 ##### 23.1-5
@@ -9555,6 +9557,27 @@ removing *e* will break the spanning tree into two subtrees. Then, there must be
 connecting the two subtrees. Adding *x* to the two subtrees, we get a new tree with weight less than or equal to the
 original minimal spanning tree, which means we get a new minimal spanning tree that does not contain *e*. This
 contradicts our supposition, so the claim holds.
+
+##### 23.1-6
+
+> Show that a graph has a unique minimum spanning tree if, for every cut of the graph, there is a unique light edge
+> crossing the cut. Show that the converse is not true by giving a counterexample.
+
+1. Proof by contradiction: suppose that there are two different minimum spanning trees *T* = (\\(V_T\\), \\(E_T\\)) and
+   *U* = (\\(V_U\\), \\(E_U\\)) for a graph *G* = (*V*, *E*), then there must exist some edges
+   (*u*, *v*) ∈ \\(E_T\\) - \\(E_U\\) and (*x*, *y*) ∈ \\(E_U\\) - \\(E_T\\).
+
+   Let the cut be ({*u*, *x*}, *V* - {*u*, *x*}), then (*u*, *v*) must be the unique light edge, otherwise we can
+   replace (*u*, *v*) with the light edge in *T* to get a new tree with lesser weight. Similarly, (*x*, *y*) should also
+   be the unique light edge, this contradicts our supposition, so the minimum spanning tree must be unique.
+2. See the following graph:
+
+    ```text
+      1     1
+   a─────b─────c
+   ```
+
+   The cut ({*a*, *c*}, {*b*}) has two light edges, but the minimum spanning tree is still unique.
 
 ------------------------------------------------------------------------------------------------------------------------
 
