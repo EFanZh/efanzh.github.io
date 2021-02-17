@@ -9563,13 +9563,16 @@ contradicts our supposition, so the claim holds.
 > Show that a graph has a unique minimum spanning tree if, for every cut of the graph, there is a unique light edge
 > crossing the cut. Show that the converse is not true by giving a counterexample.
 
-1. Proof by contradiction: suppose that there are two different minimum spanning trees *T* = (\\(V_T\\), \\(E_T\\)) and
-   *U* = (\\(V_U\\), \\(E_U\\)) for a graph *G* = (*V*, *E*), then there must exist some edges
-   (*u*, *v*) ∈ \\(E_T\\) - \\(E_U\\) and (*x*, *y*) ∈ \\(E_U\\) - \\(E_T\\).
+Theorem: For any minimum spanning tree *T* of a graph *G* = (*V*, *E*), for any cut of *G*, edges in *T* cross the cut
+must contain a light edge. Proof: For any cut (*S*, *V* - *S*), let (*u*, *v*) be a light edge cross the cut, then there
+is a path in *T* that connects *u* and *v*, and there is an edge *e* on the path crosses the cut. If *e* is not a light
+edge, we can replace it with the light edge without breaking the connectivity to get a tree with lesser weight. So there
+must be an light edge cross any cuts of the tree in *T*.
 
-   Let the cut be ({*u*, *x*}, *V* - {*u*, *x*}), then (*u*, *v*) must be the unique light edge, otherwise we can
-   replace (*u*, *v*) with the light edge in *T* to get a new tree with lesser weight. Similarly, (*x*, *y*) should also
-   be the unique light edge, this contradicts our supposition, so the minimum spanning tree must be unique.
+1. Let *T* and *U* be any two minimum spanning trees, for any edge (*u*, *v*) in *T*, removing it will break *T* into
+   two subtrees, and according to exercise 23.1-3, we know that (*u*, *v*) must be a light edge cross the cut of two
+   subtrees. Then since edges cross the same cut in *U* must contain a light edge, we know that (*u, v*) must be in *U*.
+   So any edge in *T* is in *U*, *T* and *U* must be the same tree, so the minimum spanning tree is unique.
 2. See the following graph:
 
     ```text
@@ -9578,6 +9581,47 @@ contradicts our supposition, so the claim holds.
    ```
 
    The cut ({*a*, *c*}, {*b*}) has two light edges, but the minimum spanning tree is still unique.
+
+##### 23.1-7
+
+> Argue that if all edge weights of a graph are positive, then any subset of edges that connects all vertices and has
+> minimum total weight must be a tree. Give an example to show that the same conclusion does not follow if we allow some
+> weights to be nonpositive.
+
+1. Proof by contradiction: Suppose the subset is not a tree, there must be cycles in the subset. Since the weights are
+   positive, remove any edge from the cycle will not break the connection but we will get a subset with lesser weight,
+   this contradicts out supposition.
+2. See the following graph:
+
+   ```text
+       -1
+     a─────b
+     |    ╱
+     |   ╱
+   -1|  ╱-1
+     | ╱
+     |╱
+     c
+   ```
+
+##### 23.1-8
+
+> Let *T* be a minimum spanning tree of a graph *G*, and let *L* be the sorted list of the edge weights of *T*. Show
+> that for any other minimum spanning tree *T*′ of *G*, the list *L* is also the sorted list of edge weights of *T*′.
+
+*Skipped.*
+
+##### 23.1-9
+
+> Let *T* be a minimum spanning tree of a graph *G* = (*V*, *E*), and let *V*′ be a subset of *V*. Let *T*′ be the
+> subgraph of *T* induced by *V*′, and let *G*′ be the subgraph of *G* induced by *V*′. Show that if *T*′ is connected,
+> then *T*′ is a minimum spanning tree of *G*′.
+
+*Proof by contradiction:
+
+If *T*′ is not a minimum spanning tree of *G*′, there must be a minimum spanning tree *U* of *G*′ with weight less than
+*T*′. We can replace *T*′ in *T* with *U* to get a tree with lesser weight. This is impossible since *T* is already a
+minimum spanning tree, so *T*′ must be a minimum spanning tree of *G*′.
 
 ------------------------------------------------------------------------------------------------------------------------
 
