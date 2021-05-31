@@ -9631,7 +9631,7 @@ means *T* and *T*′ have the same sorted edge weight list.
 > subgraph of *T* induced by *V*′, and let *G*′ be the subgraph of *G* induced by *V*′. Show that if *T*′ is connected,
 > then *T*′ is a minimum spanning tree of *G*′.
 
-*Proof by contradiction:
+Proof by contradiction:
 
 If *T*′ is not a minimum spanning tree of *G*′, there must be a minimum spanning tree *U* of *G*′ with weight less than
 *T*′. We can replace *T*′ in *T* with *U* to get a tree with lesser weight. This is impossible since *T* is already a
