@@ -40,7 +40,7 @@ For Rust version 1.52.1. References:
 | `unused_lifetimes`                        | warn        |                               |
 | `unused_qualifications`                   | warn        |                               |
 | `unused_results`                          | check       |                               |
-| `variant_size_differences`                | warn        |                               |
+| `variant_size_differences`                | check       |                               |
 | `clippy::as_conversions`                  | default     |                               |
 | `clippy::cargo_common_metadata`           | production  |                               |
 | `clippy::clone_on_ref_ptr`                | warn        |                               |
@@ -82,7 +82,7 @@ For Rust version 1.52.1. References:
 | `clippy::multiple_inherent_impl`          | warn        |                               |
 | `clippy::mutex_integer`                   | warn        |                               |
 | `clippy::needless_borrow`                 | warn        |                               |
-| `clippy::panic`                           | warn        |                               |
+| `clippy::panic`                           | check       |                               |
 | `clippy::panic_in_result_fn`              | warn        |                               |
 | `clippy::path_buf_push_overwrite`         | warn        |                               |
 | `clippy::pattern_type_mismatch`           | allow       |                               |
@@ -124,6 +124,8 @@ Exceptions:
 
 ## Summary
 
+Personal projects:
+
 ```rust
 #![warn(
     explicit_outlives_requirements,
@@ -142,7 +144,6 @@ Exceptions:
     unused_import_braces,
     unused_lifetimes,
     unused_qualifications,
-    variant_size_differences,
     clippy::clone_on_ref_ptr,
     clippy::cognitive_complexity,
     clippy::debug_assert_with_mut_call,
@@ -155,7 +156,6 @@ Exceptions:
     clippy::multiple_inherent_impl,
     clippy::mutex_integer,
     clippy::needless_borrow,
-    clippy::panic,
     clippy::panic_in_result_fn,
     clippy::path_buf_push_overwrite,
     clippy::pedantic,
