@@ -9609,7 +9609,21 @@ must be an light edge cross any cuts of the tree in *T*.
 > Let *T* be a minimum spanning tree of a graph *G*, and let *L* be the sorted list of the edge weights of *T*. Show
 > that for any other minimum spanning tree *T*′ of *G*, the list *L* is also the sorted list of edge weights of *T*′.
 
-*Skipped.*
+For any two different minimum spanning tree *T* and *T*′, there must be some edge (*u*, *v*) exist in *T*, but in *T*′.
+(*u*, *v*) in *T* partition the graph into a cut. Since *T*′ does not contain edge (*u*, *v*), there must be a path in
+*T*′ crossing the cut that connects *u* and *v*, thus the must be an edge (*x*, *y*) in *T*′ crossing the cut.
+
+Now we show that the weight of (*x*, *y*) must equal to the weight of (*u*, *v*). Removing edge (*x*, *y*) will breaking
+*T*′ into two subtrees, each containing *u* and *v*. We can then connect these two subtree into a new tree by add the
+edge (*u*, *v*). Since *T*′ is a minimum spanning tree, we can not get a new tree with less weight, so the weight of
+(*u*, *v*) must be greater than or equal to the weight of (*x*, *y*). On the other hand, we can replace (*u*, *v*) with
+(*x*, *y*) in *T* to get a new tree, since *T* is a minimum spanning tree, we have the weight of (*x*, *y*) must be
+greater than or equal to the weight of (*u*, *v*). So the weight of (*x*, *y*) must equal to the weight of (*u*, *v*).
+
+The procedure above can transform *T*′ into another tree by replacing an edge with another edge of same weight. The new
+tree has the same sorted edge weight list as *T*′ but with one less different edge with *T*. We can apply the procedure
+repeatedly until we transform *T*′ into *T*. The whole procedure does not change the edge sorted weight list, which
+means *T* and *T*′ have the same sorted edge weight list.
 
 ##### 23.1-9
 
