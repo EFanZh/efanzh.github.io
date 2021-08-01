@@ -9637,6 +9637,26 @@ If *T*′ is not a minimum spanning tree of *G*′, there must be a minimum span
 *T*′. We can replace *T*′ in *T* with *U* to get a tree with lesser weight. This is impossible since *T* is already a
 minimum spanning tree, so *T*′ must be a minimum spanning tree of *G*′.
 
+##### 23.1-10
+
+> Given a graph *G* and a minimum spanning tree *T*, suppose that we decrease the weight of one of the edges in *T*.
+> Show that *T* is still a minimum spanning tree for *G*. More formally, let *T* be a minimum spanning tree for *G* with
+> edge weights given by weight function *w*. Choose one edge (*x*, *y*) ∈ *T* and a positive number *k*, and define the
+> weight function *w*′ by
+>
+> *w*′ = \\(\begin{cases}
+> w(u, v) & \text{if $(u, v) ≠ (x, y)$,}\\\\
+> w(x, y) - k & \text{if $(u, v) = (x, y)$.}
+> \end{cases}\\)
+>
+> Show that *T* is a minimum spanning tree for *G* with edge weights given by *w*′.
+
+After decreasing the weight of one edge by *k*, the weights of all spanning trees can decrease at most by *k*,
+depdending on whether the spanning tree contains the weight decreased edge. So the weight of the minimal spanning tree
+can also decrease at most by *k*. We also know that the weight of the original minimal spanning tree decreases exactly
+by *k*, so it must be a minimal spanning tree in the new graph, since we just showed spanning trees can not decrease by
+more than *k*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
