@@ -38,6 +38,12 @@ comm -23 <(pacman -Qeq | sort) <(pacman -Qeqtt | sort) | xargs -r pacman -D --as
 comm -23 (pacman -Qeq | sort | psub) (pacman -Qeqtt | sort | psub) | xargs -r pacman -D --asdeps
 ```
 
+### Find packages containing wallpapers
+
+```sh
+pacman -Fl | grep -oP '^\S+ (?=usr/share/(wallpapers|backgrounds)/)' | sort -u
+```
+
 ## [OpenSSL](https://www.openssl.org)
 
 ### Generate self-signed certificate
@@ -62,6 +68,16 @@ openssl pkcs12 \
     -out cert.pfx \
     -in cert.pem \
     -inkey key.pem
+```
+
+## [TeXmacs](https://www.texmacs.org)
+
+### Import external fonts
+
+```sh
+texmacs -x '(set-preference "imported fonts" "/usr/share/fonts/adobe-source-code-pro:/usr/share/fonts/adobe-source-han-sans:/usr/share/fonts/adobe-source-han-serif:/usr/share/fonts/adobe-source-sans-pro:/usr/share/fonts/adobe-source-serif-pro")
+            (font-database-build-local)
+            (quit-TeXmacs)'
 ```
 
 ## Others
