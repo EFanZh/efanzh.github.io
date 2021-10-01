@@ -87,3 +87,9 @@ texmacs -x '(set-preference "imported fonts" "/usr/share/fonts/adobe-source-code
 ```sh
 swapoff -a && swapon -a
 ```
+
+### Mirror a directory index website
+
+```sh
+wget -m -np -R 'index.html*'
+```
