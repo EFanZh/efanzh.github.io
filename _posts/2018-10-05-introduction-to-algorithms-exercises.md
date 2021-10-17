@@ -9657,6 +9657,18 @@ can also decrease at most by *k*. We also know that the weight of the original m
 by *k*, so it must be a minimal spanning tree in the new graph, since we just showed spanning trees can not decrease by
 more than *k*.
 
+##### 23.1-11 ★
+
+> Given a graph *G* and a minimum spanning tree *T*, suppose that we decrease the weight of one of the edges not in *T*.
+> Give an algorithm for finding the minimum spanning tree in the modified graph.
+
+Let the edge that has weight decreased be (*u*, *v*). First find a path in *T* that connects *u* and *v*. Let (*x*, *y*)
+be some maximal weighted edge on the path.
+
+- If the weight of (*u*, *v*) after decreasing is less than the weight of (*x*, *y*), replace (*x*, *y*) with
+  (*u*, *v*), we can get the new minimal spanning tree.
+- Otherwise, the minimal spanning tree remains the same.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
