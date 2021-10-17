@@ -3461,7 +3461,7 @@ Proof by induction:
 
 - Base case: After the first iteration, array *A* is being sorted on the first digit of its elements, so the array is
   sorted on the lowest-order digit.
-- Indictive case: At the (*i* + 1)-th iteration, the array is being sorted on the (*i* + 1)-th lowest-order digit with a
+- Inductive case: At the (*i* + 1)-th iteration, the array is being sorted on the (*i* + 1)-th lowest-order digit with a
   stable sort, which means the elements with the same (*i* + 1)-th lowest-order digit will be grouped together in a
   sorted order; also, because the sort is stable, the relative order of the elements in any group is kept. By induction,
   we know that after the *i*th iteration, array *A* is sorted on the *i* lowest-order digits, so the elements in each
@@ -5687,7 +5687,7 @@ Since the left rotation and right rotation are symmetric, we can recover the ori
 chain using left rotations in a reversed order, which takes *O*(*n* - 1) time.
 
 So to transform one tree *A* to another tree *B*, we can first transform it into a right going chain, then recover the
-struct of tree *B*. Both steps takes *O*(*n* - 1) time, so the total running time is *O*(*n*).
+structure of tree *B*. Both steps takes *O*(*n* - 1) time, so the total running time is *O*(*n*).
 
 ##### 13.2-5 ★
 
@@ -6410,7 +6410,7 @@ Base case:
 = 1\
 = \\(2^0\\).
 
-Indictive case: If *n* > 0:
+Inductive case: If *n* > 0:
 
 *T*(*n*)\
 = 1 + \\(∑_{j = 0}^{n - 1} T(j)\\)\
@@ -7892,7 +7892,7 @@ Let \\(s_i\\) be the size of the table after the *i*th operation, and \\(n_i\\) 
     ⇔ \\(n_{i - 1}\\) < 2\
     ⇔ \\(n_{i - 1}\\) = 1. (\\(n_{i - 1}\\) ≠ 0 because we will do a deletion on \\(n_{i - 1}\\) elements)
 
-    Doing a deletion on a constant size dynmaic table costs constant time.
+    Doing a deletion on a constant size dynamic table costs constant time.
   - If the *i*th operation does not trigger a contraction, we have:
 
     \\(\hat{c}\_i\\)\
@@ -9203,7 +9203,7 @@ Solution is implemented
 u ⇄ w → v
 ```
 
-Visit from *w* node, we can get both *u* and *v* being *w*’s chidren.
+Visit from *w* node, we can get both *u* and *v* being *w*’s children.
 
 ##### 22.3-9
 
