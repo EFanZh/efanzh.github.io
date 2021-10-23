@@ -91,8 +91,8 @@ For Rust version 1.56.0. References:
 | `clippy::path_buf_push_overwrite`         | warn    |                                    |
 | `clippy::pattern_type_mismatch`           | default |                                    |
 | `clippy::pedantic`                        | warn    |                                    |
-| `clippy::print_stderr`                    | default |                                    |
-| `clippy::print_stdout`                    | default |                                    |
+| `clippy::print_stderr`                    | warn    |                                    |
+| `clippy::print_stdout`                    | warn    |                                    |
 | `clippy::rc_buffer`                       | warn    |                                    |
 | `clippy::rc_mutex`                        | warn    |                                    |
 | `clippy::redundant_pub_crate`             | default | See `unreachable_pub`.             |
@@ -129,7 +129,75 @@ Exceptions:
 
 ## Summary
 
-Personal projects:
+Add the following configuration to `.cargo/config.toml`:
+
+```toml
+[target.'cfg(feature = "cargo-clippy")']
+rustflags = [
+  "-Wexplicit_outlives_requirements",
+  "-Wmacro_use_extern_crate",
+  "-Wmeta_variable_misuse",
+  "-Wmissing_abi",
+  "-Wmissing_docs",
+  "-Wnoop_method_call",
+  "-Wpointer_structural_match",
+  "-Wsingle_use_lifetimes",
+  "-Wtrivial_casts",
+  "-Wtrivial_numeric_casts",
+  "-Wunsafe_code",
+  "-Wunsafe_op_in_unsafe_fn",
+  "-Wunused_crate_dependencies",
+  "-Wunused_extern_crates",
+  "-Wunused_import_braces",
+  "-Wunused_lifetimes",
+  "-Wunused_qualifications",
+  "-Wvariant_size_differences",
+  "-Wclippy::cargo_common_metadata",
+  "-Wclippy::clone_on_ref_ptr",
+  "-Wclippy::cognitive_complexity",
+  "-Wclippy::create_dir",
+  "-Wclippy::dbg_macro",
+  "-Wclippy::debug_assert_with_mut_call",
+  "-Wclippy::empty_line_after_outer_attr",
+  "-Wclippy::fallible_impl_from",
+  "-Wclippy::filetype_is_file",
+  "-Wclippy::float_cmp_const",
+  "-Wclippy::get_unwrap",
+  "-Wclippy::if_then_some_else_none",
+  "-Wclippy::imprecise_flops",
+  "-Wclippy::let_underscore_must_use",
+  "-Wclippy::lossy_float_literal",
+  "-Wclippy::multiple_inherent_impl",
+  "-Wclippy::mutex_integer",
+  "-Wclippy::nonstandard_macro_braces",
+  "-Wclippy::panic_in_result_fn",
+  "-Wclippy::path_buf_push_overwrite",
+  "-Wclippy::pedantic",
+  "-Wclippy::print_stderr",
+  "-Wclippy::print_stdout",
+  "-Wclippy::rc_buffer",
+  "-Wclippy::rc_mutex",
+  "-Wclippy::rest_pat_in_fully_bound_structs",
+  "-Wclippy::string_lit_as_bytes",
+  "-Wclippy::string_to_string",
+  "-Wclippy::suboptimal_flops",
+  "-Wclippy::suspicious_operation_groupings",
+  "-Wclippy::todo",
+  "-Wclippy::trivial_regex",
+  "-Wclippy::unimplemented",
+  "-Wclippy::unnecessary_self_imports",
+  "-Wclippy::unneeded_field_pattern",
+  "-Wclippy::use_debug",
+  "-Wclippy::use_self",
+  "-Wclippy::useless_let_if_seq",
+  "-Wclippy::useless_transmute",
+  "-Wclippy::verbose_file_reads",
+  "-Wclippy::wildcard_dependencies",
+  "-Aclippy::non_ascii_literal",
+]
+```
+
+Or add the following code to the top of `lib.rs` or `main.rs`:
 
 ```rust
 #![warn(
@@ -172,6 +240,8 @@ Personal projects:
     clippy::panic_in_result_fn,
     clippy::path_buf_push_overwrite,
     clippy::pedantic,
+    clippy::print_stderr,
+    clippy::print_stdout,
     clippy::rc_buffer,
     clippy::rc_mutex,
     clippy::rest_pat_in_fully_bound_structs,
