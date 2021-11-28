@@ -263,3 +263,10 @@ Or add the following code to the top of `lib.rs` or `main.rs`:
 )]
 #![allow(clippy::non_ascii_literal)]
 ```
+
+## `.clippy.toml` Configuration
+
+```toml
+avoid-breaking-exported-api = false
+warn-on-all-wildcard-imports = true
+```
