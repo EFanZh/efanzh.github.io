@@ -3,10 +3,13 @@
 This is my [Rustfmt](https://github.com/rust-lang/rustfmt) configuration:
 
 ```toml
+# array_width = 60
+# attr_fn_like_width = 70
 # binop_separator = "Front"
 # blank_lines_lower_bound = 0
 # blank_lines_upper_bound = 1
 # brace_style = "SameLineWhere"
+# chain_width = 60
 # color = "Auto"
 # combine_control_expr = true
 # comment_width = 80
@@ -20,6 +23,7 @@ This is my [Rustfmt](https://github.com/rust-lang/rustfmt) configuration:
 # error_on_line_overflow = false
 # error_on_unformatted = false
 # fn_args_layout = "Tall"
+# fn_call_width = 60
 # fn_single_line = false
 # force_explicit_abi = true
 # force_multiline_blocks = false
@@ -27,9 +31,11 @@ This is my [Rustfmt](https://github.com/rust-lang/rustfmt) configuration:
 # format_macro_bodies = true
 # format_macro_matchers = false
 # format_strings = false
+# group_imports = "Preserve"
 # hard_tabs = false
 # hide_parse_errors = false
 # ignore = []
+# imports_granularity = "Preserve"
 # imports_indent = "Block"
 # imports_layout = "Mixed"
 # indent_style = "Block"
@@ -41,7 +47,6 @@ This is my [Rustfmt](https://github.com/rust-lang/rustfmt) configuration:
 # match_block_trailing_comma = false
 max_width = 120
 # merge_derives = true
-# merge_imports = false
 newline_style = "Native"
 # normalize_comments = false
 # normalize_doc_attributes = false
@@ -52,19 +57,22 @@ newline_style = "Native"
 # reorder_modules = true
 # report_fixme = "Never"
 # report_todo = "Never"
-# required_version = "1.4.24"
+# required_version = "1.4.37"
+# single_line_if_else_max_width = 50
 # skip_children = false
 # space_after_colon = true
 # space_before_colon = false
 # spaces_around_ranges = false
 # struct_field_align_threshold = 0
 # struct_lit_single_line = true
+# struct_lit_width = 18
+# struct_variant_width = 35
 # tab_spaces = 4
 # trailing_comma = "Vertical"
 # trailing_semicolon = true
 # type_punctuation_density = "Wide"
 # unstable_features = false
-# use_field_init_shorthand = false
+use_field_init_shorthand = true
 # use_small_heuristics = "Default"
 # use_try_shorthand = false
 # version = "One"
