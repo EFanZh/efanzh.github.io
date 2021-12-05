@@ -9669,6 +9669,16 @@ be some maximal weighted edge on the path.
   (*u*, *v*), we can get the new minimal spanning tree.
 - Otherwise, the minimal spanning tree remains the same.
 
+#### 23.2 The algorithms of Kruskal and Prim
+
+##### 23.2-1
+
+> Kruskal’s algorithm can return different spanning trees for the same input graph *G*, depending on how it breaks ties
+> when the edges are sorted into order. Show that for each minimum spanning tree *T* of *G*, there is a way to sort the
+> edges of *G* in Kruskal’s algorithm so that the algorithm returns *T*.
+
+Make sure that in each chunk of edges of the same weight, edges in *T* comes before edges not in *T*.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
