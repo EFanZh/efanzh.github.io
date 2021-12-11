@@ -2,7 +2,7 @@
 
 ## [aptitude](https://wiki.debian.org/Aptitude)
 
-### Normalize package dependencies
+### Normalize package dependencies (aptitude)
 
 ```sh
 aptitude markauto '~i !~M (~R~i | ~P~R~i)'
@@ -24,7 +24,7 @@ ffmpeg -i INPUT_FILE -vf mpdecimate,setpts=N/FRAME_RATE/TB OUTPUT_FILE
 
 ## [pacman](https://www.archlinux.org/pacman/)
 
-### Normalize package dependencies
+### Normalize package dependencies (pacman)
 
 ```sh
 # For Bash.
