@@ -1,4 +1,4 @@
-# EFanZh’s foobar2000 configuration
+# foobar2000 configuration
 
 ## Components
 
@@ -14,7 +14,7 @@
 ### Default User Interface
 
 - Theme management
-  - Import Theme: [EFanZh’s foobar2000 theme](https://efanzh.org/resources/foobar2000-theme.fth)
+  - Import Theme: [My foobar2000 theme](https://efanzh.org/resources/foobar2000-theme.fth)
   - System notification area
     - [x] Always show notification area icon
     - [x] Minimize to notification area

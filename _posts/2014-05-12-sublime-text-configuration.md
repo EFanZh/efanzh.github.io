@@ -1,4 +1,4 @@
-# EFanZh’s Sublime Text configuration
+# Sublime Text configuration
 
 ```json
 {

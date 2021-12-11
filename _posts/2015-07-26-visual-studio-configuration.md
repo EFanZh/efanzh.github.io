@@ -1,4 +1,4 @@
-# EFanZh’s Visual Studio configuration
+# Visual Studio configuration
 
 ## Options
 

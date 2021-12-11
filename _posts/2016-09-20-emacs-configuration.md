@@ -1,4 +1,4 @@
-# EFanZh’s Emacs configuration
+# Emacs configuration
 
 ```elisp
 ;; Added by Package.el.  This must come before configurations of
