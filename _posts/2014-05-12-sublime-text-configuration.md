@@ -3,8 +3,7 @@
 ```json
 {
     "draw_white_space": "all",
-    "font_options":
-    [
+    "font_options": [
         "directwrite"
     ],
     "font_size": 9,
