@@ -3430,7 +3430,7 @@ Solution is implemented
 ##### 8.3-1
 
 > Using Figure 8.3 as a model, illustrate the operation of *Radix-Sort* on the following list of English words: COW,
-> DOG, SEA, RUG, ROW, MOB, BOX, \\(T_A\\)B, BAR, EAR, \\(T_A\\)R, DIG, BIG, TEA, NOW, FOX.
+> DOG, SEA, RUG, ROW, MOB, BOX, TAB, BAR, EAR, TAR, DIG, BIG, TEA, NOW, FOX.
 
 *Skipped.*
 
