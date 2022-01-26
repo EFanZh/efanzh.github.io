@@ -9679,6 +9679,14 @@ be some maximal weighted edge on the path.
 
 Make sure that in each chunk of edges of the same weight, edges in *T* comes before edges not in *T*.
 
+##### 23.2-2
+
+> Suppose that we represent the graph *G* = (*V*, *E*) as an adjacency matrix. Give a simple implementation of Prim’s
+> algorithm for this case that runs in *O*(\\(V^2\\)) time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_23_minimum_spanning_trees/section_23_2_the_algorithms_of_kruskal_and_prim/exercises/exercise_23_2_2.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
