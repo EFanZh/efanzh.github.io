@@ -985,7 +985,7 @@ Inductive case:
 >
 > \\(f_c^*(n) = \min \lbrace i ≥ 0 : f^{(i)}(n) ≤ c \rbrace\\),
 >
-> which need not be well defined in all cases. In other words, the quantity \\(f_c^*(n)\\) is the number of
+> which need not be well defined in all cases. In other words, the quantity \\(f_c^\*(n)\\) is the number of
 > iterated applications of the function *f* required to reduce its argument down to *c* or less.
 >
 > For each of the following functions *f*(*n*) and constants *c*, give as tight a bound as possible on
@@ -9686,6 +9686,91 @@ Make sure that in each chunk of edges of the same weight, edges in *T* comes bef
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_23_minimum_spanning_trees/section_23_2_the_algorithms_of_kruskal_and_prim/exercises/exercise_23_2_2.rs).
+
+##### 23.2-3
+
+> For a sparse graph *G* = (*V*, *E*), where |*E*| = Θ(*V*), is the implementation of Prim’s algorithm with a Fibonacci
+> heap asymptotically faster than the binary-heap implementation? What about for a dense graph, where
+> |*E*| = (\\(V^2\\))? How must the sizes |*E*| and |*V*| be related for the Fibonacci-heap implementation to be
+> asymptotically faster than the binary-heap implementation?
+
+*Skipped.*
+
+##### 23.2-4
+
+> Suppose that all edge weights in a graph are integers in the range from 1 to |*V*|. How fast can you make Kruskal’s
+> algorithm run? What if the edge weights are integers in the range from 1 to |*W*| for some constant *W*?
+
+*Skipped.*
+
+##### 23.2-5
+
+> Suppose that all edge weights in a graph are integers in the range from 1 to |*V*|. How fast can you make Prim’s
+> algorithm run? What if the edge weights are integers in the range from 1 to |*W*| for some constant *W*?
+
+*Skipped.*
+
+##### 23.2-6 ★
+
+> Suppose that the edge weights in a graph are uniformly distributed over the half-open interval [0, 1). Which
+> algorithm, Kruskal’s or Prim’s, can you make run faster?
+
+*Skipped.*
+
+##### 23.2-7 ★
+
+> Suppose that a graph *G* has a minimum spanning tree already computed. How quickly can we update the minimum spanning
+> tree if we add a new vertex and incident edges to *G*?
+
+*Skipped.*
+
+##### 23.2-8
+
+> Professor Borden proposes a new divide-and-conquer algorithm for computing minimum spanning trees, which goes as
+> follows. Given a graph *G* = (*V*, *E*), partition the set *V* of vertices into two sets \\(V_1\\) and \\(V_2\\) such
+> that |\\(V_1\\)| and |\\(V_2\\)| differ by at most 1. Let \\(E_1\\) be the set of edges that are incident only on
+> vertices in \\(V_1\\), and let \\(E_2\\) be the set of edges that are incident only on vertices in \\(V_2\\).
+> Recursively solve a minimum-spanning-tree problem on each of the two subgraphs \\(G_1\\) = (\\(V_1\\), \\(E_1\\)) and
+> \\(G_2\\) = (\\(V_2\\), \\(E_2\\)). Finally, select the minimum-weight edge in *E* that crosses the cut
+> (\\(V_1\\), \\(V_2\\)), and use this edge to unite the resulting two minimum spanning trees into a single spanning
+> tree. Either argue that the algorithm correctly computes a minimum spanning tree of *G*, or provide an example for
+> which the algorithm fails.
+
+This algorithms fails to compute a minimum spanning tree of the following graph:
+
+```text
+    1
+ a─────b
+ │     │
+1│     │1
+ │     │
+ c─────d
+    2
+```
+
+If we partition the graph above into a subgraph containing {*a*, *b*} and a subgraph containing {*c*, *d*}, the result
+will be:
+
+```text
+    1
+ a─────b
+ │
+1│
+ │
+ c─────d
+    2
+```
+
+But the correct answer should be:
+
+```text
+    1
+ a─────b
+ │     │
+1│     │1
+ │     │
+ c     d
+```
 
 ------------------------------------------------------------------------------------------------------------------------
 
