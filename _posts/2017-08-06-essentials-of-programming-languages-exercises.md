@@ -2,22 +2,34 @@
 enable_mathjax: true
 ---
 
+<!-- markdownlint-disable blanks-around-fences no-inline-html -->
+
 # Essentials of Programming Languages Exercises
 
-## Codes
+## Preface
 
-Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exercises).
+### Usage
 
-## Exercises
+#### Usage - X
 
-> Exercise 0.1 [★] We often use phrases like “some languages have property X.” For each such phrase, find one or more
+##### Exercise 0.1 [★]
+
+> We often use phrases like “some languages have property X.” For each such phrase, find one or more
 > languages that have the property and one or more languages that do not have the property. Feel free to ferret out this
 > information from any descriptive book on programming languages (say Scott (2005), Sebesta (2007), or Pratt & Zelkowitz
 > (2001)).
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 1.1 [★] Write inductive definitions of the following sets. Write each definition in all three styles
+## 1 Inductive Sets of Data
+
+### 1.1 Recursively Specified Data
+
+#### 1.1.1 Inductive Specification
+
+##### Exercise 1.1 [★]
+
+> Write inductive definitions of the following sets. Write each definition in all three styles
 > (top-down, bottom-up, and rules of inference). Using your rules, show the derivation of some sample elements of each
 > set.
 >
@@ -96,7 +108,9 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
       - \\(\dfrac{}{(0, 0) ∈ S}\\)
       - \\(\dfrac{(m, n) ∈ S}{(m + 1, n + 2m + 1) ∈ S}\\)
 
-> Exercise 1.2 [★★] What sets are defined by the following pairs of rules? Explain why.
+##### Exercise 1.2 [★★]
+
+> What sets are defined by the following pairs of rules? Explain why.
 >
 > 1. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, k + 7) ∈ S}\\)
 > 2. \\((0, 1) ∈ S \quad \dfrac{(n, k) ∈ S}{(n + 1, 2k) ∈ S}\\)
@@ -116,12 +130,18 @@ Code for the exercises can be found [here](https://github.com/EFanZh/EOPL-Exerci
 
    {(*n*, 2*n* + 1, *n*<sup>2</sup>) | *n* ∈ *N*}
 
-> Exercise 1.3 [★★★] Find a set *T* of natural numbers such that 0 ∈ *T*, and whenever *n* ∈ *T*, then *n* + 3 ∈ *T*,
+##### Exercise 1.3 [★★★]
+
+> Find a set *T* of natural numbers such that 0 ∈ *T*, and whenever *n* ∈ *T*, then *n* + 3 ∈ *T*,
 > but *T* ≠ *S*, where *S* is the set defined in definition 1.1.2.
 
 Let *T* = *N*.
 
-> Exercise 1.4 [★] Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
+#### 1.1.2 Defining Sets Using Grammars
+
+##### Exercise 1.4 [★]
+
+> Write a derivation from *List-of-Int* to `(-7 . (3 . (14 . ())))`.
 
 *List-of-Int*\
 ⇒ `(`*Int* `.` *List-of-Int*`)`\
@@ -132,7 +152,11 @@ Let *T* = *N*.
 ⇒ `(-7 . (3 . (14 .` *List-of-Int*`)))`\
 ⇒ `(-7 . (3 . (14 . ())))`
 
-> Exercise 1.5 [★★] Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
+#### 1.1.3 Induction
+
+##### Exercise 1.5 [★★]
+
+> Prove that if *e* ∈ *LcExp*, then there are the same number of left and right parentheses in *e*.
 
 By induction on the structure of *LcExp*.
 
@@ -146,11 +170,19 @@ If *e* is of `(`*LcExp* *LcExp*`)` form, let *m* be the number of left or right 
 *n* be the number of left or right parentheses in the second *LcExp*, then *e* has *m* + *n* + 1 left parentheses and
 *m* + *n* + 1 right parentheses. The hypothesis holds.
 
-> Exercise 1.6 [★] If we reversed the order of the tests in `nth-element`, what would go wrong?
+### 1.2 Deriving Recursive Programs
+
+#### 1.2.2 `nth-element`
+
+##### Exercise 1.6 [★]
+
+> If we reversed the order of the tests in `nth-element`, what would go wrong?
 
 `car` may be applied to empty list.
 
-> Exercise 1.7 [★★] The error message from `nth-element` is uninformative. Rewrite `nth-element` so that it produces a
+##### Exercise 1.7 [★★]
+
+> The error message from `nth-element` is uninformative. Rewrite `nth-element` so that it produces a
 > more informative error message, such as “`(a b c)` does not have 8 elements.”
 
 ```scheme
@@ -172,7 +204,11 @@ If *e* is of `(`*LcExp* *LcExp*`)` form, let *m* be the number of left or right 
     (nth-element-helper lst n lst n)))
 ```
 
-> Exercise 1.8 [★] In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
+#### 1.2.3 `remove-first`
+
+##### Exercise 1.8 [★]
+
+> In the definition of remove-first, if the last line were replaced by `(remove-first s (cdr los))`,
 > what function would the resulting procedure compute? Give the contract, including the usage statement, for the revised
 > procedure.
 
@@ -191,7 +227,9 @@ If *e* is of `(`*LcExp* *LcExp*`)` form, let *m* be the number of left or right 
             (remove-first s (cdr los))))))
 ```
 
-> Exercise 1.9 [★★] Define `remove`, which is like `remove-first`, except that it removes all occurrences of a given
+##### Exercise 1.9 [★★]
+
+> Define `remove`, which is like `remove-first`, except that it removes all occurrences of a given
 > symbol from a list of symbols, not just the first.
 
 ```scheme
@@ -204,17 +242,27 @@ If *e* is of `(`*LcExp* *LcExp*`)` form, let *m* be the number of left or right 
             (cons (car los) (remove s (cdr los)))))))
 ```
 
-> Exercise 1.10 [★] We typically use “or” to mean “inclusive or”. What other meanings can “or” have?
+#### 1.2.4 `occurs-free?`
+
+##### Exercise 1.10 [★]
+
+> We typically use “or” to mean “inclusive or”. What other meanings can “or” have?
 
 Exclusive or.
 
-> Exercise 1.11 [★] In the last line of `subst-in-s-exp`, the recursion is on sexp and not a smaller substructure. Why
+#### 1.2.5 `subst`
+
+##### Exercise 1.11 [★]
+
+> In the last line of `subst-in-s-exp`, the recursion is on sexp and not a smaller substructure. Why
 > is the recursion guaranteed to halt?
 
 Because `subst` recurs on smaller substructure. We can replace the call to `subst-in-s-exp` with the body of
 `subst-in-s-exp`, then `subst` becomes a normal recursive on a smaller substructure.
 
-> Exercise 1.12 [★] Eliminate the one call to `subst-in-s-exp` in `subst` by replacing it by its definition and
+##### Exercise 1.12 [★]
+
+> Eliminate the one call to `subst-in-s-exp` in `subst` by replacing it by its definition and
 > simplifying the resulting procedure. The result will be a version of `subst` that does not need `subst-in-s-exp`. This
 > technique is called *inlining*, and is used by optimizing compilers.
 
@@ -230,7 +278,9 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
               (subst new old (cdr slist))))))
 ```
 
-> Exercise 1.13 [★★] In our example, we began by eliminating the Kleene star in the grammar for *S-list*. Write
+##### Exercise 1.13 [★★]
+
+> In our example, we began by eliminating the Kleene star in the grammar for *S-list*. Write
 > `subst` following the original grammar by using `map`.
 
 ```scheme
@@ -246,7 +296,13 @@ Because `subst` recurs on smaller substructure. We can replace the call to `subs
          slist)))
 ```
 
-> Exercise 1.14 [★★] Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
+### 1.3 Auxiliary Procedures and Context Arguments
+
+#### 1.3.0
+
+##### Exercise 1.14 [★★]
+
+> Given the assumption 0 ≤ *n* < *length*(*v*), prove that `partial-vector-sum` is correct.
 
 Since 0 ≤ *n* < *length*(*v*), we know that *length*(*v*) is at least 1, so that *v* contains at least one element. We
 prove `partial-vector-sum` is correct by induction over *n*.
@@ -258,7 +314,13 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
 `(add (vector-ref` *v* *n*`) (partial-vector-sum` *v* `(-` *n* `1)))`, which equals to
 \\(v_n + \sum_{i = 0}^{n - 1} v_i\\), which equals to \\(\sum_{i = 0}^n v_i\\), the claim holds.
 
-> Exercise 1.15 [★] `(duple n x)` returns a list containing `n` copies of `x`.
+### 1.4 Exercises
+
+#### 1.4.0
+
+##### Exercise 1.15 [★]
+
+> `(duple n x)` returns a list containing `n` copies of `x`.
 >
 > ```scheme
 > > (duple 2 3)
@@ -281,7 +343,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (duple-helper '() n x)))
 ```
 
-> Exercise 1.16 [★] `(invert lst)`, where lst is a list of 2-lists (lists of length two), returns a list with each
+##### Exercise 1.16 [★]
+
+> `(invert lst)`, where lst is a list of 2-lists (lists of length two), returns a list with each
 > 2-list reversed.
 >
 > ```scheme
@@ -296,7 +360,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
          lst)))
 ```
 
-> Exercise 1.17 [★] `(down lst)` wraps parentheses around each top-level element of `lst`.
+##### Exercise 1.17 [★]
+
+> `(down lst)` wraps parentheses around each top-level element of `lst`.
 >
 > ```scheme
 > > (down '(1 2 3))
@@ -314,7 +380,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
          lst)))
 ```
 
-> Exercise 1.18 [★] `(swapper s1 s2 slist)` returns a list the same as slist, but with all occurrences of `s1` replaced
+##### Exercise 1.18 [★]
+
+> `(swapper s1 s2 slist)` returns a list the same as slist, but with all occurrences of `s1` replaced
 > by `s2` and all occurrences of `s2` replaced by `s1`.
 >
 > ```scheme
@@ -340,7 +408,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
          slist)))
 ```
 
-> Exercise 1.19 [★] `(list-set lst n x)` returns a list like `lst`, except that the `n`-th element, using zero-based
+##### Exercise 1.19 [★]
+
+> `(list-set lst n x)` returns a list like `lst`, except that the `n`-th element, using zero-based
 > indexing, is `x`.
 >
 > ```scheme
@@ -358,7 +428,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (cons (car lst) (list-set (cdr lst) (- n 1) x)))))
 ```
 
-> Exercise 1.20 [★] `(count-occurrences s slist)` returns the number of occurrences of `s` in `slist`.
+##### Exercise 1.20 [★]
+
+> `(count-occurrences s slist)` returns the number of occurrences of `s` in `slist`.
 >
 > ```scheme
 > > (count-occurrences 'x '((f x) y (((x z) x))))
@@ -384,7 +456,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
            (count-occurrences s (cdr slist))))))
 ```
 
-> Exercise 1.21 [★★] `(product sos1 sos2)`, where `sos1` and `sos2` are each a list of symbols without repetitions,
+##### Exercise 1.21 [★★]
+
+> `(product sos1 sos2)`, where `sos1` and `sos2` are each a list of symbols without repetitions,
 > returns a list of 2-lists that represents the Cartesian product of `sos1` and `sos2`. The 2-lists may appear in any
 > order.
 >
@@ -413,7 +487,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (product-helper '() sos1 sos2)))
 ```
 
-> Exercise 1.22 [★★] `(filter-in pred lst)` returns the list of those elements in `lst` that satisfy the predicate
+##### Exercise 1.22 [★★]
+
+> `(filter-in pred lst)` returns the list of those elements in `lst` that satisfy the predicate
 > `pred`.
 >
 > ```scheme
@@ -435,7 +511,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
               tail)))))
 ```
 
-> Exercise 1.23 [★★] `(list-index pred lst)` returns the 0-based position of the first element of `lst` that satisfies
+##### Exercise 1.23 [★★]
+
+> `(list-index pred lst)` returns the 0-based position of the first element of `lst` that satisfies
 > the predicate `pred`. If no element of `lst` satisfies the predicate, then `list-index` returns `#f`.
 >
 > ```scheme
@@ -461,7 +539,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (list-index-helper 0 pred lst)))
 ```
 
-> Exercise 1.24 [★★] `(every? pred lst)` returns `#f` if any element of `lst` fails to satisfy `pred`, and returns
+##### Exercise 1.24 [★★]
+
+> `(every? pred lst)` returns `#f` if any element of `lst` fails to satisfy `pred`, and returns
 > `#t` otherwise.
 >
 > ```scheme
@@ -480,7 +560,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
              (every? pred (cdr lst))))))
 ```
 
-> Exercise 1.25 [★★] `(exists? pred lst)` returns `#t` if any element of `lst` satisfies `pred`, and returns `#f`
+##### Exercise 1.25 [★★]
+
+> `(exists? pred lst)` returns `#t` if any element of `lst` satisfies `pred`, and returns `#f`
 > otherwise.
 >
 > ```scheme
@@ -499,7 +581,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
             (exists? pred (cdr lst))))))
 ```
 
-> Exercise 1.26 [★★] `(up lst)` removes a pair of parentheses from each top-level element of `lst`. If a top-level
+##### Exercise 1.26 [★★]
+
+> `(up lst)` removes a pair of parentheses from each top-level element of `lst`. If a top-level
 > element is not a list, it is included in the result, as is. The value of `(up (down lst))` is equivalent to lst,
 > but `(down (up lst))` is not necessarily `lst`. (See exercise 1.17.)
 >
@@ -530,7 +614,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (up-element (up (cdr lst)) (car lst)))))
 ```
 
-> Exercise 1.27 [★★] `(flatten slist)` returns a list of the symbols contained in `slist` in the order in which they
+##### Exercise 1.27 [★★]
+
+> `(flatten slist)` returns a list of the symbols contained in `slist` in the order in which they
 > occur when `slist` is printed. Intuitively, `flatten` removes all the inner parentheses from its argument.
 >
 > ```scheme
@@ -563,7 +649,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (flatten-helper '() slist)))
 ```
 
-> Exercise 1.28 [★★] `(merge loi1 loi2)`, where `loi1` and `loi2` are lists of integers that are sorted in ascending
+##### Exercise 1.28 [★★]
+
+> `(merge loi1 loi2)`, where `loi1` and `loi2` are lists of integers that are sorted in ascending
 > order, returns a sorted list of all the integers in `loi1` and `loi2`.
 >
 > ```scheme
@@ -591,7 +679,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (merge-helper loi2 loi1))))
 ```
 
-> Exercise 1.29 [★★] `(sort loi)` returns a list of the elements of `loi` in ascending order.
+##### Exercise 1.29 [★★]
+
+> `(sort loi)` returns a list of the elements of `loi` in ascending order.
 >
 > ```scheme
 > > (sort '(8 2 5 2 3))
@@ -656,7 +746,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (sort-helper '() loi))))
 ```
 
-> Exercise 1.30 [★★] `(sort/predicate pred loi)` returns a list of elements sorted by the predicate.
+##### Exercise 1.30 [★★]
+
+> `(sort/predicate pred loi)` returns a list of elements sorted by the predicate.
 >
 > ```scheme
 > > (sort/predicate < '(8 2 5 2 3))
@@ -723,7 +815,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (sort-helper pred '() loi))))
 ```
 
-> Exercise 1.31 [★] Write the following procedures for calculating on a bintree (definition 1.1.7): `leaf` and
+##### Exercise 1.31 [★]
+
+> Write the following procedures for calculating on a bintree (definition 1.1.7): `leaf` and
 > `interior-node`, which build bintrees, `leaf?`, which tests whether a bintree is a leaf, and `lson`, `rson`, and
 > `contents-of`, which extract the components of a node. `contents-of` should work on both leaves and interior nodes.
 
@@ -749,7 +843,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
         (car bin-tree))))
 ```
 
-> Exercise 1.32 [★] Write a procedure `double-tree` that takes a bintree, as represented in definition 1.1.7, and
+##### Exercise 1.32 [★]
+
+> Write a procedure `double-tree` that takes a bintree, as represented in definition 1.1.7, and
 > produces another bintree like the original, but with all the integers in the leaves doubled.
 
 ```scheme
@@ -762,7 +858,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
                        (double-tree (rson bin-tree))))))
 ```
 
-> Exercise 1.33 [★★] Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
+##### Exercise 1.33 [★★]
+
+> Write a procedure `mark-leaves-with-red-depth` that takes a bintree (definition 1.1.7), and
 > produces a bintree of the same shape as the original, except that in the new tree, each leaf contains the number of
 > nodes between it and the root that contain the symbol `red`. For example, the expression
 >
@@ -803,7 +901,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (mark-leaves-with-red-depth-helper bin-tree 0)))
 ```
 
-> Exercise 1.34 [★★★] Write a procedure `path` that takes an integer `n` and a binary search tree `bst` (page 10)
+##### Exercise 1.34 [★★★]
+
+> Write a procedure `path` that takes an integer `n` and a binary search tree `bst` (page 10)
 > that contains the integer `n`, and returns a list of `left`s and `right`s showing how to find the node containing `n`.
 > If `n` is found at the root, it returns the empty list.
 >
@@ -826,7 +926,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
               (cons 'right (path n (caddr bst))))))))
 ```
 
-> Exercise 1.35 [★★★] Write a procedure `number-leaves` that takes a bintree, and produces a bintree like the
+##### Exercise 1.35 [★★★]
+
+> Write a procedure `number-leaves` that takes a bintree, and produces a bintree like the
 > original, except the contents of the leaves are numbered starting from 0. For example,
 >
 > ```scheme
@@ -869,7 +971,9 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
     (car (number-leaves-helper bin-tree 0))))
 ```
 
-> Exercise 1.36 [★★★] Write a procedure `g` such that `number-elements` from page 23 could be defined as
+##### Exercise 1.36 [★★★]
+
+> Write a procedure `g` such that `number-elements` from page 23 could be defined as
 >
 > ```scheme
 > (define number-elements
@@ -887,7 +991,15 @@ Inductive case: if *n* ≠ 0, *n* `(partial-vector-sum` *v* *n*`)` equals to
                tail))))
 ```
 
-> Exercise 2.1 [★] Implement the four required operations for bigits. Then use your implementation to calculate the
+## 2 Data Abstraction
+
+### 2.1 Specifying Data via Interfaces
+
+#### 2.1.0
+
+##### Exercise 2.1 [★]
+
+> Implement the four required operations for bigits. Then use your implementation to calculate the
 > factorial of 10. How does the execution time vary as this argument changes? How does the execution time vary as the
 > base changes? Explain why.
 
@@ -952,14 +1064,18 @@ When the argument of `factorial` becomes larger, the execution time becomes long
 The execution time becomes shorter when the base becomes larger. I think that’s because fewer allocations are needed
 when the base becomes larger.
 
-> Exercise 2.2 [★★] Analyze each of these proposed representations critically. To what extent do they succeed or fail
+##### Exercise 2.2 [★★]
+
+> Analyze each of these proposed representations critically. To what extent do they succeed or fail
 > in satisfying the specification of the data type?
 
 1. Unary representation. Too much space consumed.
 2. Scheme number representation. Not every language has native big integer support.
 3. Bignum representation. Not easy to implement.
 
-> Exercise 2.3 [★★] Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
+##### Exercise 2.3 [★★]
+
+> Define a representation of all the integers (negative and nonnegative) as diff-trees, where a
 > diff-tree is a list defined by the grammar
 >
 > *Diff-tree* ::= `(one)` | `(diff` *Diff-tree* *Diff-tree*`)`
@@ -1014,7 +1130,13 @@ when the base becomes larger.
        (list 'diff m (list 'diff '(diff (one) (one)) n))))
    ```
 
-> Exercise 2.4 [★★] Consider the data type of *stacks* of values, with an interface consisting of the procedures
+### 2.2 Representation Strategies for Data Types
+
+#### 2.2.1 The Environment Interface
+
+##### Exercise 2.4 [★★]
+
+> Consider the data type of *stacks* of values, with an interface consisting of the procedures
 > `empty-stack`, `push`, `pop`, `top`, and `empty-stack?`. Write a specification for these operations in the style of
 > the example above. Which operations are constructors and which are observers?
 
@@ -1028,12 +1150,16 @@ Constructors: `empty-stack`, `push` and `pop`.
 
 Observers: `top` and `empty-stack?`.
 
-> Exercise 2.5 [★] We can use any data structure for representing environments, if we can distinguish empty
+#### 2.2.2 Data Structure Representation
+
+##### Exercise 2.5 [★]
+
+> We can use any data structure for representing environments, if we can distinguish empty
 > environments from non-empty ones, and in which one can extract the pieces of a non-empty environment. Implement
 > environments using a representation in which the empty environment is represented as the empty list, and in which
 > `extend-env` builds an environment that looks like
 >
-> ```
+> ```text
 >       ┌───┬───┐
 >       │ ╷ │ ╶─┼─► saved-env
 >       └─┼─┴───┘
@@ -1065,11 +1191,15 @@ Observers: `top` and `empty-stack?`.
     (cons (cons var val) env)))
 ```
 
-> Exercise 2.6 [★] Invent at least three different representations of the environment interface and implement them.
+##### Exercise 2.6 [★]
+
+> Invent at least three different representations of the environment interface and implement them.
 
 *Deferred.*
 
-> Exercise 2.7 [★] Rewrite `apply-env` in figure 2.1 to give a more informative error message.
+##### Exercise 2.7 [★]
+
+> Rewrite `apply-env` in figure 2.1 to give a more informative error message.
 
 ```scheme
 (define empty-env
@@ -1116,16 +1246,20 @@ Observers: `top` and `empty-stack?`.
     (eopl:error 'apply-env "Bad environment: ~s" env)))
 ```
 
-> Exercise 2.8 [★] Add to the environment interface an observer called `empty-env?` and implement it using the
+##### Exercise 2.8 [★]
+
+> Add to the environment interface an observer called `empty-env?` and implement it using the
 > a-list representation.
 
-`(emtpy-env?` ⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise.
+`(empty-env?` ⌈*f*⌉`)` = `#t` if *f* = ∅, `#f` otherwise.
 
 ```scheme
 (define empty-env? null?)
 ```
 
-> Exercise 2.9 [★] Add to the environment interface an observer called `has-binding?` that takes an environment *env*
+##### Exercise 2.9 [★]
+
+> Add to the environment interface an observer called `has-binding?` that takes an environment *env*
 > and a variable *s* and tests to see if *s* has an associated value in *env*. Implement it using the a-list
 > representation.
 
@@ -1139,7 +1273,9 @@ Observers: `top` and `empty-stack?`.
           [else (has-binding? (cdr env) search-var)])))
 ```
 
-> Exercise 2.10 [★] Add to the environment interface a constructor `extend-env*`, and implement it using the a-list
+##### Exercise 2.10 [★]
+
+> Add to the environment interface a constructor `extend-env*`, and implement it using the a-list
 > representation. This constructor takes a list of variables, a list of values of the same length, and an environment,
 > and is specified by
 >
@@ -1157,11 +1293,13 @@ Observers: `top` and `empty-stack?`.
                      (cons (cons (car vars) (car vals)) env)))))
 ```
 
-> Exercise 2.11 [★★] A naïve implementation of `extend-env*` from the preceding exercise requires time proportional to
+##### Exercise 2.11 [★★]
+
+> A naïve implementation of `extend-env*` from the preceding exercise requires time proportional to
 > *k* to run. It is possible to represent environments so that `extend-env*` requires only constant time: represent
 > the empty environment by the empty list, and represent a non-empty environment by the data structure
 >
-> ```
+> ```text
 >       ┌───┬───┐
 >       │ ╷ │ ╶─┼─► saved-env
 >       └─┼─┴───┘
@@ -1176,7 +1314,7 @@ Observers: `top` and `empty-stack?`.
 >
 > Such an environment might look like
 >
-> ```
+> ```text
 >                backbone
 >                   │
 >     ┌───┬───┐     ▼     ┌───┬───┐           ┌───┬───┐
@@ -1220,7 +1358,11 @@ Observers: `top` and `empty-stack?`.
     (extend-env* (list var) (list val) env)))
 ```
 
-> Exercise 2.12 [★] Implement the stack data type of exercise 2.4 using a procedural representation.
+#### 2.2.3 Procedural Representation
+
+##### Exercise 2.12 [★]
+
+> Implement the stack data type of exercise 2.4 using a procedural representation.
 
 ```scheme
 (define empty-stack
@@ -1248,7 +1390,9 @@ Observers: `top` and `empty-stack?`.
     (stack 'empty?)))
 ```
 
-> Exercise 2.13 [★★] Extend the procedural representation to implement `empty-env?` by representing the environment by
+##### Exercise 2.13 [★★]
+
+> Extend the procedural representation to implement `empty-env?` by representing the environment by
 > a list of two procedures: one that returns the value associated with a variable, as before, and one that returns
 > whether or not the environment is empty.
 
@@ -1282,7 +1426,9 @@ Observers: `top` and `empty-stack?`.
     ((car env) search-var)))
 ```
 
-> Exercise 2.14 [★★] Extend the representation of the preceding exercise to include a third procedure that implements
+##### Exercise 2.14 [★★]
+
+> Extend the representation of the preceding exercise to include a third procedure that implements
 > `has-binding?` (see exercise 2.9).
 
 ```scheme
@@ -1324,7 +1470,13 @@ Observers: `top` and `empty-stack?`.
     ((caddr env) search-var)))
 ```
 
-> Exercise 2.15 [★] Implement the lambda-calculus expression interface for the representation specified by the grammar
+### 2.3 Interfaces for Recursive Data Types
+
+#### 2.3.0
+
+##### Exercise 2.15 [★]
+
+> Implement the lambda-calculus expression interface for the representation specified by the grammar
 > above.
 
 ```scheme
@@ -1366,7 +1518,9 @@ Observers: `top` and `empty-stack?`.
 (define app-exp->rand cadr)
 ```
 
-> Exercise 2.16 [★] Modify the implementation to use a representation in which there are no parentheses around the
+##### Exercise 2.16 [★]
+
+> Modify the implementation to use a representation in which there are no parentheses around the
 > bound variable in a `lambda` expression.
 
 ```scheme
@@ -1379,12 +1533,16 @@ Observers: `top` and `empty-stack?`.
 
 Remaining implementations are the same as the ones in exercise 2.15.
 
-> Exercise 2.17 [★] Invent at least two other representations of the data type of lambda-calculus expressions and
+##### Exercise 2.17 [★]
+
+> Invent at least two other representations of the data type of lambda-calculus expressions and
 > implement them.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 2.18 [★] We usually represent a sequence of values as a list. In this representation, it is easy to move
+##### Exercise 2.18 [★]
+
+> We usually represent a sequence of values as a list. In this representation, it is easy to move
 > from one element in a sequence to the next, but it is hard to move from one element to the preceding one without the
 > help of context arguments. Implement non-empty bidirectional sequences of integers, as suggested by the grammar
 >
@@ -1466,7 +1624,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
     (null? (caddr node))))
 ```
 
-> Exercise 2.19 [★] A binary tree with empty leaves and with interior nodes labeled with integers could be represented
+##### Exercise 2.19 [★]
+
+> A binary tree with empty leaves and with interior nodes labeled with integers could be represented
 > using the grammar
 >
 > Bintree ::= `()` | `(`*Int* *Bintree* *Bintree*`)`
@@ -1527,7 +1687,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
       `(,root-value ,left-child (,num () ,right-child)))))
 ```
 
-> Exercise 2.20 [★★★] In the representation of binary trees in exercise 2.19 it is easy to move from a parent node to
+##### Exercise 2.20 [★★★]
+
+> In the representation of binary trees in exercise 2.19 it is easy to move from a parent node to
 > one of its sons, but it is impossible to move from a son to its parent without the help of context arguments. Extend
 > the representation of lists in exercise 2.18 to represent nodes in a binary tree. As a hint, consider representing the
 > portion of the tree above the current node by a reversed list, as in exercise 2.18.
@@ -1607,7 +1769,13 @@ Remaining implementations are the same as the ones in exercise 2.15.
     (null? (cdr bintree))))
 ```
 
-> Exercise 2.21 [★] Implement the data type of environments, as in section 2.2.2, using `define-datatype`. Then include
+### 2.4 A Tool for Defining Recursive Data Types
+
+#### 2.4.0
+
+##### Exercise 2.21 [★]
+
+> Implement the data type of environments, as in section 2.2.2, using `define-datatype`. Then include
 > `has-binding?` of exercise 2.9.
 
 ```scheme
@@ -1633,7 +1801,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
                                     (has-binding? env search-var))])))
 ```
 
-> Exercise 2.22 [★] Using `define-datatype`, implement the stack data type of exercise 2.4.
+##### Exercise 2.22 [★]
+
+> Using `define-datatype`, implement the stack data type of exercise 2.4.
 
 ```scheme
 (define-datatype stack-type stack?
@@ -1660,7 +1830,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
       [push (saved-stack val) #f])))
 ```
 
-> Exercise 2.23 [★] The definition of `lc-exp` ignores the condition in definition 1.1.8 that says “*Identifier* is any
+##### Exercise 2.23 [★]
+
+> The definition of `lc-exp` ignores the condition in definition 1.1.8 that says “*Identifier* is any
 > symbol other than `lambda`.” Modify the definition of *identifier?* to capture this condition. As a hint, remember
 > that any predicate can be used in `define-datatype`, even ones you define.
 
@@ -1671,7 +1843,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
          (not (eqv? value 'lambda)))))
 ```
 
-> Exercise 2.24 [★] Here is a definition of binary trees using `define-datatype`.
+##### Exercise 2.24 [★]
+
+> Here is a definition of binary trees using `define-datatype`.
 >
 > ```scheme
 > (define-datatype bintree bintree?
@@ -1704,7 +1878,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
                                             (bintree-to-list right))])))
 ```
 
-> Exercise 2.25 [★★] Use `cases` to write `max-interior`, which takes a binary tree of integers (as in the preceding
+##### Exercise 2.25 [★★]
+
+> Use `cases` to write `max-interior`, which takes a binary tree of integers (as in the preceding
 > exercise) with at least one interior node and returns the symbol associated with an interior node with a maximal leaf
 > sum.
 >
@@ -1789,7 +1965,9 @@ Remaining implementations are the same as the ones in exercise 2.15.
       [interior-info (sum max-sum max-key) max-key])))
 ```
 
-> Exercise 2.26 [★★] Here is another version of exercise 1.33. Consider a set of trees given by the following grammar:
+##### Exercise 2.26 [★★]
+
+> Here is another version of exercise 1.33. Consider a set of trees given by the following grammar:
 >
 > *Red-blue-tree*    ::= *Red-blue-subtree*
 >
@@ -1824,7 +2002,13 @@ Remaining implementations are the same as the ones in exercise 2.15.
     (mark-leaves-with-red-depth-helper tree 0)))
 ```
 
-> Exercise 2.27 [★] Draw the abstract syntax tree for the lambda calculus expressions
+### 2.5 Abstract Syntax and Its Representation
+
+#### 2.5.0
+
+##### Exercise 2.27 [★]
+
+> Draw the abstract syntax tree for the lambda calculus expressions
 >
 > ```scheme
 > ((lambda (a) (a b)) c)
@@ -1840,7 +2024,7 @@ Remaining implementations are the same as the ones in exercise 2.15.
 ((lambda (a) (a b)) c)
 ```
 
-```
+```text
            ┌─────────┐
            │ app-exp │
            └────┬────┘
@@ -1874,7 +2058,7 @@ bound-var    body      var
      x)))
 ```
 
-```
+```text
    ┌────────────┐
    │ lambda-exp │
    └─────┬──────┘
@@ -1910,7 +2094,9 @@ bound-var     body
           └───┘        └───┘
 ```
 
-> Exercise 2.28 [★] Write an unparser that converts the abstract syntax of an lc-exp into a string that matches the
+##### Exercise 2.28 [★]
+
+> Write an unparser that converts the abstract syntax of an lc-exp into a string that matches the
 > second grammar in this section (page 52).
 
 ```scheme
@@ -1941,7 +2127,9 @@ bound-var     body
                               ")")])))
 ```
 
-> Exercise 2.29 [★] Where a Kleene star or plus (page 7) is used in concrete syntax, it is most convenient to use a
+##### Exercise 2.29 [★]
+
+> Where a Kleene star or plus (page 7) is used in concrete syntax, it is most convenient to use a
 > *list* of associated subtrees when constructing an abstract syntax tree. For example, if the grammar for
 > lambda-calculus expressions had been
 >
@@ -1979,7 +2167,9 @@ bound-var     body
           [else (eopl:error 'parse-expression "Invalid expression: ~s" datum)])))
 ```
 
-> Exercise 2.30 [★★] The procedure `parse-expression` as defined above is fragile: it does not detect several possible
+##### Exercise 2.30 [★★]
+
+> The procedure `parse-expression` as defined above is fragile: it does not detect several possible
 > syntactic errors, such as `(a b c)`, and aborts with inappropriate error messages for other expressions, such as
 > `(lambda)`. Modify it so that it is robust, accepting any s-exp and issuing an appropriate error message if the s-exp
 > does not represent a lambda-calculus expression.
@@ -2047,7 +2237,9 @@ bound-var     body
           [else (report-error "a symbol or pair" datum)])))
 ```
 
-> Exercise 2.31 [★★] Sometimes it is useful to specify a concrete syntax as a sequence of symbols and integers,
+##### Exercise 2.31 [★★]
+
+> Sometimes it is useful to specify a concrete syntax as a sequence of symbols and integers,
 > surrounded by parentheses. For example, one might define the set of *prefix lists* by
 >
 > *Prefix-list* ::= `(`*Prefix-exp*`)`
@@ -2114,20 +2306,36 @@ bound-var     body
           (eopl:error 'parse-prefix-list "Expect null after prefix-exp, but got: ~s." rest)))))
 ```
 
-> Exercise 3.1 [★] In figure 3.3, list all the places where we used the fact that ⌊⌈*n*⌉⌋ = *n*.
+## 3 Expressions
 
-*Skipped for now.*
+### 3.2 LET: A Simple Language
 
-> Exercise 3.2 [★★] Give an expressed value *val* ∈ *ExpVal* for which ⌈⌊*val*⌋⌉ ≠ *val*.
+#### 3.2.4 Specifying the Behavior of Expressions
+
+##### Exercise 3.1 [★]
+
+> In figure 3.3, list all the places where we used the fact that ⌊⌈*n*⌉⌋ = *n*.
+
+*Skipped.*
+
+##### Exercise 3.2 [★★]
+
+> Give an expressed value *val* ∈ *ExpVal* for which ⌈⌊*val*⌋⌉ ≠ *val*.
 
 Not sure, but maybe when *val* is constructed using a *Bool*?
 
-> Exercise 3.3 [★] Why is subtraction a better choice than addition for our single arithmetic operation?
+#### 3.2.8 Implementing the Specification of LET
+
+##### Exercise 3.3 [★]
+
+> Why is subtraction a better choice than addition for our single arithmetic operation?
 
 One reason I can think of, is that subtraction is not commutative, that is \\(a - b\\) may not equal to \\(b - a\\). If
 our implementation of subtraction is incorrect, we can discover the error quickly.
 
-> Exercise 3.4 [★] Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
+##### Exercise 3.4 [★]
+
+> Write out the derivation of figure 3.4 as a derivation tree in the style of the one on page 5.
 
 \\[ \dfrac{\dfrac{\dfrac{\dfrac{\texttt{(value-of «x» $ρ$)} = 33}
                                {\texttt{(value-of «-(x, 11)» $ρ$)} = 22}}
@@ -2138,32 +2346,42 @@ our implementation of subtraction is incorrect, we can discover the error quickl
                  {\texttt{(value-of «-(y, 4)» $ρ$)} = 18}}
           {\texttt{(value-of «if zero?(-(x, 11)) then -(y, 2) else -(y, 4)» $ρ$)} = 18} \\]
 
-> Exercise 3.5 [★] Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
+##### Exercise 3.5 [★]
 
-*Skipped for now.*
+> Write out the derivation of figure 3.5 as a derivation tree in the style of the one on page 5.
 
-> Exercise 3.6 [★] Extend the language by adding a new operator minus that takes one argument, *n*, and returns −*n*.
+*Skipped.*
+
+##### Exercise 3.6 [★]
+
+> Extend the language by adding a new operator minus that takes one argument, *n*, and returns −*n*.
 > For example, the value of `minus(-(minus(5), 9))` should be 14.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.7 [★] Extend the language by adding operators for addition, multiplication, and integer quotient.
+##### Exercise 3.7 [★]
+
+> Extend the language by adding operators for addition, multiplication, and integer quotient.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.8 [★] Add a numeric equality predicate `equal?` and numeric order predicates `greater?` and `less?` to the
+##### Exercise 3.8 [★]
+
+> Add a numeric equality predicate `equal?` and numeric order predicates `greater?` and `less?` to the
 > set of operations in the defined language.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.9 [★★] Add list processing operations to the language, including `cons`, `car`, `cdr`, `null?` and
+##### Exercise 3.9 [★★]
+
+> Add list processing operations to the language, including `cons`, `car`, `cdr`, `null?` and
 > `emptylist`. A list should be able to contain any expressed value, including another list. Give the definitions of the
 > expressed and denoted values of the language, as in section 3.2.2. For example,
 >
-> ```
+> ```ml
 > let x = 4
 > in cons(x,
 >         cons(cons(-(x,1),
@@ -2176,10 +2394,12 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.10 [★★] Add an operation `list` to the language. This operation should take any number of arguments, and
+##### Exercise 3.10 [★★]
+
+> Add an operation `list` to the language. This operation should take any number of arguments, and
 > return an expressed value containing the list of their values. For example,
 >
-> ```
+> ```ml
 > let x = 4
 > in list(x, -(x,1), -(x,3))
 > ```
@@ -2189,13 +2409,17 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.11 [★] In a real language, one might have many operators such as those in the preceding exercises.
+##### Exercise 3.11 [★]
+
+> In a real language, one might have many operators such as those in the preceding exercises.
 > Rearrange the code in the interpreter so that it is easy to add new operators.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.12 [★] Add to the defined language a facility that adds a `cond` expression. Use the grammar
+##### Exercise 3.12 [★]
+
+> Add to the defined language a facility that adds a `cond` expression. Use the grammar
 >
 > *Expression* ::= `cond` {*Expression* `==>` *Expression*}<sup>∗</sup> `end`
 >
@@ -2206,12 +2430,16 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.13 [★] Change the values of the language so that integers are the only expressed values. Modify `if` so
+##### Exercise 3.13 [★]
+
+> Change the values of the language so that integers are the only expressed values. Modify `if` so
 > that the value 0 is treated as false and all other values are treated as true. Modify the predicates accordingly.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.13.rkt).
 
-> Exercise 3.14 [★★] As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
+##### Exercise 3.14 [★★]
+
+> As an alternative to the preceding exercise, add a new nonterminal *Bool-exp* of boolean
 > expressions to the language. Change the production for conditional expressions to say
 >
 > *Expression* ::= `if` *Bool-exp* `then` *Expression* `else` *Expression*
@@ -2221,7 +2449,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 *I’ll deal with this one later.*
 
-> Exercise 3.15 [★] Extend the language by adding a new operation `print` that takes one argument, prints it, and
+##### Exercise 3.15 [★]
+
+> Extend the language by adding a new operation `print` that takes one argument, prints it, and
 > returns the integer 1. Why is this operation not expressible in our specification framework?
 
 Solution is implemented
@@ -2229,7 +2459,9 @@ Solution is implemented
 
 Because `print` cause a side effect while our specification framework does not have something to do this.
 
-> Exercise 3.16 [★★] Extend the language so that a `let` declaration can declare an arbitrary number of variables,
+##### Exercise 3.16 [★★]
+
+> Extend the language so that a `let` declaration can declare an arbitrary number of variables,
 > using the grammar
 >
 > *Expression* ::= `let` {*Identifier* `=` *Expression*}<sup>∗</sup> `in` *Expression*
@@ -2237,7 +2469,7 @@ Because `print` cause a side effect while our specification framework does not h
 > As in Scheme’s `let`, each of the right-hand sides is evaluated in the current environment, and the body is evaluated
 > with each new variable bound to the value of its associated right-hand side. For example,
 >
-> ```
+> ```ml
 > let x = 30
 > in let x = -(x,1)
 >        y = -(x,2)
@@ -2249,9 +2481,11 @@ Because `print` cause a side effect while our specification framework does not h
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.17 [★★] Extend the language with a `let*` expression that works like Scheme’s `let*`, so that
+##### Exercise 3.17 [★★]
+
+> Extend the language with a `let*` expression that works like Scheme’s `let*`, so that
 >
-> ```
+> ```ml
 > let x = 30
 > in let* x = -(x,1) y = -(x,2)
 >    in -(x,y)
@@ -2262,14 +2496,16 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.18 [★★] Add an expression to the defined language:
+##### Exercise 3.18 [★★]
+
+> Add an expression to the defined language:
 >
 > *Expression* ::= `unpack` {*Identifier*}<sup>∗</sup> `=` *Expression* `in` *Expression*
 >
 > so that `unpack x y z = lst in ...` binds `x`, `y`, and `z` to the elements of `lst` if `lst` is a list of exactly
 > three elements, and reports an error otherwise. For example, the value of
 >
-> ```
+> ```ml
 > let u = 7
 > in unpack x y = cons(u,cons(3,emptylist))
 >    in -(x,y)
@@ -2280,15 +2516,23 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-let-lang.rkt).
 
-> Exercise 3.19 [★] In many languages, procedures must be created and named at the same time. Modify the language of
+### 3.3 PROC: A Language with Procedures
+
+#### 3.3.2 Representing Procedures
+
+##### Exercise 3.19 [★]
+
+> In many languages, procedures must be created and named at the same time. Modify the language of
 > this section to have this property by replacing the `proc` expression with a `letproc` expression.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 3.20 [★] In PROC, procedures have only one argument, but one can get the effect of multiple argument
+##### Exercise 3.20 [★]
+
+> In PROC, procedures have only one argument, but one can get the effect of multiple argument
 > procedures by using procedures that return other procedures. For example, one might write code like
 >
-> ```
+> ```ml
 > let f = proc (x) proc (y) ...
 > in ((f 3) 4)
 > ```
@@ -2296,13 +2540,15 @@ Solution is implemented
 > This trick is called *Currying*, and the procedure is said to be *Curried*. Write a Curried procedure that takes two
 > arguments and returns their sum. You can write *x* + *y* in our language by writing `-(`*x*`, -(0,` *y*`))`.
 
-```
+```ml
 proc (x)
   proc (y)
     -(x, -(0, y))
 ```
 
-> Exercise 3.21 [★★] Extend the language of this section to include procedures with multiple arguments and calls with
+##### Exercise 3.21 [★★]
+
+> Extend the language of this section to include procedures with multiple arguments and calls with
 > multiple operands, as suggested by the grammar
 >
 > *Expression* ::= `proc (`{*Identifier*}<sup>∗(`,`)</sup>`)` *Expression*\
@@ -2311,16 +2557,20 @@ proc (x)
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
 
-> Exercise 3.22 [★★★] The concrete syntax of this section uses different syntax for a built-in operation, such as
+##### Exercise 3.22 [★★★]
+
+> The concrete syntax of this section uses different syntax for a built-in operation, such as
 > difference, from a procedure call. Modify the concrete syntax so that the user of this language need not know which
 > operations are built-in and which are defined procedures. This exercise may range from very easy to hard, depending on
 > the parsing technology being used.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.22.rkt).
 
-> Exercise 3.23 [★★] What is the value of the following PROC program?
+##### Exercise 3.23 [★★]
+
+> What is the value of the following PROC program?
 >
-> ```
+> ```ml
 > let makemult = proc (maker)
 >                 proc (x)
 >                  if zero?(x)
@@ -2337,7 +2587,7 @@ Value of given program is 12.
 
 The procedure of factorial:
 
-```
+```ml
 let maketimes = proc (maker)
                   proc (x)
                     proc (y)
@@ -2353,12 +2603,14 @@ in let times = (maketimes maketimes)
       in (makefact makefact)
 ```
 
-> Exercise 3.24 [★★] Use the tricks of the program above to write the pair of mutually recursive procedures, `odd` and
+##### Exercise 3.24 [★★]
+
+> Use the tricks of the program above to write the pair of mutually recursive procedures, `odd` and
 > `even`, as in exercise 3.32.
 
 `odd`:
 
-```
+```ml
 let false = zero?(1)
 in let true = zero?(0)
    in let makeeven = proc (makeeven)
@@ -2378,7 +2630,7 @@ in let true = zero?(0)
 
 `even`:
 
-```
+```ml
 let false = zero?(1)
 in let true = zero?(0)
    in let makeeven = proc (makeeven)
@@ -2396,10 +2648,12 @@ in let true = zero?(0)
          in ((makeeven makeeven) makeodd)
 ```
 
-> Exercise 3.25 [★] The tricks of the previous exercises can be generalized to show that we can define any recursive
+##### Exercise 3.25 [★]
+
+> The tricks of the previous exercises can be generalized to show that we can define any recursive
 > procedure in PROC. Consider the following bit of code:
 >
-> ```
+> ```ml
 > let makerec = proc (f)
 >                let d = proc (x)
 >                         proc (z) ((f (x x)) z)
@@ -2419,46 +2673,46 @@ in let true = zero?(0)
 `maketimes4` to a procedure `maker` that takes a `maker` and returns a `times4` procedure (assume we use `f` to
 represent `maketimes4`):
 
-```
+```ml
 proc (f)
   let maker = proc (maker)
-                let recurive-proc = (maker maker)
-                in (f recurive-proc)
+                let recursive-proc = (maker maker)
+                in (f recursive-proc)
   in ...
 ```
 
 But the code would not work because once we call `(maker maker)`, it will first call `(maker maker)` which will cause
 infinite recursion. We will fix this by wrapping `(maker maker)` inside another procedure:
 
-```
+```ml
 proc (f)
   let maker = proc (maker)
                 proc (x)
-                  let recurive-proc = (maker maker)
-                  in ((f recurive-proc) x)
+                  let recursive-proc = (maker maker)
+                  in ((f recursive-proc) x)
 
   in ...
 ```
 
 Now we get a `maker`, we call the `maker` with `maker`, we will get a recursive version of `f`:
 
-```
+```ml
 proc (f)
   let maker = proc (maker)
                 proc (x)
-                  let recurive-proc = (maker maker)
-                  in ((f recurive-proc) x)
+                  let recursive-proc = (maker maker)
+                  in ((f recursive-proc) x)
   in (maker maker)
 ```
 
 Let’s run the program:
 
-```
+```ml
 let makerec = proc (f)
                 let maker = proc (maker)
                               proc (x)
-                                let recurive-proc = (maker maker)
-                                in ((f recurive-proc) x)
+                                let recursive-proc = (maker maker)
+                                in ((f recursive-proc) x)
                 in (maker maker)
 in let maketimes4 = proc (f)
                       proc (x)
@@ -2471,7 +2725,9 @@ in let maketimes4 = proc (f)
 
 Yep, the result is also 12. Although it is a little different than the original one.
 
-> Exercise 3.26 [★★] In our data-structure representation of procedures, we have kept the entire environment in the
+##### Exercise 3.26 [★★]
+
+> In our data-structure representation of procedures, we have kept the entire environment in the
 > closure. But of course all we need are the bindings for the free variables. Modify the representation of procedures to
 > retain only the free variables.
 
@@ -2508,17 +2764,21 @@ Here is a function that filters free variables in the environment:
                                            (cdr rands))))])))
 ```
 
-> Exercise 3.27 [★] Add a new kind of procedure called a `traceproc` to the language. A `traceproc` works exactly like
+##### Exercise 3.27 [★]
+
+> Add a new kind of procedure called a `traceproc` to the language. A `traceproc` works exactly like
 > a `proc`, except that it prints a trace message on entry and on exit.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-proc-lang.rkt).
 
-> Exercise 3.28 [★★] *Dynamic binding* (or *dynamic scoping*) is an alternative design for procedures, in which the
+##### Exercise 3.28 [★★]
+
+> *Dynamic binding* (or *dynamic scoping*) is an alternative design for procedures, in which the
 > procedure body is evaluated in an environment obtained by extending the environment at the point of call. For example
 > in
 >
-> ```
+> ```ml
 > let a = 3
 > in let p = proc (x) -(x,a)
 >        a = 5
@@ -2533,7 +2793,9 @@ Solution is implemented
 
 Only data-structure representation is implemented.
 
-> Exercise 3.29 [★★] Unfortunately, programs that use dynamic binding may be exceptionally difficult to understand. For
+##### Exercise 3.29 [★★]
+
+> Unfortunately, programs that use dynamic binding may be exceptionally difficult to understand. For
 > example, under lexical binding, consistently renaming the bound variables of a procedure can never change the behavior
 > of a program: we can even remove all variables and replace them by their lexical addresses, as in section 3.6. But
 > under dynamic binding, this transformation is unsafe.
@@ -2541,7 +2803,7 @@ Only data-structure representation is implemented.
 > For example, under dynamic binding, the procedure `proc (z) a` returns the value of the variable `a` in its caller’s
 > environment. Thus, the program
 >
-> ```
+> ```ml
 > let a = 3
 > in let p = proc (z) a
 >    in let f = proc (x) (p 0)
@@ -2553,23 +2815,33 @@ Only data-structure representation is implemented.
 
 The result should be 2.
 
-> Exercise 3.30 [★] What is the purpose of the call to `proc-val` on the next-to-last line of `apply-env`?
+### 3.4 LETREC: A Language with Recursive Procedures
+
+#### 3.4.0
+
+##### Exercise 3.30 [★]
+
+> What is the purpose of the call to `proc-val` on the next-to-last line of `apply-env`?
 
 When we are creating the desired recursive closure, we need an environment containing the closure, but we can not create
 the environment directly because we need the closure in order to create the environment. So we delay the creation of
 the closure in the environment so that we can create the environment without a closure. Then, when we need to use the
 closure, we create it by calling `proc-val`.
 
-> Exercise 3.31 [★] Extend the language above to allow the declaration of a recursive procedure of possibly many
+##### Exercise 3.31 [★]
+
+> Extend the language above to allow the declaration of a recursive procedure of possibly many
 > arguments, as in exercise 3.21.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
-> Exercise 3.32 [★★] Extend the language above to allow the declaration of any number of mutually recursive unary
+##### Exercise 3.32 [★★]
+
+> Extend the language above to allow the declaration of any number of mutually recursive unary
 > procedures, for example:
 >
-> ```
+> ```ml
 > letrec
 >   even(x) = if zero?(x) then 1 else (odd -(x,1))
 >   odd(x) = if zero?(x) then 0 else (even -(x,1))
@@ -2579,17 +2851,23 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
-> Exercise 3.33 [★★] Extend the language above to allow the declaration of any number of mutually recursive procedures,
+##### Exercise 3.33 [★★]
+
+> Extend the language above to allow the declaration of any number of mutually recursive procedures,
 > each of possibly many arguments, as in exercise 3.21.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang.rkt).
 
-> Exercise 3.34 [★★★] Implement `extend-env-rec` in the procedural representation of environments from section 2.2.3.
+##### Exercise 3.34 [★★★]
 
-*Skipped for now.*
+> Implement `extend-env-rec` in the procedural representation of environments from section 2.2.3.
 
-> Exercise 3.35 [★] The representations we have seen so far are inefficient, because they build a new closure every
+*Skipped.*
+
+##### Exercise 3.35 [★]
+
+> The representations we have seen so far are inefficient, because they build a new closure every
 > time the procedure is retrieved. But the closure is the same every time. We can build the closures only once, by putting
 > the value in a vector of length 1 and building an explicit circular structure, like
 >
@@ -2612,17 +2890,21 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang-circular.rkt).
 
-> Exercise 3.36 [★★] Extend this implementation to handle the language from exercise 3.32.
+##### Exercise 3.36 [★★]
+
+> Extend this implementation to handle the language from exercise 3.32.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-letrec-lang-circular.rkt).
 
-> Exercise 3.37 [★] With dynamic binding (exercise 3.28), recursive procedures may be bound by `let`; no special
+##### Exercise 3.37 [★]
+
+> With dynamic binding (exercise 3.28), recursive procedures may be bound by `let`; no special
 > mechanism is necessary for recursion. This is of historical interest; in the early years of programming language
 > design other approaches to recursion, such as those discussed in section 3.4, were not widely understood. To
 > demonstrate recursion via dynamic binding, test the program
 >
-> ```
+> ```ml
 > let fact = proc (n) add1(n)
 > in let fact = proc (n)
 >                if zero?(n)
@@ -2634,20 +2916,30 @@ Solution is implemented
 > using both lexical and dynamic binding. Write the mutually recursive procedures `even` and `odd` as in section 3.4 in
 > the defined language with dynamic binding.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 3.38 [★] Extend the lexical address translator and interpreter to handle `cond` from exercise 3.12.
+### 3.7 Implementing Lexical Addressing
+
+#### 3.7.2 The Nameless Interpreter
+
+##### Exercise 3.38 [★]
+
+> Extend the lexical address translator and interpreter to handle `cond` from exercise 3.12.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.39 [★] Extend the lexical address translator and interpreter to handle `pack` and `unpack` from exercise
+##### Exercise 3.39 [★]
+
+> Extend the lexical address translator and interpreter to handle `pack` and `unpack` from exercise
 > 3.18.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.40 [★★] Extend the lexical address translator and interpreter to handle `letrec`. Do this by modifying
+##### Exercise 3.40 [★★]
+
+> Extend the lexical address translator and interpreter to handle `letrec`. Do this by modifying
 > the context argument to `translation-of` so that it keeps track of not only the name of each bound variable, but also
 > whether it was bound by `letrec` or not. For a reference to a variable that was bound by a `letrec`, generate a new
 > kind of reference, called a `nameless-letrec-var-exp`. You can then continue to use the nameless environment
@@ -2656,7 +2948,9 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.41 [★★] Modify the lexical address translator and interpreter to handle `let` expressions, procedures, and
+##### Exercise 3.41 [★★]
+
+> Modify the lexical address translator and interpreter to handle `let` expressions, procedures, and
 > procedure calls with multiple arguments, as in exercise 3.21. Do this using a nameless version of the ribcage
 > representation of environments (exercise 2.11). For this representation, the lexical address will consist of two
 > nonnegative integers: the lexical depth, to indicate the number of contours crossed, as before; and a position, to
@@ -2665,7 +2959,9 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.42 [★★★] Modify the lexical address translator and interpreter to use the trimmed representation of
+##### Exercise 3.42 [★★★]
+
+> Modify the lexical address translator and interpreter to use the trimmed representation of
 > procedures from exercise 3.26. For this, you will need to translate the body of the procedure not
 > `(extend-senv` *var* *senv*`)`, but in a new static environment that tells exactly where each variable will be kept
 > in the trimmed representation.
@@ -2673,10 +2969,12 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.43 [★★★] The translator can do more than just keep track of the names of variables. For example, consider
+##### Exercise 3.43 [★★★]
+
+> The translator can do more than just keep track of the names of variables. For example, consider
 > the program
 >
-> ```
+> ```ml
 > let x = 3
 > in let f = proc (y) -(y,x)
 >    in (f 13)
@@ -2690,16 +2988,26 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 3.44 [★★★] In the preceding example, the only use of `f` is as a known procedure. Therefore the procedure
+##### Exercise 3.44 [★★★]
+
+> In the preceding example, the only use of `f` is as a known procedure. Therefore the procedure
 > built by the expression proc `(y) -(y,x)` is never used. Modify the translator so that such a procedure is never
 > constructed.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-3.x-lexaddr-lang.rkt).
 
-> Exercise 4.1 [★] What would have happened had the program been instead
+## 4 State
+
+### 4.2 EXPLICIT-REFS: A Language with Explicit References
+
+#### 4.2.0
+
+##### Exercise 4.1 [★]
+
+> What would have happened had the program been instead
 >
-> ```
+> ```ml
 > let g = proc (dummy)
 >          let counter = newref(0)
 >          in begin
@@ -2714,21 +3022,29 @@ Solution is implemented
 The result would been 0. Because `counter` rebinds to a new location that has the value 0 every time g is called, the
 final value that referenced by `counter` will be the same.
 
-> Exercise 4.2 [★] Write down the specification for a `zero?-exp`.
+#### 4.2.1 Store-Passing Specifications
+
+##### Exercise 4.2 [★]
+
+> Write down the specification for a `zero?-exp`.
 
 \\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
           {\texttt{(value-of (zero?-exp $exp_1$) $ρ$ $σ_0$)} =
                \cases{(\texttt{(bool-val #t)}, σ_1) &if $\texttt{(expval->num $val_1$)} = 0$ \\\\
                       (\texttt{(bool-val #f)}, σ_1) &if $\texttt{(expval->num $val_1$)} ≠ 0$}} \\]
 
-> Exercise 4.3 [★] Write down the specification for a `call-exp`.
+##### Exercise 4.3 [★]
+
+> Write down the specification for a `call-exp`.
 
 \\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
                     \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
           {\texttt{(value-of (call-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} =
                \texttt{(apply-procedure $val_1$ $val_2$ $σ_2$)}} \\]
 
-> Exercise 4.4 [★★] Write down the specification for a `begin` expression.
+##### Exercise 4.4 [★★]
+
+> Write down the specification for a `begin` expression.
 >
 > *Expression* ::= `begin` *Expression* {`;` *Expression*}<sup>∗</sup> `end`
 >
@@ -2740,7 +3056,9 @@ final value that referenced by `counter` will be the same.
                     \texttt{(value-of (begin-exp $exp_1$ (cons $exp_2$ $exps$)) $ρ$ $σ_0$)} &=
                         \texttt{(value-of (begin-exp $exp_2$ $exps$) $ρ$ $σ_1$)}}} \\]
 
-> Exercise 4.5 [★★] Write down the specification for `list` (exercise 3.10).
+##### Exercise 4.5 [★★]
+
+> Write down the specification for `list` (exercise 3.10).
 
 \\[ \texttt{(value-of (list-exp '()))} = \texttt{(empty-list)} \\]
 
@@ -2748,19 +3066,29 @@ final value that referenced by `counter` will be the same.
                     \texttt{(value-of (list-exp $exps$) $ρ$ $σ_1$)} &= (val_2, σ_2)}}
           {\texttt{(value-of (list-exp (cons $exp_1$ $exps$)))} = (\texttt{(pair-val $val_1$ $val_2$)}, σ_2)} \\]
 
-> Exercise 4.6 [★] Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
+#### 4.2.2 Specifying Operations on Explicit References
+
+##### Exercise 4.6 [★]
+
+> Modify the rule given above so that a `setref-exp` returns the value of the right-hand side.
 
 \\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
                     \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
           {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (val, [l=val]σ_2)} \\]
 
-> Exercise 4.7 [★] Modify the rule given above so that a `setref-exp` returns the old contents of the location.
+##### Exercise 4.7 [★]
+
+> Modify the rule given above so that a `setref-exp` returns the old contents of the location.
 
 \\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (l, σ_1) \\\\
                     \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val, σ_2)}}
           {\texttt{(value-of (setref-exp $exp_1$ $exp_2$ $ρ$ $σ_0$))} = (σ_0(l), [l=val]σ_2)} \\]
 
-> Exercise 4.8 [★] Show exactly where in our implementation of the store these operations take linear time rather than
+#### 4.2.3 Implementation
+
+##### Exercise 4.8 [★]
+
+> Show exactly where in our implementation of the store these operations take linear time rather than
 > constant time.
 
 In `new-ref`, `length` and `append` take linear time, so `new-ref` takes linear time.
@@ -2769,7 +3097,9 @@ In `deref`, `list-ref` take linear time, so `deref` takes linear time.
 
 In `setref!`, `setref-inner` loops through the store, which takes linear time, so `setref!` takes linear time.
 
-> Exercise 4.9 [★] Implement the store in constant time by representing it as a Scheme vector. What is lost by using
+##### Exercise 4.9 [★]
+
+> Implement the store in constant time by representing it as a Scheme vector. What is lost by using
 > this representation?
 
 ```scheme
@@ -2829,16 +3159,22 @@ way to implement the store.
 As for the disadvantages of using a Scheme vector to implement the store, may be sharing values between stores becomes
 more difficult.
 
-> Exercise 4.10 [★] Implement the `begin` expression as specified in exercise 4.4.
+##### Exercise 4.10 [★]
+
+> Implement the `begin` expression as specified in exercise 4.4.
 
 *The reference implementation already implemented the `begin` expression, so I’ll just skip this one.*
 
-> Exercise 4.11 [★] Implement `list` from exercise 4.5.
+##### Exercise 4.11 [★]
+
+> Implement `list` from exercise 4.5.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
-> Exercise 4.12 [★★★] Our understanding of the store, as expressed in this interpreter, depends on the meaning of
+##### Exercise 4.12 [★★★]
+
+> Our understanding of the store, as expressed in this interpreter, depends on the meaning of
 > effects in Scheme. In particular, it depends on us knowing *when* these effects take place in a Scheme program. We can
 > avoid this dependency by writing an interpreter that more closely mimics the specification. In this interpreter,
 > `value-of` would return both a value and a store, just as in the specification. A fragment of this interpreter appears
@@ -2853,26 +3189,40 @@ Solution is implemented
 
 *Also, what is `apply-store` in the reference implementation?*
 
-> Exercise 4.13 [★★★] Extend the interpreter of the preceding exercise to have procedures of multiple arguments.
+##### Exercise 4.13 [★★★]
+
+> Extend the interpreter of the preceding exercise to have procedures of multiple arguments.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-explicit-refs-lang.rkt).
 
-> Exercise 4.14 [★] Write the rule for `let`.
+### 4.3 IMPLICIT-REFS: A Language with Implicit References
+
+#### 4.3.1 Specification
+
+##### Exercise 4.14 [★]
+
+> Write the rule for `let`.
 
 \\[ \dfrac{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} = (val_1, σ_1)}
           {\texttt{(value-of (let-exp $var$ $exp_1$ $body$) $ρ$ $σ_0$)} =
                \texttt{(value-of $body$ $[var = l]ρ$ $[l = val_1]σ_1$)}} \\]
 
-> Exercise 4.15 [★] In figure 4.8, why are variables in the environment bound to plain integers rather than expressed
+#### 4.3.2 The Implementation
+
+##### Exercise 4.15 [★]
+
+> In figure 4.8, why are variables in the environment bound to plain integers rather than expressed
 > values, as in figure 4.5?
 
 Because we know for sure that the denoted values will all be references, so plain integers are sufficient to represent
 the location info we need.
 
-> Exercise 4.16 [★] Now that variables are mutable, we can build recursive procedures by assignment. For example
+##### Exercise 4.16 [★]
+
+> Now that variables are mutable, we can build recursive procedures by assignment. For example
 >
-> ```
+> ```ml
 > letrec times4(x) = if zero?(x)
 >                    then 0
 >                    else -((times4 -(x,1)), -4)
@@ -2881,7 +3231,7 @@ the location info we need.
 >
 > can be replaced by
 >
-> ```
+> ```ml
 > let times4 = 0
 > in begin
 >     set times4 = proc (x)
@@ -2898,7 +3248,9 @@ First we allocate a new location for the number 0, then we bind `times4` to the 
 the procedure, the location pointed by `times4` contains the procedure closure. In the enclosed environment of the
 procedure, `times4` also points to the procedure so the procedure can call itself recursively.
 
-> Exercise 4.17 [★★] Write the rules for and implement multiargument procedures and `let` expressions.
+##### Exercise 4.17 [★★]
+
+> Write the rules for and implement multiargument procedures and `let` expressions.
 
 \\[ \eqalign{  &\texttt{(apply-procedure (procedure (list $var_1$ $var_2$ $…$ $var_n$) $body$ $ρ$) (list $val_1$ $val_2$ $…$ $val_n$) $σ$)} \\\\
              = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ$)}} \\]
@@ -2910,7 +3262,9 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
           {\eqalign{  &\texttt{(value-of (let-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $exp_1$ $exp_2$ $…$ $exp_n$) $body$) $ρ$ $σ_0$)} \\\\
                     = &\texttt{(value-of $body$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = val_n]…[l_2 = val_2][l_1 = val_1]σ_n$)}}} \\]
 
-> Exercise 4.18 [★★] Write the rule for and implement multiprocedure `letrec` expressions.
+##### Exercise 4.18 [★★]
+
+> Write the rule for and implement multiprocedure `letrec` expressions.
 
 \\[ \eqalign{  &\texttt{(value-of (letrec-exp (list $var_1$ $var_2$ $…$ $var_n$) (list $bvars_1$ $bvars_2$ $…$ $bvars_n$) (list $pbody_1$ $pbody_2$ $…$ $pbody_n$) $letrecbody$) $ρ$ $σ$)} \\\\
              = &\texttt{(let ([letrec-env $[var_n=l_n]…[var_2=l_2][var_1=l_1]ρ$])} \\\\
@@ -2919,13 +3273,17 @@ procedure, `times4` also points to the procedure so the procedure can call itsel
                                                                  [l_2 = \texttt{(procedure $bvars_2$ $pbody_2$ letrec-env)}]
                                                                  [l_1 = \texttt{(procedure $bvars_1$ $pbody_1$ letrec-env)}]σ$))}} \\]
 
-> Exercise 4.19 [★★] Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
+##### Exercise 4.19 [★★]
+
+> Modify the implementation of multiprocedure `letrec` so that each closure is built only once, and
 > only one location is allocated for it. This is like exercise 3.35.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
 
-> Exercise 4.20 [★★] In the language of this section, all variables are mutable, as they are in Scheme. Another
+##### Exercise 4.20 [★★]
+
+> In the language of this section, all variables are mutable, as they are in Scheme. Another
 > alternative is to allow both mutable and immutable variable bindings:
 >
 > - *ExpVal* = *Int* + *Bool* + *Proc*
@@ -2941,7 +3299,9 @@ Solution is implemented
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.20.rkt).
 
-> Exercise 4.21 [★★] We suggested earlier the use of assignment to make a program more modular by allowing one
+##### Exercise 4.21 [★★]
+
+> We suggested earlier the use of assignment to make a program more modular by allowing one
 > procedure to communicate information to a distant procedure without requiring intermediate procedures to be aware of
 > it. Very often such an assignment should only be temporary, lasting for the execution of a procedure call. Add to the
 > language a facility for *dynamic assignment* (also called *fluid binding*) to accomplish this. Use the production
@@ -2953,7 +3313,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > *body*, reassign *var* to its original value, and return the value of *body*. The variable *var* must already be
 > bound. For example, in
 >
-> ```
+> ```ml
 > let x = 11
 > in let p = proc (y) -(y,x)
 >    in -(setdynamic x = 17 during (p 22),
@@ -2966,7 +3326,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-implicit-refs-lang.rkt).
 
-> Exercise 4.22 [★★] So far our languages have been expression-oriented: the primary syntactic category of interest has
+##### Exercise 4.22 [★★]
+
+> So far our languages have been expression-oriented: the primary syntactic category of interest has
 > been expressions and we have primarily been interested in their values. Extend the language to model the simple
 > statement-oriented language whose specification is sketched below. Be sure to *Follow the Grammar* by writing separate
 > procedures to handle programs, statements, and expressions.
@@ -3060,19 +3422,25 @@ Specification for statements:
 \\[ \eqalign{  &\texttt{(result-of (block-statement (list $var_1$ $var_2$ $…$ $var_n$) $stmt$) $ρ$ $σ_0$)} \\\\
              = &\texttt{(result-of $stmt$ $[var_n = l_n]…[var_2 = l_2][var_1 = l_1]ρ$ $[l_n = undefined]…[l_2 = undefined][l_1 = undefined]σ_0$)}} \\]
 
-> Exercise 4.23 [★] Add to the language of exercise 4.22 `read` statements of the form `read` *var*. This statement
+##### Exercise 4.23 [★]
+
+> Add to the language of exercise 4.22 `read` statements of the form `read` *var*. This statement
 > reads a nonnegative integer from the input and stores it in the given variable.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-statement-oriented-implicit-refs-lang.rkt).
 
-> Exercise 4.24 [★] A `do-while` statement is like a `while` statement, except that the test is performed *after* the
+##### Exercise 4.24 [★]
+
+> A `do-while` statement is like a `while` statement, except that the test is performed *after* the
 > execution of the body. Add `do-while` statements to the language of exercise 4.22.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-statement-oriented-implicit-refs-lang.rkt).
 
-> Exercise 4.25 [★] Extend the block statement of the language of exercise 4.22 to allow variables to be initialized.
+##### Exercise 4.25 [★]
+
+> Extend the block statement of the language of exercise 4.22 to allow variables to be initialized.
 > In your solution, does the scope of a variable include the initializer for variables declared later in the same block
 > statement?
 
@@ -3080,13 +3448,17 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 No, the scope of a variable does not include the initializer for variables declared later in the same block statement.
 
-> Exercise 4.26 [★★★] Extend the solution to the preceding exercise so that procedures declared in a single block
+##### Exercise 4.26 [★★★]
+
+> Extend the solution to the preceding exercise so that procedures declared in a single block
 > are mutually recursive. Consider restricting the language so that the variable declarations in a block are followed by
 > the procedure declarations.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.26.rkt).
 
-> Exercise 4.27 [★★] Extend the language of the preceding exercise to include *subroutines*. In our usage a subroutine
+##### Exercise 4.27 [★★]
+
+> Extend the language of the preceding exercise to include *subroutines*. In our usage a subroutine
 > is like a procedure, except that it does not return a value and its body is a statement, rather than an expression.
 > Also, add subroutine calls as a new kind of statement and extend the syntax of blocks so that they may be used to
 > declare both procedures and subroutines. How does this affect the denoted and expressed values? What happens if a
@@ -3098,7 +3470,13 @@ Denoted values does not change, expressed values now contains a `sub-val` varian
 
 Error will happen if procedure is referenced in a subroutine call, or vice versa.
 
-> Exercise 4.28 [★★] Write down the specification rules for the five mutable-pair operations.
+### 4.4 MUTABLE-PAIRS: A Language with Mutable Pairs
+
+#### 4.4.2 Another Representation ofMutable Pairs
+
+##### Exercise 4.28 [★★]
+
+> Write down the specification rules for the five mutable-pair operations.
 
 \\[ \dfrac{\eqalign{\texttt{(value-of $exp_1$ $ρ$ $σ_0$)} &= (val_1, σ_1) \\\\
                     \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
@@ -3119,7 +3497,9 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
                     \texttt{(value-of $exp_2$ $ρ$ $σ_1$)} &= (val_2, σ_2)}}
           {\texttt{(value-of (setright-exp $exp_1$ $exp_2$) $ρ$ $σ_0$)} = (\texttt{(num-val 83)}, [l_2 = val_2]σ_2)} \\]
 
-> Exercise 4.29 [★★] Add arrays to this language. Introduce new operators `newarray`, `arrayref`, and `arrayset` that
+##### Exercise 4.29 [★★]
+
+> Add arrays to this language. Introduce new operators `newarray`, `arrayref`, and `arrayset` that
 > create, dereference, and update arrays. This leads to
 >
 > - *ArrVal* = (*Ref*(*ExpVal*))<sup>∗</sup>
@@ -3129,7 +3509,7 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 > Since the locations in an array are consecutive, use a representation like the second representation above. What
 > should be the result of the following program?
 >
-> ```
+> ```ml
 > let a = newarray(2,-99)
 >     p = proc (x)
 >          let v = arrayref(x,1)
@@ -3145,34 +3525,50 @@ Solution is implemented
 
 The result of that program should be 2.
 
-> Exercise 4.30 [★★] Add to the language of exercise 4.29 a procedure `arraylength`, which returns the size of an
+##### Exercise 4.30 [★★]
+
+> Add to the language of exercise 4.29 a procedure `arraylength`, which returns the size of an
 > array. Your procedure should work in constant time. Make sure that `arrayref` and `arrayset` check to make sure that
 > their indices are within the length of the array.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-mutable-pairs-lang.rkt).
 
-> Exercise 4.31 [★] Write out the specification rules for CALL-BY-REFERENCE.
+### 4.5 Parameter-Passing Variations
 
-*Skipped for now.*
+#### 4.5.1 CALL-BY-REFERENCE
 
-> Exercise 4.32 [★] Extend the language CALL-BY-REFERENCE to have procedures of multiple arguments.
+##### Exercise 4.31 [★]
+
+> Write out the specification rules for CALL-BY-REFERENCE.
+
+*Skipped.*
+
+##### Exercise 4.32 [★]
+
+> Extend the language CALL-BY-REFERENCE to have procedures of multiple arguments.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
 
-> Exercise 4.33 [★★] Extend the language CALL-BY-REFERENCE to support call-by-value procedures as well.
+##### Exercise 4.33 [★★]
+
+> Extend the language CALL-BY-REFERENCE to support call-by-value procedures as well.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
 
-> Exercise 4.34 [★] Add a call-by-reference version of `let`, called `letref`, to the language. Write the specification
+##### Exercise 4.34 [★]
+
+> Add a call-by-reference version of `let`, called `letref`, to the language. Write the specification
 > and implement it.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-reference-lang.rkt).
 
-> Exercise 4.35 [★★] We can get some of the benefits of call-by-reference without leaving the call-by-value framework.
+##### Exercise 4.35 [★★]
+
+> We can get some of the benefits of call-by-reference without leaving the call-by-value framework.
 > Extend the language IMPLICIT-REFS by adding a new expression
 >
 > *Expression* ::= `ref` *Identifier*\
@@ -3181,7 +3577,7 @@ Solution is implemented
 > This differs from the language EXPLICIT-REFS, since references are only of variables. This allows us to write familiar
 > programs such as `swap` within our call-by-value language. What should be the value of this expression?
 >
-> ```
+> ```ml
 > let a = 3
 > in let b = 4
 >    in let swap = proc (x) proc (y)
@@ -3207,20 +3603,22 @@ The value of the given expression should be 1.
 
 Expressed values now contains reference values, and denoted values still only contains references.
 
-> Exercise 4.36 [★] Most languages support arrays, in which case array references are generally treated like variable
+##### Exercise 4.36 [★]
+
+> Most languages support arrays, in which case array references are generally treated like variable
 > references under call-by-reference. If an operand is an array reference, then the location referred to, rather than
 > its contents, is passed to the called procedure. This allows, for example, a swap procedure to be used in commonly
 > occurring situations in which the values in two array elements are to be exchanged. Add array operators like those of
 > exercise 4.29 to the call-by-reference language of this section, and extend `value-of-operand` to handle this case, so
 > that, for example, a procedure application like
 >
-> ```
+> ```ml
 > ((swap arrayref(a, i)) arrayref(a, j))
 > ```
 >
 > will work as expected. What should happen in the case of
 >
-> ```
+> ```ml
 > ((swap arrayref(a, arrayref(a, i))) arrayref(a, j))
 > ```
 >
@@ -3232,7 +3630,9 @@ Solution is implemented
 `((swap arrayref(a, arrayref(a, i))) arrayref(a, j))` will swap the element indexed by the value of `arrayref(a, i)`
 with the element indexed by `j`.
 
-> Exercise 4.37 [★★] *Call-by-value-result* is a variation on call-by-reference. In call-by-value-result, the actual
+##### Exercise 4.37 [★★]
+
+> *Call-by-value-result* is a variation on call-by-reference. In call-by-value-result, the actual
 > parameter must be a variable. When a parameter is passed, the formal parameter is bound to a new reference initialized
 > to the value of the actual parameter, just as in call-by-value. The procedure body is then executed normally. When the
 > procedure body returns, however, the value in the new reference is copied back into the reference denoted by the
@@ -3244,7 +3644,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 This program produces 4 using call-by-value-result while it produces 3 using call-by-reference.
 
-```
+```ml
 let f = proc (x)
           begin set x = 3;
                 4
@@ -3255,11 +3655,15 @@ in let x = 5
       end
 ```
 
-> Exercise 4.38 [★] The example below shows a variation of exercise 3.25 that works under call-by-need. Does the
+#### 4.5.2 Lazy Evaluation: CALL-BY-NAME and CALL-BY-NEED
+
+##### Exercise 4.38 [★]
+
+> The example below shows a variation of exercise 3.25 that works under call-by-need. Does the
 > original program in exercise 3.25 work under call-by-need? What happens if the program below is run under
 > call-by-value? Why?
 >
-> ```
+> ```ml
 > let makerec = proc (f)
 >                let d = proc (x) (f (x x))
 >                in (f (d d))
@@ -3278,10 +3682,12 @@ And the program above will loop infinitely under call-by-value, because in line 
 when `d` is called, it calls its argument `x` with `x`, where `x` is `d` itself. So `(d d)` leads to another call to
 `(d d)` which leads to infinite loop.
 
-> Exercise 4.39 [★] In the absence of effects, call-by-name and call-by-need always give the same answer. Construct an
+##### Exercise 4.39 [★]
+
+> In the absence of effects, call-by-name and call-by-need always give the same answer. Construct an
 > example in which call-by-name and call-by-need give different answers.
 
-```
+```ml
 let x = 0
 in let f = proc (y)
              begin y;
@@ -3294,69 +3700,101 @@ in let f = proc (y)
 
 The program above should produce 1 in call-by-need and 2 in call-by-name.
 
-> Exercise 4.40 [★] Modify `value-of-operand` so that it avoids making thunks for constants and procedures.
+##### Exercise 4.40 [★]
+
+> Modify `value-of-operand` so that it avoids making thunks for constants and procedures.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
 
-> Exercise 4.41 [★★] Write out the specification rules for call-by-name and call-by-need.
+##### Exercise 4.41 [★★]
 
-*Skipped for now.*
+> Write out the specification rules for call-by-name and call-by-need.
 
-> Exercise 4.42 [★★] Add a lazy `let` to the call-by-need interpreter.
+*Skipped.*
+
+##### Exercise 4.42 [★★]
+
+> Add a lazy `let` to the call-by-need interpreter.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-4.x-call-by-need-lang.rkt).
 
-> Exercise 5.1 [★] Implement this data type of continuations using the procedural representation.
+## 5 Continuation-Passing Interpreters
+
+### 5.1 A Continuation-Passing Interpreter
+
+#### 5.1.0
+
+##### Exercise 5.1 [★]
+
+> Implement this data type of continuations using the procedural representation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.1.rkt).
 
-> Exercise 5.2 [★] Implement this data type of continuations using a data-structure representation.
+##### Exercise 5.2 [★]
+
+> Implement this data type of continuations using a data-structure representation.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.3 [★] Add `let2` to this interpreter. A `let2` expression is like a `let` expression, except that it
+##### Exercise 5.3 [★]
+
+> Add `let2` to this interpreter. A `let2` expression is like a `let` expression, except that it
 > defines exactly two variables.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.4 [★] Add `let3` to this interpreter. A `let3` expression is like a `let` expression, except that it
+##### Exercise 5.4 [★]
+
+> Add `let3` to this interpreter. A `let3` expression is like a `let` expression, except that it
 > defines exactly three variables.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.5 [★] Add lists to the language, as in exercise 3.9.
+##### Exercise 5.5 [★]
+
+> Add lists to the language, as in exercise 3.9.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.6 [★★] Add a `list` expression to the language, as in exercise 3.10. As a hint, consider adding two new
+##### Exercise 5.6 [★★]
+
+> Add a `list` expression to the language, as in exercise 3.10. As a hint, consider adding two new
 > continuation-builders, one for evaluating the first element of the list and one for evaluating the rest of the list.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.7 [★★] Add multideclaration `let` (exercise 3.16) to this interpreter.
+##### Exercise 5.7 [★★]
+
+> Add multideclaration `let` (exercise 3.16) to this interpreter.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.8 [★★] Add multiargument procedures (exercise 3.21) to this interpreter.
+##### Exercise 5.8 [★★]
+
+> Add multiargument procedures (exercise 3.21) to this interpreter.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang.rkt).
 
-> Exercise 5.9 [★★] Modify this interpreter to implement the IMPLICIT-REFS language. As a hint, consider including a
+##### Exercise 5.9 [★★]
+
+> Modify this interpreter to implement the IMPLICIT-REFS language. As a hint, consider including a
 > new continuation-builder `(set-rhs-cont env var cont)`.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
 
-> Exercise 5.10 [★★] Modify the solution to the previous exercise so that the environment is not kept in the
+##### Exercise 5.10 [★★]
+
+> Modify the solution to the previous exercise so that the environment is not kept in the
 > continuation.
 
 Not all environments can be removed from continuations. For example, I cannot think of a way to remove the environment
@@ -3365,18 +3803,24 @@ in the continuation of the bound expression.
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
 
-> Exercise 5.11 [★★] Add the `begin` expression of exercise 4.4 to the continuation-passing interpreter. Be sure that
+##### Exercise 5.11 [★★]
+
+> Add the `begin` expression of exercise 4.4 to the continuation-passing interpreter. Be sure that
 > no call to `value-of` or `value-of-rands` occurs in a position that would build control context.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-implicit-refs-lang.rkt).
 
-> Exercise 5.12 [★] Instrument the interpreter of figures 5.4–5.6 to produce output similar to that of the calculation
+##### Exercise 5.12 [★]
+
+> Instrument the interpreter of figures 5.4–5.6 to produce output similar to that of the calculation
 > on page 150.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.13 [★] Translate the definitions of `fact` and `fact-iter` into the LETREC language. You may add a
+##### Exercise 5.13 [★]
+
+> Translate the definitions of `fact` and `fact-iter` into the LETREC language. You may add a
 > multiplication operator to the language. Then, using the instrumented interpreter of the previous exercise, compute
 > `(fact 4)` and `(fact-iter 4)`. Compare them to the calculations at the beginning of this chapter. Find
 > `(* 4 (* 3 (* 2 (fact 1))))` in the trace of `(fact 4)`. What is the continuation of `apply-procedure/k` for this call
@@ -3384,7 +3828,7 @@ Solution is implemented
 
 The implementation of `fact` is:
 
-```
+```ml
 letrec fact(n) = if zero?(n)
                  then 1
                  else *(n, (fact -(n, 1)))
@@ -3393,7 +3837,7 @@ in fact
 
 The implementation of `fact-iter` is:
 
-```
+```ml
 letrec fact-iter-acc(n) = proc (a)
                             if zero?(n)
                             then a
@@ -3411,16 +3855,20 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
                                                 (end-cont))))
 ```
 
-> Exercise 5.14 [★] The instrumentation of the preceding exercise produces voluminous output. Modify the
+##### Exercise 5.14 [★]
+
+> The instrumentation of the preceding exercise produces voluminous output. Modify the
 > instrumentation to track instead only the *size* of the largest continuation used during the calculation. We measure
 > the size of a continuation by the number of continuation-builders employed in its construction, so the size of the
 > largest continuation in the calculation on page 150 is 3. Then calculate the values of `fact` and `fact-iter` applied
 > to several operands. Confirm that the size of the largest continuation used by `fact` grows linearly with its
 > argument, but the size of the largest continuation used by `fact-iter` is a constant.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.15 [★] Our continuation data type contains just the single constant, `end-cont`, and all the other
+##### Exercise 5.15 [★]
+
+> Our continuation data type contains just the single constant, `end-cont`, and all the other
 > continuation-builders have a single continuation argument. Implement continuations by representing them as lists,
 > where `(end-cont)` is represented by the empty list, and each other continuation is represented by a non-empty list
 > whose car contains a distinctive data structure (called *frame* or *activation record*) and whose cdr contains the
@@ -3428,7 +3876,9 @@ The continuation of `apply-procedure/k` for call of `(fact 1)` is:
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.15.rkt).
 
-> Exercise 5.16 [★★] Extend the continuation-passing interpreter to the language of exercise 4.22. Pass a continuation
+##### Exercise 5.16 [★★]
+
+> Extend the continuation-passing interpreter to the language of exercise 4.22. Pass a continuation
 > argument to `result-of`, and make sure that no call to `result-of` occurs in a position that grows a control context.
 > Since a statement does not return a value, distinguish between ordinary continuations and continuations for
 > statements; the latter are usually called *command continuations*. The interface should include a procedure
@@ -3437,19 +3887,29 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.16.rkt).
 
-> Exercise 5.17 [★] Modify the trampolined interpreter to wrap `(lambda () ...)` around each call (there’s only one) to
+### 5.2 A Trampolined Interpreter
+
+#### 5.2.0
+
+##### Exercise 5.17 [★]
+
+> Modify the trampolined interpreter to wrap `(lambda () ...)` around each call (there’s only one) to
 > `apply-procedure/k`. Does this modification require changing the contracts?
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.17.rkt).
 
 No, this modification does not require changing the contracts.
 
-> Exercise 5.18 [★] The trampoline systemin figure 5.7 uses a procedural representation of a *Bounce*. Replace this by
+##### Exercise 5.18 [★]
+
+> The trampoline systemin figure 5.7 uses a procedural representation of a *Bounce*. Replace this by
 > a data structure representation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.18.rkt).
 
-> Exercise 5.19 [★] Instead of placing the `(lambda () ...)` around the body of `apply-procedure/k`, place it around
+##### Exercise 5.19 [★]
+
+> Instead of placing the `(lambda () ...)` around the body of `apply-procedure/k`, place it around
 > the body of `apply-cont`. Modify the contracts to match this change. Does the definition of *Bounce* need to change?
 > Then replace the procedural representation of *Bounce* with a data-structure representation, as in exercise 5.18.
 
@@ -3457,19 +3917,25 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 The definition of *Bounce* need not to change.
 
-> Exercise 5.20 [★] In exercise 5.19, the last bounce before `trampoline` returns a *FinalAnswer* is always something
+##### Exercise 5.20 [★]
+
+> In exercise 5.19, the last bounce before `trampoline` returns a *FinalAnswer* is always something
 > like `(apply-cont (end-cont)` *val*`)`, where `val` is some `ExpVal`. Optimize your representation of bounces in
 > exercise 5.19 to take advantage of this fact.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.21 [★★] Implement a trampolining interpreter in an ordinary procedural language. Use a data structure
+##### Exercise 5.21 [★★]
+
+> Implement a trampolining interpreter in an ordinary procedural language. Use a data structure
 > representation of the snapshots as in exercise 5.18, and replace the recursive call to `trampoline` in its own body by
 > an ordinary `while` or other looping construct.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.22 [★★★] One could also attempt to transcribe the environment-passing interpreters of chapter 3 in an
+##### Exercise 5.22 [★★★]
+
+> One could also attempt to transcribe the environment-passing interpreters of chapter 3 in an
 > ordinary procedural language. Such a transcription would fail in all but the simplest cases, for the same reasons as
 > suggested above. Can the technique of trampolining be used in this situation as well?
 
@@ -3478,21 +3944,33 @@ to `value-of` is a tail call, so we can simulate the process using a loop. But i
 interpreters, not every call to `value-of` is a tail call, so we cannot convert the process using a loop. The
 trampolining method will fail in such case.
 
-> Exercise 5.23 [★] What happens if you remove the “goto” line in one of the branches of this interpreter? Exactly how
+### 5.3 An Imperative Interpreter
+
+#### 5.3.0
+
+##### Exercise 5.23 [★]
+
+> What happens if you remove the “goto” line in one of the branches of this interpreter? Exactly how
 > does the interpreter fail?
 
 The interpreter will stop running at the position where the “goto” line should be.
 
-> Exercise 5.24 [★] Devise examples to illustrate each of the complications mentioned above.
+##### Exercise 5.24 [★]
 
-*Skipped for now.*
+> Devise examples to illustrate each of the complications mentioned above.
 
-> Exercise 5.25 [★★] Registerize the interpreter for multiargument procedures (exercise 3.21).
+*Skipped.*
+
+##### Exercise 5.25 [★★]
+
+> Registerize the interpreter for multiargument procedures (exercise 3.21).
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-letrec-lang-registers.rkt).
 
-> Exercise 5.26 [★] Convert this interpreter to a trampoline by replacing each call to `apply-procedure/k` with
+##### Exercise 5.26 [★]
+
+> Convert this interpreter to a trampoline by replacing each call to `apply-procedure/k` with
 > `(set! pc apply-procedure/k)` and using a driver that looks like
 >
 > ```scheme
@@ -3503,17 +3981,23 @@ Solution is implemented
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.26.rkt).
 
-> Exercise 5.27 [★] Invent a language feature for which setting the `cont` variable last requires a temporary variable.
+##### Exercise 5.27 [★]
 
-*Skipped for now.*
+> Invent a language feature for which setting the `cont` variable last requires a temporary variable.
 
-> Exercise 5.28 [★] Instrument this interpreter as in exercise 5.12. Since continuations are represented the same way,
+*Skipped.*
+
+##### Exercise 5.28 [★]
+
+> Instrument this interpreter as in exercise 5.12. Since continuations are represented the same way,
 > reuse that code. Verify that the imperative interpreter of this section generates *exactly* the same traces as the
 > interpreter in exercise 5.12.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.29 [★] Apply the transformation of this section to `fact-iter` (page 139).
+##### Exercise 5.29 [★]
+
+> Apply the transformation of this section to `fact-iter` (page 139).
 
 ```scheme
 (define n1 'uninitialized)
@@ -3532,7 +4016,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
   (fact-iter-acc))
 ```
 
-> Exercise 5.30 [★★] Modify the interpreter of this section so that procedures rely on dynamic binding, as in exercise
+##### Exercise 5.30 [★★]
+
+> Modify the interpreter of this section so that procedures rely on dynamic binding, as in exercise
 > 3.28. As a hint, consider transforming the interpreter of exercise 3.28 as we did in this chapter; it will differ from
 > the interpreter of this section only for those portions of the original interpreter that are different. Instrument the
 > interpreter as in exercise 5.28. Observe that just as there is only one continuation in the state, there is only one
@@ -3541,66 +4027,92 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > that procedure returns. This is different from lexical bindings, which can persist indefinitely if they wind up in a
 > closure.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.31 [★] Eliminate the remaining `let` expressions in this code by using additional global registers.
+##### Exercise 5.31 [★]
 
-*Skipped for now.*
+> Eliminate the remaining `let` expressions in this code by using additional global registers.
 
-> Exercise 5.32 [★★] Improve your solution to the preceding exercise by minimizing the number of global registers
+*Skipped.*
+
+##### Exercise 5.32 [★★]
+
+> Improve your solution to the preceding exercise by minimizing the number of global registers
 > used. You can get away with fewer than 5. You may use no data structures other than those already used by the
 > interpreter.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.33 [★★] Translate the interpreter of this section into an imperative language. Do this twice: once using
+##### Exercise 5.33 [★★]
+
+> Translate the interpreter of this section into an imperative language. Do this twice: once using
 > zero-argument procedure calls in the host language, and once replacing each zero-argument procedure call by a `goto`.
 > How do these alternatives perform as the computation gets longer?
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.34 [★★] As noted on page 157, most imperative languages make it difficult to do this translation, because
+##### Exercise 5.34 [★★]
+
+> As noted on page 157, most imperative languages make it difficult to do this translation, because
 > they use the stack for all procedure calls, even tail calls. Furthermore, for large interpreters, the pieces of code
 > linked by `goto`’s may be too large for some compilers to handle. Translate the interpreter of this section into an
 > imperative language, circumventing this difficulty by using the technique of trampolining, as in exercise 5.26.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.35 [★★] This implementation is inefficient, because when an exception is raised, `apply-handler` must
+### 5.4 Exceptions
+
+#### 5.4.0
+
+##### Exercise 5.35 [★★]
+
+> This implementation is inefficient, because when an exception is raised, `apply-handler` must
 > search linearly through the continuation to find a handler. Avoid this search by making the `try-cont` continuation
 > available directly in each continuation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.35.rkt).
 
-> Exercise 5.36 [★] An alternative design that also avoids the linear search in `apply-handler` is to use two
+##### Exercise 5.36 [★]
+
+> An alternative design that also avoids the linear search in `apply-handler` is to use two
 > continuations, a normal continuation and an exception continuation. Achieve this goal by modifying the interpreter of
 > this section to take two continuations instead of one.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.36.rkt).
 
-> Exercise 5.37 [★] Modify the defined language to raise an exception when a procedure is called with the wrong number
+##### Exercise 5.37 [★]
+
+> Modify the defined language to raise an exception when a procedure is called with the wrong number
 > of arguments.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.37.rkt).
 
-> Exercise 5.38 [★] Modify the defined language to add a division expression. Raise an exception on division by zero.
+##### Exercise 5.38 [★]
+
+> Modify the defined language to add a division expression. Raise an exception on division by zero.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.38.rkt).
 
-> Exercise 5.39 [★★] So far, an exception handler can propagate the exception by reraising it, or it can return a
+##### Exercise 5.39 [★★]
+
+> So far, an exception handler can propagate the exception by reraising it, or it can return a
 > value that becomes the value of the `try` expression. One might instead design the language to allow the computation
 > to resume from the point at which the exception was raised. Modify the interpreter of this section to accomplish this
 > by running the body of the handler with the continuation from the point at which the `raise` was invoked.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.39.rkt).
 
-> Exercise 5.40 [★★★] Give the exception handlers in the defined language the ability to either return or resume. Do
+##### Exercise 5.40 [★★★]
+
+> Give the exception handlers in the defined language the ability to either return or resume. Do
 > this by passing the continuation from the `raise` exception as a second argument. This may require adding
 > continuations as a new kind of expressed value. Devise suitable syntax for invoking a continuation on a value.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.40.rkt).
 
-> Exercise 5.41 [★★★] We have shown how to implement exceptions using a data-structure representation of
+##### Exercise 5.41 [★★★]
+
+> We have shown how to implement exceptions using a data-structure representation of
 > continuations. We can’t immediately apply the recipe of section 2.2.3 to get a procedural representation, because we
 > now have two observers: `apply-handler` and `apply-cont`. Implement the continuations of this section as a pair of
 > procedures: a one-argument procedure representing the action of the continuation under `apply-cont`, and a
@@ -3611,7 +4123,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 I had to use a one-argument procedure to represent the action under `apply-handler` instead of a zero-argument
 procedure.
 
-> Exercise 5.42 [★★] The preceding exercise captures the continuation only when an exception is raised. Add to the
+##### Exercise 5.42 [★★]
+
+> The preceding exercise captures the continuation only when an exception is raised. Add to the
 > language the ability to capture a continuation anywhere by adding the form `letcc` *Identifier* `in` *Expression* with
 > the specification
 >
@@ -3624,18 +4138,22 @@ procedure.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.42.rkt).
 
-> Exercise 5.43 [★★] Modify `letcc` as defined in the preceding exercise so that the captured continuation becomes a
+##### Exercise 5.43 [★★]
+
+> Modify `letcc` as defined in the preceding exercise so that the captured continuation becomes a
 > new kind of procedure, so instead of writing `throw` *exp*<sub>1</sub> `to` *exp*<sub>2</sub>, one would write
 > `(`*exp*<sub>2</sub> *exp*<sub>1</sub>`)`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.43.rkt).
 
-> Exercise 5.44 [★★] An alternative to `letcc` and `throw` of the preceding exercises is to add a single procedure to
+##### Exercise 5.44 [★★]
+
+> An alternative to `letcc` and `throw` of the preceding exercises is to add a single procedure to
 > the language. This procedure, which in Scheme is called `call-with-current-continuation`, takes a one-argument
 > procedure, `p`, and passes to `p` a procedure that when invoked with one argument, passes that argument to the current
 > continuation, `cont`. We could define `call-with-current-continuation` in terms of `letcc` and `throw` as follows:
 >
-> ```
+> ```ml
 > let call-with-current-continuation
 >       = proc (p)
 >           letcc cont
@@ -3653,7 +4171,13 @@ To translate a language with `letcc` and `throw` into the language without `letc
 - Translate `letcc` *var* `in` *body* into `callcc(proc (`*var*`)` *body*`)`;
 - Translate `throw` *exp*<sub>1</sub> `to` *exp*<sub>2</sub> into `(`*exp*<sub>2</sub> *exp*<sub>1</sub>`)`.
 
-> Exercise 5.45 [★] Add to the language of this section a construct called `yield`. Whenever a thread executes a
+### 5.5 Threads
+
+#### 5.5.0
+
+##### Exercise 5.45 [★]
+
+> Add to the language of this section a construct called `yield`. Whenever a thread executes a
 > `yield`, it is placed on the ready queue, and the thread at the head of the ready queue is run. When the thread is
 > resumed, it should appear as if the call to yield had returned the number 99.
 
@@ -3661,28 +4185,38 @@ Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.x-threads-lang.rkt). It is copied from
 the reference implementation.
 
-> Exercise 5.46 [★★] In the system of exercise 5.45, a thread may be placed on the ready queue either because its time
+##### Exercise 5.46 [★★]
+
+> In the system of exercise 5.45, a thread may be placed on the ready queue either because its time
 > slot has been exhausted or because it chose to yield. In the latter case, it will be restarted with a full time slice.
 > Modify the system so that the ready queue keeps track of the remaining time slice (if any) of each thread, and
 > restarts the thread only with the time it has remaining.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.46.rkt).
 
-> Exercise 5.47 [★] What happens if we are left with two subthreads, each waiting for a mutex held by the other
+##### Exercise 5.47 [★]
+
+> What happens if we are left with two subthreads, each waiting for a mutex held by the other
 > subthread?
 
 The two subthreads will deadlock and never be executed.
 
-> Exercise 5.48 [★] We have used a procedural representation of threads. Replace this by a data-structure
+##### Exercise 5.48 [★]
+
+> We have used a procedural representation of threads. Replace this by a data-structure
 > representation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.48.rkt).
 
-> Exercise 5.49 [★] Do exercise 5.15 (continuations as a stack of frames) for THREADS.
+##### Exercise 5.49 [★]
+
+> Do exercise 5.15 (continuations as a stack of frames) for THREADS.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.49.rkt).
 
-> Exercise 5.50 [★★] Registerize the interpreter of this section. What is the set of mutually tail-recursive procedures
+##### Exercise 5.50 [★★]
+
+> Registerize the interpreter of this section. What is the set of mutually tail-recursive procedures
 > that must be registerized?
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.50.rkt).
@@ -3690,12 +4224,14 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 Procedures that must be registerized are `apply-cont`, `apply-procedure`, `apply-unop`, `signal-mutex`, `value-of/k` and
 `wait-for-mutex`.
 
-> Exercise 5.51 [★★★] We would like to be able to organize our program so that the consumer in figure 5.17 doesn’t have
+##### Exercise 5.51 [★★★]
+
+> We would like to be able to organize our program so that the consumer in figure 5.17 doesn’t have
 > to busy-wait. Instead, it should be able to put itself to sleep and be awakened when the producer has put a value in
 > the buffer. Either write a program with mutexes to do this, or implement a synchronization operator that makes this
 > possible.
 
-```
+```ml
 let buffer = 0
     in let mut = mutex()
        in let producer = proc (n)
@@ -3719,10 +4255,12 @@ let buffer = 0
                 end
 ```
 
-> Exercise 5.52 [★★★] Write a program using mutexes that will be like the program in figure 5.21, except that the main
+##### Exercise 5.52 [★★★]
+
+> Write a program using mutexes that will be like the program in figure 5.21, except that the main
 > thread waits for all three of the subthreads to terminate, and then returns the value of `x`.
 
-```
+```ml
 let x = 0
     in let mut = mutex()
        in let incr_x = proc (id)
@@ -3746,7 +4284,9 @@ let x = 0
                       end
 ```
 
-> Exercise 5.53 [★★★] Modify the thread package to include *thread identifiers*. Each new thread is associated with a
+##### Exercise 5.53 [★★★]
+
+> Modify the thread package to include *thread identifiers*. Each new thread is associated with a
 > fresh thread identifier. When the child thread is spawned, it is passed its thread identifier as a value, rather than
 > the arbitrary value 28 used in this section. The child’s number is also returned to the parent as the value of the
 > `spawn` expression. Instrument the interpreter to trace the creation of thread identifiers. Check to see that the
@@ -3757,42 +4297,62 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 We can pass both the parent’s thread number and the child’s thread number to the child.
 
-> Exercise 5.54 [★★] Add to the interpreter of exercise 5.53 a `kill` facility. The `kill` construct, when given a
+##### Exercise 5.54 [★★]
+
+> Add to the interpreter of exercise 5.53 a `kill` facility. The `kill` construct, when given a
 > thread number, finds the corresponding thread on the ready queue or any of the waiting queues and removes it. In
 > addition, `kill` should return a true value if the target thread is found and false if the thread number is not found
 > on any queue.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.54.rkt).
 
-> Exercise 5.55 [★★] Add to the interpreter of exercise 5.53 an interthread communication facility, in which each
+##### Exercise 5.55 [★★]
+
+> Add to the interpreter of exercise 5.53 an interthread communication facility, in which each
 > thread can send a value to another thread using its thread identifier. A thread can receive messages when it chooses,
 > blocking if no message has been sent to it.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-5.55.rkt).
 
-> Exercise 5.56 [★★] Modify the interpreter of exercise 5.55 so that rather than sharing a store, each thread has its
+##### Exercise 5.56 [★★]
+
+> Modify the interpreter of exercise 5.55 so that rather than sharing a store, each thread has its
 > own store. In such a language, mutexes can almost always be avoided. Rewrite the example of this section in this
 > language, without using mutexes.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.57 [★★★] There are lots of different synchronization mechanisms in your favorite OS book. Pick three and
+##### Exercise 5.57 [★★★]
+
+> There are lots of different synchronization mechanisms in your favorite OS book. Pick three and
 > implement them in this framework.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 5.58 [definitely ★] Go off with your friends and have some pizza, but make sure only one person at a time
+##### Exercise 5.58 [definitely
+
+> ★] Go off with your friends and have some pizza, but make sure only one person at a time
 > grabs a piece!
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.1 [★] Consider figure 6.2 without `(set! pc fact/k)` in the definition of `fact/k` and without
+## 6 Continuation-Passing Style
+
+### 6.1 Writing Programs in Continuation-Passing Style
+
+#### 6.1.0
+
+##### Exercise 6.1 [★]
+
+> Consider figure 6.2 without `(set! pc fact/k)` in the definition of `fact/k` and without
 > `(set! pc apply-cont)` in the definition of `apply-cont`. Why does the program still work?
 
 Because when `fact/k` is called, the value of `pc` must be `fact/k`, so we don’t need to set `pc` to `fact/k` in order
 to continue computation. Same for `apply-cont`.
 
-> Exercise 6.2 [★] Prove by induction on *n* that for any *g*, `(fib/k` *n* *g*`)` = `(`*g* `(fib` *n*`))`.
+##### Exercise 6.2 [★]
+
+> Prove by induction on *n* that for any *g*, `(fib/k` *n* *g*`)` = `(`*g* `(fib` *n*`))`.
 
 Base case: if *n* < 2, `(fib/k` *n* *g*`)` = `(`*g* 1`)` = `(`*g* `(fib` *n*`))`.
 
@@ -3806,7 +4366,9 @@ Inductive case: if *n* ≥ 2,
 = `(`*g* `(+ (fib (-` *n* `1)) (fib (-` *n* `2))))`\
 = `(`*g* `(fib` *n*`))`
 
-> Exercise 6.3 [★] Rewrite each of the following Scheme expressions in continuation-passing style. Assume that any
+##### Exercise 6.3 [★]
+
+> Rewrite each of the following Scheme expressions in continuation-passing style. Assume that any
 > unknown functions have also been rewritten in CPS.
 >
 > 1. `(lambda (x y) (p (+ 8 x) (q y)))`
@@ -3872,7 +4434,9 @@ Inductive case: if *n* ≥ 2,
          (p y cont)))
    ```
 
-> Exercise 6.4 [★★] Rewrite each of the following procedures in continuation-passing style. For each procedure, do
+##### Exercise 6.4 [★★]
+
+> Rewrite each of the following procedures in continuation-passing style. For each procedure, do
 > this first using a data-structure representation of continuations, then with a procedural representation, and then
 > with the inlined procedural representation. Last, write the registerized version. For each of these four versions,
 > test to see that your implementation is tail-recursive by defining `end-cont` by
@@ -3894,13 +4458,17 @@ Inductive case: if *n* ≥ 2,
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.4.rkt).
 
-> Exercise 6.5 [★] When we rewrite an expression in CPS, we choose an evaluation order for the procedure calls in the
+##### Exercise 6.5 [★]
+
+> When we rewrite an expression in CPS, we choose an evaluation order for the procedure calls in the
 > expression. Rewrite each of the preceding examples in CPS so that all the procedure calls are evaluated from right to
 > left.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.6 [★] How many different evaluation orders are possible for the procedure calls in
+##### Exercise 6.6 [★]
+
+> How many different evaluation orders are possible for the procedure calls in
 > `(lambda (x y) (+ (f (g x)) (h (j y))))`? For each evaluation order, write a CPS expression that calls the procedures
 > in that order.
 
@@ -3984,13 +4552,17 @@ There are six different evaluation orders.
                       (cont (+ val4 val2)))))))))))
 ```
 
-> Exercise 6.7 [★★] Write out the procedural and the inlined representations for the interpreter in figures 5.4, 5.5,
+##### Exercise 6.7 [★★]
+
+> Write out the procedural and the inlined representations for the interpreter in figures 5.4, 5.5,
 > and 5.6.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-inlined.rkt)
 and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.7-procedural.rkt).
 
-> Exercise 6.8 [★★★] Rewrite the interpreter of section 5.4 using a procedural and inlined representation. This is
+##### Exercise 6.8 [★★★]
+
+> Rewrite the interpreter of section 5.4 using a procedural and inlined representation. This is
 > challenging because we effectively have two observers, `apply-cont` and `apply-handler`. As a hint, consider modifying
 > the recipe on page 6.1 so that we add to each procedure two extra arguments, one representing the behavior of the
 > continuation under `apply-cont` and one representing its behavior under `apply-handler`.
@@ -3998,11 +4570,15 @@ and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exerci
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-inlined.rkt)
 and [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.8-procedural.rkt).
 
-> Exercise 6.9 [★] What property of multiplication makes this program optimization possible?
+##### Exercise 6.9 [★]
+
+> What property of multiplication makes this program optimization possible?
 
 The [associative property](https://en.wikipedia.org/wiki/Associative_property).
 
-> Exercise 6.10 [★] For `list-sum`, formulate a succinct representation of the continuations, like the one for `fact/k`
+##### Exercise 6.10 [★]
+
+> For `list-sum`, formulate a succinct representation of the continuations, like the one for `fact/k`
 > above.
 
 ```scheme
@@ -4014,13 +4590,21 @@ The [associative property](https://en.wikipedia.org/wiki/Associative_property).
                     (+ cont (car loi))))))
 ```
 
-> Exercise 6.11 [★] Complete the interpreter of figure 6.6 by writing `value-of-simple-exp`.
+### 6.2 Tail Form
+
+#### 6.2.0
+
+##### Exercise 6.11 [★]
+
+> Complete the interpreter of figure 6.6 by writing `value-of-simple-exp`.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.x-cps-lang.rkt). This is copied from
 the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapter6/cps-lang/interp.scm).
 
-> Exercise 6.12 [★] Determine whether each of the following expressions is simple.
+##### Exercise 6.12 [★]
+
+> Determine whether each of the following expressions is simple.
 >
 > 1. `-((f -(x,1)),1)`
 > 2. `(f -(-(x,y),1))`
@@ -4035,12 +4619,14 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
    that’s OK.
 5. `let f = proc (x) x in (f 3)` is not simple because `(f 3)` is a procedure call.
 
-> Exercise 6.13 [★] Translate each of these expressions in CPS-IN into continuation-passing style using the CPS recipe
+##### Exercise 6.13 [★]
+
+> Translate each of these expressions in CPS-IN into continuation-passing style using the CPS recipe
 > on page 200 above. Test your transformed programs by running them using the interpreter of figure 6.6. Be sure that
 > the original and transformed versions give the same answer on each input.
 >
 > 1. `removeall`.
->    ```
+>    ```ml
 >    letrec
 >     removeall(n,s) =
 >      if null?(s)
@@ -4054,7 +4640,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >                     (removeall n cdr(s)))
 >    ```
 > 2. `occurs-in?`.
->    ```
+>    ```ml
 >    letrec
 >     occurs-in?(n,s) =
 >      if null?(s)
@@ -4068,7 +4654,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >           else (occurs-in? n cdr(s))
 >    ```
 > 3. `remfirst`. This uses `occurs-in?` from the preceding example.
->    ```
+>    ```ml
 >    letrec
 >     remfirst(n,s) =
 >      letrec
@@ -4087,7 +4673,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >      in (loop s)
 >    ```
 > 4. `depth`.
->    ```
+>    ```ml
 >    letrec
 >     depth(s) =
 >      if null?(s)
@@ -4100,7 +4686,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >                else add1((depth car(s)))
 >    ```
 > 5. `depth-with-let`.
->    ```
+>    ```ml
 >    letrec
 >     depth(s) =
 >      if null?(s)
@@ -4114,7 +4700,7 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >                   else dfirst
 >    ```
 > 6. `map`.
->    ```
+>    ```ml
 >    letrec
 >     map(f, l) = if null?(l)
 >                 then emptylist
@@ -4126,14 +4712,14 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 > 7. `fnlrgtn`. This procedure takes an n-list, like an s-list (page 9), but with numbers instead of symbols, and a
 >    number `n` and returns the first number in the list (in left-to-right order) that is greater than `n`. Once the
 >    result is found, no further elements in the list are examined. For example,
->    ```
+>    ```ml
 >    (fnlrgtn list(1,list(3,list(2),7,list(9)))
 >     6)
 >    ```
 >    finds 7.
 > 8. `every`. This procedure takes a predicate and a list and returns a true value if and only if the predicate holds
 >    for each list element.
->    ```
+>    ```ml
 >    letrec
 >     every(pred, l) =
 >      if null?(l)
@@ -4144,34 +4730,46 @@ the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapte
 >    in (every proc(n) greater?(n,5) list(6,7,8,9))
 >    ```
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.14 [★] Complete the interpreter of figure 6.6 by supplying definitions for `value-of-program` and
+##### Exercise 6.14 [★]
+
+> Complete the interpreter of figure 6.6 by supplying definitions for `value-of-program` and
 > `apply-cont`.
 
 Solution is implemented
 [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.x-cps-lang.rkt). This is copied from
 the [reference implementation](https://github.com/mwand/eopl3/blob/master/chapter6/cps-lang/interp.scm).
 
-> Exercise 6.15 [★] Observe that in the interpreter of the preceding exercise, there is only one possible value for
+##### Exercise 6.15 [★]
+
+> Observe that in the interpreter of the preceding exercise, there is only one possible value for
 > `cont`. Use this observation to remove the `cont` argument entirely.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.15.rkt).
 
-> Exercise 6.16 [★] Registerize the interpreter of figure 6.6.
+##### Exercise 6.16 [★]
+
+> Registerize the interpreter of figure 6.6.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.16.rkt).
 
-> Exercise 6.17 [★] Trampoline the interpreter of figure 6.6.
+##### Exercise 6.17 [★]
+
+> Trampoline the interpreter of figure 6.6.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.17.rkt).
 
-> Exercise 6.18 [★★] Modify the grammar of CPS-OUT so that a simple `diff-exp` or `zero?-exp` can have only a constant
+##### Exercise 6.18 [★★]
+
+> Modify the grammar of CPS-OUT so that a simple `diff-exp` or `zero?-exp` can have only a constant
 > or variable as an argument. Thus in the resulting language `value-of-simple-exp` can be made nonrecursive.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.18.rkt).
 
-> Exercise 6.19 [★★] Write a Scheme procedure `tail-form?` that takes the syntax tree of a program in CPS-IN,
+##### Exercise 6.19 [★★]
+
+> Write a Scheme procedure `tail-form?` that takes the syntax tree of a program in CPS-IN,
 > expressed in the grammar of figure 6.3, and determines whether the same string would be in tail form according to the
 > grammar of figure 6.5.
 
@@ -4220,17 +4818,27 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
       [a-program (exp) (tail-form-exp? exp)])))
 ```
 
-> Exercise 6.20 [★] Our procedure `cps-of-exps` causes subexpressions to be evaluated from left to right. Modify
+### 6.3 Converting to Continuation-Passing Style
+
+#### 6.3.0
+
+##### Exercise 6.20 [★]
+
+> Our procedure `cps-of-exps` causes subexpressions to be evaluated from left to right. Modify
 > `cps-of-exps` so that subexpressions are evaluated from right to left.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.20.rkt).
 
-> Exercise 6.21 [★] Modify `cps-of-call-exp` so that the operands are evaluated from left to right, followed by the
+##### Exercise 6.21 [★]
+
+> Modify `cps-of-call-exp` so that the operands are evaluated from left to right, followed by the
 > operator.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.21.rkt).
 
-> Exercise 6.22 [★] Sometimes, when we generate `(`*K* *simp*`)`, *K* is already a `proc-exp`. So instead of
+##### Exercise 6.22 [★]
+
+> Sometimes, when we generate `(`*K* *simp*`)`, *K* is already a `proc-exp`. So instead of
 > generating
 >
 > ```scheme
@@ -4239,7 +4847,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 >
 > we could generate
 >
-> ```
+> ```ml
 > let var1 = simp
 > in ...
 > ```
@@ -4259,26 +4867,34 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 The new rule applies when transform a expression on a operand position.
 
-> Exercise 6.23 [★★] Observe that our rule for `if` makes two copies of the continuation *K*, so in a nested `if` the
+##### Exercise 6.23 [★★]
+
+> Observe that our rule for `if` makes two copies of the continuation *K*, so in a nested `if` the
 > size of the transformed program can grow exponentially. Run an example to confirm this observation. Then show how this
 > may be avoided by changing the transformation to bind a fresh variable to `K`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.23.rkt).
 
-> Exercise 6.24 [★★] Add lists to the language (exercise 3.10). Remember that the arguments to a list are not in tail
+##### Exercise 6.24 [★★]
+
+> Add lists to the language (exercise 3.10). Remember that the arguments to a list are not in tail
 > position.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.24.rkt).
 
-> Exercise 6.25 [★★] Extend CPS-IN so that a `let` expression can declare an arbitrary number of variables
+##### Exercise 6.25 [★★]
+
+> Extend CPS-IN so that a `let` expression can declare an arbitrary number of variables
 > (exercise 3.16).
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.25.rkt).
 
-> Exercise 6.26 [★★] A continuation variable introduced by `cps-of-exps` will only occur once in the continuation.
+##### Exercise 6.26 [★★]
+
+> A continuation variable introduced by `cps-of-exps` will only occur once in the continuation.
 > Modify `make-send-to-cont` so that instead of generating
 >
-> ```
+> ```ml
 > let var1 = simp1
 > in T
 > ```
@@ -4289,7 +4905,9 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.26.rkt).
 
-> Exercise 6.27 [★★] As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
+##### Exercise 6.27 [★★]
+
+> As it stands, `cps-of-let-exp` will generate a useless `let` expression. (Why?) Modify this
 > procedure so that the continuation variable is the same as the let variable. Then if *exp*<sub>1</sub> is nonsimple,
 >
 > `(cps-of-exp <<let` *var*<sub>1</sub> `=` *exp*<sub>1</sub> `in` *exp*<sub>2</sub>`>>` *K*`)`\
@@ -4297,12 +4915,16 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.27.rkt).
 
-> Exercise 6.28 [★] Food for thought: imagine a CPS transformer for Scheme programs, and imagine that you apply it to
+##### Exercise 6.28 [★]
+
+> Food for thought: imagine a CPS transformer for Scheme programs, and imagine that you apply it to
 > the first interpreter from chapter 3. What would the result look like?
 
 It would look like a continuation-passing interpreter.
 
-> Exercise 6.29 [★★] Consider this variant of `cps-of-exps`.
+##### Exercise 6.29 [★★]
+
+> Consider this variant of `cps-of-exps`.
 >
 > ```scheme
 > (define cps-of-exps
@@ -4331,7 +4953,9 @@ It would look like a continuation-passing interpreter.
 Because this variant only scan `exps` once without looking back, the original one will scan `exps` multiple times if
 there are multiple non-simple expressions in `exps`.
 
-> Exercise 6.30 [★★] A call to `cps-of-exps` with a list of expressions of length one can be simplified as follows:
+##### Exercise 6.30 [★★]
+
+> A call to `cps-of-exps` with a list of expressions of length one can be simplified as follows:
 >
 > `(cps-of-exps (list` *exp*`)` *builder*`)`\
 > = `(cps-of-exp/ctx` *exp* `(lambda (simp) (`*builder* `(list simp))))`
@@ -4371,24 +4995,32 @@ there are multiple non-simple expressions in `exps`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.30.rkt).
 
-> Exercise 6.31 [★★★] Write a translator that takes the output of `cps-of-program` and produces an equivalent program
+##### Exercise 6.31 [★★★]
+
+> Write a translator that takes the output of `cps-of-program` and produces an equivalent program
 > in which all the continuations are represented by data structures, as in chapter 5. Represent data structures like
 > those constructed using `define-datatype` as lists. Since our language does not have symbols, you can use an integer
 > tag in the car position to distinguish the variants of a data type.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.32 [★★★] Write a translator like the one in exercise 6.31, except that it represents all procedures by
+##### Exercise 6.32 [★★★]
+
+> Write a translator like the one in exercise 6.31, except that it represents all procedures by
 > data structures.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.33 [★★★] Write a translator that takes the output from exercise 6.32 and converts it to a register
+##### Exercise 6.33 [★★★]
+
+> Write a translator that takes the output from exercise 6.32 and converts it to a register
 > program like the one in figure 6.1.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.34 [★★] When we convert a program to CPS, we do more than produce a program in which the control contexts
+##### Exercise 6.34 [★★]
+
+> When we convert a program to CPS, we do more than produce a program in which the control contexts
 > become explicit. We also choose the exact order in which the operations are done, and choose names for each
 > intermediate result. The latter is called *sequentialization*. If we don’t care about obtaining iterative behavior, we
 > can sequentialize a program by converting it to *A-normal form* or *ANF*. Here’s an example of a program in ANF.
@@ -4413,146 +5045,170 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.34.rkt).
 
-> Exercise 6.35 [★] Verify on a few examples that if the optimization of exercise 6.27 is installed, CPS-transforming
+##### Exercise 6.35 [★]
+
+> Verify on a few examples that if the optimization of exercise 6.27 is installed, CPS-transforming
 > the output of your ANF transformer (exercise 6.34) on a program yields the same result as CPS-transforming the
 > program.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 6.36 [★★] Add a `begin` expression (exercise 4.4) to CPS-IN. You should not need to add anything to
+### 6.4 Modeling Computational Effects
+
+#### 6.4.0
+
+##### Exercise 6.36 [★★]
+
+> Add a `begin` expression (exercise 4.4) to CPS-IN. You should not need to add anything to
 > CPS-OUT.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.36.rkt).
 
-> Exercise 6.37 [★★★] Add implicit references (section 4.3) to CPS-IN. Use the same version of CPS-OUT, with explicit
+##### Exercise 6.37 [★★★]
+
+> Add implicit references (section 4.3) to CPS-IN. Use the same version of CPS-OUT, with explicit
 > references, and make sure your translator inserts allocation and dereference where necessary. As a hint, recall that
 > in the presence of implicit references, a `var-exp` is no longer simple, since it reads from the store.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.37.rkt).
 
-> Exercise 6.38 [★★★] If a variable never appears on the left-hand side of a `set` expression, then it is immutable,
+##### Exercise 6.38 [★★★]
+
+> If a variable never appears on the left-hand side of a `set` expression, then it is immutable,
 > and could be treated as simple. Extend your solution to the preceding exercise so that all such variables are treated
 > as simple.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.38.rkt).
 
-> Exercise 6.39 [★] Implement `letcc` and `throw` in the CPS translator.
+##### Exercise 6.39 [★]
+
+> Implement `letcc` and `throw` in the CPS translator.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.39.rkt).
 
-> Exercise 6.40 [★★] Implement `try/catch` and `throw` from section 5.4 by adding them to the CPS translator. You
+##### Exercise 6.40 [★★]
+
+> Implement `try/catch` and `throw` from section 5.4 by adding them to the CPS translator. You
 > should not need to add anything to CPS-OUT. Instead, modify `cps-of-exp` to take two continuations: a success
 > continuation and an error continuation.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-6.40.rkt).
 
-> Exercise 7.1 [★] Below is a list of closed expressions. Consider the value of each expression. For each value, what
+## 7 Types
+
+### 7.1 Values and Their Types
+
+#### 7.1.0
+
+##### Exercise 7.1 [★]
+
+> Below is a list of closed expressions. Consider the value of each expression. For each value, what
 > type or types does it have? Some of the values may have no type that is describable in our type language.
 >
-> 1. ```
+> 1. ```ml
 >    proc (x) -(x,3)
 >    ```
-> 2. ```
+> 2. ```ml
 >    proc (f) proc (x) -((f x), 1)
 >    ```
-> 3. ```
+> 3. ```ml
 >    proc (x) x
 >    ```
-> 4. ```
+> 4. ```ml
 >    proc (x) proc (y) (x y)
 >    ```
-> 5. ```
+> 5. ```ml
 >    proc (x) (x 3)
 >    ```
-> 6. ```
+> 6. ```ml
 >    proc (x) (x x)
 >    ```
-> 7. ```
+> 7. ```ml
 >    proc (x) if x then 88 else 99
 >    ```
-> 8. ```
+> 8. ```ml
 >    proc (x) proc (y) if x then y else 99
 >    ```
-> 9. ```
+> 9. ```ml
 >    (proc (p) if p then 88 else 99
 >     33)
 >    ```
-> 10. ```
+> 10. ```ml
 >     (proc (p) if p then 88 else 99
 >      proc (z) z)
 >     ```
-> 11. ```
+> 11. ```ml
 >     proc (f)
 >      proc (g)
 >       proc (p)
 >        proc (x) if (p (f x)) then (g 1) else -((f x),1)
 >     ```
-> 12. ```
+> 12. ```ml
 >     proc (x)
 >      proc(p)
 >       proc (f)
 >        if (p x) then -(x,1) else (f p)
 >     ```
-> 13. ```
+> 13. ```ml
 >     proc (f)
 >      let d = proc (x)
 >               proc (z) ((f (x x)) z)
 >      in proc (n) ((f (d d)) n)
 >     ```
 
-1. ```
+1. ```ml
    proc (x) -(x,3)
    ```
 
    `int -> int`
-2. ```
+2. ```ml
    proc (f) proc (x) -((f x), 1)
    ```
 
    `(`*t* `-> int) -> (`*t* `-> int)`
-3. ```
+3. ```ml
    proc (x) x
    ```
 
    *t* `->` *t*
-4. ```
+4. ```ml
    proc (x) proc (y) (x y)
    ```
 
    `(`*t*<sub>1</sub> `->` *t*<sub>2</sub>`) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)`
-5. ```
+5. ```ml
    proc (x) (x 3)
    ```
 
    `(int ->` *t*`) ->` *t*
-6. ```
+6. ```ml
    proc (x) (x x)
    ```
 
    Not describable
-7. ```
+7. ```ml
    proc (x) if x then 88 else 99
    ```
 
    `bool -> int`
-8. ```
+8. ```ml
    proc (x) proc (y) if x then y else 99
    ```
 
    `bool -> (int -> int)`
-9. ```
+9. ```ml
    (proc (p) if p then 88 else 99
     33)
    ```
 
    Type error
-10. ```
+10. ```ml
     (proc (p) if p then 88 else 99
      proc (z) z)
     ```
 
     Type error
-11. ```
+11. ```ml
     proc (f)
      proc (g)
       proc (p)
@@ -4560,7 +5216,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
     ```
 
     `(`*t* `-> int) -> ((int -> int) -> ((int -> bool) -> (`*t* `-> int)))`
-12. ```
+12. ```ml
     proc (x)
      proc(p)
       proc (f)
@@ -4568,7 +5224,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
     ```
 
     `int -> ((int -> bool) -> (((int -> bool) -> int) -> int))`
-13. ```
+13. ```ml
     proc (f)
      let d = proc (x)
               proc (z) ((f (x x)) z)
@@ -4578,15 +5234,25 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
     `((`*t*<sub>1</sub> `->` *t*<sub>2</sub>`) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)) -> (`*t*<sub>1</sub> `->` *t*<sub>2</sub>`)`
     *(Not sure about this one)*
 
-> Exercise 7.2 [★★] Are there any expressed values that have exactly two types according to definition 7.1.1?
+##### Exercise 7.2 [★★]
+
+> Are there any expressed values that have exactly two types according to definition 7.1.1?
 
 No, I don’t think so.
 
-> Exercise 7.3 [★★] For the language LETREC, is it decidable whether an expressed value *val* is of type *t*?
+##### Exercise 7.3 [★★]
+
+> For the language LETREC, is it decidable whether an expressed value *val* is of type *t*?
 
 *Not sure about this one.*
 
-> Exercise 7.4 [★] Using the rules of this section, write derivations, like the one on page 5, that assign types for
+### 7.2 Assigning a Type to an Expression
+
+#### 7.2.0
+
+##### Exercise 7.4 [★]
+
+> Using the rules of this section, write derivations, like the one on page 5, that assign types for
 > `proc (x) x` and `proc (x) proc (y) (x y)`. Use the rules to assign at least two types for each of these terms. Do the
 > values of these expressions have the same types?
 
@@ -4605,17 +5271,27 @@ No, I don’t think so.
 The values of these expressions do not necessarily have the same types. According to the actual type of *t*, the result
 type may be different.
 
-> Exercise 7.5 [★★] Extend the checker to handle multiple `let` declarations, multiargument procedures, and multiple
+### CHECKED: A Type-Checked Language
+
+#### 7.3.1 The Checker
+
+##### Exercise 7.5 [★★]
+
+> Extend the checker to handle multiple `let` declarations, multiargument procedures, and multiple
 > `letrec` declarations. You will need to add types of the form
 > `(`*t*<sub>1</sub> `*` *t*<sub>2</sub> `* ... *` *t*<sub>*n*</sub> `->` *t*`)` to handle multiargument procedures.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.5.rkt).
 
-> Exercise 7.6 [★] Extend the checker to handle assignments (section 4.3).
+##### Exercise 7.6 [★]
+
+> Extend the checker to handle assignments (section 4.3).
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.6.rkt).
 
-> Exercise 7.7 [★] Change the code for checking an `if-exp` so that if the test expression is not a boolean, the other
+##### Exercise 7.7 [★]
+
+> Change the code for checking an `if-exp` so that if the test expression is not a boolean, the other
 > expressions are not checked. Give an expression for which the new version of the checker behaves differently from the
 > old version.
 
@@ -4623,11 +5299,13 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 This expression behaves differently in the new version of checker:
 
-```
+```ml
 if 1 then -(zero?(1), 4) else 2
 ```
 
-> Exercise 7.8 [★★] Add `pairof` types to the language. Say that a value is of type
+##### Exercise 7.8 [★★]
+
+> Add `pairof` types to the language. Say that a value is of type
 > `pairof` *t*<sub>1</sub> `*` *t*<sub>2</sub> if and only if it is a pair consisting of a value of type *t*<sub>1</sub>
 > and a value of type *t*<sub>2</sub>. Add to the language the following productions:
 >
@@ -4645,19 +5323,21 @@ if 1 then -(zero?(1), 4) else 2
 > parts of the expression; the scope of these variables is `body`. The typing rules for `pair` and `unpair` are:
 >
 > \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t_1 \\\\
->                     \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
->            {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} \\]
+> \texttt{(type-of $e_1$ $tenv$)} &= t_2}}
+> {\texttt{(type-of (pair-exp $e_1$ $e_2$) $tenv$)} = \texttt{pairof $t_1$ * $t_2$}} \\]
 >
 > \\[ \dfrac{\eqalign{                      \texttt{(type-of $e_{pair}$ $tenv$)} &= \texttt{pairof $t_1$ $t_2$} \\\\
->                     \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
->           {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} \\]
+> \texttt{(type-of $e_{body}$ $[var_1=t_1][var_2=t_2]tenv$)} &= t_{body}}}
+> {\texttt{(type-of (unpair-exp $var_1$ $var_2$ $e_1$ $e_{body}$) $tenv$)} = t_{body}} \\]
 >
 > Extend CHECKED to implement these rules. In `type-to-external-form`, produce the list
 > `(pairof` *t*<sub>1</sub> *t*<sub>2</sub>`)` for a pair type.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.8.rkt).
 
-> Exercise 7.9 [★★] Add `listof` types to the language, with operations similar to those of exercise 3.9. A value is of
+##### Exercise 7.9 [★★]
+
+> Add `listof` types to the language, with operations similar to those of exercise 3.9. A value is of
 > type `listof` *t* if and only if it is a list and all of its elements are of type *t*. Extend the language with the
 > productions
 >
@@ -4679,17 +5359,17 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > with types given by the following four rules:
 >
 > \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
->                     \texttt{(type-of $e_2$ $tenv$)} &= t \\\\
->                                                     &⋮ \\\\
->                     \texttt{(type-of $e_n$ $tenv$)} &= t}}
->           {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} \\]
+> \texttt{(type-of $e_2$ $tenv$)} &= t \\\\
+> &⋮ \\\\
+> \texttt{(type-of $e_n$ $tenv$)} &= t}}
+> {\texttt{(type-of (list-exp $e_1$ ($e_2$ $…$ $e_n$)) $tenv$)} = \texttt{listof $t$}} \\]
 >
 > \\[ \dfrac{\eqalign{\texttt{(type-of $e_1$ $tenv$)} &= t \\\\
->                     \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
->           {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} \\]
+> \texttt{(type-of $e_2$ $tenv$)} &= \texttt{listof $t$}}}
+> {\texttt{(type-of «cons($e_1$, $e_2$)» $tenv$)} = \texttt{listof $t$}} \\]
 >
 > \\[ \dfrac{\texttt{(type-of $e_1$ $tenv$)} = \texttt{listof $t$}}
->           {\texttt{(type-of «null?($e_1$)» $tenv$)} = \texttt{bool}} \\]
+> {\texttt{(type-of «null?($e_1$)» $tenv$)} = \texttt{bool}} \\]
 >
 > \\[ \texttt{(type-of «emptylist[$t$]» $tenv$)} = \texttt{listof $t$} \\]
 >
@@ -4709,7 +5389,9 @@ guarantee a list is non-empty.
 Because our implementation must know the exact type of every expression. If we omit the type parameter, we couldn’t
 determine the type the expression `emptylist`.
 
-> Exercise 7.10 [★★] Extend the checker to handle EXPLICIT-REFS. You will need to do the following:
+##### Exercise 7.10 [★★]
+
+> Extend the checker to handle EXPLICIT-REFS. You will need to do the following:
 >
 > - Add to the type system the types `refto` *t*, where *t* is any type. This is the type of references to locations
 >   containing a value of type *t*. Thus, if *e* is of type *t*, `(newref` *e*`)` is of type `refto` *t*.
@@ -4721,17 +5403,25 @@ determine the type the expression `emptylist`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.10.rkt).
 
-> Exercise 7.11 [★★] Extend the checker to handle MUTABLE-PAIRS.
+##### Exercise 7.11 [★★]
+
+> Extend the checker to handle MUTABLE-PAIRS.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.11.rkt).
 
-> Exercise 7.12 [★] Using the methods in this section, derive types for each of the expressions in exercise 7.1, or
+### 7.4 INFERRED: A Language with Type Inference
+
+#### 7.4.0
+
+##### Exercise 7.12 [★]
+
+> Using the methods in this section, derive types for each of the expressions in exercise 7.1, or
 > determine that no such type exists. As in the other examples of this section, assume there is a `?` attached to each
 > bound variable.
 
 Turns out most of my solutions are correct, except for the last one. I think the last one
 
-```
+```ml
 proc (f)
  let d = proc (x)
           proc (z) ((f (x x)) z)
@@ -4760,7 +5450,9 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
         ((f (d d)) n)))))
 ```
 
-> Exercise 7.13 [★] Write down a rule for doing type inference for `let` expressions. Using your rule, derive types for
+##### Exercise 7.13 [★]
+
+> Write down a rule for doing type inference for `let` expressions. Using your rule, derive types for
 > each of the following expressions, or determine that no such type exists.
 >
 > 1. `let x = 4 in (x 3)`
@@ -4786,9 +5478,11 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
 
    Type error.
 
-> Exercise 7.14 [★] What is wrong with this expression?
+##### Exercise 7.14 [★]
+
+> What is wrong with this expression?
 >
-> ```
+> ```ml
 > letrec
 >  ? even(odd : ?) =
 >     proc (x : ?)
@@ -4801,23 +5495,25 @@ In fact, the following program in [Typed Racket](https://docs.racket-lang.org/ts
 
 The parameter `x` of `odd` should be of type `int`.
 
-> Exercise 7.15 [★★] Write down a rule for doing type inference for a `letrec` expression. Your rule should handle
+##### Exercise 7.15 [★★]
+
+> Write down a rule for doing type inference for a `letrec` expression. Your rule should handle
 > multiple declarations in a `letrec`. Using your rule, derive types for each of the following expressions, or determine
 > that no such type exists:
 >
-> 1. ```
+> 1. ```ml
 >    letrec ? f (x : ?)
 >            = if zero?(x) then 0 else -((f -(x,1)), -2)
 >    in f
 >    ```
-> 2. ```
+> 2. ```ml
 >    letrec ? even (x : ?)
 >              = if zero?(x) then 1 else (odd -(x,1))
 >           ? odd (x : ?)
 >              = if zero?(x) then 0 else (even -(x,1))
 >    in (odd 13)
 >    ```
-> 3. ```
+> 3. ```ml
 >    letrec ? even (odd : ?)
 >              = proc (x) if zero?(x)
 >                         then 1
@@ -4837,14 +5533,14 @@ The parameter `x` of `odd` should be of type `int`.
                                                                       &  & t_{letrecbody} &= t_\texttt{(letrec-exp $pnames$ $bvars$ $pbodies$ $letrecbody$)}
     \end{alignat} \\]
 
-1. ```
+1. ```ml
    letrec ? f (x : ?)
            = if zero?(x) then 0 else -((f -(x,1)), -2)
    in f
    ```
 
    `(int -> int)`
-2. ```
+2. ```ml
    letrec ? even (x : ?)
              = if zero?(x) then 1 else (odd -(x,1))
           ? odd (x : ?)
@@ -4853,7 +5549,7 @@ The parameter `x` of `odd` should be of type `int`.
    ```
 
    `int`
-3. ```
+3. ```ml
    letrec ? even (odd : ?)
              = proc (x : ?) if zero?(x)
                             then 1
@@ -4867,12 +5563,18 @@ The parameter `x` of `odd` should be of type `int`.
 
    `int`
 
-> Exercise 7.16 [★★★] Modify the grammar of INFERRED so that missing types are simply omitted, rather than marked with
+##### Exercise 7.16 [★★★]
+
+> Modify the grammar of INFERRED so that missing types are simply omitted, rather than marked with
 > `?`.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.16.rkt).
 
-> Exercise 7.17 [★★] In our representation, `extend-subst` may do a lot of work if *σ* is large. Implement an alternate
+#### 7.4.1 Substitutions
+
+##### Exercise 7.17 [★★]
+
+> In our representation, `extend-subst` may do a lot of work if *σ* is large. Implement an alternate
 > representation in which `extend-subst` is implemented as
 >
 > ```scheme
@@ -4882,37 +5584,49 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > ```
 >
 > and the extra work is shifted to `apply-subst-to-type`, so that the property
-> *t*(*σ*[*tv* = *t*′]) = (*tσ*)[*tv* = *t*′] is still satisfied. For this definition of `extend-subst`, is the
+> *t*(*σ*[*tv* = *t*′]) = \(*tσ*)[*tv* = *t*′] is still satisfied. For this definition of `extend-subst`, is the
 > no-occurrence invariant needed?
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.17.rkt).
 
 The no-occurrence invariant is not needed for this definition of `extend-subst`.
 
-> Exercise 7.18 [★★] Modify the implementation in the preceding exercise so that `apply-subst-to-type` computes the
+##### Exercise 7.18 [★★]
+
+> Modify the implementation in the preceding exercise so that `apply-subst-to-type` computes the
 > substitution for any type variable at most once.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.18.rkt).
 
-> Exercise 7.19 [★] We wrote: “If `ty1` is an unknown type, then the no-occurrence invariant tells us that it is not
+#### 7.4.2 The Unifier
+
+##### Exercise 7.19 [★]
+
+> We wrote: “If `ty1` is an unknown type, then the no-occurrence invariant tells us that it is not
 > bound in the substitution.” Explain in detail why this is so.
 
 Because `ty1` is the result type after applying the substitution, if it is an unknown type, either it is not bound in
 the substitution, or it is on the right hand side of the substitution. Since the no-occurrence invariant forbids bounded
 variable occurs on the right hand side of the substitution, `ty1` is not bound in the substitution.
 
-> Exercise 7.20 [★★] Modify the unifier so that it calls `apply-subst-to-type` only on type variables, rather than on
+##### Exercise 7.20 [★★]
+
+> Modify the unifier so that it calls `apply-subst-to-type` only on type variables, rather than on
 > its arguments.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.20.rkt).
 
-> Exercise 7.21 [★★] We said the substitution is like a store. Implement the unifier, using the representation of
+##### Exercise 7.21 [★★]
+
+> We said the substitution is like a store. Implement the unifier, using the representation of
 > substitutions from exercise 7.17, and keeping the substitution in a global Scheme variable, as we did in figures 4.1
 > and 4.2.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.21.rkt).
 
-> Exercise 7.22 [★★] Refine the implementation of the preceding exercise so that the binding of each type variable can
+##### Exercise 7.22 [★★]
+
+> Refine the implementation of the preceding exercise so that the binding of each type variable can
 > be obtained in constant time.
 
 The best I can do is linear time look up, I think I’ll need hash table to implement constant time look up. Still, in my
@@ -4920,16 +5634,24 @@ implementation, faster look up time is at the cost of slower extension.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.22.rkt).
 
-> Exercise 7.23 [★★] Extend the inferencer to handle pair types, as in exercise 7.8.
+#### 7.4.3 Finding the Type of an Expression
+
+##### Exercise 7.23 [★★]
+
+> Extend the inferencer to handle pair types, as in exercise 7.8.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.23.rkt).
 
-> Exercise 7.24 [★★] Extend the inferencer to handle multiple `let` declarations, multiargument procedures, and
+##### Exercise 7.24 [★★]
+
+> Extend the inferencer to handle multiple `let` declarations, multiargument procedures, and
 > multiple `letrec` declarations.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.24.rkt).
 
-> Exercise 7.25 [★★] Extend the inferencer to handle list types, as in exercise 7.9. Modify the language to use the
+##### Exercise 7.25 [★★]
+
+> Extend the inferencer to handle list types, as in exercise 7.9. Modify the language to use the
 > production
 >
 > *Expression* ::= `emptylist`
@@ -4942,20 +5664,26 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.25.rkt).
 
-> Exercise 7.26 [★★] Extend the inferencer to handle EXPLICIT-REFS, as in exercise 7.10.
+##### Exercise 7.26 [★★]
+
+> Extend the inferencer to handle EXPLICIT-REFS, as in exercise 7.10.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.26.rkt).
 
-> Exercise 7.27 [★★] Rewrite the inferencer so that it works in two phases. In the first phase it should generate a set
+##### Exercise 7.27 [★★]
+
+> Rewrite the inferencer so that it works in two phases. In the first phase it should generate a set
 > of equations, and in the second phase, it should repeatedly call `unify` to solve them.
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
 
-> Exercise 7.28 [★★] Our inferencer is very useful, but it is not powerful enough to allow the programmer to define
+##### Exercise 7.28 [★★]
+
+> Our inferencer is very useful, but it is not powerful enough to allow the programmer to define
 > procedures that are polymorphic, like the polymorphic primitives `pair` or `cons`, which can be used at many types.
 > For example, our inferencer would reject the program
 >
-> ```
+> ```ml
 > let f = proc (x : ?) x
 > in if (f zero?(0))
 >    then (f 11)
@@ -4967,7 +5695,7 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 >
 > For a more realistic example, one would like to write programs like
 >
-> ```
+> ```ml
 > letrec
 >  ? map (f : ?) =
 >     letrec
@@ -5003,15 +5731,19 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 
 Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/master/solutions/exercise-7.27.rkt).
 
-> Exercise 7.29 [★★★] The type inference algorithm suggested in the preceding exercise will analyze *e*<sub>1</sub>
+##### Exercise 7.29 [★★★]
+
+> The type inference algorithm suggested in the preceding exercise will analyze *e*<sub>1</sub>
 > many times, once for each of its occurrences in *e*<sub>2</sub>. Implement Milner’s Algorithm W, which analyzes
 > *e*<sub>1</sub> only once.
 
-*Skipped for now.*
+*Skipped.*
 
-> Exercise 7.30 [★★★] The interaction between polymorphism and effects is subtle. Consider a program starting
+##### Exercise 7.30 [★★★]
+
+> The interaction between polymorphism and effects is subtle. Consider a program starting
 >
-> ```
+> ```ml
 > let p = newref(proc (x : ?) x)
 > in ...
 > ```
@@ -5021,4 +5753,4 @@ Solution is implemented [here](https://github.com/EFanZh/EOPL-Exercises/blob/mas
 > 2. Avoid this difficulty by restricting the right-hand side of a let to have no effect on the store. This is called
 >    the *value restriction*.
 
-*Skipped for now.*
+*Skipped.*
