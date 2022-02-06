@@ -780,7 +780,11 @@ that 0 ≤ \\(c_1\\) *g*(*n*, *m*) ≤ *f*(*n*, *m*) ≤ \\(c_2\\) *g*(*n*, *m*)
 
 > Prove equation (3.16).
 
-\\(a^{\log_b c} = \left(c^{\log_c a}\right)^{\log_b c} = c^{\left(\log_c a\right)\left(\log_b c\right)} = c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}} = c^{\frac{\ln a}{\ln b}} = c^{\log_b a}\\).
+\\(a^{\log_b c}
+= \left(c^{\log_c a}\right)^{\log_b c}
+= c^{\left(\log_c a\right)\left(\log_b c\right)}
+= c^{\frac{\ln a}{\ln c} \frac{\ln c}{\ln b}}
+= c^{\frac{\ln a}{\ln b}} = c^{\log_b a}\\).
 
 ##### 3.2-3
 
@@ -790,26 +794,49 @@ Proving equation (3.19):
 
 According to equation (3.18), we know that
 
-\\(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right) ≤ n! ≤ \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\\)
+\\(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)
+≤ n!
+≤ \sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\\)
 
 So
 
-\\(\ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right) ≤ \ln (n!) ≤ n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
-⇒ \\(n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_1}{n}\right)} ≤ \ln (n!) ≤ n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
+\\(\ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_1}{n}\right)\right)
+≤ \ln (n!)
+≤ \ln \left(\sqrt{2 \pi n} \left(\frac{n}{e}\right)^n \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(\ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right)
+≤ \ln (n!)
+≤ \ln \left(\left(\frac{n}{e}\right)^n\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right)
+≤ \ln (n!)
+≤ n \ln \left(\frac{n}{e}\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right)
+≤ \ln (n!)
+≤ n \left(\ln n - 1\right) + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_1}{n}\right)\right)
+≤ \ln (n!)
+≤ n \ln n - n + \ln \left(\sqrt{2 \pi n} \left(1 + \frac{c_2}{n}\right)\right)\\)\
+⇒ \\(n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_1}{n}\right)}
+≤ \ln (n!)
+≤ n \ln n - n + \frac{1}{2} \ln {(2 \pi n)} + \ln {\left(1 + \frac{c_2}{n}\right)}\\).
 
 So we have ln(*n*!) = Ω(*n* ln *n*), and ln(*n*!) = *O*(*n* ln *n*), so ln(*n*!) = Θ(*n* ln *n*).
 
 Proving *n*! = *ω*(\\(2^n\\)):
 
-\\(\lim_{n → ∞}\frac{2^n}{n!} = \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n} = \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) = 2 \lim_{n → ∞}\left(\frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right) ≤ 2 \lim_{n → ∞}\left(\frac{2}{n}\right) = 0\\).
+\\(\lim_{n → ∞}\frac{2^n}{n!}
+= \lim_{n → ∞}\frac{2 × 2 × 2 × 2 × 2 × … × 2}{1 × 2 × 3 × 4 × 5 × … × n}
+= \lim_{n → ∞}\left(\frac{2}{1} × \frac{2}{2} × \frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right)
+= 2 \lim_{n → ∞}\left(\frac{2}{3} × \frac{2}{4} × \frac{2}{5} × … × \frac{2}{n}\right)
+≤ 2 \lim_{n → ∞}\left(\frac{2}{n}\right)
+= 0\\).
 
 Proving *n*! = *o*(\\(n^n\\)):
 
-\\(\lim_{n → ∞}\frac{n!}{n^n} = \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n} = \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right) ≤ \lim_{n → ∞}\left(\frac{1}{n}\right) = 0\\).
+\\(\lim_{n → ∞}\frac{n!}{n^n}
+= \lim_{n → ∞}\frac{1 × 2 × 3 × 4 × 5 × … × n}{n × n × n × n × n × … × n}
+= \lim_{n → ∞}\left(\frac{1}{n} × \frac{2}{n} × \frac{3}{n} × \frac{4}{n} × \frac{5}{n} × … × \frac{n}{n}\right)
+≤ \lim_{n → ∞}\left(\frac{1}{n}\right)
+= 0\\).
 
 ##### 3.2-4 ★
 
@@ -826,16 +853,19 @@ By the definition of \\(\lg^*\\), we have
 \\(\lg^\* n = \begin{cases}0&n ≤ 1\\\\
 \lg^* \left(\lg n\right) + 1&n > 1\end{cases}\\).
 
-So \\(\lg^\* n = Θ\left(\lg^\* \left(\lg n\right)\right)\\). Because \\(\lg^\* n\\) is asymptotically larger than \\(\lg \left(\lg^\* n\right)\\),
-we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\lg \left(\lg^\* n\right)\\).
+So \\(\lg^\* n = Θ\left(\lg^\* \left(\lg n\right)\right)\\). Because \\(\lg^\* n\\) is asymptotically larger than
+\\(\lg \left(\lg^\* n\right)\\), we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than
+\\(\lg \left(\lg^\* n\right)\\).
 
 ##### 3.2-6
 
 > Show that the golden ratio *ϕ* and its conjugate \\(\hat{\phi}\\) both satisfy the equation \\(x^2 = x + 1\\).
 
-\\(\phi^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4} = \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = \phi + 1\\).
+\\(\phi^2 = \left(\frac{1 + \sqrt{5}}{2}\right)^2 = \frac{1 + 2 \sqrt{5} + 5}{4} = \frac{6 + 2 \sqrt{5}}{4}
+= \frac{3 + \sqrt{5}}{2} = \frac{1 + \sqrt{5}}{2} + 1 = \phi + 1\\).
 
-\\(\hat{\phi}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4} = \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{\phi} + 1\\).
+\\(\hat{\phi}^2 = \left(\frac{1 - \sqrt{5}}{2}\right)^2 = \frac{1 - 2 \sqrt{5} + 5}{4} = \frac{6 - 2 \sqrt{5}}{4}
+= \frac{3 - \sqrt{5}}{2} = \frac{1 - \sqrt{5}}{2} + 1 = \hat{\phi} + 1\\).
 
 ##### 3.2-7
 
@@ -848,13 +878,18 @@ we know that \\(\lg^\* \left(\lg n\right)\\) is asymptotically larger than \\(\l
 Base cases:
 
 - If *i* = 0, \\(\frac{\phi^i - \hat{\phi}^i}{\sqrt{5}} = \frac{1 - 1}{\sqrt{5}} = 0\\), the claim holds.
-- If *i* = 1, \\(\frac{\phi^i - \hat{\phi}^i}{\sqrt{5}} = \frac{\phi - \hat{\phi}}{\sqrt{5}} = \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1\\), the claim holds.
+- If *i* = 1, \\(\frac{\phi^i - \hat{\phi}^i}{\sqrt{5}} = \frac{\phi - \hat{\phi}}{\sqrt{5}} =
+  \frac{\frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2}}{\sqrt{5}} = \frac{\sqrt{5}}{\sqrt{5}} = 1\\), the claim holds.
 
 Inductive case:
 
-- By induction, we have \\(F_{i - 2} = \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} = \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}}\\).
-  So \\(F_i = F_{i - 2} + F_{i - 1} = \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}} + \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}} = \frac{\phi^{i - 2} (1 + \phi) - \hat{\phi}^{i - 2} \left(1 + \hat{\phi}\right)}{\sqrt{5}}\\). Base on the conclusion of exercise 3.2-6, we have
-  \\(1 + \phi = \phi^2\\) and \\(1 + \hat{\phi} = \hat{\phi}^2\\), so \\(F_i = \frac{\phi^{i - 2} \phi^2 - \hat{\phi}^{i - 2} \hat{\phi}^2}{\sqrt{5}} = \frac{\phi^i - \hat{\phi}^i}{\sqrt{5}}\\), the claim holds.
+- By induction, we have \\(F_{i - 2} = \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}}\\) and \\(F_{i - 1} =
+  \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}}\\). So \\(F_i = F_{i - 2} + F_{i - 1} =
+  \frac{\phi^{i - 2} - \hat{\phi}^{i - 2}}{\sqrt{5}} + \frac{\phi^{i - 1} - \hat{\phi}^{i - 1}}{\sqrt{5}} =
+  \frac{\phi^{i - 2} (1 + \phi) - \hat{\phi}^{i - 2} \left(1 + \hat{\phi}\right)}{\sqrt{5}}\\). Base on the conclusion
+  of exercise 3.2-6, we have \\(1 + \phi = \phi^2\\) and \\(1 + \hat{\phi} = \hat{\phi}^2\\), so
+  \\(F_i = \frac{\phi^{i - 2} \phi^2 - \hat{\phi}^{i - 2} \hat{\phi}^2}{\sqrt{5}} =
+  \frac{\phi^i - \hat{\phi}^i}{\sqrt{5}}\\), the claim holds.
 
 ##### 3.2-8
 
@@ -1509,8 +1544,12 @@ Proof:
 
 *f*(⌊*x*⌋) - 1 < ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋)\
 ⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(⌊*x*⌋) < ⌊*f*(⌊*x*⌋)⌋ + 1\
-⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ \\(f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)\\) < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
-⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\).
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\)
+≤ \\(f^{-1}\left(f\left(\left\lfloor x\right\rfloor\right)\right)\\)
+< \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\)
+≤ ⌊*x*⌋
+< \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\).
 
 Since ⌊*f*(⌊*x*⌋)⌋ + 1 is an integer, and we also have
 *f*(*x*) = integer ⇒ *x* = integer, we know that
@@ -1518,9 +1557,15 @@ Since ⌊*f*(⌊*x*⌋)⌋ + 1 is an integer, and we also have
 ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\), we have
 *x* < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\). So:
 
-\\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ ⌊*x*⌋ < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
-⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\) ≤ *x* < \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
-⇒ \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\right)\\) ≤ *f*(*x*) < \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\right)\\)\
+\\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\)
+≤ ⌊*x*⌋
+< \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\\)
+≤ *x*
+< \\(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\\)\
+⇒ \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor\right)\right)\\)
+≤ *f*(*x*)
+< \\(f\left(f^{-1}\left(\left\lfloor f\left(\left\lfloor x\right\rfloor\right)\right\rfloor + 1\right)\right)\\)\
 ⇒ ⌊*f*(⌊*x*⌋)⌋ ≤ *f*(*x*) < ⌊*f*(⌊*x*⌋)⌋ + 1\
 ⇒ *f*(*x*) = ⌊*f*(⌊*x*⌋)⌋.
 
@@ -1850,8 +1895,10 @@ The solution is implemented
          *A*[*i*, *j*] + *A*[*i* + 1, *l* - 1] ≤ *A*[*i*, *l* - 1] + *A*[*i* + 1, *j*]. Since
          *A*[*i*, *l* - 1] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *l* - 1], we have:
 
-         (*A*[*i*, *j*] + *A*[*i* + 1, *l* - 1]) + (*A*[*i*, *l* - 1] + *A*[*i* + 1, *l*]) ≤ (*A*[*i*, *l* - 1] + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + *A*[*i* + 1, *l* - 1])\
-         ⇒ (*A*[*i*, *j*] + ~~*A*[*i* + 1, *l* - 1]~~) + (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *l*]) ≤ (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + ~~*A*[*i* + 1, *l* - 1]~~)\
+         (*A*[*i*, *j*] + *A*[*i* + 1, *l* - 1]) + (*A*[*i*, *l* - 1] + *A*[*i* + 1, *l*])
+         ≤ (*A*[*i*, *l* - 1] + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + *A*[*i* + 1, *l* - 1])\
+         ⇒ (*A*[*i*, *j*] + ~~*A*[*i* + 1, *l* - 1]~~) + (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *l*])
+         ≤ (~~*A*[*i*, *l* - 1]~~ + *A*[*i* + 1, *j*]) + (*A*[*i*, *l*] + ~~*A*[*i* + 1, *l* - 1]~~)\
          ⇒ *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i* + 1, *j*] + *A*[*i*, *l*]\
          ⇒ *A*[*i*, *j*] + *A*[*i* + 1, *l*] ≤ *A*[*i*, *l*] + *A*[*i* + 1, *j*].
      - Second, we prove the original claim by induction.
@@ -1860,8 +1907,10 @@ The solution is implemented
        - Inductive case: by induction, *A*[*i*, *j*] + *A*[*k* - 1, *l*] ≤ *A*[*i*, *l*] + *A*[*k* - 1, *j*].
          Since *A*[*k* - 1, *j*] + *A*[*k*, *l*] ≤ *A*[*k* - 1, *l*] + *A*[*k*, *j*], we have:
 
-         (*A*[*i*, *j*] + *A*[*k* - 1, *l*]) + (*A*[*k* - 1, *j*] + *A*[*k*, *l*]) ≤ (*A*[*i*, *l*] + *A*[*k* - 1, *j*]) + (*A*[*k* - 1, *l*] + *A*[*k*, *j*])\
-         ⇒ (*A*[*i*, *j*] + ~~*A*[*k* - 1, *l*]~~) + (~~*A*[*k* - 1, *j*]~~ + *A*[*k*, *l*]) ≤ (*A*[*i*, *l*] + ~~*A*[*k* - 1, *j*]~~) + (~~*A*[*k* - 1, *l*]~~ + *A*[*k*, *j*])\
+         (*A*[*i*, *j*] + *A*[*k* - 1, *l*]) + (*A*[*k* - 1, *j*] + *A*[*k*, *l*])
+         ≤ (*A*[*i*, *l*] + *A*[*k* - 1, *j*]) + (*A*[*k* - 1, *l*] + *A*[*k*, *j*])\
+         ⇒ (*A*[*i*, *j*] + ~~*A*[*k* - 1, *l*]~~) + (~~*A*[*k* - 1, *j*]~~ + *A*[*k*, *l*])
+         ≤ (*A*[*i*, *l*] + ~~*A*[*k* - 1, *j*]~~) + (~~*A*[*k* - 1, *l*]~~ + *A*[*k*, *j*])\
          ⇒ *A*[*i*, *j*] + *A*[*k*, *l*] ≤ *A*[*i*, *l*] + *A*[*k*, *j*]
 2. Result:
 
@@ -1960,7 +2009,8 @@ Let *k* = Θ(*n*) be the time needed to generate an *n* bit random number.
 ⇒ *T*(*a*, *b*) = Θ(*n*) / ((*b* - *a* + 1) / \\(2^n\\)).\
 ⇒ *T*(*a*, *b*) = Θ(*n*) \\(2^{\left\lceil\lg (b - a + 1)\right\rceil}\\) / (*b* - *a* + 1).\
 ⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\left\lceil\lg (b - a + 1)\right\rceil}\\) / (*b* - *a* + 1)).\
-⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\lg (b - a + 1)}\\) / (*b* - *a* + 1)), because \\(Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)\\).\
+⇒ *T*(*a*, *b*) = Θ(*n* \\(2^{\lg (b - a + 1)}\\) / (*b* - *a* + 1)),
+because \\(Θ(n) = 2^n ≤ 2^{\left\lceil n\right\rceil} < 2^{n + 1} = 2 × 2^n = Θ(n)\\).\
 ⇒ *T*(*a*, *b*) = Θ(*n* (*b* - *a* + 1) / (*b* - *a* + 1)).\
 ⇒ *T*(*a*, *b*) = Θ(*n*).\
 ⇒ *T*(*a*, *b*) = Θ(⌈lg (*b* - *a* + 1)⌉).
@@ -2023,7 +2073,7 @@ E[*X*] = \\(∑_{i = 1}^6 i \Pr\left\lbrace X_i = 1\right\rbrace\\) = \\(∑_{i 
 
 So the expected value of *n* dices is:
 
-\\(\operatorname{E}\left[∑_{j = 1}^{n} X\right]\\) = \\(∑_{j = 1}^{n}\operatorname{E}\left[X\right]\\) = 7 *n* / 2.
+\\(\operatorname{E}\left[∑_{j = 1}^{n} X\right]\\) = \\(∑_{j = 1}^{n}\operatorname{E}[X]\\) = 7 *n* / 2.
 
 ##### 5.2-4
 
@@ -2320,7 +2370,7 @@ So the expected number of bins with exactly 1 ball is:
 
 1. For any counter value \\(n_i\\), the expected value increased by one increment operation is:
 
-   \\(\left(n_{i + 1} - n_i\right) \left(1 / \left(n_{i + 1} - n_i\right)\right) + 0 \left(1 / \left(n_{i + 1} - n_i\right)\right)\\) = 1.
+   \\((n_{i + 1} - n_i) (1 / (n_{i + 1} - n_i)) + 0 (1 / (n_{i + 1} - n_i))\\) = 1.
 
    Let \\(X_i\\) be the random variable in which the counter values increased by the *i*-th increment operation. So the
    expected value of the counter after *n* *Increment* operations is:
@@ -3506,13 +3556,13 @@ Represent the integers with lg *n* bit digits, then the running time will be:
 ##### 8.4-3
 
 > Let *X* be a random variable that is equal to the number of heads in two flips of a fair coin. What is E[\\(X^2\\)]?
-> What is \\(\operatorname{E}^2\left[X\right]\\)?
+> What is \\(\operatorname{E}^2[X]\\)?
 
 E[\\(X^2\\)]\
 = \\(0^2\\) × 1 / 4 + \\(1^2\\) × 1 / 2 + \\(2^2\\) × 1 / 4\
 = 3 / 2.
 
-\\(\operatorname{E}^2\left[X\right]\\)\
+\\(\operatorname{E}^2[X]\\)\
 = \\((0 × 1 / 4 + 1 × 1 / 2 + 2 × 1 / 4)^2\\)\
 = 1.
 
@@ -3698,7 +3748,7 @@ The worst-cast running time is Θ(\\(n^2\\)).
 > Suppose that, instead of sorting an array, we just require that the elements increase on average. More precisely, we
 > call an *n*-element array *A* ***k-sorted*** if, for all *i* = 1, 2, …, *n* - *k*, the following holds:
 >
-> \\(\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}\\).
+> \\(\frac{∑_{j = i}^{i + k - 1} A[j]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A[j]}{k}\\).
 >
 > ***a.*** What does it mean for an array to be 1-sorted?
 >
@@ -3727,9 +3777,9 @@ It means the array is sorted.
 
 ***c.***
 
-\\(\frac{∑_{j = i}^{i + k - 1} A\left[j\right]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A\left[j\right]}{k}\\)\
-⇔ \\(∑_{j = i}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k} A\left[j\right]\\)\
-⇔ \\(A\left[i\right] + ∑_{j = i + 1}^{i + k - 1} A\left[j\right] ≤ ∑_{j = i + 1}^{i + k - 1} A\left[j\right] + A\left[i + k\right]\\)\
+\\(\frac{∑_{j = i}^{i + k - 1} A[j]}{k} ≤ \frac{∑_{j = i + 1}^{i + k} A[j]}{k}\\)\
+⇔ \\(∑_{j = i}^{i + k - 1} A[j] ≤ ∑_{j = i + 1}^{i + k} A[j]\\)\
+⇔ \\(A[i] + ∑_{j = i + 1}^{i + k - 1} A[j] ≤ ∑_{j = i + 1}^{i + k - 1} A[j] + A\left[i + k\right]\\)\
 ⇔ *A*[i] ≤ *A*[*i* + *k*].
 
 ***d.***
@@ -4100,9 +4150,10 @@ Proof:
 If we sort the *y*-coordinates of the wells by into an array *A*[1‥*n*], let *k* be the *y* coordinates of the pipeline,
 then total length of the spurs is:
 
-\\(∑_{i = 1}^n \left|A\left[i\right] - k\right|\\)\
-= \\(∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[i\right] - k\right| + ∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left|A\left[n + 1 - i\right] - k\right|\\) + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
-= \\(∑_{i = 1}^{\left\lfloor n / 2\right\rfloor} \left(\left|A\left[i\right] - k\right| + \left|A\left[n + 1 - i\right] - k\right|\right)\\) + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
+\\(∑_{i = 1}^n |A[i] - k|\\)\
+= \\(∑_{i = 1}^{\lfloor n / 2\rfloor} |A[i] - k| + ∑_{i = 1}^{\lfloor n / 2\rfloor} |A[n + 1 - i] - k|\\) +
+(*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|\
+= \\(∑_{i = 1}^{\lfloor n / 2\rfloor} (|A[i] - k| + |A[n + 1 - i] - k|)\\) + (*n* mod 2) |*A*[⌈*n* / 2⌉] - *k*|.
 
 If *A*[*i*] ≤ *k* ≤ *A*[*n* + 1 - *i*], |*A*[*i*] - *k*| + |*A*[*n* + 1 - *i*] - *k*| will have the minimal value of
 *A*[*n* + 1 - *i*] - *A*[*i*], which means *k* should between *A*[*i*] and *A*[*n* + 1 - *i*]. If
@@ -4250,7 +4301,8 @@ new coordinates, which should be the location of the post-office.
 > - ***b.*** Let \\(X_k\\) denote the total number of comparisons between elements of array *A* when finding \\(z_k\\).
 >   Show that
 >
->   \\(\displaystyle \operatorname{E}\left[X_k\right] ≤ 2 \left(∑_{i = 1}^k ∑_{j = k}^n \frac{1}{j - i + 1} + ∑_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} + ∑_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\right)\\).
+>   \\(\displaystyle \operatorname{E}\left[X_k\right] ≤ 2 \left(∑_{i = 1}^k ∑_{j = k}^n \frac{1}{j - i + 1} +
+>   ∑_{j = k + 1}^n \frac{j - k - 1}{j - k + 1} + ∑_{i = 1}^{k - 2} \frac{k - i - 1}{k - i + 1}\right)\\).
 > - ***c.*** Show that E[\\(X_k\\)] ≤ 4 *n*.
 > - ***d.*** Conclude that, assuming all elements of array *A* are distinct, *Randomized-Select* runs in expected time
 >   *O*(*n*).
@@ -4947,7 +4999,8 @@ As for the example, consider storing the anagrams of a word in a hash table.
 >   *k* ≥ \\(k_0\\) = *c* lg *n* / lg lg *n*.
 > - ***e.*** Argue that
 >
->   E[M] ≤ \\(\displaystyle\Pr\left\lbrace M > \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ n + \Pr\left\lbrace M ≤ \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ \frac{c \lg n}{\lg \lg n}\\).
+>   E[M] ≤ \\(\displaystyle\Pr\left\lbrace M > \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ n +
+>   \Pr\left\lbrace M ≤ \frac{c \lg n}{\lg \lg n} \right\rbrace ⋅ \frac{c \lg n}{\lg \lg n}\\).
 >
 >   Conclude that E[*M*] = *O*(lg *n* / lg lg *n*).
 
@@ -7307,7 +7360,8 @@ Proof by induction:
   \\(∑_{c ∈ T} c{.}\textit{freq} ⋅ d_T(c)\\)\
   = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ d_T(c) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ d_T(c)\\)\
   = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ (d_L(c) + 1) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ (d_R(c) + 1)\\)\
-  = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c{.}\textit{freq} + ∑_{c ∈ R} c{.}\textit{freq}\\)\
+  = \\(∑_{c ∈ L} c{.}\textit{freq} ⋅ d_L(c) + ∑_{c ∈ R} c{.}\textit{freq} ⋅ d_R(c) + ∑_{c ∈ L} c{.}\textit{freq} +
+  ∑_{c ∈ R} c{.}\textit{freq}\\)\
   = *s* + *t* + *f* + *g* (by induction)
 
   Since the frequency of *T* = *f* + *g*, so *s* + *t* + *f* + *g* equals to the sum of frequencies of internal nodes of
@@ -7652,7 +7706,8 @@ Solution is implemented
   *P*(*C*, *i*) =
 
   - *P*(*C*, *i* + 1), if \\(r_{i + 1}\\) ∈ *C*,
-  - 1 + \\(\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)\\), if \\(r_{i + 1}\\) ∈ *C*,
+  - 1 + \\(\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)\\), if
+    \\(r_{i + 1}\\) ∈ *C*,
 - ***c.*** *Skipped*.
 
 ### 17 Amortized Analysis
@@ -10051,7 +10106,8 @@ Pr{*A* | *B*} + Pr{\\(\bar{A}\\) | *B*}\
 > Prove that for any collection of events \\(A_1\\), \\(A_2\\), …, \\(A_n\\),
 >
 > \\(\begin{aligned}
-> \Pr\left\lbrace A_1 \cap A_2 \cap ⋯ \cap A_n\right\rbrace = &\Pr\left\lbrace A_1\right\rbrace ⋅ \Pr\left\lbrace A_2 \middle| A_1\right\rbrace ⋅ \Pr\left\lbrace A_3 \middle| A_1 \cap A_2\right\rbrace ⋯\\
+> \Pr\left\lbrace A_1 \cap A_2 \cap ⋯ \cap A_n\right\rbrace = &\Pr\left\lbrace A_1\right\rbrace ⋅
+> \Pr\left\lbrace A_2 \middle| A_1\right\rbrace ⋅ \Pr\left\lbrace A_3 \middle| A_1 \cap A_2\right\rbrace ⋯\\\\
 > &\Pr\left\lbrace A_n \middle| A_1 \cap A_2 \cap ⋯ \cap A_{n - 1}\right\rbrace\text{.}
 > \end{aligned}\\)
 
@@ -10068,7 +10124,8 @@ So
 \\(\Pr\left\lbrace ⋂_{i = 1}^{n + 1} A_i\right\rbrace\\)\
 = \\(\Pr\left\lbrace\left(⋂_{i = 1}^n A_i\right) \cap A_{n + 1}\right\rbrace\\)\
 = \\(\Pr\left\lbrace ⋂_{i = 1}^n A_i\right\rbrace ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace\\)\
-= \\(\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅ \Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace\\)\
+= \\(\left(∏_{i = 1}^n \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\right) ⋅
+\Pr\left\lbrace A_{n + 1} \middle| ⋂_{i = 1}^n A_i\right\rbrace\\)\
 = \\(∏_{i = 1}^{n + 1} \Pr\left\lbrace A_i \middle| ⋂_{j = 1}^{i - 1} A_j \right\rbrace\\).
 
 ##### C.2-6 ★
@@ -10206,8 +10263,8 @@ Since *X* and *Y* are nonnegative, E[max(*X*, *Y*)] ≤ E[*X* + *Y*] = E[*X*] + 
 
 > Which is larger: the expectation of the square of a random variable, or the square of its expectation?
 
-E[\\(X^2\\)] - \\(\operatorname{E}^2\left[Y\right]\\)\
-= E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\)\
+E[\\(X^2\\)] - \\(\operatorname{E}^2[Y]\\)\
+= E[\\(X^2\\)] - \\(\operatorname{E}^2[X]\\)\
 = Var[*X*]\
 ≥ 0
 
@@ -10218,8 +10275,8 @@ E[\\(X^2\\)] - \\(\operatorname{E}^2\left[Y\right]\\)\
 Since *X* takes on only the values 0 and 1, we have \\(X^2\\) = *X*.
 
 Var[*X*]\
-= E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\)\
-= E[*X*] - \\(\operatorname{E}^2\left[X\right]\\)\
+= E[\\(X^2\\)] - \\(\operatorname{E}^2[X]\\)\
+= E[*X*] - \\(\operatorname{E}^2[X]\\)\
 = E[*X*](1 - E[*X*])\
 = E[*X*]E[1 - *X*]
 
@@ -10229,6 +10286,6 @@ Var[*X*]\
 
 Var[*a* *X*]\
 = E[\\(a^2 X^2\\)] - \\(\operatorname{E}^2\left[a X\right]\\)\
-= \\(a^2\\) E[\\(X^2\\)] - \\(a^2 \operatorname{E}^2\left[X\right]\\)\
-= \\(a^2\\)(E[\\(X^2\\)] - \\(\operatorname{E}^2\left[X\right]\\))\
+= \\(a^2\\) E[\\(X^2\\)] - \\(a^2 \operatorname{E}^2[X]\\)\
+= \\(a^2\\)(E[\\(X^2\\)] - \\(\operatorname{E}^2[X]\\))\
 = \\(a^2\\) Var[*X*].

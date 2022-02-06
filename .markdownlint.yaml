@@ -1,0 +1,5 @@
+blanks-around-fences:
+    list_items: false
+line_length:
+    line_length: 120
+    tables: false

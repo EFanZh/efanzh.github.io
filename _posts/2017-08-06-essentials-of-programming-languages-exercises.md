@@ -2,7 +2,7 @@
 enable_mathjax: true
 ---
 
-<!-- markdownlint-disable blanks-around-fences no-inline-html -->
+<!-- markdownlint-disable no-inline-html -->
 
 # Essentials of Programming Languages Exercises
 
@@ -2884,6 +2884,7 @@ Solution is implemented
 >           (proc-val (procedure b-var body new-env)))
 >         new-env))))
 > ```
+>
 > Complete the implementation of this representation by modifying the definitions of the environment data type and
 > `apply-env` accordingly. Be sure that `apply-env` always returns an expressed value.
 
@@ -3516,6 +3517,7 @@ Error will happen if procedure is referenced in a subroutine call, or vice versa
 >          in arrayset(x,1,-(v,-1))
 > in begin arrayset(a,1,0); (p a); (p a); arrayref(a,1) end
 > ```
+>
 > Here `newarray(2,-99)` is intended to build an array of size 2, with each location in the array containing -99.
 > `begin` expressions are defined in exercise 4.4. Make the array indices zero-based, so an array of size 2 has indices
 > 0 and 1.
