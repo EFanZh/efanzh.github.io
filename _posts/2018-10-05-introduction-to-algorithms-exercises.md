@@ -2524,9 +2524,9 @@ The solution is implemented
 
 ##### 6.2-6
 
-> Show that the worst-case running time of *Max-Heapify* on a heap of size *n* is Ω(lg *n*). (Hint: For a heap with *n*
-> nodes, give node values that cause *Max-Heapify* to be called recursively at every node on a simple path from the root
-> down to a leaf.)
+> Show that the worst-case running time of *Max-Heapify* on a heap of size *n* is Ω(lg *n*). (*Hint:* For a heap with
+> *n* nodes, give node values that cause *Max-Heapify* to be called recursively at every node on a simple path from the
+> root down to a leaf.)
 
 The height of a heap of size *n* is ⌊lg *n*⌋, if *Max-Heapify* is called at every node on a simple path from the root
 down to a leaf, the expected running time is linear to the height of the heap, that is ⌊lg *n*⌋, so the worst-case
@@ -2670,7 +2670,7 @@ Solution is implemented
 ##### 6.5-9
 
 > Give an *O*(*n* lg *k*)-time algorithm to merge *k* sorted lists into one sorted list, where *n* is the total number
-> of elements in all the input lists. (Hint: Use a min-heap for *k*-way merging.)
+> of elements in all the input lists. (*Hint:* Use a min-heap for *k*-way merging.)
 
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_6_heapsort/section_6_5_priority_queues/exercises/exercise_6_5_9.rs).
@@ -9733,7 +9733,9 @@ Solution is implemented
 > Recursively solve a minimum-spanning-tree problem on each of the two subgraphs \\(G_1\\) = (\\(V_1\\), \\(E_1\\)) and
 > \\(G_2\\) = (\\(V_2\\), \\(E_2\\)). Finally, select the minimum-weight edge in *E* that crosses the cut
 > (\\(V_1\\), \\(V_2\\)), and use this edge to unite the resulting two minimum spanning trees into a single spanning
-> tree. Either argue that the algorithm correctly computes a minimum spanning tree of *G*, or provide an example for
+> tree.
+>
+> Either argue that the algorithm correctly computes a minimum spanning tree of *G*, or provide an example for
 > which the algorithm fails.
 
 This algorithms fails to compute a minimum spanning tree of the following graph:
@@ -9772,12 +9774,221 @@ But the correct answer should be:
  c     d
 ```
 
+#### 23.X Problems
+
+##### 23-1 Second-best minimum spanning tree
+
+> Let *G* = (*V*, *E*) be an undirected, connected graph whose weight function is *w*: *E* → ℝ, and suppose that
+> |*E*| ≥ |*V*| and all edge weights are distinct.
+>
+> We define a second-best minimum spanning tree as follows. Let 𝒯 be the set of all spanning trees of *G*, and let *T*′
+> be a minimum spanning tree of *G*. Then a ***second-best minimum spanning tree*** is a spanning tree *T* such that
+> *w*(*T*) = \\(\min_{T'' ∈ 𝒯 - \\{T'\\}} \\{w(T'')\\}\\).
+>
+> - ***a.*** Show that the minimum spanning tree is unique, but that the second-best minimum spanning tree need not be
+>   unique.
+> - ***b.*** Let *T* be the minimum spanning tree of *G*. Prove that *G* contains edges (*u*, *v*) ∈ *T* and
+>   (*x*, *y*) ∉ *T* such that *T* - {(*u*, *v*)} ∪ {(*x*, *y*)} is a second-best minimum spanning tree of *G*.
+> - ***c.*** Let *T* be a spanning tree of *G* and, for any two vertices *u*, *v* ∈ *V*, let *max*[*u*, *v*] denote an
+>   edge of maximum weight on the unique simple path between *u* and *v* in *T*. Describe an *O*(\\(V^2\\))-time
+>   algorithm that, given *T*, computes *max*[*u*, *v*] for all *u*, *v* ∈ *V*.
+> - ***d.*** Give an efficient algorithm to compute the second-best minimum spanning tree of *G*.
+
+*Skipped.*
+
+##### 23-2 Minimum spanning tree in sparse graphs
+
+> For a very sparse connected graph *G* = (*V*, *E*), we can further improve upon the *O*(*E* + *V* lg *V*) running time
+> of Prim’s algorithm with Fibonacci heaps by preprocessing *G* to decrease the number of vertices before running Prim’s
+> algorithm. In particular, we choose, for each vertex *u*, the minimum-weight edge (*u*, *v*) incident on *u*, and we
+> put (*u*, *v*) into the minimum spanning tree under construction. We then contract all chosen edges (see Section B.4).
+> Rather than contracting these edges one at a time, we first identify sets of vertices that are united into the same
+> new vertex. Then we create the graph that would have resulted from contracting these edges one at a time, but we do so
+> by “renaming” edges according to the sets into which their endpoints were placed. Several edges from the original
+> graph may be renamed the same as each other. In such a case, only one edge results, and its weight is the minimum of
+> the weights of the corresponding original edges.
+>
+> Initially, we set the minimum spanning tree *T* being constructed to be empty, and for each edge (*u*, *v*) ∈ *E*, we
+> initialize the attributes (*u*, *v*).*orig* = (*u*, *v*) and (*u*, *v*).*c* = *w*(*u*, *v*). We use the *orig*
+> attribute to reference the edge from the initial graph that is associated with an edge in the contracted graph. The
+> *c* attribute holds the weight of an edge, and as edges are contracted, we update it according to the above scheme for
+> choosing edge weights. The procedure *MST-Reduce* takes inputs *G* and *T* , and it returns a contracted graph *G*′
+> with updated attributes *orig*′ and *c*′. The procedure also accumulates edges of *G* into the minimum spanning tree *T*.
+>
+> *MST-Reduce*(*G*, *T*)
+>
+> 1. **for** each *v* ∈ *G*.*V*
+> 2. &nbsp;&nbsp;&nbsp;&nbsp;*v*.*mark* = *false*
+> 3. &nbsp;&nbsp;&nbsp;&nbsp;*Make-Set*(*v*)
+> 4. **for** each *u* ∈ *G*.*V*
+> 5. &nbsp;&nbsp;&nbsp;&nbsp;**if** *u*.*mark* == *false*
+> 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;choose *v* ∈ *G*.*Adj*[*u*] such that (*u*, *v*).*c* is minimized
+> 7. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Union*(*u*, *v*)
+> 8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*T* = *T* ∪ {(u, *v*).*orig*}
+> 9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*u*.*mark* = *v*.*mark* = *true*
+> 10. *G*′.*V* = {*Find-Set*(*v*): *v* ∈ *G*.*V*}
+> 11. *G*′.*E* = ∅
+> 12. **for** each (*x*, *y*) ∈ *G*.*E*
+> 13. &nbsp;&nbsp;&nbsp;&nbsp;*u* = *Find-Set*(x)
+> 14. &nbsp;&nbsp;&nbsp;&nbsp;*v* = *Find-Set*(y)
+> 15. &nbsp;&nbsp;&nbsp;&nbsp;**if** *u* ≠ *v*
+> 16. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**if** (*u*, *v*) ∉ *G*′.*E*
+> 17. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*G*′.*E* = *G*′.*E* ∪ {(u, *v*)}
+> 18. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*u*, *v*).*orig*′ = (*x*, *y*).*orig*
+> 19. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*u*, *v*).*c*′ = (*x*, *y*).*c*
+> 20. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**else if** (*x*, *y*).*c* < (*u*, *v*).*c*′
+> 21. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*u*, *v*).*orig*′ = (*x*, *y*).*orig*
+> 22. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*u*, *v*).*c*′ = (*x*, *y*).*c*
+> 23. construct adjacency lists *G*′.*Adj* for *G*′
+> 24. **return** *G*′ and *T*
+>
+> - ***a.*** Let *T* be the set of edges returned by *MST-Reduce*, and let *A* be the minimum spanning tree of the graph
+>   *G*′ formed by the call *MST-Prim*(*G*′, *c*′, *r*), where *c*′ is the weight attribute on the edges of *G*′.*E* and
+>   *r* is any vertex in *G*′.*V*. Prove that *T* ∪ {(*x*, *y*).*orig*′: (*x*, *y*) ∈ *A*} is a minimum spanning tree of
+>   *G*.
+> - ***b.*** Argue that |*G*′.*V*| ≤ |*V*| / 2.
+> - ***c.*** Show how to implement *MST-Reduce* so that it runs in *O*(*E*) time. (*Hint:* Use simple data structures.)
+> - ***d.*** Suppose that we run *k* phases of *MST-Reduce*, using the output *G*′ produced by one phase as the input
+>   *G* to the next phase and accumulating edges in *T*. Argue that the overall running time of the *k* phases is
+>   *O*(*k* *E*).
+> - ***e.*** Suppose that after running *k* phases of *MST-Reduce*, as in part (d), we run Prim’s algorithm by calling
+>   *MST-Prim*(*G*′, *c*′, *r*), where *G*′, with weight attribute *c*′, is returned by the last phase and *r* is any
+>   vertex in *G*′.*V*. Show how to pick *k* so that the overall running time is *O*(*E* lg lg *V*). Argue that your
+>   choice of *k* minimizes the overall asymptotic running time.
+> - ***f.*** For what values of |*E*| (in terms of |*V*|) does Prim’s algorithm with preprocessing asymptotically beat
+>   Prim’s algorithm without preprocessing?
+
+*Skipped.*
+
+##### 23-3 Bottleneck spanning tree
+
+> A ***bottleneck spanning tree*** *T* of an undirected graph *G* is a spanning tree of *G* whose largest edge weight is
+> minimum over all spanning trees of *G*. We say that the value of the bottleneck spanning tree is the weight of the
+> maximum-weight edge in *T*.
+>
+> - ***a.*** Argue that a minimum spanning tree is a bottleneck spanning tree.
+>
+> Part (a) shows that finding a bottleneck spanning tree is no harder than finding a minimum spanning tree. In the
+> remaining parts, we will show how to find a bottleneck spanning tree in linear time.
+>
+> - ***b.*** Give a linear-time algorithm that given a graph *G* and an integer *b*, determines whether the value of the
+>   bottleneck spanning tree is at most *b*.
+> - ***c.*** Use your algorithm for part (b) as a subroutine in a linear-time algorithm for the bottleneck-spanning-tree
+>   problem. (*Hint:* You may want to use a subroutine that contracts sets of edges, as in the *MST-Reduce* procedure
+>   described in Problem 23-2.)
+
+- ***a.*** Proof by contradiction. Suppose there exists a spanning tree *T* whose largest edge is less than that of a
+  minimum spanning tree *T*′, we can replace *T*′’s largest edge with some edge from *T* to get a smaller spanning tree,
+  which contradicts the supposition that *T*′ is a minimum spanning tree, so all spanning tree’s largest edge must be
+  greater than or equal to that of *T*′, which means *T*′ is a bottleneck spanning tree.
+- ***b.*** *Skipped.*
+- ***c.*** *Skipped.*
+
+##### 23-4 Alternative minimum-spanning-tree algorithms
+
+> In this problem, we give pseudocode for three different algorithms. Each one takes a connected graph and a weight
+> function as input and returns a set of edges *T*. For each algorithm, either prove that *T* is a minimum spanning tree
+> or prove that *T* is not necessarily a minimum spanning tree. Also describe the most efficient implementation of each
+> algorithm, whether or not it computes a minimum spanning tree.
+>
+> - ***a.*** *Maybe-MST-A*(*G*, *w*)
+>
+>   1. sort the edges into nonincreasing order of edge weights *w*
+>   2. *T* = *E*
+>   3. **for** each edge *e*, taken in nonincreasing order by weight
+>   4. &nbsp;&nbsp;&nbsp;&nbsp;**if** *T* - {*e*} is a connected graph
+>   5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*T* = *T* - {*e*}
+>   6. **return** *T*
+>
+> - ***b.*** *Maybe-MST-B*(*G*, *w*)
+>   1. *T* = ∅
+>   2. **for** each edge *e*, taken in arbitrary order
+>   3. &nbsp;&nbsp;&nbsp;&nbsp;**if** *T* ∪ {*e*} has no cycles
+>   4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*T* = *T* ∪ {*e*}
+>   5. **return** *T*
+>
+> - ***c.*** *Maybe-MST-C*(*G*, *w*)
+>
+>   1. *T* = ∅
+>   2. **for** each edge *e*, taken in arbitrary order
+>   3. &nbsp;&nbsp;&nbsp;&nbsp;*T* = *T* ∪ {*e*}
+>   4. &nbsp;&nbsp;&nbsp;&nbsp;**if** *T* has a cycle *c*
+>   5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let *e*′ be a maximum-weight edge on *c*
+>   6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*T* = *T* - {*e*′}
+>   7. **return** *T*
+
+*Skipped.*
+
+### 24 Single-Source Shortest Paths
+
+#### 24.1 The Bellman-Ford algorithm
+
+##### 24.1-1
+
+> Run the Bellman-Ford algorithm on the directed graph of Figure 24.4, using vertex *z* as the source. In each pass,
+> relax edges in the same order as in the figure, and show the *d* and *π* values after each pass. Now, change the
+> weight of edge (*z*, *x*) to 4 and run the algorithm again, using *s* as the source.
+
+*Skipped.*
+
+##### 24.1-2
+
+> Prove Corollary 24.3.
+
+*Skipped.*
+
+##### 24.1-3
+
+> Given a weighted, directed graph *G* = (*V*, *E*) with no negative-weight cycles, let *m* be the maximum over all
+> vertices *v* ∈ *V* of the minimum number of edges in a shortest path from the source *s* to *v*. (Here, the shortest
+> path is by weight, not the number of edges.) Suggest a simple change to the Bellman-Ford algorithm that allows it to
+> terminate in *m* + 1 passes, even if *m* is not known in advance.
+
+If one pass does not update any *d* value, we know any succeeding passes will has no effect on the result, so we can
+just stop after the first pass that does not update any *d* value.
+
+##### 24.1-4
+
+> Modify the Bellman-Ford algorithm so that it sets *v*.*d* to -∞ for all vertices *v* for which there is a
+> negative-weight cycle on some path from the source to *v*.
+
+*Bellman-Ford*(*G*, *w*, *s*)
+
+1. *Initialize-Single-Source*(*G*, *s*)
+2. **for** *i* = 1 **to** |*G*.*V*| - 1
+3. &nbsp;&nbsp;&nbsp;&nbsp;**for** each edge (*u*, *v*) ∈ *G*.*E*
+4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Relax*(*u*, *v*, *w*)
+5. *result* = *true*
+6. **for** each edge (*u*, *v*) ∈ *G*.*E*
+7. &nbsp;&nbsp;&nbsp;&nbsp;**if** *v*.*d* > *u*.*d* + *w*(*u*, *v*)
+8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*v*.*d* = -∞
+9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*result* = *false*
+10. **return** *result*
+
+##### 24.1-5 ★
+
+> Let *G* = (*V*, *E*) be a weighted, directed graph with weight function *w*: *E* → ℝ. Give an *O*(*V* *E*)-time
+> algorithm to find, for each vertex *v* ∈ *V*, the value \\(δ^\*(v) = \min_{u ∈ V} \\{δ(u, v)\\}\\).
+
+The trick is to treat *v*.*d* as the upper bound of the shortest-path weight from any *u* ∈ *V* instead of a single
+fixed source vertex.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_1_the_bellman_ford_algorithm/exercises/exercise_24_1_5.rs).
+
+##### 24.1-6 ★
+
+> Suppose that a weighted, directed graph *G* = (*V*, *E*) has a negative-weight cycle. Give an efficient algorithm to
+> list the vertices of one such cycle. Prove that your algorithm is correct.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
 >
 > ```text
-> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ↑→⇒⇔⇣∀∃∅∈∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊↝┌┐└┘├┤┬┴┼╱╲╳▌▬★⟨⟩
+> ×̲ΓΔΘΣΦΩαβγδεζπσωϕϵ–—’“”‥…′ℋℕℝℤℱ←↑→↓↖↘↙↝⇄⇒⇔⇣⇵∀∃∅∈∉∏∑∖∞∧∨∩∪≠≤≥⊆⊗⋂⋅⋯⌈⌉⌊⌋─│┊┌┐└┘├┤┬┴┼╱╲╳▌▬★⟨⟩𝒯
 > ```
 
 ------------------------------------------------------------------------------------------------------------------------
