@@ -10028,6 +10028,42 @@ Solution is implemented
 
 *Skipped.*
 
+#### 24.2 Single-source shortest paths in directed acyclic graphs
+
+##### 24.2-1
+
+> Run *Dag-Shortest-Paths* on the directed graph of Figure 24.5, using vertex *r* as the source.
+
+*Skipped.*
+
+##### 24.2-2
+
+> Suppose we change line 3 of *Dag-Shortest-Paths* to read
+>
+> 3 **for** the first |*V*| - 1 vertices, taken in topologically sorted order
+>
+> Show that the procedure would remain correct.
+
+The last vertex of a topologically sorted vertices in a DAG must has no adjacent vertices, so the last iteration does
+nothing, so it is safe to ignore the last pass.
+
+##### 24.2-3
+
+> The PERT chart formulation given above is somewhat unnatural. In a more natural structure, vertices would represent
+> jobs and edges would represent sequencing constraints; that is, edge (*u*, *v*) would indicate that job *u* must be
+> performed before job *v*. We would then assign weights to vertices, not edges. Modify the *Dag-Shortest-Paths*
+> procedure so that it finds a longest path in a directed acyclic graph with weighted vertices in linear time.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_2_single_source_shortest_paths_in_directed_acyclic_graphs/exercises/exercise_24_2_3.rs).
+
+##### 24.2-4
+
+> Give an efficient algorithm to count the total number of paths in a directed acyclic graph. Analyze your algorithm.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_2_single_source_shortest_paths_in_directed_acyclic_graphs/exercises/exercise_24_2_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
