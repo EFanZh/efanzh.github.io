@@ -10007,18 +10007,8 @@ just stop after the first pass that does not update any *d* value.
 > Modify the Bellman-Ford algorithm so that it sets *v*.*d* to -∞ for all vertices *v* for which there is a
 > negative-weight cycle on some path from the source to *v*.
 
-*Bellman-Ford*(*G*, *w*, *s*)
-
-1. *Initialize-Single-Source*(*G*, *s*)
-2. **for** *i* = 1 **to** |*G*.*V*| - 1
-3. &nbsp;&nbsp;&nbsp;&nbsp;**for** each edge (*u*, *v*) ∈ *G*.*E*
-4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Relax*(*u*, *v*, *w*)
-5. *result* = *true*
-6. **for** each edge (*u*, *v*) ∈ *G*.*E*
-7. &nbsp;&nbsp;&nbsp;&nbsp;**if** *v*.*d* > *u*.*d* + *w*(*u*, *v*)
-8. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*v*.*d* = -∞
-9. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*result* = *false*
-10. **return** *result*
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_1_the_bellman_ford_algorithm/exercises/exercise_24_1_4.rs).
 
 ##### 24.1-5 ★
 
