@@ -58,6 +58,7 @@
 | Name             | Pattern                                                                                               | Alignment |
 | ---------------- | ----------------------------------------------------------------------------------------------------- | --------- |
 | Title // Artists | `>>>%title%<<<[ <<'//' %track artist%>>][ <<'//' %performer%>>]`                                      | Left      |
+| Album (Date)     | `%album%[ <<<'('%date%')'>>>]`                                                                        | Left      |
 | Rating           | `$if2(%rating_stars_fixed%,☆☆☆☆☆)`                                                                    | Left      |
 | Play Count       | `%play_count%`                                                                                        | Right     |
 | Sort             | `%genre% / %album artist% / %date% / %album% / %discnumber% / %tracknumber% / %title%`                | Left      |
