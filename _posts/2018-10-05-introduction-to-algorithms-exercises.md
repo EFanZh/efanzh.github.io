@@ -10094,6 +10094,16 @@ Yes. Because once the queue contains exactly one vertex, we know that vertex wou
 will have the correct distance, which means all vertices will have correct distances, the algorithm does not need to go
 further.
 
+##### 24.3-4
+
+> Professor Gaedel has written a program that he claims implements Dijkstra’s algorithm. The program produces *v*.*d*
+> and *v*.*π* for each vertex *v* ∈ *V*. Give an *O*(*V* + *E*)-time algorithm to check the output of the professor’s
+> program. It should determine whether the *d* and *π* attributes match those of some shortest-paths tree. You may
+> assume that all edge weights are nonnegative.
+
+Solution is implemented
+[here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_3_dijkstra_s_algorithm/exercises/exercise_24_3_4.rs).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
