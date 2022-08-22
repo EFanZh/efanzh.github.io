@@ -10064,6 +10064,36 @@ Solution is implemented
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_2_single_source_shortest_paths_in_directed_acyclic_graphs/exercises/exercise_24_2_4.rs).
 
+#### 24.3 Dijkstra’s algorithm
+
+##### 24.3-1
+
+> Run Dijkstra’s algorithm on the directed graph of Figure 24.2, first using vertex *s* as the source and then using
+> vertex *z* as the source. In the style of Figure 24.6, show the *d* and *π* values and the vertices in set *S* after
+> each iteration of the **while** loop.
+
+*Skipped.*
+
+##### 24.3-2
+
+> Give a simple example of a directed graph with negative-weight edges for which Dijkstra’s algorithm produces incorrect
+> answers. Why doesn’t the proof of Theorem 24.6 go through when negative-weight edges are allowed?
+
+*Skipped.*
+
+##### 24.3-3
+
+> Suppose we change line 4 of Dijkstra’s algorithm to the following.
+>
+> 4 **while** |*Q*| > 1
+>
+> This change causes the **while** loop to execute |*V*| - 1 times instead of |*V*| times. Is this proposed algorithm
+> correct?
+
+Yes. Because once the queue contains exactly one vertex, we know that vertex would be extracted next, which means it
+will have the correct distance, which means all vertices will have correct distances, the algorithm does not need to go
+further.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
