@@ -10104,6 +10104,62 @@ further.
 Solution is implemented
 [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_24_single_source_shortest_paths/section_24_3_dijkstra_s_algorithm/exercises/exercise_24_3_4.rs).
 
+##### 24.3-5
+
+> Professor Newman thinks that he has worked out a simpler proof of correctness for Dijkstra’s algorithm. He claims that
+> Dijkstra’s algorithm relaxes the edges of every shortest path in the graph in the order in which they appear on the
+> path, and therefore the path-relaxation property applies to every vertex reachable from the source. Show that the
+> professor is mistaken by constructing a directed graph for which Dijkstra’s algorithm could relax the edges of a
+> shortest path out of order.
+
+*Skipped.*
+
+##### 24.3-6
+
+> We are given a directed graph *G* = (*V*, *E*) on which each edge (*u*, *v*) ∈ *E* has an associated value
+> *r*(*u*, *v*), which is a real number in the range 0 ≤ *r*(*u*, *v*) ≤ 1 that represents the reliability of a
+> communication channel from vertex *u* to vertex *v*. We interpret *r*(*u*, *v*) as the probability that the channel
+> from *u* to *v* will not fail, and we assume that these probabilities are independent. Give an efficient algorithm to
+> find the most reliable path between two given vertices.
+
+Run the Dijkstra algorithm on the graph, but with edge weight of (*u*, *v*) set to -log(*r*(*u*, *v*)).
+
+##### 24.3-7
+
+> Let *G* = (*V*, *E*) be a weighted, directed graph with positive weight function *w*: *E* → {1, 2, …, *W*} for some
+> positive integer *W*, and assume that no two vertices have the same shortest-path weights from source vertex *s*. Now
+> suppose that we define an unweighted, directed graph *G*′ = (*V* ∪ *V*′, *E*′) by replacing each edge (*u*, *v*) ∈ *E*
+> with *w*(*u*, *v*) unit-weight edges in series. How many vertices does *G*′ have? Now suppose that we run a
+> breadth-first search on *G*′. Show that the order in which the breadth-first search of *G*′ colors vertices in *V*
+> black is the same as the order in which Dijkstra’s algorithm extracts the vertices of *V* from the priority queue when
+> it runs on *G*.
+
+1. *G*′ will have |*V*| + \\(∑_{(u, v) ∈ E} w(u, v)\\) - |*E*| vertices.
+2. *Skipped.*
+
+##### 24.3-8
+
+> Let *G* = (*V*, *E*) be a weighted, directed graph with nonnegative weight function *w*: *E* → {0, 1, …, *W*} for some
+> nonnegative integer *W*. Modify Dijkstra’s algorithm to compute the shortest paths from a given source vertex *s* in
+> *O*(*W* *V* + *E*) time.
+
+*Skipped.*
+
+##### 24.3-9
+
+> Modify your algorithm from Exercise 24.3-8 to run in *O*((*V* + *E*) lg *W*) time. (*Hint:* How many distinct
+> shortest-path estimates can there be in *V* - *S* at any point in time?)
+
+*Skipped.*
+
+##### 24.3-10
+
+> Suppose that we are given a weighted, directed graph *G* = (*V*, *E*) in which edges that leave the source vertex *s*
+> may have negative weights, all other edge weights are nonnegative, and there are no negative-weight cycles. Argue that
+> Dijkstra’s algorithm correctly finds shortest paths from s in this graph.
+
+*Skipped.*
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
