@@ -8950,6 +8950,8 @@ Solution is implemented
 
 *Skipped.*
 
+## VI Graph Algorithms
+
 ### 22 Elementary Graph Algorithms
 
 #### 22.1 Representations of graphs
