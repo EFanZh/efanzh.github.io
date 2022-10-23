@@ -10160,6 +10160,49 @@ Run the Dijkstra algorithm on the graph, but with edge weight of (*u*, *v*) set 
 
 *Skipped.*
 
+#### 24.4 Difference constraints and shortest paths
+
+##### 24.4-1
+
+> Find a feasible solution or determine that no feasible solution exists for the following system of difference
+> constraints:
+>
+> - \\(x_1\\) - \\(x_2\\) ≤ 1,
+> - \\(x_1\\) - \\(x_4\\) ≤ -4,
+> - \\(x_2\\) - \\(x_3\\) ≤ 2,
+> - \\(x_2\\) - \\(x_5\\) ≤ 7,
+> - \\(x_2\\) - \\(x_6\\) ≤ 5,
+> - \\(x_3\\) - \\(x_6\\) ≤ 10,
+> - \\(x_4\\) - \\(x_2\\) ≤ 2,
+> - \\(x_5\\) - \\(x_1\\) ≤ -1,
+> - \\(x_5\\) - \\(x_4\\) ≤ 3,
+> - \\(x_6\\) - \\(x_3\\) ≤ -8.
+
+*Skipped.*
+
+##### 24.4-2
+
+> Find a feasible solution or determine that no feasible solution exists for the following system of difference
+> constraints:
+>
+> - \\(x_1\\) - \\(x_2\\) ≤ 4,
+> - \\(x_1\\) - \\(x_5\\) ≤ 5,
+> - \\(x_2\\) - \\(x_4\\) ≤ -6,
+> - \\(x_3\\) - \\(x_2\\) ≤ 1,
+> - \\(x_4\\) - \\(x_1\\) ≤ 3,
+> - \\(x_4\\) - \\(x_3\\) ≤ 5,
+> - \\(x_4\\) - \\(x_5\\) ≤ 10,
+> - \\(x_5\\) - \\(x_3\\) ≤ -4,
+> - \\(x_5\\) - \\(x_4\\) ≤ -8.
+
+*Skipped.*
+
+##### 24.4-3
+
+> Can any shortest-path weight from the new vertex \\(v_0\\) in a constraint graph be positive? Explain.
+
+No. Since the \\(v_0\\) has a zero weighted edge to every other vertices, so the shortest path weight is at most zero.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
