@@ -10240,6 +10240,13 @@ So relaxing edges coming from \\(v_0\\) does nothing, thus we can skipping relax
 So a equality constraints problem can be converted into a difference constraints problem. Solve the converted problem,
 we can get the solution the equality constraints problem.
 
+##### 24.4-7
+
+> Show how to solve a system of difference constraints by a Bellman-Ford-like algorithm that runs on a constraint graph
+> without the extra vertex \\(v_0\\).
+
+Initialize the *d* attribute of each vertex, then run the Bellman-Ford algorithm.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
