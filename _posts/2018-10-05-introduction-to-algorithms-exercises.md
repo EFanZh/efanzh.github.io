@@ -10203,6 +10203,13 @@ Run the Dijkstra algorithm on the graph, but with edge weight of (*u*, *v*) set 
 
 No. Since the \\(v_0\\) has a zero weighted edge to every other vertices, so the shortest path weight is at most zero.
 
+##### 24.4-4
+
+> Express the single-pair shortest-path problem as a linear program.
+
+Assume the source vertex is *s*, for each edge (\\(v_i\\), \\(v_j\\)), there is a constraint of
+\\(x_j\\) - \\(x_i\\) ≤ *w*(\\(v_i\\), \\(v_j\\)).
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
