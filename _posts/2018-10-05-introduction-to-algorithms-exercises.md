@@ -10212,6 +10212,20 @@ No. Since the \\(v_0\\) has a zero weighted edge to every other vertices, so the
 Assume the source vertex is *s*, for each edge (\\(v_i\\), \\(v_j\\)), there is a constraint of
 \\(x_j\\) - \\(x_i\\) ≤ *w*(\\(v_i\\), \\(v_j\\)).
 
+##### 24.4-5
+
+> Show how to modify the Bellman-Ford algorithm slightly so that when we use it to solve a system of difference
+> constraints with *m* inequalities on *n* unknowns, the running time is *O*(*n* *m*).
+
+First, set the *d* attribute of all vertices to zero, then we can skipping relaxing edges coming from \\(v_0\\),
+because we know:
+
+1. The weight of shortest path from \\(v_0\\) to \\(v_0\\) is always zero, since there is no incoming edges going into
+   \\(v_0\\).
+2. The weight of edges coming from \\(v_0\\) is zero.
+
+So relaxing edges coming from \\(v_0\\) does nothing, thus we can skipping relaxing them.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
