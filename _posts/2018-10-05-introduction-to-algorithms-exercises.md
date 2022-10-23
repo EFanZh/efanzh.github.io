@@ -10226,6 +10226,20 @@ because we know:
 
 So relaxing edges coming from \\(v_0\\) does nothing, thus we can skipping relaxing them.
 
+##### 24.4-6
+
+> Suppose that in addition to a system of difference constraints, we want to handle ***equality constraints*** of the
+> form \\(x_i\\) = \\(x_j\\) + \\(b_k\\). Show how to adapt the Bellman-Ford algorithm to solve this variety of
+> constraint system.
+
+\\(x_i\\) = \\(x_j\\) + \\(b_k\\) is equivlent to these two constraints:
+
+- \\(x_i\\) - \\(x_j\\) ≤ \\(b_k\\)
+- \\(x_j\\) - \\(x_i\\) ≤ -\\(b_k\\)
+
+So a equality constraints problem can be converted into a difference constraints problem. Solve the converted problem,
+we can get the solution the equality constraints problem.
+
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common symbols:
