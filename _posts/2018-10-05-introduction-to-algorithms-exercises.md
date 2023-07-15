@@ -9501,15 +9501,15 @@ Solution is implemented
     descendants to some *v*’s ancestors, then all descendants of *v*’s children can reach the root without going through
     *v*. After removing *v*, all the other vertices can still reach root, so the reachability is kept.
 - ***c.*** Solution is implemented
-  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_2_articulation_points_bridges_and_biconnected_components.rs).
 - ***d.*** Solution is implemented
-  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_2_articulation_points_bridges_and_biconnected_components.rs).
 - ***e.*** *Skipped.*
 - ***f.*** Solution is implemented
-  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_2_articulation_points_bridges_and_biconnected_components.rs).
 - ***g.*** *Skipped.*
 - ***h.*** Solution is implemented
-  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/section_22_5_strongly_connected_components/exercises/exercise_22_5_5.rs).
+  [here](https://github.com/EFanZh/Introduction-to-Algorithms/blob/master/src/chapter_22_elementary_graph_algorithms/problems/problem_22_2_articulation_points_bridges_and_biconnected_components.rs).
 
 ##### 22-3 Euler tour
 
