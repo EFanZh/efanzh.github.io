@@ -4,143 +4,230 @@ enable_mathjax: true
 
 # Category Theory for Programmers Challenges
 
+Glossary:
+
+- [Category](https://en.wikipedia.org/wiki/Category_(mathematics))
+- [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
+- [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
+
 ## Part One
 
 ### 1 Category: The Essence of Composition
 
-1. > Implement, as best as you can, the identity function in your favorite language (or the second favorite, if your
-   > favorite language happens to be Haskell).
+#### 1.4 Challenges
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_1.rs).
-2. > Implement the composition function in your favorite language. It takes two functions as arguments and returns a
-   > function that is their composition.
+##### 1.4 - 1
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_2.rs).
-3. > Write a program that tries to test that your composition function respects identity.
+> Implement, as best as you can, the identity function in your favorite language (or the second favorite, if your
+> favorite language happens to be Haskell).
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_3.rs).
-4. > Is the world-wide web a category in any sense? Are links morphisms?
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_1.rs).
 
-   *Not sure.*
-5. > Is Facebook a category, with people as objects and friendships as morphisms?
+##### 1.4 - 2
 
-   *Not sure.*
-6. > When is a directed graph a category?
+> Implement the composition function in your favorite language. It takes two functions as arguments and returns a
+> function that is their composition.
 
-   When for every node, there is a edge from it to itself, and for every pair of edges a -> b and b -> c, there is an
-   edge a -> c.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_2.rs).
+
+##### 1.4 - 3
+
+> Write a program that tries to test that your composition function respects identity.
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_3.rs).
+
+##### 1.4 - 4
+
+> Is the world-wide web a category in any sense? Are links morphisms?
+
+The world-wide web is a category if we consider reachability relations as morphisms. Links are not morphisms because
+they can not be composited. Having a link from *a* to *b* and *b* to *c*, does not mean there is a link from *a* to *c*.
+
+##### 1.4 - 5
+
+> Is Facebook a category, with people as objects and friendships as morphisms?
+
+1. *Skipped.*
+
+##### 1.4 - 6
+
+> When is a directed graph a category?
+
+When its [transitive closure](https://en.wikipedia.org/wiki/Transitive_closure#In_graph_theory) is it self.
 
 ### 2 Types and Functions
 
-1. > Define a higher-order function (or a function object) `memoize` in your favorite language. This function takes a
-   > pure function `f` as an argument and returns a function that behaves almost exactly like `f`, except that it only
-   > calls the original function once for every argument, stores the result internally, and subsequently returns this
-   > stored result every time it’s called with the same argument. You can tell the memoized function from the original
-   > by watching its performance. For instance, try to memoize a function that takes a long time to evaluate. You’ll
-   > have to wait for the result the first time you call it, but on subsequent calls, with the same argument, you should
-   > get the result immediately.
+#### 2.7 Challenges
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_1.rs).
-2. > Try to memoize a function from your standard library that you normally use to produce random numbers. Does it work?
+##### 2.7 - 1
 
-   No, it does not work.
+> Define a higher-order function (or a function object) `memoize` in your favorite language. This function takes a pure
+> function `f` as an argument and returns a function that behaves almost exactly like `f`, except that it only calls the
+> original function once for every argument, stores the result internally, and subsequently returns this stored result
+> every time it’s called with the same argument. You can tell the memoized function from the original by watching its
+> performance. For instance, try to memoize a function that takes a long time to evaluate. You’ll have to wait for the
+> result the first time you call it, but on subsequent calls, with the same argument, you should get the result
+> immediately.
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_2.rs).
-3. > Most random number generators can be initialized with a seed. Implement a function that takes a seed, calls the
-   > random number generator with that seed, and returns the result. Memoize that function. Does it work?
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_1.rs).
 
-   Yes it works.
+##### 2.7 - 2
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_3.rs).
-4. > Which of these C++ functions are pure? Try to memoize them and observe what happens when you call them multiple
-   > times: memoized and not.
-   >
-   > 1. The factorial function from the example in the text.
-   > 2. `std::getchar()`
-   > 3. ```c++
-   >    bool f() {
-   >        std::cout << "Hello!" << std::endl;
-   >        return true;
-   >    }
-   >    ```
-   > 4. ```c++
-   >    int f(int x) {
-   >        static int y = 0;
-   >        y += x;
-   >        return y;
-   >    }
-   >    ```
+> Try to memoize a function from your standard library that you normally use to produce random numbers. Does it work?
 
-   1. Pure.
-   2. Not pure.
-   3. Not pure.
-   4. Not pure.
-5. > How many different functions are there from `Bool` to `Bool`? Can you implement them all?
+No, it does not work. A function for generating random numbers needs to be able to generate different numbers for
+different calls, which means it is not pure. Memoizing it will cause the first generated number being remembered, then
+the subsequent calls will always return the same number, which changes the intended behavior.
 
-   There are 4 *pure* functions from `Bool` to `Bool`.
+##### 2.7 - 3
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_5.rs).
-6. > Draw a picture of a category whose only objects are the types `Void`, `()` (unit), and `Bool`; with arrows
-   > corresponding to all possible functions between these types. Label the arrows with the names of the functions.
+> Most random number generators can be initialized with a seed. Implement a function that takes a seed, calls the random
+> number generator with that seed, and returns the result. Memoize that function. Does it work?
 
-   *Not sure.*
+Yes it works. The output of the function is entirely determined by the seed, so it is a pure function, which means
+memoizing will work.
+
+##### 2.7 - 4
+
+> Which of these C++ functions are pure? Try to memoize them and observe what happens when you call them multiple times:
+> memoized and not.
+>
+> 1. The factorial function from the example in the text.
+> 2. `std::getchar()`
+> 3. ```c++
+>    bool f() {
+>        std::cout << "Hello!" << std::endl;
+>        return true;
+>    }
+>    ```
+> 4. ```c++
+>    int f(int x) {
+>        static int y = 0;
+>        y += x;
+>        return y;
+>    }
+>    ```
+
+1. Pure.
+2. Not pure, because different values could be returned depends on user input.
+3. Not pure, because it has a side effect of printing texts.
+4. Not pure, because the global variable `y` is accessed, which may cause the return value to be different even if the
+   argument `x` is the same. For example, call `f` twice with `1`, the first time `f` will return `1`, and the second
+   time `f` will return `2`.
+
+##### 2.7 - 5
+
+> How many different functions are there from `Bool` to `Bool`? Can you implement them all?
+
+There are 4 different *pure* functions.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_5.rs).
+
+##### 2.7 - 6
+
+> Draw a picture of a category whose only objects are the types `Void`, `()` (unit), and `Bool`; with arrows
+> corresponding to all possible functions between these types. Label the arrows with the names of the functions.
+
+The graph is too complex to draw, so here are the edges described in text.
+
+- `Void` -> `()`: `absurd`.
+- `Void` -> `Bool`: `absurd`.
+- `()` -> `()`: `id`.
+- `()` -> `Bool`: `yes`.
+- `()` -> `Bool`: `no`.
+- `Bool` -> `()`: `unit`.
+- `Bool` -> `Bool`: `yes`.
+- `Bool` -> `Bool`: `no`.
+- `Bool` -> `Bool`: `id`.
+- `Bool` -> `Bool`: `not`.
+
+Note: `yes` is a function that returns `True` for all inputs, `no` is a function that returns `False` for all inputs,
+and `not` is a function that negates a boolean value.
 
 ### 3 Categories Great and Small
 
-1. > Generate a free category from:
-   >
-   > 1. A graph with one node and no edges
-   > 2. A graph with one node and one (directed) edge (hint: this edge can be composed with itself)
-   > 3. A graph with two nodes and a single arrow between them
-   > 4. A graph with a single node and 26 arrows marked with the letters of the alphabet: a, b, c … z.
+#### 3.6 Challenges
 
-   1. Add an edge from the node to itself.
-   2. Do nothing.
-   3. Add an edge to each node from that node to itself.
-   4. *Not sure.*
-2. > What kind of order is this?
-   >
-   > 1. A set of sets with the inclusion relation: *A* is included in *B* if every element of *A* is also an element of
-   >    *B*.
-   > 2. C++ types with the following subtyping relation: `T1` is a subtype of `T2` if a pointer to `T1` can be passed to
-   >    a function that expects a pointer to `T2` without triggering a compilation error.
+##### 3.6 - 1
 
-   1. Partial order.
-   2. Partial order.
-3. > Considering that `Bool` is a set of two values `True` and `False`, show that it forms two (set-theoretical) monoids
-   > with respect to, respectively, operator `&&` (AND) and `||` (OR).
+> Generate a free category from:
+>
+> 1. A graph with one node and no edges
+> 2. A graph with one node and one (directed) edge (hint: this edge can be composed with itself)
+> 3. A graph with two nodes and a single arrow between them
+> 4. A graph with a single node and 26 arrows marked with the letters of the alphabet: a, b, c … z.
 
-   1. For `&&`:
-      - Neutral value is `True`.
-      - `a && True == True && a`.
-      - `(a && b) && c  == a && (b && c)`.
-   2. For `||`:
-      - Neutral value is `False`.
-      - `a || False == False || a`.
-      - `(a || b) || c  == a || (b || c)`.
-4. > Represent the `Bool` monoid with the AND operator as a category: List the morphisms and their rules of composition.
+1. Add the identity edge.
+2. Do nothing.
+3. For each node, add one identity edge.
+4. For each string that only consists of the alphabet with length that is not 1, add one edge.
 
-   Morphisms:
-      - `\x -> x && False`
-      - `\x -> x && True`
+##### 3.6 - 2
 
-   Rules of composition:
-      - `(\x -> x && False) . (\x -> x && False) == \x -> x && False`
-      - `(\x -> x && False) . (\x -> x && True) == \x -> x && False`
-      - `(\x -> x && True) . (\x -> x && False) == \x -> x && False`
-      - `(\x -> x && True) . (\x -> x && True) == \x -> x && True`
-5. > Represent addition modulo 3 as a monoid category.
+> What kind of order is this?
+>
+> 1. A set of sets with the inclusion relation: *A* is included in *B* if every element of *A* is also an element of
+>    *B*.
+> 2. C++ types with the following subtyping relation: `T1` is a subtype of `T2` if a pointer to `T1` can be passed to a
+>    function that expects a pointer to `T2` without triggering a compilation error.
 
-   Morphisms:
-      - `\x -> mod (x + 0) 3`
-      - `\x -> mod (x + 1) 3`
-      - `\x -> mod (x + 2) 3`
-      - …
+1. Partial order.
+2. Partial order.
 
-   Rules of composition:
-      - `(\x -> mod (x + m) 3) . (\x -> mod (x + n) 3) == \x -> mod (x + (m + n)) 3`
+##### 3.6 - 3
+
+> Considering that `Bool` is a set of two values `True` and `False`, show that it forms two (set-theoretical) monoids
+> with respect to, respectively, operator `&&` (AND) and `||` (OR).
+
+- For `&&`:
+  - Neutral value is `True`.
+  - `a && True == True && a`.
+  - `(a && b) && c == a && (b && c)`.
+- For `||`:
+  - Neutral value is `False`.
+  - `a || False == False || a`.
+  - `(a || b) || c == a || (b || c)`.
+
+##### 3.6 - 4
+
+> Represent the `Bool` monoid with the AND operator as a category: List the morphisms and their rules of composition.
+
+Morphisms:
+
+- `id`: `x && True`, The identity morphism.
+- `no`: `x && False`, Returns `False` for all inputs.
+
+Rules of composition:
+
+- `id` ∘ `id` = `id`.
+- `id` ∘ `no` = `no`.
+- `no` ∘ `no` = `no`.
+- `no` ∘ `id` = `no`.
+
+##### 3.6 - 5
+
+> Represent addition modulo 3 as a monoid category.
+
+Morphisms:
+
+- `plus_0`: `(x + 0) % 3`, The identity morphism.
+- `plus_1`: `(x + 1) % 3`.
+- `plus_2`: `(x + 2) % 3`.
+
+Rules of composition:
+
+- `plus_0` ∘ `plus_0` = `plus_0`.
+- `plus_0` ∘ `plus_1` = `plus_1`.
+- `plus_0` ∘ `plus_2` = `plus_2`.
+- `plus_1` ∘ `plus_0` = `plus_1`.
+- `plus_1` ∘ `plus_1` = `plus_2`.
+- `plus_1` ∘ `plus_2` = `plus_0`.
+- `plus_2` ∘ `plus_0` = `plus_2`.
+- `plus_2` ∘ `plus_1` = `plus_0`.
+- `plus_2` ∘ `plus_2` = `plus_1`.
 
 ### 4 Kleisli Categories
+
+#### 4.4 Challenge
 
 > A function that is not defined for all possible values of its argument is called a partial function. It’s not really a
 > function in the mathematical sense, so it doesn’t fit the standard categorical mold. It can, however, be represented
@@ -151,14 +238,14 @@ enable_mathjax: true
 >     bool _isValid;
 >     A _value;
 > public:
->     optional() : _isValid(false) {}
+>     optional()    : _isValid(false) {}
 >     optional(A v) : _isValid(true), _value(v) {}
 >     bool isValid() const { return _isValid; }
 >     A value() const { return _value; }
 > };
 > ```
 >
-> As an example, here’s the implementation of the embellished function `safe_root`:
+> For example, here’s the implementation of the embellished function `safe_root`:
 >
 > ```c++
 > optional<double> safe_root(double x) {
@@ -168,22 +255,99 @@ enable_mathjax: true
 > ```
 >
 > Here’s the challenge:
+
+##### 4.4 - 1
+
+> Construct the Kleisli category for partial functions (define composition and identity).
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_1.rs).
+
+##### 4.4 - 2
+
+> Implement the embellished function `safe_reciprocal` that returns a valid reciprocal of its argument, if it’s
+> different from zero.
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
+
+##### 4.4 - 3
+
+> Compose the functions `safe_root` and `safe_reciprocal` to implement `safe_root_reciprocal` that calculates
+> `sqrt(1/x)` whenever possible.
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
+
+### 5 Products and Coproducts
+
+#### 5.8 Challenges
+
+##### 5.8 - 1
+
+> Show that the terminal object is unique up to unique isomorphism.
+
+Suppose we have two terminal objects *t1* and *t2*. Since *t1* is terminal, there must exists an unique morphism *f*
+from *t1* to *t2*. Similarly, there must exists an unique morphism *g* from *t2* to *t1*.
+
+Now we show that *f* ∘ *g* is the identity morphism. First, since *f* is a morphism from *t1* to *t2*, and *g* is a
+morphism from *t2* to *t1*, *f* ∘ *g* must be a morphism from *t1* to *t1*. Since *t1* is a terminal object, there must
+be an unique morphism from *t1* to *t1*, and since we are in a category, there must be an identity morphism form *t1* to
+*t1*. So we must have *f* ∘ *g* being the identity morphism.
+
+Similarly, *g* ∘ *f* must also be the identity morphism from *t2* to *t2*. Now we have *t1* and *t2* are unique up to
+isomorphism. Since *f* and *g* are unique, we further have *t1* and *t2* are unique up to unique isomorphism.
+
+##### 5.8 - 2
+
+> What is a product of two objects in a poset? Hint: Use the universal construction.
+
+A product of two objects *a* and *b* in a poset is the object *c* that *c* ≤ *a* and *c* ≤ *b* such that for any other
+object *c*′ that *c*′ ≤ *a* and *c*′ ≤ *b*, *c*′ ≤ *c*. In other words, the product of two objects is the largest object
+that is smaller than both *a* and *b*.
+
+##### 5.8 - 3
+
+> What is a coproduct of two objects in a poset?
+
+A coproduct of two objects *a* and *b* in a poset is the object *c* that *a* ≤ *c* and *b* ≤ *c* such that for any other
+object *c*′ that *a* ≤ *c*′ and *b* ≤ *c*′, *c* ≤ *c*′. In other words, the coproduct of two objects is the smallest
+object that is greater than both *a* and *b*.
+
+##### 5.8 - 4
+
+> Implement the equivalent of Haskell `Either` as a generic type in your favorite language (other than Haskell).
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_4.rs).
+
+##### 5.8 - 5
+
+> Show that `Either` is a “better” coproduct than `int` equipped with two injections:
 >
-> 1. Construct the Kleisli category for partial functions (define composition and identity).
-> 2. Implement the embellished function `safe_reciprocal` that returns a valid reciprocal of its argument, if it’s
->    different from zero.
-> 3. Compose `safe_root` and `safe_reciprocal` to implement `safe_root_reciprocal` that calculates `sqrt(1/x)` whenever
->    possible.
+> ```c++
+> int i(int n) { return n; }
+> int j(bool b) { return b ? 0: 1; }
+> ```
+>
+> Hint: Define a function
+>
+> ```c++
+> int m(Either const & e);
+> ```
+>
+> that factorizes `i` and `j`.
 
-1. Composition:
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_5.rs).
 
-   - `(A -> optional<B>) . (B -> optional<C>)` ⇒ `A -> optional<C>`.
+##### 5.8 - 6
 
-   Identity:
+> Continuing the previous problem: How would you argue that `int` with the two injections `i` and `j` cannot be “better”
+> than `Either`?
 
-   - The `optional` constructor, which has the type `A -> optional<A>`.
-2. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
-3. See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
+If `int` were better than `Either`, there should exist a function `m` from `int` to `Either` that factorizes the `Left`
+and `Right` function. Consider that the `Left` function maps `0` to `Left(0)` and the `Right` function maps `true` to
+`Right(0)`, `m` ∘ `i` should behave like `Left` and `m` ∘ `j` should behave like `Right`. But that is not possible,
+because `i` maps `0` to `0`, and `j` maps `true` to `0`, there is no way for `m` to map `0` to both `Left(0)` and
+`Right(true)`, so `int` cannot be better than `Either`.
+
+------------------------------------------------------------------------------------------------------------------------
 
 ### 5 Products and Coproducts
 
