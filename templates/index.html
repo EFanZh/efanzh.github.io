@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ config.title }}{% endblock title %}
+
+{% block content %}
+{%- filter indent(prefix="                ") %}
+<h1 id="{{ config.title | slugify }}">{{ config.title }}</h1>
+<ul>
+    {%- set blog_section = get_section(path="blog/_index.md") %}
+    {%- for page in blog_section.pages %}
+    <li>{{ page.date }} · <a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+    {%- endfor %}
+</ul>
+{%- endfilter %}
+{%- endblock content %}

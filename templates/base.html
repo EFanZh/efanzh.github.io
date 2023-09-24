@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"{% block html_attributes %}{% endblock html_attributes %}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}{{ page.title }}{% endblock title %}</title>
+        <link rel="stylesheet" href="{{ get_url(path='style/main.css') }}" />
+        {%- if page.extra.enable_mathjax %}
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+        {%- endif %}
+        {%- filter indent(prefix="        ") %}{% block head %}{% endblock head %}{% endfilter %}
+    </head>
+    <body>
+        <nav>
+            <a href="{{ config.base_url | safe }}">{{ config.title }}</a>
+            <ul>
+                {%- set root = get_section(path="_index.md") %}
+                {%- for p in root.pages | default(value=[]) %}
+                <li><a href="{{ p.permalink | safe }}">{{ p.title }}</a></li>
+                {%- endfor %}
+                {%- if config.extra.links %}
+                {%- for link in config.extra.links %}
+                <li><a href="{{ link.url | safe }}">{{ link.title }}</a></li>
+                {%- endfor %}
+                {%- endif %}
+            </ul>
+            {%- filter indent(prefix="            ") %}{% block nav %}{% endblock nav %}{% endfilter %}
+        </nav>
+        {%- filter indent(prefix="        ") %}{% block splitter %}{% endblock splitter %}{% endfilter %}
+        <main>
+            <article>
+                {%- block content %}{{ page.content | trim_end | safe }}{% endblock content %}
+            </article>
+        </main>
+    </body>
+</html>

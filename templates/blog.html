@@ -1,0 +1,46 @@
+{% extends "page.html" %}
+
+{% block html_attributes %} class="with-sidebar"{% endblock html_attributes %}
+
+{% block head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+<script src="{{ get_url(path='scripts/main.mjs') }}" type="module"></script>
+{% endblock head %}
+
+{% macro build_toc(headers) %}
+{%- for header in headers %}
+{%- if header.children %}
+<li>
+    <details open>
+        <summary><a href="#{{ header.id }}">{{ header.title }}</a></summary>
+        <ul>
+            {%- filter indent(prefix="            ") %}{{ self::build_toc(headers=header.children) }}{% endfilter %}
+        </ul>
+    </details>
+</li>
+{%- else %}
+<li><details><summary><a href="#{{ header.id }}">{{ header.title }}</a></summary></details></li>
+{%- endif %}
+{%- endfor %}
+{% endmacro %}
+
+{% block nav %}
+<ul>
+    {%- if page.toc %}
+    <li>
+        <details open>
+            <summary><a href="#{{ page.title | slugify }}">{{ page.title }}</a></summary>
+            <ul>
+                {%- filter indent(prefix="                ") %}{{ self::build_toc(headers=page.toc) }}{% endfilter %}
+            </ul>
+        </details>
+    </li>
+    {%- else %}
+    <li><details><summary><a href="#{{ page.title | slugify }}">{{ page.title }}</a></summary></details></li>
+    {%- endif %}
+</ul>
+{% endblock nav %}
+
+{% block splitter %}
+<div></div>
+{% endblock splitter %}

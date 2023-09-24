@@ -1,8 +1,0 @@
-markdown: gfm
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-remote_theme: EFanZh/GitHub-Pages-Theme
-title: EFanZh’s Blog
-titles_from_headings:
-    collections: true
