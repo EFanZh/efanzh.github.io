@@ -6,6 +6,7 @@ title = "Category Theory for Programmers Challenges"
 Glossary:
 
 - [Category](https://en.wikipedia.org/wiki/Category_(mathematics))
+- [Functor](https://en.wikipedia.org/wiki/Functor)
 - [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
 - [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
 
@@ -411,165 +412,161 @@ fn m2(x: (bool, i32)) -> Either<i32, bool> {
 
 See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_8.rs).
 
-------------------------------------------------------------------------------------------------------------------------
-
-### 5 Products and Coproducts
-
-1. > Show that the terminal object is unique up to unique isomorphism.
-
-   Suppose that we have two terminal objects *t1* and *t2*. Since *t1* is terminal, there is a unique morphism *f* from
-   *t2* to *t1*. By the same token, since *t2* is terminal, there is a unique morphism *g* from *t1* to *t2*. The
-   composition *g* ∘ *f* must be a morphism from *t2* to *t2*. But *t2* is terminal so there can only be one morphism
-   going from *t2* to *t2*. Since we are in a category, we know that there is an identity morphism from *t2* to *t2*,
-   and since there is room from only one, that must be it. Therefore *g* ∘ *f* is equal to identity. Similarly,
-   *f* ∘ *g* must be equal to identity, because there can be only one morphism from *t1* back to *t1*. This proves that
-   *f* and *g* must be the inverse of each other. Therefore any two terminal objects are isomorphic.
-2. > What is a product of two objects in a poset? Hint: Use the universal construction.
-
-   A product of two objects *a* and *b* in a poset is the object *c* that *c* ≤ *a* and *c* ≤ *b* such that for any
-   other object *c*′ that *c*′ ≤ *a* and *c*′ ≤ *b*, *c*′ ≤ *c*.
-3. > What is a coproduct of two objects in a poset?
-
-   A coproduct of two objects *a* and *b* in a poset is the object *c* that *a* ≤ *c* and *b* ≤ *c* such that for any
-   other object *c*′ that *a* ≤ *c*′ and *b* ≤ *c*′, *c* ≤ *c*′.
-4. > Implement the equivalent of Haskell `Either` as a generic type in your favorite language (other than Haskell).
-
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_4.rs).
-5. > Show that `Either` is a “better” coproduct than `int` equipped with two injections:
-   >
-   > ```c++
-   > int i(int n) { return n; }
-   > int j(bool b) { return b ? 0: 1; }
-   > ```
-   >
-   > Hint: Define a function
-   >
-   > ```c++
-   > int m(Either const & e);
-   > ```
-   >
-   > that factorizes `i` and `j`.
-
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_5.rs).
-6. > Continuing the previous problem: How would you argue that `int` with the two injections `i` and `j` cannot be
-   > “better” than `Either`?
-
-   If `int` with the two injections `i` and `j` is better than `Either`, there should be a function `f` that maps `int`
-   to `Either` where `f` ∘ `i` == `Left` and `f` ∘ `j` == `Right`. But after applying `i` or `j`, We can not know the
-   origin object is `int` or `bool`, so we can not determine whether to use `Left` or `Right` to construct `Either`.
-7. > Still continuing: What about these injections?
-   >
-   > ```c++
-   > int i(int n) {
-   >     if (n < 0) return n;
-   >     return n + 2;
-   > }
-   >
-   > int j(bool b) { return b ? 0: 1; }
-   > ```
-
-   No, because the codomain of `i` is smaller than the domain. For each result from `i`, there may be more than one
-   input corresponds to it. So information is lost. We cannot construct an `Either` object without losing information.
-8. > Come up with an inferior candidate for a coproduct of `int` and `bool` that cannot be better than `Either` because
-   > it allows multiple acceptable morphisms from it to `Either`.
-
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_8.rs).
-
 ### 6 Simple Algebraic Data Types
 
-1. > Show the isomorphism between `Maybe a` and `Either () a`.
+#### 6.5 Challenges
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_1.rs).
-2. > Hereʼs a sum type defined in Haskell:
-   >
-   > ```haskell
-   > data Shape = Circle Float
-   >            | Rect Float Float
-   > ```
-   >
-   > When we want to define a function like `area` that acts on a `Shape`, we do it by pattern matching on the two
-   > constructors:
-   >
-   > ```haskell
-   > area :: Shape -> Float
-   > area (Circle r) = pi * r * r
-   > area (Rect d h) = d * h
-   > ```
-   >
-   > Implement `Shape` in C++ or Java as an interface and create two classes: `Circle` and `Rect`. Implement `area` as a
-   > virtual function.
+##### 6.5 - 1
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_2.rs).
-3. > Continuing with the previous example: We can easily add a new function `circ` that calculates the circumference of
-   > a `Shape`. We can do it without touching the definition of `Shape`:
-   >
-   > ```haskell
-   > circ :: Shape -> Float
-   > circ (Circle r) = 2.0 * pi * r
-   > circ (Rect d h) = 2.0 * (d + h)
-   > ```
-   >
-   > Add `circ` to your C++ or Java implementation. What parts of the original code did you have to touch?
+> Show the isomorphism between `Maybe a` and `Either () a`.
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_3.rs).
-4. > Continuing further: Add a new shape, `Square`, to `Shape` and make all the necessary updates. What code did you
-   > have to touch in Haskell vs. C++ or Java? (Even if youʼre not a Haskell programmer, the modifications should be
-   > pretty obvious.)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_1.rs).
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_4.rs).
-5. > Show that *a* + *a* = 2 × *a* holds for types (up to isomorphism). Remember that 2 corresponds to `Bool`, according
-   > to our translation table.
+##### 6.5 - 2
 
-   - `a` + `a` ⇒ `Either a a`
-   - 2 × `a` ⇒ `(Bool, a)`
+> Here’s a sum type defined in Haskell:
+>
+> ```haskell
+> data Shape = Circle Float
+>            | Rect Float Float
+> ```
+>
+> When we want to define a function like `area` that acts on a `Shape`, we do it by pattern matching on the two
+> constructors:
+>
+> ```haskell
+> area :: Shape -> Float
+> area (Circle r) = pi * r * r
+> area (Rect d h) = d * h
+> ```
+>
+> Implement `Shape` in C++ or Java as an interface and create two classes: `Circle` and `Rect`. Implement `area` as a
+> virtual function.
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_5.rs) for definitions for
-   morphisms.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_2.rs).
+
+##### 6.5 - 3
+
+> Continuing with the previous example: We can easily add a new function `circ` that calculates the circumference of a
+> `Shape`. We can do it without touching the definition of `Shape`:
+>
+> ```haskell
+> circ :: Shape -> Float
+> circ (Circle r) = 2.0 * pi * r
+> circ (Rect d h) = 2.0 * (d + h)
+> ```
+>
+> Add `circ` to your C++ or Java implementation. What parts of the original code did you have to touch?
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_3.rs).
+
+I have to update the definition of the `Shape` interface and the implementation of `Shape` for both `Circle` and `Rect`
+types.
+
+##### 6.5 - 4
+
+> Continuing further: Add a new shape, `Square`, to `Shape` and make all the necessary updates. What code did you have
+> to touch in Haskell vs. C++ or Java? (Even if you’re not a Haskell programmer, the modifications should be pretty
+> obvious.)
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_4.rs).
+
+##### 6.5 - 5
+
+> Show that *a* + *a* = 2 × *a* holds for types (up to isomorphism). Remember that 2 corresponds to `Bool`, according to
+> our translation table.
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_5.rs).
 
 ### 7 Functors
 
-1. > Can we turn the `Maybe` type constructor into a functor by defining:
-   >
-   > ```haskell
-   > fmap _ _ = Nothing
-   > ```
-   >
-   > which ignores both of its arguments? (Hint: Check the functor laws.)
+#### 7.4 Challenges
 
-   No. Because `fmap id (Just 4)` = `Nothing`, while `id (Just 4)` = `Just 4`, you can see that this version of `fmap`
-   does not preserve identity.
-2. > Prove functor laws for the reader functor. Hint: itʼs really simple.
+##### 7.4 - 1
 
-   - `fmap id x` = `id . x` = `x`, so identity is preserved.
-   - `fmap (f . g) x` = `(f . g) . x`,
-     `(fmap f . fmap g) x` = `fmap f (fmap g x)` =  `fmap f (g . x)` = `f . (g . x)` = `(f . g) . x`, so
-     `fmap (f . g) x` = `(fmap f . fmap g) x`, so composition is preserved.
-3. > Implement the reader functor in your second favorite language (the first being Haskell, of course).
+> Can we turn the `Maybe` type constructor into a functor by defining:
+>
+> ```haskell
+> fmap _ _ = Nothing
+> ```
+>
+> which ignores both of its arguments? (Hint: Check the functor laws.)
 
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_7_4_3.rs).
-4. > Prove the functor laws for the list functor. Assume that the laws are true for the tail part of the list youʼre
-   > applying it to (in other words, use *induction*).
+No, because identity is not preserved. For example, `fmap id (Just 4)` = `Nothing`, while `id (Just 4)` = `Just 4`.
 
-   - `Nil` case:
-     - Preservation of identity:
+##### 7.4 - 2
 
-       `fmap id Nil` = `Nil`.
-     - Preservation of composition:
+> Prove functor laws for the reader functor. Hint: it’s really simple.
 
-       `fmap (f . g) Nil` = `Nil`, and `(fmap f . fmap g) Nil` = `fmap f (fmap g Nil)` = `fmap f Nil` = `Nil`, so
-       `fmap (f . g) Nil` = `(fmap f . fmap g) Nil`
-   - `Cons x t` case:
-     - Preservation of identity:
+- Preserve of identity: `fmap id x` = `id . x` = `x`.
+- Composition:
 
-       `fmap id (Cons x t)` = `Cons (id x) (fmap id t)`. Since `id x` = `x`, and by induction, `fmap id t` = `t`, so
-       `Cons (id x) (fmap id t)` = `Cons x t`, so `fmap id (Cons x t)` = `Cons x t`
-     - Preservation of composition:
+  We have:
 
-       `fmap (f . g) (Cons x t)` = `Cons ((f . g) x) (fmap (f . g) t)`, and `(fmap f . fmap g) (Cons x t)` =
-       `fmap f (fmap g (Cons x t))` = `fmap f (Cons (g x) (fmap g t))` = `Cons (f (g x)) (fmap f (fmap g t))` =
-       `Cons ((f . g) x) ((fmap f . fmap g) t)`. By induction, `fmap (f . g) t` = `(fmap f . fmap g) t`, so
-       `Cons ((f . g) x) (fmap (f . g) t)` = `Cons ((f . g) x) ((fmap f . fmap g) t)`, so
-       `fmap (f . g) (Cons x t)` = `(fmap f . fmap g) (Cons x t)`.
+  - `fmap (f . g) x` = `(f . g) . x`, and
+  - `(fmap f . fmap g) x` \
+    = `fmap f (fmap g x)` \
+    = `fmap f (g . x)` \
+    = `f . (g . x)` \
+    = `(f . g) . x`.
+
+  So `fmap (f . g) x` = `(fmap f . fmap g) x`.
+
+##### 7.4 - 3
+
+> Implement the reader functor in your second favorite language (the first being Haskell, of course).
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_7_4_3.rs).
+
+##### 7.4 - 4
+
+> Prove the functor laws for the list functor. Assume that the laws are true for the tail part of the list you’re
+> applying it to (in other words, use induction).
+
+- Preservation of identity:
+
+  - `Nil` case:
+
+    `fmap id Nil` = `Nil`.
+  - `Cons x t` case:
+
+    `fmap id (Cons x t)` \
+    = `Cons (id x) (fmap id t)` \
+    = `Cons x (fmap id t)` \
+    = `Cons x t` (by induction).
+
+    So `fmap id (Cons x t)` = `Cons x t`
+
+  So `fmap id x` = `x`.
+- Preservation of composition:
+
+  - `Nil` case:
+
+    We have
+
+    - `fmap (f . g) Nil` = `Nil`, and
+    - `(fmap f . fmap g) Nil` \
+      = `fmap f (fmap g Nil)` \
+      = `fmap f Nil` = `Nil`.
+
+    So `fmap (f . g) Nil` = `(fmap f . fmap g) Nil`.
+  - `Cons x t` case:
+
+    We have:
+
+    - `fmap (f . g) (Cons x t)` = `Cons ((f . g) x) (fmap (f . g) t)`, and
+    - `(fmap f . fmap g) (Cons x t)` \
+      = `fmap f (fmap g (Cons x t))` \
+      = `fmap f (Cons (g x) (fmap g t))` \
+      = `Cons (f (g x)) (fmap f (fmap g t))` \
+      = `Cons ((f . g) x) ((fmap f . fmap g) t)` \
+      = `Cons ((f . g) x) (fmap (f . g) t)` (by induction).
+
+    So `fmap (f . g) (Cons x t)` = `(fmap f . fmap g) (Cons x t)`.
+
+  So `fmap (f . g) x` = `(fmap f . fmap g) x`.
+
+------------------------------------------------------------------------------------------------------------------------
 
 ### 8 Functoriality
 
@@ -633,15 +630,15 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
 
      - `desugaringToStandard (standardToDesugaring Nothing)` = `desugaringToStandard (Left (Const ()))` = `Nothing`
      - `desugaringToStandard (standardToDesugaring (Just a))` = `desugaringToStandard (Right a))` = `Just a`
-3. > Letʼs try another data structure. I call it a `PreList` because itʼs a precursor to a `List`. It replaces recursion
+3. > Let’s try another data structure. I call it a `PreList` because it’s a precursor to a `List`. It replaces recursion
    > with a type parameter `b`.
    >
    > ```haskell
    > data PreList a b = Nil | Cons a b
    > ```
    >
-   > You could recover our earlier definition of a `List` by recursively applying `PreList` to itself (weʼll see how
-   > itʼs done when we talk about fixed points).
+   > You could recover our earlier definition of a `List` by recursively applying `PreList` to itself (we’ll see how
+   > it’s done when we talk about fixed points).
    >
    > Show that `PreList` is an instance of `Bifunctor`.
 
@@ -691,7 +688,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
    > data Snd a b = Snd b
    > ```
    >
-   > For additional credit, check your solutions against Conor McBrideʼs paper [Clowns to the Left of me, Jokers to the
+   > For additional credit, check your solutions against Conor McBride’s paper [Clowns to the Left of me, Jokers to the
    > Right](http://strictlypositive.org/CJ.pdf).
 
    For `K2`, define `bimap` as follows:
@@ -777,7 +774,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
 
    I can also define `alpha3 f = Just (f True)`.
 4. > Show that horizontal composition of natural transformation satisfies the naturality condition (hint: use
-   > components). Itʼs a good exercise in diagram chasing.
+   > components). It’s a good exercise in diagram chasing.
 
    We need to prove \\(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a = \left(β \circ α\right)_b \circ \left(G \circ F\right) f\\).
 
@@ -790,7 +787,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
 
    What?
 6. > Create a few test cases for the opposite naturality condition of transformations between different `Op` functors.
-   > Hereʼs one choice:
+   > Here’s one choice:
    >
    > ```haskell
    > op :: Op Bool Int
