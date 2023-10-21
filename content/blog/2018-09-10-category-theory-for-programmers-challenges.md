@@ -8,6 +8,7 @@ Glossary:
 - [Category](https://en.wikipedia.org/wiki/Category_(mathematics))
 - [Functor](https://en.wikipedia.org/wiki/Functor)
 - [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
+- [Natural transformation](https://en.wikipedia.org/wiki/Natural_transformation)
 - [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
 
 ## Part One
@@ -21,20 +22,20 @@ Glossary:
 > Implement, as best as you can, the identity function in your favorite language (or the second favorite, if your
 > favorite language happens to be Haskell).
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_1.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_01_04_01.rs).
 
 ##### 1.4 - 2
 
 > Implement the composition function in your favorite language. It takes two functions as arguments and returns a
 > function that is their composition.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_2.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_01_04_02.rs).
 
 ##### 1.4 - 3
 
 > Write a program that tries to test that your composition function respects identity.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_1_4_3.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_01_04_03.rs).
 
 ##### 1.4 - 4
 
@@ -69,7 +70,7 @@ When its [transitive closure](https://en.wikipedia.org/wiki/Transitive_closure#I
 > result the first time you call it, but on subsequent calls, with the same argument, you should get the result
 > immediately.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_1.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_02_07_01.rs).
 
 ##### 2.7 - 2
 
@@ -120,7 +121,7 @@ memoizing will work.
 > How many different functions are there from `Bool` to `Bool`? Can you implement them all?
 
 There are 4 different *pure* functions.
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2_7_5.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_02_07_05.rs).
 
 ##### 2.7 - 6
 
@@ -129,16 +130,16 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_2
 
 The graph is too complex to draw, so here are the edges described in text.
 
-- `Void` -> `()`: `absurd`.
-- `Void` -> `Bool`: `absurd`.
-- `()` -> `()`: `id`.
-- `()` -> `Bool`: `yes`.
-- `()` -> `Bool`: `no`.
-- `Bool` -> `()`: `unit`.
-- `Bool` -> `Bool`: `yes`.
-- `Bool` -> `Bool`: `no`.
-- `Bool` -> `Bool`: `id`.
-- `Bool` -> `Bool`: `not`.
+- `Void` → `()`: `absurd`.
+- `Void` → `Bool`: `absurd`.
+- `()` → `()`: `id`.
+- `()` → `Bool`: `yes`.
+- `()` → `Bool`: `no`.
+- `Bool` → `()`: `unit`.
+- `Bool` → `Bool`: `yes`.
+- `Bool` → `Bool`: `no`.
+- `Bool` → `Bool`: `id`.
+- `Bool` → `Bool`: `not`.
 
 Note: `yes` is a function that returns `True` for all inputs, `no` is a function that returns `False` for all inputs,
 and `not` is a function that negates a boolean value.
@@ -260,21 +261,21 @@ Rules of composition:
 
 > Construct the Kleisli category for partial functions (define composition and identity).
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_1.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_04_04_01.rs).
 
 ##### 4.4 - 2
 
 > Implement the embellished function `safe_reciprocal` that returns a valid reciprocal of its argument, if it’s
 > different from zero.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_2.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_04_04_02.rs).
 
 ##### 4.4 - 3
 
 > Compose the functions `safe_root` and `safe_reciprocal` to implement `safe_root_reciprocal` that calculates
 > `sqrt(1/x)` whenever possible.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_4_4_3.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_04_04_03.rs).
 
 ### 5 Products and Coproducts
 
@@ -315,7 +316,7 @@ object that is greater than both *a* and *b*.
 
 > Implement the equivalent of Haskell `Either` as a generic type in your favorite language (other than Haskell).
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_4.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_05_08_04.rs).
 
 ##### 5.8 - 5
 
@@ -334,7 +335,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
 >
 > that factorizes `i` and `j`.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_5.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_05_08_05.rs).
 
 ##### 5.8 - 6
 
@@ -410,7 +411,7 @@ fn m2(x: (bool, i32)) -> Either<i32, bool> {
 }
 ```
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5_8_8.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_05_08_08.rs).
 
 ### 6 Simple Algebraic Data Types
 
@@ -420,7 +421,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_5
 
 > Show the isomorphism between `Maybe a` and `Either () a`.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_1.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_06_05_01.rs).
 
 ##### 6.5 - 2
 
@@ -443,7 +444,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6
 > Implement `Shape` in C++ or Java as an interface and create two classes: `Circle` and `Rect`. Implement `area` as a
 > virtual function.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_2.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_06_05_02.rs).
 
 ##### 6.5 - 3
 
@@ -458,7 +459,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6
 >
 > Add `circ` to your C++ or Java implementation. What parts of the original code did you have to touch?
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_3.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_06_05_03.rs).
 
 I have to update the definition of the `Shape` interface and the implementation of `Shape` for both `Circle` and `Rect`
 types.
@@ -469,14 +470,14 @@ types.
 > to touch in Haskell vs. C++ or Java? (Even if you’re not a Haskell programmer, the modifications should be pretty
 > obvious.)
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_4.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_06_05_04.rs).
 
 ##### 6.5 - 5
 
 > Show that *a* + *a* = 2 × *a* holds for types (up to isomorphism). Remember that 2 corresponds to `Bool`, according to
 > our translation table.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_6_5_5.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_06_05_05.rs).
 
 ### 7 Functors
 
@@ -516,12 +517,12 @@ No, because identity is not preserved. For example, `fmap id (Just 4)` = `Nothin
 
 > Implement the reader functor in your second favorite language (the first being Haskell, of course).
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_7_4_3.rs).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_07_04_03.rs).
 
 ##### 7.4 - 4
 
 > Prove the functor laws for the list functor. Assume that the laws are true for the tail part of the list you’re
-> applying it to (in other words, use induction).
+> applying it to (in other words, use *induction*).
 
 - Preservation of identity:
 
@@ -566,245 +567,221 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_7
 
   So `fmap (f . g) x` = `(fmap f . fmap g) x`.
 
-------------------------------------------------------------------------------------------------------------------------
-
 ### 8 Functoriality
 
-1. > Show that the data type:
-   >
-   > ```haskell
-   > data Pair a b = Pair a b
-   > ```
-   >
-   > is a bifunctor. For additional credit implement all three methods of `Bifunctor` and use equational reasoning to
-   > show that these definitions are compatible with the default implementations whenever they can be applied.
+#### 8.9 Challenges
 
-   Haskell implementations:
+##### 8.9 - 1
 
-   ```haskell
-   instance Bifunctor Pair where
-       bimap f g (a, b) = (f a, g b)
-       first f (a, b) = (f a, b)
-       second g (a, b) = (a, g b)
-   ```
+> Show that the data type:
+>
+> ```haskell
+> data Pair a b = Pair a b
+> ```
+>
+> is a bifunctor. For additional credit implement all three methods of `Bifunctor` and use equational reasoning to show
+> that these definitions are compatible with the default implementations whenever they can be applied.
 
-   Proofs that my implementations are compatible with the default implementations:
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_01.rs).
 
-   - Proof that `bimap f g (a, b)` = `(first f . second g) (a, b)`:
+```haskell
+instance Bifunctor Pair where
+    bimap f g (a, b) = (f a, g b)
+    first f (a, b) = (f a, b)
+    second g (a, b) = (a, g b)
+```
 
-     - `bimap f g (a, b)` = `(f a, g b)`
-     - `(first f . second g) (a, b)` = `first f (second g (a, b))` = `first f (a, g b)` = `(f a, g b)`
-   - Proof that `first f (a, b)` = `bimap f id (a, b)`:
+- Proof of `bimap f g (a, b)` = `(first f . second g) (a, b)`:
 
-     - `first f (a, b)` = `(f a, b)`
-     - `bimap f id (a, b)` = `(f a, id b)` = `(f a, b)`
-   - Proof that `second g (a, b)` = `bimap id g (a, b)`:
+  - `bimap f g (a, b)` = `(f a, g b)`
+  - `(first f . second g) (a, b)` = `first f (second g (a, b))` = `first f (a, g b)` = `(f a, g b)`
+- Proof of `first f (a, b)` = `bimap f id (a, b)`:
 
-     - `second g (a, b)` = `(a, g b)`
-     - `bimap id g (a, b)` = `(id a, g b)` = `(a, g b)`
+  - `first f (a, b)` = `(f a, b)`
+  - `bimap f id (a, b)` = `(f a, id b)` = `(f a, b)`
+- Proof of `second g (a, b)` = `bimap id g (a, b)`:
 
-2. > Show the isomorphism between the standard definition of `Maybe` and this desugaring:
-   >
-   > ```haskell
-   > type Maybe' a = Either (Const () a) (Identity a)
-   > ```
-   >
-   > Hint: Define two mappings between the two implementations. For additional credit, show that they are the inverse of
-   > each other using equational reasoning.
+  - `second g (a, b)` = `(a, g b)`
+  - `bimap id g (a, b)` = `(id a, g b)` = `(a, g b)`
 
-   ```haskell
-   standardToDesugaring Nothing = Left (Const ())
-   standardToDesugaring (Just a) = Right a
+##### 8.9 - 2
 
-   desugaringToStandard Left (Const ()) = Nothing
-   desugaringToStandard Right a = Just a
-   ```
+> Show the isomorphism between the standard definition of `Maybe` and this desugaring:
+>
+> ```haskell
+> type Maybe' a = Either (Const () a) (Identity a)
+> ```
+>
+> Hint: Define two mappings between the two implementations. For additional credit, show that they are the inverse of
+> each other using equational reasoning.
 
-   Proofs that `standardToDesugaring` and `desugaringToStandard` are the inverse of each other.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_02.rs).
 
-   - Proof that `standardToDesugaring (desugaringToStandard a)` = `a`:
+```haskell
+maybeToEither :: Maybe a -> Either (Const () a) (Identity a)
+maybeToEither Nothing = Left (Const ())
+maybeToEither (Just a) = Right a
 
-     - `standardToDesugaring (desugaringToStandard (Left (Const ())))` = `standardToDesugaring Nothing` = `Left (Const ())`
-     - `standardToDesugaring (desugaringToStandard (Right a))` = `standardToDesugaring (Just a))` = `Right a`
-   - Proof that `desugaringToStandard (standardToDesugaring a)` = `a`:
+eitherToMaybe :: Either (Const () a) (Identity a) -> Maybe a
+eitherToMaybe Left (Const ()) = Nothing
+eitherToMaybe Right a = Just a
+```
 
-     - `desugaringToStandard (standardToDesugaring Nothing)` = `desugaringToStandard (Left (Const ()))` = `Nothing`
-     - `desugaringToStandard (standardToDesugaring (Just a))` = `desugaringToStandard (Right a))` = `Just a`
-3. > Let’s try another data structure. I call it a `PreList` because it’s a precursor to a `List`. It replaces recursion
-   > with a type parameter `b`.
-   >
-   > ```haskell
-   > data PreList a b = Nil | Cons a b
-   > ```
-   >
-   > You could recover our earlier definition of a `List` by recursively applying `PreList` to itself (we’ll see how
-   > it’s done when we talk about fixed points).
-   >
-   > Show that `PreList` is an instance of `Bifunctor`.
+Proofs of `maybeToEither` and `eitherToMaybe` are the inverse of each other.
 
-   First, I will implement `bimap`:
+- Proof of `maybeToEither (eitherToMaybe a)` = `a`:
 
-   ```haskell
-   bimap f g Nil = Nil
-   bimap f g (Cons a b) = Cons (f a) (g b)
-   ```
+  - `maybeToEither (eitherToMaybe (Left (Const ())))` = `maybeToEither Nothing` = `Left (Const ())`
+  - `maybeToEither (eitherToMaybe (Right a))` = `maybeToEither (Just a))` = `Right a`
+- Proof of `eitherToMaybe (maybeToEither a)` = `a`:
 
-   Then, I will show that `(bimap f g . bimap m n) a` = `bimap (f . m) (g . n) a`:
+  - `eitherToMaybe (maybeToEither Nothing)` = `eitherToMaybe (Left (Const ()))` = `Nothing`
+  - `eitherToMaybe (maybeToEither (Just a))` = `eitherToMaybe (Right a))` = `Just a`
 
-   - Case `Nil`:
+##### 8.9 - 3
 
-     - `(bimap f g . bimap m n) Nil` = `bimap f g (bimap m n Nil)` = `bimap f g Nil` = `Nil`
-     - `bimap (f . m) (g . n) Nil` = `Nil`
-   - Case `(Cons a b)`:
+> Let’s try another data structure. I call it a `PreList` because it’s a precursor to a `List`. It replaces recursion
+> with a type parameter `b`.
+>
+> ```haskell
+> data PreList a b = Nil | Cons a b
+> ```
+>
+> You could recover our earlier definition of a `List` by recursively applying `PreList` to itself (we’ll see how it’s
+> done when we talk about fixed points).
+>
+> Show that `PreList` is an instance of `Bifunctor`.
 
-     - `(bimap f g . bimap m n) (Cons a b)` = `bimap f g (bimap m n (Cons a b))` = `bimap f g (Cons (m a) (n b))` = `Cons (f (m a)) (g (n b))`
-     - `bimap (f . m) (g . n) (Cons a b)` = `Cons ((f . m) a) ((g . n) b)` = `Cons (f (m a)) (g (n b))`
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_03.rs).
 
-   So in both cases, composition is preserved.
+##### 8.9 - 4
 
-   Finally, I will show that `bimap id id a` = `a`:
+> Show that the following data types define bifunctors in `a` and `b`:
+>
+> ```haskell
+> data K2 c a b = K2 c
+>
+> data Fst a b = Fst a
+>
+> data Snd a b = Snd b
+> ```
+>
+> For additional credit, check your solutions against Conor McBride’s paper
+> [Clowns to the Left of me, Jokers to the Right](http://strictlypositive.org/CJ.pdf).
 
-   - Case `Nil`:
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_04.rs).
 
-     - `bimap id id Nil` = `Nil`
-   - Case `(Cons a b)`:
+##### 8.9 - 5
 
-     - `bimap id id (Cons a b)` = `Cons (id a) (id b)` = `(Cons a b)`
+> Define a bifunctor in a language other than Haskell. Implement `bimap` for a generic pair in that language.
 
-   So in both cases, identity is preserved.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_05.rs)
 
-   So `PreList` is an instance of `Bifunctor`.
-4. > Show that the following data types define bifunctors in `a` and `b`:
-   >
-   > ```haskell
-   > data K2 c a b = K2 c
-   > ```
-   >
-   > ```haskell
-   > data Fst a b = Fst a
-   > ```
-   >
-   > ```haskell
-   > data Snd a b = Snd b
-   > ```
-   >
-   > For additional credit, check your solutions against Conor McBride’s paper [Clowns to the Left of me, Jokers to the
-   > Right](http://strictlypositive.org/CJ.pdf).
+##### 8.9 - 6
 
-   For `K2`, define `bimap` as follows:
+> Should `std::map` be considered a bifunctor or a profunctor in the two template arguments `Key` and `T`? How would you
+> redesign this data type to make it so?
 
-   ```haskell
-   bimap f g = id
-   ```
+Personal opinion: intuitively, a `map` is like a function that maps the key type to the value type, so like a function,
+it would seem that `map` should be considered a profunctor. The problem is that the `map` type from the standard library
+is a mutable data structure, and I am not sure what the semantic of mutating mapped value should be, such as insertion
+and removing.
 
-   So `bimap f g . bimap m n` = `id . id` = `id`, and `bimap (f . m) (g . n)` = `id`, so
-   `bimap f g . bimap m n` = `bimap (f . m) (g . n)`. Also, `bimap id id` = `id`, so `K2 c` is a bifunctor.
-
-   For `Fst`, define `bimap` as follows:
-
-   ```haskell
-   bimap f g (Fst a) = Fst (f a)
-   ```
-
-   So `(bimap f g . bimap m n) (Fst a)` = `bimap f g (bimap m n (Fst a))` = `bimap f g (Fst (m a))` = `Fst (f (m a))`,
-   and `bimap (f . m) (g . n) (Fst a)` = `Fst ((f . m) a)` = `Fst (f (m a))`. So
-   `(bimap f g . bimap m n) (Fst a)` = `bimap (f . m) (g . n) (Fst a)`. Also, `bimap id id (Fst a)` = `Fst (id a)` =
-   `Fst a`, so `Fst` is a bifunctor. The same for `Snd`.
-5. > Define a bifunctor in a language other than Haskell. Implement `bimap` for a generic pair in that language.
-
-   See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_8_9_5.rs).
-6. > Should `std::map` be considered a bifunctor or a profunctor in the two template arguments `Key` and `T`? How would
-   > you redesign this data type to make it so?
-
-   *Not sure.*
+The best I can come up with is [this](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_06.rs),
+only a getter is implemented.
 
 ### 9 Function Types
 
 ### 10 Natural Transformations
 
-1. > Define a natural transformation from the `Maybe` functor to the list functor. Prove the naturality condition for
-   > it.
+#### 10.6 Challenges
 
-   ```haskell
-   alpha Nothing = Nil
-   alpha (Just a) = Cons a Nil
-   ```
+##### 10.6 - 1
 
-   We need to prove `(fmap f . alpha) x` = `(alpha . fmap f) x`:
+> Define a natural transformation from the `Maybe` functor to the list functor. Prove the naturality condition for it.
 
-   - `Nothing` case:
-     - `(fmap f . alpha) Nothing`\
-       = `fmap f (alpha Nothing)`\
-       = `fmap f Nil`\
-       = `Nil`
-     - `(alpha . fmap f) Nothing`\
-       = `alpha (fmap f Nothing)`\
-       = `alpha Nothing`\
-       = `Nil`
-   - `Just a` case:
-     - `(fmap f . alpha) (Just a)`\
-       = `fmap f (alpha (Just a))`\
-       = `fmap f (Cons a Nil)`\
-       = `Cons (f a) Nil`
-     - `(alpha . fmap f) (Just a)`\
-       = `alpha (fmap f (Just a))`\
-       = `alpha (Just (f a))`\
-       = `Cons (f a) Nil`
-2. > Define at least two different natural transformations between `Reader ()` and the list functor. How many different
-   > lists of `()` are there?
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_01.rs)
 
-   ```haskell
-   alpha1 f = Cons (f ()) Nil
-   ```
+##### 10.6 - 2
 
-   ```haskell
-   alpha2 f = Cons (f ()) (Cons (f ()) Nil)
-   ```
+> Define at least two different natural transformations between `Reader ()` and the list functor. How many different
+> lists of `()` are there?
 
-   There are infinite countable number of lists of `()`.
-3. > Continue the previous exercise with `Reader Bool` and `Maybe`.
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_02.rs)
 
-   ```haskell
-   alpha1 f = Nothing
-   ```
+There are infinite countable number of lists of `()`.
 
-   ```haskell
-   alpha2 f = Just (f False)
-   ```
+##### 10.6 - 3
 
-   I can also define `alpha3 f = Just (f True)`.
-4. > Show that horizontal composition of natural transformation satisfies the naturality condition (hint: use
-   > components). It’s a good exercise in diagram chasing.
+> Continue the previous exercise with `Reader Bool` and `Maybe`.
 
-   We need to prove \\(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a = \left(β \circ α\right)_b \circ \left(G \circ F\right) f\\).
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_03.rs)
 
-   Let \\(f : a → b\\), then\
-   \\(\left(\left(G' \circ F'\right) f \circ \left(β \circ α\right)_a\right) \left(\left(G \circ F\right) a\right) = \left(\left(G' \circ F'\right) f\right) \left(\left(G' \circ F'\right) a\right) = \left(G' \circ F'\right) b\\),
-   Also, \
-   \\(\left(\left(β \circ α\right)_b \circ \left(G \circ F\right) f\right) \left(\left(G \circ F\right) a\right) = \left(β \circ α\right)_b \left(\left(G \circ F\right) b\right) = \left(G' \circ F'\right) b\\).
+##### 10.6 - 4
 
-5. > Write a short essay about how you may enjoy writing down the evident diagrams needed to prove the interchange law.
+> Show that horizontal composition of natural transformation satisfies the naturality condition (hint: use components).
+> It’s a good exercise in diagram chasing.
 
-   What?
-6. > Create a few test cases for the opposite naturality condition of transformations between different `Op` functors.
-   > Here’s one choice:
-   >
-   > ```haskell
-   > op :: Op Bool Int
-   > op = Op (\x -> x > 0)
-   > ```
-   >
-   > and
-   >
-   > ```haskell
-   > f :: String -> Int
-   > f x = read x
-   > ```
+We need to prove that for any
 
-   ```haskell
-   op2 :: Op () Int
-   op2 = Op (\x -> ())
+- category **C**, **D** and **E**,
+- functor *F*: **C** → **D**,
+- functor *F*′: **C** → **D**,
+- natural transformation *α*: *F* → *F*′,
+- functor *G*: **D** → **E**,
+- functor *G*′: **D** → **E**,
+- natural transformation *β*: *G* → *G*′,
+- objects *a* and *b* in **C**,
+- morphism *f*: *a* → *b* in **C**,
 
-   g :: String -> Int
-   g x = read x
-   ```
+(*β* ∘ *α*) is a natural transformation from (*G* ∘ *F*) to (*G*′ ∘ *F*′), that is:
+
+\\[((G' ∘ F') f) ∘ (β ∘ α)_a = (β ∘ α)_b ∘ ((G ∘ F) f).\\]
+
+Let *X* = *G* ∘ *F*, *Y* = *G*′ ∘ *F*′, and *γ* = *β* ∘ *α*, we need to prove that:
+
+\\[(Y f) ∘ γ_a = γ_b ∘ X f\text{.}\\]
+
+Proof:
+
+First, We apply \\((Y f) ∘ γ_a\\) to *X* *a*:
+
+\\(((Y f) ∘ γ_a) (X a)\\)\
+= \\((Y f) (γ_a (X a))\\)\
+= \\((Y f) (Y a)\\) (by definition)\
+= \\(Y b\\),
+
+Then, we also apply \\((γ_b ∘ (X f))\\) to *X* *a*
+
+\\((γ_b ∘ (X f)) (X a)\\)\
+= \\((γ_b ((X f) (X a)))\\)\
+= \\(γ_b (X b)\\)\
+= \\(Y b\\).
+
+So indeed \\((Y f) ∘ γ_a = γ_b ∘ X f\\), we have proved that composition of natural transformations satisfies the
+naturality condition.
+
+##### 10.6 - 5
+
+> Write a short essay about how you may enjoy writing down the evident diagrams needed to prove the interchange law.
+
+What?
+
+##### 10.6 - 6
+
+> Create a few test cases for the opposite naturality condition of transformations between different `Op` functors.
+> Here’s one choice:
+>
+> ```haskell
+> op :: Op Bool Int
+> op = Op (\x -> x > 0)
+> ```
+>
+> and
+>
+> ```haskell
+> f :: String -> Int
+> f x = read x
+> ```
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_06.rs)
