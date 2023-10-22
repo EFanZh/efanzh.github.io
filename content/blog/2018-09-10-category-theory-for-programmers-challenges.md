@@ -677,7 +677,7 @@ See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_0
 
 > Define a bifunctor in a language other than Haskell. Implement `bimap` for a generic pair in that language.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_05.rs)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_08_09_05.rs).
 
 ##### 8.9 - 6
 
@@ -702,14 +702,14 @@ only a getter is implemented.
 
 > Define a natural transformation from the `Maybe` functor to the list functor. Prove the naturality condition for it.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_01.rs)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_01.rs).
 
 ##### 10.6 - 2
 
 > Define at least two different natural transformations between `Reader ()` and the list functor. How many different
 > lists of `()` are there?
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_02.rs)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_02.rs).
 
 There are infinite countable number of lists of `()`.
 
@@ -717,7 +717,7 @@ There are infinite countable number of lists of `()`.
 
 > Continue the previous exercise with `Reader Bool` and `Maybe`.
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_03.rs)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_03.rs).
 
 ##### 10.6 - 4
 
@@ -753,7 +753,7 @@ First, We apply \\((Y f) ∘ γ_a\\) to *X* *a*:
 = \\((Y f) (Y a)\\)\
 = \\(Y b\\).
 
-Then, we also apply \\(γ_b ∘ (X f)\\) to *X* *a*
+Then, we also apply \\(γ_b ∘ (X f)\\) to *X* *a*:
 
 \\((γ_b ∘ (X f)) (X a)\\)\
 = \\(γ_b ((X f) (X a))\\)\
@@ -786,4 +786,4 @@ What?
 > f x = read x
 > ```
 
-See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_06.rs)
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_06.rs).
