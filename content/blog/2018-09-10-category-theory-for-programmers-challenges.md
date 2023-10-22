@@ -6,7 +6,9 @@ title = "Category Theory for Programmers Challenges"
 Glossary:
 
 - [Category](https://en.wikipedia.org/wiki/Category_(mathematics))
+- [Diagram](https://en.wikipedia.org/wiki/Diagram_(category_theory))
 - [Functor](https://en.wikipedia.org/wiki/Functor)
+- [Limit](https://en.wikipedia.org/wiki/Limit_(category_theory))
 - [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
 - [Natural transformation](https://en.wikipedia.org/wiki/Natural_transformation)
 - [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
@@ -362,7 +364,7 @@ because `i` maps `0` to `0`, and `j` maps `true` to `0`, there is no way for `m`
 > ```
 
 Still not better than `Either`. With `Left`, I can map `std::numeric_limits<int>::max()` to
-`Left(std::numeric_limits<int>::max())` (sorry for mixing Rust and C++ grammer, but you get the idea), but
+`Left(std::numeric_limits<int>::max())` (sorry for mixing Rust and C++ grammar, but you get the idea), but
 `i(std::numeric_limits<int>::max())` triggers signed integer overflow, which is undefined behavior. No `m` function
 can map undefined behavior to `Left(std::numeric_limits<int>::max())`, so `Either` is still better.
 
@@ -748,13 +750,13 @@ First, We apply \\((Y f) ∘ γ_a\\) to *X* *a*:
 
 \\(((Y f) ∘ γ_a) (X a)\\)\
 = \\((Y f) (γ_a (X a))\\)\
-= \\((Y f) (Y a)\\) (by definition)\
-= \\(Y b\\),
+= \\((Y f) (Y a)\\)\
+= \\(Y b\\).
 
-Then, we also apply \\((γ_b ∘ (X f))\\) to *X* *a*
+Then, we also apply \\(γ_b ∘ (X f)\\) to *X* *a*
 
 \\((γ_b ∘ (X f)) (X a)\\)\
-= \\((γ_b ((X f) (X a)))\\)\
+= \\(γ_b ((X f) (X a))\\)\
 = \\(γ_b (X b)\\)\
 = \\(Y b\\).
 
