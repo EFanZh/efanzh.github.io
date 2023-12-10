@@ -6,12 +6,46 @@ title = "Category Theory for Programmers Challenges"
 Glossary:
 
 - [Category](https://en.wikipedia.org/wiki/Category_(mathematics))
+- [Category of sets](https://en.wikipedia.org/wiki/Category_of_sets)
+  - A category with sets as objects and total functions as morphisms.
+- [Cocone](https://en.wikipedia.org/wiki/Cone_(category_theory))
+  - A natural transformation.
+- [Colimit](https://en.wikipedia.org/wiki/Limit_(category_theory))
+  - A universal cone.
+- [Cone](https://en.wikipedia.org/wiki/Cone_(category_theory))
+  - A natural transformation.
+- [Cospan](https://en.wikipedia.org/wiki/Span_(category_theory))
+  - A diagram of shape 1 → 2 ← 3.
 - [Diagram](https://en.wikipedia.org/wiki/Diagram_(category_theory))
+  - A functor.
+- [Equalizer](https://en.wikipedia.org/wiki/Equaliser_(mathematics)#In_category_theory)
+  - A limit.
+- [Free monoid](https://en.wikipedia.org/wiki/Free_monoid)
+  - The monoid whose elements are all the finite sequences (or strings) of zero or more elements from that set, with
+    string concatenation as the monoid operation and with the unique sequence of zero elements, often called the empty
+    string and denoted by *ε* or *λ*, as the identity element.
 - [Functor](https://en.wikipedia.org/wiki/Functor)
-- [Limit](https://en.wikipedia.org/wiki/Limit_(category_theory))
-- [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
-- [Natural transformation](https://en.wikipedia.org/wiki/Natural_transformation)
+- [Homomorphism](https://en.wikipedia.org/wiki/Homomorphism)
 - [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
+- [Limit](https://en.wikipedia.org/wiki/Limit_(category_theory))
+  - A universal cone.
+- [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
+  - An object *M* together with two morphisms
+    - *μ*: *M* ⊗ *M* → *M* called *multiplication*,
+    - *η*: *I* → *M* called *unit*.
+- [Monoidal category](https://en.wikipedia.org/wiki/Monoidal_category)
+  - A category **C** equipped with a bifunctor ⊗: **C** × **C** → **C** that is associative up to a natural
+    isomorphism, and an object *I* that is both a left and right identity for ⊗, again up to a natural isomorphism.
+- [Natural transformation](https://en.wikipedia.org/wiki/Natural_transformation)
+  - A family of morphisms.
+- [Presheaf](https://en.wikipedia.org/wiki/Presheaf_(category_theory))
+  - A contravariant functor from any category to the category of sets.
+- [Pullback](https://en.wikipedia.org/wiki/Pullback_(category_theory))
+  - A limit of a cospan.
+- [Pushout](https://en.wikipedia.org/wiki/Pushout_(category_theory))
+  - A colimit of a span.
+- [Span](https://en.wikipedia.org/wiki/Span_(category_theory))
+  - A diagram of shape 1 ← 2 → 3.
 
 ## Part One
 
@@ -787,3 +821,115 @@ What?
 > ```
 
 See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_10_06_06.rs).
+
+## Part Two
+
+### 11 Declarative Programming
+
+### 12 Limits and Colimits
+
+#### 12.5 Challenges
+
+##### 12.5 - 1
+
+> How would you describe a pushout in the category of C++ classes?
+
+Assume morphisms are inheritance relation from subclasses to superclasses, if we have a diagram of class `A` inheriting
+from both `B` and `C`, then the pushout is a class `D` that for any class `E` that is the superclass of both `B` and
+`C`, it is the super class of `D`, that is, `D` is the maximally common superclass of `B` and `C`.
+
+##### 12.5 - 2
+
+> Show that the limit of the identity functor **Id** :: **C** → **C** is the initial object.
+
+The image of **Id** is **C** itself, which contains all objects in **C**, so the limit is a natural transformation,
+there exist a morphism from the limit to each object in  **C**, since the natural transformation is universal, the
+morphisms from the limit to each object is unique, which satisfied the condition of the initial object.
+
+##### 12.5 - 3
+
+> Subsets of a given set form a category. A morphism in that category is defined to be an arrow connecting two sets if
+> the first is the subset of the second. What is a pullback of two sets in such a category? What’s a pushout? What are
+> the initial and terminal objects?
+
+The pullback of two sets is their intersection set.
+
+The pushout of two sets is their union set.
+
+The initial object is the empty set.
+
+The terminal object is the union set of all sets.
+
+##### 12.5 - 4
+
+> Can you guess what a coequalizer is?
+
+The coequalizer is a colimit of a two-element category with two parallel morphisms going between them.
+
+##### 12.5 - 5
+
+> Show that, in a category with a terminal object, a pullback towards the terminal object is a product.
+
+The pullback of objects *a* and *c* with two morphisms:
+
+- *f*: *a* → *b*
+- *g*: *c* → *b*
+
+is the object *d* with two morphisms:
+
+- *p*: *d* → *a*
+- *q*: *d* → *c*,
+
+that for any object object *d*′ with two morphisms:
+
+- *p*′: *d*′ → *a*
+- *q*′: *d*′ → *c*
+
+where *f* ∘ *p*′ = *g* ∘ *q*′, there is a unique morphism *h*: *d*′ → *d*, so that:
+
+- *p*′: *p* ∘ *h*
+- *q*′: *q* ∘ *h*
+
+The trick is that *b* is a terminal object, both *f* ∘ *p*′ and *g* ∘ *q*′ must be the unique morphism from *d*′ → *b*,
+so the *f* ∘ *p*′ = *g* ∘ *q*′ condition is always satisfied. Without the constraint, *d*′ can be any object with any
+two morphisms:
+
+- *p*′: *d*′ → *a*
+- *q*′: *d*′ → *c*
+
+Using the unique *h* morphism as the factoring morphism, we can satisfy the product condition, with *d* as the product
+of *a* and *c*.
+
+##### 12.5 - 6
+
+> Similarly, show that a pushout from an initial object (if one exists) is the coproduct.
+
+The pushout of objects *a* and *c* with two morphisms:
+
+- *f*: *b* → *a*
+- *g*: *b* → *c*
+
+is the object *d* with two morphisms:
+
+- *p*: *a* → *d*
+- *q*: *c* → *d*,
+
+that for any object object *d*′ with two morphisms:
+
+- *p*′: *a* → *d*′
+- *q*′: *c* → *d*′
+
+where *p*′ ∘ *f* = *q*′ ∘ *g*, there is a unique morphism *h*: *d* → *d*′, so that:
+
+- *p*′: *h* ∘ *p*
+- *q*′: *h* ∘ *q*
+
+The trick is that *b* is an initial object, both *p*′ ∘ *f* and *q*′ ∘ *g* must be the unique morphism from *b* → *d*′,
+so the *p*′ ∘ *f* = *q*′ ∘ *g* condition is always satisfied. Without the constraint, *d*′ can be any object with any
+two morphisms:
+
+- *p*′: *a* → *d*′
+- *q*′: *c* → *d*′
+
+Using the unique *h* morphism as the factoring morphism, we can satisfy the coproduct condition, with *d* as the
+coproduct of *a* and *c*.
