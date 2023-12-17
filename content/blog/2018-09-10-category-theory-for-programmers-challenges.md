@@ -980,3 +980,16 @@ in *B*, we need to have:
 
 Similarly, we can prove that *c* × *f* *e* = *c*, so we provide that *f* *e* is the unit element in *B*, so unit is
 preserved.
+
+##### 13.3 - 2
+
+> Consider a monoid homomorphism from lists of integers with concatenation to integers with multiplication. What is the
+> image of the empty list `[]`? Assume that all singleton lists are mapped to the integers they contain, that is `[3]`
+> is mapped to 3, etc. What’s the image of `[1, 2, 3, 4]`? How many different lists map to the integer 12? Is there any
+> other homomorphism between the two monoids?
+
+1. The image of the empty list `[]` is 1 since homomorphism preserves unit.
+2. The image of `[1, 2, 3, 4]` is 24 since homomorphism preserves multiplication.
+3. There lists map to integer 12 are lists that have total product of 12. There are infinite countable number of lists
+   that have product of 12, since you can add 1 to the list any times you want without changing the product.
+4. We can also map lists of integers concatenation to integers with addition.
