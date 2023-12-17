@@ -40,6 +40,7 @@ Glossary:
   - A family of morphisms.
 - [Presheaf](https://en.wikipedia.org/wiki/Presheaf_(category_theory))
   - A contravariant functor from any category to the category of sets.
+- [Product category](https://en.wikipedia.org/wiki/Product_category)
 - [Pullback](https://en.wikipedia.org/wiki/Pullback_(category_theory))
   - A limit of a cospan.
 - [Pushout](https://en.wikipedia.org/wiki/Pushout_(category_theory))
@@ -933,3 +934,49 @@ two morphisms:
 
 Using the unique *h* morphism as the factoring morphism, we can satisfy the coproduct condition, with *d* as the
 coproduct of *a* and *c*.
+
+### 13 Free Monoids
+
+#### 13.3 Challenges
+
+##### 13.3 - 1
+
+> You might think (as I did, originally) that the requirement that a homomorphism of monoids preserve the unit is
+> redundant. After all, we know that for all *a*
+>
+> ```haskell
+> h a * h e = h (a * e) = h a
+> ```
+>
+> So *h* *e* acts like a right unit (and, by analogy, as a left unit). The problem is that *h* *a*, for all *a* might
+> only cover a sub-monoid of the target monoid. There may be a “true” unit outside of the image of *h*. Show that an
+> isomorphism between monoids that preserves multiplication must automatically preserve unit.
+
+An isomorphism between monoids *A* and *B* is a pair of morphisms
+
+- *f*: *A* → *B*
+- *g*: *B* → *A*
+
+so that:
+
+- *g* ∘ *f* is the identity morphism on *A*
+- *f* ∘ *g* is the identity morphism on *B*
+
+If *f* and *g* preserve multiplication, we have: for all *a*, *b* in *A*, *f* (*a* × *b*) = *f* *a* × *f* *b*.
+
+Assume *e* is the unit element in *A*, we need to prove that *f* *e* is the unit element in *B*, which means for all *c*
+in *B*, we need to have:
+
+- *f* *e* × *c* = *c*
+- *c* × *f* *e* = *c*
+
+*f* *e* × *c*\
+= *f* *e* × (*f* ∘ *g*) *c* (Since *f* ∘ *g* is the identity morphism on *B*.)\
+= *f* *e* × *f* (*g* *c*)\
+= *f* (*e* × *g* *c*) (Since multiplication is preserved.)\
+= *f* (*g* *c*)\
+= (*f* ∘ *g*) *c* (Since *f* ∘ *g* is the identity morphism on *B*.)\
+= *c*
+
+Similarly, we can prove that *c* × *f* *e* = *c*, so we provide that *f* *e* is the unit element in *B*, so unit is
+preserved.
