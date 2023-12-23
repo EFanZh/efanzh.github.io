@@ -45,6 +45,7 @@ Glossary:
   - A limit of a cospan.
 - [Pushout](https://en.wikipedia.org/wiki/Pushout_(category_theory))
   - A colimit of a span.
+- [Representable functor](https://en.wikipedia.org/wiki/Representable_functor)
 - [Span](https://en.wikipedia.org/wiki/Span_(category_theory))
   - A diagram of shape 1 ← 2 → 3.
 
@@ -962,7 +963,7 @@ so that:
 - *g* ∘ *f* is the identity morphism on *A*
 - *f* ∘ *g* is the identity morphism on *B*
 
-If *f* and *g* preserve multiplication, we have: for all *a*, *b* in *A*, *f* (*a* × *b*) = *f* *a* × *f* *b*.
+If *f* and *g* preserve multiplication, we have: for all *a*, *b* in *A*, *f* *a* × *f* *b* = *f* (*a* × *b*).
 
 Assume *e* is the unit element in *A*, we need to prove that *f* *e* is the unit element in *B*, which means for all *c*
 in *B*, we need to have:
@@ -975,8 +976,8 @@ in *B*, we need to have:
 = *f* *e* × *f* (*g* *c*)\
 = *f* (*e* × *g* *c*) (Since multiplication is preserved.)\
 = *f* (*g* *c*)\
-= (*f* ∘ *g*) *c* (Since *f* ∘ *g* is the identity morphism on *B*.)\
-= *c*
+= (*f* ∘ *g*) *c*\
+= *c* (Since *f* ∘ *g* is the identity morphism on *B*.)
 
 Similarly, we can prove that *c* × *f* *e* = *c*, so we provide that *f* *e* is the unit element in *B*, so unit is
 preserved.
