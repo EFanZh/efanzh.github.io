@@ -1029,3 +1029,11 @@ So when applied to the identity morphism:
 (**C**(-, *a*) **id**) *g* = *g* ∘ **id** = *g*
 
 So the identity morphism is mapped to a function that just returns the argument, which is the identity function.
+
+##### 14.3 - 2
+
+> Show that `Maybe` is not representable.
+
+For `Maybe` to be representable, we need for create a function *a* → `x` from a `Maybe x` value for some representing
+type *a*. The problem is that a `Maybe x` value could be `Nothing`, from which we are not able to create a function that
+returns an `x` value, so `Maybe` is not representable.
