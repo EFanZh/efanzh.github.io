@@ -1001,3 +1001,31 @@ preserved.
 
 It is lists that only contain that one-element zero or more times. It’s isomorphic to natural numbers with addition
 where we map list to the length of the list.
+
+### 14 Representable Functors
+
+#### 14.3 Challenges
+
+##### 14.3 - 1
+
+> Show that the hom-functors map identity morphisms in *C* to corresponding identity functions in **Set**.
+
+For functor **C**(*a*, -), it maps a morphism *f* to a function that precomposes *f* on its argument:
+
+(**C**(*a*, -) *f*) *g* = *f* ∘ *g*
+
+So when applied to the identity morphism:
+
+(**C**(*a*, -) **id**) *g* = **id** ∘ *g* = *g*
+
+So the identity morphism is mapped to a function that just returns the argument, which is the identity function.
+
+For contravariant functor **C**(-, *a*), it maps a morphism *f* to a function that composes *f* to its argument:
+
+(**C**(-, *a*) *f*) *g* = *g* ∘ *f*
+
+So when applied to the identity morphism:
+
+(**C**(-, *a*) **id**) *g* = *g* ∘ **id** = *g*
+
+So the identity morphism is mapped to a function that just returns the argument, which is the identity function.
