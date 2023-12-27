@@ -1101,3 +1101,17 @@ Inductive cases, if `x > 0`:
 = `h x`
 
 So for any `x`, `g h x = h x`, thus for any `h`, `g h = h`, which means `g` is the identity function.
+
+##### 14.4 - 6
+
+> The functor:
+>
+> ```haskell
+> Pair a = Pair a a
+> ```
+>
+> is representable. Can you guess the type that represents it? Implement `tabulate` and `index`.
+
+The `bool` type represents the `Pair` functor.
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_14_03_06.rs).
