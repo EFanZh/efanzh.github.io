@@ -1037,3 +1037,67 @@ So the identity morphism is mapped to a function that just returns the argument,
 For `Maybe` to be representable, we need for create a function *a* → `x` from a `Maybe x` value for some representing
 type *a*. The problem is that a `Maybe x` value could be `Nothing`, from which we are not able to create a function that
 returns an `x` value, so `Maybe` is not representable.
+
+##### 14.3 - 3
+
+> Is the `Reader` functor representable?
+
+Yes, trivially.
+
+##### 14.4 - 4
+
+> Using `Stream` representation, memoize a function that squares its argument.
+
+Not sure if I understand the challenge correctly, but here is my attempt:
+
+See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_14_03_04.rs).
+
+##### 14.4 - 5
+
+> Show that `tabulate` and `index` for `Stream` are indeed the inverse of each other. (Hint: use induction.)
+
+Wwe prove that both `tabulate` ∘ `index` and `index` ∘ `tabulate` are the identity function.
+
+Let `f = tabulate . index`, we have:
+
+`f (Cons x y)`\
+= `(tabulate . index) (Cons x y)`\
+= `tabulate (index (Cons x y))`\
+= `Cons (index (Cons x y) 0) (tabulate ((index (Cons x y)) . (+1)))`\
+= `Cons x (tabulate ((index (Cons x y)) . (+1)))`\
+= `Cons x (tabulate ((index (Cons x y)) . (+1)))`\
+= `Cons x (tabulate ((\n -> if n == 0 then x else index y (n - 1)) . (+1)))`\
+= `Cons x (tabulate (\n -> if n + 1 == 0 then x else index y (n + 1 - 1)))`\
+= `Cons x (tabulate (\n -> index y n))`\
+= `Cons x (tabulate (index y))`\
+= `Cons x (f y)`
+
+we know `f` will preserve the first value, thus by induction on `f y`, we know that it will also preserve the second
+value, and also the third value, etc. So `f` will preserve all values in a `Stream` object, which means it is the
+identity function.
+
+Let `g = index . tabulate`, we need to prove for any `h`, `g h = h`, which means for any x, `g h x = h x`. We use proof
+by induction on `x`:
+
+Base case, if `x = 0`:
+
+`g h 0`\
+= `((index . tabulate) h) 0`\
+= `index (tabulate h) 0`\
+= `index (Cons (h 0) (tabulate (h . (+1)))) 0`\
+= `(h 0)`
+
+Inductive cases, if `x > 0`:
+
+`g h x`\
+= `(index . tabulate) h x`\
+= `index (tabulate h) x`\
+= `index (Cons (h 0) (tabulate (h . (+1)))) x`\
+= `index (tabulate (h . (+1))) (x - 1)` (since x > 0)\
+= `(index . tabulate) (h . (+1)) (x - 1)`\
+= `g (h . (+1)) (x - 1)`\
+= `(h . (+1)) (x - 1)` (by induction)\
+= `h ((+1) (x - 1))`\
+= `h x`
+
+So for any `x`, `g h x = h x`, thus for any `h`, `g h = h`, which means `g` is the identity function.
