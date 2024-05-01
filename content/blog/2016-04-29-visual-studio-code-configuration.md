@@ -18,6 +18,7 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
     "files.trimTrailingWhitespace": true,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
+    "rust-analyzer.cargo.targetDir": true,
     "rust-analyzer.check.command": "clippy",
     "rust-analyzer.imports.granularity.enforce": true,
     "rust-analyzer.imports.granularity.group": "module",
