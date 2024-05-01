@@ -20,6 +20,7 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
     "html.format.indentInnerHtml": true,
     "rust-analyzer.cargo.targetDir": true,
     "rust-analyzer.check.command": "clippy",
+    "rust-analyzer.debug.sourceFileMap": "auto",
     "rust-analyzer.imports.granularity.enforce": true,
     "rust-analyzer.imports.granularity.group": "module",
     "rust-analyzer.imports.group.enable": false,
