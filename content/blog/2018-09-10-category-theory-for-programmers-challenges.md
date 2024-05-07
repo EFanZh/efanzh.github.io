@@ -25,6 +25,7 @@ Glossary:
     string concatenation as the monoid operation and with the unique sequence of zero elements, often called the empty
     string and denoted by *ε* or *λ*, as the identity element.
 - [Functor](https://en.wikipedia.org/wiki/Functor)
+  - A mapping between categories that preserves preserve identity morphisms and composition of morphisms.
 - [Homomorphism](https://en.wikipedia.org/wiki/Homomorphism)
 - [Kleisli category](https://en.wikipedia.org/wiki/Kleisli_category)
 - [Limit](https://en.wikipedia.org/wiki/Limit_(category_theory))
@@ -46,6 +47,8 @@ Glossary:
 - [Pushout](https://en.wikipedia.org/wiki/Pushout_(category_theory))
   - A colimit of a span.
 - [Representable functor](https://en.wikipedia.org/wiki/Representable_functor)
+  - A functor *F* : **C** → **Set** is said to be representable if it is naturally isomorphic to Hom(*A*, –) for some
+    object *A* of **C**.
 - [Span](https://en.wikipedia.org/wiki/Span_(category_theory))
   - A diagram of shape 1 ← 2 → 3.
 
@@ -1115,3 +1118,57 @@ So for any `x`, `g h x = h x`, thus for any `h`, `g h = h`, which means `g` is t
 The `bool` type represents the `Pair` functor.
 
 See [here](https://github.com/EFanZh/CTfP-Challenges/blob/master/src/challenge_14_03_06.rs).
+
+### 15 The Yoneda Lemma
+
+#### 15.3 Challenges
+
+##### 15.3 - 1
+
+> Show that the two functions `phi` and `psi` that form the Yoneda isomorphism in Haskell are inverses of each other.
+>
+> ```haskell
+> phi :: (forall x . (a -> x) -> F x) -> F a
+> phi alpha = alpha id
+> psi :: F a -> (forall x . (a -> x) -> F x)
+> psi fa h = fmap h fa
+> ```
+
+We need to show that both `(phi . psi)` and `(psi . phi)` are identity functions:
+
+`(phi . psi) fa`\
+= `phi (psi fa)`\
+= `phi (\h -> fmap h fa)`\
+= `(\h -> fmap h fa) id`\
+= `fmap id fa`\
+= `fa`
+
+So `(phi . psi)` is an identity function.
+
+`(psi . phi) alpha`\
+= `psi (phi alpha)`\
+= `psi (alpha id)`\
+= `\h -> fmap h (alpha id)`\
+= `\h -> (fmap h . alpha) id`\
+= `\h -> (alpha . (\f -> h . f)) id` (by naturality condition)\
+= `\h -> alpha ((\f -> h . f) id)`\
+= `\h -> alpha (h . id)`\
+= `\h -> alpha h`\
+= `alpha`
+
+So `(psi . phi)` is also an identity function, we conclude that `phi` and `psi` are inverses of each other.
+
+##### 15.3 - 2
+
+> A discrete category is one that has objects but no morphisms other than identity morphisms. How does the Yoneda lemma
+> work for functors from such a category?
+
+*Skipped.*
+
+##### 15.3 - 3
+
+> A list of units `[()]` contains no other information but its length. So, as a data type, it can be considered an
+> encoding of integers. An empty list encodes zero, a singleton `[()]` (a value, not a type) encodes one, and so on.
+> Construct another representation of this data type using the Yoneda lemma for the list functor.
+
+According to the Yoneda lemma, `[()]` is equivalent to type `forall x . (() -> x) -> [x]`.
