@@ -31,9 +31,10 @@ Glossary:
 - [Limit](https://en.wikipedia.org/wiki/Limit_(category_theory))
   - A universal cone.
 - [Monoid](https://en.wikipedia.org/wiki/Monoid_(category_theory))
-  - An object *M* together with two morphisms
+  - An object *M* in a monoidal category together with two morphisms
     - *μ*: *M* ⊗ *M* → *M* called *multiplication*,
     - *η*: *I* → *M* called *unit*.
+  - Or, is it a category of a single object?
 - [Monoidal category](https://en.wikipedia.org/wiki/Monoidal_category)
   - A category **C** equipped with a bifunctor ⊗: **C** × **C** → **C** that is associative up to a natural
     isomorphism, and an object *I* that is both a left and right identity for ⊗, again up to a natural isomorphism.
@@ -1150,8 +1151,8 @@ So `(phi . psi)` is an identity function.
 = `psi (alpha id)`\
 = `\h -> fmap h (alpha id)`\
 = `\h -> (fmap h . alpha) id`\
-= `\h -> (alpha . (\f -> h . f)) id` (by naturality condition)\
-= `\h -> alpha ((\f -> h . f) id)`\
+= `\h -> (alpha . fmap h) id` (by naturality condition)\
+= `\h -> alpha (fmap h id)`\
 = `\h -> alpha (h . id)`\
 = `\h -> alpha h`\
 = `alpha`
@@ -1172,3 +1173,69 @@ So `(psi . phi)` is also an identity function, we conclude that `phi` and `psi` 
 > Construct another representation of this data type using the Yoneda lemma for the list functor.
 
 According to the Yoneda lemma, `[()]` is equivalent to type `forall x . (() -> x) -> [x]`.
+
+### 16
+
+#### 16.5 Challenges
+
+##### 16.5 - 1
+
+> Express the co-Yoneda embedding in Haskell.
+
+*Skipped.*
+
+##### 16.5 - 2
+
+> Show that the bijection we established between `fromY` and `btoa` is an isomorphism (the two mappings are the inverse
+> of each other).
+
+Let `m` be the funcion that converts `btoa` to `fromY` and `n` be the function that converts `fromY` to `btoa`, we have:
+`m` = `\x -> \f -> \b -> f (x b)` and `n` = `\x -> x id`.
+
+`(m . n) x`\
+= `m (n x)`\
+= `m (x id)`\
+= `\f -> \b -> f ((x id) b)`\
+= `\f -> \b -> (f . (x id)) b`\
+= `\f -> f . (x id)`\
+= `\f -> fmap f (x id)` (since `fmap f = \x -> f . x`)\
+= `\f -> ((fmap f) . x) id`\
+= `\f -> (x . (fmap f)) id` (by naturality condition)\
+= `\f -> x (fmap f id)`\
+= `\f -> x (f . id)`\
+= `\f -> x f`\
+= `x`
+
+`(n . m) x`\
+= `n (m x)`\
+= `n (\f -> \b -> f (x b))`\
+= `(\f -> \b -> f (x b)) id`\
+= `\b -> id (x b)`\
+= `\b -> x b`\
+= `x`
+
+So both `m . n` and `n . m` are identity functions, we conclude that `fromY` and `btoa` are isomorphic.
+
+##### 16.5 - 3
+
+> Work out the Yoneda embedding for a monoid. What functor corresponds to the monoid’s single object? What natural
+> transformations correspond to monoid morphisms?
+
+Let **M** be the category, and *m* be the single object, Yoneda embedding maps *m* to the functor **M**(*m*, -).
+
+Since **M** only has a single object *m*, all morphisms in **M** are in the hom-set **M**(*m*, *m*), they will be mapped
+to natural transforms between functor **M**(*m*, -) and it self.
+
+##### 16.5 - 4
+
+> What is the application of the covariant Yoneda embedding to preorders? (Question suggested by Gershom Bazerman.)
+
+*Skipped.*
+
+##### 16.5 - 5
+
+> Yoneda embedding can be used to embed an arbitrary functor category [**C**, **D**] in the functor category
+> [[**C**, **D**], **Set**]. Figure out how it works on morphisms (which in this case are natural transformations).
+
+Let *F* and *G* be two objects (functors) in [**C**, **D**], and *α* be a morphism (natural transforms) from *F* to *G*,
+Yoneda embedding maps *α* to a natural transform from [**C**, **D**](*G*, -) to [**C**, **D**](*F*, -).

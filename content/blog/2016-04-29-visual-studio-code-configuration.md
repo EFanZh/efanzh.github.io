@@ -2,8 +2,6 @@
 title = "Visual Studio Code Configuration"
 +++
 
-This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
-
 ```json
 {
     "editor.fontSize": 12,
@@ -14,6 +12,7 @@ This is my [Visual Studio Code](https://code.visualstudio.com) configuration:
     "editor.rulers": [
         120
     ],
+    "extensions.ignoreRecommendations": true,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "html.format.extraLiners": "",

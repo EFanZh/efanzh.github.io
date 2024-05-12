@@ -1688,7 +1688,7 @@ Let *ϵ* = -\\(\log_b c\\), I guess *f*(*n*) = Ω(\\(n^{\log_b a - \log_b c}\\))
 6. *T*(*n*) = 8 *n*.
 7. *T*(*n*) = *c* + \\(∑_{j = 2}^n (1 / j)\\) = Θ(lg *n*).
 8. *T*(*n*) = *c* + \\(∑_{j = 2}^n \lg n\\) = *c* + \\(\lg ∏_{j = 2}^n n\\) = *c* + lg *n*! = Θ(*n* lg *n*).
-9. *Skipped*.
+9. *Skipped.*
 10. *T*(*n*) = *n* lg lg *n* + *c* *n*.
 
 ##### 4-4 Fibonacci numbers
@@ -2378,7 +2378,7 @@ So the expected number of bins with exactly 1 ball is:
    = \\(∑_{i = 1}^{n} \operatorname{E}\left[X_i\right]\\)\
    = \\(∑_{i = 1}^{n} 1\\).\
    = *n*.
-2. *Skipped*.
+2. *Skipped.*
 
 ##### 5-2 Searching an unsorted array
 
@@ -2537,7 +2537,7 @@ nodes starts with ⌊*n* / 2⌋, and ends with *n*.
 > Using Figure 6.2 as a model, illustrate the operation of *Max-Heapify*(*A*, 3) on the array
 > *A* = ⟨27, 17, 3, 16, 13, 10, 1, 5, 7, 12, 4, 8, 9, 0⟩.
 
-*Skipped*.
+*Skipped.*
 
 ##### 6.2-2
 
@@ -6162,7 +6162,7 @@ Solution is implemented
 > how to maintain this information during insertion and deletion. (Remember that these two operations can cause
 > rotations.)
 
-*Skipped*.
+*Skipped.*
 
 ##### 14.1-7
 
@@ -6645,7 +6645,7 @@ the only the value of *n*.
 > finding the best sequence of exchanges from currency 1 to currency *n* does not necessarily exhibit optimal
 > substructure.
 
-*Skipped*.
+*Skipped.*
 
 #### 15.4 Longest common subsequence
 
@@ -7707,7 +7707,7 @@ Solution is implemented
   - *P*(*C*, *i* + 1), if \\(r_{i + 1}\\) ∈ *C*,
   - 1 + \\(\min_{r ∈ C} P(C ∪ \left\lbrace r_{i + 1}\right\rbrace ∖ \left\lbrace r \right\rbrace, i + 1)\\), if
     \\(r_{i + 1}\\) ∈ *C*,
-- ***c.*** *Skipped*.
+- ***c.*** *Skipped.*
 
 ### 17 Amortized Analysis
 
