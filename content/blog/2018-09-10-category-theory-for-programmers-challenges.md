@@ -1012,7 +1012,7 @@ where we map list to the length of the list.
 
 ##### 14.3 - 1
 
-> Show that the hom-functors map identity morphisms in *C* to corresponding identity functions in **Set**.
+> Show that the hom-functors map identity morphisms in **C** to corresponding identity functions in **Set**.
 
 For functor **C**(*a*, -), it maps a morphism *f* to a function that precomposes *f* on its argument:
 
@@ -1239,3 +1239,49 @@ to natural transforms between functor **M**(*m*, -) and it self.
 
 Let *F* and *G* be two objects (functors) in [**C**, **D**], and *α* be a morphism (natural transforms) from *F* to *G*,
 Yoneda embedding maps *α* to a natural transform from [**C**, **D**](*G*, -) to [**C**, **D**](*F*, -).
+
+### 17
+
+#### 17.8 Challenges
+
+##### 17.8 - 1
+
+> Consider some degenerate cases of a naturality condition and draw the appropriate diagrams. For instance, what happens
+> if either functor *F* or *G* map both objects *a* and *b* (the ends of *f* ∷ *a* → *b*) to the same object, e.g.,
+> *F* *a* = *F* *b* or *G* *a* = *G* *b*? (Notice that you get a cone or a co-cone this way.) Then consider cases where
+> either *F* *a* = *G* *a* or *F* *b* = *G* *b*. Finally, what if you start with a morphism that loops on itself —
+> *f* ∷ *a* → *a*?
+
+1. Either functor *F* or *G* map both objects *a* and *b* (the ends of *f* ∷ *a* → *b*) to the same object:
+
+   ```txt
+    Ff        Gf
+    ┌─┐       ┌─┐
+    │ ↓   α   │ ↓
+   Fa/Fb ──→ Ga/Gb
+   ```
+
+   *G* *f* ∘ *α* = *α* ∘ *F* *f*.
+2. Either *F* *a* = *G* *a* or *F* *b* = *G* *b*:
+
+   ```txt
+    αa         αb
+    ┌─┐        ┌─┐
+    │ ↓   Ff   │ ↓
+   Fa/Ga ───→ Fb/Gb
+     │          ↑
+     └──────────┘
+          Gf
+   ```
+
+   *G* *f*  ∘ \\(α_a\\) = \\(α_b\\) ∘ *F* *f*.
+3. A morphism that loops on itself:
+
+   ```txt
+    Ff          Gf
+   ┌──┐        ┌───┐
+   │  ↓   αa   │   ↓
+   └─ Fa ────→ Ga ←┘
+   ```
+
+   *G* *f*  ∘ \\(α_a\\) = \\(α_a\\) ∘ *F* *f*.
