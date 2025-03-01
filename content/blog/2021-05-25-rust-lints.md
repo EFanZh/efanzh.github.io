@@ -198,7 +198,7 @@ For Rust version 1.85.0. References:
 | `clippy::unused-trait-names`                   | default |                                    |
 | `clippy::unwrap-in-result`                     | default |                                    |
 | `clippy::unwrap-used`                          | default |                                    |
-| `clippy::use-debug`                            | warn    |                                    |
+| `clippy::use-debug`                            | default |                                    |
 | `clippy::verbose-file-reads`                   | warn    |                                    |
 | `clippy::wildcard-enum-match-arm`              | default |                                    |
 
@@ -287,7 +287,6 @@ unnecessary-safety-doc = { level = "warn", priority = 1 }
 unnecessary-self-imports = { level = "warn", priority = 1 }
 unneeded-field-pattern = { level = "warn", priority = 1 }
 unseparated-literal-suffix = { level = "warn", priority = 1 }
-use-debug = { level = "warn", priority = 1 }
 verbose-file-reads = { level = "warn", priority = 1 }
 ```
 
