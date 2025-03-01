@@ -172,7 +172,7 @@ For Rust version 1.85.0. References:
 | `clippy::separated-literal-suffix`             | default |                                    |
 | `clippy::shadow-reuse`                         | default |                                    |
 | `clippy::shadow-same`                          | default |                                    |
-| `clippy::shadow-unrelated`                     | warn    |                                    |
+| `clippy::shadow-unrelated`                     | default |                                    |
 | `clippy::single-call-fn`                       | default |                                    |
 | `clippy::single-char-lifetime-names`           | default |                                    |
 | `clippy::std-instead-of-alloc`                 | default |                                    |
@@ -274,7 +274,6 @@ renamed-function-params = { level = "warn", priority = 1 }
 rest-pat-in-fully-bound-structs = { level = "warn", priority = 1 }
 same-name-method = { level = "warn", priority = 1 }
 self-named-module-files = { level = "warn", priority = 1 }
-shadow-unrelated = { level = "warn", priority = 1 }
 string-lit-chars-any = { level = "warn", priority = 1 }
 string-to-string = { level = "warn", priority = 1 }
 tests-outside-test-module = { level = "warn", priority = 1 }
