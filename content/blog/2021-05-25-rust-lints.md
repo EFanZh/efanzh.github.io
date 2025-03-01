@@ -2,415 +2,293 @@
 title = "Rust Lints"
 +++
 
-For Rust version 1.67.0. References:
+For Rust version 1.85.0. References:
 
-- <https://doc.rust-lang.org/1.67.0/rustc/lints/listing/allowed-by-default.html>
-- <https://rust-lang.github.io/rust-clippy/rust-1.67.0/index.html>
+- <https://doc.rust-lang.org/1.85.0/rustc/lints/listing/allowed-by-default.html>
+- <https://rust-lang.github.io/rust-clippy/rust-1.85.0/index.html>
 
 ## Allow by default lints
 
-| Lint                                      | Verdict | Comment                            |
-| ----------------------------------------- | ------- | ---------------------------------- |
-| `absolute_paths_not_starting_with_crate`  | warn    |                                    |
-| `box_pointers`                            | default |                                    |
-| `elided_lifetimes_in_paths`               | default |                                    |
-| `explicit_outlives_requirements`          | warn    |                                    |
-| `ffi_unwind_calls`                        | default |                                    |
-| `fuzzy_provenance_casts`                  | warn    | Unstable                           |
-| `keyword_idents`                          | default |                                    |
-| `let_underscore_drop`                     | warn    |                                    |
-| `lossy_provenance_casts`                  | warn    | Unstable                           |
-| `macro_use_extern_crate`                  | warn    |                                    |
-| `meta_variable_misuse`                    | warn    |                                    |
-| `missing_abi`                             | warn    |                                    |
-| `missing_copy_implementations`            | default |                                    |
-| `missing_debug_implementations`           | default |                                    |
-| `missing_docs`                            | warn    |                                    |
-| `must_not_suspend`                        | warn    | Unstable                           |
-| `non_ascii_idents`                        | default |                                    |
-| `non_exhaustive_omitted_patterns`         | warn    | Unstable                           |
-| `noop_method_call`                        | warn    |                                    |
-| `pointer_structural_match`                | warn    |                                    |
-| `rust_2021_incompatible_closure_captures` | default |                                    |
-| `rust_2021_incompatible_or_patterns`      | default |                                    |
-| `rust_2021_prefixes_incompatible_syntax`  | default |                                    |
-| `rust_2021_prelude_collisions`            | default |                                    |
-| `single_use_lifetimes`                    | warn    | Has false positives.               |
-| `trivial_casts`                           | warn    |                                    |
-| `trivial_numeric_casts`                   | warn    |                                    |
-| `unreachable_pub`                         | default | See `clippy::redundant_pub_crate`. |
-| `unsafe_code`                             | warn    |                                    |
-| `unsafe_op_in_unsafe_fn`                  | warn    |                                    |
-| `unstable_features`                       | default |                                    |
-| `unused_crate_dependencies`               | warn    |                                    |
-| `unused_extern_crates`                    | warn    |                                    |
-| `unused_import_braces`                    | warn    |                                    |
-| `unused_lifetimes`                        | warn    |                                    |
-| `unused_macro_rules`                      | warn    |                                    |
-| `unused_qualifications`                   | warn    |                                    |
-| `unused_results`                          | default |                                    |
-| `unused_tuple_struct_fields`              | warn    |                                    |
-| `variant_size_differences`                | warn    |                                    |
-| `clippy::alloc_instead_of_core`           | warn    |                                    |
-| `clippy::allow_attributes_without_reason` | warn    |                                    |
-| `clippy::arithmetic_side_effects`         | default |                                    |
-| `clippy::as_conversions`                  | default |                                    |
-| `clippy::as_ptr_cast_mut`                 | warn    |                                    |
-| `clippy::as_underscore`                   | default |                                    |
-| `clippy::assertions_on_result_states`     | default |                                    |
-| `clippy::branches_sharing_code`           | warn    |                                    |
-| `clippy::cargo_common_metadata`           | warn    |                                    |
-| `clippy::clone_on_ref_ptr`                | warn    |                                    |
-| `clippy::cognitive_complexity`            | warn    |                                    |
-| `clippy::create_dir`                      | warn    |                                    |
-| `clippy::dbg_macro`                       | warn    |                                    |
-| `clippy::debug_assert_with_mut_call`      | warn    |                                    |
-| `clippy::decimal_literal_representation`  | warn    |                                    |
-| `clippy::default_numeric_fallback`        | default |                                    |
-| `clippy::default_union_representation`    | default |                                    |
-| `clippy::deref_by_slicing`                | warn    |                                    |
-| `clippy::derive_partial_eq_without_eq`    | warn    |                                    |
-| `clippy::disallowed_script_idents`        | default |                                    |
-| `clippy::else_if_without_else`            | default |                                    |
-| `clippy::empty_drop`                      | warn    |                                    |
-| `clippy::empty_line_after_outer_attr`     | warn    |                                    |
-| `clippy::empty_structs_with_brackets`     | warn    |                                    |
-| `clippy::equatable_if_let`                | warn    |                                    |
-| `clippy::exhaustive_enums`                | default |                                    |
-| `clippy::exhaustive_structs`              | default |                                    |
-| `clippy::exit`                            | default |                                    |
-| `clippy::expect_used`                     | default |                                    |
-| `clippy::fallible_impl_from`              | warn    |                                    |
-| `clippy::filetype_is_file`                | warn    |                                    |
-| `clippy::float_arithmetic`                | default |                                    |
-| `clippy::float_cmp_const`                 | warn    |                                    |
-| `clippy::fn_to_numeric_cast_any`          | default |                                    |
-| `clippy::format_push_string`              | warn    |                                    |
-| `clippy::future_not_send`                 | default |                                    |
-| `clippy::get_unwrap`                      | warn    |                                    |
-| `clippy::if_then_some_else_none`          | warn    |                                    |
-| `clippy::implicit_return`                 | default |                                    |
-| `clippy::imprecise_flops`                 | warn    |                                    |
-| `clippy::indexing_slicing`                | default |                                    |
-| `clippy::inline_asm_x86_att_syntax`       | default |                                    |
-| `clippy::inline_asm_x86_intel_syntax`     | default |                                    |
-| `clippy::integer_arithmetic`              | default |                                    |
-| `clippy::integer_division`                | default |                                    |
-| `clippy::iter_on_empty_collections`       | warn    |                                    |
-| `clippy::iter_on_single_items`            | warn    |                                    |
-| `clippy::iter_with_drain`                 | warn    |                                    |
-| `clippy::large_include_file`              | warn    |                                    |
-| `clippy::let_underscore_must_use`         | warn    |                                    |
-| `clippy::lossy_float_literal`             | warn    |                                    |
-| `clippy::manual_clamp`                    | warn    |                                    |
-| `clippy::map_err_ignore`                  | warn    |                                    |
-| `clippy::mem_forget`                      | default |                                    |
-| `clippy::missing_const_for_fn`            | default |                                    |
-| `clippy::missing_docs_in_private_items`   | default |                                    |
-| `clippy::missing_enforced_import_renames` | default |                                    |
-| `clippy::missing_inline_in_public_items`  | default |                                    |
-| `clippy::missing_trait_methods`           | default |                                    |
-| `clippy::mixed_read_write_in_expression`  | warn    |                                    |
-| `clippy::mod_module_files`                | default |                                    |
-| `clippy::modulo_arithmetic`               | default |                                    |
-| `clippy::multiple_crate_versions`         | default |                                    |
-| `clippy::multiple_inherent_impl`          | warn    |                                    |
-| `clippy::multiple_unsafe_ops_per_block`   | default |                                    |
-| `clippy::mutex_atomic`                    | warn    |                                    |
-| `clippy::mutex_integer`                   | warn    |                                    |
-| `clippy::needless_collect`                | warn    |                                    |
-| `clippy::negative_feature_names`          | warn    |                                    |
-| `clippy::non_ascii_literal`               | default |                                    |
-| `clippy::non_send_fields_in_send_ty`      | warn    |                                    |
-| `clippy::nonstandard_macro_braces`        | warn    |                                    |
-| `clippy::option_if_let_else`              | warn    |                                    |
-| `clippy::or_fun_call`                     | warn    |                                    |
-| `clippy::panic`                           | warn    |                                    |
-| `clippy::panic_in_result_fn`              | warn    |                                    |
-| `clippy::partial_pub_fields`              | warn    |                                    |
-| `clippy::path_buf_push_overwrite`         | warn    |                                    |
-| `clippy::pattern_type_mismatch`           | default |                                    |
-| `clippy::pedantic`                        | warn    |                                    |
-| `clippy::print_stderr`                    | warn    |                                    |
-| `clippy::print_stdout`                    | warn    |                                    |
-| `clippy::pub_use`                         | default |                                    |
-| `clippy::rc_buffer`                       | warn    |                                    |
-| `clippy::rc_mutex`                        | warn    |                                    |
-| `clippy::redundant_feature_names`         | warn    |                                    |
-| `clippy::redundant_pub_crate`             | warn    | See `unreachable_pub`.             |
-| `clippy::rest_pat_in_fully_bound_structs` | warn    |                                    |
-| `clippy::same_name_method`                | warn    |                                    |
-| `clippy::self_named_module_files`         | warn    |                                    |
-| `clippy::semicolon_inside_block`          | default |                                    |
-| `clippy::semicolon_outside_block`         | default |                                    |
-| `clippy::separated_literal_suffix`        | default |                                    |
-| `clippy::shadow_reuse`                    | default |                                    |
-| `clippy::shadow_same`                     | default |                                    |
-| `clippy::shadow_unrelated`                | default |                                    |
-| `clippy::significant_drop_in_scrutinee`   | warn    |                                    |
-| `clippy::single_char_lifetime_names`      | default |                                    |
-| `clippy::std_instead_of_alloc`            | default |                                    |
-| `clippy::std_instead_of_core`             | default |                                    |
-| `clippy::str_to_string`                   | default | To pair with `[T]::to_vec()`.      |
-| `clippy::string_add`                      | default |                                    |
-| `clippy::string_lit_as_bytes`             | warn    |                                    |
-| `clippy::string_slice`                    | default |                                    |
-| `clippy::string_to_string`                | warn    |                                    |
-| `clippy::suboptimal_flops`                | warn    |                                    |
-| `clippy::suspicious_operation_groupings`  | warn    |                                    |
-| `clippy::suspicious_xor_used_as_pow`      | default |                                    |
-| `clippy::todo`                            | warn    |                                    |
-| `clippy::trailing_empty_array`            | warn    |                                    |
-| `clippy::trait_duplication_in_bounds`     | warn    |                                    |
-| `clippy::transmute_undefined_repr`        | warn    |                                    |
-| `clippy::trivial_regex`                   | warn    |                                    |
-| `clippy::try_err`                         | warn    |                                    |
-| `clippy::type_repetition_in_bounds`       | warn    |                                    |
-| `clippy::undocumented_unsafe_blocks`      | warn    |                                    |
-| `clippy::unimplemented`                   | warn    |                                    |
-| `clippy::unnecessary_safety_comment`      | warn    |                                    |
-| `clippy::unnecessary_safety_doc`          | warn    |                                    |
-| `clippy::unnecessary_self_imports`        | warn    |                                    |
-| `clippy::unneeded_field_pattern`          | warn    |                                    |
-| `clippy::unreachable`                     | default |                                    |
-| `clippy::unseparated_literal_suffix`      | default |                                    |
-| `clippy::unused_peekable`                 | warn    |                                    |
-| `clippy::unused_rounding`                 | warn    |                                    |
-| `clippy::unwrap_in_result`                | default |                                    |
-| `clippy::unwrap_used`                     | default |                                    |
-| `clippy::use_debug`                       | warn    |                                    |
-| `clippy::use_self`                        | warn    |                                    |
-| `clippy::useless_let_if_seq`              | warn    |                                    |
-| `clippy::verbose_file_reads`              | warn    |                                    |
-| `clippy::wildcard_dependencies`           | warn    |                                    |
-| `clippy::wildcard_enum_match_arm`         | default |                                    |
+| Lint                                           | Verdict | Comment                            |
+| ---------------------------------------------- | ------- | ---------------------------------- |
+| `absolute-paths-not-starting-with-crate`       | default | Only applies to 2015 edition.      |
+| `ambiguous-negative-literals`                  | warn    |                                    |
+| `async-idents`                                 | default |                                    |
+| `closure-returning-async-block`                | warn    |                                    |
+| `deprecated-safe-2024`                         | default | Only applies to pre-2024 editions. |
+| `disjoint-capture-migration`                   | default |                                    |
+| `edition-2024-expr-fragment-specifier`         | default |                                    |
+| `elided-lifetime-in-path`                      | default |                                    |
+| `elided-lifetimes-in-paths`                    | default |                                    |
+| `explicit-outlives-requirements`               | warn    |                                    |
+| `ffi-unwind-calls`                             | default |                                    |
+| `fuzzy-provenance-casts`                       | default |                                    |
+| `if-let-rescope`                               | default |                                    |
+| `impl-trait-overcaptures`                      | default |                                    |
+| `impl-trait-redundant-captures`                | warn    |                                    |
+| `keyword-idents`                               | default |                                    |
+| `keyword-idents-2018`                          | default |                                    |
+| `keyword-idents-2024`                          | default |                                    |
+| `let-underscore-drop`                          | warn    |                                    |
+| `lossy-provenance-casts`                       | default | Unstable.                          |
+| `macro-use-extern-crate`                       | warn    |                                    |
+| `meta-variable-misuse`                         | warn    |                                    |
+| `missing-abi`                                  | warn    |                                    |
+| `missing-copy-implementations`                 | default |                                    |
+| `missing-debug-implementations`                | default |                                    |
+| `missing-docs`                                 | warn    |                                    |
+| `missing-unsafe-on-extern`                     | default |                                    |
+| `multiple-supertrait-upcastable`               | default |                                    |
+| `must-not-suspend`                             | default | Unstable.                          |
+| `non-ascii-idents`                             | default |                                    |
+| `non-exhaustive-omitted-patterns`              | default |                                    |
+| `or-patterns-back-compat`                      | default |                                    |
+| `redundant-imports`                            | warn    |                                    |
+| `redundant-lifetimes`                          | warn    |                                    |
+| `rust-2021-incompatible-closure-captures`      | default |                                    |
+| `rust-2021-incompatible-or-patterns`           | default |                                    |
+| `rust-2021-prefixes-incompatible-syntax`       | default |                                    |
+| `rust-2021-prelude-collisions`                 | default |                                    |
+| `rust-2024-guarded-string-incompatible-syntax` | default |                                    |
+| `rust-2024-incompatible-pat`                   | default |                                    |
+| `rust-2024-prelude-collisions`                 | default |                                    |
+| `single-use-lifetime`                          | default |                                    |
+| `single-use-lifetimes`                         | warn    |                                    |
+| `tail-expr-drop-order`                         | default |                                    |
+| `trivial-casts`                                | warn    |                                    |
+| `trivial-numeric-casts`                        | warn    |                                    |
+| `unit-bindings`                                | warn    |                                    |
+| `unnameable-types`                             | warn    |                                    |
+| `unqualified-local-imports`                    | default | Unstable.                          |
+| `unreachable-pub`                              | default | See `clippy::redundant-pub-crate`. |
+| `unsafe-attr-outside-unsafe`                   | default |                                    |
+| `unsafe-code`                                  | warn    |                                    |
+| `unsafe-op-in-unsafe-fn`                       | default |                                    |
+| `unstable-features`                            | default |                                    |
+| `unused-crate-dependencies`                    | warn    |                                    |
+| `unused-extern-crates`                         | warn    |                                    |
+| `unused-import-braces`                         | warn    |                                    |
+| `unused-lifetimes`                             | warn    |                                    |
+| `unused-macro-rules`                           | warn    |                                    |
+| `unused-qualifications`                        | warn    |                                    |
+| `unused-results`                               | default |                                    |
+| `variant-size-differences`                     | warn    |                                    |
+| `clippy::absolute-paths`                       | default |                                    |
+| `clippy::alloc-instead-of-core`                | warn    |                                    |
+| `clippy::allow-attributes`                     | warn    |                                    |
+| `clippy::allow-attributes-without-reason`      | warn    |                                    |
+| `clippy::arbitrary-source-item-ordering`       | default |                                    |
+| `clippy::arithmetic-side-effects`              | default |                                    |
+| `clippy::as-conversions`                       | warn    |                                    |
+| `clippy::as-pointer-underscore`                | default |                                    |
+| `clippy::as-underscore`                        | default |                                    |
+| `clippy::assertions-on-result-states`          | warn    |                                    |
+| `clippy::big-endian-bytes`                     | default |                                    |
+| `clippy::cargo`                                | warn    | Group.                             |
+| `clippy::cfg-not-test`                         | warn    |                                    |
+| `clippy::clone-on-ref-ptr`                     | warn    |                                    |
+| `clippy::create-dir`                           | default |                                    |
+| `clippy::dbg-macro`                            | warn    |                                    |
+| `clippy::decimal-literal-representation`       | default |                                    |
+| `clippy::default-numeric-fallback`             | default |                                    |
+| `clippy::default-union-representation`         | default |                                    |
+| `clippy::deref-by-slicing`                     | warn    |                                    |
+| `clippy::disallowed-script-idents`             | default |                                    |
+| `clippy::doc-include-without-cfg`              | default |                                    |
+| `clippy::else-if-without-else`                 | default |                                    |
+| `clippy::empty-drop`                           | warn    |                                    |
+| `clippy::empty-enum-variants-with-brackets`    | warn    |                                    |
+| `clippy::empty-structs-with-brackets`          | warn    |                                    |
+| `clippy::error-impl-error`                     | default |                                    |
+| `clippy::exhaustive-enums`                     | default |                                    |
+| `clippy::exhaustive-structs`                   | default |                                    |
+| `clippy::exit`                                 | default |                                    |
+| `clippy::expect-used`                          | default |                                    |
+| `clippy::field-scoped-visibility-modifiers`    | warn    |                                    |
+| `clippy::filetype-is-file`                     | default |                                    |
+| `clippy::float-arithmetic`                     | default |                                    |
+| `clippy::float-cmp-const`                      | default |                                    |
+| `clippy::fn-to-numeric-cast-any`               | default |                                    |
+| `clippy::format-push-string`                   | warn    |                                    |
+| `clippy::get-unwrap`                           | warn    |                                    |
+| `clippy::host-endian-bytes`                    | default |                                    |
+| `clippy::if-then-some-else-none`               | warn    |                                    |
+| `clippy::impl-trait-in-params`                 | default |                                    |
+| `clippy::implicit-return`                      | default |                                    |
+| `clippy::indexing-slicing`                     | default |                                    |
+| `clippy::infinite-loop`                        | warn    |                                    |
+| `clippy::inline-asm-x86-att-syntax`            | default |                                    |
+| `clippy::inline-asm-x86-intel-syntax`          | default |                                    |
+| `clippy::integer-division`                     | default |                                    |
+| `clippy::integer-division-remainder-used`      | default |                                    |
+| `clippy::iter-over-hash-type`                  | default |                                    |
+| `clippy::large-include-file`                   | default |                                    |
+| `clippy::let-underscore-must-use`              | default |                                    |
+| `clippy::let-underscore-untyped`               | default |                                    |
+| `clippy::little-endian-bytes`                  | default |                                    |
+| `clippy::lossy-float-literal`                  | warn    |                                    |
+| `clippy::map-err-ignore`                       | default |                                    |
+| `clippy::map-with-unused-argument-over-ranges` | default |                                    |
+| `clippy::mem-forget`                           | default |                                    |
+| `clippy::min-ident-chars`                      | default |                                    |
+| `clippy::missing-assert-message`               | default |                                    |
+| `clippy::missing-asserts-for-indexing`         | default |                                    |
+| `clippy::missing-docs-in-private-items`        | default |                                    |
+| `clippy::missing-inline-in-public-items`       | default |                                    |
+| `clippy::missing-trait-methods`                | default |                                    |
+| `clippy::mixed-read-write-in-expression`       | default |                                    |
+| `clippy::mod-module-files`                     | default |                                    |
+| `clippy::module-name-repetitions`              | default |                                    |
+| `clippy::modulo-arithmetic`                    | default |                                    |
+| `clippy::multiple-inherent-impl`               | default |                                    |
+| `clippy::multiple-unsafe-ops-per-block`        | default |                                    |
+| `clippy::mutex-atomic`                         | warn    |                                    |
+| `clippy::needless-raw-strings`                 | default |                                    |
+| `clippy::non-ascii-literal`                    | default |                                    |
+| `clippy::non-zero-suggestions`                 | warn    |                                    |
+| `clippy::nursery`                              | warn    | Group.                             |
+| `clippy::panic`                                | default |                                    |
+| `clippy::panic-in-result-fn`                   | warn    |                                    |
+| `clippy::partial-pub-fields`                   | default |                                    |
+| `clippy::pathbuf-init-then-push`               | default |                                    |
+| `clippy::pattern-type-mismatch`                | default |                                    |
+| `clippy::pedantic`                             | warn    | Group.                             |
+| `clippy::print-stderr`                         | warn    |                                    |
+| `clippy::print-stdout`                         | warn    |                                    |
+| `clippy::pub-use`                              | default |                                    |
+| `clippy::pub-with-shorthand`                   | default |                                    |
+| `clippy::pub-without-shorthand`                | default |                                    |
+| `clippy::question-mark-used`                   | default |                                    |
+| `clippy::rc-buffer`                            | warn    |                                    |
+| `clippy::rc-mutex`                             | warn    |                                    |
+| `clippy::redundant-type-annotations`           | warn    |                                    |
+| `clippy::ref-patterns`                         | default |                                    |
+| `clippy::renamed-function-params`              | warn    |                                    |
+| `clippy::rest-pat-in-fully-bound-structs`      | warn    |                                    |
+| `clippy::same-name-method`                     | warn    |                                    |
+| `clippy::self-named-module-files`              | warn    |                                    |
+| `clippy::semicolon-inside-block`               | default |                                    |
+| `clippy::semicolon-outside-block`              | default |                                    |
+| `clippy::separated-literal-suffix`             | default |                                    |
+| `clippy::shadow-reuse`                         | default |                                    |
+| `clippy::shadow-same`                          | default |                                    |
+| `clippy::shadow-unrelated`                     | warn    |                                    |
+| `clippy::single-call-fn`                       | default |                                    |
+| `clippy::single-char-lifetime-names`           | default |                                    |
+| `clippy::std-instead-of-alloc`                 | default |                                    |
+| `clippy::std-instead-of-core`                  | default |                                    |
+| `clippy::str-to-string`                        | default |                                    |
+| `clippy::string-add`                           | default |                                    |
+| `clippy::string-lit-chars-any`                 | warn    |                                    |
+| `clippy::string-slice`                         | default |                                    |
+| `clippy::string-to-string`                     | warn    |                                    |
+| `clippy::suspicious-xor-used-as-pow`           | default |                                    |
+| `clippy::tests-outside-test-module`            | warn    |                                    |
+| `clippy::todo`                                 | warn    |                                    |
+| `clippy::try-err`                              | warn    |                                    |
+| `clippy::undocumented-unsafe-blocks`           | warn    |                                    |
+| `clippy::unimplemented`                        | warn    |                                    |
+| `clippy::unnecessary-safety-comment`           | warn    |                                    |
+| `clippy::unnecessary-safety-doc`               | warn    |                                    |
+| `clippy::unnecessary-self-imports`             | warn    |                                    |
+| `clippy::unneeded-field-pattern`               | warn    |                                    |
+| `clippy::unreachable`                          | default |                                    |
+| `clippy::unseparated-literal-suffix`           | warn    |                                    |
+| `clippy::unused-result-ok`                     | default |                                    |
+| `clippy::unused-trait-names`                   | default |                                    |
+| `clippy::unwrap-in-result`                     | default |                                    |
+| `clippy::unwrap-used`                          | default |                                    |
+| `clippy::use-debug`                            | warn    |                                    |
+| `clippy::verbose-file-reads`                   | warn    |                                    |
+| `clippy::wildcard-enum-match-arm`              | default |                                    |
 
 Exceptions:
 
-| Lint | Verdict | Comment |
-| ---- | ------- | ------- |
+| Lint                              | Verdict | Comment |
+| --------------------------------- | ------- | ------- |
+| `clippy::multiple-crate-versions` | allow   |         |
 
 ## Summary
 
-Add the following configuration to `.cargo/config.toml`:
+Add the following configuration to `Cargo.toml`:
 
 ```toml
-[target.'cfg(feature = "cargo-clippy")']
-rustflags = [
-  "-Wabsolute_paths_not_starting_with_crate",
-  "-Wexplicit_outlives_requirements",
-  "-Wlet_underscore_drop",
-  "-Wmacro_use_extern_crate",
-  "-Wmeta_variable_misuse",
-  "-Wmissing_abi",
-  "-Wmissing_docs",
-  "-Wnoop_method_call",
-  "-Wpointer_structural_match",
-  "-Wsingle_use_lifetimes",
-  "-Wtrivial_casts",
-  "-Wtrivial_numeric_casts",
-  "-Wunsafe_code",
-  "-Wunsafe_op_in_unsafe_fn",
-  "-Wunused_crate_dependencies",
-  "-Wunused_extern_crates",
-  "-Wunused_import_braces",
-  "-Wunused_lifetimes",
-  "-Wunused_macro_rules",
-  "-Wunused_qualifications",
-  "-Wunused_tuple_struct_fields",
-  "-Wvariant_size_differences",
-  "-Wclippy::alloc_instead_of_core",
-  "-Wclippy::allow_attributes_without_reason",
-  "-Wclippy::as_ptr_cast_mut",
-  "-Wclippy::branches_sharing_code",
-  "-Wclippy::cargo_common_metadata",
-  "-Wclippy::clone_on_ref_ptr",
-  "-Wclippy::cognitive_complexity",
-  "-Wclippy::create_dir",
-  "-Wclippy::dbg_macro",
-  "-Wclippy::debug_assert_with_mut_call",
-  "-Wclippy::decimal_literal_representation",
-  "-Wclippy::deref_by_slicing",
-  "-Wclippy::derive_partial_eq_without_eq",
-  "-Wclippy::empty_drop",
-  "-Wclippy::empty_line_after_outer_attr",
-  "-Wclippy::empty_structs_with_brackets",
-  "-Wclippy::equatable_if_let",
-  "-Wclippy::fallible_impl_from",
-  "-Wclippy::filetype_is_file",
-  "-Wclippy::float_cmp_const",
-  "-Wclippy::format_push_string",
-  "-Wclippy::get_unwrap",
-  "-Wclippy::if_then_some_else_none",
-  "-Wclippy::imprecise_flops",
-  "-Wclippy::iter_on_empty_collections",
-  "-Wclippy::iter_on_single_items",
-  "-Wclippy::iter_with_drain",
-  "-Wclippy::large_include_file",
-  "-Wclippy::let_underscore_must_use",
-  "-Wclippy::lossy_float_literal",
-  "-Wclippy::manual_clamp",
-  "-Wclippy::map_err_ignore",
-  "-Wclippy::mixed_read_write_in_expression",
-  "-Wclippy::multiple_inherent_impl",
-  "-Wclippy::mutex_atomic",
-  "-Wclippy::mutex_integer",
-  "-Wclippy::needless_collect",
-  "-Wclippy::negative_feature_names",
-  "-Wclippy::non_send_fields_in_send_ty",
-  "-Wclippy::nonstandard_macro_braces",
-  "-Wclippy::option_if_let_else",
-  "-Wclippy::or_fun_call",
-  "-Wclippy::panic",
-  "-Wclippy::panic_in_result_fn",
-  "-Wclippy::partial_pub_fields",
-  "-Wclippy::path_buf_push_overwrite",
-  "-Wclippy::pedantic",
-  "-Wclippy::print_stderr",
-  "-Wclippy::print_stdout",
-  "-Wclippy::rc_buffer",
-  "-Wclippy::rc_mutex",
-  "-Wclippy::redundant_feature_names",
-  "-Wclippy::redundant_pub_crate",
-  "-Wclippy::rest_pat_in_fully_bound_structs",
-  "-Wclippy::same_name_method",
-  "-Wclippy::self_named_module_files",
-  "-Wclippy::significant_drop_in_scrutinee",
-  "-Wclippy::string_lit_as_bytes",
-  "-Wclippy::string_to_string",
-  "-Wclippy::suboptimal_flops",
-  "-Wclippy::suspicious_operation_groupings",
-  "-Wclippy::todo",
-  "-Wclippy::trailing_empty_array",
-  "-Wclippy::trait_duplication_in_bounds",
-  "-Wclippy::transmute_undefined_repr",
-  "-Wclippy::trivial_regex",
-  "-Wclippy::try_err",
-  "-Wclippy::type_repetition_in_bounds",
-  "-Wclippy::undocumented_unsafe_blocks",
-  "-Wclippy::unimplemented",
-  "-Wclippy::unnecessary_safety_comment",
-  "-Wclippy::unnecessary_safety_doc",
-  "-Wclippy::unnecessary_self_imports",
-  "-Wclippy::unneeded_field_pattern",
-  "-Wclippy::unused_peekable",
-  "-Wclippy::unused_rounding",
-  "-Wclippy::use_debug",
-  "-Wclippy::use_self",
-  "-Wclippy::useless_let_if_seq",
-  "-Wclippy::verbose_file_reads",
-  "-Wclippy::wildcard_dependencies",
-]
-```
+[lints.rust]
+ambiguous-negative-literals = { level = "warn", priority = 1 }
+closure-returning-async-block = { level = "warn", priority = 1 }
+explicit-outlives-requirements = { level = "warn", priority = 1 }
+impl-trait-redundant-captures = { level = "warn", priority = 1 }
+let-underscore-drop = { level = "warn", priority = 1 }
+macro-use-extern-crate = { level = "warn", priority = 1 }
+meta-variable-misuse = { level = "warn", priority = 1 }
+missing-abi = { level = "warn", priority = 1 }
+missing-docs = { level = "warn", priority = 1 }
+redundant-imports = { level = "warn", priority = 1 }
+redundant-lifetimes = { level = "warn", priority = 1 }
+single-use-lifetimes = { level = "warn", priority = 1 }
+trivial-casts = { level = "warn", priority = 1 }
+trivial-numeric-casts = { level = "warn", priority = 1 }
+unit-bindings = { level = "warn", priority = 1 }
+unnameable-types = { level = "warn", priority = 1 }
+unsafe-code = { level = "warn", priority = 1 }
+unused-crate-dependencies = { level = "warn", priority = 1 }
+unused-extern-crates = { level = "warn", priority = 1 }
+unused-import-braces = { level = "warn", priority = 1 }
+unused-lifetimes = { level = "warn", priority = 1 }
+unused-macro-rules = { level = "warn", priority = 1 }
+unused-qualifications = { level = "warn", priority = 1 }
+variant-size-differences = { level = "warn", priority = 1 }
 
-Or add the following code to the top of `lib.rs` or `main.rs`:
-
-```rust
-#![warn(
-    absolute_paths_not_starting_with_crate,
-    explicit_outlives_requirements,
-    let_underscore_drop,
-    macro_use_extern_crate,
-    meta_variable_misuse,
-    missing_abi,
-    missing_docs,
-    noop_method_call,
-    pointer_structural_match,
-    single_use_lifetimes,
-    trivial_casts,
-    trivial_numeric_casts,
-    unsafe_code,
-    unsafe_op_in_unsafe_fn,
-    unused_crate_dependencies,
-    unused_extern_crates,
-    unused_import_braces,
-    unused_lifetimes,
-    unused_macro_rules,
-    unused_qualifications,
-    unused_tuple_struct_fields,
-    variant_size_differences,
-    clippy::alloc_instead_of_core,
-    clippy::allow_attributes_without_reason,
-    clippy::as_ptr_cast_mut,
-    clippy::branches_sharing_code,
-    clippy::cargo_common_metadata,
-    clippy::clone_on_ref_ptr,
-    clippy::cognitive_complexity,
-    clippy::create_dir,
-    clippy::dbg_macro,
-    clippy::debug_assert_with_mut_call,
-    clippy::decimal_literal_representation,
-    clippy::deref_by_slicing,
-    clippy::derive_partial_eq_without_eq,
-    clippy::empty_drop,
-    clippy::empty_line_after_outer_attr,
-    clippy::empty_structs_with_brackets,
-    clippy::equatable_if_let,
-    clippy::fallible_impl_from,
-    clippy::filetype_is_file,
-    clippy::float_cmp_const,
-    clippy::format_push_string,
-    clippy::get_unwrap,
-    clippy::if_then_some_else_none,
-    clippy::imprecise_flops,
-    clippy::iter_on_empty_collections,
-    clippy::iter_on_single_items,
-    clippy::iter_with_drain,
-    clippy::large_include_file,
-    clippy::let_underscore_must_use,
-    clippy::lossy_float_literal,
-    clippy::manual_clamp,
-    clippy::map_err_ignore,
-    clippy::mixed_read_write_in_expression,
-    clippy::multiple_inherent_impl,
-    clippy::mutex_atomic,
-    clippy::mutex_integer,
-    clippy::needless_collect,
-    clippy::negative_feature_names,
-    clippy::non_send_fields_in_send_ty,
-    clippy::nonstandard_macro_braces,
-    clippy::option_if_let_else,
-    clippy::or_fun_call,
-    clippy::panic,
-    clippy::panic_in_result_fn,
-    clippy::partial_pub_fields,
-    clippy::path_buf_push_overwrite,
-    clippy::pedantic,
-    clippy::print_stderr,
-    clippy::print_stdout,
-    clippy::rc_buffer,
-    clippy::rc_mutex,
-    clippy::redundant_feature_names,
-    clippy::redundant_pub_crate,
-    clippy::rest_pat_in_fully_bound_structs,
-    clippy::same_name_method,
-    clippy::self_named_module_files,
-    clippy::significant_drop_in_scrutinee,
-    clippy::string_lit_as_bytes,
-    clippy::string_to_string,
-    clippy::suboptimal_flops,
-    clippy::suspicious_operation_groupings,
-    clippy::todo,
-    clippy::trailing_empty_array,
-    clippy::trait_duplication_in_bounds,
-    clippy::transmute_undefined_repr,
-    clippy::trivial_regex,
-    clippy::try_err,
-    clippy::type_repetition_in_bounds,
-    clippy::undocumented_unsafe_blocks,
-    clippy::unimplemented,
-    clippy::unnecessary_safety_comment,
-    clippy::unnecessary_safety_doc,
-    clippy::unnecessary_self_imports,
-    clippy::unneeded_field_pattern,
-    clippy::unused_peekable,
-    clippy::unused_rounding,
-    clippy::use_debug,
-    clippy::use_self,
-    clippy::useless_let_if_seq,
-    clippy::verbose_file_reads,
-    clippy::wildcard_dependencies,
-)]
+[lints.clippy]
+alloc-instead-of-core = { level = "warn", priority = 1 }
+allow-attributes = { level = "warn", priority = 1 }
+allow-attributes-without-reason = { level = "warn", priority = 1 }
+as-conversions = { level = "warn", priority = 1 }
+assertions-on-result-states = { level = "warn", priority = 1 }
+cargo = "warn"
+cfg-not-test = { level = "warn", priority = 1 }
+clone-on-ref-ptr = { level = "warn", priority = 1 }
+dbg-macro = { level = "warn", priority = 1 }
+deref-by-slicing = { level = "warn", priority = 1 }
+empty-drop = { level = "warn", priority = 1 }
+empty-enum-variants-with-brackets = { level = "warn", priority = 1 }
+empty-structs-with-brackets = { level = "warn", priority = 1 }
+field-scoped-visibility-modifiers = { level = "warn", priority = 1 }
+format-push-string = { level = "warn", priority = 1 }
+get-unwrap = { level = "warn", priority = 1 }
+if-then-some-else-none = { level = "warn", priority = 1 }
+infinite-loop = { level = "warn", priority = 1 }
+lossy-float-literal = { level = "warn", priority = 1 }
+multiple-crate-versions = { level = "allow", priority = 1 }
+mutex-atomic = { level = "warn", priority = 1 }
+non-zero-suggestions = { level = "warn", priority = 1 }
+nursery = "warn"
+panic-in-result-fn = { level = "warn", priority = 1 }
+pedantic = "warn"
+print-stderr = { level = "warn", priority = 1 }
+print-stdout = { level = "warn", priority = 1 }
+rc-buffer = { level = "warn", priority = 1 }
+rc-mutex = { level = "warn", priority = 1 }
+redundant-type-annotations = { level = "warn", priority = 1 }
+renamed-function-params = { level = "warn", priority = 1 }
+rest-pat-in-fully-bound-structs = { level = "warn", priority = 1 }
+same-name-method = { level = "warn", priority = 1 }
+self-named-module-files = { level = "warn", priority = 1 }
+shadow-unrelated = { level = "warn", priority = 1 }
+string-lit-chars-any = { level = "warn", priority = 1 }
+string-to-string = { level = "warn", priority = 1 }
+tests-outside-test-module = { level = "warn", priority = 1 }
+todo = { level = "warn", priority = 1 }
+try-err = { level = "warn", priority = 1 }
+undocumented-unsafe-blocks = { level = "warn", priority = 1 }
+unimplemented = { level = "warn", priority = 1 }
+unnecessary-safety-comment = { level = "warn", priority = 1 }
+unnecessary-safety-doc = { level = "warn", priority = 1 }
+unnecessary-self-imports = { level = "warn", priority = 1 }
+unneeded-field-pattern = { level = "warn", priority = 1 }
+unseparated-literal-suffix = { level = "warn", priority = 1 }
+use-debug = { level = "warn", priority = 1 }
+verbose-file-reads = { level = "warn", priority = 1 }
 ```
 
 ## `.clippy.toml` Configuration
