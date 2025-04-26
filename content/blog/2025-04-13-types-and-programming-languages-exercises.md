@@ -12,7 +12,7 @@ title = "Types and Programming Languages Exercises"
 
 ##### 2.2.6
 
-> Exercise [★★ ↛]: Suppose we are given a relation *R* on a set *S*. Define the relation *R*′ as follows:
+> *Exercise* [★★ ↛]: Suppose we are given a relation *R* on a set *S*. Define the relation *R*′ as follows:
 >
 > *R*′ = *R* ∪ {(*s*, *s*) | *s* ∈ *S*}.
 >
@@ -33,7 +33,7 @@ We need to show that:
 
 ##### 2.2.7
 
-> Exercise [★★, ↛]: Here is a more constructive definition of the transitive closure of a relation *R*. First, we
+> *Exercise* [★★, ↛]: Here is a more constructive definition of the transitive closure of a relation *R*. First, we
 > define the following sequence of sets of pairs:
 >
 > <math display="block">
@@ -104,7 +104,7 @@ We need to show that:
 
 ##### 2.2.8
 
-> Exercise [★★, ↛]: Suppose *R* is a binary relation on a set *S* and *P* is a predicate on *S* that is preserved by
+> *Exercise* [★★, ↛]: Suppose *R* is a binary relation on a set *S* and *P* is a predicate on *S* that is preserved by
 > *R*. Show that *P* is also preserved by *R*<sup>∗</sup>.
 
 We need to show that: For any *s* ∈ *S* and *t* ∈ *S*: (*s*, *t*) ∈ *R*<sup>∗</sup> and *s* ∈ *P* implies *t* ∈ *P*.
@@ -133,7 +133,7 @@ Since *R*<sup>∗</sup> is the union of all *R*<sub>*i*</sub>, *P* is also prese
 
 ##### 3.2.4
 
-> Exercise [★★]: How many elements does *S*<sub>3</sub> have?
+> *Exercise* [★★]: How many elements does *S*<sub>3</sub> have?
 
 By definition:
 
@@ -149,7 +149,7 @@ So we have:
 
 ##### 3.2.5
 
-> Exercise [★★]: Show that the sets *S*<sub>i</sub> are *cumulative*—that is, that for each *i* we have
+> *Exercise* [★★]: Show that the sets *S*<sub>i</sub> are *cumulative*—that is, that for each *i* we have
 > *S*<sub>i</sub> ⊆ *S*<sub>*i* + 1</sub>.
 
 Proof by induction:
@@ -164,6 +164,73 @@ Proof by induction:
     | `t`<sub>1</sub> ∈ *S*<sub>*i* + 1</sub>}, so `t` ∈ *S*<sub>*i* + 2</sub>.
   - If `t` ∈ {`if` `t`<sub>1</sub> `then` `t`<sub>2</sub> `else` `t`<sub>3</sub>
     | `t`<sub>1</sub>, `t`<sub>2</sub>, `t`<sub>3</sub> ∈ *S*<sub>*i*</sub>}, this is similar to the previous case.
+
+#### 3.3 Induction on Terms
+
+##### 3.3.4
+
+> *Theorem* [*Principles of induction on terms*]: Suppose *P* is a predicate on terms.
+>
+> - *Induction on depth*:
+>   - If, for each term `s`,
+>     - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)
+>     - we can show *P*(`s`),
+>   - then *P*(`s`) holds for all `s`.
+> - Induction on size:
+>   - If, for each term `s`,
+>     - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)
+>     - we can show *P*(`s`),
+>   - then *P*(`s`) holds for all `s`.
+> - Structural induction:
+>   - If, for each term `s`,
+>     - given *P*(`r`) for all immediate subterms `r` of `s`
+>     - we can show *P*(`s`),
+>   - then *P*(`s`) holds for all `s`.
+>
+> *Proof*: *Exercise* (★★).
+
+- Induction on depth:
+  - If the following reasoning holds:
+    - If, for each term `s`,
+      - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)
+      - we can show *P*(`s`),
+  - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *depth*(`r`) = *i*”, we have:
+    - If, for each natural number *n*,
+      - given *Q*(*i*) for all *i* < *n*
+      - we can show *Q*(*n*).
+  - By principle of complete induction on natural numbers, we have:
+    - *Q*(*n*) holds for all *n*, that is:
+      - *P*(`r`) holds for all `r` such that *depth*(`r`) = *n* for all *n*,
+    - which means:
+      - *P*(`s`) holds for all `s`.
+- Induction on size:
+  - If the following reasoning holds:
+    - If, for each term `s`,
+      - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)
+      - we can show *P*(`s`),
+  - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *size*(`r`) = *i*”, we have:
+    - If, for each natural number *n*,
+      - given *Q*(*i*) for all *i* < *n*
+      - we can show *Q*(*n*).
+  - By principle of complete induction on natural numbers, we have:
+    - *Q*(*n*) holds for all *n*, that is:
+      - *P*(`r`) holds for all `r` such that *size*(`r`) = *n* for all *n*,
+    - which means:
+      - *P*(`s`) holds for all `s`.
+- Structural induction:
+  - If the following reasoning holds:
+    - If, for each term `s`,
+      - given *P*(`r`) for all immediate subterms `r` of `s`
+      - we can show *P*(`s`),
+  - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *depth*(`r`) = *i*”, we have:
+    - *Q*(0), since all `r` such that *depth*(`r`) = 0 do not have immediate subterms, we know that *P*(`r`) holds for
+      all `r` such that *depth*(`r`) = 0,
+    - and, for all *i*, *Q*(*i*) implies *Q*(*i* + 1).
+  - By principle of ordinary induction on natural numbers, we have:
+    - *Q*(*n*) holds for all *n*, that is:
+      - *P*(`r`) holds for all `r` such that *depth*(`r`) = *n* for all *n*,
+    - which means:
+      - *P*(`s`) holds for all `s`.
 
 ------------------------------------------------------------------------------------------------------------------------
 
