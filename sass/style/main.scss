@@ -10,6 +10,7 @@ $min-desktop-width: 640px;
     --inline-code-background: rgba(0, 0, 0, 0.05);
     --logo-font: 24px/1 var(--control-font-family);
     --main-min-width: 480px;
+    --math-font-family: "Libertinus Math", serif;
     --nav-background: #666;
     --nav-link-color: #eee;
     --nav-link-hover-background: #888;
@@ -19,7 +20,7 @@ $min-desktop-width: 640px;
     --splitter-background: rgba(18, 94, 145, 0.618);
     --text-background: #fff;
     --text-font-desktop: 16px/1.25 var(--text-font-family);
-    --text-font-family: "Minion Pro", "Source Serif Variable", "Source Serif 4", "Times New Roman", serif;
+    --text-font-family: "Minion Pro", "Libertinus Serif", "Libertinus Math", "Source Serif Variable", "Source Serif 4", "Times New Roman", serif;
     --text-font-mobile: 14px/1.5 var(--text-font-family);
     --text-link-color: #187fec;
     --text-link-visited-color: #f281a6;
@@ -50,7 +51,6 @@ article {
     }
 
     code {
-        background: var(--inline-code-background);
         color: var(--code-color);
         font-family: var(--code-font-family);
     }
@@ -148,6 +148,10 @@ article {
 
 body {
     margin: 0;
+}
+
+math {
+    font-family: var(--math-font-family);
 }
 
 // Styles that do not apply to `print` media.

@@ -50,14 +50,14 @@ We need to show that:
 >                 <msub><mi>R</mi><mi>i</mi></msub>
 >                 <mo>∪</mo>
 >                 <mo stretchy="false">{</mo>
->                 <mrow><mo>(</mo><mi>s</mi><mo>,</mo><mi>u</mi><mo>)</mo></mrow>
+>                 <mrow><mo stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>u</mi><mo stretchy="false">)</mo></mrow>
 >                 <mo>∣</mo>
 >                 <mtext>for some&nbsp;</mtext><mi>t</mi><mtext>,&nbsp;</mtext>
->                 <mrow><mo>(</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo>)</mo></mrow>
+>                 <mrow><mo stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>t</mi><mo stretchy="false">)</mo></mrow>
 >                 <mo>∈</mo>
 >                 <msub><mi>R</mi><mi>i</mi></msub>
 >                 <mtext>&nbsp;and&nbsp;</mtext>
->                 <mrow><mo>(</mo><mi>t</mi><mo>,</mo><mi>u</mi><mo>)</mo></mrow>
+>                 <mrow><mo stretchy="false">(</mo><mi>t</mi><mo>,</mo><mi>u</mi><mo stretchy="false">)</mo></mrow>
 >                 <mo>∈</mo>
 >                 <msub><mi>R</mi><mi>i</mi></msub>
 >                 <mo stretchy="false">}</mo>
@@ -105,9 +105,9 @@ We need to show that:
 ##### 2.2.8
 
 > Exercise [★★, ↛]: Suppose *R* is a binary relation on a set *S* and *P* is a predicate on *S* that is preserved by
-> *R*. Show that *P* is also preserved by *R*<sup>\*</sup>.
+> *R*. Show that *P* is also preserved by *R*<sup>∗</sup>.
 
-We need to show that: For any *s* ∈ *S* and *t* ∈ *S*: (*s*, *t*) ∈ *R*<sup>\*</sup> and *s* ∈ *P* implies *t* ∈ *P*.
+We need to show that: For any *s* ∈ *S* and *t* ∈ *S*: (*s*, *t*) ∈ *R*<sup>∗</sup> and *s* ∈ *P* implies *t* ∈ *P*.
 
 Since *P* is preserved by *R*, we have: For any *s* ∈ *S* and *t* ∈ *S*: (*s*, *t*) ∈ *R* and *s* ∈ *P* implies
 *t* ∈ *P*.
@@ -125,22 +125,62 @@ done by induction:
 
   So we have *P* is also preserved by *R*<sub>*i* + 1</sub>.
 
-Since *R*<sup>\*</sup> is the union of all *R*<sub>*i*</sub>, *P* is also preserved by *R*<sup>\*</sup>.
+Since *R*<sup>∗</sup> is the union of all *R*<sub>*i*</sub>, *P* is also preserved by *R*<sup>∗</sup>.
+
+### 3 Untyped Arithmetic Expressions
+
+#### 3.2 Syntax
+
+##### 3.2.4
+
+> Exercise [★★]: How many elements does *S*<sub>3</sub> have?
+
+By definition:
+
+- If *i* = 0, |*S*<sub>*i*</sub>| = 0.
+- If *i* > 0, |*S*<sub>*i*</sub>| = 3 + |*S*<sub>*i* - 1</sub>| × 3 + |*S*<sub>*i* - 1</sub>|<sup>3</sup>.
+
+So we have:
+
+- |*S*<sub>0</sub>| = 0.
+- |*S*<sub>1</sub>| = 3 + |*S*<sub>0</sub>| × 3 + |*S*<sub>0</sub>|<sup>3</sup> = 3 + 0 × 3 + 0<sup>3</sup> = 3.
+- |*S*<sub>2</sub>| = 3 + |*S*<sub>1</sub>| × 3 + |*S*<sub>1</sub>|<sup>3</sup> = 3 + 3 × 3 + 3<sup>3</sup> = 39.
+- |*S*<sub>3</sub>| = 3 + |*S*<sub>2</sub>| × 3 + |*S*<sub>2</sub>|<sup>3</sup> = 3 + 39 × 3 + 39<sup>3</sup> = 59439.
+
+##### 3.2.5
+
+> Exercise [★★]: Show that the sets *S*<sub>i</sub> are *cumulative*—that is, that for each *i* we have
+> *S*<sub>i</sub> ⊆ *S*<sub>*i* + 1</sub>.
+
+Proof by induction:
+
+- Base case: if *i* = 0, *S*<sub>*i*</sub> = *S*<sub>0</sub> = ∅, so *S*<sub>*i*</sub> ⊆ *S*<sub>*i* + 1</sub>.
+- Inductive cases: assume *S*<sub>*i*</sub> ⊆ *S*<sub>*i* + 1</sub>, we can prove that any `t` ∈ *S*<sub>*i* + 1</sub>,
+  `t` ∈ *S*<sub>*i* + 2</sub>:
+  - If `t` ∈ {`true`, `false`, `0`}, by definition, `t` ∈ *S*<sub>*i* + 2</sub>.
+  - If `t` ∈ {`succ` `t`<sub>1</sub>, `pred` `t`<sub>1</sub>, `iszero` `t`<sub>1</sub>
+    | `t`<sub>1</sub> ∈ *S*<sub>*i*</sub>}, by induction, since *S*<sub>*i*</sub> ⊆ *S*<sub>*i* + 1</sub>,
+    `t` ∈ {`succ` `t`<sub>1</sub>, `pred` `t`<sub>1</sub>, `iszero` `t`<sub>1</sub>
+    | `t`<sub>1</sub> ∈ *S*<sub>*i* + 1</sub>}, so `t` ∈ *S*<sub>*i* + 2</sub>.
+  - If `t` ∈ {`if` `t`<sub>1</sub> `then` `t`<sub>2</sub> `else` `t`<sub>3</sub>
+    | `t`<sub>1</sub>, `t`<sub>2</sub>, `t`<sub>3</sub> ∈ *S*<sub>*i*</sub>}, this is similar to the previous case.
 
 ------------------------------------------------------------------------------------------------------------------------
 
 > List of common unicode characters:
 >
-> ```txt
-> U+2032 PRIME : minutes, feet                       ′
-> U+219B RIGHTWARDS ARROW WITH STROKE:               ↛
-> U+2208 ELEMENT OF                                  ∈
-> U+2209 NOT AN ELEMENT OF                           ∉
-> U+2223 DIVIDES : such that, APL stile:             ∣
-> U+222A UNION : cup:                                ∪
-> U+2286 SUBSET OF OR EQUAL TO:                      ⊆
-> U+22C3 N-ARY UNION : z notation generalised union: ⋃
-> U+2605 BLACK STAR:                                 ★
-> ```
+> | Code Point | Name                         | Alias                        | Character |
+> | ---------- | ---------------------------- | ---------------------------- | --------- |
+> | U+2032     | PRIME                        | minutes, feet                | ′         |
+> | U+219B     | RIGHTWARDS ARROW WITH STROKE |                              | ↛         |
+> | U+2205     | EMPTY SET                    | null set                     | ∅         |
+> | U+2208     | ELEMENT OF                   |                              | ∈         |
+> | U+2209     | NOT AN ELEMENT OF            |                              | ∉         |
+> | U+2217     | ASTERISK OPERATOR            |                              | ∗         |
+> | U+2223     | DIVIDES                      | such that, APL stile         | ∣         |
+> | U+222A     | UNION                        | cup                          | ∪         |
+> | U+2286     | SUBSET OF OR EQUAL TO        |                              | ⊆         |
+> | U+22C3     | N-ARY UNION                  | z notation generalised union | ⋃         |
+> | U+2605     | BLACK STAR                   |                              | ★         |
 
 ------------------------------------------------------------------------------------------------------------------------
