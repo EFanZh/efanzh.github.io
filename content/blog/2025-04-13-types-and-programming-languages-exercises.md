@@ -223,10 +223,10 @@ Proof by induction:
       - given *P*(`r`) for all immediate subterms `r` of `s`
       - we can show *P*(`s`),
   - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *depth*(`r`) = *i*”, we have:
-    - *Q*(0), since all `r` such that *depth*(`r`) = 0 do not have immediate subterms, we know that *P*(`r`) holds for
-      all `r` such that *depth*(`r`) = 0,
-    - and, for all *i*, *Q*(*i*) implies *Q*(*i* + 1).
-  - By principle of ordinary induction on natural numbers, we have:
+    - If, for each natural number *n*,
+      - given *Q*(*i*) for all *i* < *n*
+      - we can show *Q*(*n*).
+  - By principle of complete induction on natural numbers, we have:
     - *Q*(*n*) holds for all *n*, that is:
       - *P*(`r`) holds for all `r` such that *depth*(`r`) = *n* for all *n*,
     - which means:
