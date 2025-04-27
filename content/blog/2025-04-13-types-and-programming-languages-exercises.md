@@ -173,18 +173,18 @@ Proof by induction:
 >
 > - *Induction on depth*:
 >   - If, for each term `s`,
->     - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)
->     - we can show *P*(`s`),
+>     - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)\
+>       we can show *P*(`s`),
 >   - then *P*(`s`) holds for all `s`.
 > - Induction on size:
 >   - If, for each term `s`,
->     - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)
->     - we can show *P*(`s`),
+>     - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)\
+>       we can show *P*(`s`),
 >   - then *P*(`s`) holds for all `s`.
 > - Structural induction:
 >   - If, for each term `s`,
->     - given *P*(`r`) for all immediate subterms `r` of `s`
->     - we can show *P*(`s`),
+>     - given *P*(`r`) for all immediate subterms `r` of `s`\
+>       we can show *P*(`s`),
 >   - then *P*(`s`) holds for all `s`.
 >
 > *Proof*: *Exercise* (★★).
@@ -192,12 +192,12 @@ Proof by induction:
 - Induction on depth:
   - If the following reasoning holds:
     - If, for each term `s`,
-      - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)
-      - we can show *P*(`s`),
+      - given *P*(`r`) for all `r` such that *depth*(`r`) < *depth*(`s`)\
+        we can show *P*(`s`),
   - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *depth*(`r`) = *i*”, we have:
     - If, for each natural number *n*,
-      - given *Q*(*i*) for all *i* < *n*
-      - we can show *Q*(*n*).
+      - given *Q*(*i*) for all *i* < *n*\
+        we can show *Q*(*n*).
   - By principle of complete induction on natural numbers, we have:
     - *Q*(*n*) holds for all *n*, that is:
       - *P*(`r`) holds for all `r` such that *depth*(`r`) = *n* for all *n*,
@@ -206,12 +206,12 @@ Proof by induction:
 - Induction on size:
   - If the following reasoning holds:
     - If, for each term `s`,
-      - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)
-      - we can show *P*(`s`),
+      - given *P*(`r`) for all `r` such that *size*(`r`) < *size*(`s`)\
+        we can show *P*(`s`),
   - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *size*(`r`) = *i*”, we have:
     - If, for each natural number *n*,
-      - given *Q*(*i*) for all *i* < *n*
-      - we can show *Q*(*n*).
+      - given *Q*(*i*) for all *i* < *n*\
+        we can show *Q*(*n*).
   - By principle of complete induction on natural numbers, we have:
     - *Q*(*n*) holds for all *n*, that is:
       - *P*(`r`) holds for all `r` such that *size*(`r`) = *n* for all *n*,
@@ -220,17 +220,28 @@ Proof by induction:
 - Structural induction:
   - If the following reasoning holds:
     - If, for each term `s`,
-      - given *P*(`r`) for all immediate subterms `r` of `s`
-      - we can show *P*(`s`),
+      - given *P*(`r`) for all immediate subterms `r` of `s`\
+        we can show *P*(`s`),
   - Let *Q*(*i*) = “*P*(`r`) holds for all `r` such that *depth*(`r`) = *i*”, we have:
     - If, for each natural number *n*,
-      - given *Q*(*i*) for all *i* < *n*
-      - we can show *Q*(*n*).
+      - given *Q*(*i*) for all *i* < *n*\
+        we can show *Q*(*n*).
   - By principle of complete induction on natural numbers, we have:
     - *Q*(*n*) holds for all *n*, that is:
       - *P*(`r`) holds for all `r` such that *depth*(`r`) = *n* for all *n*,
     - which means:
       - *P*(`s`) holds for all `s`.
+
+#### 3.5
+
+##### 3.5.5
+
+> Exercise [★]: Spell out the induction principle used in the preceding proof, in the style of Theorem 3.3.4.
+
+- If, for each derivation *D*,
+  - given *P*(*C*) for all immediate subderivations *C* of *D*\
+    we can show *P*(*D*),
+- then *P*(*D*) holds for all *D*.
 
 ------------------------------------------------------------------------------------------------------------------------
 
