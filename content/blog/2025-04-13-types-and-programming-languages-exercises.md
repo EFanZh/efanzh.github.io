@@ -232,16 +232,173 @@ Proof by induction:
     - which means:
       - *P*(`s`) holds for all `s`.
 
-#### 3.5
+#### 3.5 Evaluation
 
 ##### 3.5.5
 
-> Exercise [★]: Spell out the induction principle used in the preceding proof, in the style of Theorem 3.3.4.
+> *Exercise* [★]: Spell out the induction principle used in the preceding proof, in the style of Theorem 3.3.4.
 
 - If, for each derivation *D*,
   - given *P*(*C*) for all immediate subderivations *C* of *D*\
     we can show *P*(*D*),
 - then *P*(*D*) holds for all *D*.
+
+##### 3.5.10
+
+> *Exercise* [★]: Rephrase Definition 3.5.9 as a set of inference rules.
+
+<p>
+    <math display="block">
+        <mfrac>
+            <mrow><mtext><code>t</code></mtext><mo>→</mo><mtext><code>t</code></mtext><mo>′</mo></mrow>
+            <mrow><mtext><code>t</code></mtext><msup><mo>→</mo><mo>∗</mo></msup><mtext><code>t</code></mtext><mo>′</mo></mrow>
+        </mfrac>
+    </math>
+</p>
+
+<p>
+    <math display="block">
+        <mfrac>
+            <mrow></mrow>
+            <mrow><mtext><code>t</code></mtext><msup><mo>→</mo><mo>∗</mo></msup><mtext><code>t</code></mtext></mrow>
+        </mfrac>
+    </math>
+</p>
+
+<p>
+    <math display="block">
+        <mfrac>
+            <mrow>
+                <mtext><code>t</code></mtext><msup><mo>→</mo><mo>∗</mo></msup><mtext><code>t</code></mtext><mo>′</mo>
+                <mspace width="1em" />
+                <mtext><code>t</code></mtext><mo>′</mo><msup><mo>→</mo><mo>∗</mo></msup><mtext><code>t</code></mtext><mo>″</mo>
+            </mrow>
+            <mrow><mtext><code>t</code></mtext><msup><mo>→</mo><mo>∗</mo></msup><mtext><code>t</code></mtext><mo>″</mo></mrow>
+        </mfrac>
+    </math>
+</p>
+
+##### 3.5.13
+
+> *Exercise* [*Recommended*, ★★]:
+>
+> 1. Suppose we add a new rule
+>    <div style="align-items: center; display: flex;">
+>        <math display="block" style="flex: 1">
+>            <mtext><code>if</code></mtext>
+>            <mspace width="0.5em"/>
+>            <mtext><code>true</code></mtext>
+>            <mspace width="0.5em"/>
+>            <mtext><code>then</code></mtext>
+>            <mspace width="0.5em"/>
+>            <msub>
+>                <mtext><code>t</code></mtext>
+>                <mn>2</mn>
+>            </msub>
+>            <mspace width="0.5em"/>
+>            <mtext><code>else</code></mtext>
+>            <mspace width="0.5em"/>
+>            <msub>
+>                <mtext><code>t</code></mtext>
+>                <mn>3</mn>
+>            </msub>
+>            <mo>→</mo>
+>            <msub>
+>                <mtext><code>t</code></mtext>
+>                <mn>3</mn>
+>            </msub>
+>        </math>
+>        <span>(E-Funny1)</span>
+>    </div>
+>    to the ones in Figure 3-1. Which of the above theorems (3.5.4, 3.5.7, 3.5.8, 3.5.11, and 3.5.12) remain valid?
+> 2. Suppose instead that we add this rule:
+>    <div style="align-items: center; display: flex;">
+>        <math display="block" style="flex: 1">
+>            <mfrac>
+>                <mrow>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>2</mn>
+>                    </msub>
+>                    <mo>→</mo>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>2</mn>
+>                    </msub>
+>                    <mo>′</mo>
+>                </mrow>
+>                <mrow>
+>                    <mtext><code>if</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>1</mn>
+>                    </msub>
+>                    <mspace width="0.5em"/>
+>                    <mtext><code>then</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>2</mn>
+>                    </msub>
+>                    <mspace width="0.5em"/>
+>                    <mtext><code>else</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>3</mn>
+>                    </msub>
+>                    <mo>→</mo>
+>                    <mtext><code>if</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>1</mn>
+>                    </msub>
+>                    <mspace width="0.5em"/>
+>                    <mtext><code>then</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>2</mn>
+>                    </msub>
+>                    <mo>′</mo>
+>                    <mspace width="0.5em"/>
+>                    <mtext><code>else</code></mtext>
+>                    <mspace width="0.5em"/>
+>                    <msub>
+>                        <mtext><code>t</code></mtext>
+>                        <mn>3</mn>
+>                    </msub>
+>                </mrow>
+>            </mfrac>
+>        </math>
+>        <span>(E-Funny2)</span>
+>    </div>
+>    Now which of the above theorems remain valid? Do any of the proofs need to change?
+
+1. - 3.5.4:  If `t` → `t`′ and `t` → `t`″, then `t`′ = `t`″.
+     - Invalid.
+   - 3.5.7: Every value is in normal form.
+     - Valid.
+   - 3.5.8: If `t` is in normal form, then `t` is a value.
+     - Valid.
+   - 3.5.11: If `t` →<sup>∗</sup> `u` and `t` →<sup>∗</sup> `u`′, where `u` and `u`′ are both normal forms, then
+     `u` = `u`′.
+     - Invalid.
+   - 3.5.12: For every term t there is some normal form `t`′ such that `t` →<sup>∗</sup> `t`′.
+     - Valid.
+2. - 3.5.4:  If `t` → `t`′ and `t` → `t`″, then `t`′ = `t`″.
+     - Invalid.
+   - 3.5.7: Every value is in normal form.
+     - Valid.
+   - 3.5.8: If `t` is in normal form, then `t` is a value.
+     - Valid.
+   - 3.5.11: If `t` →<sup>∗</sup> `u` and `t` →<sup>∗</sup> `u`′, where `u` and `u`′ are both normal forms, then
+     `u` = `u`′.
+     - Valid.
+   - 3.5.12: For every term t there is some normal form `t`′ such that `t` →<sup>∗</sup> `t`′.
+     - Valid.
 
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -250,6 +407,7 @@ Proof by induction:
 > | Code Point | Name                         | Alias                        | Character |
 > | ---------- | ---------------------------- | ---------------------------- | --------- |
 > | U+2032     | PRIME                        | minutes, feet                | ′         |
+> | U+2033     | DOUBLE PRIME                 | seconds, inches              | ″         |
 > | U+219B     | RIGHTWARDS ARROW WITH STROKE |                              | ↛         |
 > | U+2205     | EMPTY SET                    | null set                     | ∅         |
 > | U+2208     | ELEMENT OF                   |                              | ∈         |
